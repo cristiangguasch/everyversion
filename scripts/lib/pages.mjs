@@ -450,6 +450,7 @@ const stamp = `<p class="updated">Last updated: <time datetime="${LEGAL_UPDATED}
 
 function legalShell(doc, inner, description) {
   return {
+    noindex: true, // legal pages stay out of search results (and out of the sitemap)
     path: doc.path,
     title: `${doc.label} – Everyversion`,
     description,
@@ -479,6 +480,7 @@ ${LEGAL_DOCS.map((d) => `<li><a href="${d.path}"><strong>${d.label}</strong><spa
 <p class="pin">Last updated: <time datetime="${LEGAL_UPDATED}">${LEGAL_UPDATED}</time> · Need to reach us? <a href="/contact/">Contact</a>.</p>
 </article>`;
   return {
+    noindex: true,
     path: '/legal/',
     title: 'Legal – Privacy, Terms, Cookies and Disclaimer | Everyversion',
     description: 'Privacy policy, terms of service, cookie policy, disclaimer and takedown requests for Everyversion.',

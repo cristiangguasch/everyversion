@@ -71,7 +71,7 @@ for (const f of htmlFiles) {
 // sitemap
 const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8');
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].replace('https://everyversion.net', ''));
-const STATIC = 13 + (exists('/linux/') ? 1 : 0); // about, contact, security, API, legal hub + 5 policies, Stats, Windows and Mac listings, and the Linux listing when an app has a Linux build
+const STATIC = 6 + (exists('/linux/') ? 1 : 0); // about, contact, security, API, Windows and Mac listings, and the Linux listing when an app has a Linux build (the legal pages and Stats are noindex and not in the sitemap)
 let catPages = [];
 try {
   catPages = JSON.parse(readFileSync(join(DIST, 'api/v1/categories.json'), 'utf8')).categories.filter((c) => c.url);

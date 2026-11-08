@@ -243,7 +243,7 @@ const openExternalInNewTab = (html) =>
   );
 const layout = (opts) => openExternalInNewTab(layoutRaw(opts));
 
-function layoutRaw({ title, description, path, body, ld = [], alternates = '' }) {
+function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false }) {
   const canonical = `${SITE.url}${path}`;
   const isHome = path === '/'; // the home page keeps its own header and its big search box
   return `<!doctype html>
@@ -254,7 +254,7 @@ function layoutRaw({ title, description, path, body, ld = [], alternates = '' })
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${esc(canonical)}">
-${alternates}<meta property="og:type" content="website">
+${noindex ? '<meta name="robots" content="noindex,follow">\n' : ''}${alternates}<meta property="og:type" content="website">
 <meta property="og:site_name" content="${SITE.name}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
@@ -1638,7 +1638,7 @@ Sitemap: ${SITE.url}/sitemap.xml
     'sitemap.xml',
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
       [`<url><loc>${SITE.url}/</loc><lastmod>${day}</lastmod></url>`]
-        .concat(staticPages.map((pg) => `<url><loc>${SITE.url}${pg.path}</loc><lastmod>${day}</lastmod></url>`))
+        .concat(staticPages.filter((pg) => !pg.noindex).map((pg) => `<url><loc>${SITE.url}${pg.path}</loc><lastmod>${day}</lastmod></url>`))
         .concat(recs.map((r) => `<url><loc>${SITE.url}/${r.slug}/</loc><lastmod>${r.last_updated || r.provenance[0].retrieved_at.slice(0, 10)}</lastmod></url>`))
         .join('\n') +
       `\n</urlset>\n`,

@@ -48,8 +48,9 @@ ${section('l-langs', 'Browser languages')}
 <script src="/stats.js?v=${statsV}" defer></script>
 `;
   return {
+    noindex: true, // public, but not meant to show up in search results
     path: '/statistics/',
-    title: 'Stats: pageviews, downloads and installs on Everyversion',
+    title: 'Stats',
     description: 'Public usage statistics for Everyversion: pageviews, daily visitors, and clicks on Download and Install buttons. No cookies, no third parties.',
     body,
   };
