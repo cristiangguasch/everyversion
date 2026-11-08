@@ -1,0 +1,1477 @@
+{
+  "schema_version": 2,
+  "slug": "jan",
+  "name": "Jan",
+  "publisher": "Jan",
+  "author": "Homebrew Computer Company",
+  "ids": {
+    "winget": "Jan.Jan",
+    "homebrew_cask": "jan",
+    "flathub": "ai.jan.Jan"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Turn your computer into an AI computer",
+  "description": "Run LLMs like Mistral or Llama2 locally and offline on your computer, or connect to remote AI APIs like OpenAI’s GPT-4 or Groq.",
+  "tags": [
+    "ai",
+    "large-language-model",
+    "llama",
+    "llm",
+    "mistral"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://jan.ai/",
+    "publisher": "https://jan.ai/",
+    "support": "https://github.com/janhq/jan/issues",
+    "bug_tracker": "https://github.com/janhq/jan/issues",
+    "release_notes": "https://github.com/janhq/jan/releases/tag/v0.8.8",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://jan.ai/docs"
+      }
+    ]
+  },
+  "license": {
+    "name": "AGPL-3.0",
+    "url": "https://github.com/janhq/jan/blob/HEAD/LICENSE",
+    "spdx": "AGPL-3.0",
+    "copyright": "Copyright © 2026 Jan"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.8.8",
+    "macos": "0.8.8",
+    "linux": "0.8.8"
+  },
+  "last_updated": "2026-10-28",
+  "versions_total": {
+    "windows": 45,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.8.8",
+      "release_date": "2026-10-28",
+      "release_notes": "Jan v0.8.8: security fixes, llama.cpp 0.7.0, and Trusted Hosts for the local API\nA security update to v0.8.7. We recommend updating. Your data and settings carry over; a few behaviours change, listed under What you might notice.\nSecurity\n- Links in chat open in your browser. Links in model replies, tool results, model cards and release notes now always open in your system browser, never inside Jan's window. Links that aren't web or email links are shown as plain text.\n- The local API server checks where browser requests come from. A web page can only call it if its origin is trusted: the same machine, Jan itself, or a host you list in Trusted Hosts. Requests without a browser origin (SDKs, scripts, curl, Claude Code) work as before.\n- Server-side tool execution stays opt-in for every endpoint. Requests to the local API run MCP tools only when Settings > Local API Server allows server-side tool execution.\n- Paths are checked before Jan reads or writes them. Thread and assistant ids, and the file operations extensions use, stay inside Jan's data folder.\n- The Claude Code integration writes your shell profile safely. Values are quoted, unusual variable names are refused, and Jan's lines are kept in one marked block that Reset removes completely without touching your own lines.\n- The agent's file tools no longer follow a link out of their workspace, and folders such as your home, credentials and startup folders can't be attached as writable.\n- Windows: Jan runs system tools from the Windows system folder, and sign-in links are opened without going through cmd.\n- MCP sign-in only uses web addresses (http/https) for its endpoints.\nWhat you might notice\n- Trusted Hosts for browser-based clients. A web app on another machine (for example Open WebUI's direct connection) or a browser extension calling Jan's API needs its host added to Settings > Local API Server > Trusted Hosts. Entries can include a scheme, so app://obsidian.md works for Obsidian plugins (thanks to @SnowingFox, #8608). Pages without a normal origin (local files, sandboxed frames) can be allowed by listing file:// or null.\n- The CORS switch now takes effect, and it starts on after updating. In earlier versions it was shown but had no effect.\n- Custom environment variables for Claude Code: keys that change how programs are found (PATH, PATHEXT, SystemRoot, ComSpec, LD_*, DYLD_*, JAN_* and the GPU runtime paths Jan uses) are refused with a message. Other variables, including NODE_OPTIONS, save as before.\n- Moving the data folder to a system folder, your home folder itself or a drive root (for example D:\\) is refused; choose a folder such as D:\\Jan.\n- MCP servers whose sign-in endpoints aren't web addresses now show a sign-in error.\nNew\nllama.cpp engine 0.7.0.\nThe bundled engine moves from 0.5.0 to 0.7.0 (b11669). New per-model settings: an MoE expert GPU cache for mixture-of-experts models, Probabilistic draft sampling and Draft batch size for speculative decoding. They default to the engine's own defaults, so nothing changes unless you set them. Saved prompt caches from the previous engine are discarded once and rebuilt. (#9399)\nFixes\nLocal models failed to load on Windows when the user name had non-English characters (for example Cyrillic). (#9418)\nWith an HTTP proxy configured, documents with \"Use embeddings\" failed, because Jan's requests to its own engine went through the proxy. They now go direct; remote providers still use the proxy. (#9353)\nAn attachment was sent again on every turn, adding a copy per message and defeating the prompt cache. It's now included once per request. Thanks to @yaodong-shen. (#9358)\nWith Shell turned off, a model that called the shell ended its reply. It now gets \"Shell is turned off\" and the reply continues. (#9319)\nmacOS: quitting Jan left the MLX server running with its model in memory. It's stopped on quit, and one left by an earlier Jan is stopped at startup; an MLX server you started yourself is left alone. (#9355)\nThanks\nFixes in this release include work from @greatjourney589 (#8068), @SnowingFox (#8627) and @orenyomtov.\nKnown issues\n- Auto compact needs Max Context Tokens set for remote models; Jan does not detect a remote model's context window yet (#9317).\n- Local models do not run on Intel Macs, as in v0.8.5.\nFull notes: https://github.com/janhq/jan/blob/main/docs/src/pages/changelog/2026-10-28-jan-v0.8.8.mdx\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.7...v0.8.8",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.8",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.8/Jan_0.8.8_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.8_x64-setup.exe",
+          "sha256": "08aca371733b76200e44e95d677cdd15e96609f86f919de57b97a5358ca21e9b",
+          "product_code": "Jan",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.7",
+      "release_date": "2026-10-20",
+      "release_notes": "Jan v0.8.7: shell switch, image size limit, and fixes\nA minor update to v0.8.6. Your data and settings carry over; one MCP clean-up runs on first launch (below).\nNew\n- Turn the shell tool off in chat. The chat input's tool menu has a Shell switch. Off, the model is not given the shell tool; web search, fetch and your MCP tools keep working. On by default, and shown when the shell can run sandboxed and the model supports tools (#9222).\n- A separate size limit for images. Settings > Attachments > Max Image Size (MB): default 10, range 1 to 100 (#9312).\n- Built-in subagents for the Jan agent: explore (read-only by default), research, review and debug, each with its own model (#9261).\nFixes\n- A thread no longer leaves its project when you attach a document (#9197, thanks @enkynakamura).\n- Pasted code with @decorators is sent as typed; only an @ followed by a real file or folder is a reference (#9291).\n- Stop ends the whole turn, including a tool that is running or waiting for approval (#9241).\n- A web page read by the built-in fetch tool is kept within the model's context window (#9283).\n- Chat with a local model no longer fails behind a proxy or VPN: requests to Jan's own engine always go direct (#9182).\n- Windows: a ^ in a command name (cm^d runs cmd) now always asks for approval (#9315).\n- macOS explains why Jan asks for Local Network access (#9318).\n- The sidebar's Jan label is back on Windows and Linux (#9242).\nMigration\n- On first launch, the hosted Exa MCP server that v0.8.3 added to the default list is removed. Servers you added, and an Exa entry you configured with your own key, are kept (#9010).\nJan agent and CLI\n- A sandboxed shell command can ask to run outside the sandbox, with your approval each time (#9239).\n- A tool call outside a run's allowed_tools is refused (#9254); a subagent's permission prompt is denied when nobody can answer it (#9259).\n- Windows: edits match CRLF files, and unusable file names such as con.txt are refused (#9262, #9263).\n- jan cli mcp add works on a fresh install (#9257); an MCP server that never answers is given up on (#9281).\n- Compaction summaries use your small model when one is set (#9252); the terminal UI gains search and clearer subagent and background-command rows.\nAlso\n- On NVIDIA GPUs, the engine logs the driver version at start, and a crash caused by a driver too old for the engine says to update the driver.\n- A model download stopped by a network error says why in more cases (#9294), and a failed model-list fetch records the address it could not reach in the app log (#9292).\nKnown issues\n- With Shell off, a model that calls the shell anyway ends its reply instead of continuing without it (#9319).\n- Auto compact needs Max Context Tokens set for remote models; Jan does not detect a remote model's context window yet (#9317).\n- Local models do not run on Intel Macs, as in v0.8.5.\nFull notes: https://github.com/janhq/jan/blob/main/docs/src/pages/changelog/2026-10-20-jan-v0.8.7.mdx\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.6...v0.8.7",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.7/Jan_0.8.7_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.7_x64-setup.exe",
+          "sha256": "d44c587c53e6eff8c00a01c171d23eff31d3a4ecaa88936c0d253b0bd5248952",
+          "product_code": "Jan",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.6",
+      "release_date": "2026-10-09",
+      "release_notes": "Jan v0.8.6: hotfix for v0.8.5\nFixes only. If you're on 0.8.5, updating is recommended, especially on Linux (AppImage) and on older NVIDIA GPUs.\nFixes\n- Linux AppImage crashed on every model load on some distributions (#9173, fixed in #9178). The AppImage bundled the build machine's Vulkan loader. It now uses your system's loader, and the build fails if a GPU loader is ever bundled again.\n- NVIDIA Turing GPUs (GTX 16xx, RTX 20xx) failed with \"the provided PTX was compiled with an unsupported toolchain\" (#9185, fixed in #9187). On drivers older than R595, the Windows and Linux CUDA engine could not run on these cards. It now ships native Turing code, as 0.8.4 did, so no driver update is needed.\n- Qwen3.8 with MTP (speculative decoding) slowed down sharply after updating to 0.8.5 (#9183, fixed in #9186). With Parallel Sequences on auto, the engine reserved memory for 4 slots. On cards with 12 GB or similar, that pushed the model into shared system memory. A model with MTP now uses one slot when Parallel Sequences is auto; a value you set yourself is respected.\n- Images returned by MCP tools now reach the model as images (#9188, building on #9176 by @cpius). Previously they were sent as base64 text, which the model could not read and which could exceed a provider's input limit. Models without vision get a short note instead, and long chats no longer drop your question when trimming history around an image.\nAlso\n- Settings → Model Providers → Llama.cpp now links to how to use a different llama.cpp version (#9179). You run your own llama-server and add it as a custom provider. It's a workaround if the bundled engine misbehaves with a particular model, for example #9177, which remains open.\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.5...v0.8.6",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.6/Jan_0.8.6_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.6_x64-setup.exe",
+          "sha256": "f47f2d205eb92743bdd60ffe7d3b7b434b45a97a8dce092c1185c97d1f5a5268",
+          "product_code": "Jan",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.5",
+      "release_date": "2026-10-08",
+      "release_notes": "This release is fixes only\nNo new features are announced in v0.8.5. Work in progress stays in the nightly channel: Cowork and the current agent work ship there until they are announced, and a stable build does not show them.\nOne thing a first launch will notice: the first-run setup is now a guided wizard - welcome, engine setup, a first model, and the consent page - instead of opening straight into the chat with no engine or model set up. It is onboarding rather than a new capability, so it is not a headline; it is written down here so a new install is not a surprise.\n\nMigration\nThe llama.cpp engine now ships with the app.\nJan no longer downloads a llama.cpp backend for your machine on first run or when one is updated. The engine (llama.cpp 0.5.0, build b11146) is bundled in the installer, runs in its own worker process, and updates together with the app, so the backend version and engine auto-update settings are gone. On Windows and Linux, NVIDIA GPUs use the bundled CUDA 13 build; other GPUs, and NVIDIA GPUs or drivers that cannot run CUDA 13 (Pascal cards such as the GTX 10 series, for example), use Vulkan. (In 0.8.4 such systems could download a CUDA 11 or 12 backend; that option is gone.) macOS uses Metal.\nBackends downloaded by earlier versions, in llamacpp/backends (and llamacpp/lib, if present) inside your Jan data folder, are no longer used and are safe to delete.\nLocal models no longer run on Intel Macs.\nIntel-based Macs have not been supported since v0.8.0, and the bundled engine is built for Apple Silicon only. On an Intel Mac, Jan v0.8.5 still opens and works with remote and custom providers, but llama.cpp models will not load. If you rely on local models on an Intel Mac, stay on v0.8.4.\nThe desktop executable is now Jan-Desktop.\nThe app is still called Jan, and its menu entries, shortcuts and Jan.app bundle keep working, but the executable inside was renamed. On Linux the .deb installs /usr/bin/Jan-Desktop instead of /usr/bin/Jan, and on macOS it is Jan.app/Contents/MacOS/Jan-Desktop; scripts that launch the old path need updating. On Windows, the in-app update moves the Start-menu and desktop shortcuts to the new executable.\nThe jan CLI is no longer part of the desktop app.\nThe desktop app no longer bundles the jan command-line agent, installs it, or adds it to your PATH; it is now a separate install (see the agent quickstart).\n- macOS and Linux: a jan that v0.8.4 installed (in /usr/local/bin or ~/.local/bin) is left in place but stays at v0.8.4. Reinstall it from the quickstart to keep it current.\n- Windows: updating from v0.8.4 removes the jan.exe it put in the app's resources\\bin folder, so jan stops working until you install the CLI from the quickstart. The Windows installer now puts it in %USERPROFILE%\\.local\\bin, the same place as on macOS and Linux, not in the desktop app's folder, so a later app update cannot remove it. The update leaves that folder's entry in your user PATH; you can delete the entry.\nThe Local API Server checks Trusted Hosts when bound to 0.0.0.0.\nPreviously, binding to 0.0.0.0 accepted any Host header. Now a request whose host is not localhost, host.docker.internal, a loopback or private LAN IP, or an entry in Trusted Hosts is rejected with 403. If clients reach Jan by another name - a machine name such as my-pc.local, a domain behind a reverse proxy, or a non-private IP - add it to Settings > Local API Server > Trusted Hosts (or * to allow any host).\nThe agent's bash tool is now called shell.\nOn Windows it runs in PowerShell, so Git Bash is no longer needed; on macOS and Linux it is still bash. Agent definitions and tool allowlists that name bash stop matching: Jan reports the old name as an error, and renaming it to shell fixes it. Past conversations that used bash still display normally.\nSettings that change on update\n- llama.cpp Parallel Sequences: a value of 1 (the old default) becomes 0, which lets llama.cpp pick the slot count.\n- A model whose model.yml carries the n_gpu_layers: 100 an earlier version wrote has it removed, so GPU offload is decided automatically again.\n- llama.cpp Remember Conversations Between Sessions is on by default: each conversation's prompt cache is kept on disk in llamacpp/thread-cache, capped by Conversation Cache Disk Limit (8192 MiB). Turn it off in Settings > Model Providers > Llama.cpp.\n- Windows and Linux: Settings > Local API Server has a Run in background toggle, on by default (the previous behavior). Turn it off to make closing the window quit Jan and stop the server.\n\nBug Fixes\nllama.cpp & Local Models\n- Setting parallel no longer halves the per-slot context window.\n- Context-shifted chat history is trimmed instead of being sent back whole.\n- llama.cpp runs in a separate worker process, so an engine crash no longer takes the app down with it.\n- llama.cpp is upgraded to 0.5.0, and per-model chat-template and grammar files can be given as paths.\n- Building Jan from source on Fedora and RHEL finds the llama.cpp libraries.\nChat, Projects & Providers\n- A new chat inside a project uses that project's assistant.\n- The predefined Azure provider has a Base URL field, so it can point at your Azure endpoint.\n- A message that failed is no longer sent again inside your next one, and a local server (Jan's own engine, Ollama, LM Studio or anything on localhost) is not retried after an error, so a failing prompt runs once instead of three times.\nMCP\n- Tool results are capped before they enter conversation history, so a single large result can no longer blow the context window.\n- A failing shell tool now reports as an error instead of a successful result.\nDesktop & Platform\n- The sidebar's Jan label no longer overlaps the macOS traffic lights.\n- Windows: the maximize button turns into Restore while the window is maximized.\n- Zoom shortcuts are scoped to chat message text, so zooming a message no longer rescales the whole app.\n- Hub search ranks exact model id matches first.\n- Log rotation no longer deletes the llama.cpp and worker logs.\n- An in-app update stops the running engine, MCP servers and agent shells before the installer runs. If 0.8.4 left its engine running after an update, Jan stops it at the next start.\n- The Linux AppImage shows its icon again.\nAgent & Tooling\n- A session heals from malformed or poisoned tool-call history instead of failing every turn after it.\n- Session token spend is counted honestly, including marginal spend.\n- A compacted turn resumes from where it stopped, and orphan tool rows are retired.\n- Compaction retries on llama-server context-overflow responses, and the compaction prompt is appended rather than rewriting the request prefix.\n- The shell tool works on Windows (in PowerShell, inside the sandbox), and TUI scrollback follows the terminal's scroll wheel.\nSecurity\n- Binding the Local API Server to 0.0.0.0 now enforces the Trusted Hosts allowlist (GHSA-x6p8-7cp8-c3p6); see Migration above. Thanks to the reporter.\n- An \"allow always\" grant for a shell command now covers only plain invocations of that command. Commands that redefine aliases or functions, change PATH or similar variables, or wrap another command in a way the scanner cannot follow ask again instead of running under the grant.\n\nKnown issues\n- A failed in-app update closes the update dialog without an error; the reason is only in the log (#9137).\n- Windows, inside the sandbox the shell tool runs in: git cannot read the workspace, and tools whose install folder denies access to app containers (Node.js installed from its MSI, for example) cannot start. PowerShell in Constrained Language Mode, which some managed machines enforce, also stops the shell tool.\n- Ubuntu 24.04: the default AppArmor policy blocks the sandbox the shell tool runs in, so Jan does not offer the tool in chat. Everything else works.\n\nNightly\nCowork and the in-progress agent work are available in the nightly channel:\n- macOS (universal): https://app.jan.ai/download/nightly/mac-universal\n- Windows (x64): https://app.jan.ai/download/nightly/win-x64\n- Linux (x64): https://app.jan.ai/download/nightly/linux-amd64-deb or https://app.jan.ai/download/nightly/linux-amd64-appimage\n\nEngineering\n- The desktop end-to-end suite now runs on all four platforms on a nightly schedule, with a mock provider covering the chat critical path.\n- Building the engine on Windows no longer fails on the 260-character MAX_PATH limit.\n\nUpdate Jan from the app, or download the latest.\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.4...v0.8.5",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.5/Jan_0.8.5_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.5_x64-setup.exe",
+          "sha256": "5bdf22de206f3d1a84fdec7973fdba66999353b8f63459e7d897fba01ce897b9",
+          "product_code": "Jan",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.4",
+      "release_date": "2026-07-23",
+      "release_notes": "Migration\nSettings and credentials now live in a backend-managed store.\nProvider settings and credentials previously persisted in the webview's localStorage. In 0.8.4, Jan reads and writes them from a backend-managed store instead (secrets go to the OS keyring). Your existing settings and API keys are copied over automatically on first launch - no manual action is needed, and from this version on all new changes are saved to the backend store.\nYour old localStorage data is not deleted - it's kept as a snapshot so you can downgrade to a pre-0.8.4 build and still have your previous settings. Any changes you make in 0.8.4+ live only in the backend store, so a downgrade sees the older snapshot, not your latest settings.\n\nWhat's Changed\n- chore(flatpak): add 0.8.3 release notes to appdata by @qnixsynapse in https://github.com/janhq/jan/pull/8343\n- docs: update changelogs for v0.8.3 and update documentation by @qnixsynapse in https://github.com/janhq/jan/pull/8336\n- Merge release/v0.8.3 to main by @qnixsynapse in https://github.com/janhq/jan/pull/8344\n- i18n(ja): update Japanese translations (#8264) by @mahirhir in https://github.com/janhq/jan/pull/8348\n- i18n(ja): complete common.json translations and fix terminology (#8264) by @mahirhir in https://github.com/janhq/jan/pull/8349\n- i18n(ja): complete settings.json translations (#8264) by @mahirhir in https://github.com/janhq/jan/pull/8352\n- fix(markdown): force code blocks LTR in RTL language context by @qnixsynapse in https://github.com/janhq/jan/pull/8350\n- feat(chat): add toggle for folding interim text into reasoning trace by @qnixsynapse in https://github.com/janhq/jan/pull/8363\n- fix(rag): repair embeddings, stop chat-model reloads, and parse more PDFs by @qnixsynapse in https://github.com/janhq/jan/pull/8360\n- ci: close issues inactive for over 180 days by @qnixsynapse in https://github.com/janhq/jan/pull/8366\n- ci: grant actions:write to stale workflow for state persistence by @qnixsynapse in https://github.com/janhq/jan/pull/8377\n- fix(chat): stop persisting detached assistant replies in branched threads by @qnixsynapse in https://github.com/janhq/jan/pull/8376\n- feat(settings): move settings/credentials off localStorage to backend store by @qnixsynapse in https://github.com/janhq/jan/pull/8388\n- fix(params): coerce numeric assistant params from string to number by @qnixsynapse in https://github.com/janhq/jan/pull/8386\n- fix: use snake case for ADL enum in get_gpu_usage by @nkulshre-amd in https://github.com/janhq/jan/pull/8390\n- fix(chat): stop MCP tool-approval popup from hanging; move transient approval state off disk by @qnixsynapse in https://github.com/janhq/jan/pull/8391\n- API key rotation for Gemini by @jjchen01 in https://github.com/janhq/jan/pull/8408\n- fix(security): bump handlebars to 4.7.9 to clear RCE advisory by @qnixsynapse in https://github.com/janhq/jan/pull/8395\n- fix(chat): ignore custom SSE event types in OpenAI-compatible streams by @qnixsynapse in https://github.com/janhq/jan/pull/8392\n- feat: OpenAI-compatible translating gateway + Responses API + unified reasoning by @qnixsynapse in https://github.com/janhq/jan/pull/8423\n- fix: Stabilize chat prefix caching, restore cloud providers, unify logging (v0.8.4) by @qnixsynapse in https://github.com/janhq/jan/pull/8425\n- fix(mcp): guard against duplicate serve() on streamable-http MCP servers by @thinhlpg in https://github.com/janhq/jan/pull/8435\n- fix(providers): send anthropic-version on model-list fetch by @qnixsynapse in https://github.com/janhq/jan/pull/8433\n- fix(desktop): macOS hide-on-close; hide-to-tray when Local API Server runs by @qnixsynapse in https://github.com/janhq/jan/pull/8436\n- feat(extensions): bundle built-in extensions into the app binary and update tests by @qnixsynapse in https://github.com/janhq/jan/pull/8437\n- feat(llamacpp): per-model chat template kwargs by @qnixsynapse in https://github.com/janhq/jan/pull/8441\n- feat: token counter for remote/MLX providers + chat & inference fixes by @qnixsynapse in https://github.com/janhq/jan/pull/8456\n- fix(chat): preserve AbortError identity when stopping mid model-load by @thinhlpg in https://github.com/janhq/jan/pull/8443\n- fix(chat): stop hiding the llama.cpp token counter during chat by @qnixsynapse in https://github.com/janhq/jan/pull/8461\n- feat(web-search): native web_search/web_fetch via tauri-plugin-websearch by @qnixsynapse in https://github.com/janhq/jan/pull/8464\n- fix: persist chain-of-thought duration in thread metadata by @qnixsynapse in https://github.com/janhq/jan/pull/8474\n- refactor: centralize llamacpp extension lookup with scoped-name fallback by @qnixsynapse in https://github.com/janhq/jan/pull/8487\nNew Contributors\n- @mahirhir made their first contribution in https://github.com/janhq/jan/pull/8348\n- @nkulshre-amd made their first contribution in https://github.com/janhq/jan/pull/8390\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.3...v0.8.4",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.4/Jan_0.8.4_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.4_x64-setup.exe",
+          "sha256": "59f2712ff579208c7e50df1d4408675418ca576421998549f787879372ec50b1",
+          "product_code": "Jan",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.3",
+      "release_date": "2026-06-24",
+      "release_notes": "What's Changed\n- docs: add v0.8.2 changelog by @qnixsynapse in https://github.com/janhq/jan/pull/8246\n- merge release/v0.8.2 to main by @qnixsynapse in https://github.com/janhq/jan/pull/8250\n- chore: add flatpak manifest 0.8.2 by @Minh141120 in https://github.com/janhq/jan/pull/8259\n- fix: use Windows copy command in build-cli Makefile target by @ianmohney in https://github.com/janhq/jan/pull/8293\n- Updated translation by @albanobattistella in https://github.com/janhq/jan/pull/8262\n- fix(mcp): browser port leak and auto-disable ux by @abn in https://github.com/janhq/jan/pull/8317\n- Merge dev/v0.8.3 to main by @qnixsynapse in https://github.com/janhq/jan/pull/8310\n- docs: clarify Jan model quick-start flow by @archit-goyal in https://github.com/janhq/jan/pull/8323\n- Fix: correct sampler defaults, fix sheet layout under window controls, and harden backend installs by @qnixsynapse in https://github.com/janhq/jan/pull/8327\n- fix(csp): allow data:/blob: media so video uploads load by @qnixsynapse in https://github.com/janhq/jan/pull/8330\n- fix(markdown): render lone\n- fix(chat): render media on first-message send by @qnixsynapse in https://github.com/janhq/jan/pull/8337\nNew Contributors\n- @ianmohney made their first contribution in https://github.com/janhq/jan/pull/8293\n- @abn made their first contribution in https://github.com/janhq/jan/pull/8317\n- @archit-goyal made their first contribution in https://github.com/janhq/jan/pull/8323\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.2...v0.8.3",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.3/Jan_0.8.3_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.3_x64-setup.exe",
+          "sha256": "411dc07174f2dbda01ffc807cedb9ecf75cc6730057ed59432c7ca2d466fb939",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.2",
+      "release_date": "2026-06-01",
+      "release_notes": "What's Changed\n- fix(rag): honor configured attachment size limit in document parser by @qnixsynapse in https://github.com/janhq/jan/pull/8248\n- fix(mlx): register mlx capability so its commands pass ACL on macOS by @qnixsynapse\n- fix(threads): persist assistant parameters so sampler settings survive restart by @qnixsynapse\n- fix(csp): stop Tauri nonce-ing style-src so unsafe-inline works by @qnixsynapse\n- test(extensions): run llamacpp-extension tests in the global suite by @qnixsynapse\n- fix(llamacpp): raise default ctx-size to 8192 by @qnixsynapse\n- fix(ui): move toast accent tint to CSS class to satisfy CSP by @qnixsynapse\n- fix(ui): restore toast styling on Windows; tint toast with accent color by @qnixsynapse\n- fix(ui): make notification toast visible and theme-aware by @qnixsynapse\n- fix(i18n): add Italian to language switcher, fix Catalan locale code by @qnixsynapse\n- fix(providers): surface friendly message on transport-level request failures by @qnixsynapse\n- feat(providers): add copy and reveal buttons to API key inputs by @qnixsynapse\n- fix(updater): bind requestIdleCallback to window to avoid Illegal invocation by @qnixsynapse\n- perf(llamacpp): defer backend dep verification to browser idle by @qnixsynapse\n- perf(updater): defer backend update check to browser idle by @qnixsynapse\n- build(mlx): build the MLX plugin and extension on macOS only by @qnixsynapse\n- perf(updater): defer initial app update check until after first paint by @qnixsynapse\n- fix(llamacpp): start router before deferring backend update check by @qnixsynapse\n- fix(server): list MLX models in Local API Server default model picker by @qnixsynapse\n- fix(chat): make attachment chip text legible in user bubble by @qnixsynapse\n- feat(settings): add toggle for automatic app update check by @qnixsynapse\n- fix(assistant): make the thread's agent authoritative so in-chat switching works by @qnixsynapse\n- fix(startup): increase logo–caption gap and center loader caption by @qnixsynapse\n- feat(downloads): pause and resume model downloads from the hub panel by @qnixsynapse\n- fix(chat): route prompt-too-big errors to the Increase Context Size banner by @qnixsynapse\n- fix(llamacpp): recover crashed models and surface mid-request crashes by @qnixsynapse\n- feat(startup): branded loader with phased status; defer MCP past first paint by @qnixsynapse\n- fix(linux): keep tao's draggable Wayland titlebar; follow GNOME button-layout by @qnixsynapse\n- feat(llamacpp): add HIP (AMD ROCm) backend support by @qnixsynapse\n- fix(llamacpp): unblock UI from router startup; watchdog against blank window by @qnixsynapse\n- style(message): use primary color for user message bubble by @qnixsynapse\n- chore(release): bump app and plugin versions to 0.8.2 by @qnixsynapse\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.1...v0.8.2",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.2/Jan_0.8.2_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.2_x64-setup.exe",
+          "sha256": "bce6bd6a3ce6394b2fd61eaf90ad52d5d605ed5e79971a540c4a4f4655ca8d81",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.1",
+      "release_date": "2026-05-29",
+      "release_notes": "What's Changed\n- Add Italian Translation by @albanobattistella in https://github.com/janhq/jan/pull/8157\n- chore: merge release v0.8.0 to main by @qnixsynapse in https://github.com/janhq/jan/pull/8170\n- chore: fix build due to missing comma in italian i18n by @qnixsynapse in https://github.com/janhq/jan/pull/8171\n- docs: update for v0.8.0 by @qnixsynapse in https://github.com/janhq/jan/pull/8164\n- chore: update manifest and changelog release 0.8.0 by @Minh141120 in https://github.com/janhq/jan/pull/8172\n- docs: remove connectors note from 0.8.0 changelog by @qnixsynapse in https://github.com/janhq/jan/pull/8173\n- chore: update filename changelog by @Minh141120 in https://github.com/janhq/jan/pull/8177\n- fix(docs): guard null entity arrays in TweetCard by @qnixsynapse in https://github.com/janhq/jan/pull/8187\n- fix: clear deletedModels tombstones for re-downloaded models by @qnixsynapse in https://github.com/janhq/jan/pull/8178\n- chore(ci): pin all GitHub Actions to SHAs and add cancel-in-progress by @Minh141120 in https://github.com/janhq/jan/pull/8193\n- fix(tls): use OS-native TLS trust store on desktop by @FyrbyAdditive in https://github.com/janhq/jan/pull/8186\n- chore(ci): bump dcarbone/install-jq-action from v2.0.1 to v3.2.0 by @Minh141120 in https://github.com/janhq/jan/pull/8199\n- chore: merge dev branch fix/macos backend-install-ux by @qnixsynapse in https://github.com/janhq/jan/pull/8197\n- fix(llamacpp): disable auto-fit by default, default ctx_len to 8192 by @qnixsynapse in https://github.com/janhq/jan/pull/8204\n- Merge fix/pre-r-dev branch to main by @qnixsynapse in https://github.com/janhq/jan/pull/8207\n- Fix/system theme launch by @qnixsynapse in https://github.com/janhq/jan/pull/8217\n- fix(hardware): skip NVIDIA/Vulkan GPU probes on macOS by @qnixsynapse in https://github.com/janhq/jan/pull/8219\n- fix(threads): avoid router invariant in PromptProgress by @qnixsynapse in https://github.com/janhq/jan/pull/8220\n- fix(settings): restore Attachments entry in settings menu by @qnixsynapse in https://github.com/janhq/jan/pull/8222\nNew Contributors\n- @albanobattistella made their first contribution in https://github.com/janhq/jan/pull/8157\n- @FyrbyAdditive made their first contribution in https://github.com/janhq/jan/pull/8186\nFull Changelog: https://github.com/janhq/jan/compare/v0.8.0...v0.8.1",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.1/Jan_0.8.1_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.1_x64-setup.exe",
+          "sha256": "ebf82c7223545baeb6102f2aebff24fcf465e1d82a4af8b8cafa24cc89d352d2",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.0",
+      "release_date": "2026-05-22",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.8.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.0/Jan_0.8.0_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.8.0_x64-setup.exe",
+          "sha256": "35858ba6da4ae9a24fd055a1fd34ff6ea7c02c9fb74201867ef50172c920b757",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.9",
+      "release_date": "2026-03-23",
+      "release_notes": "What's Changed\n- fix: clean up ANTHROPIC_* env vars from shell config when server stops or app exits by @since-2017-hub in https://github.com/janhq/jan/pull/7628\n- fix: add redirect from /guides to /docs by @louis-jan in https://github.com/janhq/jan/pull/7669\n- docs: update troubleshooting guides by @louis-jan in https://github.com/janhq/jan/pull/7670\n- docs: restructure Reference by @louis-jan in https://github.com/janhq/jan/pull/7674\n- docs: agents availability by @louis-jan in https://github.com/janhq/jan/pull/7682\n- docs: add community cards to desktop overview by @louis-jan in https://github.com/janhq/jan/pull/7687\n- chore: resolve release main conflict 0.7.8 by @Vanalite in https://github.com/janhq/jan/pull/7713\n- Sync release/v0.7.8 to main branch by @louis-jan in https://github.com/janhq/jan/pull/7711\n- doc: add changelog for v0.7.8 by @Vanalite in https://github.com/janhq/jan/pull/7714\n- docs: update CLI and agents docs for v0.7.8 by @louis-jan in https://github.com/janhq/jan/pull/7715\n- feat: update flatpak manifest v0.7.8 by @Minh141120 in https://github.com/janhq/jan/pull/7717\n- fix: resolve Anthropic 400 error on serial tool calls by @atoz96 in https://github.com/janhq/jan/pull/7696\n- Revert: clear ANTHROPIC_ env on app exit #7628 by @louis-jan in https://github.com/janhq/jan/pull/7718\n- Merge pull request #7695 from oolokioo7/fix/edit-dialog-width by @louis-jan in https://github.com/janhq/jan/pull/7719\n- Fix: gpu detection losing by @dataCenter430 in https://github.com/janhq/jan/pull/7605\n- fix: system theme not updating when switching dark/light mode on KDE Linux by @since-2017-hub in https://github.com/janhq/jan/pull/7629\n- docs: add Windows data folder relocation troubleshooting section by @louis-jan in https://github.com/janhq/jan/pull/7724\n- docs: add troubleshooting for timeout port by @Vanalite in https://github.com/janhq/jan/pull/7730\n- fix: fix error on openclaw doc by @Vanalite in https://github.com/janhq/jan/pull/7731\n- fix: prevent duplicate backend downloads during llamacpp update by @atoz96 in https://github.com/janhq/jan/pull/7721\n- fix: render code block without lang spec correcty by @cs-cat in https://github.com/janhq/jan/pull/7741\n- refactor: fix normalizeLatex logic and improve performance by @cs-cat in https://github.com/janhq/jan/pull/7743\n- docs: troubleshooting update for jan CLI on Windows by @louis-jan in https://github.com/janhq/jan/pull/7736\n- docs: add instructions to uninstall openclaw by @Vanalite in https://github.com/janhq/jan/pull/7754\n- docs: Add instruction to install HIP/ROCm llamacpp backend for AMD by @Vanalite in https://github.com/janhq/jan/pull/7755\n- fix: update CLI help examples to use Jan model ID by @louis-jan in https://github.com/janhq/jan/pull/7753\n- fix: kv-cache defaults and fit migration by @louis-jan in https://github.com/janhq/jan/pull/7751\n- feat: default model for local api server by @urmauur in https://github.com/janhq/jan/pull/7735\n- chore: remove the 32k ctx_len enforcement upon API server start by @Vanalite in https://github.com/janhq/jan/pull/7756\n- feat: add default assistant setting by @urmauur in https://github.com/janhq/jan/pull/7725\n- doc: update CONTRIBUTING.md by @Vanalite in https://github.com/janhq/jan/pull/7764\n- fix: wrong display shortcut create project by @urmauur in https://github.com/janhq/jan/pull/7757\n- feat: add foundation models plugin with server management capabilities by @dev-miro26 in https://github.com/janhq/jan/pull/7744\n- feat: add Spanish (Español) locale by @dev-miro26 in https://github.com/janhq/jan/pull/7765\n- fix: change data location that has accident symlink failed by @Vanalite in https://github.com/janhq/jan/pull/7763\n- fix: resolve downloaded model toggle bug by handling developer prefix by @jamesdam in https://github.com/janhq/jan/pull/7648\n- feat: safe define remove dir list during the factory reset by @Vanalite in https://github.com/janhq/jan/pull/7766\n- chore: remove openclaw installation by @Vanalite in https://github.com/janhq/jan/pull/7762\n- fix: cli install method on Window by @Vanalite in https://github.com/janhq/jan/pull/7768\n- feat: add NVIDIA NIM as a predefined cloud provider by @MauroDruwel in https://github.com/janhq/jan/pull/7740\n- fix: api server cors vulnerability by @Vanalite in https://github.com/janhq/jan/pull/7769\n- refactor: replace toggle with chevron for show variants in Hub by @Lokimorty in https://github.com/janhq/jan/pull/7059\n- feat: settings to auto increase ctx_len by @Vanalite in https://github.com/janhq/jan/pull/7770\n- doc: temporary remove the MCP example section which was previously nuked by @Vanalite in https://github.com/janhq/jan/pull/7776\n- feat: expand supported file types for document attachments by @dev-miro26 in https://github.com/janhq/jan/pull/7772\n- fix: Hub behavior issues by @Vanalite in https://github.com/janhq/jan/pull/7777\n- chore: disable foundation model for RC by @Vanalite in https://github.com/janhq/jan/pull/7778\n- feat: remote model update by @Vanalite in https://github.com/janhq/jan/pull/7782\n- fix: Fix auto-increase context size bugs by @Vanalite in https://github.com/janhq/jan/pull/7783\n- fix: restore default localhost on API Server start by @Vanalite in https://github.com/janhq/jan/pull/7794\nNew Contributors\n- @atoz96 made their first contribution in https://github.com/janhq/jan/pull/7696\n- @dataCenter430 made their first contribution in https://github.com/janhq/jan/pull/7605\n- @cs-cat made their first contribution in https://github.com/janhq/jan/pull/7741\n- @MauroDruwel made their first contribution in https://github.com/janhq/jan/pull/7740\nFull Changelog: https://github.com/janhq/jan/compare/v0.7.8...v0.7.9",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.9/Jan_0.7.9_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.9_x64-setup.exe",
+          "sha256": "8caef1d3b5de3e8cfc15b43bf8071bca9e9d32da054514387f9abce31db075b0",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.8",
+      "release_date": "2026-03-11",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.8/Jan_0.7.8_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.8_x64-setup.exe",
+          "sha256": "c9eeeebd8ecee7bc4dc7e365ca6af1bb57a362345577bc8cfa652bccd73ae22f",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.7",
+      "release_date": "2026-02-11",
+      "release_notes": "What's Changed\n- fix: theme set loop on Windows by @louis-jan in https://github.com/janhq/jan/pull/7407\n- fix: left panel full height by @urmauur in https://github.com/janhq/jan/pull/7409\n- fix: throttle renderer to reduce pressure to the thread by @louis-jan in https://github.com/janhq/jan/pull/7408\n- feat: prompt to download Jan VL model for vision capability by @Vanalite in https://github.com/janhq/jan/pull/7410\n- docs: changelog for v0.7.6 by @Vanalite in https://github.com/janhq/jan/pull/7418\n- chore: update manifest for flatpak jan 0.7.6 by @Minh141120 in https://github.com/janhq/jan/pull/7419\n- chore: onboard new user with q4 k xl by @louis-jan in https://github.com/janhq/jan/pull/7420\n- Fix: inconsistent code block formatting in Markdown rendering by @bytrangle in https://github.com/janhq/jan/pull/7049\n- fix: accept x-api-key header in place of custom header by @louis-jan in https://github.com/janhq/jan/pull/7421\n- fix: Display embedding models in settings with visual distinction by @bittoby in https://github.com/janhq/jan/pull/7393\n- chore: sync release branch for merging by @Vanalite in https://github.com/janhq/jan/pull/7425\n- chore: merge release branch by @Vanalite in https://github.com/janhq/jan/pull/7424\n- fix: update api docs by @louis-jan in https://github.com/janhq/jan/pull/7426\n- fix: default instruction update by @louis-jan in https://github.com/janhq/jan/pull/7427\n- feat: streamable http exa default search mcp by @louis-jan in https://github.com/janhq/jan/pull/7428\n- chore: disable auto updater for flatpak build by @hiento09 in https://github.com/janhq/jan/pull/7432\n- ci: move config yarn makefile to ci by @Minh141120 in https://github.com/janhq/jan/pull/7433\n- ui: revamp layout by @urmauur in https://github.com/janhq/jan/pull/7431\n- fix: minor badge capabilities by @urmauur in https://github.com/janhq/jan/pull/7435\n- fix: dynamically generate OpenAPI spec with actual server host and port by @Eruis2579 in https://github.com/janhq/jan/pull/7434\n- fix: take back refresh and add model remote provider by @urmauur in https://github.com/janhq/jan/pull/7436\n- fix: prefill value when rename thread by @urmauur in https://github.com/janhq/jan/pull/7437\n- chore: delete all thread by @urmauur in https://github.com/janhq/jan/pull/7447\n- fix: edit message with files attachment by @urmauur in https://github.com/janhq/jan/pull/7446\n- chore: update font from local instead cdn by @urmauur in https://github.com/janhq/jan/pull/7449\n- chore: avoid warning dialog components by @urmauur in https://github.com/janhq/jan/pull/7450\n- chore: assistant assign into projects by @urmauur in https://github.com/janhq/jan/pull/7441\n- feat: add delete all thread inside projects by @urmauur in https://github.com/janhq/jan/pull/7453\n- fix: inline math latex by @urmauur in https://github.com/janhq/jan/pull/7454\n- fix: hover menu dots for delete all chat by @urmauur in https://github.com/janhq/jan/pull/7455\n- fix: notarize mlx bin by @Minh141120 in https://github.com/janhq/jan/pull/7458\n- feat: add new backend - MLX by @louis-jan in https://github.com/janhq/jan/pull/7459\n- chore: adjustment drag area by @urmauur in https://github.com/janhq/jan/pull/7464\n- fix: chat performance rerender issue by @urmauur in https://github.com/janhq/jan/pull/7465\n- fix: issue descendant element by @urmauur in https://github.com/janhq/jan/pull/7466\n- fix: hub screen scroll and loader by @urmauur in https://github.com/janhq/jan/pull/7467\n- fix: prompt cache - cannot infer the shape of an empty array by @louis-jan in https://github.com/janhq/jan/pull/7470\n- chore: refactor modelhub by @hiento09 in https://github.com/janhq/jan/pull/7468\n- chore: base layout windows by @urmauur in https://github.com/janhq/jan/pull/7471\n- feat: implement fit settings in llamacpp extension and overhaul argument builder tests by @qnixsynapse in https://github.com/janhq/jan/pull/7442\n- chore: update copy for setup screen by @urmauur in https://github.com/janhq/jan/pull/7472\n- feat: local api server improvement by @urmauur in https://github.com/janhq/jan/pull/7460\n- chore: update copy web by @urmauur in https://github.com/janhq/jan/pull/7474\n- refactor: remove model planner since now use auto fit setting by @louis-jan in https://github.com/janhq/jan/pull/7473\n- fix: pass model parameters in fetch body for all providers by @louis-jan in https://github.com/janhq/jan/pull/7475\n- fix: overflow scroll thinking by @urmauur in https://github.com/janhq/jan/pull/7476\n- chore: update icon project by @urmauur in https://github.com/janhq/jan/pull/7478\n- fix: stop MLX model inference when client aborts chat/completions by @louis-jan in https://github.com/janhq/jan/pull/7477\n- fix: package mlx only for mac by @louis-jan in https://github.com/janhq/jan/pull/7479\n- fix: disable custom parameters for remote providers by @louis-jan in https://github.com/janhq/jan/pull/7481\n- fix: select none assistant remote provider by @urmauur in https://github.com/janhq/jan/pull/7480\n- fix: ui remove thumbnail image by @urmauur in https://github.com/janhq/jan/pull/7483\n- fix: disable fit does not work well - llama.cpp somehow use max ctx-size by @louis-jan in https://github.com/janhq/jan/pull/7482\n- fix: tool call message malformed by @louis-jan in https://github.com/janhq/jan/pull/7484\n- fix: custom parameters by @louis-jan in https://github.com/janhq/jan/pull/7487\n- fix: patch env not work on windows by @louis-jan in https://github.com/janhq/jan/pull/7486\n- fix: local api server stream transform by @louis-jan in https://github.com/janhq/jan/pull/7489\n- fix: visibility toolbar state window on local api server by @urmauur in https://github.com/janhq/jan/pull/7488\n- fix: thumb default interface accent color based on theme color by @urmauur in https://github.com/janhq/jan/pull/7490\n- fix: new chat with first options assistants by @urmauur in https://github.com/janhq/jan/pull/7491\n- fix: state icon collapsible log inline local api server by @urmauur in https://github.com/janhq/jan/pull/7493\n- fix: start new chat from hub auto select model by @urmauur in https://github.com/janhq/jan/pull/7494\n- fix: disable --fit for mac by @louis-jan in https://github.com/janhq/jan/pull/7495\n- fix: correct creating env param for claude code integration by @Vanalite in https://github.com/janhq/jan/pull/7492\n- fix: bump router plugin to fix vite crash by @Vanalite in https://github.com/janhq/jan/pull/7496\n- fix: bash support for cc by @louis-jan in https://github.com/janhq/jan/pull/7497\n- fix: hub model filter condition by @louis-jan in https://github.com/janhq/jan/pull/7499\n- fix: hub rendering performance issue by @louis-jan in https://github.com/janhq/jan/pull/7500\n- fix: disable edit message while isn't selected model by @urmauur in https://github.com/janhq/jan/pull/7498\n- fix: register tools on new chat in a project by @Vanalite in https://github.com/janhq/jan/pull/7501\n- fix: allow users to cancel mlx model download by @louis-jan in https://github.com/janhq/jan/pull/7502\n- fix: update hub catalog v2 by @louis-jan in https://github.com/janhq/jan/pull/7503\n- fix: temporary disable prompt cache by @louis-jan in https://github.com/janhq/jan/pull/7505\n- fix: broken assistant selection by @louis-jan in https://github.com/janhq/jan/pull/7506\n- fix: assistant for project does not work by @louis-jan in https://github.com/janhq/jan/pull/7509\nNew Contributors\n- @Eruis2579 made their first contribution in https://github.com/janhq/jan/pull/7434\nFull Changelog: https://github.com/janhq/jan/compare/v0.7.6...v0.7.7",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.7/Jan_0.7.7_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.7_x64-setup.exe",
+          "sha256": "97d6dfa1d0196456b8b5b52df62fbebd1f5701a2766a776524ee140e8d3452c5",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.6",
+      "release_date": "2026-01-27",
+      "release_notes": "What's Changed\n- docs: update homepage SEO meta title and description by @eckartal in https://github.com/janhq/jan/pull/7024\n- chore: update flatpak manifest by @Minh141120 in https://github.com/janhq/jan/pull/7025\n- blog: optimize \"run AI locally\" blog post for SEO by @eckartal in https://github.com/janhq/jan/pull/7028\n- feat: combine attachments icon by @urmauur in https://github.com/janhq/jan/pull/6998\n- fix: cstdint patch flatpak by @Minh141120 in https://github.com/janhq/jan/pull/7032\n- Fix/appstream caption by @Minh141120 in https://github.com/janhq/jan/pull/7033\n- feat: Update Russian localization by @Kuzmich55 in https://github.com/janhq/jan/pull/7039\n- SEO: Improve offline-chatgpt-alternative content by @eckartal in https://github.com/janhq/jan/pull/7040\n- feat: flatpak disable auto updater by @Minh141120 in https://github.com/janhq/jan/pull/7054\n- Update flatpak metainfo by @eckartal in https://github.com/janhq/jan/pull/7064\n- fix: flatpak appstream metadata validation errors by @Minh141120 in https://github.com/janhq/jan/pull/7067\n- docs: add Microsoft Store and Flathub badges by @qnixsynapse in https://github.com/janhq/jan/pull/7068\n- feat: add Polish metainfo translation by @0rzech in https://github.com/janhq/jan/pull/7050\n- fix: improve Hub download button UX for installed models by @Lokimorty in https://github.com/janhq/jan/pull/7060\n- Resolve Clippy Warnings and Apply Consistent Code Formatting by @github-roushan in https://github.com/janhq/jan/pull/7010\n- feat: Update Russian localization by @Kuzmich55 in https://github.com/janhq/jan/pull/7082\n- feat: complete Czech translations by @MichalZem in https://github.com/janhq/jan/pull/7081\n- Update metadata for ai.jan.Jan by @razzeee in https://github.com/janhq/jan/pull/7045\n- chore: update flatpak release 0.7.4 by @Minh141120 in https://github.com/janhq/jan/pull/7117\n- chore: add change log doc for v0.7.4 by @Vanalite in https://github.com/janhq/jan/pull/7110\n- refactor: clean up JoyRide by @louis-jan in https://github.com/janhq/jan/pull/7073\n- chore: update flatpak manifest for v0.7.5 by @Minh141120 in https://github.com/janhq/jan/pull/7133\n- chore: add change log doc for v0.7.5 by @Vanalite in https://github.com/janhq/jan/pull/7132\n- chore: resolve conflicts between dev and 0.7.5 release branch by @Vanalite in https://github.com/janhq/jan/pull/7135\n- chore: merge release 0.7.5 into dev branch by @Vanalite in https://github.com/janhq/jan/pull/7134\n- refactor: move llama.cpp config handling to Rust by @qnixsynapse in https://github.com/janhq/jan/pull/7047\n- fix: publisher name on windows by @Minh141120 in https://github.com/janhq/jan/pull/7144\n- feat: Update Russian localization by @Kuzmich55 in https://github.com/janhq/jan/pull/7149\n- feat: Improve toast messages and errors by @github-roushan in https://github.com/janhq/jan/pull/6892\n- feat: improve sidebar UI with distinct sections and better empty states by @github-roushan in https://github.com/janhq/jan/pull/6745\n- fix: prevent CUDA backend install failure by removing invalid fs.mkdir args by @qnixsynapse in https://github.com/janhq/jan/pull/7162\n- fix: responsive button action hero landing page by @urmauur in https://github.com/janhq/jan/pull/7274\n- refactor: jan web ci to use main branch and deprecate old workflows by @Minh141120 in https://github.com/janhq/jan/pull/7332\n- refactor: migrate llamacpp backend logic to rust plugin by @qnixsynapse in https://github.com/janhq/jan/pull/7171\n- feat: add portable windows by @Minh141120 in https://github.com/janhq/jan/pull/7350\n- feat: chat enhancement by @louis-jan in https://github.com/janhq/jan/pull/7361\n- feat: persist token usage into message metadata by @louis-jan in https://github.com/janhq/jan/pull/7366\n- ci: update matrix test on windows by @Minh141120 in https://github.com/janhq/jan/pull/7367\n- fix: tools availability and model settings by @louis-jan in https://github.com/janhq/jan/pull/7368\n- fix: file upload function and assistant migration by @louis-jan in https://github.com/janhq/jan/pull/7369\n- fix: missing shiki lib and import css katex by @urmauur in https://github.com/janhq/jan/pull/7372\n- fix: remove setting codeblock by @urmauur in https://github.com/janhq/jan/pull/7371\n- fix: font setup by @urmauur in https://github.com/janhq/jan/pull/7373\n- Make it easy to install on ARM by @SuperCowProducts in https://github.com/janhq/jan/pull/7353\n- docs: fix dead links to /docs/server and /docs/models by @chindris-mihai-alexandru in https://github.com/janhq/jan/pull/7342\n- feat: search dialog by @urmauur in https://github.com/janhq/jan/pull/7374\n- chore: refactor updater by @hiento09 in https://github.com/janhq/jan/pull/7377\n- fix: update renderer using plugins by @louis-jan in https://github.com/janhq/jan/pull/7376\n- chore: fix race condition in updater by @hiento09 in https://github.com/janhq/jan/pull/7378\n- fix: mcp tool approval by @louis-jan in https://github.com/janhq/jan/pull/7379\n- refactor: decouple platform guard logics by @louis-jan in https://github.com/janhq/jan/pull/7380\n- fix: resolve link api-reference page by @bittoby in https://github.com/janhq/jan/pull/7384\n- fix: regression - model download - users could not download with HF_TOKEN by @louis-jan in https://github.com/janhq/jan/pull/7386\n- fix: mcp overflow env by @louis-jan in https://github.com/janhq/jan/pull/7387\n- fix: disable fullscreen marmaid diagram by @urmauur in https://github.com/janhq/jan/pull/7388\n- enhancement: quickstart UI card by @urmauur in https://github.com/janhq/jan/pull/7385\n- fix: total download number by @urmauur in https://github.com/janhq/jan/pull/7390\n- feat: edit message and delete by @urmauur in https://github.com/janhq/jan/pull/7391\n- feat: Enable proxy to llama.cpp for Anthropic Messages API support. by @louis-jan in https://github.com/janhq/jan/pull/7395\n- fix: app updater does not remind for new update without restarting by @louis-jan in https://github.com/janhq/jan/pull/7389\n- fix: csp issue that blocking image upload on Windows by @louis-jan in https://github.com/janhq/jan/pull/7396\n- fix: openai raw tool call issue by @louis-jan in https://github.com/janhq/jan/pull/7397\n- fix: wrong cached model and provider first time create chat by @louis-jan in https://github.com/janhq/jan/pull/7398\n- fix: wrong trouble shooting guide url by @louis-jan in https://github.com/janhq/jan/pull/7400\n- fix: migrate mistral ai provider to have correct base url by @louis-jan in https://github.com/janhq/jan/pull/7399\n- fix: Remove trailing slash from changelog link to avoid redirect by @janpio in https://github.com/janhq/jan/pull/7381\n- fix: disable link open with dialog confirmation by @urmauur in https://github.com/janhq/jan/pull/7402\n- fix: text overflow error generations by @urmauur in https://github.com/janhq/jan/pull/7404\n- fix: leftpanel toggle on windows by @urmauur in https://github.com/janhq/jan/pull/7401\n- fix: reduce max-width model selector by @urmauur in https://github.com/janhq/jan/pull/7403\n- fix: should not regenerate on assistant message edit by @louis-jan in https://github.com/janhq/jan/pull/7405\n- feat: handle show dialog new jan model by @urmauur in https://github.com/janhq/jan/pull/7406\n- chore: Cherry pick to release/v0.7.6 by @Vanalite in https://github.com/janhq/jan/pull/7411\n- Chore/flatpak manifest 0.7.6 by @Minh141120 in https://github.com/janhq/jan/pull/7412\n- fix: mmproj path for vision capability by @Vanalite in https://github.com/janhq/jan/pull/7414\n- chore: setup screen q4 k xl by @louis-jan in https://github.com/janhq/jan/pull/7417\nNew Contributors\n- @MichalZem made their first contribution in https://github.com/janhq/jan/pull/7081\n- @razzeee made their first contribution in https://github.com/janhq/jan/pull/7045\n- @SuperCowProducts made their first contribution in https://github.com/janhq/jan/pull/7353\n- @chindris-mihai-alexandru made their first contribution in https://github.com/janhq/jan/pull/7342\n- @bittoby made their first contribution in https://github.com/janhq/jan/pull/7384\n- @janpio made their first contribution in https://github.com/janhq/jan/pull/7381\nFull Changelog: https://github.com/janhq/jan/compare/v0.7.5...v0.7.6",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.6/Jan_0.7.6_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.6_x64-setup.exe",
+          "sha256": "7d4191fe747e5756451bc0a19708f708ce2f2711b807bb4b292cfeeccf377f08",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.5",
+      "release_date": "2025-12-08",
+      "release_notes": "What's Changed\n- fix: model import issue on Windows by @louis-jan in https://github.com/janhq/jan/pull/7124\n- fix: users couldn’t import the mmproj vision model if the base name didn’t match. by @louis-jan in https://github.com/janhq/jan/pull/7127\n- fix: correct CUDA backend installation and migration issues by @qnixsynapse in https://github.com/janhq/jan/pull/7130\n- fix: kill mcp server on app termination by @Vanalite in https://github.com/janhq/jan/pull/7131\nFull Changelog: https://github.com/janhq/jan/compare/v0.7.4...v0.7.5",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.5/Jan_0.7.5_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.5_x64-setup.exe",
+          "sha256": "d948912aed8fa13d36fd7852989a3a679d25a077286e716231984280a8aac20f",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.4",
+      "release_date": "2025-12-05",
+      "release_notes": "What's Changed\n- feat: add backend migration mapping and update backend handling by @qnixsynapse in https://github.com/janhq/jan/pull/6917\n- ci: clean up deduplicate issue workflow by @Minh141120 in https://github.com/janhq/jan/pull/6923\n- Enhance localization by completing missing translations across all locales + czech support by @github-roushan in https://github.com/janhq/jan/pull/6758\n- feat: Add official jan browser mcp by @Vanalite in https://github.com/janhq/jan/pull/6929\n- docs: add changelog v0.7.3 by @Minh141120 in https://github.com/janhq/jan/pull/6951\n- Merge release 0.7.3 to dev by @Vanalite in https://github.com/janhq/jan/pull/6967\n- fix: csp restrictions from inline styles by @urmauur in https://github.com/janhq/jan/pull/6970\n- fix: glib issue on linux by @Minh141120 in https://github.com/janhq/jan/pull/6975\n- fix: app blocks image input by @louis-jan in https://github.com/janhq/jan/pull/6982\n- fix: disable autocorrect in model search input by @Lokimorty in https://github.com/janhq/jan/pull/6952\n- French translation menu item missing by @fredatgithub in https://github.com/janhq/jan/pull/6974\n- chore: separate the loader style by @urmauur in https://github.com/janhq/jan/pull/6984\n- fix: changing tools while conversing results in incorrect tool use by @louis-jan in https://github.com/janhq/jan/pull/6985\n- Enable desktop file attachments feature by @dinhlongviolin1 in https://github.com/janhq/jan/pull/6989\n- feat: migrate assistant screen into setting by @urmauur in https://github.com/janhq/jan/pull/6986\n- fix: trafficlight icon mac responsive by @urmauur in https://github.com/janhq/jan/pull/6994\n- fix: reenable zoom hotkey by @urmauur in https://github.com/janhq/jan/pull/6995\n- feat: add CUDA 13 support to backend by @qnixsynapse in https://github.com/janhq/jan/pull/6996\n- chore: add CUDA 13 backend as a priority backend by @qnixsynapse in https://github.com/janhq/jan/pull/7005\n- chore: bump token.js by @Vanalite in https://github.com/janhq/jan/pull/7006\n- Correct the \"Why Open-Source\" URL by @trunghaiy in https://github.com/janhq/jan/pull/6965\n- docs: update handbook by @mmngn in https://github.com/janhq/jan/pull/7007\n- feat: move proactive mode to MCP settings by @Vanalite in https://github.com/janhq/jan/pull/7008\n- feat: lockfile to kill conflict MCP's port by @Vanalite in https://github.com/janhq/jan/pull/7012\n- fix: keep the untouched properties after modifying mcp settings by @Vanalite in https://github.com/janhq/jan/pull/7014\n- fix: preserve dollar sign followed by numbers in markdown rendering by @qnixsynapse in https://github.com/janhq/jan/pull/7027\n- fix: reattach the same file after deletion fix by @Vanalite in https://github.com/janhq/jan/pull/7030\n- feat: add embedding flag to model metadata and automatic detection by @qnixsynapse in https://github.com/janhq/jan/pull/7031\n- fix: Fix extension installation link by @Vanalite in https://github.com/janhq/jan/pull/7042\n- fix: spawn new process with window close flag by @Vanalite in https://github.com/janhq/jan/pull/7043\n- feat: update link to chrome store for Jan extension by @Vanalite in https://github.com/janhq/jan/pull/7051\n- fix: disable context menu list projects by @urmauur in https://github.com/janhq/jan/pull/7056\n- fix: ui check be version by @urmauur in https://github.com/janhq/jan/pull/7057\n- feat: update flatpak build by @Minh141120 in https://github.com/janhq/jan/pull/7061\n- fix: flatpak upload s3 by @Minh141120 in https://github.com/janhq/jan/pull/7062\n- fix: Enable JIT compilation to fix MCP server memory allocation errors by @louis-jan in https://github.com/janhq/jan/pull/7072\n- feat: quick start with Jan model by @Vanalite in https://github.com/janhq/jan/pull/7052\n- fix: Toast and dismiss validating toast using model_id by @Vanalite in https://github.com/janhq/jan/pull/7065\n- fix: cancel failed download task by @Vanalite in https://github.com/janhq/jan/pull/7077\n- fix: fix linter with missing parameters by @Vanalite in https://github.com/janhq/jan/pull/7078\n- feat: close app in background by @Vanalite in https://github.com/janhq/jan/pull/7076\n- feat: jan browser mcp as chat input shortcut by @louis-jan in https://github.com/janhq/jan/pull/7074\n- fix: skip model verification on quick start by @louis-jan in https://github.com/janhq/jan/pull/7083\n- fix: killing process with name checking logic by @Vanalite in https://github.com/janhq/jan/pull/7085\n- feat: Dialog to install Jan extension by @Vanalite in https://github.com/janhq/jan/pull/7086\n- fix: model import name should be filename instead of GGUF baseName by @louis-jan in https://github.com/janhq/jan/pull/7088\n- fix: could not save image edit by @louis-jan in https://github.com/janhq/jan/pull/7089\n- feat: Cancellation mechanism during mcp connectivity check by @Vanalite in https://github.com/janhq/jan/pull/7090\n- Feat/improve file attachments by @dinhlongviolin1 in https://github.com/janhq/jan/pull/7080\n- fix: attachment parsing error (exit gracefully) by @dinhlongviolin1 in https://github.com/janhq/jan/pull/7093\n- fix: handle API request errors and log them in llamacpp extension by @qnixsynapse in https://github.com/janhq/jan/pull/7094\n- fix: disable tool step limit in assistant by @louis-jan in https://github.com/janhq/jan/pull/7096\n- feat: add instruction to system_prompt to perform search when needed by @Vanalite in https://github.com/janhq/jan/pull/7095\n- feat: simplify onboarding flow and extension instruction by @Vanalite in https://github.com/janhq/jan/pull/7097\n- fix: lost first message using local llamacpp by @Vanalite in https://github.com/janhq/jan/pull/7099\n- fix: ensure cleanup functions complete before app exit by @qnixsynapse in https://github.com/janhq/jan/pull/7101\n- fix: quick start preparation in background by @Vanalite in https://github.com/janhq/jan/pull/7100\n- Improve file attachments re submit by @dinhlongviolin1 in https://github.com/janhq/jan/pull/7102\n- ci: reproduce linter test out of space on ubuntu by @Minh141120 in https://github.com/janhq/jan/pull/7105\n- fix: deprecate unstable restart mechanism that blocking browse feature by @louis-jan in https://github.com/janhq/jan/pull/7109\nNew Contributors\n- @trunghaiy made their first contribution in https://github.com/janhq/jan/pull/6965\n- @mmngn made their first contribution in https://github.com/janhq/jan/pull/7007\nFull Changelog: https://github.com/janhq/jan/compare/v0.7.3...v0.7.4",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.4",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.4/Jan_0.7.4_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.4_x64-setup.exe",
+          "sha256": "a77506a36b9f709e9ee77df433ed319e727678d3c6eb173066754829f08ef0d1",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.3",
+      "release_date": "2025-11-13",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.3/Jan_0.7.3_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.3_x64-setup.exe",
+          "sha256": "78495d0bee94a09f03e9b092566a577aa5a98b7998e052687296129b8cccf552",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.2",
+      "release_date": "2025-10-16",
+      "release_notes": "What's Changed\n- chore: happy-dom update by @Minh141120 in https://github.com/menloresearch/jan/pull/6790\nFull Changelog: https://github.com/menloresearch/jan/compare/v0.7.1...v0.7.2",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.7.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.7.2/Jan_0.7.2_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.2_x64-setup.exe",
+          "sha256": "c80ff1c65a7d53cf8d54bd173ef94b7b87cc3bb28050731da3b9aec44f591f42",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.1",
+      "release_date": "2025-10-03",
+      "release_notes": "What's Changed\n- chore: use custom nsis template by @Minh141120 in https://github.com/menloresearch/jan/pull/6721\n- ci: remove upload msi artifact by @Minh141120 in https://github.com/menloresearch/jan/pull/6725\n- fix: prompt token by @urmauur in https://github.com/menloresearch/jan/pull/6727\n- Fix: Anthropic request to add models by @Vanalite in https://github.com/menloresearch/jan/pull/6728\n- fix: get model capabilities correctly by @Vanalite in https://github.com/menloresearch/jan/pull/6715\nFull Changelog: https://github.com/menloresearch/jan/compare/v0.7.0...v0.7.1",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.7.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.7.1/Jan_0.7.1_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.1_x64-setup.exe",
+          "sha256": "167abb4f43a48732065372cf67627864cda55dfe44b62f0025bfd355dc779e59",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.0",
+      "release_date": "2025-10-02",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.7.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.7.0/Jan_0.7.0_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.7.0_x64-setup.exe",
+          "sha256": "dd14f90ed02319c93819e28af527aa71ed94b36349dd8721925147cee75414e1",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.10",
+      "release_date": "2025-09-18",
+      "release_notes": "What's Changed\n- Bring back QA changes 0.6.9 by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6320\n- docs: Major restructure and consolidation by @ramonpzg in https://github.com/menloresearch/jan/pull/6323\n- hotfix: fixed home page hyperlink and extension gif by @ramonpzg in https://github.com/menloresearch/jan/pull/6324\n- fix: Use 80% total memory for compatibility check (#6321) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6333\n- hotfix: changed website theme by @ramonpzg in https://github.com/menloresearch/jan/pull/6335\n- fix: mise build failing by @theproductiveprogrammer in https://github.com/menloresearch/jan/pull/6344\n- chore: fix id code-block for avoid duplicate same state by @urmauur in https://github.com/menloresearch/jan/pull/6346\n- chore: update docs font by @urmauur in https://github.com/menloresearch/jan/pull/6359\n- fix: remove timezone specific from utils by @urmauur in https://github.com/menloresearch/jan/pull/6363\n- fix: search hgf repo and downloaded filter by @urmauur in https://github.com/menloresearch/jan/pull/6366\n- feat: allow see Apikey when server local status running by @urmauur in https://github.com/menloresearch/jan/pull/6364\n- feat: download llamacpp backend fail back to cdn by @hiento09 in https://github.com/menloresearch/jan/pull/6361\n- feat: Jan Web (reusing Jan Desktop UI) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6298\n- feat: Web use jan model by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6374\n- ci: add paths for jan server web by @Minh141120 in https://github.com/menloresearch/jan/pull/6377\n- chore: update Dockerfile to use custom nginx.conf by @Minh141120 in https://github.com/menloresearch/jan/pull/6378\n- docs: add first‑class API Reference to Jan docs (Local + Server) by @ramonpzg in https://github.com/menloresearch/jan/pull/6372\n- ci: remove unnecessary folder paths and on Dockerfile by @Minh141120 in https://github.com/menloresearch/jan/pull/6392\n- enhancement: responsive dialog modals by @urmauur in https://github.com/menloresearch/jan/pull/6381\n- feat: allow user import model include mmproj file by @urmauur in https://github.com/menloresearch/jan/pull/6388\n- chore: add cicd for jan web prod by @hiento09 in https://github.com/menloresearch/jan/pull/6396\n- feat: improve testing by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6395\n- fix: jan server api base url for prod by @hiento09 in https://github.com/menloresearch/jan/pull/6403\n- removed cloud api spec update by @ramonpzg in https://github.com/menloresearch/jan/pull/6406\n- ci: add claude issue dedup by @Minh141120 in https://github.com/menloresearch/jan/pull/6408\n- enhancement: rollback edit capabilities for local model by @urmauur in https://github.com/menloresearch/jan/pull/6409\n- feat: Smart model management by @qnixsynapse in https://github.com/menloresearch/jan/pull/6390\n- feat: enhance llamacpp backend management and installation by @qnixsynapse in https://github.com/menloresearch/jan/pull/6360\n- ci: add nightly build for external contributors by @Minh141120 in https://github.com/menloresearch/jan/pull/6413\n- fix: include lm_head and embedding layers in totalLayers count by @qnixsynapse in https://github.com/menloresearch/jan/pull/6415\n- fix: clean up unused packages by @louis-menlo in https://github.com/menloresearch/jan/pull/6414\n- fix: render new line for user message by @urmauur in https://github.com/menloresearch/jan/pull/6412\n- bug: Deleted model file from imported models blocking model loading (#6317) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6417\n- enhancement: add label experimental for optimize setting by @urmauur in https://github.com/menloresearch/jan/pull/6416\n- fix: error connecting to ollama (#6349) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6418\n- exclude jan extension web from desktop build by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6419\n- fix: avoid error validate nested DOM by @urmauur in https://github.com/menloresearch/jan/pull/6426\n- fix: correct context shift flag handling in LlamaCPP extension (#6404) by @qnixsynapse in https://github.com/menloresearch/jan/pull/6431\n- enhancement: copy MCP permission by @urmauur in https://github.com/menloresearch/jan/pull/6456\n- fix: KVCache size calculation and refactor by @qnixsynapse in https://github.com/menloresearch/jan/pull/6438\n- chore: makefile rust targets macos by @Minh141120 in https://github.com/menloresearch/jan/pull/6457\n- fix: detect allocation failures as out-of-memory errors by @qnixsynapse in https://github.com/menloresearch/jan/pull/6459\n- fix: set default memory mode and clean up unused import by @qnixsynapse in https://github.com/menloresearch/jan/pull/6463\n- fix: pathname file install BE by @urmauur in https://github.com/menloresearch/jan/pull/6464\n- fix: attachment edit message by @urmauur in https://github.com/menloresearch/jan/pull/6465\n- fix: immediate update value model selection by @urmauur in https://github.com/menloresearch/jan/pull/6474\n- fix: validate mmproj from general basename by @urmauur in https://github.com/menloresearch/jan/pull/6477\n- fix: new extension settings aren't populated properly by @louis-menlo in https://github.com/menloresearch/jan/pull/6476\n- chore: embed webview2 bootstrapper in tauri windows by @Minh141120 in https://github.com/menloresearch/jan/pull/6482\n- fix: mcp json validation structure and serverName by @urmauur in https://github.com/menloresearch/jan/pull/6478\n- chore: prevent click outside for edit dialog by @urmauur in https://github.com/menloresearch/jan/pull/6493\n- feat: add qa checklist v0.6.10 by @Minh141120 in https://github.com/menloresearch/jan/pull/6495\n- fix: correct memory suitability checks in llamacpp extension by @qnixsynapse in https://github.com/menloresearch/jan/pull/6504\nNew Contributors\n- @theproductiveprogrammer made their first contribution in https://github.com/menloresearch/jan/pull/6344\nFull Changelog: https://github.com/menloresearch/jan/compare/v0.6.9...v0.6.10",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.10",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.10/Jan_0.6.10_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.10_x64-setup.exe",
+          "sha256": "6b2e056fec7c27e1fe7a9ecf18965e1112db90eaae55307ebff9a25e3851e5e9",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.9",
+      "release_date": "2025-08-28",
+      "release_notes": "What's Changed\n- ci: add disable auto update flag by @Minh141120 in https://github.com/menloresearch/jan/pull/6143\n- add disable auto updater input for nightly build by @Minh141120 in https://github.com/menloresearch/jan/pull/6159\n- enhancement: Add support for mmproj models by @urmauur in https://github.com/menloresearch/jan/pull/6150\n- ci: fix tauri build nightly for linux by @Minh141120 in https://github.com/menloresearch/jan/pull/6161\n- feat: Add GGUF metadata reading functionality by @qnixsynapse in https://github.com/menloresearch/jan/pull/6120\n- fix: handle modelId special char by @urmauur in https://github.com/menloresearch/jan/pull/6172\n- fix: feature toggle auto updater by @Minh141120 in https://github.com/menloresearch/jan/pull/6175\n- feat: add flatpak ci by @Minh141120 in https://github.com/menloresearch/jan/pull/6177\n- Feat: Add flatpak manifest by @qnixsynapse in https://github.com/menloresearch/jan/pull/4732\n- refactor: flathub submission by @Minh141120 in https://github.com/menloresearch/jan/pull/6182\n- Backend Architecture Refactoring (#6094) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6162\n- chore: replace md5 with sha256 for CUDA by @Minh141120 in https://github.com/menloresearch/jan/pull/6193\n- New tutoriasl for v0.6.8 docs by @ramonpzg in https://github.com/menloresearch/jan/pull/6196\n- Fix Issue #6199 by @Jasper-256 in https://github.com/menloresearch/jan/pull/6200\n- fix: default color not selected in appearance color palette by @cmppoon in https://github.com/menloresearch/jan/pull/6092\n- blog: Add Deep Research Piece by @danielcwq in https://github.com/menloresearch/jan/pull/6039\n- 🚀feat: allow user mark model as favorite by @urmauur in https://github.com/menloresearch/jan/pull/6006\n- feat: mcp enhancement by @louis-menlo in https://github.com/menloresearch/jan/pull/6188\n- enhancement: mcp disable save button when server name still empty by @urmauur in https://github.com/menloresearch/jan/pull/6214\n- fix: re-enable Vulkan backend in integrated GPUs with enough memory by @qnixsynapse in https://github.com/menloresearch/jan/pull/6215\n- feat: add support for reasoning fields (OpenRouter) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6206\n- fix: update token.js to remove retired models by @louis-menlo in https://github.com/menloresearch/jan/pull/6219\n- feat: #5917 - model tool use capability should be auto detected by @louis-menlo in https://github.com/menloresearch/jan/pull/6222\n- fix: cancel stream mid run (#6221) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6227\n- fix: should use custom fetch provided by app by @louis-menlo in https://github.com/menloresearch/jan/pull/6224\n- fix: Auto select model only for active provider by @urmauur in https://github.com/menloresearch/jan/pull/6229\n- enhancement: offload model when provider not active by @urmauur in https://github.com/menloresearch/jan/pull/6226\n- feat: Pass API key via environment variable instead of command line arg by @qnixsynapse in https://github.com/menloresearch/jan/pull/6225\n- fix: downloaded model should from variant level instead of the model level by @urmauur in https://github.com/menloresearch/jan/pull/6234\n- fix: improve ux import model by @urmauur in https://github.com/menloresearch/jan/pull/6233\n- feat: add tool call cancellation by @louis-menlo in https://github.com/menloresearch/jan/pull/6236\n- feat: attachment UI by @urmauur in https://github.com/menloresearch/jan/pull/6134\n- fix: resolve issue #6025 - default color selection in appearance page by @Louis454545 in https://github.com/menloresearch/jan/pull/6198\n- Add contributing section for jan (#6231) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6232\n- Fix: Validate GGUF files before loading by @qnixsynapse in https://github.com/menloresearch/jan/pull/6238\n- fix: prevent scroll position jump when AI completes response while user reading by @Louis454545 in https://github.com/menloresearch/jan/pull/6203\n- enhancement: remove validate file extension from select file when import gguf by @urmauur in https://github.com/menloresearch/jan/pull/6242\n- chore: update new domain for jan docs by @Minh141120 in https://github.com/menloresearch/jan/pull/6245\n- fix: local api server log (#6240) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6244\n- fix: hidden sort filter when searching model by @urmauur in https://github.com/menloresearch/jan/pull/6246\n- chore: re enable reasoning_content in backend by @qnixsynapse in https://github.com/menloresearch/jan/pull/6228\n- feat: allow user to set max_attempt for MCP to avoid looping by @louis-menlo in https://github.com/menloresearch/jan/pull/6241\n- ci: add autoqa reliability workflow for windows by @Minh141120 in https://github.com/menloresearch/jan/pull/6248\n- enhancement: vision icon hub model list by @urmauur in https://github.com/menloresearch/jan/pull/6251\n- feat: MCP server error handling by @louis-menlo in https://github.com/menloresearch/jan/pull/6252\n- feat: support inserting current date into assistant prompt by @kamal in https://github.com/menloresearch/jan/pull/6205\n- feat: detect cpu arch in runtime by @louis-menlo in https://github.com/menloresearch/jan/pull/6249\n- fix: emoji picker remains stuck in the open state in AddEditAssistant component by @cmppoon in https://github.com/menloresearch/jan/pull/6211\n- feat: add Polish translation by @0rzech in https://github.com/menloresearch/jan/pull/5874\n- feat: run on startup setting for local api server by @urmauur in https://github.com/menloresearch/jan/pull/6250\n- fix: remove experimental toggle by @louis-menlo in https://github.com/menloresearch/jan/pull/6255\n- fix: enable back app language setting by @louis-menlo in https://github.com/menloresearch/jan/pull/6257\n- ci: add autoqa migration workflow by @Minh141120 in https://github.com/menloresearch/jan/pull/6261\n- feat: gguf file size + hash validation (#5266) by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6259\n- fix: bring back manual model capability edit modal by @louis-menlo in https://github.com/menloresearch/jan/pull/6260\n- feat: Add support for custom environmental variables to llama.cpp by @qnixsynapse in https://github.com/menloresearch/jan/pull/6256\n- fix: Update placeholder text and error message by @qnixsynapse in https://github.com/menloresearch/jan/pull/6263\n- feat: Add model compatibility check and memory estimation by @qnixsynapse in https://github.com/menloresearch/jan/pull/6243\n- fix: add missing Polish translations by @0rzech in https://github.com/menloresearch/jan/pull/6262\n- ci: add job condition for auto assign milestone by @Minh141120 in https://github.com/menloresearch/jan/pull/6264\n- fix: check for env value before setting by @qnixsynapse in https://github.com/menloresearch/jan/pull/6266\n- fix: update linux build script to be consistent with CI by @qnixsynapse in https://github.com/menloresearch/jan/pull/6269\n- fix: compatibility imported model by @urmauur in https://github.com/menloresearch/jan/pull/6271\n- fix: update copy offload_mmproj setting desc by @urmauur in https://github.com/menloresearch/jan/pull/6272\n- docs: add blog for jan v1 research by @new5558 in https://github.com/menloresearch/jan/pull/6197\n- docs: fix OG image URL and update publication date by @eckartal in https://github.com/menloresearch/jan/pull/6274\n- fix: jan research blog ogimage by @urmauur in https://github.com/menloresearch/jan/pull/6282\n- fix: handle manual toggle vision for remote model by @urmauur in https://github.com/menloresearch/jan/pull/6281\n- removed orphan pages and polished wording of main page by @ramonpzg in https://github.com/menloresearch/jan/pull/6273\n- fix: system monitor window permission by @urmauur in https://github.com/menloresearch/jan/pull/6285\n- fix: update ui info by @urmauur in https://github.com/menloresearch/jan/pull/6283\n- chore: update credit description by @Minh141120 in https://github.com/menloresearch/jan/pull/6288\n- Bring QA (0.6.9) changes to dev by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6296\n- chore: bundle license to app by @Minh141120 in https://github.com/menloresearch/jan/pull/6294\n- fix: handle paste image on linux by @urmauur in https://github.com/menloresearch/jan/pull/6299\n- feat: add regression checklist by @Minh141120 in https://github.com/menloresearch/jan/pull/6302\n- fix: mcp cleanup dropodown tool availabel and sort list by @urmauur in https://github.com/menloresearch/jan/pull/6305\n- fix: handle conditional UI regenerate resp by @urmauur in https://github.com/menloresearch/jan/pull/6309\n- fix: code generation more than 300 line by @urmauur in https://github.com/menloresearch/jan/pull/6312\n- make validation message infinite by @dinhlongviolin1 in https://github.com/menloresearch/jan/pull/6318\n- fix: handle checking model gated by @urmauur in https://github.com/menloresearch/jan/pull/6316\n- fix: Use 80% total memory for compatibility check by @qnixsynapse in https://github.com/menloresearch/jan/pull/6321\nNew Contributors\n- @Jasper-256 made their first contribution in https://github.com/menloresearch/jan/pull/6200\n- @Louis454545 made their first contribution in https://github.com/menloresearch/jan/pull/6198\n- @kamal made their first contribution in https://github.com/menloresearch/jan/pull/6205\n- @0rzech made their first contribution in https://github.com/menloresearch/jan/pull/5874\n- @new5558 made their first contribution in https://github.com/menloresearch/jan/pull/6197\nFull Changelog: https://github.com/menloresearch/jan/compare/v0.6.8...v0.6.9",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.9",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.9/Jan_0.6.9_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.9_x64-setup.exe",
+          "sha256": "373a8549d7bba400824a3901028cf7ca7d222ca4a1b95f34bc8a4760ff2defba",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.8",
+      "release_date": "2025-08-14",
+      "release_notes": "What's Changed\n- Sync Release/v0.6.6 into dev by @louis-menlo in https://github.com/menloresearch/jan/pull/5973\n- fix: thread sorting issue by @cmppoon in https://github.com/menloresearch/jan/pull/5976\n- ✨enhancement: blurry logo model provider by @urmauur in https://github.com/menloresearch/jan/pull/5986\n- fix: missing text color responsive left panel by @urmauur in https://github.com/menloresearch/jan/pull/5989\n- fix assistant dropdown onClick not triggered consistently by @cmppoon in https://github.com/menloresearch/jan/pull/5991\n- Sync Release/v0.6.6 into dev by @louis-menlo in https://github.com/menloresearch/jan/pull/5997\n- Add comprehensive Products section and reorganize documentation structure by @ramonpzg in https://github.com/menloresearch/jan/pull/5958\n- Sync release/v0.6.6 into dev by @louis-menlo in https://github.com/menloresearch/jan/pull/6004\n- refactor: clean up cortex by @louis-menlo in https://github.com/menloresearch/jan/pull/6003\n- ci: enable PR trigger for dev branch in tauri nightly workflow by @Minh141120 in https://github.com/menloresearch/jan/pull/6014\n- fix: react state loop from hooks useMediaQuery by @urmauur in https://github.com/menloresearch/jan/pull/6031\n- fix: wrong desc setting cont_batching by @urmauur in https://github.com/menloresearch/jan/pull/6034\n- Fix: Llama.cpp server hangs on model load by @qnixsynapse in https://github.com/menloresearch/jan/pull/6030\n- feat(docs): Docs v2 Astro migration by @ramonpzg in https://github.com/menloresearch/jan/pull/5950\n- feat: Improve llama.cpp argument handling and add device parsing tests by @qnixsynapse in https://github.com/menloresearch/jan/pull/6041\n- fix: show error toast message on download error by @cmppoon in https://github.com/menloresearch/jan/pull/6044\n- fix: Generate A Response button does not show context size error dialog by @urmauur in https://github.com/menloresearch/jan/pull/6029\n- fix connected servers status not in sync when edit mcp json by @cmppoon in https://github.com/menloresearch/jan/pull/6020\n- feat: Add check for AVX2 instruction support for MCP on MacOS with Intel CPUs by @shmutalov in https://github.com/menloresearch/jan/pull/5530\n- chore: skip nightly build workflow for external contributor by @Minh141120 in https://github.com/menloresearch/jan/pull/6050\n- fix: support missing llamacpp cuda backends by @louis-menlo in https://github.com/menloresearch/jan/pull/6046\n- ci: disable autoqa on nightly build by @Minh141120 in https://github.com/menloresearch/jan/pull/6051\n- ✨feat: recommended label llamacpp setting by @urmauur in https://github.com/menloresearch/jan/pull/6052\n- Fix: Improve Llama.cpp model path handling and error handling by @qnixsynapse in https://github.com/menloresearch/jan/pull/6045\n- ✨feat: jinja template customize per model instead provider level by @urmauur in https://github.com/menloresearch/jan/pull/6053\n- fix: Jan hub model detail and deep link by @louis-menlo in https://github.com/menloresearch/jan/pull/6024\n- fix: Add conditional Vulkan support check for better GPU compatibility by @qnixsynapse in https://github.com/menloresearch/jan/pull/6066\n- Readme Update and Additional Model Providers by @ramonpzg in https://github.com/menloresearch/jan/pull/6064\n- fix: gpt-oss thinking block by @urmauur in https://github.com/menloresearch/jan/pull/6071\n- fix: should not include reasoning text in the chat completion request by @louis-menlo in https://github.com/menloresearch/jan/pull/6072\n- chore: update workflow name by @Minh141120 in https://github.com/menloresearch/jan/pull/6073\n- ci: deprecate jan docs new release workflow in favor of jan-docs by @Minh141120 in https://github.com/menloresearch/jan/pull/6078\n- Add gpt-oss local installation blog post by @eckartal in https://github.com/menloresearch/jan/pull/6075\n- feat: Add support for overriding tensor buffer type by @qnixsynapse in https://github.com/menloresearch/jan/pull/6062\n- refactor: move session management & port allocation to backend by @qnixsynapse in https://github.com/menloresearch/jan/pull/6083\n- 🐛fix: onboarding loop by @urmauur in https://github.com/menloresearch/jan/pull/6054\n- refactor: Use more precise terminology in API server logs by @qnixsynapse in https://github.com/menloresearch/jan/pull/6085\n- fix: update ux recemmend backend label into desc setting by @urmauur in https://github.com/menloresearch/jan/pull/6088\n- feat: Introduce structured error handling for llamacpp extension by @qnixsynapse in https://github.com/menloresearch/jan/pull/6087\n- refactor: clean up unused hardware apis by @louis-menlo in https://github.com/menloresearch/jan/pull/6089\n- added v0.6.7 changelog and jupyter mcp tutorial by @ramonpzg in https://github.com/menloresearch/jan/pull/6116\n- fix: Prevent accidental message submitting on ChatInput for IME users by @B0sh in https://github.com/menloresearch/jan/pull/6109\n- adding handbook, blog, and changelog to jan docs v2 by @ramonpzg in https://github.com/menloresearch/jan/pull/6118\n- fix: bring back gpu detection - app data relocate issue by @louis-menlo in https://github.com/menloresearch/jan/pull/6119\n- ci: update generate release note and jan docs release by @Minh141120 in https://github.com/menloresearch/jan/pull/6121\n- docs: Update 3-epic.md by @freelerobot in https://github.com/menloresearch/jan/pull/6124\n- docs: Update 4-goal.md by @freelerobot in https://github.com/menloresearch/jan/pull/6125\n- ci: add path for tauri nightly build by @Minh141120 in https://github.com/menloresearch/jan/pull/6130\n- fix: HF token is not used while searching repositories by @louis-menlo in https://github.com/menloresearch/jan/pull/6137\n- fix: factory reset process got blocked by @louis-menlo in https://github.com/menloresearch/jan/pull/6140\n- fix: visualize readme content for private repo with HF token by @louis-menlo in https://github.com/menloresearch/jan/pull/6141\n- fix: Improve error message for invalid version/backend format by @qnixsynapse in https://github.com/menloresearch/jan/pull/6149\n- fix: migrations model setting by @urmauur in https://github.com/menloresearch/jan/pull/6165\n- fix: handle modelId special char by @urmauur and @louis-menlo on https://github.com/menloresearch/jan/pull/6172\n- fix: feature toggle auto updater by @Minh141120 and @louis-menlo on https://github.com/menloresearch/jan/pull/6175\nNew Contributors\n- @cmppoon made their first contribution in https://github.com/menloresearch/jan/pull/5976\n- @shmutalov made their first contribution in https://github.com/menloresearch/jan/pull/5530\n- @B0sh made their first contribution in https://github.com/menloresearch/jan/pull/6109\nFull Changelog: https://github.com/menloresearch/jan/compare/v0.6.6...v0.6.8",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.8",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.8/Jan_0.6.8_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.8_x64-setup.exe",
+          "sha256": "0fbe5afd5e626e0cf3bdd594649002b30fab77b496d004c0ce71ef64bd67f108",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.7",
+      "release_date": "2025-08-06",
+      "release_notes": "Changes\n- fix: should not include reasoning text in the chat completion request @louis-menlo (#6072)\n- fix: gpt-oss thinking block @urmamur (#6071)\n- fix: react state loop from hooks useMediaQuery @urmamur (#6031)\nContributor\n@louis-menlo and @urmauur",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.7",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.7/Jan_0.6.7_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.7_x64-setup.exe",
+          "sha256": "738aafe2e51773837e043ffeb605afa17565e6878360ecaed11cabd87582a734",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.6",
+      "release_date": "2025-07-31",
+      "release_notes": "Changes\n- Add RunEvent::Exit event to tauri to handle macos context menu exit @qnixsynapse (#6005)\n- fix: remove auto refresh model custom provider @urmauur (#6002)\n- fix: generate response button disappear on tool call @louis-menlo (#5988)\n- fix: title tooltip MCP edit json @urmauur (#5987)\n- fix: download progress missing when left panel scrollable @urmauur (#5984)\n- fix: failed provider models list due to broken cortex import @louis-menlo (#5983)\n- Sync Release/v0.6.6 into dev @louis-menlo (#5973)\n- fix: use direct process termination instead of console events on Windows @qnixsynapse (#5972)\n- fix: rename thread dialog shows previous thread @urmauur (#5963)\n- chore: allow all HTTPS image sources in img-src directive @Minh141120 (#5970)\n- feat: Enhance port selection with availability check @qnixsynapse (#5966)\n- fix: csp including img.shields.io and cdn-uploads.huggingface.co in img-src directive @Minh141120 (#5967)\n- ci: tolerate artifact upload @Minh141120 (#5969)\n- fix: assistant with last used and fix metadata @urmauur (#5955)\n- fix: search models result in hub should be sorted by weight @louis-menlo (#5954)\n- fix: factory reset fail with access denied error @louis-menlo (#5952)\n- fix: set autoUnload in onLoad() @qnixsynapse (#5956)\n- fix: update edge case experimental feature MCP @urmauur (#5951)\n- fix: correctly apply auto_unload setting from config @qnixsynapse (#5953)\n- fix: Prevent race condition with auto-unload during rapid model loading @qnixsynapse (#5947)\n- chore: uninstall when upgrading windows installer @Minh141120 (#5945)\n- fix: openrouter unselect itself @louis-menlo (#5943)\n- fix: tool approval params scrollable @urmauur (#5941)\n- fix: migrate app settings to the new version @louis-menlo (#5936)\n- fix: Remove sInfo from activeSessions before unloading @qnixsynapse (#5938)\n- fix: update default GPU toggle, and simplify state @urmauur (#5937)\n- chore: revert back to passive mode on windows installer @Minh141120 (#5934)\n- fix: update ui version_backend, mem usage hardware @urmauur (#5932)\n- fix: Frontend updates when llama.cpp backend auto-downloads @qnixsynapse (#5926)\n- fix: calculation memory on hardware and system monitor @urmauur (#5922)\n- fix: persist model capabilities refresh app @urmauur (#5918)\n- fix: validate name assistant and improve area clickable @urmauur (#5920)\n- fix: Allow N-GPU Layers (NGL) to be set to 0 in llama.cpp @qnixsynapse (#5907)\n- fix: models hub should show latest data only @louis-menlo (#5925)\n- fix: Persist 'Auto-Unload Old Models' setting in llama.cpp @qnixsynapse (#5906)\n- feat: Enhance Llama.cpp backend management with persistence @qnixsynapse (#5886)\n- Chore cua mac runner @hiento09 (#5888)\n- fix: provider settings should be refreshed on page load @louis-menlo (#5887)\n- 🐛fix: get system info and system usage @urmauur (#5884)\n- fix: gpu detected from backend version @urmauur (#5882)\n- fix: bring back HF repo ID search in Hub @louis-menlo (#5880)\n- chore: revert app artifact name for macos linux and windows builds @Minh141120 (#5878)\n- feat: add support for querying available backend devices @qnixsynapse (#5877)\n- fix: llama.cpp backend shows blank list sometime @louis-menlo (#5876)\n- ci: rename app github artifact on windows and linux build @Minh141120 (#5875)\n- ci: autoqa github artifact @Minh141120 (#5873)\n- fix: jan should have a general assistant instruction @louis-menlo (#5872)\n- fix: tmp download file should be removed on cancel @louis-menlo (#5849)\n- 🐛fix: remove sampling parameters from llamacpp extension @urmauur (#5871)\n- 🐛fix: update vulkan active syntax @urmauur (#5869)\n- fix: app should not show manually deleted models @louis-menlo (#5868)\n- feat: migrate cortex models to llamacpp extension @louis-menlo (#5838)\n- fix: charmap encoding @Minh141120 (#5865)\n- fix: HuggingFace provider should be non-deletable @louis-menlo (#5856)\n- fix: gemini tool call support - version bump @louis-menlo (#5848)\n- Fix: engine unable to find dlls on when running on Windows @qnixsynapse (#5863)\n- chore: update build appimage script @Minh141120 (#5866)\n- ✨enhancement: dialog model error trigger from provider screen @urmauur (#5858)\n- fix: support load model configurations @urmauur (#5843)\n- fix: delete all thread should not include fav @urmauur (#5864)\n- Chore: enrich autoqa log @hiento09 (#5862)\n- refactor: Improve Llama.cpp backend management and auto-update @qnixsynapse (#5845)\n- fix: autoqa prompt template @Minh141120 (#5854)\n- feat: add vcruntime for windows installer @Minh141120 (#5852)\n- ✨enhancement: auto focus always allow action from tool approval dialog and add req parameters @urmauur (#5836)\n- enhancement: better error page component @urmauur (#5834)\n- chore: sync make build with dev @Minh141120 (#5847)\n- refactor: standardize build process and remove build-tauri target @Minh141120 (#5846)\n- fix: custom tauri nsis template CheckIfAppIsRunning macro @Minh141120 (#5840)\n- fix: update @taur-apps/cli to newest verison to fix appimage download @Minh141120 (#5839)\n- fix: prevent terminal window from opening on model load on WindowsOS @qnixsynapse (#5837)\n- feat: add claude-4 @louis-menlo (#5829)\n- feat: support per-model overrides in llama.cpp load() @qnixsynapse (#5820)\n- fix: llama.cpp integration model load and chat experience @louis-menlo (#5823)\n- test: deprecate webdriver test in favor of auto qa using CUA @louis-menlo (#5825)\n- Revert \"chore(deps): update rand requirement from 0.8 to 0.9 in /src-tauri\" @louis-menlo (#5824)\n- fix: Legacy threads show on top of new threads (#5696) @louis-menlo (#5810)\n- fix: llama.cpp backend download on windows @louis-menlo (#5813)\n- fix: dependabot should just update security patch @louis-menlo (#5814)\n- chore(deps): update rand requirement from 0.8 to 0.9 in /src-tauri @dependabot (#5399)\n- docs: Add Instruction for Toggling Experimental Features Before Toggling MCP Servers @bytrangle (#5771)\n- chore(deps): bump @radix-ui/react-hover-card from 1.1.11 to 1.1.14 @dependabot (#5603)\n- Fix autoqa lib dependencies @hiento09 (#5812)\n- refactor: simplify proxy settings by removing unused SSL verification options @louis-menlo (#5809)\n- feat: Add Hugging Face as a provider @gary149 (#5808)\n- fix: Improve stream error handling and parsing @qnixsynapse (#5807)\n- feat: add autoqa @hiento09 (#5779)\n- set line number userSelect to none so that code can be copied without line number @ethanova (#5782)\n- feat: add model load error handling to improve UX @louis-menlo (#5802)\n- fix: Add --reasoning-format none to support rendering of reasoning content @qnixsynapse (#5803)\n- feat: proxy support for the new downloader @louis-menlo (#5795)\n- Sync release/0.6.5 into dev to start new development cycle @louis-menlo (#5801)\n- refactor: move thinking toggle to runtime settings for dynamic control @qnixsynapse (#5800)\n- test: deprecate webdriver test in favor of auto qa using CUA @louis-menlo (#5797)\n- Documentation Updates for v0.6.5 @ramonpzg (#5799)\nContributor\n@Minh141120, @bytrangle, @dependabot, @dependabot[bot], @ethanova, @gary149, @hiento09, @louis-menlo, @qnixsynapse, @ramonpzg and @urmauur",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.6",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.6/Jan_0.6.6_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.6_x64-setup.exe",
+          "sha256": "cff483dabec0f58f483ea68cf72c558950fbc29cf741d2773fb7b815bf5a845b",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.5",
+      "release_date": "2025-07-17",
+      "release_notes": "Changes\n- ✨enhancement: support base layout responsive Ul @urmauur (#5472)\n- ✨enhancement: setting responsive @urmauur (#5615)\n- ✨feat: bump version of llama.cpp - b5857 @louis-menlo (#5742)\n- 🐛fix: revert back stat hover for three dots @urmauur (#5777)\n- 🐛fix: download icon when left panel close @urmauur (#5776)\n- 🐛fix: revert installationmode in nsis template @Minh141120 (#5778)\n- 🐛fix: make three dots default show 3 dots and can trigger with right click @urmauur (#5712)\n- 🐛fix: custom based url and header by upgrade token.js version @samhvw8 (#5596)\n- 🐛fix: update base URL for Anthropic provider @samhvw8 (#5600)\n- 🐛fix: Tauri Applmage failing to render on wayland + mesa @DistractionRectangle (#5463)\n- 🐛fix: fetch models from custom provider causes app to crash @louis-menlo (#5791)\n- 🔧 config: all yml to md for issue template @LazyYuuki (#5661)\n- 🔧 config: fix bug template @LazyYuuki (#5658)\n- 🔧 config: from yml to md for template @LazyYuuki (#5657)\nContributors\n@LazyYuuki, @Minh141120, @louis-menlo, @samhvw8, @DistractionRectangle and @urmauur",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.5/Jan_0.6.5_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.5_x64-setup.exe",
+          "sha256": "4d209b3b03888f0074cc7abbfab09bc1b219f46c3449cae3159d1137a969a42a",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.4",
+      "release_date": "2025-07-01",
+      "release_notes": "Changes\n- fix: top_k validation @louis-menlo (#5650)\n- fix: some of the model settings are not applied @louis-menlo (#5644)\n- fix: min_p validation on model load @louis-menlo (#5568)\nContributor\n@louis-menlo",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.4",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.4/Jan_0.6.4_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.4_x64-setup.exe",
+          "sha256": "931a9335e53049f33e056b6364a4e268a2529afeecd53673abf7bf06c6efb791",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.3",
+      "release_date": "2025-06-26",
+      "release_notes": "Changes\n- fix: handle context shift setting from old app versions @louis-menlo (#5547)\n- 🐛fix: modal action light mode @urmauur (#5545)\n- hotfix: increase context size window does not popup first time @louis-menlo (#5542)\nContributor\n@louis-menlo and @urmauur",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.3/Jan_0.6.3_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.3_x64-setup.exe",
+          "sha256": "45ebb56730bd7d83905efac136c7a1d6bf869c65460f0181d4d40cd1e4ed0ed5",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.2",
+      "release_date": "2025-06-26",
+      "release_notes": "Changes\n- 🔧config: remove MCP and tool use production gate @louis-menlo (#5531)\n- 🐛fix: default model settings @louis-menlo (#5528)\n- ✨enhancement: adjust placement exp toggle @urmauur (#5525)\n- ✨feat: improve local provider connectivity with CORS bypass @samhvw8 (#5458)\n- ✨enhancement: experimental feature toggle @urmauur (#5514)\n- 🐛fix: delete pre populate remote models @urmauur (#5516)\n- ♻️ sync: cherry pick v0.6.2 release @louis-menlo (#5515)\nContributor\n@louis-menlo, @samhvw8 and @urmauur",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.2/Jan_0.6.2_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.2_x64-setup.exe",
+          "sha256": "8976dc0fc2d8ea34412eeeffa03c1d93faec156fcb3fa4f73c5a825431d2c29f",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.1",
+      "release_date": "2025-06-19",
+      "release_notes": "Changes\n- 🐛 fix: avoid rendering the HTML title of the thread @urmauur (#5375)\nContributor\n@urmauur",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.1/Jan_0.6.1_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.1_x64-setup.exe",
+          "sha256": "b4cdf17ff9cfde01160848a691759df578b327fffac549cad6b3dfc901a00843",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.0",
+      "release_date": "2025-06-19",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.6.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.6.0/Jan_0.6.0_x64-setup.exe",
+          "host": "github.com",
+          "filename": "Jan_0.6.0_x64-setup.exe",
+          "sha256": "fd94771d8d30145791da9fd388b6662bb8ee8cec4920eeecdb7e4ce69ab3a920",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.17",
+      "release_date": "2025-05-15",
+      "release_notes": "Changes\n- Enhanced wording on the installation pages, the data folder and the privacy section. @ramonpzg (#4943)\n- ci(workflow): add condition pr labelling job for forked repo @Minh141120 (#4934)\n- Enhanced the wording on the overview and the quickstart pages. @ramonpzg (#4930)\n- fix: \"GPU Acceleration\" section missing after enabling Experimental Mode since version 0.5.15 @emeric-martineau (#4826)\n- chore: use more appropriate html tag for 'ModelDropdown' trigger and 'Settings' button @tuananhlai (#4841)\n- fix/main-chat-page: warnings from React @tuananhlai (#4855)\n- chore: Update Changelogs for v0.5.15 and v0.5.16 @eckartal (#4836)\n- fix: show settings sidebar panel when chat sidebar is closed @sdhrt (#4766)\n- chore: merge release/v0.5.16 into dev @louis-menlo (#4833)\n- docs: Update new Hub images on Jan docs @imtuyethan (#4710)\n🐛 Fixes\n- fix: should not normalize user input content @louis-menlo (#4985)\n- fix: distinguish between hub and models search @louis-menlo (#4989)\n- fix: border for the search box in my models @david-menloai (#4987)\n- fix: update remote models list @david-menloai (#4986)\n- fix: qwen3 - weird token output - reasoning content should not be in completion request @louis-menlo (#4983)\n🧰 Maintenance\n- chore: my models search box css issue @louis-menlo (#4984)\n- chore: qwen3 blog @urmauur (#4979)\n- chore: fix headers @hiento09 (#4958)\n- chore: fix jan about doc @david-menloai (#4937)\n- chore: update llama.cpp repo url in readme @qnixsynapse (#4921)\n- chore: remove workflow automation @david-menloai (#4856)\n- chore: update jan doc v0.5.16 @david-menloai (#4851)\n- chore: remove attribute Homebrew @urmauur (#4838)\nContributor\n@Minh141120, @david-menloai, @eckartal, @emeric-martineau, @hiento09, @imtuyethan, @louis-menlo, @qnixsynapse, @ramonpzg, @sdhrt, @tuananhlai, @urmauur, david and mimic",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.5.17",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.5.17/jan-win-x64-0.5.17.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.17.exe",
+          "sha256": "e7b3b0432e873399110f0605c1995c843ec7b6856a5131d26db34b4a6048cd68",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.16",
+      "release_date": "2025-03-24",
+      "release_notes": "🚀 Features\n- feat: rotate api token for each run @louis-menlo (#4820)\n- feat: Cortex API Authorization @louis-menlo (#4819)\n- enhancement: add checkmark selected model @urmauur (#4795)\n- analytics: integrate posthog into Jan web @urmauur (#4788)\n- feat: add openai 4.5 preview and anthropic claude 3.7 sonnet models @david-menloai (#4764)\n- enhancement: recommended label engine variant @urmauur (#4740)\n- enhancement: improve chat thread @urmauur (#4736)\n- enhancement: scrollbar setting options @urmauur (#4726)\n- enhancement: update pixelated icon on windows platform @urmauur (#4721)\n- feat: Jan Model Hub filter options and responsiveness @louis-menlo (#4714)\n- feat: preserve token speed in the thread @louis-menlo (#4711)\n- feat: Jan Model Hub should stay updated @louis-menlo (#4707)\n- feat: allow users to refresh cloud model list @louis-menlo (#4698)\n🐛 Fixes\n- fix: jan beta logo displayed in jan release @Minh141120 (#4828)\n- fix: clear logs should not delete the folder @louis-menlo (#4806)\n- fix: minor ui issue @urmauur (#4805)\n- fix: update career url @urmauur (#4800)\n- fix: table markdown @urmauur (#4797)\n- fix: hub model list desc render @urmauur (#4796)\n- fix: app image - could not load model @louis-menlo (#4794)\n- fix: Hub UI issue render readme @urmauur (#4792)\n- fix: cohere response template correction for proper markdown parsing @louis-menlo (#4791)\n- fix: image preview overlap toolbar message @urmauur (#4790)\n- fix: anthropic response template correction @louis-menlo (#4789)\n- fix: engine version update - cortex version bump - update tests @louis-menlo (#4787)\n- fix: naming nightly and beta build @Minh141120 (#4779)\n- fix: quickask ui color and alignment on mymodel list @urmauur (#4774)\n- fix: list space styled and hidden message toolbar when editmode @urmauur (#4773)\n- fix: image upload button does not work - refresh models list persist current selected engine @louis-menlo (#4768)\n- fix: correct jan discord channel @david-menloai (#4763)\n- fix: first message padding is off @louis-menlo (#4762)\n- fix: Jan Quick Ask window capture input issues @louis-menlo (#4758)\n- fix: deeplink does not work sometime @louis-menlo (#4755)\n- fix: some endpoints are invisible @louis-menlo (#4752)\n- fix: app check available update @urmauur (#4751)\n- fix: cannot click dropdown appearance @urmauur (#4750)\n- fix: correct default engine variant setup on first launch @louis-menlo (#4747)\n- fix: hub button download @urmauur (#4742)\n- fix: hub ui no result search found @urmauur (#4739)\n- fix: onboarding screen should show persisted cloud providers @louis-menlo (#4738)\n- fix: chat body scrollbar @urmauur (#4737)\n- fix: flow app updater manual check from native menu @urmauur (#4731)\n- fix: should not select vulkan by default when there are Nvidia GPUs detected @louis-menlo (#4720)\n- fix: should disable start model button when there is a model is loading @louis-menlo (#4713)\n- fix: format compact number utils @urmauur (#4695)\n- fix: typo fix @matthewbcool (#4748)\n🧰 Maintenance\n- chore: cortex.cpp gpu activation could cause a race condition @louis-menlo (#4825)\n- chore: should have an option to not revalidate hardware information @louis-menlo (#4822)\n- chore: should get hardware information on launch @louis-menlo (#4821)\n- chore: correct cohere response template @louis-menlo (#4802)\n- chore: do not symlink engine on linux @louis-menlo (#4798)\n- chore: bump cortex version @louis-menlo (#4793)\n- refactor: clean up legacy vision model settings @louis-menlo (#4777)\n- chore: sync initial hub models @louis-menlo (#4778)\n- chore: bump cortex version to fix model sources issue @louis-menlo (#4775)\n- refactor: clean up deprecated components and events @louis-menlo (#4769)\n- chore: handle list number and disc readme hgf @urmauur (#4756)\n- chore: hub UI tooltip filter, max model size and search result @urmauur (#4753)\n- chore: correct model author with new cortexso update @louis-menlo (#4754)\n- chore: remove hard coded recommendation models and use cortexso featured tags @louis-menlo (#4741)\n- chore: correct channel name to ask for help @david-menloai (#4733)\n- chore: update hub UI @urmauur (#4734)\n- refactor: clean up legacy predefined models @louis-menlo (#4730)\n- chore: enhance onboarding screen's models @louis-menlo (#4723)\n- chore: fix model hub sorting @louis-menlo (#4722)\n- chore: migrate engine settings on update @louis-menlo (#4719)\n- chore: sticky model hub filter panel @louis-menlo (#4715)\n- chore: change app logo for build nightly @Minh141120 (#4709)\n- chore: streaming should be turned on by default @louis-menlo (#4712)\n- chore: change app logo for jan beta and nightly version @Minh141120 (#4708)\n- refactor: different Jan builds should have different Cortex server port @louis-menlo (#4699)\n- chore: Hub UI and markdown CSS @louis-menlo (#4696)\n- fix: format compact number utils @urmauur (#4695)\n- chore: sync release v0.5.15 branch into dev branch @louis-menlo (#4683)\n- chore: Update all images & some wrong parts in Jan docs @imtuyethan (#4676)\nContributor\n@Minh141120, @david-menloai, @imtuyethan, @louis-menlo, @matthewbcool and @urmauur",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.5.16",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.5.16/jan-win-x64-0.5.16.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.16.exe",
+          "sha256": "e794d369151577f9ae62f888af8512f370eb83040f7cbd18759e14fd2dc1e6b7",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.15",
+      "release_date": "2025-02-18",
+      "release_notes": "🚀 Features\n- feat: Allow HTTP proxy authentication inputs @bxdoan (#4479)\n- enhancement: remote engine model @urmauur (#4560)\n- enhancement: error ui in threads @urmauur (#4578)\n- fix: think content render as markdown @urmauur (#4564)\n- feat: better hardware setting @urmauur (#4471)\n- enhancement: update UI uploading files and images @urmauur (#4562)\n- feat: pull models list when setting up a new remote engine @louis-menlo (#4547)\n- feat: Standardize inline error messages @urmauur (#4530)\n- enhancement: Inconsistent text color, hidden api-key field, chatcompletion field under advance setting @urmauur (#4532)\n- enhancement: update responsive setting and my model page @urmauur (#4533)\n- feat: allow users to add remote models @louis-menlo (#4534)\n- enhancement: Update app layout with an expanded system monitor @urmauur (#4528)\n- enhancement: added space scroll remote engine setting @urmauur (#4523)\n- enhancement: create new thread with last chosen model @urmauur (#4524)\n- feat: remove umami @urmauur (#4520)\n- enhancement: minor ui refinements @urmauur (#4521)\n🐛 Fixes\n- fix: typo on apple @ynshung (#4525)\n- fix: reload app when gpu change @urmauur (#4678)\n- fix: app stucks at generating response state after stopped the previous session @louis-menlo (#4662)\n- chore: disable turn off local engine llamacpp @urmauur (#4660)\n- fix: link open new window inside chat message @urmauur (#4651)\n- fix: gpu hardware state @urmauur (#4650)\n- fix: error setting remote engine @urmauur (#4648)\n- fix: model dropdown icon miss align @urmauur (#4645)\n- fix: rename google gemini into gemini @urmauur (#4644)\n- fix: multiple gpu @urmauur (#4641)\n- fix: filter out variant engine @urmauur (#4639)\n- fix: beta noti discord @hiento09 (#4640)\n- fix: messages re-render on different threads @louis-menlo (#4638)\n- fix: render slow on device label @urmauur (#4627)\n- fix: app shows update button even there is no new release @louis-menlo (#4628)\n- fix: remove toggle enable GPU from setting @urmauur (#4624)\n- fix: filter out fake gpu @urmauur (#4617)\n- fix: inconsistent models list on first launch @louis-menlo (#4618)\n- fix: remove from list dropdown when deleted remote model @urmauur (#4616)\n- fix: server log actions position @urmauur (#4608)\n- fix: remote engine model auto select @urmauur (#4609)\n- fix: load model error component @urmauur (#4604)\n- fix: download progress import from hgf @urmauur (#4567)\n- fix: think content render as markdown @urmauur (#4564)\n- fix: app does not reload model when prompt template is updated @louis-menlo (#4537)\n- fix: broken range slider ctx length @urmauur (#4535)\n- fix: typo meta description @urmauur (#4507)\n🧰 Maintenance\n- chore: privacy policy final @eckartal (#4472)\n- chore: fix engine template for remote providers @louis-menlo (#4680)\n- chore: bump cortex release 1.0.10 @louis-menlo (#4679)\n- chore: Sync Server Playground Schema with Latest Cortex.cpp API Specs @louis-menlo (#4672)\n- chore: update ui width text field slider, and conditional button copy based value length @urmauur (#4661)\n- chore: disable turn off local engine llamacpp @urmauur (#4660)\n- chore: bump cortex version and fix misc UI issues @louis-menlo (#4654)\n- chore: remote engine error handling @louis-menlo (#4646)\n- chore: beta version not publish to github @hiento09 (#4634)\n- chore: bump cortex.cpp to the rc5 to address race condition issue @louis-menlo (#4630)\n- chore: fix engine variant for mac targets @louis-menlo (#4626)\n- chore: add back env paths setting so cortex engine can load libraries properly @louis-menlo (#4625)\n- chore: change cortex.cpp log level to info for easier log observation @louis-menlo (#4623)\n- chore: bump cortex to the latest version 1.0.10-rc1 to address hardware UI issues @louis-menlo (#4622)\n- fix: error handling - pull remote models list raise an error on fail @louis-menlo (#4615)\n- chore: add back app logging function @louis-menlo (#4614)\n- chore: update remote provider response transform template @louis-menlo (#4602)\n- chore: bump cortex with conversation patch update @louis-menlo (#4598)\n- chore: add google gemini and deepseek as new supported remote engine providers @louis-menlo (#4596)\n- chore: Updated copies in-app @imtuyethan (#4527)\n- chore:add deepseek r1 distill models to hub @louis-menlo (#4586)\n- chore: add default inference parameters for custom remote models @louis-menlo (#4584)\n- chore: calculate model label @urmauur (#4585)\n- chore: engine model adding ux refinement @louis-menlo (#4580)\n- chore: delete custom engine @urmauur (#4581)\n- chore: reasoning block @urmauur (#4551)\n- chore: align item menu action error message @urmauur (#4548)\n- chore: ensure app Id is maintained @louis-menlo (#4541)\n- chore: Update outdated integrations docs @imtuyethan (#4516)\n- chore: don't auto-sign assignees from external sources due to security concerns @Minh141120 (#4506)\nContributor\n@Minh141120, @bxdoan, @eckartal, @hiento09, @imtuyethan, @louis-menlo, @urmauur and @ynshung",
+      "release_notes_url": "https://github.com/menloresearch/jan/releases/tag/v0.5.15",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/menloresearch/jan/releases/download/v0.5.15/jan-win-x64-0.5.15.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.15.exe",
+          "sha256": "4b81833a3aacc6b6c587b49c96eb1c51e08d40562fa893019959828dc99425df",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.14",
+      "release_date": "2025-01-23",
+      "release_notes": "Changes\n🐛 Fixes\n- fix: thread title summarization doesn't work well on reasoning models @louis-jan (#4504)\n🧰 Maintenance\n- chore: bump llama.cpp to the latest version @louis-jan (#4498)\nContributor\n@louis-jan",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.14",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.14/jan-win-x64-0.5.14.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.14.exe",
+          "sha256": "65a90bba5bdda7b5eaee212c50873cba82168833b2c185be4832c94fa45c3be0",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.13",
+      "release_date": "2025-01-06",
+      "release_notes": "🐛 Fixes\n- fix: max_tokens revert back to 8192 automatically when creating a new thread @louis-jan (#4397)\n- fix: revert back product analytic with default opt-out @urmauur (#4394)\n- fix: send event opt out @urmauur (#4390)\n- fix: enable default opt in analytic @urmauur (#4387)\n- fix: should not disable Vulkan support option @louis-jan (#4382)\n- fix: bump llama.cpp engine hotfix version to address model load issue on some MacOS Intel machines @louis-jan (#4374)\n🧰 Maintenance\n- chore: bump latest cortex release 1.0.8 @louis-jan (#4405)\n- chore: add cpu_threads settings in cortex extension @louis-jan (#4386)\nContributor\n@louis-jan and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.13",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.13/jan-win-x64-0.5.13.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.13.exe",
+          "sha256": "5dd9b88a913774a45237c3aac049e23ae72d5cb6b4602bc75bae12b717fcf469",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.12",
+      "release_date": "2024-12-30",
+      "release_notes": "🚀 Features\n- enhancement: set recommend model to undefined if no model available @urmauur (#4296)\n- enhancement: update thumbnail chat width option setting @urmauur (#4284)\n- feat: handle case thread when original model deleted @urmauur (#4280)\n- feat: add chat width setting option for thread @urmauur (#4278)\n- feat: reroute threads and messages requests to cortex.cpp backend @louis-jan (#4249)\n- feat: product analytic UI @urmauur (#4262)\n- enhancement: move token speed to bottom @urmauur (#4276)\n- feat: add cicd for janhq/joi @hiento09 (#4270)\n- enhancement: better error handing for remote models when there's no internet connection @urmauur (#4252)\n- feat: add auto build when PR is approved @hiento09 (#4241)\n- enhancement: default open Jan Input Box Settings and Right panel @urmauur (#4234)\n- feat: update app download universal for macos @urmauur (#4230)\n- enhancement: remove tooltip local api server when server start @urmauur (#4275)\n🐛 Fixes\n- fix: button state reset on switching models @louis-jan (#4356)\n- fix: regenerate scroll bottom @urmauur (#4348)\n- fix: send message button state reset on stop @louis-jan (#4341)\n- fix: render performance while generating messages @louis-jan (#4328)\n- fix: disabled native resize textarea when textarea autogrowing @urmauur (#4326)\n- fix: scroll bottom when generation text @urmauur (#4323)\n- fix: app picks model automatically edge cases @louis-jan (#4322)\n- fix: generating message is gone after switching to another thread @louis-jan (#4321)\n- fix: update thread's title edge cases @louis-jan (#4320)\n- fix: threads sorting order after updated @louis-jan (#4319)\n- fix: change theme settings do not work after relocated data folder @louis-jan (#4317)\n- fix: cleaning a thread should just clear out messages @louis-jan (#4316)\n- fix: dynamic input box width and remove tooltip image option @urmauur (#4315)\n- fix: overlap bottom system monitor @urmauur (#4310)\n- fix: scroll bottom issue @urmauur (#4308)\n- fix: fetch threads and messages without limiting @louis-jan (#4304)\n- fix: thread error handling @louis-jan (#4307)\n- fix: escape heading on user message item @urmauur (#4301)\n- fix: conditional render model setting based on selected model @urmauur (#4300)\n- fix: attach file information into message metadata for a quick retrieval @louis-jan (#4298)\n- fix: new thread isn't automatically created on factory reset @louis-jan (#4295)\n- fix: scroll to bottom issue @urmauur (#4289)\n- fix: context length is reset while creating a new thread @louis-jan (#4294)\n- fix: empty tooltip on attachment icon, also fix z-index @urmauur (#4290)\n- fix: attachment preview issue @louis-jan (#4282)\n- fix: performance issue with atom storage persistence @louis-jan (#4281)\n- fix: starter screen layout @urmauur (#4279)\n- fix: disabled start model from mymodel list when server is running @urmauur (#4277)\n- fix: default max_tokens set on remote models @louis-jan (#4266)\n- fix: markdown inline inputbox @urmauur (#4269)\n- fix: auto scrolling to bottom @urmauur (#4256)\n- fix: crash markdown render code block without triple backtick @urmauur (#4248)\n- fix: performance issue when pasting long content into the chat input box @urmauur (#4240)\n- fix: hide Vulkan option for users who don't have GPU @louis-jan (#4226)\n- fix: list style off screen @urmauur (#4231)\n- fix: fix issue with duplicate events on Enter key press during CJK character composition in chat input @cuhong (#4268)\n🧰 Maintenance\n- chore: bump cortex latest version 1.0.7 @louis-jan (#4357)\n- chore: bump cortex 1.0.7 RC @louis-jan (#4355)\n- chore: don't stop inference and hide the stop button when creating a new thread @louis-jan (#4354)\n- chore: Refactor thread state management @louis-jan (#4350)\n- chore: bump latest cortex stable release version @louis-jan (#4336)\n- chore: bump cortex 1.0.6-rc @louis-jan (#4330)\n- chore: add OpenAI gpt-4o-mini and o1 models @louis-jan (#4311)\n- chore: deprecate Jan core's REST module - all API requests go to cortex.cpp @louis-jan (#4297)\n- chore: bump cortex 1.0.5 rc2 @louis-jan (#4293)\n- chore: add ci janhq/core publish npm @hiento09 (#4259)\n- chore: deprecate groq llama 3.1 70B Versatile @louis-jan (#4265)\n- chore: fix openai vision models @louis-jan (#4246)\n- chore: roadmap template fix @gabrielle-ong (#4227)\n- chore: fix beta ci @hiento09 (#4233)\n- chore: update download url for macos universal @hiento09 (#4232)\nContributor\n@cuhong, @gabrielle-ong, @hiento09, @louis-jan and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.12",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.12/jan-win-x64-0.5.12.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.12.exe",
+          "sha256": "8e66085746f593c32071a85278b2a6ee085a817cc113d999632cd00898d94b61",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.11",
+      "release_date": "2024-12-05",
+      "release_notes": "🚀 Features\n- feat: macos universal @hiento09 (#4197)\n🐛 Fixes\n- fix: syntax highlight configurations that made everything dark @louis-jan (#4223)\n- fix: react-markdown crash on code highlighting - threads switching do not take effect sometime @louis-jan (#4216)\n- fix: 4208 - Empty title with special characters @louis-jan (#4212)\n- fix: 4209 - Inconsistent max tokens value persistence @louis-jan (#4213)\n- fix: 4155 - Queue up health check on server restarting @louis-jan (#4201)\n- fix: 4162 - Graceful OpenRouter error handling @louis-jan (#4200)\n- fix: 4165 - Refactor message builder to avoid sending empty messages @louis-jan (#4199)\n- fix: 4178 - current generated message options should be visible @louis-jan (#4196)\n🧰 Maintenance\n- chore: Hotfix 0.5.11 - Release cut @louis-jan (#4217)\n- chore: Sync main to dev after 0.5.10 @louis-jan (#4194)\n- chore: add NGL settings for vision models @louis-jan (#4214)\n- chore: update the docs for the new Cortex server port @louis-jan (#4190)\nContributor\n@hiento09 and @louis-jan",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.11",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.11/jan-win-x64-0.5.11.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.11.exe",
+          "sha256": "101c6c8f994c37bf6b1ed16e67c0af94d26d22e9b105c20df597b70828e0ac37",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.10",
+      "release_date": "2024-12-03",
+      "release_notes": "🚀 Features\n- feat: Privacy docs @eckartal (#4080)\n- feat: update Jan’s client request to adapt API changes from Cortex @louis-jan (#4130)\n- enhancement: increased max-token limit claude-3.5 @urmauur (#4112)\n- feat: stop word model setting @urmauur (#4113)\n- feat: add more Groq models @sharunkumar (#3843)\n- feat: Anthropic Model Updates @px100 (#3888)\n🐛 Fixes\n- fix: scrollbar issue css @louis-jan (#4191)\n- fix: 4171 - Model loading gets stuck on stop @louis-jan (#4177)\n- fix: high performance large convo rendering @louis-jan (#4166)\n- fix: smooth the loader animation @louis-jan (#4167)\n- fix: Glitch theme applies on launch @louis-jan (#4168)\n- fix: token speed should not be calculated based on state updates @louis-jan (#4159)\n- fix: remove filter on recommend model @urmauur (#4156)\n- fix: scroll bottom when switch thread @urmauur (#4152)\n- fix: convo component re-render every single token yield @louis-jan (#4150)\n- fix: default local model from starter screen @urmauur (#4151)\n- fix: app re-render issues caused by bad state handling @louis-jan (#4146)\n- fix: handle case stop word too long @urmauur (#4145)\n- fix: wrong component wrapping and state handling cause excessive app re-render @louis-jan (#4141)\n- fix: 4098 - factory reset closes the app & never opens again on Linux @louis-jan (#4139)\n- fix: memory leak lowlight dependencies @urmauur (#4134)\n- fix: default local model from starter screen @urmauur (#4135)\n- fix: 4096 - failed to get huggingface models @louis-jan (#4133)\n- fix: 4094 - gpu mode toggle on by default but not affect for the first time launch @louis-jan (#4132)\n- fix: 4012 - active model should be gone as soon as cortex.cpp server is killed @louis-jan (#4131)\n- fix: 3986 - invalid request should show clear error message @louis-jan (#4119)\n- fix: memory leak when the code block response is too long @urmauur (#4129)\n- fix: Line-number and border color code block UI @urmauur (#4105)\n- fix: 4086 - editing message should not send follow-up messages @louis-jan (#4116)\n- fix: handle case markdown value no space @urmauur (#4109)\n- fix: vulkan responsive @urmauur (#4099)\n- fix: reorder alphabetical cloud model on starter screen @urmauur (#4072)\n- fix: disabled shortcut create new thread on starter screen @urmauur (#4074)\n- fix: responsive vulkan support @urmauur (#4076)\n- fix: auto select model when finished download from starter screen @urmauur (#4083)\n🧰 Maintenance\n- chore: release cut 0.5.10 @louis-jan (#4184)\n- chore: refactor chat message components @louis-jan (#4174)\n- chore: create roadmap.md @gabrielle-ong (#4164)\n- docs: add tabby coding integration @zwpaper (#4009)\n- chore: release 0.5.9 sync back - main branch to dev @louis-jan (#4095)\n- chore: correct scrollview thumb style @louis-jan (#4185)\n- chore: bump version 0.5.10 @louis-jan (#4183)\n- chore: display error message from response @louis-jan (#4163)\n- chore: bump cortex 1.0.4-rc4 @louis-jan (#4161)\n- chore: bump cortex.cpp and engine version @louis-jan (#4160)\n- chore: use rehype-highlight v6 update latex language @urmauur (#4144)\n- chore: remove a couple of deprecated server logics @louis-jan (#4120)\nContributor\n@eckartal, @gabrielle-ong, @louis-jan, @px100, @sharunkumar, @urmauur, @zwpaper and eckartal",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.10",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.10/jan-win-x64-0.5.10.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.10.exe",
+          "sha256": "ebbe10b346c61ee50f6b9f57d53897c9e7fa7592ca6bfd548dbfafee4f648609",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.9",
+      "release_date": "2024-11-22",
+      "release_notes": "Changes\n🚀 Features\n- feat: configure HTTP Proxy via cortex.cpp @louis-jan (#4046)\n- feat: configure HuggingFace API Token via cortex.cpp @louis-jan (#4068)\n- enhancement: UX local server page @urmauur (#4045)\n- chore: refactor re-render components @urmauur (#4040)\n- feat: support cortex.cpp engine variants @louis-jan (#4022)\n- feat: new UI code block and Enable copying of code blocks or plain text mid-stream @urmauur (#4010)\n🐛 Fixes\n- fix: model parameters settings local API server @urmauur (#4077)\n- fix: factory reset hang on wiping data @louis-jan (#4079)\n- fix: Phi 3 Mini Instruct model download URL replacement @louis-jan (#4075)\n- fix: edge cases empty code block @urmauur (#4061)\n- fix: correct download script to relocate DLL files properly @louis-jan (#4065)\n- fix: temporary create a deps folder to have cortex.cpp work @louis-jan (#4064)\n- fix: disable timeout on model load @louis-jan (#4058)\n- fix: bump cortex.cpp to latest version - recursively scanning models folder should also include remote models @louis-jan (#4052)\n- fix: correct OpenAI o1 model parameters @louis-jan (#4049)\n- fix: inconsistent error handling @louis-jan (#4051)\n- fix: handle symlink model import failure - fallback to legacy model run @louis-jan (#4050)\n- fix: model import edge cases @louis-jan (#4044)\n- fix: improper line break on response message @urmauur (#4042)\n- fix: Jan 0.5.8 - Couldn’t upload documents to threads @louis-jan (#4031)\n- fix: API local server max ctx_len not update when switch model @urmauur (#4027)\n- fix: max tokens parameters - OpenRouter @urmauur (#4026)\n🧰 Maintenance\n- chore: version bump 0.5.9 @louis-jan (#4070)\n- chore: remote models error handling @louis-jan (#4059)\n- chore: refactor re-render components @urmauur (#4040)\n- chore: correct discord message notification @hiento09 (#4018)\nContributor\n@hiento09, @louis-jan and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.9",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.9/jan-win-x64-0.5.9.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.9.exe",
+          "sha256": "c270eb186137c616ac6a727395431bbd5657cee0680447cbd40d917587c2f095",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.8",
+      "release_date": "2024-11-13",
+      "release_notes": "Changes\n- hotfix: resubscribe download events on connection issue @louis-jan (#4006)\n- feat: Jan Integrates Cortex.cpp as Provider @louis-jan (#3821)\n- chore: update readme @imtuyethan (#3896)\n- chore: remove docker mode section in README & change overview image in Jan docs @imtuyethan (#3869)\n🚀 Features\n- fix: edge cases highlight codeblock @urmauur (#3984)\n- ui: remove generation interrupted message @urmauur (#3949)\n- feat: new nightly app channel @hiento09 (#3948)\n- ui: system monitor should not cover input box @urmauur (#3942)\n- ui: remove redundant animation @urmauur (#3938)\n- ux: auto-focus the chat input box @urmauur (#3941)\n- ui: reduced aggressive blur effect on the modal component @urmauur (#3937)\n- feat: show model id on local api serve page @urmauur (#3926)\n- ui: minor update list model running system monitor @urmauur (#3919)\n- feat: expand the clickable areas ribbon panel @urmauur (#3917)\n🐛 Fixes\n- fix: calculate base layout with system monitor panel @urmauur (#3999)\n- fix: remove cuda toolkit error message and bring back incremental model import @louis-jan (#3997)\n- fix: update the payload transform for OpenAI preview models @louis-jan (#3993)\n- fix: inconsistent model dropdown list and my models @louis-jan (#3991)\n- fix: Model import name and ID are incorrect on Windows @louis-jan (#3989)\n- fix: edge cases highlight codeblock @urmauur (#3984)\n- fix: migrate model settings and parameters but still allow model.yml editing @louis-jan (#3983)\n- fix: alignment stop model btn system monitor @urmauur (#3981)\n- fix: update copy error message @urmauur (#3977)\n- fix: correct chat input cursor behavior when content is scrollable @urmauur (#3979)\n- fix: ux edit message and copy api_key @urmauur (#3975)\n- fix: right panel bg joi-dark and remove n_pararell params @urmauur (#3970)\n- fix: handle edge cases syntax highlight @urmauur (#3969)\n- fix: export PATH env to engine destination folder to have additional dlls scoped @louis-jan (#3966)\n- fix: starter screen text alignment and missing model size @urmauur (#3968)\n- fix: codeblock responsive push right panel @urmauur (#3967)\n- fix: remove click outside system monitor panel @urmauur (#3965)\n- fix: make input clickable for copying instead of just the copy icon @urmauur (#3964)\n- fix: text alignment on import model dialog @urmauur (#3958)\n- fix: remove tooltip and update text color model ID API server page @urmauur (#3959)\n- fix: update themes migrations @urmauur (#3957)\n- fix: Inconsistent model hub and download bar @louis-jan (#3956)\n- fix: controlling word breaks @urmauur (#3952)\n- fix: inconsistent left panel background when responsive @urmauur (#3936)\n- fix: slate react version @urmauur (#3940)\n- fix: edit chat input @urmauur (#3928)\n- fix: text align my model list and import model @urmauur (#3927)\n- fix: types issue (#internalTypeOnlyBrand) in the @types/node package @urmauur (#3921)\n- fix: handle edge cases syntax highlight @urmauur (#3892)\n- fix: deprecated gpt with vision @urmauur (#3912)\n- fix: edge case tiny chat input box show randomly @urmauur (#3887)\n- fix: docs trigger on release deploy to production @hiento09 (#3877)\n🧰 Maintenance\n- chore: add qwen2.5-coder 14B and 32B models @louis-jan (#3998)\n- chore: proxies Jan APIs to cortex.cpp @louis-jan (#3982)\n- chore: bump to latest release @louis-jan (#3980)\n- chore: retrieves the exact model running status upon message error @louis-jan (#3976)\n- chore: add cortex log into modal troubleshoot @urmauur (#3978)\n- chore: enable notification nightly @hiento09 (#3963)\n- chore: support customized OpenAI model.json @louis-jan (#3961)\n- chore: revert change app name @hiento09 (#3962)\n- chore: clean dangling process on exit and relaunch @louis-jan (#3960)\n- chore: beta version add discord notification @hiento09 (#3925)\n- chore: update changelog web @urmauur (#3899)\n- chore: remove deprecated warning from build project joi @urmauur (#3893)\n- chore: Readme add beta download url @hiento09 (#3878)\nContributor\n@hiento09, @imtuyethan, @louis-jan and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.8",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.8/jan-win-x64-0.5.8.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.8.exe",
+          "sha256": "9596ef36bf0a50c509c523e9d2171ef43141de233c33950fd2d6cdd0b3c5fb01",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.7",
+      "release_date": "2024-10-24",
+      "release_notes": "🚀 Features\n- feat: support markdown on user message @urmauur (#3848)\n- feat: save instruction for new threads as a stable feature @urmauur (#3798)\n- feat: Jan beta version @hiento09 (#3835)\n🐛 Fixes\n- fix: update broken/outdated hyperlink @Haleshot (#3857)\n- fix: hardware section @urmauur (#3866)\n- fix: inconsistent state of downloading multi-modal @urmauur (#3862)\n- fix: context length input value isn't update @urmauur (#3854)\n- fix: correct eos token of llava models @louis-jan (#3847)\n- fix: api playground text overlap button and search hub model @urmauur (#3833)\n- fix: enable scroll modal component @urmauur (#3816)\n- fix: reset window state after disconnected from multi monitor @urmauur (#3797)\n- fix: issue ellipsis text on model selector and model start loader @urmauur (#3802)\n- fix: update base url edit page docs @urmauur (#3795)\n🧰 Maintenance\n- chore: replace windows codesign cert @hiento09 (#3839)\n- ci: disable turbo cache @hiento09 (#3836)\n- ci: Update jan-docs.yml @hiento09 (#3799)\n- chore: move Jan Docs back into Jan Repo @hiento09 (#3790)\nContributor\n@Haleshot, @hiento09, @louis-jan and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.7",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.7/jan-win-x64-0.5.7.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.7.exe",
+          "sha256": "a74574ff73d8ef52ced218acdffbc5b8a7e7af1db187013c0f710599d3a224bd",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.6",
+      "release_date": "2024-10-04",
+      "release_notes": "Changes\n- hotfix: graceful error handling model import @louis-jan (#3766)\nContributor\n@louis-jan",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.6",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.6/jan-win-x64-0.5.6.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.6.exe",
+          "sha256": "27619c051576e2873a6ebef995c0a224e07ff007bac753c7f75bd2effe3c1682",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.5",
+      "release_date": "2024-10-02",
+      "release_notes": "Changes\n- enhance: tabs component in model selection @urmauur (#3730)\n🚀 Features\n- feat: textarea auto resize @urmauur (#3695)\n🐛 Fixes\n- fix: thread title for remote model from first prompt @urmauur (#3712)\n- fix: #1142 setting groups toggle does not turn off it's nested settings @louis-jan (#3681)\n- fix: overlap text on model selector and loader @urmauur (#3756)\n- fix: XML not render correctly @urmauur (#3743)\n- fix: model dropdown should show recommended models to download @louis-jan (#3742)\n- fix: correct model dropdown for local models @louis-jan (#3736)\n- fix: #3491 - Unable to use tensorrt-llm @louis-jan (#3741)\n- fix: wrong model download location when there is a mismatch model_id @louis-jan (#3733)\n- fix: #3703 - Deepseek-Coder-33B-Instruct is incompatible @louis-jan (#3732)\n- fix: #3727 LLM model download fail can still be used @louis-jan (#3731)\n- fix: #3673 - API responds with Request body is too large @louis-jan (#3729)\n- fix: #3698 - o1 preview models do not work with max_tokens @louis-jan (#3728)\n- fix: #3515 - The default assistant instructions are ignored @louis-jan (#3721)\n- fix: #3513 - Anthropic extension does not forward the system prompt @louis-jan (#3724)\n- fix: #3558 wrong model metadata import or download from HuggingFace @louis-jan (#3725)\n- fix: toolbar overlap chat input @urmauur (#3720)\n- fix: #3693 broken thread.json should not break the entire threads @louis-jan (#3709)\n- fix: remove title local API server page @urmauur (#3710)\n- fix: enhance various minor UI elements @urmauur (#3706)\n- fix: update the condition for generating the title @urmauur (#3702)\n- fix: small leftover issues with new starter screen @urmauur (#3661)\n- fix: #3476 - Mismatch id between model json and path @louis-jan (#3645)\n- fix: #3667 - The recommended label should be hidden @louis-jan (#3687)\n🧰 Maintenance\n- chore: add llama3.2 and qwen2.5 models @louis-jan (#3750)\n- chore: improve models and threads caching @louis-jan (#3744)\n- ci: auto trigger jan docs ci for new release @hiento09 (#3734)\n- chore: Copyfix @0xSage (#3694)\nContributor\n@0xSage, @hiento09, @louis-jan and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.5",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.5/jan-win-x64-0.5.5.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.5.exe",
+          "sha256": "2f807a7bdb7417266272e56f0f1676670f7ef930dd7e2c743859c95446ac574b",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.4",
+      "release_date": "2024-09-17",
+      "release_notes": "🚀 Features\n- feat: enable search model dropdown by configured model @urmauur (#3466)\n- feat: add setting options to dropdown menu @urmauur (#3554)\n🐛 Fixes\n- fix: correct prompt template for Phi3 Medium model @louis-jan (#3665)\n- fix: change Phi-3 Mini Instruct 4K to cortexso repository @louis-jan (#3655)\n- fix: prevent value empty string on slider right panel @urmauur (#3635)\n- fix: #3549, #3552 - Inference on CPU is slower on Jan 0.5.3 @louis-jan (#3602)\n- fix: missing type number for slider input right panel @urmauur (#3609)\n- fix: disabled UI RAG and tools @urmauur (#3514)\n- fix: using type text instead number for avoid region issue @urmauur (#3538)\n- fix: electron window @urmauur (#3480)\n🧰 Maintenance\n- test: add tests to model setting's Slider Input @louis-jan (#3615)\n- test: finished all core UI components test @urmauur (#3588)\n- chore: update copy when retrieval turn off @urmauur (#3585)\n- test: add core modules test cases @louis-jan (#3498)\n- chore: setup jest for unit test hooks and component from joi @urmauur (#3540)\n- chore: copy edit for model setting @urmauur (#3553)\n- test: add test:coverage step @louis-jan (#3551)\nContributor\n@0xSage, @louis-jan and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.4",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.4/jan-win-x64-0.5.4.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.4.exe",
+          "sha256": "7ebeba169cb0e3407874be0316512740b2f59973792a51050c3fb9cdecc1ad12",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.5.3",
+      "release_date": "2024-08-29",
+      "release_notes": "Changes\n- fix: gpu memory utilization @louis-jan (#3492)\n- Release Cut 0.5.3 @louis-jan (#3473)\n- Chore upgrade cortex 0.5.0 @hiento09 (#3462)\n- feat: preserve model settings @louis-jan (#3427)\n- Fix auto updater nightly @hiento09 (#3424)\n- Chore use aws s3 for nightly channel @hiento09 (#3416)\n- Chore/simple template report @Van-QA (#3400)\n- Revert \"Jan integrates Cortex\" @louis-jan (#3371)\n- Chore/simple bug template and correct a copy @Van-QA (#3344)\n- Increase retry upload to R2 to 5 times @hiento09 (#3337)\n- fix: remote engine should not allow reinit @louis-jan (#3284)\n- chore: remove focus button @urmauur (#3272)\n- bump-cortex-0.5.0-1 @Van-QA (#3218)\n- Deprecate Docker and K8s @hiento09 (#3219)\n- Fix typo Extention -> Extension @niesink (#3187)\n🚀 Features\n- fix: search input clearable component @urmauur (#3465)\n- feat: add checklist regression test @Van-QA (#3425)\n- feat: import model with gguf metadata extraction @louis-jan (#3421)\n- feat: shortcut delete and clean thread @urmauur (#3423)\n- feat: openrouter model settings @louis-jan (#3422)\n- feat: add blank state component for hub and my model search @urmauur (#3413)\n- feat: enable copy instruction @urmauur (#3401)\n- feat: small ui improvement @urmauur (#3388)\n- feat: allow user configure remote model from my model @urmauur (#3348)\n- feat: move icon create new thread into top panel @urmauur (#3346)\n- chore(UI): update experience model dropdown @urmauur (#3342)\n- feat: modal waiting cortex @urmauur (#3306)\n- feat: change data folder @louis-jan (#3309)\n- feat: embed cortex into jan as a JS module @louis-jan (#3305)\n- feat: add chunk count @namchuai (#3290)\n- feat: add nvidia engine @namchuai (#3279)\n- feat: enable copy over instructions @namchuai (#3266)\n- feat: add more options for cortex popup @namchuai (#3236)\n- feat: manage cloud models from threads screen @urmauur (#3223)\n- feat: make scroll area type auto for make default visible scrollbar @urmauur (#3220)\n- feat: new starter screen @urmauur (#3217)\n- feat: integrating cortex @namchuai (#3001)\n🐛 Fixes\n- fix: responsive modal import gguf @urmauur (#3484)\n- fix: add engine in payload for nitro chat completion api @marknguyen1302 (#3482)\n- fix: wrong classname icon @urmauur (#3474)\n- fix: modal responsive import model @urmauur (#3467)\n- fix: resize left and panel when scroll area show @urmauur (#3470)\n- fix: search input clearable component @urmauur (#3465)\n- fix: import model by folder on win @marknguyen1302 (#3463)\n- fix: correct time-weighted retrieval toggle @louis-jan (#3456)\n- fix: add a minimum height for the main window otherwise it shrinks @louis-jan (#3457)\n- fix: modal title should not truncated @urmauur (#3450)\n- fix: responsive modal import model @urmauur (#3449)\n- fix: enable extensions migration @louis-jan (#3442)\n- fix: unable to import model due to missing metadata @louis-jan (#3439)\n- fix: setting extension placeholder and input action apikey @urmauur (#3430)\n- fix: preserve model settings should maintain all settings @louis-jan (#3435)\n- fix: shortcut key on windows @urmauur (#3437)\n- fix: date format for chat item @urmauur (#3436)\n- fix: setting chatbox input @urmauur (#3429)\n- fix: missing font katex @urmauur (#3431)\n- fix: decreased scrollbar width @urmauur (#3432)\n- fix: add toaster warning when blocked create new thread @urmauur (#3433)\n- fix: save state toggle input box setting @urmauur (#3402)\n- fix: avoid show remote model on system monitor @urmauur (#3412)\n- fix: disable remote model when user did not setup apiKey @urmauur (#3415)\n- fix: app emits ugly errors when retrieving settings @louis-jan (#3393)\n- fix: Jan should have access to it resource folders @louis-jan (#3391)\n- fix: LaTex formula render issue @louis-jan (#3353)\n- fix: failed to relaunch app to update @louis-jan (#3351)\n- fix: empty model page not shown when delete all threads and models @namchuai (#3343)\n- feat: allow user configure remote model from my model @urmauur (#3348)\n- fix: broken jan build - add log trace (jan.log) @louis-jan (#3336)\n- fix: update legacy path @namchuai (#3328)\n- fix: broken app due to incorrect api path @louis-jan (#3316)\n- fix: refresh should not create new thread @namchuai (#3314)\n- fix: avoid lose title threads @urmauur (#3307)\n- fix: migration item in setting detail omit buttons @namchuai (#3298)\n- fix: merge gpu arch and os tensorrt models @namchuai (#3299)\n- fix: engine logo on model dropdown @urmauur (#3291)\n- fix: icon setting can close and open right panel @urmauur (#3295)\n- fix: error while importing local model is not shown @namchuai (#3294)\n- fix: add lower case quantization support @namchuai (#3293)\n- fix: onnx can't be selected in download model modal @namchuai (#3283)\n- fix: system bar always show RAM usage 0% @louis-jan (#3287)\n- fix: migration wrong directory @namchuai (#3278)\n- fix: clearer app loading prompt @louis-jan (#3275)\n- fix: allow user to reinit engine from settings page @louis-jan (#3277)\n- fix: should not let second instance terminate cortex @louis-jan (#3274)\n- fix: set cortex data folder path when starting jan @namchuai (#3252)\n- fix: remote model added manually does not shown in model drop down @namchuai (#3261)\n- fix: normalize messages for some providers @namchuai (#3234)\n- fix: broken status parse due to empty category @louis-jan (#3233)\n- fix: update new api from cortex to support 0.5.0 @namchuai (#3221)\n- fix: jan app copy nits @0xSage (#3193)\n🧰 Maintenance\n- chore: Update model.json with correct filename @Van-QA (#3479)\n- chore: add llama 3.1 8B gguf model @louis-jan (#3468)\n- chore: move remote models to bottom of the models hub @louis-jan (#3469)\n- chore: add husky pre-commit @louis-jan (#3458)\n- chore: change jan default data folder path to app's userData @louis-jan (#3443)\n- chore: add back OpenRouter request endpoint setting @louis-jan (#3441)\n- chore: fix linter issues @louis-jan (#3434)\n- chore: disable internal REST endpoints due to a vulnerability issue @louis-jan (#3428)\n- chore: small ui improvement @urmauur (#3414)\n- chore: fix CI - remove headless ui @louis-jan (#3420)\n- chore: remove model selection in assistant tab model @urmauur (#3411)\n- chore: clean up console modal component @urmauur (#3395)\n- feat: add model assistant tab @urmauur (#3389)\n- chore: improve readability with set max width container message @urmauur (#3382)\n- feat: small ui improvement @urmauur (#3388)\n- chore: move create new thread to top panel @urmauur (#3381)\n- chore: update model dropdown and my model with collapsible chevron @urmauur (#3386)\n- chore: cherry pick latest fixes @louis-jan (#3383)\n- chore: add engine logo from local instead of metadata logo @urmauur (#3363)\n- chore: minor ui improvement @urmauur (#3352)\n- chore: add back GPU information to system monitoring bar @louis-jan (#3350)\n- chore: button outline for configure cloud model @urmauur (#3347)\n- chore(UI): update experience model dropdown @urmauur (#3342)\n- chore(ui): fix alignment loader starter screen @urmauur (#3338)\n- chore: disable quick ask @louis-jan (#3334)\n- chore: add cortex version @namchuai (#3318)\n- chore: update cortex new version @namchuai (#3300)\n- chore: update minor UI @urmauur (#3281)\n- chore: update z-index tooltip @urmauur (#3280)\n- chore: toast message on model import fail with reason @louis-jan (#3276)\n- chore: update hub search result @urmauur (#3273)\n- chore: temporary hidden button import model @urmauur (#3270)\n- chore: check the legacy incompatible message type @louis-jan (#3248)\n- chore: minor copy for grammar @gabrielle-ong (#3235)\n- chore: update conditional starter screen after cortex load @urmauur (#3227)\n- chore: set container max width for chat message and new hub screen @urmauur (#3213)\nContributor\n@0xSage, @Van-QA, @gabrielle-ong, @hiento09, @louis-jan, @marknguyen1302, @namchuai, @niesink and @urmauur",
+      "release_notes_url": "https://github.com/janhq/jan/releases/tag/v0.5.3",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/Jan/Jan/0.5.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/janhq/jan/releases/download/v0.5.3/jan-win-x64-0.5.3.exe",
+          "host": "github.com",
+          "filename": "jan-win-x64-0.5.3.exe",
+          "sha256": "62ca7fa51107b8c9ba65e21f0ffd273a6e48539603799a1a5c1dec8c3b827d0a",
+          "product_code": "26e92a45-3e3b-5b43-bb59-04bf3b027b64",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "jan"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.8.8",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "zip",
+          "url": "https://github.com/janhq/jan/releases/download/v0.8.8/jan-mac-universal-0.8.8.zip",
+          "host": "github.com",
+          "filename": "jan-mac-universal-0.8.8.zip",
+          "sha256": "93c33b220907624346131a6d799faee8e6dfc2e042a996bcfaf82659c5bfc7fe"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Jan.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "jan.ai.app"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/Jan",
+            "~/Library/Application Support/jan.ai.app",
+            "~/Library/Caches/jan.ai.app",
+            "~/Library/Preferences/jan.ai.app.plist",
+            "~/Library/Saved Application State/jan.ai.app.savedState",
+            "~/Library/WebKit/jan.ai.app"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "0.8.8",
+      "release_date": "2026-10-28",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/ai.jan.Jan.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "ai.jan.Jan.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "1464d41576767dbac3497f1cf70f79561fd0e7b6",
+      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "path": "manifests/j/Jan/Jan"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1aac7c6920d0d8e5026b2892d2bb99f587813241",
+      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "path": "Casks/j/jan.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/jan.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/ai.jan.Jan",
+      "retrieved_at": "2026-11-08T14:58:15.929Z",
+      "path": "api/v2/appstream/ai.jan.Jan",
+      "api_url": "https://flathub.org/api/v2/appstream/ai.jan.Jan",
+      "content_sha256": "b410256d4b10e78fc9aefa1f46527346bd1499f7bf3b3eaa96db18a96b23a33f"
+    }
+  ],
+  "flathub": {
+    "app_id": "ai.jan.Jan",
+    "page_url": "https://flathub.org/apps/ai.jan.Jan",
+    "repo_url": "https://github.com/flathub/ai.jan.Jan",
+    "install_command": "flatpak install flathub ai.jan.Jan",
+    "run_command": "flatpak run ai.jan.Jan",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "jan.ai",
+      "verified_on": "2025-11-25"
+    },
+    "license": "Apache-2.0",
+    "free_license": true,
+    "developer_name": "Menlo Research Pte. Ltd.",
+    "categories": [
+      "Utility",
+      "Education",
+      "Chat",
+      "Dictionary"
+    ],
+    "download_size": 685210496,
+    "installed_size": 1053189120,
+    "arches": [
+      "x64"
+    ]
+  }
+}

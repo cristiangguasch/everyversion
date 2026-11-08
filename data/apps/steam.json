@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "slug": "steam",
+  "name": "Steam",
+  "publisher": "Valve Corporation",
+  "author": "Valve Corporation",
+  "ids": {
+    "winget": "Valve.Steam",
+    "moniker": "steam",
+    "homebrew_cask": "steam",
+    "flathub": "com.valvesoftware.Steam"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Steam is the ultimate destination for playing, discussing, and creating games.",
+  "description": "Steam is the ultimate destination for playing, discussing, and creating games.\nSteam is a video game digital distribution service and storefront.\nSteam offers features such as game server matchmaking with Valve Anti-Cheat measures, social networking, and game streaming services.\nSteam automates game updates, provides cloud storage for game progress, and includes community features like direct messaging, in-game overlay functions, and a virtual collectible marketplace.",
+  "tags": [
+    "community",
+    "content-delivery",
+    "distribution",
+    "game",
+    "games",
+    "games-store",
+    "gaming",
+    "marketplace",
+    "platform",
+    "purchase",
+    "store",
+    "video-games"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://store.steampowered.com/about/",
+    "publisher": "https://www.valvesoftware.com/",
+    "support": "https://help.steampowered.com/",
+    "privacy": "https://store.steampowered.com/privacy_agreement/",
+    "documentation": [
+      {
+        "label": "Online Conduct",
+        "url": "https://store.steampowered.com/online_conduct/"
+      },
+      {
+        "label": "Refunds",
+        "url": "https://store.steampowered.com/steam_refunds/"
+      },
+      {
+        "label": "Security",
+        "url": "https://www.valvesoftware.com/security/"
+      },
+      {
+        "label": "Steamworks",
+        "url": "https://partner.steamgames.com/"
+      }
+    ]
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://store.steampowered.com/subscriber_agreement/",
+    "copyright": "Copyright © 2024 Valve Corporation. All rights reserved.",
+    "copyright_url": "https://store.steampowered.com/legal/"
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "2.10.91.91",
+    "macos": "6.1",
+    "linux": "1.0.0.87"
+  },
+  "last_updated": "2024-05-20",
+  "versions_total": {
+    "windows": 1,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.10.91.91",
+      "release_date": "2024-05-20",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/v/Valve/Steam/2.10.91.91",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe",
+          "host": "cdn.akamai.steamstatic.com",
+          "filename": "SteamSetup.exe",
+          "sha256": "7d3654531c32d941b8cae81c4137fc542172bfa9635f169cb392f245a0a12bcb",
+          "min_os_version": "10.0.0.0",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "steam",
+            "steamlink"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "6.1",
+      "source_version": "6.1,1791918634,984652b88a9737e3f4e77c656d9ffa67d5042c2c",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "unknown",
+          "url": "https://client-update.steamstatic.com/appdmg_osx.zip.984652b88a9737e3f4e77c656d9ffa67d5042c2c",
+          "host": "client-update.steamstatic.com",
+          "filename": "appdmg_osx.zip.984652b88a9737e3f4e77c656d9ffa67d5042c2c",
+          "sha256": "8bf4ce8b4bcbc50f642988c955559f605e7a877372116e7a2b3fd1355004bedb"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Steam.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.valvesoftware.steam",
+            "com.valvesoftware.steam.helper",
+            "com.valvesoftware.steam.helper.EH"
+          ],
+          "launchctl": [
+            "com.valvesoftware.steam.ipctool",
+            "com.valvesoftware.steamclean"
+          ],
+          "remove": [
+            "~/Library/Application Support/Steam/Steam.AppBundle"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/Steam",
+            "~/Library/LaunchAgents/com.valvesoftware.steamclean.plist",
+            "~/Library/Preferences/com.valvesoftware.steam.helper.plist",
+            "~/Library/Saved Application State/com.valvesoftware.steam.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "1.0.0.87",
+      "release_date": "2026-06-26",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.valvesoftware.Steam.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.valvesoftware.Steam.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/v/Valve/Steam"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "Casks/s/steam.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/steam.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.valvesoftware.Steam",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/com.valvesoftware.Steam",
+      "api_url": "https://flathub.org/api/v2/appstream/com.valvesoftware.Steam",
+      "content_sha256": "e346fe1c9ab664ad58e4192afa4f1712ec17a18d423c5feb166e82a4f3e2fa19"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.valvesoftware.Steam",
+    "page_url": "https://flathub.org/apps/com.valvesoftware.Steam",
+    "repo_url": "https://github.com/flathub/com.valvesoftware.Steam",
+    "install_command": "flatpak install flathub com.valvesoftware.Steam",
+    "run_command": "flatpak run com.valvesoftware.Steam",
+    "verified": false,
+    "license": "LicenseRef-proprietary",
+    "free_license": false,
+    "developer_name": "Valve Corporation",
+    "categories": [
+      "Game",
+      "PackageManager"
+    ],
+    "download_size": 36037296,
+    "installed_size": 53886464,
+    "arches": [
+      "x64"
+    ]
+  }
+}

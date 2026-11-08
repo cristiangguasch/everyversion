@@ -1,0 +1,29 @@
+{
+  "name": "everyversion.net",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MVP: static software-version resolver built from winget-pkgs manifests.",
+  "scripts": {
+    "ingest": "node scripts/ingest.mjs && node scripts/custom.mjs && node scripts/flathub.mjs",
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "verify": "node scripts/verify.mjs",
+    "virustotal": "node scripts/virustotal.mjs",
+    "add": "node scripts/daily.mjs",
+    "daily": "node scripts/daily.mjs",
+    "check": "node scripts/check.mjs",
+    "all": "npm run ingest && npm run validate && npm run tags && npm run categories && npm run build && npm run check",
+    "serve": "python3 -m http.server 4173 -d dist",
+    "tags": "node scripts/tags.mjs",
+    "categories": "node scripts/categories.mjs",
+    "custom": "node scripts/custom.mjs",
+    "flathub": "node scripts/flathub.mjs"
+  },
+  "dependencies": {
+    "yaml": "2.8.1"
+  },
+  "devDependencies": {
+    "ajv": "8.17.1"
+  }
+}

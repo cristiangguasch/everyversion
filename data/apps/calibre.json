@@ -1,0 +1,3965 @@
+{
+  "schema_version": 2,
+  "slug": "calibre",
+  "name": "calibre",
+  "publisher": "Kovid Goyal",
+  "author": "Kovid Goyal",
+  "ids": {
+    "winget": "calibre.calibre",
+    "moniker": "calibre",
+    "homebrew_cask": "calibre",
+    "flathub": "com.calibre_ebook.calibre"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "calibre is the one stop solution to all your e-book needs.",
+  "description": "calibre is an e-book manager. It can view, convert, edit and catalog e-books in all of the major e-book formats. It can also talk to e-book reader devices. It can go out to the internet and fetch metadata for your books. It can download newspapers and convert them into e-books for convenient reading. It is cross platform, running on Linux, Windows and macOS.",
+  "tags": [
+    "ebook",
+    "epub",
+    "kindle",
+    "mobi",
+    "reader",
+    "viewer"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://calibre-ebook.com/",
+    "publisher": "https://kovidgoyal.net/",
+    "support": "https://calibre-ebook.com/help",
+    "documentation": [
+      {
+        "label": "Manual",
+        "url": "https://manual.calibre-ebook.com/"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/kovidgoyal/calibre/blob/HEAD/LICENSE",
+    "spdx": "GPL-3.0",
+    "copyright": "© Kovid Goyal"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "9.17.0",
+    "macos": "9.17.0",
+    "linux": "9.17.0"
+  },
+  "last_updated": "2026-10-23",
+  "versions_total": {
+    "windows": 110,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "9.17.0",
+      "release_date": "2026-10-23",
+      "release_notes": "New features\n- Conversion: Add support for reading images in the JPEG XL format\n- Conversion: Add support for CSS Level 4 selectors\n- Edit book: Check book: Add a check for dangling ARIA references and update ARIA references when auto fixing invalid ids\n  Closes tickets: 2170895\n- MOBI/AZW3/PDB Output: Speed up compression, making conversion to these formats faster\n- Content server/E-book viewer: Honor the prefers-reduced-motion setting of the operating system\n- Speed up adding books and starting calibre in large libraries with the Tag browser hidden\n- Catalogs: Use calibre as the creator of generated catalogs and record the generation date as the publication date\n  Closes tickets: 2022353\n- Create your own Adventure: Improve the character selection screen\nBug fixes\n- PDF Input: Fix a regression in the previous release that broke conversion of some PDF files\n  Closes tickets: 2170990\n- EPUB 3 conversion: Fix a regression in the previous release that caused invalid navigation markup to be generated\n  Closes tickets: 2170400\n- Fix a regression in the previous release that caused non-breaking spaces to be converted to regular spaces in comments and text columns\n  Closes tickets: 2170595\n- PDF Output: Fix a blank page at the end of chapters in some multi column layouts\n  Closes tickets: 2170285\n- Amazon and Google Images metadata sources: Get them working again using camoufox\n- Various robustness and edge case improvements int he database backed around data files, notes and formats\n- Fix various stale cached values for composite columns and searches after changing series, restoring formats from the trash and redefining saved searches\n- Fix setting a custom series with the same series index sometimes not being saved\n- Fix appending multiple values to custom columns\n- Full text search: Fix searching in libraries without book files\n- macOS: E-book viewer: Fix the viewer triggering the \"access data from other apps\" prompt for Google Chrome on macOS 27\n  Closes tickets: 2170887\n- EPUB/MOBI catalog: Sort a series before longer series names that start with it\n  Closes tickets: 1483666\n- EPUB/MOBI catalog: Fix an error when generating catalogs from the GUI with prefix rules\n- ODT Input: Preserve restarted list numbering\n  Closes tickets: 2017568\n- Kobo driver: Fix a regression in cover handling for older Tolino firmware and keep dots in filenames on Tolino devices\n- Edit book: Fix the choose file dialog when importing books not being kept above the editor window\n- calibredb list_categories: Fix output showing bytes representations\n- Fix templates using {isbn} or {languages} more than once returning the wrong value\n- Fix decoding of HTML entities that decode to more bytes than themselves\n- Fix an error when cancelling a metadata download\n- Content server: Fix full text search actions being applied to the default library instead of the library being viewed\n- Content server: Fix various issues with showing books from the wrong library when switching between libraries\n- Content server: Notify the calibre GUI of new formats created by conversions in the server\n- Content server/E-book viewer: Various fixes for dark mode and keyboard focus styling\n- Fix various hardcoded colors being unreadable in dark mode\nImproved news sources\n- The Economist\n- Associated Press\n- Washington Post\n- SCMP\n- Scientific American\n- The Monthly\n- NYT Magazine\n- Respekt",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.17.0/calibre-64bit-9.17.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.17.0.msi",
+          "sha256": "a91ea9b26af6cd057d8b193b86edb66d1535f7c5cb0a106965fa74f8168a6bd5",
+          "product_code": "{267CBFE3-8ACF-4757-B728-CED8725D96DA}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.16.0",
+      "release_date": "2026-10-09",
+      "release_notes": "New features\n- Read aloud: Add the high quality Kokoro voices, which sound much more natural than the Piper voices, especially for English\n  To use them, select the Piper backend in the Read aloud configuration and choose one of the Kokoro voices. The voice will be automatically downloaded the first time it is used.\n- News download: Support for downloading news from websites that block automated access by using the camoufox browser\n  Some news sites, such as The New York Times, The Economist and The Atlantic, block all lighter weight ways of fetching their pages. Recipes for these sites now use the camoufox browser, which is automatically downloaded the first time such a recipe is run. Recipe authors can use it by setting browser_type = 'camoufox' in their recipes.\n- PDF Input: Support for right-to-left text and better handling of multi-column pages\n- Add support for reading images in the AVIF format\n- Tag browser: A new option to sort hierarchical tags that have only children but no actual books as folders, before all other tags at their level\n  Closes tickets: 2144044\n- Edit book: Check book: Allow skipping of problems of a particular type\n  Closes tickets: 2120771\n- Edit book: ToC View: Indicate what ToC entries, if any, are in the file being currently edited\n- Edit book: Check book: When auto fixing invalid ids also update CSS selectors\n- E-book viewer: Add an option to display the immediate parent ToC section in headers/footers\n  Closes tickets: 2169454\n- E-book viewer: Allow e-books to store up to 1MB of data persistently\n  Closes tickets: 2168471\n- E-book viewer: Print to PDF: Allow specifying margins in metric units\n  Closes tickets: 2148707\n- Tag mapper and HTML/CSS transform rules: Add the ability to search the rules\n  Closes tickets: 2150408\n- Allow removing individual entries from the search history dropdown\n  Closes tickets: 2167642\n- Add a button to Preferences->Look & feel->Main interface to reset the main window layout\n- Create your own Adventure: Allow exporting and importing saved games\n- Speed up various operations on large libraries, such as startup, deleting many books, sorting by series, searching and refreshing the Tag browser\n- Kobo driver: Add support for newer firmware\n  Closes tickets: 2168472\n- Windows: Unregister calibre from default programs and clear its caches when uninstalling\n- DOCX Output: Make images inside links clickable\nBug fixes\n- EPUB 3 to EPUB 3 conversions: Preserve ids on nav elements so links to them continue to work\n  Closes tickets: 2169441\n- PDF Output: Fix some trailing content at the end of individual HTML files being lost when the files use multi column layout\n  Closes tickets: 2142731\n- PDF Output: Fix a regression in 9.x that caused conversion of some books with vertical writing to not work correctly\n  Closes tickets: 2146979\n- DOCX Output: Fix non-breaking spaces not being preserved\n  Closes tickets: 2167710\n- FB2 metadata: Clear series, comments, etc. from the file when they are cleared in calibre\n  Closes tickets: 2168996\n- E-book viewer: Fix dark mode theme color overrides conflicting with e-book CSS when the book uses filters to change image colors in dark mode\n- E-book viewer: Update the \"Pages from paper edition\" value faster\n  Closes tickets: 2169232\n- E-book viewer: Fix an error when pressing ctrl+shift\n  Closes tickets: 2169575\n- Layout actions: Fix saving/restoring layout not restoring which of the alternate book list visualisations is currently active\n  Closes tickets: 2136805\n- Book list: Respect horizontal alignment setting for all icon only column types\n  Closes tickets: 2168620\n- Cover grid: Fix one cover being rendered too small in some circumstances\n- Content server: Various fixes for older browsers when using the book details page in the /mobile view\n- Content server: Various security hardening fixes\nNew news sources\n- World Socialist by Paulb223\n- Poetry Magazine by flurbs\n- The Believer by flurbs\n- Respekt by Vector Rilke\nImproved news sources\n- The New York Times\n- The Economist (needs subscription)\n- The Atlantic\n- Reuters\n- Heise\n- La Jornada\n- Naked Capitalism\n- The Saturday Paper",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.16.0/calibre-64bit-9.16.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.16.0.msi",
+          "sha256": "99ba538ca701c7c3b234d19b2236349c3aff3b55244ab9016072f74e6294e40a",
+          "product_code": "{AE22FD3F-DF40-4C5D-A2E0-41633C70BB4D}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.15.0",
+      "release_date": "2026-09-18",
+      "release_notes": "New features\n- A \"Create your own adventure\" writing game -- interactive storytelling with an AI managing the world you create\n  This is a little different from the usual run of calibre features. It started out as a way to test the AI backends in calibre but turned into something fun to use. As always with AI features its completely optional and not even loaded unless you explicitly run it. Go to Preferences->Toolbars & menus and add the \"Create your own Adventure\" to the main toolbar to use it\n- E-book viewer: Highlights panel: Allow selecting multiple highlights and right clicking to change their style\n  Closes tickets: 2167215\n- Cover grid: Allow choosing which corner of the cover emblems are placed on in Preferences->Look & feel->Cover grid->Layout\n  Closes tickets: 2167194\n- E-book viewer: An optional button to add to the sidebar to easily switch between saved window sizes, add it by right clicking the sidebar and choosing customize\n  Closes tickets: 2166717\n- E-book viewer: When creating highlights with notes, show the notes as a tooltip when the mouse hovers over the highlights. Controlled via the setting to hide mouse over tooltips in the Miscellaneous section of the viewer preferences\n  Closes tickets: 2159668\n- A new CLI flag to add and delete a book from a specified path in the system temp dir when running calibre.exe\nBug fixes\n- E-book viewer: Fix Read Aloud stopping at some full screen images\n  Closes tickets: 2165923\n- E-book viewer: In flow mode when using Read Aloud be more robust about keeping the selected text visible\n  Closes tickets: 2165439\n- Edit book: fix a regression that caused an error when using the test box in the snippets dialog\n- Edit book: Preferences: Fix moving and deleting toolbar icons from plugins not working\n- Fix landmarks being lost when upgrading a book to EPUB 3\n- DOCX output: preserve hyperlinks across styled text runs\n- DOCX Input: Fix an error when the input document has numbering without any styles\n- calibredb embed_metadata: Fix skipping books with no covers\n  Closes tickets: 2167294\n- Edit book: Spell check: Fix words with a typographic single apostrophe not being correctly checked\n- Windows: Fix calibre not starting in Alberta Canada because of a new timezone\n- Windows: Cover grid: Fix changing the background color not working\n- Content server: Sanitise supplied conversion options\n- OpenRouter: Fix models that only output images not text not being listed\nNew news sources\n- Briefing Service by Jordan Shelley\nImproved news sources\n- The Week\n- Bloomberg\n- Global Times",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.15.0/calibre-64bit-9.15.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.15.0.msi",
+          "sha256": "0f96ae06165c2419607c1c66726c091a78e89e08ea69f077cf3e2c884e800853",
+          "product_code": "{B23FF1BA-5053-401E-9A09-CD7CB028E357}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.14.0",
+      "release_date": "2026-08-28",
+      "release_notes": "New features\n- Allow generating book covers using AI with different cover styles such as romance, sci-fi, pulp fiction etc.\n  To use it select a book and click Edit metadata and then the \"AI Generate\" button. Note that you will have to configure an image generating AI provider the first time you use this feature.\n- Edit book: File browser: When hovering the mouse over an image file show a floating preview of the image next to the file browser\n- Tags editor: have searching ignore accents\n  Closes tickets: 2164853\n- AI: Add Anthropic and Grok backends for Claude and Grok models\n- AI: Remove GitHub backend as service has been discontinued\n  Closes tickets: 2163567\n- Edit metadata dialog: Always scale up cover preview to fill available space while maintaining aspect ratio\nBug fixes\n- Content server: OPDS: Fix a regression that caused first line of comments to be missing\n  Closes tickets: 2165075\n- Undo delete books: Show a progress bar when more than five books have to be undeleted\n  Closes tickets: 2164811\n- Linux: Binary builds: Fix hyperlinks in labels not working on some Linux systems\n  Closes tickets: 2164584\n- Get books: Fix a regression that broke show in store\n  Closes tickets: 2164586\n- Fix cover images with empty EXIF records not showing on Kindle lockscreen\n  Closes tickets: 1943495\n- Fix a regression in 9.11 that broke configuring the Folder device driver\n  Closes tickets: 2163674\n- Google AI: Fix the checkbox to allow search grounding invisible in the config dialog\n  Closes tickets: 2163025\n- Fix a regression in 9.11 that broke reading metadata from HTML files in builds of calibre with Python runtime assertions enabled\n- Edit book: Jump to class: Fix @charset rule causing jump to class to be off-by-one because it uses tiny css which ignores chaset rules while cssutils does not\n- FB2 Input: Only accept known FB2 namespaces to avoid arbitrary file write\n- Content server: Fix various arbitrary file write bugs for authenticated users\n- Content server: Fix remote code execution for authenticated users\n- Content server: Fix cross site scripting in legacy book details page\n- MOBI Output: Make palmdoc compression robust against crafted input\nNew news sources\n- The Golfer's Journal by Ben Ng\nImproved news sources\n- Pagina12\n- The Week\n- Nautilus\n- Smithsonian Magazine\n- FAZ.net\n- Daily Mail",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.14.0/calibre-64bit-9.14.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.14.0.msi",
+          "sha256": "4ccaf2a49a0069b5e78291ee7248dcd8967896d316d6432ddf657b6feae8f32d",
+          "product_code": "{9BE57B55-D989-4900-B28F-6A7E8E2F612F}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.13.0",
+      "release_date": "2026-08-07",
+      "release_notes": "Bug fixes\n- PDF Output: Fix a regression in calibre 9 which caused links in PDF to scroll to a target location minus the top margin, thus ending up a few lines above the target\n- Content server: Fix an error when uploading a data file to a book with no existing data files\n  Closes tickets: 2162628\n- Content server: Fix a regression in the previous release that broke searching in the builtin viewer\n  Closes tickets: 2162644\n- Content server: Fix a regression in the previous release that caused the conversion options sections to be missing\n  Closes tickets: 2162647\n- Book details panel: Fix a regression in the previous release that broke drag and drop of covers\n  Closes tickets: 2162711\n- Windows: Fix a crash caused by some third party plugins trying to send notifications in non-GUI threads\n  Closes tickets: 2162935\n- Bulk metadata dialog: Fix a regression in the previous release that caused the yes/no buttons to be hidden for Yes/No column edit controls\n  Closes tickets: 2162638\n- Edit book: Compress Images: Fix error when converting GIF to JPEG on Windows\n- Linux: Preload html5-parser to avoid errors on systems that ship ancient libxml2 when converting to PDF\nImproved news sources\n- Nautilus Magazine",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.13.0/calibre-64bit-9.13.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.13.0.msi",
+          "sha256": "f5f19e870163c20ec63a656d6f5d0c123e07c4254899380ebeec51b00766e615",
+          "product_code": "{FDC3D8F7-59E0-45CB-908E-4DC97B3411B4}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.12.0",
+      "release_date": "2026-07-31",
+      "release_notes": "New features\n- macOS: Add sharing of books via AirDop to the Connect/Share button\n- Content server: Add support for plugins that can add new endpoints to the server backend\n- Edit book: Compress images: Add an option to convert GIF images to JPEG/WebP\n- ToC Editor: Add a button to sort the entries in the Table of Contents\n  Closes tickets: 2161171\n- Content server: OPDS: Add kind metadata to feed links\n  Closes tickets: 2161117\n- Kobo driver: Add support for latest Tolino firmware\nBug fixes\n- E-book viewer: Fix an issue causing text area width to change when using section titles in header/footers and the text is too long to fit in the space\n  Closes tickets: 2160341\n- When adding books via calibre.exe fix --with-library not working. Now calibre will switch to the specified library and only then add the book\n  Closes tickets: 2162073\n- When evaluating recursive templates inherit python template policy\n- Fix inability to input more than ~30K characters in custom tag like columns\n  Closes tickets: 2161833\n- Fix some menu separators not rendering on some systems with high res monitors\n- Content server: fix unstyled flash when transitioning between series/author views in dark mode\n- Content server: Prevent unauthenticated users from updating annotations\n- Edit metadata dialog: Fix right click menu->Remove format not working\n  Closes tickets: 2160467\n- Edit book: fix typo in string format that broke convert PNG to JPEG function\n- Linux binaries: Preload libxml2 to ensure the correct version is loaded despite Qt WebEngine probing\nImproved news sources\n- Minerva\n- Project Syndicate\n- The Past\n- Ancient Egypt\n- New Scientist\n- Substack",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.12.0/calibre-64bit-9.12.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.12.0.msi",
+          "sha256": "f6456073bfcf37adf6302fb4149fa8b4d798d411bc0dafd99cb629a5006dcfa6",
+          "product_code": "{5A51FC15-4E5D-4274-BCC4-EA161EDDCCB9}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.11.0",
+      "release_date": "2026-07-02",
+      "release_notes": "New features\n- Allow exporting annotations in the HTML format as a standalone web page that can be viewed in any browser with support for light/dark themes, searching and filtering by highlight style\n- E-book viewer: Ask AI: Allow using the {selected} placeholder when typing free form queries to the AI as well\nBug fixes\n- E-book viewer: Fix text area not always resizing correctly when window is resized when the scrollbar is enabled\n- Fix a regression in the previous release that broke python templates in the book details panel\n- Fix a regression in the previous release that caused default values for custom columns to not be used when adding new books\nImproved news sources\n- Scientific American\n- Phoronix",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.11.0/calibre-64bit-9.11.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.11.0.msi",
+          "sha256": "59bd2a7fb7978665e16b7f94218479d64ddedc80ec7fccb47a6768ae348ceb3d",
+          "product_code": "{45E9C23C-E8D5-4AC5-B0AE-0C210F65665B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{45E9C23C-E8D5-4AC5-B0AE-0C210F65665B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.10.0",
+      "release_date": "2026-06-25",
+      "release_notes": "New features\n- Content server: A new \"modern\" interface with a sidebar to ease navigation\n- Content server: When used with HTTPS allow installation as a PWA (Progressive Web App)\n- Edit book: Saved searches: When filtering the list of saved searches match by keywords\n  Closes tickets: 2156386\n- CSS parsing: Add support for CSS Level 4 selectors\n  Closes tickets: 2156213\n- Cover grid: When using an image larger than the viewport as a texture scale it to fit the viewport\n  Closes tickets: 2154669\n- Annotations browser: Allow restricting displayed annotations by custom annotation styles as well\n  Closes tickets: 2154593\n- Edit book: Compress images: Add option to convert PNG images to JPEG or WEBP\nBug fixes\n- E-book viewer: Fix IME on Windows not working when typing in notes for highlights\n  Closes tickets: 2049604\n- Conversion: Heuristics: Improve performance in some pathological cases\n- SNB Input: Fix error on some input files\n- Windows: fix rare crash when too many notifications are displayed at once\n- Fix duplicating of books not duplicating value from enumerated columns when the column has a default value defined\n  Closes tickets: 2103999\n- Fix a regression in 9.8 that caused errors from AI plugin providers to be silently swallowed and not displayed to user\n- Fix CSV export invalid when exporting comments field\n  Closes tickets: 2155175\n- Disallow Python templates when reading book metadata (CVE-2026-53511)\nImproved news sources\n- The Week\n- Economist Espresso\n- Horizons",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.10.0/calibre-64bit-9.10.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.10.0.msi",
+          "sha256": "8a69cca7be43e3bb0202c60bdbbf855e3614b2295b82f33a67d308eec83d5255",
+          "product_code": "{1113EC4A-A3C7-484D-8DDD-95A774447B1C}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{1113EC4A-A3C7-484D-8DDD-95A774447B1C}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.9.0",
+      "release_date": "2026-05-28",
+      "release_notes": "New features\n- A new option to keep the current search when switching Virtual libraries under Preferences->Searching\n  Closes tickets: 2151262\n- Pages column: Add support for accurate page counting of fixed layout EPUB files\n- Add from ISBN: Ignore space around the colon used to separate identifier type from value\n  Closes tickets: 2150806\n- Get books: Update and improve the WolneLektury store\nBug fixes\n- E-book viewer: Fix incorrect search match offsets in normal search mode when the text contains non-BMP Unicode characters\n  Closes tickets: 2152227\n- Content server: Apply null metadata when serving book files. Matches behavior of save to disk\n  Closes tickets: 2152879\n- Linux: Fix SSL certificate loading not working on Fedora 44\n- Bulk metadata dialog: Fix backspace key not working in number input boxes when set to Undefined\nNew news sources\n- Various Hungarian and Czech news sources by bubak\n- SuperInteressante by Pedro Henrique Souza\nImproved news sources\n- Indian Express\n- Business Standard\n- BBC\n- New Criterion\n- Associated Press\n- Pro Publica\n- LA Times\n- Washington Post\n- New Yorker\n- TLS Magazine\n- Asian Review of Books\n- VOX\n- The Conversation\n- Chicago Tribune\n- New Republic Magazine\n- Indian Express\n- TIME Magazine",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.9.0/calibre-64bit-9.9.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.9.0.msi",
+          "sha256": "75583c5d16e16d9d7bbfb8fba89f94536a47618c525f34a4e80c00190fe9f4fb",
+          "product_code": "{B5B805D7-C784-4311-87F5-F777BF4F2283}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{B5B805D7-C784-4311-87F5-F777BF4F2283}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.8.0",
+      "release_date": "2026-05-01",
+      "release_notes": "New features\n- Content server: In the /mobile view allow clicking on book titles/covers to see book details\n- Edit book: Allow reset of zoom to 100% by right clicking in the preview panel\n- macOS Tahoe: Have the calibre app icon automatically use a dark look when the system is in dark mode\n- AI: Support for arbitrary local providers that export an OpenAI compatible interface\nBug fixes\n- Native TTS engine: Normalize text to NFKC so that word tracking works when the native engine reports spoken word with different normal form\n- When converting GIF images to PNG workaround bug in PIL causing exception when checking if the GIF is animated\n  Closes tickets: 2148533\n- Preserve existing conversation with AI when there is an error talking to it\nImproved news sources\n- Hacker News\n- The Atlantic\n- Scientific American\n- Mediapart\n- Hindu",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.8.0/calibre-64bit-9.8.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.8.0.msi",
+          "sha256": "4a223b127d97abcdc9edcb4dd908020f0b48a09f537237a97ca518b3b94d37ac",
+          "product_code": "{D9417412-E160-4F57-914B-B1202D90EBF3}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{D9417412-E160-4F57-914B-B1202D90EBF3}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.7.0",
+      "release_date": "2026-04-10",
+      "release_notes": "New features\n- Annotations browser: Allow grouping results by any field\n- E-book viewer: Handle native pinch to zoom gesture on touchpads the same as the pinch to zoom on touchscreens. Default action is to change font size.\n- Content server: Implement full offline mode when using HTTPS connections to the content server\nBug fixes\n- E-book viewer: Fix a regression in the previous release that caused annotations/last read information to not be saved in e-book files\n  Closes tickets: 2146912\n- AI: Make the GitHub backend a bit more robust\n  Closes tickets: 2147495\n- AI: OpenRouter backend: Fix reasoning level \"auto\" disabling all reasoning\n  Closes tickets: 2147008\n- Content server: Read book: Fix regression causing error during searching\n  Closes tickets: 2147261\n- Content server: Fix opening results from full text search not working\n  Closes tickets: 2146829\n- Fix a couple of minor regress in the new Full text search view introduced in the previous release\n- MTP driver: Linux: Fix a rare crash when connecting devices with large collections\n- Fix cover not being set when adding files to existing book records with no cover\nNew news sources\n- Cenital by Rodrigo Pazos\nImproved news sources\n- The Week\n- The Age\n- Financial Times\n- Mint",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.7.0/calibre-64bit-9.7.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.7.0.msi",
+          "sha256": "ab9f64ab8017872f086af41bdcae8055463b3408987a0f4945bd8c27c6a2ea00",
+          "product_code": "{98516208-E016-4DED-842C-26035BAE385E}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{98516208-E016-4DED-842C-26035BAE385E}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.6.0",
+      "release_date": "2026-03-27",
+      "release_notes": "New features\n- Full text search: A new cards based view of full text search results with book covers\n  To perform a full text search, click the \"FT\" button on the left of the search bar. The old compact result view can be re-activated by clicking the button to the left of the search bar in the Full text search window.\n- A new \"word-prefix\" completion mode that shows matches that have any word starting with the typed in letters\n  Closes tickets: 2144422\n- Bookshelves: Add option to have the height of books be constant per group\n- Edit book: File list: Allow using Ctrl+Left/Right to move an item to top/bottom of the list\nBug fixes\n- Fix notes being lost when changing the lookup name of custom column\n  Closes tickets: 2146404\n- E-book viewer: Fix using the slower/faster buttons causing a chapter skip when using the Piper neural speech backend\n- Content server viewer: Fix annotations being not synced to the server in some Android devices when using the Firefox browser\n- Windows: Force kill calibre.exe on quit to workaround hang in interpreter shutdown on some systems\n- TXT Output: Fix asciiize option not applying to generated inline Table of Contents\n- E-book viewer: Disallow background images from the internet. This was an unused feature anyway (CVE-2026-33205)\n- TXT Input: Ensure resource files are read only from book contents (CVE-2026-33206)\n- Only apply changes to text fields in the book list when the new value is different from the old\n  Closes tickets: 2144489\n- Completions: Update list of completion suggestions when cursor is moved\n  Closes tickets: 2144486\nNew news sources\n- L'Humanite by Kabonix\n- Telerama by Kabonix\n- Le Parisien by Kabonix\nImproved news sources\n- BusinessLine\n- Naked Capitalism\n- Le Canard Enchaine\n- Le Monde\n- Courrier International\n- L'Equipe by Kabonix",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.6.0/calibre-64bit-9.6.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.6.0.msi",
+          "sha256": "a70ea776433a937260ae7317a9f292f148f7336e733df156e646bd286b8cb855",
+          "product_code": "{C914F9C8-A68C-460F-8DCE-353983D5B7FB}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{C914F9C8-A68C-460F-8DCE-353983D5B7FB}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.5.0",
+      "release_date": "2026-03-13",
+      "release_notes": "New features\n- Allow creating a column to display reading progress\n  Closes tickets: 2142135\n  Reading progress comes from the calibre E-book viewer. To create the column, go to Preferences->Add your own columns, click the plus button and finally click on the \"Read progress\" link.\n- Annotations browser: Allow filtering by highlight style\n- E-book viewer: Add an option to display the pages from the paper book page list (when available) while also showing the last page number\n  Closes tickets: 2142728\n- Edit book: Add a tool to remove unused images, similar to the tool to remove unused CSS\n- Tolino driver: support new firmware version\n- E-book viewer: Add a reset button to the reading stats panel\nBug fixes\n- Fix overridden icons from config directory not switching between dark/light variants on theme change\n  Closes tickets: 2143063\n- Fix: Use MOBI fallback for KFX format when downloading news periodicals\n- Edit book: Restore focus to editor after showing search count popup message\n- Fix a bug in KEPUB markup removal when there are empty kobo spans\n- RB Input: Ensure files are extracted within container dir (CVE-2026-30853)\n- Book list: Fix ctrl+shift+arrow key not moving the currently selected book. Fixes #2142950\nNew news sources\n- Truthout by PaulB223\nImproved news sources\n- Naked Capitalism",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.5.0/calibre-64bit-9.5.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.5.0.msi",
+          "sha256": "a7d673927cdc6f39cc595bd5114b6d5a82889603de962a83cc25cf7a13ab1810",
+          "product_code": "{92FBC5AA-50A3-48E7-A458-2B78563B3993}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{92FBC5AA-50A3-48E7-A458-2B78563B3993}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.4.0",
+      "release_date": "2026-02-27",
+      "release_notes": "New features\n- E-book viewer: Add \"reading stats\" to show reading progress\n  Closes tickets: 2142715\n- Edit book: Nicer UI for changing the entries in the insert tag menu\n- Cover grid: Option to draw emblems on top of cover in Preferences->Look & feel->Cover grid->Emblems\n- Cover grid: Add option to draw text flush with bottom of rendered cover\nBug fixes\n- DOCX Input: Fix paragraph/list margins in documents created by LibreOffice that do not have Word 2007 compatibility\n  Closes tickets: 2142611\n- ODT Input: Fix a regression in the previous release that broke conversion of images\n  Closes tickets: 2142345\n- Content server: When banning IPs for repeated login is enabled, only use the IP address not any HTTP headers as the ban key (CVE-2026-27824)\n- Content server: Sanitize content disposition received as query parameter (CVE-2026-27810)\nImproved news sources\n- WIRED Daily\n- TOI Print Edition",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.4.0/calibre-64bit-9.4.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.4.0.msi",
+          "sha256": "aa6a25c3abe4c07d8216ee8d5827b490b74db6e5ebcd1a40f3f96ff3c7400af7",
+          "product_code": "{FE2D7272-E91F-4970-97BF-9E49F8C94F65}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{FE2D7272-E91F-4970-97BF-9E49F8C94F65}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.3.1",
+      "release_date": "2026-02-20",
+      "release_notes": "New features\n- Windows installer: Detect running calibre processes and ask user to shutdown calibre before proceeding with installation to avoid reboots post installation\n- Improve Preferences->Tweaks getting rid of the need for double apply\n- KEPUB Output: When converting to KEPUB preserve cover aspect ratio regardless of the setting for it in the EPUB Output to match the behavior of KEPUB files from Kobo\n  Closes tickets: 2141251\nBug fixes\n- Make the new pages column value available in save to disk/send to device templates\n  Closes tickets: 2141151\n- Hanvon N10 device driver: Fix calibre unable to put its metadata files onto the device\n  Closes tickets: 2141625\n- Amazon metadata download plugin: Fix incorrect series index from amazon.com\n- Fix a regression in calibre 9.0 that broke output to PDB/TCR/zTXT files\n  Closes tickets: 2142195\n- Windows: Fix calibre not exiting on quit when the wireless device driver is used in calibre 9\n  Closes tickets: 2141994\n- Fix error in page counting when using the calibredb command to add a book\n- Completion: When sorting completion matches in contains mode ensure matches are sorted first by distance from beginning and then sub-sorted alphabetically\n  Closes tickets: 2141170\n- Windows: Fix a regression in calibre 9 that caused tooltips to not follow the color scheme\n  Closes tickets: 2141766\n- PDF Input: Fix PDF Outline not being converted to Table of Contents in output document when using the calibre engine\n  Closes tickets: 2141197\n- ODT Input: Ensure images are extracted within container (CVE-2026-26064)\n- PDB Input: Ensure extracted images are within the container (CVE-2026-26065)\n- Fix a regression in calibre 9.0 that caused a spurious large books merge warning when merging books in the cover grid view\n- Windows: Fix harmless error popup if user tries to launch calibre multiple times in quick succession\n- Version 9.3.1 fixes a regression in the previous release that caused a spurious error message to show when merging books and a regression in calibre 9.0 that broke using textures as the Cover grid background when using the system theme on Windows\n  Closes tickets: 2142318, 212296\nImproved news sources\n- Financial Times\n- The Asahi Shimbun\n- Todoist",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.3.1/calibre-64bit-9.3.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.3.1.msi",
+          "sha256": "f5d967ed123cdc24a802600bdbcf64b0d2e14379f2d6d46351df2b2b5206713c",
+          "product_code": "{E50CA89C-6D22-4E90-B014-91AC1CA97286}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{E50CA89C-6D22-4E90-B014-91AC1CA97286}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.3.0",
+      "release_date": "2026-02-20",
+      "release_notes": "New features\n- Windows installer: Detect running calibre processes and ask user to shutdown calibre before proceeding with installation to avoid reboots post installation\n- Improve Preferences->Tweaks getting rid of the need for double apply\n- KEPUB Output: When converting to KEPUB preserve cover aspect ratio regardless of the setting for it in the EPUB Output to match the behavior of KEPUB files from Kobo\n  Closes tickets: 2141251\nBug fixes\n- Make the new pages column value available in save to disk/send to device templates\n  Closes tickets: 2141151\n- Hanvon N10 device driver: Fix calibre unable to put its metadata files onto the device\n  Closes tickets: 2141625\n- Amazon metadata download plugin: Fix incorrect series index from amazon.com\n- Fix a regression in calibre 9.0 that broke output to PDB/TCR/zTXT files\n  Closes tickets: 2142195\n- Windows: Fix calibre not exiting on quit when the wireless device driver is used in calibre 9\n  Closes tickets: 2141994\n- Fix error in page counting when using the calibredb command to add a book\n- Completion: When sorting completion matches in contains mode ensure matches are sorted first by distance from beginning and then sub-sorted alphabetically\n  Closes tickets: 2141170\n- Windows: Fix a regression in calibre 9 that caused tooltips to not follow the color scheme\n  Closes tickets: 2141766\n- PDF Input: Fix PDF Outline not being converted to Table of Contents in output document when using the calibre engine\n  Closes tickets: 2141197\n- ODT Input: Ensure images are extracted within container (CVE-2026-26064)\n- PDB Input: Ensure extracted images are within the container (CVE-2026-26065)\n- Fix a regression in calibre 9.0 that caused a spurious large books merge warning when merging books in the cover grid view\n- Windows: Fix harmless error popup if user tries to launch calibre multiple times in quick succession\nImproved news sources\n- Financial Times\n- The Asahi Shimbun\n- Todoist",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.3.0/calibre-64bit-9.3.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.3.0.msi",
+          "sha256": "71f3c658e2badcc6c6e0e835b776a0db018ab954568e4515c8bcf78a523416cd",
+          "product_code": "{DE40E67A-18D5-45EA-9A31-4DA44D256B08}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{DE40E67A-18D5-45EA-9A31-4DA44D256B08}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.2.1",
+      "release_date": "2026-02-06",
+      "release_notes": "New features\n- ZIP Output: Change the template engine used for HTML templating from templite to Mustache, for greater safety and performance. Note that this is a breaking change if you use custom templates with ZIP output (CVE-2026-25731)\n- Check library: Add an option to rebuild the annotations search index\n  Closes tickets: 2139555\nBug fixes\n- CHM Input: Ignore internal files that have paths that end up outside the container. Prevents path traversal attacks with malicious CHM files (CVE-2026-25635)\n- EPUB Input: Ensure font obfuscation processing happens only on files from the EPUB, preventing path traversal attacks from malicious EPUB files (CVE-2026-25636)\n- Windows: Workaround for bug in Qt 6.10 causing Read Aloud in the E-book viewer to crash when stopped and restarted\n  Closes tickets: 2139521\n- Fix drag and drop of books into bookshelf view not working\n  Closes tickets: 2139529\n- Bookshelf: Fix bookshelf view blank on some macOS systems\n  Closes tickets: 2139403\n- E-book viewer: Fix a regression in calibre 9.0 that broke the Go to page function\n  Closes tickets: 2139576\n- E-book viewer: Fix google dictionary lookup results not legible\n  Closes tickets: 2140541\n- E-book viewer: Fix PageUp/PageDown keys needing to be pressed repeatedly at internal HTML file boundaries in flow mode\n- Bookshelf: Avoid rendering during initial show while the view is still being resized\n- Fix a regression in calibre 9.0 that caused mouse wheel to scroll a full row at a time in the Cover grid\n- News download: Fix a regression in 8.11 that broke automatic cleanup of downloaded HTML\n- Version 9.2.1 prevents the Content server from using template based searches since this is insecure when the content server is used with un-authenticated users\n  Closes tickets: 2140769",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.2.1/calibre-64bit-9.2.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.2.1.msi",
+          "sha256": "12e9190d2ee52a846c37827e7e1f525a7b43d2cf7b1f994c7631f147c04d0898",
+          "product_code": "{381CD31D-DFF3-4E5B-9E29-AABF85BA2445}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{381CD31D-DFF3-4E5B-9E29-AABF85BA2445}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.2.0",
+      "release_date": "2026-02-06",
+      "release_notes": "New features\n- ZIP Output: Change the template engine used for HTML templating from templite to Mustache, for greater safety and performance. Note that this is a breaking change if you use custom templates with ZIP output (CVE-2026-25731)\n- Check library: Add an option to rebuild the annotations search index\n  Closes tickets: 2139555\nBug fixes\n- CHM Input: Ignore internal files that have paths that end up outside the container. Prevents path traversal attacks with malicious CHM files (CVE-2026-25635)\n- EPUB Input: Ensure font obfuscation processing happens only on files from the EPUB, preventing path traversal attacks from malicious EPUB files (CVE-2026-25636)\n- Windows: Workaround for bug in Qt 6.10 causing Read Aloud in the E-book viewer to crash when stopped and restarted\n  Closes tickets: 2139521\n- Fix drag and drop of books into bookshelf view not working\n  Closes tickets: 2139529\n- Bookshelf: Fix bookshelf view blank on some macOS systems\n  Closes tickets: 2139403\n- E-book viewer: Fix a regression in calibre 9.0 that broke the Go to page function\n  Closes tickets: 2139576\n- E-book viewer: Fix google dictionary lookup results not legible\n  Closes tickets: 2140541\n- E-book viewer: Fix PageUp/PageDown keys needing to be pressed repeatedly at internal HTML file boundaries in flow mode\n- Bookshelf: Avoid rendering during initial show while the view is still being resized\n- Fix a regression in calibre 9.0 that caused mouse wheel to scroll a full row at a time in the Cover grid\n- News download: Fix a regression in 8.11 that broke automatic cleanup of downloaded HTML",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.2.0/calibre-64bit-9.2.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.2.0.msi",
+          "sha256": "cf073687b146ba6c8532391e663a292c6fd43d9afa264870834df5a31c215c84",
+          "product_code": "{FFFB2EA2-F31A-4221-930A-8F17713E09C9}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{FFFB2EA2-F31A-4221-930A-8F17713E09C9}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.1.0",
+      "release_date": "2026-01-31",
+      "release_notes": "New features\n- This is a pure bugfix release fixing various regressions in calibre 9.0\nBug fixes\n- macOS: Fix crash when pasting cover image\n  Closes tickets: 2139397\n- Fix restore database not working\n  Closes tickets: 2139455\n- Windows: Fix the Read Aloud feature in the E-book viewer not working when using the Piper engine\n  Closes tickets: 2139399\n- Fix using icon themes in \"For dark and light\" mode not working\n  Closes tickets: 2139454\n- Fix covers in the Cover grid slightly stretched on high DPI screens\n- Amazon metadata download: Fix publication date not being retrieved form amazon.co.jp\n  Closes tickets: 2139414\nImproved news sources\n- Economist",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.1.0/calibre-64bit-9.1.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.1.0.msi",
+          "sha256": "7bef9101b1398a07274742e4cfb3aa7a7bfd60049c00641c6fa4610ec931b017",
+          "product_code": "{0B022B46-FB01-4797-B29C-97ED5A7EC7EA}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{0B022B46-FB01-4797-B29C-97ED5A7EC7EA}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.0.0",
+      "release_date": "2026-01-30",
+      "release_notes": "New features\n- A new Bookshelf view with your books arranged on shelves showing their spines.\n  Click the Layout button in the bottom right corner of the calibre window to switch to Bookshelf view.\n- Viewer: Add an \"Edit book\" button to the viewer controls to edit the current book when the current book is in an editable format such as EPUB, AZW3 or KEPUB. It opens the editor at the approximate location that is currently being viewed.\n- Linux: Add momentum based scrolling for the book list when using high resolution scroll devices like touchpads\n- TXT Output: Add an option to replace images by their alt attribute text\n  Closes tickets: 2137504\n- EPUB: Support reading cover images from so called \"Open Manga Format\" non-conformant EPUB files produced by some Japanese publishers.\n- Add a tweak to change the font size of the AI chat widget\n  Closes tickets: 2138862\n- E-book viewer: Allow typing in a page number to go to instead of forcing the user to scroll through existing page numbers\n- Kobo driver: Support for updated firmware\nBug fixes\n- KEPUB Output: Add some CSS to fix rendering of tate-chu-yoko text on Kobo devices\n- Only show the Sort button on the search bar if the Sort By action has not been added to the search bar by the user\n  Closes tickets: 2138770\n- EPUB3 metadata: Handle identifiers that use HTTP URLs without the url: prefix\n  Closes tickets: 2137122\n- Edit book: Check book: Fix spurious unreferenced warnings for SMIL media overlay audio files\n- Edit book: Reports: Have pressing enter do the same action as double clicking the current entry\n  Closes tickets: 2138179\n- E-book viewer: Improve export of SVG images\n- Disable GPU acceleration for Qt WebEngine by default to prevent crashes on some older systems. Can be re-enabled via Preferences->Tweaks\n- Speedup calibre shutdown time by a couple of seconds\nImproved news sources\n- Times Literary Supplement\n- Private Eye\n- New Yorker",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.0.0/calibre-64bit-9.0.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.0.0.msi",
+          "sha256": "af7c10ceb1558fbc686bf72894e10903e31851306bbf7052113b0a887299bbaf",
+          "product_code": "{449ED296-4683-4116-BBED-3D38932F1E1A}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{449ED296-4683-4116-BBED-3D38932F1E1A}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.16.2",
+      "release_date": "2025-12-04",
+      "release_notes": "New features\n- Allow asking AI questions about any book in your calibre library. Right click the \"View\" button and choose \"Discuss selected book(s) with AI\"\n- AI: Allow asking AI what book to read next by right clicking on a book and using the \"Similar books\" menu\n- AI: Add a new backend for \"LM Studio\" which allows running various AI models locally\nBug fixes\n- Use a named local timezone for better display of historical dates in the local timezone\n  Closes tickets: 2133435\n- PDF Input: Fix a regression in the new PDF input engine that caused HTML markup to not be always escaped\n  Closes tickets: 2133846\n- Get books: Update amazon.it store plugin\n  Closes tickets: 2132253\n- Fix addition of format specific options when using calibredb catalog with command line flags\n- calibredb catalog: Fix generation of language field in BiBTeX catalogs\n  Closes tickets: 2133134\n- Fix incorrect series index when downloading metadata from amazon.co.jp\n  Closes tickets: 2132182\n- Fix a regression in the previous release that caused the case change menu to not be present in the comments editor.\n- Fix a bug in 8.16.0 that prevented the Ask AI what to read next feature from working\n  Closes tickets: 2133932\n- Fix a crash in 8.16.0 that caused using the \"Close\" button in Ask AI to crash calibre on some systems\n  Closes tickets: 2133992",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.16.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.16.2/calibre-64bit-8.16.2.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.16.2.msi",
+          "sha256": "7f052a6027d2331ce214cd4cbf7d8b12125b39a420309745cc6974cf3a000d50",
+          "product_code": "{8DE722AD-4F10-4607-A247-8AF4437037B4}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{8DE722AD-4F10-4607-A247-8AF4437037B4}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.16.1",
+      "release_date": "2025-12-05",
+      "release_notes": "New features\n- Allow asking AI questions about any book in your calibre library. Right click the \"View\" button and choose \"Discuss selected book(s) with AI\"\n- AI: Allow asking AI what book to read next by right clicking on a book and using the \"Similar books\" menu\n- AI: Add a new backend for \"LM Studio\" which allows running various AI models locally\nBug fixes\n- Use a named local timezone for better display of historical dates in the local timezone\n  Closes tickets: 2133435\n- PDF Input: Fix a regression in the new PDF input engine that caused HTML markup to not be always escaped\n  Closes tickets: 2133846\n- Get books: Update amazon.it store plugin\n  Closes tickets: 2132253\n- Fix addition of format specific options when using calibredb catalog with command line flags\n- calibredb catalog: Fix generation of language field in BiBTeX catalogs\n  Closes tickets: 2133134\n- Fix incorrect series index when downloading metadata from amazon.co.jp\n  Closes tickets: 2132182\n- Fix a regression in the previous release that caused the case change menu to not be present in the comments editor.\n- Fix a bug in 8.16.0 that prevented the Ask AI what to read next feature from working\n  Closes tickets: 2133932",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.16.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.16.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.16.1/calibre-64bit-8.16.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.16.1.msi",
+          "sha256": "188b6c8651a13facb8a6208f4190771d43244e1838947737289b6eb157b831f1",
+          "product_code": "{BA0EA5B9-8D39-47EA-B16E-DA5003A45F4B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{BA0EA5B9-8D39-47EA-B16E-DA5003A45F4B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.16.0",
+      "release_date": "2025-12-04",
+      "release_notes": "New features\n- Allow asking AI questions about any book in your calibre library. Right click the \"View\" button and choose \"Discuss selected book(s) with AI\"\n- AI: Allow asking AI what book to read next by right clicking on a book and using the \"Similar books\" menu\n- AI: Add a new backend for \"LM Studio\" which allows running various AI models locally\nBug fixes\n- Use a named local timezone for better display of historical dates in the local timezone\n  Closes tickets: 2133435\n- PDF Input: Fix a regression in the new PDF input engine that caused HTML markup to not be always escaped\n  Closes tickets: 2133846\n- Get books: Update amazon.it store plugin\n  Closes tickets: 2132253\n- Fix addition of format specific options when using calibredb catalog with command line flags\n- calibredb catalog: Fix generation of language field in BiBTeX catalogs\n  Closes tickets: 2133134\n- Fix incorrect series index when downloading metadata from amazon.co.jp\n  Closes tickets: 2132182\n- Fix a regression in the previous release that caused the case change menu to not be present in the comments editor.",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.16.0/calibre-64bit-8.16.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.16.0.msi",
+          "sha256": "242287677e29148448f44cea5c3e5dceff2d6fbd569f24cdc5bf8f12d482c096",
+          "product_code": "{D207862C-EF07-4C44-B15B-337E62E20A7B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{D207862C-EF07-4C44-B15B-337E62E20A7B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.15.0",
+      "release_date": "2025-11-21",
+      "release_notes": "New features\n- E-book viewer: Highlights panel: Show the date for highlights in the tooltip when hovering over a highlight\n  Closes tickets: 2131619\n- Comments editor: When changing case preserve as much text formatting as feasible\n- Comments editor: Add shortcuts for case change operations. Select some text, right click and see the case change menu for the shortcuts\n  Closes tickets: 2131158\nBug fixes\n- Editing book list: Be robust against the book list changing in the background when a book is auto added or similar while a cell is being edited\n  Closes tickets: 2131622\n- Edit book: Fix a memory leak in the HTML syntax highlighter\n  Closes tickets: 2130880\n- calibredb list: Fix identifier values not being shown. Fixes #2131557\nNew news sources\n- Hack a Day by Rui Rebelo\nImproved news sources\n- Guardian",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.15.0/calibre-64bit-8.15.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.15.0.msi",
+          "sha256": "fcf1a8e3f0c4480a6423f70bc5ab0caf7dbf4c99d5676d0e823d76e14be8fcf7",
+          "product_code": "{BFFEE51E-090E-4563-B344-1D0FAA3EC295}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{BFFEE51E-090E-4563-B344-1D0FAA3EC295}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.14.0",
+      "release_date": "2025-11-07",
+      "release_notes": "New features\n- Tolino driver: Add support for latest firmware\n- When showing completions for languages show all languages that contain the typed in string instead of only languages that start with the typed in string\n  Closes tickets: 2130804\n- When showing completions in substring match mode, order the completions by how close to the start the query is\n- A new shortcut Ctrl+Alt+Shift+P to switch to the previously applied Virtual library\n  Closes tickets: 2127819\nBug fixes\n- FB2 Input: Fix a remote code execution vulnerability from maliciously crafted FB2 files\n  Closes tickets: 2130764\n- E-book viewer: Ignore soft hyphens when looking up words\n  Closes tickets: 2130603\n- Catalog export: Fix export of languages in BibTeX format\n  Closes tickets: 2130573\n- Windows: Fix Open With not working with Microsoft Paint\n  Closes tickets: 2128853\nImproved news sources\n- Harper's Magazine\n- Afrique 21\n- Orient XXI\n- The Atlantic",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.14.0/calibre-64bit-8.14.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.14.0.msi",
+          "sha256": "61efdde89ed6e3cbe985e60b380772547754d943cfc10dd281b979a8ded87036",
+          "product_code": "{5E592CF6-0A51-4937-8688-047CF349C972}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{5E592CF6-0A51-4937-8688-047CF349C972}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.13.0",
+      "release_date": "2025-10-18",
+      "release_notes": "New features\n- Virtual libraries: Allow defining their search expressions more comfortably in a multi-line edit box\n  Closes tickets: 2126881\n- Open with: On Windows launch the specified program via the windows API for executing programs to decouple it more thoroughly from the calibre environment\nBug fixes\n- Get books: Fix ebooks.com plugin\n- calibre-server: Fix CALIBRE_OVERRIDE_DATABASE_PATH not working\n- Export library: Dont use /tmp on Linux fixes export breaking with large FTS database on Linux distros that mount /tmp in RAM\n- Fix a regression in 8.11 that caused errors when trying to open a book from the full text search results while the search was still running\n  Closes tickets: 2126611\nImproved news sources\n- Todoist\n- NZZ",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.13.0/calibre-64bit-8.13.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.13.0.msi",
+          "sha256": "081968d6e919c8a1e45de763378ce209da864de2b892dfb4ad5f7ebbe44c25c1",
+          "product_code": "{429F48B2-900F-4B4A-BC8A-2172EF35DC0B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{429F48B2-900F-4B4A-BC8A-2172EF35DC0B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.12.0",
+      "release_date": "2025-10-01",
+      "release_notes": "New features\n- Tolino driver: Support for latest Tolino firmware 5.11.230427\n- Ollama AI: Allow setting arbitrary HTTP headers to send with every request\nBug fixes\n- Fix a regression in the previous release that broke conversion of HTML that does not parse as XHTML\n  Closes tickets: 2126569\n- Ollama AI: Fix configuration of custom URL not working",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.12.0/calibre-64bit-8.12.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.12.0.msi",
+          "sha256": "1557ad6e5877ae461d162fc078655e999a787cf56e9f73ea723e2025726aa357",
+          "product_code": "{F6F4A22F-E6B3-489C-A8EE-1573B47E369B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{F6F4A22F-E6B3-489C-A8EE-1573B47E369B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.11.1",
+      "release_date": "2025-09-26",
+      "release_notes": "New features\n- E-book viewer: Add an \"Ask AI\" tab to the dictionary lookup panel. Allows you to query AI about the currently selected text.\n  Supports hundreds of AI models via Providers such as Google, OpenRouter, GitHub and locally running models via Ollama. Many of them can be used free of charge. Note that this feature is completely optional and no AI related code is even loaded until you configure an AI provider.\n- Preferences: Show the keyboard shortcut for each category in preferences in the tooltip\n  Closes tickets: 2122257\nBug fixes\n- E-book viewer: Fix modifying an existing highlight causing duplicates to be created in some books\n  Closes tickets: 2122747\n- E-book viewer: Fix very large e-books sometimes having a few non working links on Windows\n- PDB Input: Fix failure to convert some PDB files with sightly malformed headers\n  Closes tickets: 2123829\n- Fix error when trying to add the first icon rule to the Tag browser\n  Closes tickets: 2125438\n- E-book viewer: Fix Esc key not closing footnote popup when the popup has keyboard focus\n  Closes tickets: 2041848\n- E-book viewer: Fix placement of selection handles in some books when modifying an existing highlight\n- Windows build: Sign the .pyd DLLs in addition to the .dll DLLs\n- Windows: Fix regression in (8.11.0) causing conversion to be broken when metadata contains non-BMP characters\n  Closes tickets: 2125742\nImproved news sources\n- New York Times\n- Economist\n- El Diplo\n- New York Review of Books",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.11.1/calibre-64bit-8.11.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.11.1.msi",
+          "sha256": "84c5f664e4953a65a138f6f924364f39264dde25b42bbc14c535ed4fc858a235",
+          "product_code": "{33388C8E-2FF4-4ACF-82BA-E92CB50894B2}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{33388C8E-2FF4-4ACF-82BA-E92CB50894B2}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.11.0",
+      "release_date": "2025-09-26",
+      "release_notes": "New features\n- E-book viewer: Add an \"Ask AI\" tab to the dictionary lookup panel. Allows you to query AI about the currently selected text.\n  Supports hundreds of AI models via Providers such as Google, OpenRouter, GitHub and locally running models via Ollama. Many of them can be used free of charge. Note that this feature is completely optional and no AI related code is even loaded until you configure an AI provider.\n- Preferences: Show the keyboard shortcut for each category in preferences in the tooltip\n  Closes tickets: 2122257\nBug fixes\n- E-book viewer: Fix modifying an existing highlight causing duplicates to be created in some books\n  Closes tickets: 2122747\n- E-book viewer: Fix very large e-books sometimes having a few non working links on Windows\n- PDB Input: Fix failure to convert some PDB files with sightly malformed headers\n  Closes tickets: 2123829\n- Fix error when trying to add the first icon rule to the Tag browser\n  Closes tickets: 2125438\n- E-book viewer: Fix Esc key not closing footnote popup when the popup has keyboard focus\n  Closes tickets: 2041848\n- E-book viewer: Fix placement of selection handles in some books when modifying an existing highlight\n- Windows build: Sign the .pyd DLLs in addition to the .dll DLLs\nImproved news sources\n- New York Times\n- Economist\n- El Diplo\n- New York Review of Books",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.11.0/calibre-64bit-8.11.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.11.0.msi",
+          "sha256": "8c885e2e9bc23ec1c00d17a388f333db86b6ea89581cbdc8936de01510eb1e78",
+          "product_code": "{87FFFDF5-D3D9-432C-A1FD-4B9FEC9CB226}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{87FFFDF5-D3D9-432C-A1FD-4B9FEC9CB226}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.10.0",
+      "release_date": "2025-09-05",
+      "release_notes": "New features\n- Book list: Allow controlling the tooltips displayed for every column using a template. Right click the column header and choose \"Define tooltip template\" to set the tooltip for that column\n- MTP driver: Allow creating format specific destinations for audiobook files\n  Closes tickets: 2121304\n- Preferences->Keyboard: Allow searching by shortcut as well as by name\nBug fixes\n- Kindle MTP driver: Fix APNX files being placed in incorrect location when books are sent to subfolders inside the root folder\n  Closes tickets: 2121737\n- E-book viewer: Read Aloud: Fix regression in previous release that broke changing voices when engine is set to 'Automatically select'\n  Closes tickets: 2121897\n- Fix a regression in the previous release that broke markdown output\n  Closes tickets: 2121701\nImproved news sources\n- Harvard Business Review\n- Outlook Magazine",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.10.0/calibre-64bit-8.10.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.10.0.msi",
+          "sha256": "54062252b5e89cf405de4b26bf6ea03a1bf309659e0ccb05f15b9906b276cced",
+          "product_code": "{9653BCFC-1793-4143-A344-48F1CB1B25FF}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{9653BCFC-1793-4143-A344-48F1CB1B25FF}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.9.0",
+      "release_date": "2025-08-22",
+      "release_notes": "New features\n- Annotations browser: Add a color swatch in the results list to make seeing the type of highlight easier\n  Closes tickets: 2109496\n- Match books in library window: When doing the initial search using the title of the book on the device, if no matches are found remove trailing text in parentheses or after a colon and try again\n  Closes tickets: 2117322\n- When merging books via drag and drop show the cover of the target book\n  Closes tickets: 2118371\n- HTMLZ Output: Add support for embedded fonts\n  Closes tickets: 2120726\n- Plugin installation window: Allow filtering available plugins by category\n- Fetch news: Add a sub-menu to the right click menu of the Fetch news button that shows recently downloaded news sources\n  Closes tickets: 2119557\nBug fixes\n- Edit book: When pasting text from the clipboard ensure it is normalized to NFC form\n  Closes tickets: 2099740\n- Content server viewer: Improve the selection dialog for choosing a Text-to-speech voice\n  Closes tickets: 2109789\n- Content server: Fix an error when editing a book's metadata to change both the cover and another field\n  Closes tickets: 2117412\nNew news sources\n- Startechery by thekabistro\nImproved news sources\n- New York Times\n- Todoist\n- Tagespost",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.9.0/calibre-64bit-8.9.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.9.0.msi",
+          "sha256": "67b5346d302bdca7480b620a74438680d4b85499a8757cbc0e0ed0155fbb8357",
+          "product_code": "{5CD9D700-6D63-4BF9-9F5C-EC8650BFF868}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{5CD9D700-6D63-4BF9-9F5C-EC8650BFF868}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.8.0",
+      "release_date": "2025-08-08",
+      "release_notes": "New features\n- E-book viewer: Improve display of Lookup results from Google\n- Kobo driver: Add support for latest Tolino firmware\n- Conversion: Handle -epub-text-emphasis properties used in some Japanese language EPUB books\n- Piper Neural text to speech engine: re-write the backend used to run the Piper speech models to no longer need an external binary for improved performance and robustness\n  Closes tickets: 2117433\nBug fixes\n- Edit book: Reports: Fix sorting by name of CSS rules\n- Fix template based custom column of tags type not being treated as multi valued when using it for similarity searches\n  Closes tickets: 2118744\n- When adding books recursively do not try to import folder whose names named with an ebook file extension. These are, for example, generated by Apple Books\n- EPUB3 Output: Fix various issues with processing nav files when they contain more than just the Table of Contents and are not included in the spine.\n  Closes tickets: 2117255, 2117336\nImproved news sources\n- Economist\n- Press Information Bureau\n- Indian Express\n- Wall Street Journal\n- De Tijd\n- Washington Post",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.8.0/calibre-64bit-8.8.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.8.0.msi",
+          "sha256": "050048d0796270443c55a253950901896a714e48e59186091cdbd9e77d99414b",
+          "product_code": "{40304D89-3875-4F64-8826-5AFCFBF15A9E}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{40304D89-3875-4F64-8826-5AFCFBF15A9E}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.7.0",
+      "release_date": "2025-07-18",
+      "release_notes": "New features\n- Kindle driver: Add support for generating page number files (APNX) on 2024 and newer MTP based Kindles\n- When finding similar books by author ignore \"et al.\" suffix on author names\n  Closes tickets: 2116804\nBug fixes\n- Fix a regression in the previous release that broke configuring Sending of books to device\n  Closes tickets: 2116864\n- Kobo driver: Fix a regression that caused ancient, pre-Touch kobo devices to no longer work with calibre\n  Closes tickets: 2117113\n- MTP driver: Workaround for LibMTP no longer returning device serial numbers on some systems\n- Edit book: Fix the next/previous buttons in the Text search tool not working\n- Fix series and publisher mapping rules not handling commas correctly when downloading metadata one book at a time\n  Closes tickets: 2116065\n- Edit metadata dialog: When there are only a few cusotm comments like fields stretch them vertically to take up unused psace\nImproved news sources\n- New York Magazine\n- World Archaeology\n- Minerva Magazine\n- Military History\n- Ancient Egypt",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.7.0/calibre-64bit-8.7.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.7.0.msi",
+          "sha256": "6b51c9ddd7f6eb3ec2cbf6ea5a986db767a7fa6bfa7743ca76951d5a3a940088",
+          "product_code": "{68525596-6FDE-489A-90F7-47E5CC83FE3B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{68525596-6FDE-489A-90F7-47E5CC83FE3B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.6.0",
+      "release_date": "2025-07-10",
+      "release_notes": "New features\n- Content server: Add a checkbox in content server user preferences to prevent a user account from changing its own password via the web interface\n- Restoring database: Improve performance by an order of magnitude\n- Add a tweak to Preferences->Tweaks to permit displaying the sort value for series in the Tag browser\n- Welcome wizard: Change default output format to AZW3 for Kindle as MOBI is obsolete and all Kindles released within the last decade plus support AZW3\n- Add 'Search \"not in\"' and 'Filter \"not in'\" buttons to Manage authors and Manage Items\nBug fixes\n- Windows: Fix a regression in the previous release that caused terminal windows to popup momentarily when adding PDF files or converting them\n  Closes tickets: 2115246\n- E-book viewer: Fix a regression in 8.4 that broke fading of the background image\n  Closes tickets: 2115057\n- Tag browser: Fix clicking on categories to search for books by first letter of series not working correctly for non-English language books\n  Closes tickets: 2116006\n- Edit metadata individually: Ensure Next/Previous buttons work even if something re-orders the books in the book list. They will now iterate over the books as they were at the time the dialog is created\n  Closes tickets: 2115111\n- Windows: Generate catalog: Workaround for systems where a broken antivirus or similar holds open files in the catalog library causing a permission denied error\n  Closes tickets: 2115084\nNew news sources\n- La Presse by quatorze\nImproved news sources\n- Economist\n- 1843\n- Financial Times\n- PC World\n- Muy Interesante Mexico\n- Hindu Business Line\n- Business Standard\n- Hindustan Times\n- The Week\n- Times of India\n- Hindustan\n- Financial Times\n- Reason",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.6.0/calibre-64bit-8.6.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.6.0.msi",
+          "sha256": "d07f230e82c94faa01997ce0e31fa2eef9ed4715456a5b9f0e0d7a108a0594ba",
+          "product_code": "{D1BDA235-926E-4A04-AA11-C91C953F426B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{D1BDA235-926E-4A04-AA11-C91C953F426B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.5.0",
+      "release_date": "2025-06-20",
+      "release_notes": "New features\n- The scrollbars used in calibre in light mode are now the same style as the ones in dark mode, this improves the contrast making the scrollbar more accessible\n- Kobo driver: add an option to change the how the Kobo displays series numbers using a template.\n- Manage data files dialog: Add a button to cancel remaining books when managing multiple books\n  Closes tickets: 2112424\n- Kobo driver: add support for new Tolino firmware\nBug fixes\n- Prevent Windows 11 from starting a conhost.exe process for every calibre worker process\n  Closes tickets: 2111559\n- E-book viewer: Improve highlight grouping with recurring chapter names\n- When sending emails to amazon and pocketbook use random English text instead of UUIDs for subject/body.\n  Closes tickets: 2110400\nImproved news sources\n- NYTimes\n- WSJ\n- Financial Times\n- Eenadu\n- Fokus.se\n- Business standard\n- Go comics\n- NZ Herald\n- TLS Magazine",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.5.0/calibre-64bit-8.5.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.5.0.msi",
+          "sha256": "e9789c7b3a0f9a7e4d0712c802f14e3ec528ac12d49781690872a6b9c16f3a54",
+          "product_code": "{D7328DDD-4632-44DA-8CCE-211973DCD77B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{D7328DDD-4632-44DA-8CCE-211973DCD77B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.4.0",
+      "release_date": "2025-05-09",
+      "release_notes": "New features\n- KEPUB Output: Add an option to generate KEPUB files that have better text justification at the cost of gaps in highlighting when used on the Kobo\n  Closes tickets: 2107778\n- E-book viewer: Allow the background image specified in the Style section of the viewer preferences to extend under the page margins as well\nBug fixes\n- E-book viewer: Fix a regression that broke the \"show book in main calibre program\" link\n  Closes tickets: 2110117\n- News download: Fix Next/Previous links not working when the pointed to article failed to download\n- E-book viewer: Handle links to missing internal files with an error popup rather than becoming non-functional\n- E-book viewer: Fix some links not being processed correctly for very large EPUB files with many internal HTML files\n- Get books: Update ebooks.com plugin for website changes\n- Metadata review dialog: Fix merging of tags not working correctly\n- Wayland: Workaround Qt/Wayland bug that prevents the menu of the Layout button from showing\n  Closes tickets: 2109755\n- Prevent recursion when creating base temporary folder if something on system deletes the created temporary folder\n  Closes tickets: 2109612\nNew news sources\n- Frieze Magazine by Kabonix\nImproved news sources\n- NYTimes Book Review\n- Washington Post\n- tagesschau\n- Hindu\n- Economist\n- Economist Espresso",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v8.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.4.0/calibre-64bit-8.4.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.4.0.msi",
+          "sha256": "240003198842cfffbcc1d0a55a6a88b6d2a63c507d1a483b569476a63c4f72cf",
+          "product_code": "{A6EE7ABA-32AF-4FAE-86C3-0974AA5B900F}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{A6EE7ABA-32AF-4FAE-86C3-0974AA5B900F}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.3.0",
+      "release_date": "2025-04-17",
+      "release_notes": "New features\n- Cover grid: Allow configuring different backgrounds for light and dark mode in Preferences->Look & feel->Cover grid\n- E-book viewer: Further speedup first open of large EPUB files by another 30%\n- Metadata review dialog: Add merge comments action\nBug fixes\n- Kobo driver: Fix viewing of KEPUB files from the device view in calibre not working\n- Fix a regression in 8.1 that broke displaying of the debug log when running in debug mode\n- E-book viewer: Fix a regression in 8.0 that caused the clock to display an extra p after the time\n  Closes tickets: 2106280\nImproved news sources\n- GoComics\n- Internazionale\n- New York Times\n- SCMP\n- The Hindu\n- Barrons",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.3.0/calibre-64bit-8.3.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.3.0.msi",
+          "sha256": "81098b144c55cf035e16c088dd9b806151f044467d0ddcf0235015d2ab6e4e3e",
+          "product_code": "{D0CEDA32-335E-4B5A-804B-E07A3B1011C1}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{D0CEDA32-335E-4B5A-804B-E07A3B1011C1}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.2.100",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.2.100",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.2.100/calibre-64bit-8.2.100.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.2.100.msi",
+          "sha256": "923509cec99b5d8b0f03443330479b3646d528cdf0183fedc1561ef4161d1bdb",
+          "product_code": "{64C53D35-7DD9-418A-82C5-0B1F320DA6B7}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{64C53D35-7DD9-418A-82C5-0B1F320DA6B7}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.2.1",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.2.1/calibre-64bit-8.2.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.2.1.msi",
+          "sha256": "104b26fd6ea711361005cfd0bd0e5b16f984e295da1a3696dfd4bc2464af6e46",
+          "product_code": "{86433A19-9673-4B12-B345-618F9380B391}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{86433A19-9673-4B12-B345-618F9380B391}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.2.0",
+      "release_date": "2025-04-04",
+      "release_notes": "New features\n- Kobo driver: Add support for new Tolino firmware\n- Kindle driver: Allow using a value of * in Preferences->Output options->MOBI Output to have the driver mark all books sent to the device as personal documents\nBug fixes\n- Kobo driver: Fix hyphenation and extra CSS added to KEPUB files being ignored by the renderer on the Kobo\n- macOS: Fix opening book folder or PDF files for books with square brackets in the title not working\n  Closes tickets: 2105884\n- Quickview: Fix a long standing bug with syncing of columns in the presence of hidden/re-ordered columns\n- E-book viewer: Show an error message when an invalid nearby search expression is used\n  Closes tickets: 2104850\n- KEPUB Output: Fix incorrect encoding detection for some HTML files without an encoding declaration\n  Closes tickets: 2105424\n- macOS: Fix a regression in the previous release that caused failures in the E-book viewer when updating annotations for books with a large number of annotations\nImproved news sources\n- The Economist\n- Reuters\n- Private eye",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.2.0/calibre-64bit-8.2.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.2.0.msi",
+          "sha256": "e3a61af8a819a1229594335ab9acdf815b95b3c5ab20aa2c8ec2a14506361578",
+          "product_code": "{B492B797-5746-46EB-A761-8390DC98EF35}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{B492B797-5746-46EB-A761-8390DC98EF35}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.1.1",
+      "release_date": "2025-03-28",
+      "release_notes": "New features\n- Edit metadata dialog: Allow right clicking on the cover to edit it with an external program\n  Closes tickets: 2103833\n- Virtual library tabs: When the tabs are locked prevent them from being re-ordered as well\n  Closes tickets: 2104325\n- FreeBSD: Add support for connecting to devices, contributed by Guido Falsi\nBug fixes\n- macOS: Fix regression in previous release that caused calibre:// URLs to no longer work\n  Closes tickets: 2103949\n- macOS: Fix a regression in calibre 8 that prevented icons in menus from being rendered\n  Closes tickets: 2103777\n- Kobo driver: Fix hyphenation settings not being applied correctly when generating KEPUB to put on the device\n- KEPUB Output: Include leading whitespace in kobo sentence span tags. This prevents unsightly breaks when highlighting across formatted text on the Kobo\n  Closes tickets: 2103926\n- Content server: Fix FB2 books not readable via the in-browser viewer\n  Closes tickets: 2103846\n- Edit book: Add text narration: Fix preferred voice for language setting being ignored\n- E-book viewer: Use IPC to update annotations when calibre is running. Avoids possible loss of annotations in the Annotations browser due to db being locked\n  Closes tickets: 2103990\n- Ensure calibre temp files are deleted even on program crash\n- Fix incorrect minimums on font size changing controls in viewer\n  Closes tickets: 2103870\n- Fix regression in previous release causing incorrect rendering of layout menu on some macOS machines\n- Fix archive formats such as ZIP not being indexed for full text search\n  Closes tickets: 2100891\n- Version 8.1.1 fixes a regression causing an error that does not affect functionality on startup on macOS\nImproved news sources\n- Horizons\n- Economist\n- Granta",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.1.1/calibre-64bit-8.1.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.1.1.msi",
+          "sha256": "f2c9ec4a4e40ec795db26c453427620d9e0587fe6d138862f76ae3d81765012a",
+          "product_code": "{6555A7A9-E05E-4EE5-8832-F561C5944FDD}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{6555A7A9-E05E-4EE5-8832-F561C5944FDD}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.1.0",
+      "release_date": "2025-03-28",
+      "release_notes": "New features\n- Edit metadata dialog: Allow right clicking on the cover to edit it with an external program\n  Closes tickets: 2103833\n- Virtual library tabs: When the tabs are locked prevent them from being re-ordered as well\n  Closes tickets: 2104325\n- FreeBSD: Add support for connecting to devices, contributed by Guido Falsi\nBug fixes\n- macOS: Fix regression in previous release that caused calibre:// URLs to no longer work\n  Closes tickets: 2103949\n- macOS: Fix a regression in calibre 8 that prevented icons in menus from being rendered\n  Closes tickets: 2103777\n- Kobo driver: Fix hyphenation settings not being applied correctly when generating KEPUB to put on the device\n- KEPUB Output: Include leading whitespace in kobo sentence span tags. This prevents unsightly breaks when highlighting across formatted text on the Kobo\n  Closes tickets: 2103926\n- Content server: Fix FB2 books not readable via the in-browser viewer\n  Closes tickets: 2103846\n- Edit book: Add text narration: Fix preferred voice for language setting being ignored\n- E-book viewer: Use IPC to update annotations when calibre is running. Avoids possible loss of annotations in the Annotations browser due to db being locked\n  Closes tickets: 2103990\n- Ensure calibre temp files are deleted even on program crash\n- Fix incorrect minimums on font size changing controls in viewer\n  Closes tickets: 2103870\n- Fix regression in previous release causing incorrect rendering of layout menu on some macOS machines\n- Fix archive formats such as ZIP not being indexed for full text search\n  Closes tickets: 2100891\nImproved news sources\n- Horizons\n- Economist\n- Granta",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.1.0/calibre-64bit-8.1.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.1.0.msi",
+          "sha256": "b36a170c41d4cfff4a795406a3c2d1d7ea9950b152f1fb40e70df0368e5052a3",
+          "product_code": "{4765302A-E792-4D29-AE54-76F1615D98E9}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{4765302A-E792-4D29-AE54-76F1615D98E9}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.0.1",
+      "release_date": "2025-03-21",
+      "release_notes": "New features\n- Much improved Kobo support\n  calibre can now natively edit, view and convert KEPUB format files used by the Kobo. It also automatically converts EPUB to KEPUB when sending books to Kobo devices (can be configured by right clicking the kobo icon in calibre).\n- Connect to folder: Allow connecting a specific device\n  calibre can now connect to a folder and treat it as though it is a USBMS based device. This is useful particularly on Chromebooks where USB devices appear as folders rather than actual devices.\n- When completing names for fields that contain hierarchical data in prefix mode match prefixes after every period\n  Closes tickets: 2099780\n- ToC editor: Allow moving of multiple selected items in the Table of Contents\n- macOS: The calibre application icons in the dock are now displayed in a white frame to follow Apple's current recommended icon style\n- Kobo driver: Add support for new firmware on Tolino devices\n- Book details: Add option in to suppress author search links\nBug fixes\n- Fix a regression that broke tabbing to edit cells in the book list when some columns have been hidden or re-ordered\n- Catalog generation: Allow using templates that access the database for notes\n- Fix a bug when renaming authors to a name with commas in it\n- Full text search: Also index text in ZIP and RAR archives as these can be viewed by the calibre viewer\n  Closes tickets: 2100891\n- E-book viewer: Fix Table of Contents current entry tracking not working for some books\n  Closes tickets: 2099678\n- When reading metadata from HTML also recognize name=\"subject\" meta tags as calibre tags\n- E-book viewer: Fix viewer not closing on the interrupt signal\n  Closes tickets: 2099777\n- Edit book: Download external resources: Fix incorrect filename if the server returns a generic Content-Type header\n  Closes tickets: 2099754\n- Metadata download: Publisher/series transform rules: Fix values with commas in them not working\n  Closes tickets: 2098620\n- Version 8.0.1 fixes a failure to start on systems where the user had previously installed the KoboTouchExtended plugin and disabled the builtin KoboTouch driver\nImproved news sources\n- Linux Weekly News\n- Spectator\n- Economist\n- Granta\n- Hindu\n- 1843\n- Barrons\n- Frontline\n- Zaobao\n- Strange Horizons",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.0.1/calibre-64bit-8.0.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.0.1.msi",
+          "sha256": "9f420e7add58cc377461c490fbe9cff4fcdc37ef1dd53d633e9ed7dfe4d7c058",
+          "product_code": "{622982DF-799D-4ED4-B9E5-0D132A8FEA35}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{622982DF-799D-4ED4-B9E5-0D132A8FEA35}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.0.0",
+      "release_date": "2025-03-21",
+      "release_notes": "New features\n- Much improved Kobo support\n  calibre can now natively edit, view and convert KEPUB format files used by the Kobo. It also automatically converts EPUB to KEPUB when sending books to Kobo devices (can be configured by right clicking the kobo icon in calibre).\n- Connect to folder: Allow connecting a specific device\n  calibre can now connect to a folder and treat it as though it is a USBMS based device. This is useful particularly on Chromebooks where USB devices appear as folders rather than actual devices.\n- When completing names for fields that contain hierarchical data in prefix mode match prefixes after every period\n  Closes tickets: 2099780\n- ToC editor: Allow moving of multiple selected items in the Table of Contents\n- macOS: The calibre application icons in the dock are now displayed in a white frame to follow Apple's current recommended icon style\n- Kobo driver: Add support for new firmware on Tolino devices\n- Book details: Add option in to suppress author search links\nBug fixes\n- Fix a regression that broke tabbing to edit cells in the book list when some columns have been hidden or re-ordered\n- Catalog generation: Allow using templates that access the database for notes\n- Fix a bug when renaming authors to a name with commas in it\n- Full text search: Also index text in ZIP and RAR archives as these can be viewed by the calibre viewer\n  Closes tickets: 2100891\n- E-book viewer: Fix Table of Contents current entry tracking not working for some books\n  Closes tickets: 2099678\n- When reading metadata from HTML also recognize name=\"subject\" meta tags as calibre tags\n- E-book viewer: Fix viewer not closing on the interrupt signal\n  Closes tickets: 2099777\n- Edit book: Download external resources: Fix incorrect filename if the server returns a generic Content-Type header\n  Closes tickets: 2099754\n- Metadata download: Publisher/series transform rules: Fix values with commas in them not working\n  Closes tickets: 2098620\nImproved news sources\n- Linux Weekly News\n- Spectator\n- Economist\n- Granta\n- Hindu\n- 1843\n- Barrons\n- Frontline\n- Zaobao\n- Strange Horizons",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/8.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/8.0.0/calibre-64bit-8.0.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-8.0.0.msi",
+          "sha256": "60caf80dcdce9840058ccade8c56c36c7cd71be2192d98e1b9ac8dc704af989c",
+          "product_code": "{9255A0D9-2066-42E7-8194-0A5445D2228B}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{9255A0D9-2066-42E7-8194-0A5445D2228B}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.26.0",
+      "release_date": "2025-02-14",
+      "release_notes": "New features\n- Allow specifying web search links that are used when clicking on item names in the Book details panel for custom columns via Preferences->Add your own columns\n- Content server: When clicking on author names in the book details page perform the same action as clicking it in the calibre program's Book details panel\nBug fixes\n- Fix a regression in 7.17 that caused various minor problems with editing metadata directly in the book list\n  Closes tickets: 2097677\n- Fix a regression in the previous release that broke conversion using Heuristics and TXT input documents\n- E-book viewer: Fix header/footer text size too small when using multiple monitors and the primary monitors DPI is much less than secondary monitor DPI\n  Closes tickets: 2097563\n- Fix series mapping rules in the metadata preferences not working\n  Closes tickets: 2097947\n- Fix setting custom icon for category doesn't work\n  Closes tickets: 2098133\n- Kobo driver: Fix a regression that broke working with very old Kobo devices\n  Closes tickets: 2092732\nImproved news sources\n- Science Journals\n- Barrons",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.26.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.26.0/calibre-64bit-7.26.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.26.0.msi",
+          "sha256": "f737537b4df4bdc9ef15e9c24a68ad6423f4c300ba82341062f734dfda138c37",
+          "product_code": "{E8BC3795-935F-41D8-9A12-6EAE1FCF01EB}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{E8BC3795-935F-41D8-9A12-6EAE1FCF01EB}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.25.0",
+      "release_date": "2025-02-07",
+      "release_notes": "New features\n- Allow setting custom icons for items in the Tab browser by right clicking on them and choosing \"Manage icon for this value\"\n- Kindle driver: Allow import of KFX files from 2024 Kindles that use the MTP protocol\n- A new tweak in Preferences->Tweaks to control the East Asian language used when transliterating to English\n- Add an option to adjust the size of the link and note icons in Book details under Preferences->Look & feel->Book details\nBug fixes\n- Nook driver: Fix the Glowlight 4 not working on Windows\n  Closes tickets: 2068527\n- MTP driver: Fix Internal storage and SD card being swapped on some devices that have buggy firmware that assigns the SD card a lower id than the internal storage\n- Template dialog: Respect the tweak for title/series when editing save to disk and send to device templates\n  Closes tickets: 2096841\n- Content server: Fix icons for individual formats not being shown in the Tag browser\nNew news sources\n- Alternatives Economiques by Kabonix\n- Zerodeux by Kabonix\n- Afrique XXI by Kabonix\n- Orient XXI by Kabonix\n- Contretemps by Kabonix\n- Faz.net by Anonymous\n- Moview Web and Football League World by SpicyPoison\nImproved news sources\n- spektrum.de\n- Economist\n- Arret sur images\n- Le Canard Enchaine\n- Foreign Affairs",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.25.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.25.0/calibre-64bit-7.25.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.25.0.msi",
+          "sha256": "fa287a31151409ea42b6cc91f8fc1d062dc97e1da7db0842d681f97cd0e98fd2",
+          "product_code": "{BD93BC86-3A28-4892-B5B5-DD3BC4008607}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{BD93BC86-3A28-4892-B5B5-DD3BC4008607}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.24.0",
+      "release_date": "2024-01-10",
+      "release_notes": "New features\n- Allow creating rules to transform series names in the Bulk metadata editor and Preferences->Metadata download\n  Closes tickets: 2091268\n- Conversion: Automatically set the page progression direction for books that do not have it set and have their primary language either Arabic or Hebrew\n- Content server: Book details view: Make calibre://show-book and calibre://view-book URLs in the comments work\n- Edit book: Spell check: Add a button to export the currently displayed list of words as a CSV file\n  Closes tickets: 2092496\n- Add from ISBN: Add a checkbox to automatically convert obsolete ISBN 10 to ISBN 13\n  Closes tickets: 2092483\n- Save single format to disk: Allow choosing the book cover as the format to save\n  Closes tickets: 2092395\n- Option to show a button to access all available actions from the status bar in Preferences->Look & feel->Main interface\nBug fixes\n- Read aloud: Fix no audio produced when text contains <3 and using the Windows legacy speech engine\n  Closes tickets: 2092948\n- Fix Tabbing while editing cells in the book list not always working\n  Closes tickets: 2092643\n- Windows build: Also sign the portable launcher exes\n- Fix viewing books via the Cover browser not working when in device view\n  Closes tickets: 2092630\nImproved news sources\n- LWN Weekly\n- Outlook India\n- Livemint",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.24.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.24.0/calibre-64bit-7.24.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.24.0.msi",
+          "sha256": "f51bb4a90fe1b031bea35f00c0a3fc4c5f35c9dd97f3e9faff043a932a9e02d4",
+          "product_code": "{DE49E45E-A242-47E5-A432-201379A7A194}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{DE49E45E-A242-47E5-A432-201379A7A194}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.23.0",
+      "release_date": "2024-12-20",
+      "release_notes": "New features\n- 🎄 Happy holidays to everyone!\n- Content server: Allow managing the data files associated with a book by clicking the three dots in the top right corner of the book's page and choosing \"Manage data files\"\n  Closes tickets: 2091646\n- Edit metadata dialog: Allow right clicking on the cover to view it in a popup window at larger size\n  Closes tickets: 2091216\n- Add an option to expand the Tag browser tree to show the item that was current when the library was closed\n- Add import and export stored template to Preferences / template functions\n- Various Quality-of-Life improvements to the dialog used to edit columns with fixed sets of values\n- Resolve doi.org links when pasting identifiers\n  Closes tickets: 2091152\nBug fixes\n- Viewer: Fix some HTMLZ files not opening on some systems\n  Closes tickets: 2091451\n- Amazon metadata plugin: Update for changed markup for some books on amazon search results page\n  Closes tickets: 2091542\nNew news sources\n- Le Canard Enchaine by Kabonix\nImproved news sources\n- Economist\n- Irish Times\n- Popular Science\n- ACM Queue",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.23.0/calibre-64bit-7.23.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.23.0.msi",
+          "sha256": "637a9f20980efab3de6205316ebbc9509373833b89a5fd840a45028e66144b26",
+          "product_code": "{72C7B39E-49F7-465C-9642-DCE91975BBE9}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{72C7B39E-49F7-465C-9642-DCE91975BBE9}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.22.0",
+      "release_date": "2024-11-29",
+      "release_notes": "New features\n- E-book viewer: Read Aloud: Add an option to control the position of the popup control bar. It can now be placed along the top or bottom edges so as to overlap less with text.\n- System tray menu: Add action to restart calibre\n  Closes tickets: 2087754\n- Tolino driver: Support new firmware\nBug fixes\n- Windows: Enable popup OS notifications even when system tray icon is disabled to match behavior on other platforms. Notifications can be disabled via Preferences->Look & feel->Disable notifications on job completion\n- Fix a regression that caused incorrect English transliteration of Japanese text even when the UI language is set to Japanese\n  Closes tickets: 2087850\n- macOS: Dark mode: Fix a regression that caused the scrollbar to no longer be transient\n  Closes tickets: 2088153\n- DOCX Input: When some text has multiple footnotes insert a space between the consecutive foot note numbers so that they are distinct\n  Closes tickets: 2089433\n- DOCX Input: Fix ToC nesting not working if the styles for the ToC levels dont use integer margins\n- E-book viewer: Fix spurious chapter transition after configuring Read aloud\n- PDF Input: Fix reflow of lines in files with little text not working\n  Closes tickets: 2089436\nNew news sources\n- Economist News by unkn0wn\nImproved news sources\n- Economist\n- Indian Express\n- Economist World Ahead\n- Frontline\n- Infobae",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.22.0/calibre-64bit-7.22.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.22.0.msi",
+          "sha256": "e5f2653f4f97d8a4f92048125cec23e30b8dcb04d1b452b31b13ef0f17400050",
+          "product_code": "{1E97B5F3-1500-42BF-B7B7-C1DA92D42C2C}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{1E97B5F3-1500-42BF-B7B7-C1DA92D42C2C}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.21.0",
+      "release_date": "2024-11-08",
+      "release_notes": "New features\n- Edit book: A new tool to create an audio overlay in EPUB files for all text using the Read aloud facility\n  This allows readers of the book to listen to it with sentence tracking, even if they do not have a functioning text-to-speech system in the reading software. You can even assign different voices to different parts of the text for a more immersive experience. The tool is available from the Tools menu in the book editor.\n- Dark mode: make scrollbar more visible with higher contrast and rounded corners\n- E-book viewer: In flow mode when scrolling across internal file boundaries using the mouse wheel/touchpad have a short half second pause to ease the transition. Can be controlled via the Scrolling section of the Viewer preferences.\n- ebook-meta.exe: Add an option to disallow rendered cover of first page for EPUB\n- Book details: Add an action to download the cover to the context menu when right clicking the cover\n  Closes tickets: 2082075\n- Read aloud: Add a restore defaults button to the configuration dialog\n  Closes tickets: 2086609\n- Auto adding: Allow excluding arbitrary file types not just known book file types\n  Closes tickets: 2086478\n- Edit metadata dialog: Add an action to open the book's folder to the context menu of the formats list\n  Closes tickets: 2083583\nBug fixes\n- Read aloud: Fix only first 32000 characters per chapter being read\n  Closes tickets: 2086571\n- Content server: Read aloud: Fix clicking on a word to skip reading aloud to that word causing word highlighting to stop working\n  Closes tickets: 2086661\n- Linux: Handle speech dispatcher with dummy output module and no voices more gracefully\n- When renaming authors fix empty author folder not being removed if it contained file explorer metadata but was otherwise empty\n- Edit metadata dialog: Fix keyboard shortcuts to edit prev/next raising an error when trying to go beyond the first/last book\n  Closes tickets: 2086193\n- Linux: ToC Editor: Fix a regression in 7.17 that broke using the Create new entry button\n  Closes tickets: 2085576\n- Content server: Fix changing the language of a book not working for non-English user interface language and for books that have no existing language\n  Closes tickets: 2085005\n- Linux: Read aloud with Piper: Fix audio not playing on some Linux systems\n- Notes browser: When searching books search over all currently selected categories not just the last selected one\nNew news sources\n- Unz Review and Sonar21 by unkn0wn\nImproved news sources\n- Substack\n- Live Mint\n- NYPost\n- Ars Technica\n- Indian Express\n- Reuters",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.21.0/calibre-64bit-7.21.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.21.0.msi",
+          "sha256": "70666e905359c683e9eaf38477b13eed508d8981536f827eb992c736b6341973",
+          "product_code": "{B7EE05BC-C7DC-4E56-AB79-063A58E9127F}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{B7EE05BC-C7DC-4E56-AB79-063A58E9127F}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "9.17.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://download.calibre-ebook.com/9.17.0/calibre-9.17.0.dmg",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-9.17.0.dmg",
+          "sha256": "fdab4bd1400996c381845b7a95026f96bd9f68bfec68cf3d49afd458b4717842"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "calibre.app"
+        ],
+        "binaries": [
+          "calibre-complete",
+          "calibre-customize",
+          "calibre-debug",
+          "calibre-parallel",
+          "calibre-server",
+          "calibre-smtp",
+          "calibredb",
+          "ebook-convert",
+          "ebook-device",
+          "ebook-meta",
+          "ebook-polish",
+          "ebook-viewer",
+          "fetch-ebook-metadata",
+          "lrf2lrs",
+          "lrfviewer",
+          "lrs2lrf",
+          "markdown-calibre",
+          "web2disk",
+          "ebook-edit",
+          "calibre"
+        ],
+        "cleanup": {
+          "quit": [
+            "net.kovidgoyal.calibre"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/calibre-ebook.com",
+            "~/Library/Caches/calibre",
+            "~/Library/Preferences/calibre",
+            "~/Library/Preferences/com.calibre-ebook.ebook-viewer.plist",
+            "~/Library/Preferences/net.kovidgoyal.calibre.plist",
+            "~/Library/Saved Application State/com.calibre-ebook.ebook-viewer.savedState",
+            "~/Library/Saved Application State/net.kovidgoyal.calibre.savedState",
+            "/Library/Caches/calibre-singleinstance-*.lock"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "9.17.0",
+      "release_date": "2026-10-23",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.calibre_ebook.calibre.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.calibre_ebook.calibre.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.calibre_ebook.calibre.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.calibre_ebook.calibre.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/c/calibre/calibre"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "Casks/c/calibre.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/calibre.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.calibre_ebook.calibre",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/com.calibre_ebook.calibre",
+      "api_url": "https://flathub.org/api/v2/appstream/com.calibre_ebook.calibre",
+      "content_sha256": "02b55c5dfe54eb71ea22e810afb437642123c9450bc7231f3896fbbba80caefa"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.calibre_ebook.calibre",
+    "page_url": "https://flathub.org/apps/com.calibre_ebook.calibre",
+    "repo_url": "https://github.com/flathub/com.calibre_ebook.calibre",
+    "install_command": "flatpak install flathub com.calibre_ebook.calibre",
+    "run_command": "flatpak run com.calibre_ebook.calibre",
+    "verified": false,
+    "license": "GPL-3.0",
+    "free_license": true,
+    "developer_name": "Kovid Goyal",
+    "categories": [
+      "Office"
+    ],
+    "download_size": 283995445,
+    "installed_size": 682061824,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

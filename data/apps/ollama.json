@@ -1,0 +1,1684 @@
+{
+  "schema_version": 2,
+  "slug": "ollama",
+  "name": "Ollama",
+  "publisher": "Ollama",
+  "ids": {
+    "winget": "Ollama.Ollama",
+    "homebrew_cask": "ollama-app"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Get up and running with large language models locally.",
+  "tags": [
+    "ai",
+    "chatbot",
+    "deepseek",
+    "large-language-model",
+    "llama",
+    "llm",
+    "mistral",
+    "qwen"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://ollama.com/",
+    "publisher": "https://ollama.com/",
+    "support": "https://github.com/ollama/ollama/issues",
+    "bug_tracker": "https://github.com/ollama/ollama/issues",
+    "release_notes": "https://github.com/ollama/ollama/releases/tag/v0.40.14",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://docs.ollama.com/"
+      }
+    ]
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/ollama/ollama/blob/HEAD/LICENSE",
+    "spdx": "MIT",
+    "copyright": "Copyright (c) Ollama"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.40.14",
+    "macos": "0.40.14"
+  },
+  "last_updated": "2026-11-03",
+  "versions_total": {
+    "windows": 210,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.40.14",
+      "release_date": "2026-11-03",
+      "release_notes": "What's Changed\n- ollama launch claude now applies the model's output token limit for Claude Code, so cloud models no longer run into the 128k default cap\n- Cloud web search responses on /api/chat are now decoded correctly, including compressed responses\n- OpenAI-compatible endpoints no longer override a model's packaged sampler defaults — clients that send no temperature/top_p get the model's own values instead of 1.0, matching /api/chat\n- /v1/responses now preserves readable input content, including prior assistant refusals, instead of flattening it\n- Ollama's app can now retry ChatGPT disconnect failures instead of leaving the connection in a broken state\n- ollama launch codex verifies ChatGPT routing before configuring, and reports a clear error when routing is unavailable\n- Faster top-k sampling on MLX for large vocabularies\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.13...v0.40.14",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.14",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.14/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "e069c7cc7d4808f77684e81efa0b1f853a5190b4b8f070bc8fd63041180e3eba",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.14/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "e069c7cc7d4808f77684e81efa0b1f853a5190b4b8f070bc8fd63041180e3eba",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.13",
+      "release_date": "2026-10-28",
+      "release_notes": "LFM3 on Linux and Windows\nLiquid AI's LFM3 models, including text-to-speech in lfm3-audio and lfm3-omni, now run on Linux and Windows as well as Apple silicon.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.12...v0.40.13",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.13",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.13/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "9e3c76e54e7184c68e88a2378b909bf59bbe454f83c076cb4f4a717e946ae719",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.13/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "9e3c76e54e7184c68e88a2378b909bf59bbe454f83c076cb4f4a717e946ae719",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.12",
+      "release_date": "2026-10-27",
+      "release_notes": "Liquid AI LFM3\nLFM3 is Liquid AI's new family of small models built for local agents, tool calling, and structured output, on Liquid's new tri-hybrid architecture. The family includes:\n- lfm3: a 1.7B text model with a 256K-token context window\n- lfm3-vl: adds image understanding\n- lfm3-audio: speech recognition, translation, and text-to-speech in 18 languages\n- lfm3-omni: text, images, and audio in one model\nollama run lfm3\nd1 decision models\nLiquid AI's d1 models now come in a 2B size, built on LFM3. d1 makes decisions about text and images, and d1-omni adds audio.\nollama run d1:2b \"I was charged twice for order 4417.\" --ask \"Is this a billing issue?\"\nNote: lfm3 and d1 2b are supported on Apple hardware in this release. Support for Linux/Windows coming soon.\nWhat's Changed\n- Faster prompt processing on Apple silicon for Gemma 4, Flint and Laguna models\n- Speculative decoding now supports DFlash2 draft models on MLX\n- Gemma 4 keeps more detail in small images\n- ollama launch now works with OpenCode v2\n- Fixed tool-only assistant turns from Kimi CLI\n- Updated MLX and llama.cpp\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.11...v0.40.12",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.12",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.12/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "9a6a44ddb9044da0a8985235ad1114baba31f42d202b53a179c452acdaec9fd7",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.12/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "9a6a44ddb9044da0a8985235ad1114baba31f42d202b53a179c452acdaec9fd7",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.11",
+      "release_date": "2026-10-24",
+      "release_notes": "Speech\nOllama can now generate speech on macOS. ollama run plays text or a chat model's reply aloud as the audio is generated, and apps can stream audio through the OpenAI-compatible /v1/audio/speech endpoint.\nollama run phonon \"Hello from Ollama.\"\nd3 decision models\nd3 brings vLLM Semantic Router's decision models to Ollama. Give a model text, structured state, or an image, and ask it to classify, answer yes or no, or score options with probabilities. The family includes 2B, 4B, 9B, and 27B sizes.\nollama run d3 \"A customer says their card was charged twice.\" --ask \"Is this a billing issue?\"\nNew Contributors\n- @SynapShift made their first contribution in https://github.com/ollama/ollama/pull/19173\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.10...v0.40.11-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.11/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "87309d23b423abeae1d8df2f98df95f94bf35659debfdf3761d65b7b62a75508",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.11/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "87309d23b423abeae1d8df2f98df95f94bf35659debfdf3761d65b7b62a75508",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.10",
+      "release_date": "2026-10-23",
+      "release_notes": "NVIDIA Nemotron 3.5 Bolt E4B\nNemotron 3.5 Bolt E4B is NVIDIA’s smaller, Gemma 4-based vision-language model for fast local conversations, image understanding, and tool use. It supports a 128K-token context window.\nThe model includes a DFlash draft for speculative decoding.\nollama run nemotron-3.5-bolt:e4b\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.9...v0.40.10",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.10/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "051556bec8d51d65a5e81e46aa9c238fff4fff0d47ce164fb25203ae48ed1c99",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.10/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "051556bec8d51d65a5e81e46aa9c238fff4fff0d47ce164fb25203ae48ed1c99",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.9",
+      "release_date": "2026-10-22",
+      "release_notes": "Speech\nOllama can now generate speech with Phonon on Apple Silicon. ollama run plays text or a chat model's reply aloud as the audio is generated, and apps can stream audio through the OpenAI-compatible /v1/audio/speech endpoint.\nollama run phonon \"Hello from Ollama.\"\nd3 decision models\nd3 brings vLLM Semantic Router's decision models to Ollama. Give a model text, structured state, or an image, and ask it to classify, answer yes or no, or score options with probabilities. The family includes 2B, 4B, 9B, and 27B sizes.\nollama run d3 \"A customer says their card was charged twice.\" --ask \"Is this a billing issue?\"\nFlint on Linux and Windows\nFlint now runs on Linux and Windows as well as macOS.\nOther improvements\n- Streaming OpenAI Responses and Anthropic Messages requests now report generation failures instead of ending silently after partial output.\n- ollama launch now passes cloud models' context lengths and capabilities to coding tools, fixing incorrect context and compaction settings.\n- Anthropic-compatible web search now uses the model's supported thinking setting in follow-up requests, preventing avoidable failures.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.8...v0.40.9",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.9/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "67f57180b35691eb5e017388c3125ea96e41b3b6a55b84387bb71fd65c5530f9",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.9/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "67f57180b35691eb5e017388c3125ea96e41b3b6a55b84387bb71fd65c5530f9",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.8",
+      "release_date": "2026-10-21",
+      "release_notes": "Recursive Flint\nFlint brings Recursive's coding model to Ollama. It is designed for the work coding agents do across a repository: understanding unfamiliar code, tracing bugs, implementing features, and adding tests. Reasoning, multi-turn tool use, and a 262K-token context window support longer tasks across files and tool interactions.\nFlint is an Apache 2.0-licensed, 40B-parameter mixture-of-experts model with approximately 2.5B parameters active per token. In its release evaluations, Recursive reports 54.9% on Terminal-Bench 2.1 and 74.2% on SWE-bench Verified.\nollama run flint\nNote: Flint is supported on MacOS. Other GPU support will be enabled in a subsequent release.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.7...v0.40.8",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.8/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "777f775abb9458ece249f8721db816ac38f7c457767843120ce4fb3d01380b56",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.8/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "777f775abb9458ece249f8721db816ac38f7c457767843120ce4fb3d01380b56",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.7",
+      "release_date": "2026-10-18",
+      "release_notes": "What's Changed\n- pplx-decider is a 27B decision model from Perplexity, fine-tuned from\n  Qwen3.8-27B\n- Continuing an OpenAI-compatible Responses conversation no longer fails when switching between models with and without\n  thinking, or when the history contains another provider's compaction items\n- Fixed streaming Responses requests where client tool calls (e.g. Codex with web search) could emit before open\n  reasoning items, producing misordered/duplicate tool call events\n- Requests routed to remote models are now cancelled on ollama.com when the client disconnects, instead of continuing\n  to run\n- ollama show now reports which renderer and parser a model uses and where its chat template comes from; the API\n  exposes the same values in new renderer, parser, and template_source fields\n- More draft models now work with speculative decoding: llama-server infers the draft type automatically instead of\n  requiring Ollama to identify it\n- ollama launch claude now clamps CLAUDE_CODE_AUTO_COMPACT_WINDOW to Claude Code's supported range, avoiding a\n  \"window too large\" warning\n- Updated llama.cpp and MLX\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.6...v0.40.7",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.7/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "6394e61daedc2de736c9f76cbc58f30f9241ba1eb4c2f79ef75e833168db8a60",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.7/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "6394e61daedc2de736c9f76cbc58f30f9241ba1eb4c2f79ef75e833168db8a60",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.6",
+      "release_date": "2026-10-16",
+      "release_notes": "What's Changed\n- win: prevent orphaned runners by @dhiltgen in https://github.com/ollama/ollama/pull/18500\n- gguf: add the q2_0 tensor and file types by @jmorganca in https://github.com/ollama/ollama/pull/18967\n- Launch clef in Ollama's cloud by @jberg5 in https://github.com/ollama/ollama/pull/19036\n- use identifiers for --ask mode question keys by @jberg5 in https://github.com/ollama/ollama/pull/19041\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.5...v0.40.6-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.6/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "933794ee1d670137f5116c9de7fc7db092fa97c6b823aba848ddb8a7ea030828",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.6/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "933794ee1d670137f5116c9de7fc7db092fa97c6b823aba848ddb8a7ea030828",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.5",
+      "release_date": "2026-10-14",
+      "release_notes": "NVIDIA Nemotron 3.5 Super\nNVIDIA Nemotron 3.5 Super is a vision-language model for coding, reasoning, tool use, and document understanding. It pairs a 120B-parameter hybrid Mamba-2/Transformer mixture-of-experts backbone (12B active per token) with a C-RADIO vision encoder, and supports tool calling, an on/off thinking mode, and context up to 1M tokens.\nollama run nemotron-3.5-super\nA compact sibling, Nemotron 3.5 Bolt, distills Super down to 74B parameters (9B active) tuned to fit a 24 GB NVIDIA GPU for everyday agentic tasks, with speculative decoding via its included drafter.\nWhat's Changed\n- Decision models are now available on cloud — use clef:cloud and clef-flash:cloud to run decision models through ollama.com cloud without pulling them locally\n- Continuing an OpenAI-compatible Responses conversation that includes custom tool calls no longer fails with an error\n- Clearer error messages when cloud access fails: sign-in problems, payment issues in the desktop app, and upstream access errors from the ChatGPT gateway now explain what went wrong\n- Updated llama.cpp (adding Nemotron 3.5 support) and MLX\nNew Contributors\n- @willietran made their first contribution in https://github.com/ollama/ollama/pull/18986\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.4...v0.40.5",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.5/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "ea0b50685d382bc0af164abdbf9b41bd89abb98de14fc51e4890a7176757a519",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.5/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "ea0b50685d382bc0af164abdbf9b41bd89abb98de14fc51e4890a7176757a519",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.4",
+      "release_date": "2026-10-12",
+      "release_notes": "Decision models in the CLI\nDecision models can now be used directly from the terminal with ollama run — ask yes/no questions, classify text into labels, or score against a rubric:\nollama run nimble --ask \"Is a refund being requested?\" < ticket.txt\nWhat's Changed\n- Kev decision models are now supported by the MLX runner on Apple silicon\n- ollama launch can now be used with usage credits without upgrading to a paid plan\n- ollama launch codex now includes locally installed Ollama models in its model picker. Use /model within the Codex CLI to swap models.\n- Improved inference performance by reusing verified manifests and already loaded models\n- Added support for multimodal embeddings through llama-server\n- Fixed loading multimodal embedding models with small context windows\n- Improved Gemma 4 prefill performance on NVIDIA GPUs with the MLX runner\n- MLX runner now clips long Laya states instead of rejecting them\n- Improved speculative decoding reliability in the MLX runner, including recurrent state handling after rollback\n- Updated llama.cpp with native decision model support\n- Updated README and documentation with clearer privacy and cloud-services wording\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.3...v0.40.4",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.4/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "45fcd47d70dd047ab95736802e71a7497ef1a473a50470471fc2fb0eb90badde",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.4/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "45fcd47d70dd047ab95736802e71a7497ef1a473a50470471fc2fb0eb90badde",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.3",
+      "release_date": "2026-10-11",
+      "release_notes": "What's Changed\n- ollama launch claude no longer shows a warning about Claude connectors by @hoyyeva in https://github.com/ollama/ollama/pull/18878\n- ollama launch codex no longer warns about service tiers by @hoyyeva in https://github.com/ollama/ollama/pull/18879\n- Paused background model upgrade for embedding and other request performance, by @jmorganca in https://github.com/ollama/ollama/pull/18908\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.2...v0.40.3",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.3/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "ab81db6c6f4f65547242d1b2912e854da660ab3bc1dbd5ae3483831cf7668c80",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.3/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "ab81db6c6f4f65547242d1b2912e854da660ab3bc1dbd5ae3483831cf7668c80",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.2",
+      "release_date": "2026-10-08",
+      "release_notes": "Model upgrades\nModels downloaded with earlier versions of Ollama are upgraded in the background the first time you run them, for better performance and compatibility when running on llama.cpp.\nTo make downgrading safe, Ollama keeps the original copy as a backup, so upgraded models are temporarily kept on disk. A future release will remove these backups automatically.\nTo remove backed up models now (requires jq):\ncurl -s localhost:11434/api/tags | jq -r '.models[].name' | while read -r m; do\n  curl -s localhost:11434/api/show -d \"{\\\"model\\\":\\\"$m\\\"}\" | jq -r \\\n    'select(any(.manifests[]?; .runner == \"llamacpp\")) | .manifests[] | select(.runner == \"ggml\") | .digest'\ndone | sort -u | xargs -n1 ollama rm\nThis only deletes the backups. If you later downgrade to a version older than 0.40, you'll need to re-pull those models.\nOther changes\n- ollama list no longer shows duplicate entries for upgraded models by @dhiltgen in https://github.com/ollama/ollama/pull/18874\n- ollama launch claude uses the model's full context length by @jberg5 in https://github.com/ollama/ollama/pull/18855\n- README: add oxi to community integrations by @maziluiosif in https://github.com/ollama/ollama/pull/18739\nNew Contributors\n- @maziluiosif made their first contribution in https://github.com/ollama/ollama/pull/18739\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.1...v0.40.2-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.2/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "e78ea4ffc8fdc1a0bbcb4f8404c7ee1bd0898ed3a65d9cc08d79eb2235cd5a9e",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.2/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "e78ea4ffc8fdc1a0bbcb4f8404c7ee1bd0898ed3a65d9cc08d79eb2235cd5a9e",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.1",
+      "release_date": "2026-10-07",
+      "release_notes": "What's Changed\n- server: proxy cloud usage and balance APIs by @drifkin in https://github.com/ollama/ollama/pull/18829\n- llama: fix clef head reads past 2GiB on windows by @Gigrise in https://github.com/ollama/ollama/pull/18777\n- cmd: remove account step from CLI onboarding by @hoyyeva in https://github.com/ollama/ollama/pull/18826\n- manifest: avoid symlinks on Windows by @dhiltgen in https://github.com/ollama/ollama/pull/18852\n- docs: fix 6 dead links in README community integrations list by @aniketkrs in https://github.com/ollama/ollama/pull/18814\n- docs: fix broken download links in app README by @chenlichao in https://github.com/ollama/ollama/pull/18233\n- mlx: drop carried metal residency patch now that it is upstream by @dhiltgen in https://github.com/ollama/ollama/pull/18854\nNew Contributors\n- @Gigrise made their first contribution in https://github.com/ollama/ollama/pull/18777\n- @aniketkrs made their first contribution in https://github.com/ollama/ollama/pull/18814\n- @chenlichao made their first contribution in https://github.com/ollama/ollama/pull/18233\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.0...v0.40.1-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "5a157ce5a0697bd885186f0683f39c55deb4bf3eebd28ab90bab0ffeccb6132a",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "5a157ce5a0697bd885186f0683f39c55deb4bf3eebd28ab90bab0ffeccb6132a",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.0",
+      "release_date": "2026-09-25",
+      "release_notes": "What's Changed\nModels run on MLX on Apple Silicon by default\nIn this release, on Apple Silicon devices, model architectures supported by the MLX runtime will automatically run on MLX.\nollama pull qwen3.8\nollama run qwen3.8\nAdditional models include gemma4, qwen3.6 and qwen3.5\nDecision models are now available on MLX as well: Nimble tev1 clef clef-flash\nMLX now has support for an embedding model: embeddinggemma-2\nWe will continue testing and enabling additional models.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.35.1...v0.40.0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.0/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "135bf4d927b1de03e884cd2fe66729bdf4d6a2983c5a453b99eb403489e460e1",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.0/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "135bf4d927b1de03e884cd2fe66729bdf4d6a2983c5a453b99eb403489e460e1",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.35.1",
+      "release_date": "2026-09-29",
+      "release_notes": "Clef decision models\nOllama now supports Clef and Clef Flash, Cloudflare's new open-source decision models, through /v1/systemone.\nClef (27B) and Clef Flash (9B) are multimodal: requests can now include images alongside the text state, shared by all questions and scored jointly with it.\ncurl http://localhost:11434/v1/systemone -d '{\n  \"model\": \"clef-flash\",\n  \"state\": \"The user took this screenshot.\",\n  \"images\": [\"<base64-encoded image>\"],\n  \"questions\": {\n    \"has_ollama\": {\"type\": \"noul\", \"instructions\": \"Does this image contain Ollama?\"}\n  }\n}'\n{\n  \"model\": \"clef-flash\",\n  \"answers\": {\n    \"has_ollama\": {\n      \"type\": \"noul\",\n      \"noul\": 0.958\n    }\n  },\n  \"usage\": {\n    \"input_tokens\": 548,\n    \"output_tokens\": 0\n  }\n}\nWhat's Changed\n- Models using web search can now perform up to ten searches per response, up from three\n- Modelfiles now support CAPABILITY declarations, so model creators can explicitly declare what a model can do. Declarations are preserved when creating from GGUF or safetensors, through model inheritance, and on Modelfile export\n- ollama show and the model list now report only decision as the capability for decision models, so clients no longer offer them for general chat, tools, or thinking\n- Updated llama.cpp and the MLX engine\nFull Changelog: https://github.com/ollama/ollama/compare/v0.35.0...v0.35.1",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.35.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.35.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.35.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "2544c6dc60c57866f5cfbd32b8f7c5ffa5e1f7f0579ca59da5ff20bdc53ad3d2",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.35.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "2544c6dc60c57866f5cfbd32b8f7c5ffa5e1f7f0579ca59da5ff20bdc53ad3d2",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.35.0",
+      "release_date": "2026-09-28",
+      "release_notes": "Decision models\nOllama now supports decision models through /v1/systemone, based on TypeSafe’s Jev API.\nDecision models return choices, probabilities, and scores instead of text. Use them for tasks such as ticket triage, model routing, and content classification.\nAvailable models:\n- Nimble from Bespoke Labs\n- Tev1 from Together AI\nollama pull nimble\nSend context and one or more questions:\ncurl http://localhost:11434/v1/systemone \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"model\": \"nimble\",\n    \"state\": \"Our checkout has returned 500 errors since 9am.\",\n    \"questions\": {\n      \"label\": {\n        \"type\": \"choice\",\n        \"instructions\": \"Which label fits this ticket?\",\n        \"criteria\": {\n          \"billing\": \"Payments and refunds\",\n          \"bug\": \"Software errors\",\n          \"account\": \"Login and account access\"\n        }\n      }\n    }\n  }'\nExample response:\n{\n  \"model\": \"nimble\",\n  \"answers\": {\n    \"label\": {\n      \"type\": \"choice\",\n      \"choice\": \"bug\",\n      \"probabilities\": {\n        \"billing\": 0.0125,\n        \"bug\": 0.9781,\n        \"account\": 0.0093\n      },\n      \"confidence\": 0.8906\n    }\n  },\n  \"usage\": {\n    \"input_tokens\": 174,\n    \"output_tokens\": 1\n  }\n}\nThe API supports three question types:\n- choice: Select an option and return probabilities for each.\n- noul: Return the probability that a condition is true.\n- score: Return a score across an ordered set of criteria\nWhat's Changed\n- Settings now opens without waiting for model discovery.\n- Fixed the macOS update menu and icon not reflecting an available update at startup.\n- Fixed stalled MLX model downloads hanging indefinitely.\n- Requests containing the deprecated typical_p parameter now log a warning instead of failing.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.34.4...v0.35.0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.35.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.35.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.35.0/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "92e45c3518daf7d4ea60480896ee7bdb1bed71381593cfc9f2d7c1ceb941efde",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.35.0/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "92e45c3518daf7d4ea60480896ee7bdb1bed71381593cfc9f2d7c1ceb941efde",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.34.4",
+      "release_date": "2026-09-23",
+      "release_notes": "What's Changed\n- Structured outputs on thinking models now apply in a single pass, making them faster and more reliable.\n- Fixed intermittent \"model not found\" errors with a large local library\n- Fixed the macOS app becoming unresponsive when checking if ChatGPT or Codex is running.\n- Qwen 3.8 prompt processing is faster on Apple Silicon.\n- Gemma 4 on Apple Silicon now picks the best image resolution per image, keeping more detail in high-resolution images.\n- Updated llama.cpp, MLX, and XGrammar.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.34.3...v0.34.4",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.34.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.34.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.34.4/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "4a6514323eb8c131f6c8bb651b4fe2edf5f1525f4fd8b84315ba20f1af3e210f",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.34.3",
+      "release_date": "2026-09-19",
+      "release_notes": "What's Changed\nGET /api/show now advertises each model's thinking controls and default:\nAvailable in the CLI with:\nollama show gemma4\nthinking\n        levels     false, true\n        default    true\nAvailable in the API with:\ncurl http://localhost:11434/api/show -d '{\"model\": \"glm-5.3-flash:cloud\"}'\n{\n  \"thinking\": {\n    \"values\": [\"low\", \"high\", \"max\"],\n    \"default\": \"max\"\n  }\n}\nAlso available on ollama.com directly for cloud models.\n- Nemotron H vision models are now supported on Apple Silicon with MLX\n- Ollama's macOS app will now no longer reopen windows you've closed when activating it\n- Fix for model pulls from HuggingFace\nFull Changelog: https://github.com/ollama/ollama/compare/v0.34.2...v0.34.3",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.34.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.34.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.34.3/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "fe1cce219b07ba13982a9419bfa3697c911bf77667ee636c967baed1b06ee3a0",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.34.2",
+      "release_date": "2026-09-15",
+      "release_notes": "What's Changed\n- Added first-run setup when running ollama, with options to sign in or continue locally. Setup completion is shared with the desktop app on macOS and Windows.\n- Added ollama://apps to open the desktop app’s Apps page directly on macOS and Windows.\n- Fixed excessive memory growth during long generations with MLX speculative decoding.\n- Updated llama.cpp.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.34.1...v0.34.2",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.34.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.34.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.34.2/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "8c9eb7ba71f3c6a62df4c7d204cc4739d90c335e1cbeb07c99fd471544066a8b",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.34.1",
+      "release_date": "2026-09-14",
+      "release_notes": "What's Changed\n- MLX safetensors ollama create no longer experimental. GGUF model creation now requires using llama.cpp tooling for safetensor conversion and quantization.\n- Improved MLX memory handling on Apple Silicon\n- Runaway repeat token detection now requires 100 repeat tokens for reduced false positives (e.g. OCR)\n- /api/tags is much faster on large model libraries (3.1 s → 294 ms cold in testing), and model capabilities are now reported consistently.\n- Deprecated typical_p: it can no longer be set when creating new models, existing GGUF models retain support.\n- MLX and llama.cpp updates\nFull Changelog: https://github.com/ollama/ollama/compare/v0.34.0...v0.34.1-rc1",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.34.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.34.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.34.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "a92986c86ab6854675ffd1b725db7c0350d40755895c95c397c58d61014e14d9",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.34.0",
+      "release_date": "2026-09-05",
+      "release_notes": "Use Ollama models in ChatGPT Desktop\nOllama models can now be used directly in ChatGPT Desktop, so you can keep your existing workflow while running open models. Setup is available from the Ollama app on MacOS.\nThis release also improves structured output performance on Apple Silicon, adds support for OpenAI-compatible client tool search and response compaction.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.33.3...v0.34.0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.34.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.34.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.34.0/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "e2b98770fb87f3b4c593c22f2e8eda59bcac1cd7b141f1388c4181a8bf271a72",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.33.3",
+      "release_date": "2026-09-02",
+      "release_notes": "What's Changed\n- gemma4 now supports images and audio on MLX engine\n- Report cached prompt tokens\n- Honor GGUF model defined default parameters\n- MLX, MLX-C, llama.cpp update\nNew Contributors\n- @marcelpetrick made their first contribution in https://github.com/ollama/ollama/pull/17579\nFull Changelog: https://github.com/ollama/ollama/compare/v0.33.2...v0.33.3",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.33.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.33.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.33.3/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "32cdcb1da477bc7fffbf1c1cdeeb99b1db003af094db56dd3c156abd04d34f8e",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.33.2",
+      "release_date": "2026-08-27",
+      "release_notes": "What's Changed\n- Ollama's app now follows the system appearance again, restoring dark mode support\n- Fixed the macOS app to properly hand off to an already-running instance instead of starting a second one\n- The Claude Desktop proxy no longer interrupts in-flight requests when the model catalog updates\nFull Changelog: https://github.com/ollama/ollama/compare/v0.33.1...v0.33.2",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.33.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.33.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.33.2/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "5a91c1cf92480e28a84cd99e437219be719df5a50d5fa0fd5fe5b5c4a122f506",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.33.1",
+      "release_date": "2026-08-26",
+      "release_notes": "What's Changed\n- MLX: Qwen3.8 Flash Next support\n- cmake: make external compat patches idempotent\n- MLX and llama.cpp update\n- mlxrunner: add structured output support\n- mlxrunner: avoid Metal GPU timeouts when loading models from slow storage\nNew Contributors\n- @pd95 made their first contribution in https://github.com/ollama/ollama/pull/17948\nFull Changelog: https://github.com/ollama/ollama/compare/v0.33.0...v0.33.1",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.33.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.33.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.33.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "5065f5c3d9d50c2039e070a637e373dae8310d4e7cdb80443af832568e7b812b",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.33.0",
+      "release_date": "2026-08-21",
+      "release_notes": "What's Changed\nClaude Desktop\nDevelopers can now easily configure Claude Desktop to seamlessly work with Ollama as a third-party gateway provider.\nImproved caching\n- Fixed a hang where agent clients that cancel long prefills\n- Prefill restore points are now trustworthy by construction: a cancelled prefill keeps every restore point it crossed, so retries resume where they stopped instead of restarting from scratch\n- Resumed prefills no longer record restore points that fail to cover what they claim; on models with recurrent layers this previously forced a request matching 46k of 47k tokens to reprocess from zero\n- Disabled Claude Code's \"tokens left\" token-countdown system message, which Ollama moved to the front of the prompt and broke the KV cache on every request\nOther improvements\n- DeepSeek Harness launcher now falls back to npx when the global npm install fails, with Windows command-shim support\n- MLX dependency update (#17886)\n- Fixed broken default packaging caused by macOS-specific assumptions affecting Linux/Windows builds\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.15...v0.33.0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.33.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.33.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.33.0/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "913230e6c251e60577dd4ef236b5a916202cb1b87481ed817e375fee4841372b",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.15",
+      "release_date": "2026-08-19",
+      "release_notes": "What's Changed\n- New desktop onboarding flow on first launch\n- Caches resolved model metadata between requests, cutting time-to-first-token by roughly half (TTFT dropped from ~995 ms to ~524 ms in benchmarks)\n- Fixes a bug where chat and generate could wedge after a mid-stream parser error\n- Qwen 3.8 system messages are now normalized so non-leading system messages are handled consistently\n- MLX and llama.cpp dependency updates\nNew Contributors\n- @gaugarg-nv made their first contribution in https://github.com/ollama/ollama/pull/17752\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.14...v0.32.15",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.15",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.15/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "bb49a9366dacf07e3fc94e87869d1a0ad5df3a8cbd9ee54503d4b6b1c0843cb0",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.14",
+      "release_date": "2026-08-15",
+      "release_notes": "What's Changed\n- llm: transcode WebP images for llama-server\n- renderers/qwen: tolerate non-leading system messages\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.13...v0.32.14",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.14",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.14/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "63061ab02eab0644ec8db56807d8f3e79be19ade9e7c5839014bfc01fd6f1a01",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.13",
+      "release_date": "2026-08-14",
+      "release_notes": "What's Changed\n- qwen3.8: support developer instructions\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.12...v0.32.13",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.13",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.13/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "11c4aef313766bbc302939be13979ac245988deace3f973b76629812e9abb028",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.12",
+      "release_date": "2026-08-14",
+      "release_notes": "Qwen 3.8 - 27B model support\nThis release adds the support of Qwen 3.8 27B.\nFor Apple Silicon devices, Ollama has in particular optimized for maximum performance and output quality suitable for repeated tasks and coding agents.\nQwen 3.8 model page:\nhttps://ollama.com/library/qwen3.8\nQwen3.8 delivers substantial gains across coding, professional work, research, and long-horizon agentic tasks.",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.12/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "4233026fa8b81f603a9df1efd22cbfb137b84f3fb20bb7d8f5c57f372a9b82d7",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.11",
+      "release_date": "2026-08-14",
+      "release_notes": "What's Changed\n- ollama launch dsh now supports DeepSeek Harness, DeepSeek's open-source agent harness\n- ollama launch muse now supports Muse Code, Meta's agentic coding CLI\n- The OpenAI-compatible Responses API now supports web search\n- Muse Glimmer template updates\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.10...v0.32.11",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.11/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "a85d894bbe55943b97d1c089d9853cfe03bc7c8059e947fc7ce56467fffbff1e",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.9",
+      "release_date": "2026-08-11",
+      "release_notes": "NVIDIA Nemotron 3.5 Lightning\nNVIDIA Nemotron 3.5 Lightning is an open 30B mixture-of-experts (MoE) model with 3B active parameters built for that execution layer of always-on agents. It is designed for harnesses like OpenClaw and Hermes Agent – all supported by the NVIDIA NemoClaw open source security and management stack for running always-on AI agents.\nollama run nemotron-3.5-lightning\nWhat's Changed\n- Added the Nemotron 3 architecture\n- Handle boundary condition in Muse Glimmer function calling parser\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.8...v0.32.9",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.9/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "57fde2adad686d2b7bcb01a4c083e5112417410945a2f0c8fb3328d9b21d8990",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.8",
+      "release_date": "2026-08-10",
+      "release_notes": "What's Changed\n- Add Muse Glimmer support for NVIDIA, AMD, and additional platforms\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.7...v0.32.8-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.8/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "cba870e7111bd141623531faa694a77af2c66a414832de712f8bc1d67a7b163c",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.7",
+      "release_date": "2026-08-10",
+      "release_notes": "Muse Glimmer\nNote: Muse Glimmer is currently available via initial support via Ollama's MLX engine on Apple Silicon. Support for NVIDIA, AMD, and other platforms will be available in the coming days.\nMuse Glimmer, Meta's newest open model and the first released by Meta Superintelligence Labs, is now available on Ollama. It's a 30B multimodal model purpose-built for agent workloads that run locally.\nWith Ollama, you can now use Muse Glimmer to power coding agent applications such as Claude Code, Codex, Pi and more, as well as long-running personal assistants such as OpenClaw and Hermes.\nOllama's MLX engine provides state-of-the-art performance on Apple Silicon for this model, with support for DFlash and image input as of Ollama 0.32.7.\nTo download and run Muse Glimmer locally:\nollama run muse-glimmer:30b-mlx\nTo run Muse Glimmer on Apple Silicon with Claude Code, download Ollama and run:\nollama launch claude --model muse-glimmer:30b-mlx\nFor a lighter-weight coding agent, try Pi:\nollama launch pi --model muse-glimmer:30b-mlx\nFor personal assistant frameworks such as OpenClaw and Hermes, use:\nollama launch openclaw --model muse-glimmer:30b-mlx\nollama launch hermes --model muse-glimmer:30b-mlx",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.7/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "5300a5c601e5f6d7dd5c8495cfae15cb1fb713fcb557fb6a7fba30c242df8c58",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.6",
+      "release_date": "2026-08-04",
+      "release_notes": "What's Changed\n- Qwen3.5 is faster on Apple GPUs: the MLX engine now uses the model's MTP head for speculative decoding automatically\n- /v1/chat/completions streaming now matches OpenAI's wire format: role only on the first chunk, finish_reason on its own chunk,\n  and usage in a separate chunk with stream_options.include_usage.\n- Truncated OpenAI responses now report finish_reason: \"length\" instead of \"tool_calls\".\n- ollama run kimi-k3 now offers kimi-k3:cloud for cloud-only models that publish no default tag, instead of failing.\n- TUI fixes: pipe-delimited prose no longer renders as a table, Enter accepts the highlighted @ file completion, and /prompt\n  scrolling is no longer laggy.\n- Experimental image generation has been temporarily removed. Continue using 0.32.5 for image generation support\n- Updated the MLX and llama.cpp engines.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.5...v0.32.6-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.6/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "526e47db7c295d017e9514df5bb20c6f32b3d1170f2c8bb9c59b53185f5bd6ff",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.5",
+      "release_date": "2026-07-27",
+      "release_notes": "What's Changed\n- Fixed an MLX Metal bug that could reduce output quality for NVFP4 models, particularly Laguna.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.4...v0.32.5",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.5/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "b7eeef038ddcbd09ac665b11872baff1bc9b42794be41b5ef187b2f4b16a4498",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.4",
+      "release_date": "2026-07-25",
+      "release_notes": "What's Changed\n- Support Laguna on Apple GPUs via the MLX engine\n- Quantize draft-model output heads at the requested type when creating speculative-decoding drafts.\n- Fixed Qwen3 MoE decoding for differently-quantized experts, plus faster packed gate/up projection (~4–9% on M5 Max).\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.3...v0.32.4",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.4/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "cc1458d8af9a7ae0bb75ffa3b20d6c84afed98851f814384f99eab605b8b3299",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.3",
+      "release_date": "2026-07-23",
+      "release_notes": "What's Changed\n- Fixed model downloads that stall before sending data.\n- Improved integrations: restored Claude Code Channels, fixed Anthropic thinking streams, and made Hermes Desktop respect --force-build.\n- Expanded GPU support with CUDA on Windows ARM64, B200 support through CUDA 12, and lower memory use on Linux CUDA/ROCm iGPUs.\n- Added chat, thinking, and tool calling support for Laguna 2.1 models, including a Metal inference fix.\n- Fixed GLM tool calls being silently dropped at the end of generation.\n- Updated the MLX and llama.cpp engines.\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.1...v0.32.3",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.3/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "78bc7e1f750882fcee9948561700bf881eb7b30bec95fd37934e6285a368b8b2",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.1",
+      "release_date": "2026-07-16",
+      "release_notes": "What's Changed\n- Improved Gemma 4 tool calling and multi-turn reasoning, including more reliable tool-response continuations\n- Fixed a recurrent MLX model cache leak that could increase memory use across requests, and improved cache snapshot performance\n- MLX text model loading now respects OLLAMA_LOAD_TIMEOUT\n- Agent web search and fetch now tell users to run ollama signin when authentication is required\n- The interactive agent now receives the current working directory for better project context\n- Fixed ollama launch so choosing Pick another model for a deprecated model passed with --model opens the model picker\n- Updated VS Code setup documentation for the official Ollama extension\nFull Changelog: https://github.com/ollama/ollama/compare/v0.32.0...v0.32.1-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "2f53afab45547896e66b2879174ee78bb1f079f4a20b0858e0e377da0c3631f0",
+          "product_code": "{{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.0",
+      "release_date": "2026-07-11",
+      "release_notes": "What's Changed\n- New interactive agent experience: running ollama now launches an agent to help you code and delegate work\n❯ ollama\nOllama 0.32.0\n\n▸ Chat, Code, & Work (glm-5.2:cloud)\n    Chat with models, code, search the web, and delegate real work\n- Renamed the Codex App integration to ChatGPT: use ollama launch chatgpt (and --restore to return to your usual ChatGPT profile)\n- Simplified integration selection: the ollama launch menu now only offers the most popular integrations (other integrations can be accessed through ollama launch\n- Warns before launching older agent models: CodeLlama, Qwen2.5(-coder), Llama 3.x, Mistral, StarCoder, and the base DeepSeek-R1 tags now prompt a deprecation warning before ollama launch continues\nFull Changelog: https://github.com/ollama/ollama/compare/v0.31.2...v0.32.0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.32.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.32.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.32.0/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "07846c9074875e4d47518d41636880a9d9a40a7e1483659ac00be7aec082de06",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.31.2",
+      "release_date": "2026-07-06",
+      "release_notes": "What's Changed\n- Enabled flash attention on older NVIDIA GPUs (compute capability 6.x)\n- iGPU can now offload vision models with padding to fit available memory\n- Fixed structured output for thinking models when thinking is disabled\n- Hardened GGUF model creation\n- ollama launch for Claude Code now disables telemetry by default\n- Fixed loading models on paths with non-UTF-8 characters\n- Updated the MLX and llama.cpp engines\nNew Contributors\n- @kevinpark1217 made their first contribution in https://github.com/ollama/ollama/pull/16949\nFull Changelog: https://github.com/ollama/ollama/compare/v0.31.1...v0.31.2",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.31.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.31.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.31.2/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "ed261e7da6152c6895e8e472d1e65cb744a578d0d183547cc8b4854654aeb46a",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.31.1",
+      "release_date": "2026-06-30",
+      "release_notes": "What's Changed\n- mlx: tighten up gemma4 moe loading code by @pdevine in https://github.com/ollama/ollama/pull/16964\n- mlx: bump to latest version to include new small batch matmul kernel @jessegross @dhiltgen\n- llama.cpp: bump to b9840 @dhiltgen\n- improved gemma4 MTP performance @jessegross\nFull Changelog: https://github.com/ollama/ollama/compare/v0.31.0...v0.31.1",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.31.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.31.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.31.1/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "b93ac1c6eab658f949bf5f675b40bf997b6684f88b5c230160fb131717430718",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.11",
+      "release_date": "2026-06-25",
+      "release_notes": "What's Changed\n- launch: add thinking capability detection to opencode by @hoyyeva in https://github.com/ollama/ollama/pull/15434\n- launch: auto-install Claude Code by @hoyyeva in https://github.com/ollama/ollama/pull/16802\n- launch: auto-install opencode when missing by @hoyyeva in https://github.com/ollama/ollama/pull/16806\n- discover: fix inverted iGPU/dGPU Vulkan classification on Windows hybrid graphics by @Sahil170595 in https://github.com/ollama/ollama/pull/16669\n- mlxrunner: unify and tune speculative decoding by @jessegross in https://github.com/ollama/ollama/pull/16791\n- launch/codex: detect model drift when Codex App UI switches by @BruceMacD in https://github.com/ollama/ollama/pull/16864\n- llama: add sm_86 architecture to cuda_v13_windows preset by @anishesg in https://github.com/ollama/ollama/pull/16834\n- llm: size mmproj offload by projector memory by @dhiltgen in https://github.com/ollama/ollama/pull/16866\n- docs: document max think level by @ParthSareen in https://github.com/ollama/ollama/pull/16877\n- llm: preserve generation headroom for shifted prompts by @ParthSareen in https://github.com/ollama/ollama/pull/16856\n- llama: default qwen2.5vl window attention metadata by @dhiltgen in https://github.com/ollama/ollama/pull/16868\n- llm: use host Vulkan loader on Windows by @dhiltgen in https://github.com/ollama/ollama/pull/16869\n- mlx: update and fix CUDA JIT packaging by @dhiltgen in https://github.com/ollama/ollama/pull/16871\n- llm: fix ollama ps double-counting mmap'd weights on partial offload by @discobot in https://github.com/ollama/ollama/pull/16709\n- docs: redesign docs landing and integrations overview by @hoyyeva in https://github.com/ollama/ollama/pull/16807\n- server: align generate with native chat templates by @dhiltgen in https://github.com/ollama/ollama/pull/16878\n- jetson: add CC 87 for CUDA v13 by @dhiltgen in https://github.com/ollama/ollama/pull/16628\n- llama.cpp version update by @dhiltgen in https://github.com/ollama/ollama/pull/16548\nNew Contributors\n- @Sahil170595 made their first contribution in https://github.com/ollama/ollama/pull/16669\n- @anishesg made their first contribution in https://github.com/ollama/ollama/pull/16834\n- @discobot made their first contribution in https://github.com/ollama/ollama/pull/16709\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.10...v0.30.11-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.11/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "276ce8a2079157a8637b39440947424c6bfa917da29eddc792100cc5ca5eb999",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.10",
+      "release_date": "2026-06-17",
+      "release_notes": "What's Changed\n- models: add Cohere2MoE model by @jmorganca in https://github.com/ollama/ollama/pull/16670\n- llama: update llama.cpp to b9672 by @pdevine in https://github.com/ollama/ollama/pull/16775\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.9...v0.30.10-rc0",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.10/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "eb18bfb0cc74c01191479b76c152a79cb38291260054556a266b4214acd4f99f",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.9",
+      "release_date": "2026-06-15",
+      "release_notes": "What's Changed\n- Support for Cohere2Moe architecture\n- Fixed LFM2 parser/render for cases where thinking was not emitted\n- Fixed issue where ollama launch claude and other coding agent or assistant use cases would only output one token\n- Ollama will now return an error if a single message is larger than the current context window\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.8...v0.30.9-rc1",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.9/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "db517283ad0fd98892414e9d98640619c71268071bc5a057446585c9f3a9d97d",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.8",
+      "release_date": "2026-06-12",
+      "release_notes": "What's Changed\n- Fixed ollama launch selecting the wrong provider in some cases\n- Improved prompt caching by decoupling it from context shift for better KV cache reuse\n- More stable MLX inference with hardened linear and embedding layers\n- MLX runner now creates snapshots during prompt processing and speculative decoding for improved reliability\n- Improved recurrent model support with per-boundary states from the gated-delta kernels\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.7...v0.30.8",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.8/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "d7cfbb2509d9e9464972d162899a5f085c1802619b6bbe0c4e210b47bcf2d446",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.7",
+      "release_date": "2026-06-07",
+      "release_notes": "Ollama Launch now supports Hermes Desktop, a native desktop interface for the Hermes agent. Run it alongside your Hermes agent to get a visual interface for managing conversations, integrations, and messaging apps.\nollama launch hermes-desktop\nWhat's Changed\n- Hermes Desktop is now available via ollama launch hermes-desktop with native Windows configuration path support\n- OpenAI-compatible API models list now aligns with available model tags\n- Added documentation describing the llama.cpp update process\n- Updated Zod schema examples to use the native toJSONSchema helper\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.6...v0.30.7",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.7/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "fc1d11a76d3626986a5d338651d312d7cf19849b1b71c2cb49fd81b86bbc000c",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.6",
+      "release_date": "2026-06-05",
+      "release_notes": "What's Changed\n- ollama launch omp now integrates with Oh My Pi, an AI coding agent with IDE integration\n- MLX embedding layers now use NVFP4 global scale for improved quantization on Apple Silicon\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.5...v0.30.6",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.6/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "76e3620247cf01dbad32ec0ef6d4ed740f55a6687e87f5e2724c746932fc347e",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.4",
+      "release_date": "2026-06-03",
+      "release_notes": "What's Changed\n- llama.cpp version update by @dhiltgen in https://github.com/ollama/ollama/pull/16463\n- Kill llama-server during Windows cleanup by @dhiltgen in https://github.com/ollama/ollama/pull/16458\nKnown Issues\n- gemma4:12b crash with floating point exception\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.3...v0.30.4",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.4/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "a8b50db15416edb1eee9d73ce4f6a3333bb702f4808ccc200ccf65469f42ce82",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.3",
+      "release_date": "2026-06-03",
+      "release_notes": "What's Changed\n- models: add support for gemma4-12b by @pdevine in https://github.com/ollama/ollama/pull/16457\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.2...v0.30.3",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.30.3/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "7fcea0860acc51fafd57ef7c78b0e98a0c9f46ef76c1ff4b9144023c5bac9c83",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.40.14",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "zip",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.14/Ollama-darwin.zip",
+          "host": "github.com",
+          "filename": "Ollama-darwin.zip",
+          "sha256": "9047386fb6811f54fc98b12ce4fea42a6ee5ce9e1bbc0c8196499f347054bcb5",
+          "min_os_version": "14"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Ollama.app"
+        ],
+        "binaries": [
+          "ollama"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.electron.ollama"
+          ],
+          "launchctl": [
+            "com.ollama.ollama"
+          ],
+          "zap_paths": [
+            "~/.ollama",
+            "~/Library/Application Support/Ollama",
+            "~/Library/Caches/com.electron.ollama",
+            "~/Library/Preferences/com.electron.ollama.plist",
+            "~/Library/Saved Application State/com.electron.ollama.savedState",
+            "~/Library/Webkit/com.electron.ollama"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/o/Ollama/Ollama"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "Casks/o/ollama-app.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/ollama-app.json"
+    }
+  ]
+}

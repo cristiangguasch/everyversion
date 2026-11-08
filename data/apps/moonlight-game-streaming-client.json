@@ -1,0 +1,701 @@
+{
+  "schema_version": 2,
+  "slug": "moonlight-game-streaming-client",
+  "name": "Moonlight Game Streaming Client",
+  "publisher": "Moonlight Game Streaming Project",
+  "author": "Moonlight Game Streaming Project",
+  "ids": {
+    "winget": "MoonlightGameStreamingProject.Moonlight",
+    "moniker": "moonlight",
+    "homebrew_cask": "moonlight"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Play games remotely from your NVIDIA GameStream-enabled PC",
+  "tags": [
+    "client",
+    "foss",
+    "games-stream",
+    "gamestream",
+    "nvidia",
+    "open-source"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://moonlight-stream.org/",
+    "publisher": "https://github.com/moonlight-stream/moonlight-qt",
+    "support": "https://github.com/moonlight-stream/moonlight-qt/issues",
+    "bug_tracker": "https://github.com/moonlight-stream/moonlight-qt/issues",
+    "release_notes": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/moonlight-stream/moonlight-qt/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/moonlight-stream/moonlight-qt/blob/HEAD/LICENSE",
+    "spdx": "GPL-3.0",
+    "copyright": "Copyright (C) 2007 Free Software Foundation, Inc.",
+    "copyright_url": "https://github.com/moonlight-stream/moonlight-qt/blob/master/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "6.2.0.0",
+    "macos": "6.2.0"
+  },
+  "last_updated": "2026-10-04",
+  "versions_total": {
+    "windows": 20,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "6.2.0.0",
+      "release_date": "2026-10-04",
+      "release_notes": "Download links:\n- Windows Installer (Universal)\n- Windows Portable x64 or ARM64 (for work/public PCs without the ability to install new programs)\n- macOS (Universal)\n- Snap (for Ubuntu-based Linux distros)\n- Flatpak (for other Linux distros)\n- AppImage (Linux, no installation required)\n- Raspberry Pi\n- Generic ARM 32-bit and 64-bit Debian packages (not for Raspberry Pi)\n- Experimental RISC-V Debian packages\n- NVIDIA Jetson and Nintendo Switch (Ubuntu L4T)\n- Steam Link device\nThe Windows installer package may require an Internet connection to download the latest Microsoft Visual C++ Runtime if your PC does not already have it installed. If you do not have Internet access during installation, you can pre-install the runtime from Microsoft's website or use the portable version.\nTo update an existing installation, simply run the latest installer (for Windows) or replace the old app in your Applications folder (for Mac). For the portable Windows version, extract the ZIP into a new folder and copy the Moonlight Game Streaming Project folder from the older version to preserve your settings and paired hosts.\nImportant note for Windows Portable upgrades from v6.1.0 or earlier: If you extracted the portable Windows v6.2.0 ZIP file into the same folder as an earlier version of Moonlight, you must delete qopensslbackend.dll file in the tls folder or Moonlight will crash on startup.\nTo install on Steam Link hardware, extract the ZIP file to the root of a FAT32 flash drive, insert it into your Steam Link, then restart the Steam Link. Moonlight can run alongside official Steam Link streaming and other Steam Link apps.\nBehavior changes:\n- The default renderer on macOS is now libplacebo (using MoltenVK). You can change renderers on macOS in the Advanced Settings.\n- Most video renderers now use full range color instead of limited range\n- The cursor is now also locked to the video area in single display borderless windowed scenarios. This was previously only done in true full-screen mode.\n- The cursor is no longer captured by default in windowed mode. Clicking on the streaming window or pressing Ctrl+Alt+Shift+Z will capture the cursor.\n- Game Mode has been re-enabled on macOS\n- The Metal renderer is supported on Macs with a discrete GPU. It was previously only available on Macs with an iGPU.\n- HDR metadata is now used for tonemapping on macOS. You may need to tweak your HDR brightness in the OS, particularly for external non-Apple displays.\n- CLI output is now displayed in the console on Windows instead of a dialog box\n- GPUs on non-x86 Linux platforms are now assumed to be slow by default, which enables a number of optimizations for improved performance. GL_IS_SLOW=0/VULKAN_IS_SLOW=0 can be set at runtime to override this.\n- Gamepad motion sensors are disabled on Steam Link hardware to help reduce audio glitching caused by high CPU usage. The moonlight.sh script can be edited to re-enable them.\n- The default streaming resolution for new installs is now 1080p instead of 720p.\n- Video bitrate no longer resets when adjusting resolution or frame rate if it's already been manually adjusted\nSecurity:\n- CVE-2026-33546, CVE-2026-33547, and CVE-2026-41210 have been fixed\n- These vulnerabilities could allow a malicious host to crash Moonlight when connecting\nNew Features:\n- Ctrl+Alt+Shift+K has been added to toggle system keyboard grab\n- D3D11 renderer has been updated to enable VRR support on Nvidia GPUs and improve performance by reducing VRAM copies and allowing overlapping decoding and rendering operations\n- KMSDRM renderer is rewritten to support atomic modesetting, overlays, VRR, ALLM, software decoding, V-sync off with atomic async flip, and more\n- Vulkan rendering is now supported on Linux outside of a desktop environment (KMSDRM)\n- AV1 hardware decoding is now supported on macOS (M3 and later)\n- AppImages now support using the system libva to prevent hardware decoding failure on distros with newer libva versions\n- Added support for DualSense adaptive triggers (requires a compatible host)\n- Gamepads with a second trackpad can now be passed to the host (requires host support)\n- Client identifiers are now provided to the host to allow client-specific session management\n- Added an option to disable pre-launch warnings\n- YUV 4:4:4 video is now supported by the DXVA2 renderer\n- Raspberry Pi 2 and 3 are now officially supported (in addition to Pi 4 and 5 models, which were already supported). 1080p 60 FPS requires overclocking (gpu_freq_min=400) on the Pi 2.\nBugfixes:\n- Reduced background CPU usage\n- Improved startup, settings page, and stream load times\n- Optimized the EGL/GLES renderer to improve performance on low end GPUs and embedded devices\n- Fixed EGL/GLES renderer failures under X11 when GLX was used for the UI\n- Removed Windows Firewall service status check in the installer, since it no longer causes installation failures when disabled\n- Improved readability of the statistics overlay by adding an outline\n- Improved timing accuracy in the statistics overlay\n- Improved performance when multiple gamepads are sending input simultaneously\n- Improved performance when recovering from dropped network packets\n- Improved DPI scaling behavior on Windows\n- Fixed black or green padding being rendered on the bottom or right side of the video stream when streaming from certain hosts\n- Fixed horizontal scroll direction not being correctly inverted when requested\n- Fixed excessive video latency on Raspberry Pi devices using the H.264 codec\n- Fixed Moonlight not exiting after an abnormal stream termination when launched via the CLI\n- Fixed failure to start on Linux systems where desktop OpenGL is not available\n- Fixed broken overlay rendering on PowerVR systems using the proprietary driver\n- Fixed automatic selection of AV1 on systems where HEVC is not available\n- Fixed instability when using VAAPI decoding under X11\n- Fixed small deviations in chroma co-siting and color conversion\n- Fixed display of progress spinner and configuration warnings on KMSDRM\n- Fixed a GEM handle leak that could cause streaming to fail on KMSDRM\n- Fixed suboptimal format selection on some V4L2 decoders\n- Fixed handling of some non-US keyboard layouts\n- Fixed stale app list being displayed when using CLI commands\n- Fixed handling of IPv6 literals that are not URL-escaped\n- Fixed AV1 Vulkan Video decoding on newer versions of FFmpeg\n- Fixed Ctrl+C/SIGTERM when running from the console\n- Blocked the buggy Bandicam Vulkan layer from loading into Moonlight and crashing\n- Fixed missing stderr output in Steam Link logs\n- Optimized Steam Link Opus decoder for reduced audio glitching\n- Fixed several GUI interoperability issues with Qt 6.9 and later\n- Fixed the IME or software keyboard being unexpectedly displayed in various situations\n- Fixed launching in a new VT while a Wayland compositor is running\n- Fixed moving focus from the app grid into the toolbar via the gamepad or keyboard\n- Fixed blurry overlays on the DXVA2 renderer\n- Fixed poor scaling on the DXVA2 renderer on Intel systems\n- Fixed a possible crash in the Vulkan renderer when disabling an overlay\n- Added a workaround for a crash in libplacebo on Raspberry Pi with hardware decoding\n- Fixed keyboard grab not working under sdl2-compat on Wayland compositors that lack support for keyboard-shortcuts-inhibit-unstable-v1\n- Fixed inability to reach some controls via gamepad navigation on macOS\n- Fixed displays not being switched to HDR mode correctly on Raspberry Pi\n- Fixed CLI stream launch causing the saved manual address to be overwritten\n- Fixed distinguishing between Enter and Numpad Enter keys (requires updated host software)\n- Fixed mDNS discovering unexpected devices after running for a period of time\n- Fixed libdecor-gtk window decorations not being displayed on the streaming window\n- Updated community-contributed translations from Weblate\nBuild and Dependency Updates:\n- Updated to use new FFmpeg 7.1 APIs (adding compatibility with FFmpeg 9.0)\n- Enabled CFG, EHCont, and CET exploit mitigations in most Windows dependencies\n- Updated Windows installer to WiX 7\n- Qt requirement updated to 5.12\n- AppImages are now using Ubuntu 22.04 as the base OS\n- OpenSSL 4.0 compatibility\n- Propagate CFLAGS/CXXFLAGS/LDFLAGS environment variables to QMake\n- Prebuilt libraries for Windows, macOS, and Steam Link must now be downloaded via setup-deps.py/ps1 rather than via a Git submodule\n- Removed h264bitstream submodule in favor of vendoring the few files that Moonlight requires\n- SDL 3.4.18 is now used (via sdl2-compat) instead of SDL2\nKnown Issues:\n- Location Services on macOS may cause periodic lag and stuttering on Wi-Fi due to background network scans. To avoid the issue, disable Location Services on your Mac by going to \"System Preferences -> Security & Privacy -> Location Services\"",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/6.2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.2.0/MoonlightSetup-6.2.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-6.2.0.exe",
+          "sha256": "ee2a1b56ec83010f4f8a275bb71892a7dc7a3bc874dfaebe706b74d5d10831bd",
+          "min_os_version": "10.0.17763.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{5DE79D41-FC80-4A99-AF38-80A24233F9AD}",
+              "upgrade_code": "{466FA35D-4BE4-40EF-9CE5-AFADC3B63BC5}",
+              "installer_type": "burn"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.2.0/MoonlightSetup-6.2.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-6.2.0.exe",
+          "sha256": "ee2a1b56ec83010f4f8a275bb71892a7dc7a3bc874dfaebe706b74d5d10831bd",
+          "min_os_version": "10.0.17763.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{5DE79D41-FC80-4A99-AF38-80A24233F9AD}",
+              "upgrade_code": "{466FA35D-4BE4-40EF-9CE5-AFADC3B63BC5}",
+              "installer_type": "burn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.1.0.0",
+      "release_date": "2024-09-17",
+      "release_notes": "Download links:\n- Windows Installer (Universal)\n- Windows Portable x64 or ARM64 (for work/public PCs without the ability to install new programs)\n- macOS (Universal)\n- Snap (for Ubuntu-based Linux distros)\n- Flatpak (for other Linux distros)\n- AppImage (Linux, no installation required)\n- Raspberry Pi 4 and 5\n- Generic ARM 32-bit and 64-bit Debian packages (not for Raspberry Pi)\n- Experimental RISC-V Debian packages\n- NVIDIA Jetson and Nintendo Switch (Ubuntu L4T)\n- Steam Link device\nThe Windows installer package may require an Internet connection to download the latest Microsoft Visual C++ Runtime if your PC does not already have it installed. If you do not have Internet access during installation, you can pre-install the runtime from Microsoft's website or use the portable version.To update an existing installation, simply run the latest installer (for Windows) or replace the old app in your Applications folder (for Mac). For the portable Windows version, extract the latest version on top of your old folder.To install on Steam Link hardware, extract the ZIP file to the root of a FAT32 flash drive, insert it into your Steam Link, then restart the Steam Link. Moonlight can run alongside official Steam Link streaming and other Steam Link apps.OS Support Changes:\n- Windows 10 (1809), Windows Server 2019, or later is now required\n- 32-bit versions of Windows are no longer supported\n- macOS Big Sur or later is now required\n- macOS Sequoia is now supported\nNew Features:\n- Experimental YUV 4:4:4 support for improved text clarity during remote desktop usage\n    - Host must be running latest Sunshine pre-release build or v0.24.0 (when released)\n    - Sunshine only currently supports YUV 4:4:4 encoding on Windows hosts\n- HDR streaming is now supported with software decoding (requires GPU with Vulkan or Metal support)\n- Bitrate limit can now be increased to 500 Mbps\n    - These bitrates are not officially supported but can improve image quality if client and host can handle it (Ethernet strongly recommended).\n- Audio decoding now uses 32-bit floating point format\nBugfixes:\n- Fixed inability to connect to hosts on macOS Sequoia\n- Fixed incorrect color range when streaming with AV1 from a host with an AMD GPU\n- Fixed unexpected Left Control key input when pressing the AltGr key on Windows clients\n- Fixed unexpected tearing artifacts when streaming with Intel Ivy Bridge GPUs\n- Fixed Windows installer failures due to failed firewall exception registration\n- Fixed GUI breakage on Raspberry Pi OS Buster or Ubuntu Bionic\n- Fixed Vulkan video decoding crash with recent Nvidia drivers using the AppImage build\n- Silenced log message spam when streaming HDR using Vulkan Video decoding on Linux\n- Fixed inability to see video output on SpacemiT K1 due to incorrect overlay plane selection\n- Fixed suboptimal pixel format selection with non-hwaccel FFmpeg hardware decoders\n- Fixed incorrect hardware decoding warning on embedded systems that use custom OpenMAX hardware decoding patches\n- Fixed build failure of libplacebo renderer on 32-bit platforms\n- Updated community-contributed translations from Weblate\nDependency Updates:\n- Updated Qt in Windows and macOS builds to 6.7.2\n- Updated OpenSSL to 3.3.2\n- Updated libplacebo to 7.349.0\n- Updated libva in AppImage build to 2.22.0\n- Updated WiX to 5.0.1\nKnown Issues:\n- Location Services on macOS may cause periodic lag and stuttering on Wi-Fi due to background network scans. To avoid the issue, disable Location Services on your Mac by going to \"System Preferences -> Security & Privacy -> Location Services\"",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/6.1.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.1.0/MoonlightSetup-6.1.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-6.1.0.exe",
+          "sha256": "2537651ee187882ecf68f390f395a7e5005923721800e44b58e9776d3b10578a",
+          "min_os_version": "10.0.17763",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.1.0/MoonlightSetup-6.1.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-6.1.0.exe",
+          "sha256": "2537651ee187882ecf68f390f395a7e5005923721800e44b58e9776d3b10578a",
+          "min_os_version": "10.0.17763",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.1.0",
+      "release_date": "2024-06-30",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/6.0.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.0.1/MoonlightSetup-6.0.1.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-6.0.1.exe",
+          "sha256": "36a27f944a32f2a71948e0e7263b532d2c95fd782fc80c86c98e5b8218d8126e",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.0",
+      "release_date": "2024-06-06",
+      "release_notes": "Download links:- Windows Installer (Universal)\n- Windows Portable x64, x86, or ARM64 (for work/public PCs without the ability to install new programs)\n- macOS (Universal)\n- Snap (for Ubuntu-based Linux distros)\n- Flatpak (for other Linux distros)\n- AppImage (Linux, no installation required)\n- Raspberry Pi 4 and 5\n- Generic ARM 32-bit and 64-bit Debian packages (not for Raspberry Pi)\n- Experimental RISC-V Debian packages\n- NVIDIA Jetson and Nintendo Switch (Ubuntu L4T)\n- Steam Link device\nThe Windows installer package may require an Internet connection to download the latest Microsoft Visual C++ Runtime if your PC does not already have it installed. If you do not have Internet access during installation, you can pre-install the runtime from Microsoft's website or use the portable version.To update an existing installation, simply run the latest installer (for Windows) or replace the old app in your Applications folder (for Mac). For the portable Windows version, extract the latest version on top of your old folder.To install on Steam Link hardware, extract the ZIP file to the root of a FAT32 flash drive, insert it into your Steam Link, then restart the Steam Link. Moonlight can run alongside official Steam Link streaming and other Steam Link apps.End of Support Notices:- Windows: v6.0.x will be the final release series supporting OSes older than Windows 10 1809 and Windows Server 2019\n- Windows: v6.0.x will be the final release series supporting 32-bit versions of Windows\n- macOS: v6.0.x will be the final release series supporting macOS verisons older than Big Sur\nNew Features:- HDR is now supported on Steam Deck and other HDR-capable Linux systems using a new Vulkan-based renderer\n    - By default, the new Vulkan renderer is only used for HDR streaming, but it can be used all the time by setting the PREFER_VULKAN=1 environment variable\n- Vulkan Video decoding of H.264, HEVC, and AV1 is now supported using the new Vulkan renderer on Linux\n- A new Metal-based renderer is now used on most macOS systems for increased streaming performance and reduced latency\n- Both notched and notch-free native resolution options are now provided on Apple Silicon Macs\n- Full E2E stream encryption is now supported when streaming from Sunshine v0.22 or later\n- Initiating a stream via the command-line will now automatically wake the target machine if it is sleeping\n- Error codes are now displayed in the connection termination dialog\n- Detailed PC state information is now available via the new \"View Details\" context menu option (similar to the Android client)\n- The performance overlay can now be configured to appear by default when starting a stream\nBehavior Changes:- The selected bitrate is no longer silently adjusted by Moonlight based upon the video codec or HDR mode\n    - You may need to adjust your bitrate setting slightly to get the same effective bitrate as prior Moonlight versions\n- The selected mouse mode when starting a stream no longer influences the acceleration curve when the mouse mode is toggled using the Ctrl+Alt+Shift+M key combo while streaming\n- The compatibility block on Nvidia Optimus has been lifted, so Moonlight will now run on the discrete GPU if configured to in Nvidia Control Panel\n- Game Mode is disabled due to various reports of macOS Sonoma bugs affecting Moonlight and limited performance benefit (#1170 and #1297)\n- The D3D11 renderer is now preferred over D3D9 for all streaming scenarios on Windows 10 or later\n- Per-session keys (rikey and rikeyid values) are now automatically stripped from logs\n- Log messages on Linux will now be logged to stderr rather than stdout\n- Log messages on Windows will print to stderr instead of a separate log file if stderr has been redirected\n- Hardcoded fallback paths for VAAPI and VDPAU drivers are now only used by the AppImage package\n- EGL is now always used instead of GLX for loading OpenGL in X11 environments on non-x86 platforms for improved compatibility with some embedded devices\nPlatform Support Improvements:- Linux4Tegra packages are now provided for Ubuntu 22.04 and 24.04\n- Debian Bookworm and Ubuntu Jammy/Noble packages are now built with Wayland support\n- The CONFIG+=vulkanslow qmake option is now provided for embedded systems with a slow Vulkan implementation to prefer hardware YUV-RGB conversion and scaling rather than using Vulkan\n- For systems where GPU scaling and color conversion is slow regardless of which API is used, CONFIG+=gpuslow is equivalent to CONFIG+=vulkanslow CONFIG+=glslow\nBugfixes:- Improved reliability of streaming during momentary drops of WiFi connections\n- Improved performance with high polling rate mice\n- Improved input latency when a gamepad is connected\n- Improved detection of VPNs when streaming\n- Added missing command-line options to control HDR and AV1 codec usage\n- Added dri-nonfree and dri-freeworld paths to the AppImage's VAAPI driver path list for Fedora 40\n- Fixed failure to launch from outside a desktop environment on Raspberry Pi 5 devices\n- Fixed instant connection termination error when streaming over the Internet behind certain Carrier-Grade NAT devices\n- Fixed several bugs with full-screen mode on macOS\n- Fixed incorrect MTU detection when streaming over the Internet without a VPN\n- Fixed recovery of audio when no audio output device is present when the stream starts\n- Fixed inability to redirect stdout and stderr when launching from the command line on Windows\n- Fixed compatibility with Rockchip MPP FFmpeg decoder\n- Fixed handling incompatible SDL_VIDEODRIVER settings when using EGLFS or LinuxFB Qt platform backends\n- Fixed merging of gamepad state when multi-controller mode is disabled\n- Fixed indefinitely resending mDNS queries when a host could not be resolved\n- Fixed Steam Controller detection on Steam Link\n- Fixed inability to pair when the host is not using a RSA-2048 key\n- Updated included gamepad mappings\n- Updated community-contributed translations from Weblate\nDependency Updates:- Updated Windows installer to WiX v5\n- Updated to libva 2.21 in AppImage builds\n- Updated SDL2\n- Updated to FFmpeg 7.0.1\n- Updated to dav1d 1.4.2\n- Updated to SDL2-ttf 2.22.0\n- Updated to Qt 6.7.1 for Windows ARM64 builds\nKnown Issues:- Location Services on macOS may cause periodic lag and stuttering on Wi-Fi due to background network scans. To avoid the issue, disable Location Services on your Mac by going to \"System Preferences -> Security & Privacy -> Location Services\"",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/6.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.0.0/MoonlightSetup-6.0.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-6.0.0.exe",
+          "sha256": "146c72fd3419df8c643523ca0faae3097ec02056c1ea552c13e42449b3685967",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.0.0",
+      "release_date": "2024-06-06",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/6.0.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.0.0/MoonlightSetup-6.0.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-6.0.0.exe",
+          "sha256": "146c72fd3419df8c643523ca0faae3097ec02056c1ea552c13e42449b3685967",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.1.0",
+      "release_date": "2023-11-02",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/5.0.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v5.0.1/MoonlightSetup-5.0.1.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-5.0.1.exe",
+          "sha256": "801d7b8a1640e5ae8f8561c5cbd38e1bd19b42bb9f925646ec71d27255b9196b",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.1.0",
+      "release_date": "2022-11-03",
+      "release_notes": "- Windows Installer (Universal)\n- Windows Portable x64, x86, or ARM64 (for work/public PCs without the ability to install new programs)\n- macOS (Universal)\n- Snap (for Ubuntu-based Linux distros)\n- Flatpak (for other Linux distros)\n- AppImage (Linux, no installation required, not recommended on Wayland)\n- Raspberry Pi 4\n- NVIDIA Jetson and Nintendo Switch (Ubuntu L4T)-Ubuntu)\n- Steam Link device\n- Windowed mode streaming now starts maximized if the GUI window was maximized\n- Improved performance when streaming on a local network using IPv6\n- Logs on Windows and macOS are now limited by size instead of line count\n- Fixed crash during specific patterns of audio packet loss\n- Windows logs now use CRLF line endings for improved compatibility with text editors\n- Updated community-contributed translations\n- Location Services on macOS may cause periodic lag and stuttering on Wi-Fi due to background network scans.\n  To avoid the issue, disable Location Services on your Mac by going to \"System Preferences -> Security & Privacy -> Location Services\"\n- In windowed mode on the Raspberry Pi, video does not move in sync with the window when dragged.\n  This is a limitation of MMAL video overlays.\n- In windowed mode on the Raspberry Pi, video will not display while the app does not have focus.\n  This is required to prevent Moonlight's video overlay from rendering on top of other apps.",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v4.3.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/4.3.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v4.3.1/MoonlightSetup-4.3.1.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-4.3.1.exe",
+          "sha256": "5eca65abe470798b54ef720cdaa850638922d8cd047840cb24231e1cf70e018b",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.0.0",
+      "release_date": "2022-10-28",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v4.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/4.3.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v4.3.0/MoonlightSetup-4.3.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-4.3.0.exe",
+          "sha256": "d049f4132467a3f4c0c34545b0388db22043c12c28e21495b71ec9965e34a9c2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.1.0",
+      "release_date": "2022-09-12",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v4.2.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/4.2.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v4.2.1/MoonlightSetup-4.2.1.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-4.2.1.exe",
+          "sha256": "053e8c241c13b8e3e437308b4af87f11603692b174e656f91c04052b15e64ca5",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.0.0",
+      "release_date": "2022-09-10",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v4.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/4.2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v4.2.0/MoonlightSetup-4.2.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-4.2.0.exe",
+          "sha256": "9f2b829085b05a8dc65fd2bbcbd6a3fff5833ab2ab87b27d1872e98ac77b3507",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.0.0",
+      "release_date": "2022-05-25",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v4.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/4.1.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v4.1.0/MoonlightSetup-4.1.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-4.1.0.exe",
+          "sha256": "d919d031e4415da78dd461e07c345287f7962998f300b0f3a8303a6fdefe79c5",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.0.0",
+      "release_date": "2022-04-02",
+      "release_notes_url": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v4.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/4.0.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v4.0.0/MoonlightSetup-4.0.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-4.0.0.exe",
+          "sha256": "a94d3d84a415e185104df4f036c575a30b43c60b168c49832c9f8c3444c8f463",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/3.2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.2.0/MoonlightSetup-3.2.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-3.2.0.exe",
+          "sha256": "3e89ed2ccdcb4cdcb7200ab25a571958edca7f7570dd5555f499110583735873",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/3.1.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.1.4/MoonlightSetup-3.1.4.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-3.1.4.exe",
+          "sha256": "8cf75157558748119906207271456c3ac24fabf666458108a586adcb31110563",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/3.1.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.1.3/MoonlightSetup-3.1.3.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-3.1.3.exe",
+          "sha256": "0de6d7dc8459d45e5d618dafb9a379b4e5dfb1ce853f7c2153b0c508ad12f62b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/3.1.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "burn",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.1.2/MoonlightSetup-3.1.2.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-3.1.2.exe",
+          "sha256": "f4d0a64ae05e1f13108ccb77c386c5e2eaa0494c0bc362ae9f70ca87fd1e317a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/3.1.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.1.1/MoonlightSetup-3.1.1.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-3.1.1.exe",
+          "sha256": "56c6938ddeb0702a0bb1e6bfb39a2f469b85ec4258b37befbeb0ee939113e768",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/3.0.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "burn",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.0.0/MoonlightSetup-3.0.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-3.0.0.exe",
+          "sha256": "1f6299e8653cd869df9f3debbcbeccc41da72012f8a8fe079f9b14b78b351db2",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.2.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/2.2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v2.2.0/MoonlightSetup-x64-2.2.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-x64-2.2.0.exe",
+          "sha256": "1302182d457a2fb3a7e42abe254fab305df57c097eb0651f8780681070b80ef7",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MoonlightGameStreamingProject/Moonlight/2.1.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v2.1.0/MoonlightSetup-x64-2.1.0.exe",
+          "host": "github.com",
+          "filename": "MoonlightSetup-x64-2.1.0.exe",
+          "sha256": "a4e8786ab2a8ae51039126c0e086b1c6e0d1765f848d69c4703c0ca855fb0b7e",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "6.2.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.2.0/Moonlight-6.2.0.dmg",
+          "host": "github.com",
+          "filename": "Moonlight-6.2.0.dmg",
+          "sha256": "43617e5210d53968fcfb4a46526d1625a9056c6fe97e731673c31193dae776fc",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Moonlight.app"
+        ],
+        "binaries": [
+          "Moonlight",
+          "moonlight"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Caches/Moonlight Game Streaming Project",
+            "~/Library/Preferences/com.moonlight-stream.Moonlight.plist",
+            "~/Library/Saved Application State/com.moonlight-stream.Moonlight.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "ca3de5f957f41c0c1c818788b187c45357e50fba",
+      "retrieved_at": "2026-11-07T17:28:24.997Z",
+      "path": "manifests/m/MoonlightGameStreamingProject/Moonlight"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "286239cc5939c6639ddd0f80ac6dd3ff51dd35b9",
+      "retrieved_at": "2026-11-07T17:28:24.997Z",
+      "path": "Casks/m/moonlight.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/moonlight.json"
+    }
+  ]
+}

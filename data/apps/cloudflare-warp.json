@@ -1,0 +1,1067 @@
+{
+  "schema_version": 2,
+  "slug": "cloudflare-warp",
+  "name": "Cloudflare One Client",
+  "publisher": "Cloudflare, Inc.",
+  "author": "Cloudflare, Inc.",
+  "ids": {
+    "winget": "Cloudflare.Warp",
+    "moniker": "warp",
+    "homebrew_cask": "cloudflare-warp"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "1.1.1.1 with WARP replaces the connection between your device and the Internet with a modern, optimized, protocol.",
+  "description": "1.1.1.1 with WARP replaces the connection between your device and the Internet with a modern, optimized, protocol.",
+  "tags": [
+    "1.1.1.1",
+    "cloudflare",
+    "dns",
+    "one.one.one.one",
+    "vpn",
+    "warp"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://one.one.one.one/",
+    "publisher": "https://www.cloudflare.com/",
+    "privacy": "https://www.cloudflare.com/privacypolicy/",
+    "release_notes": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-10-20"
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://www.cloudflare.com/terms/",
+    "copyright": "Copyright (c) Cloudflare Inc.",
+    "copyright_url": "https://www.cloudflare.com/terms/"
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "26.8.2115.0",
+    "macos": "2026.8.2115.0"
+  },
+  "versions_total": {
+    "windows": 27,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "26.8.2115.0",
+      "release_notes": "This hotfix addresses an issue building trusted certificate chains.",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-10-20",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.8.2115.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.8.2115.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.8.2115.0",
+          "sha256": "ab3138dbebdf132af076b5ebcb25b42345d29258acb76267c3bd1f8cfea57a53",
+          "product_code": "{BC095815-030E-4AFD-8AA2-6B8A8FAE0B9A}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{BC095815-030E-4AFD-8AA2-6B8A8FAE0B9A}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.2110.0",
+      "release_notes": "This hotfix resolves an issue where the client could repeatedly disconnect and reconnect when a split tunnel configuration with hostname-based entries failed to apply.",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-10-12",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.8.2110.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.8.2110.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.8.2110.0",
+          "sha256": "f4668340028aa209a148b5d0a15846434e2c90ae2596841e9c75fd607cf045a5",
+          "product_code": "{635583BB-B048-442D-8769-A7C8DCD99DD1}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{635583BB-B048-442D-8769-A7C8DCD99DD1}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.2100.0",
+      "release_notes": "This release includes the following highlights:\n- Traffic to split tunnel excluded resources is no longer briefly blocked while the client is connecting or reconnecting. The client now keeps its learned split tunnel configuration across tunnel reconnections.\n- Support for routing non-RFC 1918 local IPv4 networks through the tunnel when unrestricted LAN inclusion is enabled by policy or MDM.\n- Improved connection reliability on devices with very large hosts files. The client now detects a large hosts file, allows more time for its initial DNS check, and shows a banner letting the user know that connecting may take longer.\n- Faster tunnel reconnections and lower memory use. The hosts file is now read once and shared across the client’s DNS resolvers instead of being reloaded by each one.\n- A service recovery mechanism, backed by a Windows scheduled task, now starts the client service on system unlock if it is not already running. This is enabled by default.\n\nAdditional changes and improvements\n- Improved reauthentication reliability and fixed an issue where a reauthentication could force a new registration.\n- Improved client reaction to the current network lowering its MTU.\n- Improved DNS reliability on networks with lower MTUs by clamping the TCP maximum segment size (MSS) for DNS-over-HTTPS connections sent through the tunnel.\n- Individual DNS-over-HTTPS queries now time out instead of hanging when the upstream server stops responding.\n- Improved API reliability by retrying requests dropped when reusing pooled connections.\n- Added an MDM setting to prefer IPv4 when resolving hostnames in proxy mode. The setting is off by default.\n- The client no longer requires the Windows WLAN AutoConfig service to be running.\n- Fixed the client reconnecting while Emergency Disconnect was active after switching organizations or re-registering.\n- Fixed the client being unable to connect after an upgrade when its stored registration credentials no longer matched its configuration.\n- Fixed the client service restarting unexpectedly when it was slow to respond, such as after waking from sleep.\n- Fixed the client service failing to restart after an unexpected termination.\n- Fixed the client UI getting stuck in a connecting state after sleep and wake even though the tunnel was connected.\n- Fixed slow captive portal checks causing the client service to become unresponsive or restart while connecting.\n- Fixed a race when switching tunnel protocols during key rotation that could prevent WireGuard from connecting.\n- Fixed the client continuing to report “No network” after a successful manual disconnect.\n- Fixed Digital Experience Monitoring (DEX) HTTP tests failing TLS validation.\n- Fixed latency spikes and traffic interruptions during TPM-backed API authentication when hardware-backed registration is enabled.\n- Fixed trailing whitespace in BIOS serial numbers causing serial-number and client-certificate device posture checks to fail.\n- Fixed the client UI crashing at startup when it could not write to the Windows registry.\n- Fixed a client UI crash that could occur when the daemon connection was reset during an IPC request.\n- Fixed a startup crash when date formatting data for the system locale had not yet loaded.\n\nKnown issues\n- A Windows DNS client regression may cause connectivity check failures on systems containing large hosts files. While this release includes a fix to mitigate this issue, users may still experience reduced DNS performance and connectivity check failures.",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-10-07",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.8.2100.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.8.2100.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.8.2100.0",
+          "sha256": "2cc0824565124f3f150d6321dc94d2e63bd90699f45e280e2eb781fc20638276",
+          "product_code": "{BF0D869A-AA24-422F-9117-2E074D44C1C8}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{BF0D869A-AA24-422F-9117-2E074D44C1C8}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.1376.0",
+      "release_notes": "Fixed a rare but critical issue where the client could fail to connect or switch organizations due to an invalid registration after switching installed client versions.  \nAdditionally, this hotfix resolves an issue where a small but noticeable percentage of DNS queries fail across platforms.",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-08-28",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.7.1376.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.7.1376.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.7.1376.0",
+          "sha256": "1a987075524fc570ef53bf9cf5e868a9bc878f56376d86ce9f8c6d674fc76195",
+          "product_code": "{5F29C20F-A69A-45EB-9542-45054FE9D77F}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{5F29C20F-A69A-45EB-9542-45054FE9D77F}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.1343.0",
+      "release_notes": "When reauthentication is needed for any reason, the notifications are clearer and reduce the actions needed to get you back to work by redirecting to the browser for authentication instead of the app window when necessary.  \nWhen a network is blocking or otherwise not supportive of HTTP/3, the client will learn and adapt by switching the order of fallback for that network by starting with HTTP/2 first and then trying HTTP/3 if needed. This reduces delays in time to connectivity when joining older or heavily filtered networks.\n\nAdditional changes and improvements\n- Fixed a process leak in the Windows GUI that could exhaust system resources during IPC client-creation failures.\n- Fixed being unable to switch organizations when the client was stuck in the “Device not in organization” state.\n- Fixed an issue where Microsoft Defender would falsely flag the Cloudflare One Client installation as malicious when installing with Intune.\n- Made the Windows domain-joined posture check more reliable.\n- A DNS search domain parsing failure no longer prevents connection.\n- Cloud icon now correctly reflects actual connection status instead of showing disconnected while fully connected.\n- Fixed missing certificate error display due to a race condition.\n- Fixed empty black window after transitioning from docked dual displays to undocked/internal display.\n\nKnown issues\n- None\n\nFor Zero Trust documentation please see: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/\nFor Consumer documentation please see: https://developers.cloudflare.com/warp-client/",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-08-19",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.7.1343.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.7.1343.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.7.1343.0",
+          "sha256": "a624aa4b581b9b7eb163f611ed2cd4d7e094faadff76589fee14d494286ae8f0",
+          "product_code": "{2D8CA23E-F06F-4F45-8716-DEF80DB85C7D}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{2D8CA23E-F06F-4F45-8716-DEF80DB85C7D}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.6.905.0",
+      "release_notes": "This hotfix addresses an uncommon and intermittent case on Windows devices where the device is unable to reconnect after the device is woken from sleep.",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-08-10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.6.905.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.6.905.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.6.905.0",
+          "sha256": "d6c58ac9c18e2459d7173cf071812ebfdb1014ac6b9f041f4e1c37c7859c20f1",
+          "product_code": "{47162503-179E-4E63-820D-F0C9213340EC}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{47162503-179E-4E63-820D-F0C9213340EC}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.6.880.0",
+      "release_notes": "This hotfix resolves a regression that caused a large increase in DNS-over-TCP queries to fallback and internal DNS servers. The client now sends fallback DNS queries over UDP first, falling back to TCP only when a response is truncated, instead of querying both protocols in parallel.",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-07-21",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.6.880.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.6.880.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.6.880.0",
+          "sha256": "ffcd1d803d774409ae54e565e85b7e03cd96450fd1654eee44f8a9e463078030",
+          "product_code": "{79046BCA-7908-4E33-9788-FFD89183A7BE}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{79046BCA-7908-4E33-9788-FFD89183A7BE}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.6.850.0",
+      "release_notes": "This hotfix addresses a Windows authentication issue in the embedded WebView2 browser. Single sign-on could fail to use the Windows primary account, causing users to be prompted for an interactive sign-in. The embedded authentication browser now allows SSO providers to use the OS primary account when available.",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-07-07",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.6.850.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.6.850.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.6.850.0",
+          "sha256": "c8814ece9dd91948fe4080f8d1dd08af328d6db98656d118f043e6b94e222a56",
+          "product_code": "{60EEE671-8027-453D-AD07-89F025AD3EC0}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{60EEE671-8027-453D-AD07-89F025AD3EC0}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.6.822.0",
+      "release_notes": "This release introduces multiple features from our previous beta release into stable release, including:\n- The client now applies DNS search suffixes configured in your device profile / network policy. Administrators can push a list of DNS search domains that the client appends to single-label queries, alongside any system-configured suffixes. See DNS search suffixes for details.\n- Added mandatory authentication. When enabled via MDM, the Cloudflare One Client blocks all Internet traffic from the moment the machine boots until the user authenticates, closing the visibility gap on newly deployed devices and during re-authentication. See the announcement blog and documentation for details.\n- Upgraded security of device registration to be hardware-backed. Registration tokens can now be generated in the TPM (with TPM 2.0+) whenever it is available to provide stronger protection against device impersonation. See Hardware-backed registration for details.\n- Added a local-file signal source for Emergency Disconnect. In addition to the existing HTTPS polling mechanism, administrators can now configure WARP to monitor for a file on disk; the presence of the file triggers an emergency disconnect even if both Cloudflare and your own infrastructure are unreachable. Either signal being asserted triggers disconnect; both must be cleared for normal operation to resume.\n- Added new warp-cli debug commands for interactive connection diagnosis. See Extra debug logging for details.\n- The local DNS proxy now supports DNSSEC passthrough. DNSSEC-signed responses are forwarded to the application intact (including DO/AD bits and RRSIG records), so applications that validate DNSSEC locally — including resolvers and the dig/drill tooling — work correctly through the client.\n- Added a new MDM format for organization-wide settings, including a cleaner way to configure the compliance environment (e.g. FedRAMP). The previous per-configuration approach still works, but the new format is now recommended. See the updated Cloudflare One MDM documentation for details.\n- Added support for dashboard-managed client version deployments. Administrators can now upgrade or downgrade the client version on enrolled devices directly from the Zero Trust dashboard. See Client version assignments for details.\nAdditional Changes and improvements\n- Client Certificate device-posture checks now support template variables (e.g. ${serial_number}, ${device_uuid}) in the Subject Alternative Name field. Previously only the Common Name field accepted variables, which broke posture rules that pinned identity to a SAN entry.\n- Improved accessibility by using high contrast colors and more defined color boundaries when high contrast is enabled in Windows Accessibility settings.\n- Path MTU Discovery (PMTUD) is now enabled by default.\n- The UseWebView2 registry value (HKLM\\SOFTWARE\\Cloudflare\\CloudflareWARP\\UseWebView2 = y) is once again honored by the new GUI for authentication, so administrators who prefer the embedded WebView2 browser for sign-in can opt back in. This setting was effectively ignored in the previous release; the default browser was always used. This key is now also honored for re-authentications.\n- Fixed a crash in the authentication browser when navigating to a site that prompts for browser permissions (microphone, camera, notifications, etc.). The same fix had previously landed for the captive-portal browser; this extends it to the auth browser.\n- Fixed an issue in proxy mode where hostnames containing underscores (e.g. ai_app.com) were rejected, breaking apps that depend on such hostnames (notably ChatGPT sandbox apps). The local proxy now accepts underscore-containing hostnames in CONNECT requests.\n- Fixed an issue where DNS queries would fail after the connection was idle, requiring users to retry.\n- Fixed a high CPU issue when the device wakes from sleep.\n- Users can now register with team names in any case format without errors.\n- New UI fixes\n- Fixed an issue where users with invalid MDM configurations were returned to the onboarding screen after successful authentication.\n- Added a re-auth button and banner to the home screen so users don’t miss it when their session expires.\n- Added clear error messaging when the Cloudflare certificate needs to be installed.\n- Brought back support for pausing the tunnel when connected to user-specified Wi-Fi networks for consumer users.\n- New client UI now surfaces Split tunnel configuration and Local Domain Fallback configuration.\n- Added ability to configure proxy mode for consumer users.\n- Added back the option to quit for consumer users.\n\nKnown issues\n- An error indicating that Microsoft Edge can’t read and write to its data directory may be displayed during captive portal login; this error is benign and can be dismissed.\n- In rare cases, a registration may hang at “Checking your organization configuration” due to IPC errors. A system reboot should resolve the error, allowing registration to proceed.\n- Windows ARM may prompt the user to close running applications while trying to install this version. Simply click “Ok” with the default highlighted option.\nFor Zero Trust documentation please see: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/\nFor Consumer documentation please see: https://developers.cloudflare.com/warp-client/",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-06-29",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.6.822.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.6.822.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.6.822.0",
+          "sha256": "94891939f216812d638c0190b83d70f64ecc67a19ac213a79b6624a19150e6a9",
+          "product_code": "{778149F7-D0C3-4E8F-92D5-2A59B82FBFEF}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{778149F7-D0C3-4E8F-92D5-2A59B82FBFEF}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.4.1390.0",
+      "release_notes": "This release introduces the new Cloudflare One Client UI for Windows! You can expect a cleaner and more intuitive design as well as easier access to common actions and information.\n\nHere are some of the many things we have found our users appreciate:\n- Right click context menu to access the most common client actions quickly\n- Built-in captive portal login experience\n\nAdditional Changes and improvements\n- Added a new CLI command: warp-cli mdm refresh. This command executes an immediate refresh of the Mobile Device Management (MDM) configuration file.\n- Fixed a proxy mode connection stall issue.\n\nKnown issues\n- Registration authentication for devices via the integrated WebView2 browser is unavailable in this version as a temporary measure. As a result, the client will utilize the default browser on the device to complete the authentication process.\n- An error indicating that Microsoft Edge can’t read and write to its data directory may be displayed during captive portal login; this error is benign and can be dismissed.\n- Registration may hang at “Checking your organization configuration” due to IPC errors. A system reboot should resolve the error, allowing registration to proceed.\n- Split tunnel list configuration is not available in the new UI. Management of Split Tunnel entries is currently only possible via warp-cli tunnel ip and warp-cli tunnel host. UI support will be added in a future release.\n- Windows ARM may prompt the user to close running applications while trying to install this version. Simply click “Ok” with the default highlighted option.\n- DNS resolution may be broken when the following conditions are all true:\n- The client is in Secure Web Gateway without DNS filtering (tunnel-only) mode.\n- A custom DNS server address is configured on the primary network adapter.\n- The custom DNS server address on the primary network adapter is changed while the client is connected.\nTo work around this issue, please reconnect the client by selecting “disconnect” and then “connect” in the client user interface.\nFor Zero Trust documentation please see: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/\nFor Consumer documentation please see: https://developers.cloudflare.com/warp-client/",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-05-26",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.4.1390.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.4.1390.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.4.1390.0",
+          "sha256": "40ee1df774131155ebec51544bb714442e52102b44c3009fe8f2198b82a86394",
+          "product_code": "{9E49837E-2971-413F-9587-119FA819E572}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{9E49837E-2971-413F-9587-119FA819E572}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.4.1350.0",
+      "release_notes": "This release introduces the new Cloudflare One Client UI for Windows! You can expect a cleaner and more intuitive design as well as easier access to common actions and information. Here are some of the many things we have found our users appreciate:\n- Right click context menu to access the most common client actions quickly\n- Built-in captive portal login experience\nAdditional Changes and improvements\n- Added a new CLI command: warp-cli mdm refresh. This command executes an immediate refresh of the Mobile Device Management (MDM) configuration file.\nKnown issues\n- Registration authentication for devices via the integrated WebView2 browser is unavailable in this version as a temporary measure. As a result, the client will utilize the default browser on the device to complete the authentication process.\n- An error indicating that Microsoft Edge can’t read and write to its data directory may be displayed during captive portal login; this error is benign and can be dismissed.\n- Registration may hang at “Checking your organization configuration” due to IPC errors. A system reboot should resolve the error, allowing registration to proceed.\n- DNS resolution may be broken when the following conditions are all true:\n- The client is in Secure Web Gateway without DNS filtering (tunnel-only) mode.\n- A custom DNS server address is configured on the primary network adapter.\n- The custom DNS server address on the primary network adapter is changed while the client is connected.\nTo work around this issue, please reconnect the client by selecting “disconnect” and then “connect” in the client user interface.\nFor Zero Trust documentation please see: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/\nFor Consumer documentation please see: https://developers.cloudflare.com/warp-client/",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-05-11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.4.1350.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.4.1350.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.4.1350.0",
+          "sha256": "f4fff7332c23642bb6e1dd34ff82a2ebb8f9a58379b7b4819e6fa5170e2d84a7",
+          "product_code": "{B4FBCD79-2BF4-4018-B7B2-3CCC75EEBA3E}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Cloudflare One Client",
+              "product_code": "{B4FBCD79-2BF4-4018-B7B2-3CCC75EEBA3E}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.3.851.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-04-07",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.3.851.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.3.851.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.3.851.0",
+          "sha256": "381178d3a2ebb0aab4c11d2125f2fa247ffeccc561b4195155901c4b60e3941c",
+          "product_code": "{9B7D1F41-A53F-468A-B3A5-B19CFD7DE647}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{9B7D1F41-A53F-468A-B3A5-B19CFD7DE647}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.1.150.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-02-24",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/26.1.150.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2026.1.150.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.1.150.0",
+          "sha256": "d15378c2bfc6afa768d631b410407e3fc2b0f2ee3f0e84e252c74fd3600524cc",
+          "product_code": "{561B3527-052F-495C-898B-DFE0E9AB8144}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{561B3527-052F-495C-898B-DFE0E9AB8144}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.10.186.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2026-01-13",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.10.186.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.10.186.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.10.186.0",
+          "sha256": "599c7e3f79b4098928624da513b0594e76d4417f273bbdbae9b44f0d00624a45",
+          "product_code": "{52FF2904-786A-4EB8-9246-D373FEF91BAC}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{52FF2904-786A-4EB8-9246-D373FEF91BAC}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.9.558.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-11-11",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.9.558.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.9.558.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.9.558.0",
+          "sha256": "ac519bcc2937d93d67d31497d72a6262801d30cea98894a9584c0b92d0635ba2",
+          "product_code": "{456B93BF-49E3-4A7C-9C38-32BA75D7D942}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{456B93BF-49E3-4A7C-9C38-32BA75D7D942}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.8.779.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-10-07",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.8.779.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.8.779.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.8.779.0",
+          "sha256": "dc912d37335c6b92f8a948534047db204afb3504c61c2b8355c5e2f893300d9c",
+          "product_code": "{5E5C31C8-F089-4095-8A3A-1E53988AE97A}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{5E5C31C8-F089-4095-8A3A-1E53988AE97A}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.7.176.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-09-30",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.7.176.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.7.176.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.7.176.0",
+          "sha256": "da11f5859d120c3817d903209f2980994236d07aae18b49f72cefd81221b6bbb",
+          "product_code": "{5CE576E6-83B1-4110-89F4-E21CD5E3FA47}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{5CE576E6-83B1-4110-89F4-E21CD5E3FA47}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.6.1400.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-08-21",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.6.1400.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.6.1400.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.6.1400.0",
+          "sha256": "011eb387ab6064ad3fc18321a377fcf6d8a9bd3b03b22208d05f3bb9965c0633",
+          "product_code": "{7BB4F803-E47F-4BA0-8839-E7AC74737F65}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{7BB4F803-E47F-4BA0-8839-E7AC74737F65}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.6.1335.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-08-19",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.6.1335.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.6.1335.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.6.1335.0",
+          "sha256": "3d639b829381a4a006e8368ed800dd6b3a8f3fe36e39ffc346def029335cf8c0",
+          "product_code": "{29C57120-F66B-49AE-B5AA-7290E7D02662}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{29C57120-F66B-49AE-B5AA-7290E7D02662}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.5.943.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-07-23",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.5.943.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.5.943.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.5.943.0",
+          "sha256": "1642f47f059952e6963456c449174d7eb048c5e55ad95750cc73dfe26701fd86",
+          "product_code": "{85E0C45D-F261-44BB-8FE2-A35EB8E95637}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{85E0C45D-F261-44BB-8FE2-A35EB8E95637}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.5.893.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-06-30",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.5.893.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.5.893.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.5.893.0",
+          "sha256": "ff77a76288adf412e819614795476b9b834b79e5a036aaa554c6e2eabd45c623",
+          "product_code": "{58D3416B-AF3A-4C51-90AC-D4CBEF7C98CA}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{58D3416B-AF3A-4C51-90AC-D4CBEF7C98CA}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.4.943.0",
+      "release_notes_url": "https://developers.cloudflare.com/cloudflare-one/changelog/warp/#2025-05-14",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.4.943.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.4.943.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.4.943.0",
+          "sha256": "04108b020b545f778d6bb7ea996a896d5e30f722a1fdf056fe74001228c1fee5",
+          "product_code": "{FB9B5C2D-D406-48A5-A9A0-F490DD1ED60C}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{FB9B5C2D-D406-48A5-A9A0-F490DD1ED60C}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.4.929.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.4.929.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.4.929.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.4.929.0",
+          "sha256": "26bad679b589a3ed1a2ae501f22c7a7297159b31c5fc76d28413c4ab3e787828",
+          "product_code": "{E4A8779F-637A-4E65-BD7D-7F654CC13403}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{E4A8779F-637A-4E65-BD7D-7F654CC13403}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.2.664.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.2.664.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.2.664.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.2.664.0",
+          "sha256": "abadabc597ec33ade211d161936cb17d0e7fd50f43208d23ac29b4f77fd8a855",
+          "product_code": "{4A67FBB8-472C-4AF1-AADA-570FABC9A0E8}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{4A67FBB8-472C-4AF1-AADA-570FABC9A0E8}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.2.600.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.2.600.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.2.600.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.2.600.0",
+          "sha256": "4806438ff1b8b86e62338e169095c0127f9ac5a41609ff74c37eeb6eb407c930",
+          "product_code": "{8123B6B1-C603-4DC7-A5C5-2A1E710B5307}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{8123B6B1-C603-4DC7-A5C5-2A1E710B5307}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.1.861.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/25.1.861.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2025.1.861.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2025.1.861.0",
+          "sha256": "5d3d2fcca081de37a4ccfd8b29d7420cef852b6171973c4f047c96731e1dd566",
+          "product_code": "{AEB5EB6C-0078-419A-AAFC-A02B5CFD3B5D}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{AEB5EB6C-0078-419A-AAFC-A02B5CFD3B5D}",
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.12.760.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/Cloudflare/Warp/24.12.760.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.cloudflareclient.com/v1/download/windows/version/2024.12.760.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2024.12.760.0",
+          "sha256": "632246671d77ca806a172fdc355d0299d8c42157edca89e9dd123c5847b4dba4",
+          "product_code": "{85DDC31D-E92E-4574-8582-8D5F3CA77928}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1BF42825-7B65-4CA9-AFFF-B7B5E1CE27B4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2026.8.2115.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "pkg",
+          "url": "https://downloads.cloudflareclient.com/v1/download/macos/version/2026.8.2115.0",
+          "host": "downloads.cloudflareclient.com",
+          "filename": "2026.8.2115.0",
+          "sha256": "1b81c512e9ac1fa28c63f28ff031d2244c6a23fd8c8d500fae14f38938faea5d",
+          "min_os_version": "14"
+        }
+      ],
+      "cask": {
+        "pkgs": [
+          "Cloudflare_WARP_2026.8.2115.0.pkg"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.cloudflare.1dot1dot1dot1.macos"
+          ],
+          "launchctl": [
+            "com.cloudflare.1dot1dot1dot1.macos.loginlauncherapp",
+            "com.cloudflare.1dot1dot1dot1.macos.warp.daemon",
+            "com.cloudflare.warp.updater"
+          ],
+          "pkgutil": [
+            "com.cloudflare.1dot1dot1dot1.macos"
+          ],
+          "remove": [
+            "/usr/local/bin/warp-cli",
+            "/usr/local/bin/warp-dex",
+            "/usr/local/bin/warp-diag"
+          ],
+          "zap_paths": [
+            "/Library/LaunchDaemons/com.cloudflare.1dot1dot1dot1.macos.warp.daemon.plist",
+            "~/Library/Application Scripts/com.cloudflare.1dot1dot1dot1.macos.loginlauncherapp",
+            "~/Library/Application Support/com.cloudflare.1dot1dot1dot1.macos",
+            "~/Library/Caches/com.cloudflare.1dot1dot1dot1.macos",
+            "~/Library/Caches/com.plausiblelabs.crashreporter.data/com.cloudflare.1dot1dot1dot1.macos",
+            "~/Library/Containers/com.cloudflare.1dot1dot1dot1.macos.loginlauncherapp",
+            "~/Library/HTTPStorages/com.cloudflare.1dot1dot1dot1.macos",
+            "~/Library/HTTPStorages/com.cloudflare.1dot1dot1dot1.macos.binarycookies",
+            "~/Library/Preferences/com.cloudflare.1dot1dot1dot1.macos.plist",
+            "~/Library/WebKit/com.cloudflare.1dot1dot1dot1.macos"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/c/Cloudflare/Warp"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "Casks/c/cloudflare-warp.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/cloudflare-warp.json"
+    }
+  ]
+}

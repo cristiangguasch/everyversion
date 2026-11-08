@@ -1,0 +1,222 @@
+{
+  "schema_version": 2,
+  "slug": "anydesk",
+  "name": "AnyDesk",
+  "publisher": "AnyDesk Software GmbH",
+  "author": "AnyDesk Software GmbH",
+  "ids": {
+    "winget": "AnyDesk.AnyDesk",
+    "moniker": "anydesk",
+    "homebrew_cask": "anydesk",
+    "flathub": "com.anydesk.Anydesk"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "AnyDesk is a German proprietary remote desktop tool distributed by AnyDesk Software GmbH.",
+  "description": "Connect to a computer remotely, be it from the other end of the office or halfway around the world.\nAnyDesk ensures secure and reliable remote desktop connections for IT professionals and on-the-go individuals alike.",
+  "tags": [
+    "rdp",
+    "remote-control",
+    "remote-desktop"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "purchase": "https://anydesk.com/pricing/teams",
+    "release_notes": "https://download.anydesk.com/changelog.txt",
+    "documentation": [
+      {
+        "label": "FAQ",
+        "url": "https://support.anydesk.com/knowledge/faq"
+      },
+      {
+        "label": "Knowledge Hub",
+        "url": "https://support.anydesk.com/knowledge"
+      }
+    ],
+    "homepage": "https://anydesk.com/"
+  },
+  "license": {
+    "name": "Proprietary",
+    "copyright": "© 2026 AnyDesk Software GmbH"
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "9.8.3",
+    "macos": "9.8.1",
+    "linux": "8.0.4"
+  },
+  "versions_total": {
+    "windows": 1,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "9.8.3",
+      "release_notes_url": "https://download.anydesk.com/changelog.txt",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/a/AnyDesk/AnyDesk/9.8.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://download.anydesk.com/AnyDesk.exe",
+          "host": "download.anydesk.com",
+          "filename": "AnyDesk.exe",
+          "sha256": "979a295b6a68881c9ae7a70c7ba117c26316ecdf9d6afa9dd66b048225df5de9",
+          "product_code": "AnyDesk",
+          "elevation_requirement": "elevationRequired",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--install \"C:\\Program Files (x86)\\AnyDesk\" --silent",
+            "silent_with_progress": "--install \"C:\\Program Files (x86)\\AnyDesk\" --silent",
+            "interactive": "--install \"C:\\Program Files (x86)\\AnyDesk\"",
+            "upgrade": "--remove-first",
+            "custom": "--update-auto --create-desktop-icon --create-shortcuts"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "anydesk"
+          ],
+          "file_extensions": [
+            "anydesk"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "9.8.1",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://download.anydesk.com/anydesk.dmg",
+          "host": "download.anydesk.com",
+          "filename": "anydesk.dmg",
+          "no_checksum": true
+        }
+      ],
+      "cask": {
+        "apps": [
+          "AnyDesk.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "com.philandro.anydesk",
+            "com.philandro.anydesk.Frontend",
+            "com.philandro.anydesk.Helper",
+            "com.philandro.anydesk.service"
+          ],
+          "remove": [
+            "/Library/LaunchAgents/com.philandro.anydesk.Frontend.plist",
+            "/Library/LaunchAgents/com.philandro.anydesk.Hub.plist",
+            "/Library/LaunchDaemons/com.philandro.anydesk.Helper.plist",
+            "/Library/LaunchDaemons/com.philandro.anydesk.service.plist",
+            "/Library/PrivilegedHelperTools/com.philandro.anydesk.Helper"
+          ],
+          "zap_paths": [
+            "/etc/anydesk",
+            "~/.anydesk",
+            "~/Library/Preferences/com.philandro.anydesk.plist"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "8.0.4",
+      "release_date": "2026-06-30",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.anydesk.Anydesk.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.anydesk.Anydesk.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.anydesk.Anydesk.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.anydesk.Anydesk.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
+      "retrieved_at": "2026-11-04T20:50:37.029Z",
+      "path": "manifests/a/AnyDesk/AnyDesk"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
+      "retrieved_at": "2026-11-04T20:50:37.029Z",
+      "path": "Casks/a/anydesk.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/anydesk.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.anydesk.Anydesk",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/com.anydesk.Anydesk",
+      "api_url": "https://flathub.org/api/v2/appstream/com.anydesk.Anydesk",
+      "content_sha256": "d36d3d354d1aafbcaf7674ce79bbb5d59532b312bef648941d5b2b3586d8d03f"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.anydesk.Anydesk",
+    "page_url": "https://flathub.org/apps/com.anydesk.Anydesk",
+    "repo_url": "https://github.com/flathub/com.anydesk.Anydesk",
+    "install_command": "flatpak install flathub com.anydesk.Anydesk",
+    "run_command": "flatpak run com.anydesk.Anydesk",
+    "verified": false,
+    "license": "LicenseRef-proprietary",
+    "free_license": false,
+    "developer_name": "AnyDesk Software GmbH",
+    "categories": [
+      "Network"
+    ],
+    "download_size": 18004357,
+    "installed_size": 20106629,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

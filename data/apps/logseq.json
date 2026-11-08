@@ -1,0 +1,2030 @@
+{
+  "schema_version": 2,
+  "slug": "logseq",
+  "name": "Logseq",
+  "publisher": "Logseq",
+  "author": "Logseq",
+  "ids": {
+    "winget": "Logseq.Logseq",
+    "homebrew_cask": "logseq",
+    "flathub": "com.logseq.Logseq"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "A privacy-first, open-source platform for knowledge management and collaboration",
+  "description": "Logseq is a joyful, open-source outliner that works on top of local plain-text Markdown and Org-mode files. Use it to write, organize and share your thoughts, keep your to-do list, and build your own digital garden.",
+  "tags": [
+    "backlink",
+    "bi-directional-link",
+    "docs",
+    "document",
+    "editor",
+    "graph",
+    "knowledge",
+    "knowledge-base",
+    "markdown",
+    "mind-map",
+    "mindmap",
+    "notes",
+    "org-mode",
+    "outliner",
+    "to-do",
+    "todo"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://logseq.com/",
+    "publisher": "https://logseq.com/",
+    "support": "https://github.com/logseq/logseq/issues",
+    "bug_tracker": "https://github.com/logseq/logseq/issues",
+    "privacy": "https://blog.logseq.com/privacy-policy/",
+    "purchase": "https://opencollective.com/logseq",
+    "release_notes": "https://github.com/logseq/logseq/releases/tag/2.0.2",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://docs.logseq.com/"
+      }
+    ]
+  },
+  "license": {
+    "name": "AGPL-3.0",
+    "url": "https://github.com/logseq/logseq/blob/HEAD/LICENSE.md",
+    "spdx": "AGPL-3.0",
+    "copyright": "© 2026 Logseq"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.0.2",
+    "macos": "2.0.2",
+    "linux": "0.10.15"
+  },
+  "last_updated": "2026-10-07",
+  "versions_total": {
+    "windows": 94,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.0.2",
+      "release_date": "2026-10-07",
+      "release_notes": "Logseq 2.0.2 Beta brings smoother editing, faster startup, and more reliable everyday workflows to the DB version.\nJoin the iOS TestFlight beta, 2.0.2 is currently under App Store review.\nWeb app: https://app.logseq.com/\nFeatures\n- Gallery cards can now use URL properties as covers.\n- Added a \"Clear heading\" slash command.\n- Improved video embeds, with resizable desktop players and clickable YouTube timestamps.\nThanks\n- Special thanks to our community PR contributors! Your fixes, performance improvements, translations, and careful reviews helped make this beta better. Contributors include @yuxi-liu-wired, @ChipNowacek, @Mancn-Xu, @hahaArthur17, @maksym-dilanian, @qwist1233-cpu, and many others.\n- A heartfelt thank-you to everyone testing the DB beta. Your bug reports, reproduction steps, feedback, and retesting of fixes have been invaluable. Thank you for helping us improve Logseq with your real-world graphs and workflows!\nFixed issues\nOrdered by impact on data integrity, reliability, and everyday workflows.\n1. Preserve unsaved edits: Save pending text before following page or block references, switching blocks, or setting Deadline/Scheduled. Pasting multiple blocks no longer lets a stale editor buffer erase the first pasted title.\n2. Restore deleted content with undo/redo: Restore deleted blocks and pages that reference each other, along with property schemas and values. Undoing block moves now preserves their original order and nested structure.\n3. Keep block trees intact when copying or moving: Selecting an ancestor together with its descendants no longer pulls grandchildren out of their subtree. Copy/paste preserves the original child blocks, and embed actions operate on the embed rather than its source.\n4. Keep graph and asset downloads running: One failed asset download no longer stops the remaining asset queue or fails the graph download. Sync also keeps property-value replacements together instead of splitting them across requests.\n5. Fix Windows installation: Fix the NSIS installer crash affecting Windows 11 24H2 and newer, so the desktop app can be installed normally.\n6. Improve file-to-DB import fidelity: Preserve headings, icons, journal timestamps, and PDF annotation identities/order. Asset links in property values are converted into asset references, and same-title classes and properties remain distinct.\n7. Correct scheduled dates and repeating tasks: Deadline/Scheduled repeats now advance in the local calendar. Monthly repeats no longer drift permanently after a shorter month; date filters use local days, and clearing dates removes stale journal references.\n8. Prevent query errors from crashing the graph: Incomplete query syntax, invalid regular expressions, and query-function rendering errors are isolated. Query-builder filters again show property/tag names and include custom Status and Priority choices.\n9. Fix property editing and choice selection: Selected node values remain visible in property pickers, choice identities resolve consistently, and configuration toggles save the newly selected value. Empty multi-value slots and date values can be cleared without errors.\n10. Restore readable search results and references: Resolve UUID references in search titles, breadcrumbs, and nested page references. References to deleted nodes remain visible as broken links, and opening search no longer clears its results.\n11. Restore settings and HTML publishing: Settings can be saved when config.edn is missing or invalid, and the first export.css edit creates the file correctly. HTML exports no longer open as a blank page and honor the configured home page.\n12. Make desktop editing and keyboard input reliable: Clicks during scrolling now open the editor. A click after Escape or Shift+Up/Down keeps the newly opened editor, and fixes cover international dead-key input and IME confirmation in search.\n13. Fix Android popup and layout issues: Nested popups reuse the presented native sheet, sheet dismissal avoids re-entry, and the layout respects the status-bar safe area. Mobile cloud-graph download and sync triggers work again.\nEnhancements\n- Faster startup and smoother editing: Improved desktop startup, journal loading, large-page rendering, table scrolling, and search, with fewer unnecessary updates while typing.\n- Better everyday workflows: Improved flashcard practice, date and repeating-task handling, international keyboard input, plugin APIs, CLI behavior, and translations.\nFull changelog",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/2.0.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/2.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-win-x64-2.0.2-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-2.0.2-nsis.exe",
+          "sha256": "5d7f52fa676a65cb91b88a688ff2705de629dd60a0530dc6c9119e97b463d853",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-win-x64-2.0.2-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-2.0.2-nsis.exe",
+          "sha256": "5d7f52fa676a65cb91b88a688ff2705de629dd60a0530dc6c9119e97b463d853",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-win-arm64-2.0.2-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-arm64-2.0.2-nsis.exe",
+          "sha256": "44f60959e0d2bb71f573a8fabd3f5dc7abb3ec6bb0457aeb680e643a775424b4",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-win-arm64-2.0.2-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-arm64-2.0.2-nsis.exe",
+          "sha256": "44f60959e0d2bb71f573a8fabd3f5dc7abb3ec6bb0457aeb680e643a775424b4",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.1",
+      "release_date": "2026-07-13",
+      "release_notes": "Logseq 2.0 Beta (DB version) is here! 🎉\nAfter a long wait, our first Logseq 2.0 beta release is finally here. We know many of you have been looking forward to trying it, and we’re excited to put it in your hands!\nThis is an early beta, so you may encounter some rough edges. We’d love for you to give it a try and tell us what works, what doesn’t, and what you’d like to see next. Your feedback will help us improve Logseq and shape the stable release.\nBefore getting started, please take a moment to read these updates:\n- Live roadmap\n- Big update: Logseq is splitting into two versions\nAs with any beta, please back up your important data before testing. You can share feedback and report issues through our GitHub issue tracker.\nThank you for your patience, encouragement, and continued support. We’re excited to begin this next chapter with you! ❤️",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/2.0.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/2.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-win-x64-2.0.1-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-2.0.1-nsis.exe",
+          "sha256": "01c98d98aa9895027de3fe2f698c3d042b8cc6256504e94eca119bfaaacca88f",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-win-x64-2.0.1-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-2.0.1-nsis.exe",
+          "sha256": "01c98d98aa9895027de3fe2f698c3d042b8cc6256504e94eca119bfaaacca88f",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-win-arm64-2.0.1-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-arm64-2.0.1-nsis.exe",
+          "sha256": "47a33c890ce10783a688b25f238b4f4e91ef97574d573fd221e87f7238d4abbe",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-win-arm64-2.0.1-nsis.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-arm64-2.0.1-nsis.exe",
+          "sha256": "47a33c890ce10783a688b25f238b4f4e91ef97574d573fd221e87f7238d4abbe",
+          "product_code": "8b963d14-71b6-5579-927a-616b0650a9c8",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.15",
+      "release_date": "2025-12-01",
+      "release_notes": "- Beta 0.10.15 [[Dec 1st, 2025]]\n  Desktop app and Android App download link: https://github.com/logseq/logseq/releases/tag/0.10.15\n  - [[Fixed issues]]\n    - Fix: Youtube embeds not working\n  - [[Enhancement]]\n    - Bump Electron to 38.4.0",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.15",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.15/Logseq-win-x64-0.10.15.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.15.exe",
+          "sha256": "b9335b55d4449a22628bdd4cea856183b2512aa9f2b07ddc17c5b36452802a21",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.15/Logseq-win-x64-0.10.15.msi",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.15.msi",
+          "sha256": "a71aace5050eaba8df351b1108e0199701795a7776d6a5ca14f6a2b5c94c343a",
+          "product_code": "{48458713-9E17-48D7-8AC6-C1EE46687EA1}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.14",
+      "release_date": "2025-09-18",
+      "release_notes": "Highlights:\n1. Bump pdf.js to 4.2.67, thanks to https://github.com/Th-o-mas\n2. fix: match paste of x.com links for twitter https://github.com/logseq/logseq/pull/12043",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.14",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.14/Logseq-win-x64-0.10.14.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.14.exe",
+          "sha256": "b77080300733e3cd693c46883c59a12025b1ec8ccaf76e1eadb016ee1f293299",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.13",
+      "release_date": "2025-08-07",
+      "release_notes": "Fix: Youtube embeds not working #12031",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.13",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.13/Logseq-win-x64-0.10.13.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.13.exe",
+          "sha256": "7493b79aa217e6a526b9ba18466cb42e9f146e2a0818f28e94330b7b9cc6c113",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.12",
+      "release_date": "2025-05-26",
+      "release_notes": "- Beta 0.10.12 [[May 26th, 2025]]\n  Desktop app and Android App download link: https://github.com/logseq/logseq/releases/tag/0.10.12\n  - [[Fixed issues]]\n    - App freeze, high CPU/GPU usage, and frequent diff prompts #11880\n    - High CPU consumption #11874\n    - Using GTK 2/3 and GTK 4 in the same process is not supported #11873\n    - App crashes on Mac",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.12",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.12/Logseq-win-x64-0.10.12.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.12.exe",
+          "sha256": "1198af2fefa39c597a2ff76fcb235bb0d3cfb24109a36d7f57455f48684db23c",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.11",
+      "release_date": "2025-05-21",
+      "release_notes": "- Includes all changes from Beta 0.10.10 [[May 7th, 2025]] and fixes major regressions with it.\n- [[Fixed Issues]]\n  - Images and themes not working #11486\n  - Global search in blocks not working #11851\n    - NOTE: You may need to run the command Rebuild search index for this fix.\n  - Drag and drop of pdfs not working #11850\n- [[Enhancement]]\n  - Upgrade Electron to 36.2.0\nFull Changelog: https://github.com/logseq/logseq/compare/0.10.9...0.10.11",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.11",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.11/Logseq-win-x64-0.10.11.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.11.exe",
+          "sha256": "fd875bdd3cbf6d5077219125f201dce6604ce18bbe8b6fac22e900963510bf5f",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.9",
+      "release_date": "2024-04-23",
+      "release_notes": "- [[Thanks]]\n  - [[desk7]]\n    - Update Italian translation in #11179\n  - [[KaMeHb-UA]]\n    - Add Linux ARM64 build support in #11183\n  - [[Sun-Wukung]]\n    - Update tutorial-sk.md in #11226\n  - [[thief-sty]]\n    - Update docs/develop-logseq.md in #11218\n    - Fix e2e-test command in #11217\n- [[Fixed issues]]\n  - Fix missing refs for property text values when creating a page #11208\n  - Fix incorrect behavior of the delete key for deleting the last char #11190\n  - Fix missing default colors for highlight mark tag #11247\n- [[Enhancement]]\n  - New block placeholder should accept tab and enter key #11255\n  - Restore App window at current workspace #11246\n  - I18n: Italian #11179, Slovak #11226\n  - Linux ARM64 build support #11183",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.9/Logseq-win-x64-0.10.9.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.9.exe",
+          "sha256": "d7816c3c5723188261e85c16ca5e662376b89491ba58342856ed37f1dd0414ef",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.8",
+      "release_date": "2024-03-28",
+      "release_notes": "- [[Thanks]]\n  - [[albanobattistella]]\n    - Update Italian translation in #11154\n  - [[e-zz]]\n    - Fix shift+mouse click on PDF View not invoking area highlight on Linux in #10973\n  - [[Liu Cheng]]\n    - Fix missing newline after multiline block when exporting a page in #10934\n  - [[Jon Ramos]]\n    - Fix toggling of task list in #11079\n  - [[liymike]]\n    - Update Simplified Chinese) translation in #11119\n  - [[queeup]]\n    - Update Turkish translation in #11063\n  - [[yannicka]]\n    - Remove obsolete \"@tailwindcss/line-clamp\" dependency in #11130\n- [[Fixed issues]]\n  - Fix toggling of task list #11079\n  - Missing newline after multiline block when exporting a page #10934\n  - Incorrect cursor move for the emoji from the line head #11112\n  - Shift+mouse click on PDF View not invoking area highlight on Linux #10973\n  - Fine tune page title search strategy #11147\n  - Logout and clear keys for Logseq Sync #11111\n  - Fix ui button component's click handling #11068\n- [[Enhancement]]\n  - I18n: Simplified Chinese #11119, Turkish #11063, Italian #11154",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.8/Logseq-win-x64-0.10.8.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.8.exe",
+          "sha256": "522319108b66e6dd3bd8c459e0d1c8a8644093bca0b01c861bb2d660f31b3e3c",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.7",
+      "release_date": "2024-02-29",
+      "release_notes": "- [[Thanks]]\n  - [[Mostafa Ahangarha]]\n    - Add partial Persian translation in #10938\n  - [[Vladimir Pouzanov]]\n    - Fix :graph/current usage in the electron state in #11013\n  - [[Puneeth Chaganti]]\n    - Fix typo in mldoc package name in #10995\n  - [[Tobias Domhan]]\n    - Fix preserve root node block refs when cutting + pasting in #10841\n  - [[Topher Hunt]]\n    - Add new keybinding for \"toggle expand/collapse this block\" in #10980\n  - [[YU000jp]]\n    - Fix main scrollbar jumps in #10037\n- [[Fixed issues]]\n  - Add .heic to media type #11017\n  - Preserve root node block refs when cutting + pasting. #10841\n  - Fix main scrollbar jumps #10037\n  - Fix wrong :command/toggle-favorite handling in config #10998\n  - Fix search term query highlight performance #11030\n- [[Enhancement]]\n  - New keybinding for \"toggle expand/collapse this block\" #10980\n  - I18n: Persian #10938,\n  - Add share/open asset file for Android App #10977\n  - Enhance accent color related details #10986\n  - refactoring dropdown/context menu with the new components #10897\n  - Better handling for macOS scrollbar system setting of auto scrolling mode #11048\n- New Contributors\n  - @punchagan made their first contribution in https://github.com/logseq/logseq/pull/10995\n  - @topherhunt made their first contribution in https://github.com/logseq/logseq/pull/10980\n  - @YU000jp made their first contribution in https://github.com/logseq/logseq/pull/10037\n  - @farcaller made their first contribution in https://github.com/logseq/logseq/pull/11013\n  - @tdomhan made their first contribution in https://github.com/logseq/logseq/pull/10841",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.7/Logseq-win-x64-0.10.7.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.7.exe",
+          "sha256": "ca6c3961028f8abfce1eae489e82e1bedf0ff8f8cafd23075ad0df891f825656",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.6",
+      "release_date": "2024-02-05",
+      "release_notes": "- [[Thanks]]\n  - [[ChristianAvila]]\n    - Adding larger auto-commit interval in #10536\n  - [[mfenniak]]\n    - Fix outdent-then-delete removing incorrect block in #10790\n  - [[ReillyBrogan]]\n    - Update better-sqlite3 to v9.3.0 in #10884\n  - [[TaylorHo]]\n    - Enhance Brazilian Portuguese translations in #10891\n  - [[Mostafa Ahangarha]]\n    - Minor typo fixes and grammar improvements in docs in #10940\n  - [[CNLHC]]\n    - Add support for closing history panel after select a version in #10530\n  - [[linsui]]\n    - Add fastlane structure for F-Droid in #10925\n  - [[Morgan Plain]]\n    - Support changing graph forces via UI in #10755\n  - [[queeup]]\n    - Update Turkish translation in #10937\n- [[Fixed issues]]\n  - Publishing not working #10911\n  - Logseq Sync crash on Android #10922\n  - Performance of Search on mobile platforms #10924\n  - Outdent-then-delete removing incorrect block #10790\n  - Wrong new page button click handling in graph view #10962\n  - Save composing text when clicking mobile bar buttons #10921\n- [[Enhancement]]\n  - Git auto commit: support commit on close, allow changing settings on-the-fly, allowing larger auto commit interval #10536\n  - Trigger on-change for slider when mouse up instead of input value change #10972\n  - Support time offset of YouTube links #10945\n  - Support changing graph forces via UI #10755\n  - Support for closing history panel after selecting a version #10530\n  - I18n: Brazilian Portuguese translations #10891, Turkish translation #10937",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.6/Logseq-win-x64-0.10.6.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.6.exe",
+          "sha256": "79e339480b9c2530d834f8ca2b487e6031ccfb72cea3e2a4d444de837e564352",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.5",
+      "release_date": "2024-01-18",
+      "release_notes": "This version fixes a language-specific app crash occurred due to an incorrect French translation file. This bug does not affect non-French users.\n- [[Thanks]]\n  - [[DavidLapous]]\n    - Fix typo in French translation in 10874\n- [[Fixed issues]]\n  - A language-specific app crash occurred due to an incorrect French translation file #10876\n  - Typo in French translation 10874",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.5/Logseq-win-x64-0.10.5.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.5.exe",
+          "sha256": "ded4f300b50f63fd21837ac35c70da12f05b667e5fb55dc0e2306086f716af12",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.4",
+      "release_date": "2024-01-17",
+      "release_notes": "NOTE: Due to a certificate issue, the Windows installer in this release is not signed.\n- [[Thanks]]\n  - [[alan-roe]]\n    - Fix docker build in #10287\n  - [[aurnik]]\n    - Add highlighted page aliases in search results in #10761\n    - Prevent jumping when hovering over left sidebar items in #10760\n  - [[e-zz]]\n    - Fix area highlights in PDF view don't blink in #10732\n  - [[eliovir]]\n    - Update French translations in #10810\n  - [[hasecilu]]\n    - Update Spanish translation in #10840\n  - [[ingepettersen]]\n    - Update Norwegian translation in #10849\n  - [[megayu]]\n    - Enhance block selection in #10745\n  - [[situ2001]]\n    - Prevent button in modal from being clicked twice when pressing enter key in #10820\n  - [[ZerdoX-x]]\n    - Update project deps in #10857\n- [[Fixed issues]]\n  - Highlight page aliases in search results #10761\n  - Prevent jumping when hovering over left sidebar items #10760\n  - Android App crash caused by special filenames #10845\n  - Missing Git SDK in Plugin API #10767\n  - Remove prefix spaces when no-indent is used in exporting #10807\n  - Accept video as mobile shared content #10797\n  - PDF view's area highlights don't blink #10732\n  - Cannot toggle updated-at and created-at in query view #10759\n  - Add support for older GLIBC on Linux #10832, note that search index is still not available on old Linux\n  - Do not notify network status when logged out #10813\n  - Fix incorrect position for the filter modal on the iOS platform #10798\n  - Prevent button in modal from being clicked twice when pressing enter key #10820\n- [[Enhancement]]\n  - New UI components #10694\n  - Better block selection #10745\n  - Enhancement of Plugin APIs #10782\n  - Enhancement of left sidebar UI #10765\n  - I18n: French translations #10810, Norwegian translation #10849, Spanish translation #10840",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.4/Logseq-win-x64-0.10.4.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.4.exe",
+          "sha256": "ddbd334893a129dd7b6d5edecf33e78d651d933d52d595db9068fc29242f5469",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.3",
+      "release_date": "2023-12-25",
+      "release_notes": "This bug-fix release addresses the bundled Git bug introduced in 0.10.2.\n- [[Thanks]]\n  - [[Vivianne]]\n    - Fix French translation in #10749\n  - [[Hidekazu Kubota]]\n    - Add percent encoding file names with leading dots in #10746\n- [[Fixed issues]]\n  - Safety key string for the simple command key value in Plugin API #10741\n  - Fix missing bundled Git #10751\n  - Percent encoding file names with leading dots #10746\n- [[Enhancement]]\n  - I18n: French translation #10749",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.3/Logseq-win-x64-0.10.3.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.3.exe",
+          "sha256": "dfe3c427c259c1f2d6bed771a2d40f37c0260b0c694ee7929f34383817cdffce",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.2",
+      "release_date": "2023-12-22",
+      "release_notes": "- [[Features]]\n  - Clone handles for quickly cloning existing shapes in Whiteboards #10637\n- [[Thanks]]\n  - [[eliovir]]\n    - Update French translation in #10647, #10706\n  - [[jiyi]]\n    - Update Chinese translation in #10668\n  - [[queeup]]\n    - Update Turkish translation in #10718\n  - [[Richard Garčár]]\n    - Update Slovak translation in #10673\n  - [[Vivianne]]\n    - Add more localization support for linked references view in #10643\n- [[Fixed issues]]\n  - Full page content search #10645\n  - Missing current-page search #10662\n  - Don't treat blocks with headings as pre-blocks #10710\n  - Save inline images in excalidraw #10652\n  - Sync navbar and action bar color for Android when theme change #10653\n  - Incorrect auto-save state when paste batch blocks #10672\n  - Incorrect handling of pasting html list #10674\n  - Incorrect node edge color for Graph view #10693\n  - Incorrect IME composition detection #10654\n  - Detached PDF viewer does not open HTTP links in the default browser #10724\n- [[Enhancement]]\n  - I18n: French #10706 #10647, Slovak #10673, Turkish #10718, Chinese #10668\n  - Plugin APIs #10399\n  - Release .zip package build for Windows #10678\n  - Add more localization support for linked references view #10643",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.2/Logseq-win-x64-0.10.2.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.2.exe",
+          "sha256": "f9dd8efcc5b234b0c7275a354f6e729ac5635addd4e2999080ccdfcb0a91db14",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.1",
+      "release_date": "2023-12-06",
+      "release_notes": "- [[Thanks]]\n  - [[Blezur]]\n    - Polish translations in #10604\n  - [[Ulices]]\n    - Update Spanish translation in #10594\n  - [[ksqsf]]\n    - Fix and-or simple query that contains string literals in #10632\n  - [[ROCKTAKEY]]\n    - Update Japanese translation in #10612\n  - [[queeup]]\n    - Update Turkish translation in #10595\n  - [[Vivianne]]\n    - Fixed missing space in fr and es i18n files in #10644\n- [[Fixed issues]]\n  - New Search related issues #10584, #10634\n    - Cross-platform shortcut icons #10590\n    - Increase the default search length #10570\n    - Search does not navigate to block of interest if collapsed #10633\n    - Add whiteboards to search filters #10630\n  - Theme color related issues #10581, #10638\n  - Block UUID shouldn't be added to recents #10616\n  - Incorrect background color for the left sidebar on mobile #10582\n  - Incorrect node edge color for the global graph view #10585\n  - Fix and-or simple query that contains string literals #10632\n- [[Enhancement]]\n  - I18n: Turkish translation #10595, Polish translations #10604, Spanish translation #10594, Japanese translation #10612",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.1/Logseq-win-x64-0.10.1.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.1.exe",
+          "sha256": "478aafddee79233455256d25c983ba914c5d13d90c8754bdcfa417ddbd1aa487",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.0",
+      "release_date": "2023-11-29",
+      "release_notes": "- [[Features]]\n  - A new and improved [[Search]]! #10132\n  - Design core enhancements including the ability to set an \"Accent color\" from Settings #10132\n- [[Thanks]]\n  - [[cosmo9able]]\n    - Update Brazilian Portuguese translation in #10461\n  - [[e-zz]]\n    - Fix wrong bounding coordinates for PDF highlights in #10426\n  - [[eliovir]]\n    - Update French translation in #10454\n  - [[ormai]]\n    - Update Italian translation in #10557\n  - [[queeup]]\n    - Update Turkish translation in #10492\n- [[Fixed issues]]\n  - Remove the need to add a space to trigger search command #10506\n  - Fix background color for some UI buttons #10512\n  - Fix demo page creation for browser version #10497\n  - Fix wrong bounding coordinates for PDF highlights #10426\n  - Fix filesystem path handling, add missing Windows UNC path support #10525\n  - Fix query builder construction #10485\n- [[Enhancement]]\n  - Export asset ref link as dataset value for the pdf asset #10488\n  - I18n: Brazilian Portuguese #10461, French #10454, Italian #10557, Turkish #10492\n  - Polish accent color details #10520",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.10.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.10.0/Logseq-win-x64-0.10.0.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.10.0.exe",
+          "sha256": "14eab7a26b09802944fb7b88d626bfd34bbe55dedae9a6c4f095cb5885b54be6",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.20",
+      "release_date": "2023-11-01",
+      "release_notes": "- [[Features]]\n  - New handbook #8524\n- [[Thanks]]\n  - [[CorrectRoadH]]\n    - Support zoom via touchpad in #10435\n  - [[Ulices]]\n    - Update Spanish translation in #10431\n  - [[ingepettersen]]\n    - Update Norwegian translation in #10361\n  - [[SylvainDuran]]\n    - Update French translations in #10427\n  - [[udkl]]\n    - Fix #card should only be appended to the title in #10387\n- [[Fixed issues]]\n  - Fix android back button closing order #10345\n  - Fix journal name judgement #10350 #10422 #10434\n  - Refine drag and drop of assets. Fix not being about to save assets sometimes #10351\n  - #card should only be appended to the title #10387\n  - On Android, activity restarts when a Bluetooth keyboard gets connected #10444\n  - Shortcuts editor can't edit disabled keymap #10290\n  - Refine Logseq Sync login box tips #10443\n- [[Enhancement]]\n  - Upgrade electron to v25 #10440\n  - Make Smart Merge the default option for Logseq Sync #10428\n  - I18n: Spanish #10431, French #10427, Norwegian #10361\n  - Add toggle option for PDF view: auto opening the highlight context menu from new text selection #10390",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.20",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.20",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.20/Logseq-win-x64-0.9.20.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.20.exe",
+          "sha256": "7387ebcfdb65bee7f267ff1332cd2b66cf3cd1aefb48b49f289d8eafbd0701f3",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.19",
+      "release_date": "2023-10-11",
+      "release_notes": "- [[Thanks]]\n  - [[Alan Roe]]\n    - Move cursor to end or beginning of line when boundary limit reached in #10244\n    - Use cmd/ctrl + = to zoom in #10241\n  - [[Bad3r]]\n    - Bump CodeMirror version in #9822\n  - [[Ulices]]\n    - Update Spanish translations in #10320\n  - [[hkgnp]]\n    - Add marker prop to BlockEntity interface in #10312\n  - [[jionkitten]]\n    - Fix too frequent highlights saving in PDF view in #10238\n  - [[Sander]]\n    - Allow plugins to access custom format clipboard data in #10225\n- [[Fixed issues]]\n  - Can't close window on macOS with cmd+w #10325\n  - The first window does not close when there're multiple windows #10336\n  - Capture all logseq:// links on Android #10266\n  - Allow drag and drop to dummy page #10292\n  - Bypass corrupted SQLite search index when App starts #10286\n  - Missing the initial ref highlight block sometimes for PDF view #10333\n  - Avoid too frequent highlights saving in PDF view #10238\n  - Fix incorrect auto-complete modal position for overflow editor content input #10298\n  - Incorrect API call for the electron production bundle #10329\n- [[Enhancement]]\n  - Whiteboards: Pen mode (palm rejection) #10222\n  - Move cursor to end or beginning of line when boundary limit reached #10244\n  - Upgrade to Capacitor v5 for mobile platforms #10278\n  - Use cmd/ctrl + = to zoom #10241\n  - Allow plugins to access custom format clipboard data #10225\n  - I18n: Update Spanish translations #10320",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.19",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.19",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.19/Logseq-win-x64-0.9.19.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.19.exe",
+          "sha256": "ca6dfb7bca42a12463e14356f5fd1a4ab7c7655c8e4b6ee317241394d44d17d0",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.18",
+      "release_date": "2023-09-20",
+      "release_notes": "- [[Thanks]]\n  - [[Jack Case]]\n    - Allow writing to files with group permission without chmod on Linux in #9297\n  - [[Ulices]]\n    - Update Spanish translations in #10195\n  - [[jf]]\n    - Allow for single-digit minutes and seconds in youtube-timestamp in #9930\n  - [[queeup]]\n    - Update Turkish translation in #10180\n  - [[WsinGithub]]\n    - Disable Bilibili autoplay in #10207\n- [[Fixed issues]]\n  - Update rewrite-edn to fix backslash characters unable to be keyboard shortcut #10224\n  - Disable Bilibili autoplay #10207\n  - Disable graph name warning #10253\n  - Support asset filenames with wrong percent encoding #10191\n  - Incorrect asset resource path for custom CSS on iOS #10232\n  - Incorrect mouse point payload for the plugin hook of the editor input selection #10175\n  - Avoid checking network connectivity for non-sync graph #10171\n- [[Enhancement]]\n  - Electron loading #10201\n  - Allow for single-digit minutes and seconds in youtube-timestamp (addresses #9920) #9930\n  - New option to allow writing to files with group permission without chmod on Linux #9297\n  - Introduce customizable close window shortcut #10190\n  - Support Socks5 proxy for Desktop App #10199\n  - I18n: Spanish #10195, Turkish #10180",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.18",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.18",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.18/Logseq-win-x64-0.9.18.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.18.exe",
+          "sha256": "29120700e6ea2a5ad6937e52d159df5f28dcd39cec975dec2333c42dba324181",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.17",
+      "release_date": "2023-09-07",
+      "release_notes": "- [[Fixed issues]]\n  - iOS network checking issue for Logseq Sync #10163\n  - Electron App maximize bug #10165",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.17",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.17/Logseq-win-x64-0.9.17.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.17.exe",
+          "sha256": "5b51e959f7a4a99dfcb66cff5753879ef4f2a0ed88716933899984dcaa75b759",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.15",
+      "release_date": "2023-08-22",
+      "release_notes": "The main purpose of this release is to address the regressions in the right sidebar pane that were introduced in the previous version.\n\n- [[Thanks]]\n  - [[ingepettersen]]\n    - Update Norwegian translations in #10068\n  - [[Ulices]]\n    - Update Spanish translations in #10065\n- [[Fixed issues]]\n  - Right sidebar pane menu overflow #10046\n  - Disable sidebar pane content scrolling #10071\n  - Fix right sidebar pane header wrap and content padding #10072\n- [[Enhancement]]\n  - PDF password support #10034\n  - Plugin API enhancements #10022\n  - I18n: Norwegian #10068, Spanish #10065",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.15",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.15/Logseq-win-x64-0.9.15.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.15.exe",
+          "sha256": "69d60e6bb47b8df5194ee39cd7214ea66ce351018da6705ad959b1fd3ffd4d66",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.14",
+      "release_date": "2023-08-17",
+      "release_notes": "Note\nThis version introduces left sidebar and right sidebar enhancements, if you encounter some style issues, please revert to the default theme.\n\n- [[Thanks]]\n  - [[HikoriHawky]]\n    - Add Whiteboards pen pressure support in #9988\n  - [[jomanhattan]]\n    - Update French translation in #9981\n  - [[matheusfrancisco]]\n    - Fix right sidebar empty string error caused by whiteboards names in #10018\n  - [[ROCKTAKEY]]\n    - Update Japanese translation in #10004\n  - [[situ2001]]\n    - Add drag threshold for graph view in #9989\n- [[Fixed issues]]\n  - Add sub-pixel anti-aliasing for Electron #10032\n  - Add drag threshold for graph view #9989\n  - Display of embedded drawing #9969\n  - Sometimes template expansion inserts an additional slash #9972\n  - PDF Viewer: highlighted text layer is overlaid by the PDF.js built-in annotation layer #9982\n  - Rendering error caused by empty string of whiteboards in the right sidebar #10018\n- [[Enhancement]]\n  - Left sidebar enhancements #9880\n  - Right sidebar enhancements #[[minor change]] #9846\n  - I18n: French #9981 Japanese #10004\n  - Whiteboards drawing pen pressure support #9988\n  - PDF Viewer: support shift + enter to pick the previous searching results highlight #10002\n  - Polish UI details of the zotero search component #10011",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.14",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.14/Logseq-win-x64-0.9.14.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.14.exe",
+          "sha256": "573c031c9ecaaa53f1f7b49ad7f0946515b9dcc71a31b8cc4212c56d9aeb429b",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.13",
+      "release_date": "2023-08-01",
+      "release_notes": "- [[Thanks]]\n  - [[atxulo]]\n    - Improvements in Spanish translation in #9896\n  - [[einmeterhecht]]\n    - Translate all missing entries for German in #9948\n  - [[Ulices]]\n    - Spanish translation update in #9732\n  - [[ingepettersen]]\n    - Norwegian translation update in #9905\n  - [[ROCKTAKEY]]\n    - Add additional Japanese translation in #9909\n- [[Fixed issues]]\n  - Draw: persist when updating existing elements #9919\n  - Setting default sidebar pages on config #9959\n  - Editing of global config on Windows #9932\n  - Image URL tag referrer policy fix for mobile platforms #9895\n  - Page history of Logseq Sync on mobile platforms #9933\n  - Cold start merge strategy of Smart Merge #9953\n- [[Enhancement]]\n  - I18n updates: Spanish #9896 #9732, German #9948, Norwegian #9905, Japanese #9909",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.13",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.13/Logseq-win-x64-0.9.13.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.13.exe",
+          "sha256": "fe526ca411b009ee47e0aafee5b67feef553074e2180f7f0b813ca0fd4199daf",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.11",
+      "release_date": "2023-07-19",
+      "release_notes": "- [[Breaking Changes]]\n  - Upgrade Electron to 24 #9482 #[[minor change]]. Windows 7/8/8.1 users should upgrade their OS or stick to an old version of Logseq.\n- [[Features]]\n  - Add PDF shape to Whiteboards #9743\n- [[Thanks]]\n  - [[Allan Chain]]\n    - Include katex resources from npm in #9712\n  - [[Bad3r]]\n    - Fix CVE-2023-2931 in Electron 24 in #9854 #[[minor change]]\n    - Fix CI stale actions in #9777\n  - [[gfgafn]]\n    - Fix delete character which has more than one UTF-16 code unit using Delete key in #9837\n  - [[Rui Sun]]\n    - Add Chinese i18n translations and make more of right-sidebar, query, slide, and bug-report translatable in #9801\n  - [[ingepettersen]]\n    - Update Norwegian translation in #9771\n  - [[jihuayu]]\n    - Fix unable to change theme mode in theme row for zh-cn lang in #9884\n  - [[Lewis Sparlin]]\n    - Fix positioning of swipe-left action bar on iOS mobile app in #9853\n    - Use flex-col for schedule modal on smaller screens in #9776\n  - [[megayu]]\n    - Enhance cut and copy blocks in #9094\n  - [[Johan Penttinen]]\n    - Add support for Android 13 themed icons in #9862\n  - [[phlet]]\n    - Fix About dialog shows the version number twice (macOS) in #9786\n  - [[queeup]]\n    - Update Turkish translation in #9773, #9813\n  - [[ROCKTAKEY]]\n    - Add additional Japanise translation in #9792\n- [[Fixed issues]]\n  - Whiteboards\n    - Blur on empty title and select all on shape labels #9793\n  - Fix positioning of swipe-left action bar on iOS mobile app #9853\n  - Content overwritten caused by smart merge on mobile platforms #9856\n  - Fix header button drag region #9861\n  - Fix unable to change theme mode in theme row for zh-cn  #9884\n  - Fix delete character which has more than one UTF-16 code unit using Delete key #9837\n  - Mobile startup fixes #9828 #9795\n  - Plugin API: hook fenced code renderer for multiple providers #9847\n  - Fix sometimes the API server autostart not working #9878\n  - Fix smart merge for Logseq Sync #9840 #9831\n  - Close context menu when page navigates #9882\n  - Fix graph name in dropdown for android #9704\n  - Use flex-col for schedule modal on smaller screens #9776\n- [[Enhancement]]\n  - Enhance cut and copy blocks #9094\n  - Android 13 themed icons support #9862\n  - I18n: Japanese #9792, Chinese #9801, Norwegian #9771, Turkish #9773 #9813",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.11",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.11/Logseq-win-x64-0.9.11.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.11.exe",
+          "sha256": "ac70d085e3bd04338ee2f14cb6e79958449206a27fc034598b03947e0c9db2ff",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.10",
+      "release_date": "2023-06-28",
+      "release_notes": "- [[Features]]\n  - Whiteboards: Snap to grid #9654 - Documentation\n- [[Thanks]]\n  - [[Allan Chain]]\n    - Update KaTeX from 0.13.18 to 0.16.7 in #9625\n  - [[Bad3r]]\n    - Replace 'presentation' with 'view as slides' in #9681\n    - Update playwright config in #9623\n    - Add tests for selecting codeblock language in #9557\n    - Fix test intermediate failure in #9699\n  - [[cui fliter]]\n    - Fix typo in #9666\n  - [[Rui Sun]]\n    - Fix setting title does not use i18n translation in #9711\n  - [[Mikhail Smelov]]\n    - Convert more of the UI to be translatable in #9658 #9680\n    - Improve Russian (ru) translations in #9645\n  - [[megayu]]\n    - Fix paste text to link in #9650\n  - [[Phil Denhoff]]\n    - Improve plugin interfaces for IAppProxy, IEditorProxy, BlockEntity and PageEntity in #9520\n  - [[queeup]]\n    - Update Turkish translations in #9686 #9716\n  - [[Taylor Hoffmann]]\n    - Update pt-BR translations in #9655\n- [[Fixed issues]]\n  - Paste text to link #9650\n  - Clicking to edit a block from the right sidebar or a whiteboard can't jump to the correct position #9657\n  - Disable content selection when blocks have been selected #9713\n  - Fix pasting from HTML for some specific sites #9739\n  - Hidden editable block properties showing up when user properties present #9661\n  - Reactive queries #9695 #[[minor change]]\n  - Trim block whitespace for markdown files for a specific case #9554\n  - Incorrect behavior for the code editor of file page #9595\n  - Polish the plugin settings modal #9669\n- [[Enhancement]]\n  - Logseq Sync: experimental support for editing conflict handling with diff-merge #9238 #experimental (To enable this, check the Features tab in setting menu)\n    - Known Issue: the merging may not work in some race editing condition on iOS, then fallback to the current behavior (file overwriting). Don't do race editing on iOS before fixed.\n  - Add slash command for creating code blocks #9553 - Documentation\n  - Replace 'presentation' with 'view as slides' #9681 #[[minor change]]\n  - More translation for UI elements #9658 #9680 #9711\n  - Punctuation usage in translations #9610\n  - I18n: Russian #9645, pt-BR #9655, Turkish #9686 #9716, Spanish #9665\n  - Polish details for the plugin fenced code block #9590\n  - Plugin marketplace enhancements #9609\n  - Plugin API:\n    - Support right sidebar item type as string #9701\n    - Improve plugin interfaces for IAppProxy, IEditorProxy, BlockEntity, and PageEntity #9520",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.10/Logseq-win-x64-0.9.10.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.10.exe",
+          "sha256": "4213cbfd239a12f0bebb73316a2f399fef70de80fc24f5315c2dd9d738df379a",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.9",
+      "release_date": "2023-06-13",
+      "release_notes": "- [[Features]]\n  - Integrated title bar for Windows and Linux #9442. (Now \"Developer Tools\" is under the Ctrl+Shift+I hotkey on Windows and Linux.)\n- [[Thanks]]\n  - [[Bad3r]]\n    - remove false positive translations a.k.a. EN definitions in non EN dicts #9576\n    - Enhancements for E2E test: Log and ignore net errors #9559; editor string formatting and symbols auto-pairing tests #9388\n    - Fix space in overflow menu #9521\n    - Add tooltip hint for prefered-file-paste setting #9564\n    - Do not print nil in quick capture #9617\n  - [[Bryan Lee]]\n    - Fix: shift-clicking on \"Pages tagged with\" page link doesn't open in sidebar #9587\n  - [[Giuseppe D'Andrea]]\n    - Enhancement for editor: delete selected text when pressing enter key #9448\n  - [[Ulices]]\n    - Update Spanish translation #9540\n  - [[ingepettersen]]\n    - Update Norwegian translation #9618\n  - [[Mikhail Smelov]]\n    - Update Russian translation #9605\n  - [[David Laing]]\n    - Update dugit #9579\n  - [[necropolina]]\n    - Menu item for toggling theme mode in published graphs #9528\n  - [[John Doe]]\n    - Improve I18n translations: Convert hardcoded strings in the UI to be translatable in #9588, improve RU translation in #9465, Improve UK (Ukrainian) translation in #9494\n  - [[situ2001]]\n    - Fix page search is not updated after changing the capitalization of the page name #9583\n    - Handle backspace when cursor is at beginning of line in embedded page/block #8421\n  - [[Steven Allen]]\n    - Substitute date/text in mobile quick-capture templates #9529\n- [[Fixed issues]]\n  - Whiteboard:\n    - New page or whiteboard named with capital letter crashes app on rename #9604\n    - Arrow positions on initialization, undo group delete, hover links jumping and other issues #9480\n    - Exporting from context menu #9596\n    - Onboarding triggered on existing whiteboard #9543\n  - Aliased pages not included in published subgraph #9600\n  - Fix for quick-capture: Do not print nil in quick capture #9617; Substitute date/text in mobile quick-capture templates #9529\n  - Page renaming issues #9620\n  - Page search is not updated after changing the capitalization of the page name #9583\n  - Pasted special URLs on selected text don't get wrapped with macros #9607\n  - Query functions not working sometimes #9563 - Documentation\n  - Remove deprecated :editor/command-trigger option #9550\n  - Resizing of pdf area highlight #9483\n  - Shift clicking on \"Pages tagged with\" page link doesn't open in sidebar #9587\n  - Table v2 and view properties not hidden on display #9499\n  - Handle backspace when at beginning of line in embed page/block #8421\n  - iOS watcher path handling for file events #9589\n  - Missing :block/properties-order attribute for the custom query blocks #9525\n  - Drag and drop assets not working for the right sidebar #9496\n- [[Enhancement]]\n  - Whiteboards\n    - Add support for translations #9567\n    - Auto pan triggers earlier and works for more platforms #9573\n  - Add tooltip hint for prefered-file-paste setting #9564\n  - Convert more hardcoded strings in the UI to be translatable #9588\n  - I18n Updates: Ukrainian #9494, Russian #9465 #9605, Spanish #9540, Norwegian #9618\n  - Menu item for toggling theme mode in published graphs #9528\n  - Delete selected text when pressing enter #9448\n  - Add more semantic class to the order-list block element #9519\n  - Added keymap manager for plugins #9430",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.9/Logseq-win-x64-0.9.9.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.9.exe",
+          "sha256": "396270bdf9fd53fd10de55aed89bd3b685e7ae019e9c687e54877bb55675ec5e",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.8",
+      "release_date": "2023-05-23",
+      "release_notes": "- [[BREAKING CHANGE]]\n  - Due to some compatibility issues, we dropped support for iOS 13\n- [[Features]]\n  - New Version 2 Tables Document #8532\n- [[Thanks]]\n  - [[Avelino]]\n    - Split language translations into one file per language in #9383\n  - [[Bad3r]]\n    - dev(playwright): Ignore connection refused errors in #9426\n    - tweak wrong default config.edn values in #9409\n  - [[Candide U]]\n    - Add custom.js to Logseq publishing's app in #9291\n  - [[Claas Störtenbecker]]\n    - Update logseq.api.update_block API in #9272\n  - [[Giuseppe D'Andrea]]\n    - Fix calculator command on a non-blank line in #9449\n    - Fix view scroll position when selecting multiple blocks in #9444\n  - [[Ulices]]\n    - Add more Spanish translations with the new format in #9438\n  - [[Michele]]\n    - Fix Italian translation error in #9440\n  - [[Sergey Kolesnik]]\n    - Update templates/config.edn in #9408\n- [[Fixed issues]]\n  - Whiteboards: fix actions like undo on converted shapes #9410\n  - Broken block refs when cutting or deleting blocks #9406\n  - Can't jump to the correct position when editing number list #9401\n  - Org-mode pages in aliased links not creating pages #9381\n  - Tweak default config.edn #9409 #9408\n  - Calculator command on a non-blank line #9449\n  - Cli tool nbb-logseq scripts ignoring incorrectly for relative dir #9443\n  - Fix blocks losing references and disappearing from references panel #9389\n  - Show block bullet when a blank block has children #9427\n  - Add Unicode normalization to file watcher on mobile platforms #9419 #9453\n  - Pasting fail on iOS #9463, asset sharing fail on iOS #9462\n  - Mobile UI tweaks #9405\n- [[Enhancement]]\n  - Add custom.js to Logseq publishing's app(minor behavior change) #9291\n  - Refactor iOS sharing #9456\n  - I18n: Spanish #9438, Italian #9440\n  - Split language translations into one file per language #9383\n  - Update version control settings description #9373\n  - Plugin API logseq.api.update_block can preserve properties #9272\n  - Cli tool nbb-logseq scripts now have publishing support for all graphs, not just git-based ones #9348\n  - Restore scroll position new adding newlines in a block #9404\n  - Scroll the view when selecting multiple blocks #9444\n  - Add missing title to opml-export #9429\n\nNOTE: If you've upgraded to the broken 0.9.7 version, you might need to replace it with 0.9.8 manually(Download from the release page and install the app). Sorry for the inconvenience.",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.8/Logseq-win-x64-0.9.8.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.8.exe",
+          "sha256": "b5e05d45706f19ce88aab5993f76c11424ba344aeac6f3271cb37082d4d6e1c0",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.6",
+      "release_date": "2023-05-12",
+      "release_notes": "This update mainly fixes bugs that were introduced by the previous version 0.9.5.\n\n- [[Thanks]]\n  - [[Billy Pinheiro]]\n    - Refine pt-BR translation #9360\n- [[Fixed issues]]\n  - Plugin API get current block fail #9372\n  - Minor style tweaks for ordered list #9370\n  - Incorrect arrangement of ui items from pagebar #9375\n  - Whiteboards: performance of persist #9358\n  - Page renaming UI  #9371\n- [[Enhancement]]\n  - React icons for tabler extensions #9333\n  - I18n: pt-BR #9360",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.6/Logseq-win-x64-0.9.6.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.6.exe",
+          "sha256": "7d7c73bc641c8fe0735e58465aaa352400c15e202ed27fcc3c20d68677edee3c",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.5",
+      "release_date": "2023-05-11",
+      "release_notes": "- [[Features]]\n  - Ordered(numbered) block list support #9235 - Documentation\n    - Breaking change: dwim lists are disabled by default since we now have block based lists. To reenable them, add :dwim/settings {:list? true} to your config.edn\n- [[Thanks]]\n  - [[Adam Hupp]]\n    - Fix yarn install on Windows in #9299\n  - [[Bad3r]]\n    - Update config.edn template in #9287\n    - Improve error handling in mkdir function in #9247\n  - [[Calum Lind]]\n    - Fix garbled text in sidebar and dropdown menus on Linux in #9286\n  - [[EINDEX]]\n    - Fix UI port range in #9211\n  - [[Zhizhen He]]\n    - Fix duplicated line in config.edn #9324\n    - Add settings for graph view in #9325\n  - [[ingepettersen]]\n    - Norwegian translations in #9319\n  - [[melat0nin]]\n    - Refine UI translation item in #9267\n  - [[necropolina]]\n    - Remove unneeded menu options for publishing in #9262\n  - [[John Doe]]\n    - Improve Russian translation in #9301\n  - [[Yiming Pan]]\n    - Fix date time selection repeater UI in #9328\n  - [[queeup]]\n    - Update Turkish translation in #9327\n- [[Fixed issues]]\n  - Whiteboards\n    - Allow interactions with published embeds and hide lock/unlock #9322\n    - Keyboard shortcuts #9338\n    - Page name sanitization #9259\n  - Date time repeater UI #9328\n  - App crash caused by broken sqlite cache #9248\n  - Garbled text in sidebar and dropdown menus on Linux #9286\n  - Mailto and other protocol URLs creating invalid pages #9353\n  - Page tags and aliases should be deleted when page is deleted by user #9293\n  - Stale children block's path-refs when parent's refs change #9254\n  - Copy & Paste handling bugs #9335, #9255, #9344\n  - Copy page URL with shortcut key #9255\n  - Remove unneeded menu options from published pages #9262\n- [[Enhancement]]\n  - Performance improvement for inserting and deleting blocks #9142\n  - Whiteboards\n    - Add prefix to default keyboard shortcuts #9340\n    - Customizable shortcuts #9228\n  - I18n: Russian #9301, Turkish #9327, Norwegian #9319\n  - Add settings for graph view #9325\n  - Update config.edn template #9287",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.5/Logseq-win-x64-0.9.5.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.5.exe",
+          "sha256": "289854690b5220c435a1a6ad5f2985b8d195d297c293d7105b541e9f3ed28e68",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.4",
+      "release_date": "2023-04-25",
+      "release_notes": "- [[Features]]\n  - Element locking for Whiteboards #9137\n  - Shape conversion for Whiteboards #9192\n- [[Thanks]]\n  - [[Anth0rx]]\n    - Update German translation\n  - [[Bad3r]]\n    - Add strikethrough to keyboard shortcuts page\n  - [[situ2001]]\n    - Fix mobile app crashes while trying to swipe the block that has any collapsed block\n- [[Fixed issues]]\n  - Whiteboards: export grouped elements and zoom to fit selection shortcut #9221\n  - Whiteboards: portal height calculation bug #9161\n  - UI elements shake caused by lazy loading #9139\n  - Mobile app crashes while trying to swipe the block that has any collapsed block #9154\n  - No block collapse control on collapsed query block for mobile apps #9233\n  - Two query table fixes - Comma-separated properties display and sorting by page for block queries #9169\n  - Image renaming fails when resizing pdf highlight area on Windows #9122\n  - Logseq Sync fails on non-ASCII filenames for mobile platform #9214\n- [[Enhancement]]\n  - Add :remove-block-children? query option for advanced queries #9229\n  - Plugin API: restore editing cursor state only for the input element in viewport #9231\n  - I18n: German translation #9187",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.4/Logseq-win-x64-0.9.4.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.4.exe",
+          "sha256": "0b82a0913ed30987b4d717014cfdcabd2e4f8742ea3183ed193d6816b8ab2f64",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.3",
+      "release_date": "2023-04-19",
+      "release_notes": "- [[Features]]\n  - Add global scale level option to Whiteboards #9097\n- [[Thanks]]\n  - [[Ulices]]\n    - Update Spanish translations\n    - Improve contributing-to-translations doc\n  - [[Zhizhen He]]\n    - Remove duplicated item in .gitignore\n  - [[John Doe]]\n    - Update nginx version in Docker image\n  - [[Phoenix Eliot]]\n    - Show marker when block text is empty\n  - [[situ2001]]\n    - Refactor: rename fn params in frontend.db.model\n- [[Fixed issues]]\n  - Broken outliner structure when Backspace at the beginning #9125\n  - Copy & paste problems #9145\n  - Disable group-by-page when result-transform exists #9133\n  - Insert properties will truncate other properties if there's any empty property #9117\n  - Show marker when block text is empty #9104\n  - Fix for graph parsing for CLIs #9099\n  - config.edn & custom.css overwrite by syncing remote versions #9138\n  - Incorrect position of mobile toolbar #9118\n- [[Enhancement]]\n  - Persist block UUID upon external editing #8823\n  - I18n: Update Spanish translations #9114\n  - Advanced queries have a new :group-by-page? option #9133",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.3/Logseq-win-x64-0.9.3.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.3.exe",
+          "sha256": "23f0d4184f4acba324d09fa0009e1590983330922a121bfb9391ad0f2d3da293",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.2",
+      "release_date": "2023-04-12",
+      "release_notes": "- [[Features]]\n  - Support custom colors in Whiteboards #9067\n  - Support exporting to image #9037\n- [[Thanks]]\n  - [[Adam Hupp]]\n    - Simplify Windows development docs\n  - [[djaggi]]\n    - Fix twitter badge in readme\n  - [[MyNameIsKitsune]]\n    - Add Ukrainian translation\n  - [[Seokseong Jeon]]\n    - Correct a comment in config.edn\n  - [[Zhizhen He]]\n    - Change feature icon from tie-app-feature to square-asterisk\n  - [[Mikhail Smelov]]\n    - Improve Russian (ru) translation\n  - [[megayu]]\n    - Enhance context menu\n    - Deleting with the backspace key should not delete block IDs or disrupt reference connections\n  - [[queeup]]\n    - Update Turkish translation\n- [[Enhancement]]\n  - Whiteboards: Auto enter edit mode when we create shapes #9080\n  - I18n: Ukrainian translation #9005, Russian (ru) translations #8991 #9050, Turkish translation #9070\n  - Add more functions to context menu #8930\n  - Make publishing accessible to CLIs #9033\n  - Plugin-related improvements #8787\n  - Show custom title instead of live query for custom queries #9026\n  - Prettify html export #8968\n  - Add hint class for the blank content block #9072\n  - Dynamic layout of the plugin UI items from the app toolbar #8962\n  - Add an apply button to multiple selects in query builder #9025\n  - Enhance undo redo handling #9048\n- [[Fixed issues]]\n  - Bring back result count for built-in queries #8954\n  - Buggy selection highlights #9074\n  - Deleting with the backspace key should not delete block IDs or disrupt reference connections #8974\n  - Fix hash tags enclosed in double brackets are broken #9030\n  - Sometimes the HTTP api server does not auto restart #9042\n  - Query performance fix #9016",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.2/Logseq-win-x64-0.9.2.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.2.exe",
+          "sha256": "5ac644856ee62b71239bc351cdc3a43d5da7576e1e3df2bd304c484f93ea9bce",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.1",
+      "release_date": "2023-03-29",
+      "release_notes": "This is a release to fix bugs introduced recently.\n\n- [[Fixed issues]]\n  - Internal blocks paste #8932\n  - File pasting #8936\n  - Query with breadcrumbs show blocks on the wrong hierarchy #8939\n  - Asset URL handling for Whiteboards and custom.css #8927 #8933\n  - Cannot open dir with default app #8931\n- [[Enhancement]]\n  - Adapt the Logseq Sync login modal size to responsive layout #8920",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.1/Logseq-win-x64-0.9.1.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.1.exe",
+          "sha256": "4f79f045d6cfb8f8d7f72476410831ca4b068650b01031be7429799f5e6e4e4e",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.0",
+      "release_date": "2023-03-28",
+      "release_notes": "NOTE: Image assets on Whiteboards seem to be broken in this version. An emergency fix will be released soon.\n\n- [[Breaking Changes]]\n  - Refactored file system handling to fix filename issues on mobile platforms, requiring re-indexing of your working graph #8792\n- [[Features]]\n  - Added a simple Query Builder #8774\n  - Updated the login UI for Logseq Sync #8865\n  - Made Whiteboards publicly available to all users #8853\n- [[Thanks]]\n  - [[aiirobyte]]\n    - Add config option to handle default block refs expanding behavior in #8839\n  - [[AkrISrn]]\n    - fix logbook with-second-support? doesn't work in #8803\n  - [[Bad3r]]\n    - Add Hub & Awesome-logseq to README in #8738\n  - [[Zhizhen He]]\n    - Format table and update command of docs in #8845\n  - [[Yichen Yan]]\n    - Upgrade playwright to 1.31.0 in #8688\n  - [[sallto]]\n    - Add better error messages for duplicate key in config.edn in #8488\n  - [[Zhaohui Shi]]\n    - Update default config template to correct format in #8907\n  - [[situ2001]]\n    - Shrink on-click range of sidebar-item in #8752\n    - Fix: do not convert URL to macro while raw pasting in #8815\n  - [[Sky Hong]]\n    - Update Traditional Chinese translation (zh-Hant) in #8791\n  - [[김원웅]]\n    - Update Korean translation in #8813\n  - [[Yuriy Piskun]]\n    - Fix: hide empty settings description in #8739\n    - Fix: unwrap hierarchy and unlinked page blocks in #8798\n- [[Fixed issues]]\n  - Massive fixes to Whiteboards: pasting shape #8636, autocomplete on portals #8747, shape index and arrow binding #8885, history handling #8788, #8893\n  - Copy event handling #8777\n  - Display page's original name in linked reference #8773\n  - Multi-window crash when Logseq Sync enabled #8874\n  - Select only the current block when opening its context menu #8863\n  - Block edit undo handling #8833 #8864\n  - Use system certs for Logseq Sync #8731\n  - Incorrect position of absolute modal on some mobile platforms #8826\n  - beforeunload hook of Plugin system #8768\n  - Do not convert URL to macro while raw pasting #8815\n  - Logbook's with-second-support? doesn't work #8803\n  - Shrink on-click range of sidebar-item #8752\n- [[Enhancement]]\n  - Whiteboards\n    - Paste and dnd behavior (also add a placeholder to shape labels) #8753\n    - Publishing #8899\n    - Refine UX #8797\n  - Add mldoc ast schema #8829\n  - Add page column for query tables with block results #8869\n  - Several copy-as/export enhancements #8814\n  - I18N: Update Korean translation #8813, Traditional Chinese translation (zh-Hant) #8791\n  - PDF view UI lag for the case of large highlights data #8772\n  - Add better error messages for duplicate key in config.edn #8488\n  - Audio and video player render after upload asset command #8876\n  - Optimize active state of the auto-complete component for mouse interaction #8808\n  - HTTP APIs server UI indicator #8744\n  - Add config option to handle default block refs expanding behavior #8839. A new setting item :ui/auto-expand-block-refs? is added.",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.9.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.9.0/Logseq-win-x64-0.9.0.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.9.0.exe",
+          "sha256": "5c20909970f06e622a079c417baab4cf96765c374d1336cda414512a914354aa",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.18",
+      "release_date": "2023-03-01",
+      "release_notes": "- [[Features]]\n  - Support cues for Cloze cards #8654 Documentation\n- [[Thanks]]\n  - [[Bad3r]]\n    - bump NodeJS from 16.x to 18.x LTS #8406\n    - bump Ubuntu image from 18.04 to 22.04 #8420\n    - New README structure #8160\n    - Add contributing guidelines #8222\n  - [[Adam]]\n    - Fix: incorrect page title when hls__ is opened #8697\n  - [[Zhizhen He]]\n    - Add typo check to GitHub action #8671\n  - [[Hendrik]]\n    - Update german translation\n  - [[An Li]]\n    - Add repl setup to development document #8588\n  - [[ksqsf]]\n    - Support cues for SRS cloze cards #8654\n  - [[Elgun]]\n    - Fix incorrect version control description\n  - [[megayu]]\n    - Enhance pasting from clipboard #8642\n  - [[queeup]]\n    - Update Turkish translation\n  - [[sallto]]\n    - Add command for copying a page url #8538\n    - Fix \"Copy Image\" menu item correctly copies images #8424\n  - [[Yuriy Piskun]]\n    - Add description to plugin settings headers #8643\n- [[Fixed issues]]\n  - Massive bug fixes for whiteboards: #8603 #7786\n  - \"Copy Image\" menu item correctly copies images #8424\n  - Command completion triggering too often #8546\n  - Handle duplicated block ids #8657 #8668\n  - hls page name in page ref and page title #8670 #8697\n  - Tag and property value autocompletion cases #8558\n  - Disable image resize on mobile platform #8672\n  - Cannot copy blank string #8632\n  - Remove prefix(@) checking for links of org mode page #8589\n  - Force disable the unloaded(error) plugin #8714\n  - Fix marker layout of area highlight PDF ref in block content #8630\n  - Fix Logseq Sync network issues; add FreeBSD dev support #8682\n- [[Enhancement]]\n  - Experimental support of auto-completion UI for config.edn file editing #8584\n  - Add support for block refs in properties to backlink to blocks #8695\n  - Add command for copying a page url #8538\n  - Add description to plugin settings headers #8643\n  - Refactored copy/export #8530\n  - Whiteboards: Auto pan canvas to pointer when out of view #8611\n  - Handle invalid config.edn #8573 #8578\n  - Shortcuts can be disabled with false now  #8618\n  - Add more translations, remove unused ones and add linter for unused #8568\n  - Enhance re-index performance #8563\n  - Show git status when commit changes #7808\n  - PDF viewer enhancements #8616\n  - Make the modals position friendly for the auto-complete component #8652\n  - I18n: German #8658, Turkish #8575\n  - Local HTTP Server now supports CORS for use from another web page or browser extension #8651",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.18",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.18",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.18/Logseq-win-x64-0.8.18.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.18.exe",
+          "sha256": "69d523ee3c2ec513ca27f0f49c3fdc5287696a676e6841a8a206c38b91630b81",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.17",
+      "release_date": "2023-02-10",
+      "release_notes": "- [[Thanks]]\n  - [[sallto]]\n    - Add css selectors to macros #8299\n    - Support Media Fragment URIs with audio #8300\n    - Add error notification if graph can't be opened #8200\n  - [[situ2001]]\n    - Fix CodeMirror indenting shortcuts cause page routing #8415\n    - Fix: remove extra braces for some incorrect macro usages #8381\n    - Fix: searching in page defers while entering Chinese characters using a Pinyin IME #8399\n    - Fix incorrect undo/redo sequence of indent/outdent #8228\n    - Fix validating of URLs in video block #8164\n  - [[Bad3r]]\n    - Fix docker web app failing to build #8384\n    - Add missing user-config options #8429\n  - [[Brooks Rady]]\n    - Fix normalizing the case of property keys #8412\n    - Fix rendering of inline symbols #8358\n  - [[Yuexun Jiang]]\n    - Add support for dragging the PDF viewer head to move the window #7187\n  - [[Colson]]\n    - Fix tables not widening in wide mode #8375\n  - [[Paulo Oliva]]\n    - Update European Portuguese translation\n  - [[ksqsf]]\n    - Update Chinese (Simplified) translation\n  - [[Dan Zwell]]\n    - Clarify the option to prefer pasting a file rather than text #8363\n  - [[Yichen Yan]]\n    - Cache special query value as resolved value #8263\n  - [[Phoenix Eliot]]\n    - Fix arch/sudo command in instructions in docs #8476\n  - [[queeup]]\n    - Update Turkish translation\n  - [[Richard Garčár]]\n    - Add Slovak language\n  - [[WsinGithub]]\n    - Fix missing PDF caused by incomplete linked file path from zotero #7676\n  - [[Ryen Xiang]]\n    - Chinese (Simplified) translation\n\n- [[Fixed issues]]\n  - Auto heading on markdown mode #8327 - Documentation\n  - Search tippy component failing #8373\n  - CodeMirror indenting shortcuts cause page routing #8415\n  - Page properties not being visible in the query table #8336 #8482 (Re-index required)\n  - Tables not widening in wide mode #8375\n  - Incorrect undo/redo sequence of indent/outdent #8228\n  - Fix date-picker opening conditions #8333\n  - Stability of Logseq Sync, allow ignore checking certs, retrying upload #8350 #8504 #8486\n  - Missing PDF caused by incomplete linked file path from zotero #7676\n  - Remove plugin settings entry when plugin disabled #8548\n  - Mobile: timestamp submenu of toolbar not shown #8559\n\n- [[Enhancement]]\n  - Adds support for :query-page as an input #8449 - Documentation\n  - Support dragging the PDF viewer head to move the window #8305\n  - Support Media Fragment URIs with audio #8300\n  - Add error notification if graph can't be opened #8200\n  - Add css selectors to rendered macros #8299\n  - Add validation to logseq/config.edn #8382\n  - Add {date} template variable to quick-capture #8560\n  - Add :default-page to quick-capture-options #8529\n  - Add +/- syntax, (w)eek (m)onth (y)ear, and time support to query :inputs #8387 - Documentation\n  - Add native logging for desktop and android #8515\n  - File and page commands work in more contexts and warn when they don't work #8495\n  - I18n: Chinese #8509, Slovak #8464, Portuguese #8389\n  - Whiteboards: add tweet shape #8279 - Documentation",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.17",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.17/Logseq-win-x64-0.8.17.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.17.exe",
+          "sha256": "8d09c6f83f1161932aa9c93d45869c1ef94fa3d3e7f9c832bb5b158e5eaefe04",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.16",
+      "release_date": "2023-01-12",
+      "release_notes": "- [[Features]]\n  - PDF highlight drag & drop #8103\n\n- [[Thanks]]\n  - [[Darwis]]\n    - New query inputs for advanced query\n  - [[Yue Yang]]\n    - Center content in search items\n  - [[Giuseppe D'Andrea]]\n    - Fix Header navigation of namespace pages in page preview popup\n  - [[ksqsf]]\n    - Prevent Ctrl+A from selecting the whole document\n  - [[Sergio Miguéns]]\n    - Add a new option to show full blocks in references\n  - [[Phoenix Eliot]]\n    - Refine undo/redo button icons\n    - Add note about auto-formatting in dev-practices.md\n  - [[sallto]]\n    - Remove non-clickable space between links in sidebar\n  - [[situ2001]]\n    - Document components related to hide page-preview itself when hovered hierarchy ref in the preview\n    - Add a new bug report page\n    - Fix: should update :block/namespace while renaming pages\n    - Fix e2e test cases\n  - [[Taylor Hoffmann]]\n    - I18n updates\n\n- [[Fixed issues]]\n  - Capture open-url failure #8219\n  - Query table not showing full property values and publishing failing on query tables #8301\n  - Save code block shouldn't reset cursor position #8177\n  - Graph name with period didn't parse correctly, causing wrong block URLs #8294\n  - Should update :block/namespace while renaming page #8266\n  - Wrong behavior when backspace with line-head text selection #8197\n  - File deletion handling in Logseq Sync; Should trigger remote->local sync when idle #8277 #8241\n  - Should not stop syncing when Android App entering background #8246\n  - Header navigation of namespace pages in page preview popup #6405\n  - Remove non clickable space between links in sidebar #8268\n\n- [[Enhancement]]\n  - Bug report page, adding clipboard data inspector #8317\n  - Check app awake from sleep #8291\n  - New query inputs for advanced query #5674 Document: Query Inputs\n  - Add a new option :ui/show-full-blocks? to show full blocks in references #8124\n  - Prevent Ctrl+A from selecting the whole document #7177\n  - Refine undo/redo button icons #8201\n  - Make the weblink PDF filename to be human-readable for the annotations page #8240\n  - Plugin API: filter hooks of DB block changes for performance #8234\n  - No need to pass isPageBlock for api/insert_block API #8176\n  - Remove warning of macro renderer slot for mobile #8220\n  - Add delete option for blocks context menu #8204\n  - Center content in search items #8179\n  - I18n: pt-BR, pt-PT, fr and tr #8247",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.16",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.16/Logseq-win-x64-0.8.16.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.16.exe",
+          "sha256": "491ad0b743e770c8e90b2ed66a40da49392b3cba4661b628bbd8eae4777d18aa",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.15",
+      "release_date": "2022-12-29",
+      "release_notes": "This version fixes empty pages caused by nonstandard path-naming, by applying Unicode normalization to all paths. We recommend you update as soon as possible.\n\nNOTE: Android build is rebuilt due to a severe bug #8158. (Sha256sum: 68e4b3e0ac7e7c0efb95bec8f209e6ff63cea6b684d4671cfcc0e0ad46df44ee)\n\n- [[Features]]\n  - Use shortcut mod+a to select parent blocks up to the whole page #7803\n  - In-App HTTP server for API invoke #7699\n- [[Thanks]]\n  - [[Bad3r]]\n    - Wording enhancements of App UI\n  - [[Gabriele Lippi]]\n    - Fix format property reference when in org-mode\n  - [[gut4]]\n    - Enable iOS file sharing for transfer files with the Finder or iTunes\n  - [[Guy Pursey]]\n    - Fix query table sorting\n  - [[queeup]]\n    - Update Turkish translation\n  - [[situ2001]]\n    - Display full search result in the web app\n  - [[Hidekazu Kubota]]\n    - Add several missing i18n items to the right-click menu\n    - Add Japanese translations for new shortcuts and menus\n- [[Fixed issues]]\n  - Fix empty pages caused by nonstandard path-naming, apply unicode normalization to all paths #8146 #8147\n  - Format property reference when org mode #7389\n  - Cannot switch between modals by shortcuts #7805\n  - Provide consistent page links for web and publishing #7801\n  - Query table sorting #7751\n- [[Enhancement]]\n  - Display full search results in the web app #8132\n  - Enable iOS file sharing for transfer files with the Finder or iTunes #7774\n  - I18n: Missing translation fields #8139, Japanese #7984, Turkish #7800\n  - UI enhancements: mobile #8141, responsive right-sidebar #8126",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.15",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.15/Logseq-win-x64-0.8.15.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.15.exe",
+          "sha256": "342b9ecb037fffba5e50917c6a8f5595a26f9803015c1c0593a50fe153e212cf",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.14",
+      "release_date": "2022-12-20",
+      "release_notes": "- [[Fixed issues]]\n  - Raw file editor content cleared when on-blur #7787\n  - Linked references filter is empty #7793",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.14",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.14/Logseq-win-x64-0.8.14.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.14.exe",
+          "sha256": "4cd73bc9b565129f3e8d842fbae4a14d386d976d11b73dae96faa9f22f971446",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.13",
+      "release_date": "2022-12-19",
+      "release_notes": "- [[Enhancement]]\n  - Open the keyboard shortcuts helping page on the right side panel #7550\n  - Refine Network proxy support, add proxy support to Logseq Sync #7711\n  - Improve query performance #7708\n  - Plugin API enhancements #7555 #7549 #7716\n  - Added shortcut for closing the right sidebar top item #7622\n  - Added support for urls to heading blocks in web and published apps #7668 - See Documentation\n\n- [[Breaking Changes]]\n  - Change \"Git commit\" shortcut from a single c to mod+g c #7609\n  - Introduce a new config property :logseq.query/nlp-date. Default to false. Query without logseq.query/nlp-date:: true would disable date normalization #7708\n\n- [[Thanks]]\n  - [[Bad3r]]\n    - Enhance(dev): add cljs:dev-release-electron\n    - Do not use posthog when dev\n    - Minor fixes in README.md\n  - [[Sebastian Sosa]]\n    - Added shortcut for closing the right sidebar top item\n  - [[queeup]]\n    - Update Turkish translation\n  - [[sallto]]\n    - Fix link can't be pasted on selected text in block content\n    - Fix overflow of installed plugin settings dialog\n    - Fix: prevent 2 Datepickers from being open at the same time\n  - [[Siddharth Yadav]]\n    - Fix: update code edit state for the code blocks that are opened in main area and sidebar, as embeds\n  - [[situ2001]]\n    - Provide i18n for settings-page\n    - Fixes for PDF context menu\n  - [[Sergey Kolesnik]]\n    - Fix a bunch of sanity in search palette CSS\n  - [[SteOtt]]\n    - Update README.md\n  - [[Manuel]]\n    - Add keepUUID option to insertBatchBlock plugin API\n  - [[usoon]]\n    - Fix: group linked references by parent\n  - [[xxchan]]\n    - Dev update: link to forum directly for feature requests & questions\n\n- [[Fixed issues]]\n  - Validates global config #7620 #7651\n  - Block reference only returns the first level of data #7776\n  - Copy block-ref instantly after input text lost block content #7732\n  - Group linked references by parent #7613\n  - Highlight text color on light themes #7599\n  - Link can't be pasted on selected text in block content #7618\n  - Missing children in linked references #7626\n  - Open inline block refs by default when zooming in a block #7650\n  - Remove spaces around CJK characters when auto-complete pages #7631\n  - Remove orphaned files/blocks from DB when comparing DB and disk #7686\n  - Some PDF context menu fix #7690\n  - Update code edit state for the code blocks that are opened in main area and sidebar, as embeds #7639\n  - Bug fixes for Logseq Sync, in handling file deletion and renaming\n\n- [[Mobile Specific]]\n  - Always show hamburger button #7512\n  - Mobile UX enhancements #7492",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.13",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.13/Logseq-win-x64-0.8.13.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.13.exe",
+          "sha256": "a25387c2969948aaf24057d9630b397824ed52b6f445ae04e55077dd90da2463",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.12",
+      "release_date": "2022-12-02",
+      "release_notes": "- [[Features]]\n  - Add page and append parameters to quickCapture URL, add corresponding config in config.edn Documentation: Logseq Protocol\n\n- [[Thanks]]\n  - [[Axel CÉARD]]\n    - I18n updates for French\n  - [[Darwis]]\n    - Enhance sci eval-string and Clojure code eval-result\n    - Fix render custom HTML element as hiccup not working\n  - [[Yue Yang]]\n    - Fix: use name to detect default theme\n  - [[Gabriele Lippi]]\n    - Add a document section on how to contribute by opening a PR\n  - [[Rui Sun]]\n    - I18n updates for Chinese\n  - [[Soumik]]\n    - Add show theme plugin settings under \"Plugin Settings\"\n  - [[Zhizhen He]]\n    - I18n updates for Chinese\n  - [[hkgnp]]\n    - Add support for quick-capturing youtube links as embedded video\n    - Add settings support for quick-capturing target page and redirection\n  - [[Jon]]\n    - I18n updates for Spanish\n    - Fix auto pair parenthesis\n  - [[Matthew Lilley]]\n    - Fix shift+click on \"all pages\" launching a new browser window\n    - Fix Retain block references on file reload\n  - [[queeup]]\n    - I18n updates for Turkish\n  - [[Siddharth Yadav]]\n    - Fix cannot upload assets with certain formats\n  - [[Sergey Kolesnik]]\n    - Fix some CSS variables\n  - [[Manuel]]\n    - Add option to insert block without focusing it afterward\n    - Fix customUUID not converted to UUID type\n  - [[Vitali Haravy]]\n    - Fix: correct wording of a comment in config.edn\n  - [[WesleyCh3n]]\n    - Fix a typo in README\n\n- [[Fixed issues]]\n  - Massive bug fixes for Logseq Sync\n  - Enhancements to PDF viewer #7369\n  - Enhance sci eval-string and Clojure code eval-result #7287 - Documentation\n  - Custom UUID not converted to UUID type #7375\n  - Code block markup disappear #7411\n  - Can't paste nested blocks into an empty block #7504\n  - Cannot upload assets with certain formats. #7452\n  - Error while handling global config #7373 #7394 #7552\n  - Filename format revert manual title check #7449\n  - Render custom HTML element as hiccup not working #7370\n  - Notify users if page name already exists when parsing files #7433\n  - Retain block references on file reload #7363\n  - Show hierarchy for page alias #7368\n  - Use default font family for headings #7490\n  - Make dynamic width of absolute modal container fit for widen screen. #7320\n  - Auto pair parenthesis #7379\n\n- [[Enhancement]]\n  - Plugin API enhancements #6945\n  - Adaptive font size for tags #7543\n  - Add bug report to menu #7531\n  - Show theme plugin settings under \"Plugin Settings\" #7274\n  - Page content search fine-tuning #7532\n  - I18n: Chinese #7413 #7357, French #7441 #7442 #7443, Turkish #7381, Spanish #7422\n\n- [[Alpha Features]]\n  - Whiteboards: Add main color panel and rearrange tools #7358\n  - Whiteboards: Shape links #7395\n\n- [[Mobile Specific]]\n  - Sync Android nav bar and status bar color #7385\n  - Fix iPad toolbar position when hiding keyboard #7472\n  - Missing URL encode when sharing asset URL #7466\n  - Fix Android content disappears when deleting or inserting blocks quickly #7501",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.12",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.12/Logseq-win-x64-0.8.12.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.12.exe",
+          "sha256": "18d48628c637b986774a5f950281d2f54f29454bbf122342b954dc0f599f9e75",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.11",
+      "release_date": "2022-11-16",
+      "release_notes": "- [[Breaking Changes]]\n  - On-disk encryption is removed #7221. You should follow the instructions to decrypt your graph files.\n  - logseq/pages-metadata.edn is deprecated. Now it can be safely deleted.\n\n- [[Thanks]]\n  - [[Loïc Gerbaud]]\n    - Update French translation\n  - [[David Vargas]]\n    - Always render the invalid block ref regardless of contents\n  - [[Zhizhen He]]\n    - Update Chinese translation\n  - [[kv-gits]]\n    - Update develop-logseq-on-windows.md\n  - [[Matthew Lilley]]\n    - Small fix in documentation for browser development\n  - [[Nate McIntosh]]\n    - Fix total clock-time not properly calculated\n  - [[Phoenix Eliot]]\n    - Fix cmd-down erasing just-typed text\n  - [[queeup]]\n    - Update Turkish translation\n  - [[sallto]]\n    - Fix renaming the homepage makes it no longer the homepage\n    - Fix scheduled date picker always points to today, regardless of a previous date\n  - [[situ2001]]\n    - Toggling between pasting text or file when they both exist\n  - [[Sergey Kolesnik]]\n    - Small style fixes\n  - [[Timothy Pratley]]\n    - Replace whiteboard printing with ugly print\n  - [[Yuriy Piskun]]\n    - Add missing mark css vars\n\n- [[Fixed issues]]\n  - Always render the invalid block ref regardless of contents #7178\n  - File sync bug fixes #7267 #7215\n  - Cmd-down erasing just-typed text #7316\n  - Sync stops when there're filenames with reserved chars #7237\n  - Total clock-time not properly calculated #7238\n  - Add missed mark css vars #7200\n  - Allow custom URL protocols #7207\n  - Missing fields in Appimage desktop file  #7219\n  - Some asset path is not loaded on Electron #7281\n  - Make header component reactive on user/info state #7225\n  - Page names should be URIencoded on Android pad / iPad devices #7217\n  - Better quick search icons and actions #7328\n  - Race condition on creating zotero profile #7243\n  - Renaming the homepage makes it no longer the homepage #7236\n  - Scheduled date picker always points to today, regardless of a previous date #7329\n  - File sync crashes #7227\n  - Date format related issues #7059\n  - Unlinking wrong graphs #7253\n  - Missing trailing content when pasting inline code #7288\n  - Should not show url-decoded filenames when re-indexing #7279\n\n- [[Enhancement]]\n  - I18n Changes: Update French translation #7193 #7327, update Chinese translation #7186, update Turkish translation #7256\n  - Toggle between pasting text or file when they both exist #7198\n  - Graph select and create on iOS #7184\n  - Improve plugin marketplace #6978\n  - Upload files when the iOS app switches to background #7292",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.11",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.11/Logseq-win-x64-0.8.11.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.11.exe",
+          "sha256": "973c0ac1b19d27c71f80ce5f85286b9dc439fa04ef7b2f1e0d4aae9c49783b0c",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.10",
+      "release_date": "2022-11-01",
+      "release_notes": "- [[Thanks]]\n  - [[situ2001]]\n    - fix: page title height changes when the title is empty\n    - zh-CN translation\n  - [[sallto]]\n    - fix: Sorting of Pagelinks in Query tables\n  - [[Seth Yuan]]\n    - feat: support locale sensitive string comparisons for table sorting\n  - [[Kenneth C. Arnold]]\n    - fix minor grammar issues\n  - [[Candide U]]\n    - Enhancement: Logseq Publish uses custom.css and export.css\n  - [[Sergey Kolesnik]]\n    - Update common.css\n  - [[Loïc Gerbaud]]\n    - French translation\n  - [[yoyurec]]\n    - Page bottom refs blocks\n\n- [[Fixed issues]]\n  - Audio recording not work on #iOS\n  - Assets not loading on #windows\n  - Unexpected up/down navigation behavior after indenting in navigation mode\n  - Presentation bugs\n    - Now it's possible to see all the blocks in the presentation:\n      https://www.loom.com/share/32de7382f40c44b48a134054f4aa3690\n  - Fix file links creating garbage pages\n  - Disallow tags as property names\n  - Don't fail publish action if they don't exist for #7067\n  - Open local URL\n  - Can't click the block reference number in published HTML\n  - Main content container overflow when page title too long\n\n- [[Enhancement]]\n  - Don't scroll center to a selected block if it's visible",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.10/Logseq-win-x64-0.8.10.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.10.exe",
+          "sha256": "670ac503f6b03fc29d66f63e875bf237561afead80d0db49380d20388e021ccd",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.9",
+      "release_date": "2022-10-18",
+      "release_notes": "- [[Breaking Changes]]\n  - Make sure all Logseq clients on your devices are upgraded to 0.8.9 or above when you are going to apply the new filename format (:triple-lowbar).\n  - Newly created graphs on Logseq 0.8.9 or above are also using the new filename format by default. May restore the legacy format to keep compatible with old Logseq versions.\n  - Opening graphs in new filename format with earlier versions of Logseq will wrongly display some page titles and break some page references. AVOID creating or renaming pages on these graphs with old versions of Logseq (e.g. Logseq 0.8.2 on iOS until the upgrade is released)\n- [[Features]]\n  - PDF enhancements\n    - Full-text search 🎉\n    - Highlights list and colored label from the toolbar\n    - Demo\n      - https://www.loom.com/embed/fa7ad4bb1dcd4d21b8f76e3e03c19d7f\n  - Reproducible plugin configuration\n    - This introduces a config file, plugins.edn, which is automatically updated with your installed plugins, this makes it easy to share your plugins set and try others as well.\n    - How to use it?\n      - a. Reload (or restart) the app to have a plugins.edn created for you\n      - b. Installing, updating or removing a plugin updates plugins.edn\n      - c. Try someone else's plugins a.k.a. install from plugins.edn\n        - a. Back up your plugins. If you have plugins.edn, save a copy of that file. If you don't have a plugins.edn, move ~/.logseq/plugins to ~/.logseq/plugins.bak\n        - b. If you want to back up your plugin preferences: move ~/.logseq/settings to ~/.logseq/settings.bak\n        - c. Choose a plugins.edn you want to try - check examples below.\n        - d. Run the command  Install plugins from plugins.edn  or choose the 3 dot menu in the plugins dashboard. Click Install.\n      - Demo\n        https://www.loom.com/embed/200a0abb096444d1a9e56e826fa06fb0\n    - Some examples:\n      https://github.com/cldwalker/logseq-config/blob/main/config/plugins.edn\n- [[Thanks]]\n  - [[Ilya Gusev]]\n    - Improve Russian (ru) translations\n  - [[situ2001]]\n    - Modal not respond to the enter keydown event\n    - Grid mode status not correctly shown\n    - zh_CN translate on graph\n  - [[yoyurec]]\n    - Add page-property-value class\n  - [[Patrick Moriarty]]\n    - iOS: Continue recording audio while the phone sleep\n- [[Fixed issues]]\n  - Create local versions on mobile if there's any conflict\n  - Excalidraw cursor offset\n  - Don't create a journal file when it was initialized by a template\n  - Failed to import OPML\n  - Re-index stuck when there're multiple whiteboards that have the same UUID\n  - Up/down arrow navigation\n  - Remove # doesn't remove the heading property\n  - Sanitize HTML to ensure security\n  - A lot of issues with PDF\n  - Logseq can't be started on Windows 7\n- [[Enhancement]]\n  - New file name rules\n    - Motivations\n      - %2F for namespace separator is ugly\n      - Previous rule of parsing . into / breaks file naming conventions (e.g. 1.xxx.md , 2.xxx.md)\n    - How to use it?\n      - Settings -> Advanced -> File name format, click the Edit button, and follow the instructions in the popup window.\n    - Demo:\n      https://www.loom.com/embed/80286e88c1d345e4abbe2723e1a01c6e\n  - A new theme-based highlighting system and a lot of enhancements to colors\n  - UI enhancements including opacity, icons, etc.\n  - Bump Excalidraw to 0.12.0",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.9/Logseq-win-x64-0.8.9.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.9.exe",
+          "sha256": "2655f41b1d27b4f91100ee7ad48be7d6350742897da53f81507f7f5bb1bd6c6d",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.8",
+      "release_date": "2022-09-30",
+      "release_notes": "- [[Thanks]]\n  - [[Rafal]]\n    - Fix & refine Polish translations\n  - [[ingepettersen]]\n    - Update Norwegian translation\n  - [[japaul527]]\n    - Fix a message typo\n  - [[Kan-Ru Chen]]\n    - Update rage-wasm to 0.3.0\n  - [[lord63]]\n    - Guide developer to use logseq.UI.showMsg\n  - [[Spyros Seimenis]]\n    - Fix total clock-time calculation in query table\n  - [[Moritz Ulrich]]\n    - Don't show 'Make a flashcard' menu item with flashcards disabled\n\n- [[Fixed issues]]\n  - Make right sidebar resizer draggable on desktop only, fix resizer position #6749 #6772\n  - Sort-by filter for simple queries #6765\n  - Persist zoom level on app close #6750\n  - Polish alignments of SVG icons #6832\n  - Startup with an empty page sometimes #6835\n  - Don't show 'Make a flashcard' menu item with flashcards disabled #6831\n  - Container scrolling on sidebar editing #6837\n  - Total clock-time calculation in query table #6845\n\n- [[Enhancement]]\n  - I18n: Refine Polish translations #6766, Norwegian translation #6797 #6798,\n  - Update built-in icon mode #6799\n  - Extract references from property values #6529\n  - Unify heading UX for both markdown and org-mode #6809",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.8/Logseq-win-x64-0.8.8.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.8.exe",
+          "sha256": "c2304bce2085510c312e7c9b426c0bd177becbc113778dc123a09284a0355cfd",
+          "product_code": "Logseq",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.7",
+      "release_date": "2022-09-14",
+      "release_notes": "- [[Thanks]]\n  - [[Peng Xiao]]\n    - Fix plugin settings not loading\n\n- [[Fixed issues]]\n  - Plugin settings not loading #6711\n  - Date sorting is nonsensical #6596\n  - Minor UI issues #6732\n  - Remove resizing class on tab #6733",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.7/Logseq-win-x64-0.8.7.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.7.exe",
+          "sha256": "c7836f4949fb6b1beb31ab83c57b75e2fcdfba19ad925c0c174c33c5fb4eeeda",
+          "product_code": "Logseq",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.6",
+      "release_date": "2022-09-13",
+      "release_notes": "- [[Features]]\n  - Support for global config file, shared across all graphs #6531\n\n- [[Thanks]]\n  - [[Taylor Hoffmann]]\n    - Fully translated in pt-BR and pt-PT\n  - [[George Guimarães]]\n    - pt-BR enhancement\n  - [[queeup]]\n    - Update Turkish translation\n  - [[xxchan]]\n    - zh-CN translation improvement\n\n- [[Fixed issues]]\n  - Mobile backup path handling #6642\n  - Cannot batch insert to search db #6646\n\n- [[Enhancement]]\n  - I18N: Turkish #6608 #6660, Simplified Chinese translation #6638\n  - Fully translated in pt-BR and pt-PT #6657 #6654\n  - Performance improvement when importing graph #6639\n  - Massive improvements to UI/UX and accessibility #6617\n  - Refine electron log #6695",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.6/Logseq-win-x64-0.8.6.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.6.exe",
+          "sha256": "7deb4b7b3a7cb075b1c44a74c0de26b26483e6926cef6f1c0cd9d35754124b25",
+          "product_code": "Logseq",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.5",
+      "release_date": "2022-09-07",
+      "release_notes": "- [[Thanks]]\n  - [[WsinGithub]]\n    - UI fix for dsl-query\n  - [[Emin Devrim Fidan]]\n    - Fix \"Themes\" typo in translation\n\n- [[Enhancement]]\n  - Image overlay buttons #6559\n\n- [[Fixed issues]]\n  - Returns of raw datascript query #6568\n  - Url param double decoded in Quick Capture #6572\n  - Some fixes related to re-index #6571\n  - UI fix for dsl-query #6130\n  - Linkable built-in properties should not display as rich properties #6606\n  - Windows app auto update #6629",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.5/Logseq-win-x64-0.8.5.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.5.exe",
+          "sha256": "2899762caa9b812fb5f1bd57f0aa4c92b52747d9bf0a3b8d11416957dfde7981",
+          "product_code": "Logseq",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.4",
+      "release_date": "2022-09-01",
+      "release_notes": "This is a minor upgrade to fix bugs for the Android platform.\n\n- [[Fixed issues]]\n  - Do not loading persist vars when nil graph #6542\n  - Recover open new window button #6540\n  - Android crash at start, accessing illegal path #6551\n\n- [[Enhancement]]\n  - Nested scroll container for left sidebar dynamic modules #6553",
+      "release_notes_url": "https://github.com/logseq/logseq/releases/tag/0.8.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/Logseq/Logseq/0.8.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/logseq/logseq/releases/download/0.8.4/Logseq-win-x64-0.8.4.exe",
+          "host": "github.com",
+          "filename": "Logseq-win-x64-0.8.4.exe",
+          "sha256": "a4264efc6efeca40d4b3c5949905c2e26b05a7116f0da4d0670aef63078d6155",
+          "product_code": "Logseq",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "logseq"
+          ],
+          "file_extensions": [
+            "md",
+            "org"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.0.2",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-darwin-x64-2.0.2.dmg",
+          "host": "github.com",
+          "filename": "Logseq-darwin-x64-2.0.2.dmg",
+          "sha256": "7c3682b2e73ac69f531012e37f09633a4200abc3de54efca630fa6aafefc27a9",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-darwin-arm64-2.0.2.dmg",
+          "host": "github.com",
+          "filename": "Logseq-darwin-arm64-2.0.2.dmg",
+          "sha256": "b9a16b6ddef1659aa3c2301ce37a0336377644bbf1016051e3d19d1a66776314",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Logseq.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "zap_paths": [
+            "~/.logseq",
+            "~/Library/Application Support/Logseq",
+            "~/Library/Logs/Logseq",
+            "~/Library/Preferences/com.electron.logseq.plist",
+            "~/Library/Saved Application State/com.electron.logseq.savedState",
+            "~/logseq"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "0.10.15",
+      "release_date": "2025-12-05",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.logseq.Logseq.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.logseq.Logseq.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.logseq.Logseq.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.logseq.Logseq.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
+      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "path": "manifests/l/Logseq/Logseq"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
+      "retrieved_at": "2026-11-04T20:50:37.029Z",
+      "path": "Casks/l/logseq.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/logseq.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.logseq.Logseq",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/com.logseq.Logseq",
+      "api_url": "https://flathub.org/api/v2/appstream/com.logseq.Logseq",
+      "content_sha256": "2f204d19c1c4bb48769de50ebe946b4ffe68bc74611db6ec434379be99ff3d9f"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.logseq.Logseq",
+    "page_url": "https://flathub.org/apps/com.logseq.Logseq",
+    "repo_url": "https://github.com/flathub/com.logseq.Logseq",
+    "install_command": "flatpak install flathub com.logseq.Logseq",
+    "run_command": "flatpak run com.logseq.Logseq",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "logseq.com",
+      "verified_on": "2025-09-19"
+    },
+    "license": "AGPL-3.0-or-later",
+    "free_license": true,
+    "developer_name": "Logseq, Inc.",
+    "categories": [
+      "Office"
+    ],
+    "download_size": 183921865,
+    "installed_size": 489228800,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

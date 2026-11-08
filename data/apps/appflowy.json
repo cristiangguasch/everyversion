@@ -1,0 +1,2020 @@
+{
+  "schema_version": 2,
+  "slug": "appflowy",
+  "name": "AppFlowy",
+  "publisher": "AppFlowy-IO",
+  "ids": {
+    "winget": "AppFlowy.AppFlowy",
+    "homebrew_cask": "appflowy"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "The Open Source Alternative To Notion.",
+  "description": "AppFlowy is an open source alternative to Notion.\nYou are in charge of your data and customizations.",
+  "tags": [
+    "content-management",
+    "content-services",
+    "editor",
+    "flutter",
+    "flutter-app",
+    "flutter-apps",
+    "flutter-examples",
+    "flutter-ui",
+    "low-code",
+    "no-code",
+    "notion",
+    "notion-alternative",
+    "rust",
+    "rust-lang",
+    "rust-language",
+    "wiki"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/AppFlowy-IO/AppFlowy",
+    "publisher": "https://github.com/AppFlowy-IO",
+    "support": "https://github.com/AppFlowy-IO/AppFlowy/issues",
+    "bug_tracker": "https://github.com/AppFlowy-IO/AppFlowy/issues",
+    "purchase": "https://ko-fi.com/appflowy",
+    "release_notes": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.15.0"
+  },
+  "license": {
+    "name": "AGPL-3.0",
+    "url": "https://github.com/AppFlowy-IO/AppFlowy/blob/HEAD/LICENSE",
+    "spdx": "AGPL-3.0",
+    "copyright": "Copyright (C) 2007 Free Software Foundation, Inc.",
+    "copyright_url": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.15.0",
+    "macos": "0.15.0"
+  },
+  "last_updated": "2026-11-02",
+  "versions_total": {
+    "windows": 104,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.15.0",
+      "release_date": "2026-11-02",
+      "release_notes": "### 🚀 v0.15.0\n\n#### New Features\n\n• **Dashboards** — Added dashboards combining views from multiple databases, with movable and resizable widgets, shared filters, and personal filter changes. Local dashboards could reuse existing views; creating new widget views required a server connection.\n• **Charts and drill-downs** — Added Number charts for workspaces with Pro features, expanded grouping and display controls, and drill-down tables for exploring a chart's records and saving the result as a filtered view.\n• **Page widths** — Added full-width and custom-width formatting per document, shared with collaborators while retaining each user's default for pages without an explicit width.\n• **Image search results** — Showed the image and matched text behind a search result, and opened documents at the matched image when the server supplied this information.\n• **Native update installation** — Added user-initiated installation on macOS and Windows x64 when the server enabled it and supplied a signed update feed. Retained manual downloads when native installation was unavailable.\n\n#### Improvements\n\n• **Database exports** — Added A4, A3, Letter, and Legal paper sizes with portrait or landscape orientation. Paginated wide PDF tables at a readable size and exported the active view's visible fields and current rows, with support for complete offline caches.\n• **Board views** — Added sorting within columns, column calculations, and backgrounds based on group colors.\n• **Images** — Saved thumbnails and decoded images at their display size across documents and database cards, reducing the size of images held in memory.\n• **Translations** — Updated interface translations and corrected Grid header and cell alignment in right-to-left languages.\n\n#### Bug Fixes\n\n• Preserved individual heading text during multi-block conversion, kept link formatting when editing URLs, and allowed read-only toggle blocks to expand without changing the shared document.\n• Prevented moving subpages in the sidebar from sending them to Trash, and preserved external-link and date mentions when copying or exporting document text.\n• Corrected row peek navigation and calendar row opening, focused newly added Grid rows for editing, and kept hidden Board groups usable during partial schema refreshes.\n• Preserved document image sizes while scrolling and recovered missing or damaged media caches without losing image authentication.\n• Prevented duplicated database content from uploading before its page was acknowledged by the server, and preserved database layouts when reopening views.\n• Fixed PDF image reading with Ollama models that advertised vision support through their capabilities.\n\n#### ⚠️ Action Required\n\n• Self-hosted workspaces still require **AppFlowy Cloud v0.19.10 or later**.\n• Self-hosted dashboards require server support for the Dashboard layout. Before using more than twelve widgets or four widgets in one row, deploy the updated dashboard validation to every realtime server.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.15.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.15.0/AppFlowy-0.15.0-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.15.0-windows-x86_64.exe",
+          "sha256": "fad56ccdb0532ae49f9841410d67ed18f5d88091a8743663ea9e073517d24676",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.11",
+      "release_date": "2026-10-26",
+      "release_notes": "### 🚀 v0.14.11\n\n#### New Features\n\n• **Relative-date comparisons** — Added Today, Yesterday, and Tomorrow to date comparisons such as before, after, on or before, and on or after, so filters followed the calendar without selecting a new date each day.\n• **YouTube captions** — Added direct import of available timestamped captions into AI transcript blocks without downloading audio or using transcription minutes. Retained audio transcription and file upload as alternatives when captions were unavailable.\n• **Missing row pages** — Added a \"Create empty page\" action when a supporting server reported an unavailable row document, with a warning and explicit confirmation. Kept readable and locally cached content ahead of recreation.\n\n#### Improvements\n\n• **Gallery views** — Added grouped card layouts, configurable previews and card sizes, image fitting, and cover repositioning.\n• **Feed views** — Refreshed card previews, quick actions, reactions, and comment discussions, with a full-page action for longer content.\n• **Plans and connections** — Routed hosted upgrade prompts through the Plan settings, kept Cloud billing unavailable in local and self-hosted sessions, and added clearer connection-loading errors with retry actions.\n\n#### Bug Fixes\n\n• Fixed linking databases with incomplete sync data, refreshing embedded database tabs after sync, and loading repaired rows after an explicit retry.\n• Made formula properties easier to find in filter and sort pickers, paused incompatible filters when formula result types changed, and corrected rollups that read other rollups.\n• Preserved center peek when navigating between rows and prevented canceled row-page opens from leaving later opens stuck.\n• Corrected page-reference states for trashed, missing, and temporarily unavailable pages, and stopped slow permission lookups from holding up the Share menu's people list.\n• Kept reconnect feedback visible until the connection was confirmed, with another retry available if it did not connect.\n\n#### ⚠️ Action Required\n\n• Self-hosted workspaces still require **AppFlowy Cloud v0.19.10 or later**. Before enabling missing-row-page recovery, deploy its server support to every node handling live edits.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.11/AppFlowy-0.14.11-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.11-windows-x86_64.exe",
+          "sha256": "ed68d452bd35d030968f9e00ba99ddecd78d286c93596089761011552c07aa15",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.10",
+      "release_date": "2026-10-21",
+      "release_notes": "### 🚀 v0.14.10\n\n#### New Features\n\n• **Database side peek** — Added a resizable panel for editing row pages beside their database. Added navigation through visible rows and switching between side peek, center peek, full page, and a new tab while preserving edits.\n\n#### Improvements\n\n• **Charts and lists** — Refreshed chart settings, labels, and tooltips, and corrected calculations using currency and percentage values. Adapted list rows to narrow windows, with properties below the title when space is limited.\n• **Database loading** — Opened cached views and row pages without waiting for server refreshes, and loaded initial board cards without fetching every row. Improved recovery from interrupted downloads and displayed available rows while missing rows recovered. Local databases completed loading without remote requests.\n• **Cloud creation** — Saved new pages and database rows on the server before exposing them for editing, with loading feedback and recovery for interrupted creation requests.\n• **Updates and errors** — Unified desktop update prompts with release notes, download links, and server compatibility guidance. Replaced technical error text with clearer localized messages and guidance when an action's outcome was uncertain.\n• **Date formulas** — Avoided unnecessary recalculation of `today()` formulas while retaining refreshes when the date or time zone changed.\n\n#### Bug Fixes\n\n• Fixed row edits and access restrictions across peek navigation, and restored Escape dismissal after editing.\n• Fixed relation-picker searches by database name and restored icon and image-upload choices on row pages and templates.\n• Fixed opening supported local attachments, fullscreen video playback, and YouTube audio downloads while preserving the video's default audio track.\n• Fixed workspace selection after deleting the active workspace and allowed failed space-creation dialogs to close without a server connection.\n\n#### ⚠️ Action Required\n\n• Self-hosted workspaces require **AppFlowy Cloud v0.19.10 or later**. Upgrade the server before upgrading to desktop v0.14.10.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.10/AppFlowy-0.14.10-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.10-windows-x86_64.exe",
+          "sha256": "b3c457eba83de5352c4bc75c2119eaefdb8727579190d29d29c1854792930607",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.8",
+      "release_date": "2026-10-08",
+      "release_notes": "### 🚀 v0.14.8\n\n#### New Features\n\n• **Conditional formula styling** — Added colors, highlights, and text formatting through `style()` and `unstyle()` to highlight results based on formula conditions. Displayed the formatting in database cells and formula previews.\n• **Simple table conversion** — Added actions to turn simple tables into databases or text, with undo and redo support.\n\n#### Improvements\n\n• **Cloud database loading** — Opened database views while rows loaded in the background and reused downloaded rows when reopening. Added automatic recovery notices while waiting for a busy server, plus clearer load errors with retry and error-copying actions.\n\n#### Bug Fixes\n\n• Fixed missing or stale database rows during loading and restore recovery, and preserved visible rows while a refresh was still loading.\n• Fixed sidebar space selection when opening database rows from mention notifications or switching tabs, without redirecting to the space's default page.\n• Fixed page duplication failures caused by delayed source synchronization or newly created database rows.\n• Fixed simple-table alignment, undo and redo after deleting tables, and scrolling when adding rows to wide tables.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.8/AppFlowy-0.14.8-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.8-windows-x86_64.exe",
+          "sha256": "ad8be9c4636cde2daaf562bdb1ea0799d4381358319b7348754b98143de874c4",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.5",
+      "release_date": "2026-09-22",
+      "release_notes": "### :rocket：v0.14.5 (Latest)\r\n\r\nAdded database formulas and improved document recovery and desktop reliability.\r\n\r\n#### New Features\r\n\r\n• **Formula properties** — Added calculated database properties with property references, built-in functions, suggestions, and live previews. Formula results can be filtered, sorted, and summarized.\r\n\r\n#### Improvements\r\n\r\n• **Document recovery** — Improved recovery of unsaved document content after write failures, including when navigating between pages in the same app session.\r\n\r\n#### Bug Fixes\r\n\r\n• Fixed missing row-page content and overwritten page metadata during sync, and preserved subpages when their page details were not cached.\r\n• Fixed errors when dragging database rows, accessing relations after a linked view was trashed, and opening row comments.\r\n• Restored specific image-upload messages for file-size and workspace-storage limits.\r\n• Fixed Linux RPM launch failures and crashes caused by SVG icon loading.\r\n\r\n#### :warning：Action Required\r\n\r\n• Self-hosted workspaces require **AppFlowy Cloud v0.18.10 or later**. Upgrade the server before upgrading to desktop v0.14.5.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.5/AppFlowy-0.14.5-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.5-windows-x86_64.exe",
+          "sha256": "b213d2af0e31d2990e559201682bf67e1efd9e8e4c5211f44f6796b9ba817118",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.4",
+      "release_date": "2026-09-19",
+      "release_notes": "## Version 0.14.4 – 09/19/2026\r\n\r\n### Desktop\r\n\r\n#### New Features\r\n• Added support for the database timeline view\r\n\r\n#### Bug Fixes\r\n\r\n• Fixed Linux package installation issue.\r\n\r\n### Security Notice (Windows)\r\n\r\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select **More info → Run anyway**. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.4/AppFlowy-0.14.4-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.4-windows-x86_64.exe",
+          "sha256": "7c86eb6723a7d922853a1573dba7840d791c14214b8486e093aabbda00bec72b",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.3",
+      "release_date": "2026-09-15",
+      "release_notes": "## Version 0.14.3 – 09/15/2026\r\n\r\n### Desktop\r\n\r\n#### Bug Fixes\r\n\r\n• Fixed Linux package installation issue\r\n• Optimized calendar UI interactions and added drag-and-drop support for selecting multiple date ranges\r\n\r\n### Mobile\r\n\r\n#### Bug Fixes\r\n\r\n• Optimized calendar UI interactions and added drag-and-drop support for selecting multiple date ranges\r\n\r\n### Security Notice (Windows)\r\n\r\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select **More info → Run anyway**. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.3/AppFlowy-0.14.3-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.3-windows-x86_64.exe",
+          "sha256": "32a57b6720e90f53a5d089ef33b2159f30b40081e1249ab083534ef9d571a412",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.2",
+      "release_date": "2026-09-10",
+      "release_notes": "## Version 0.14.2 – 09/10/2026\r\n\r\n### Desktop\r\n\r\n#### New Features\r\n\r\n• Supported database form view\r\n\r\n### Mobile\r\n\r\n#### New Features\r\n\r\n• Supported database form view\r\n\r\n### Security Notice (Windows)\r\n\r\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select **More info → Run anyway**. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.2/AppFlowy-0.14.2-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.2-windows-x86_64.exe",
+          "sha256": "f9b3576625b6e003ce27f1b022913f13cfea08d212c223d3fb94a0c173c9cdc5",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.1",
+      "release_date": "2026-09-01",
+      "release_notes": "## Version 0.14.0 – 09/01/2026\r\n\r\n### Desktop\r\n\r\n#### Bug Fixes\r\n\r\n• Fixed issue with creating a board on mobile\r\n\r\n### Mobile\r\n\r\n#### Bug Fixes\r\n\r\n• Fixed issue with creating a board on mobile\r\n\r\n### Security Notice (Windows)\r\n\r\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select **More info → Run anyway**. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.1/AppFlowy-0.14.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.1-windows-x86_64.exe",
+          "sha256": "168569aa33bd072e5f7f171e92b46d7bfdb608e200386133c07388d0dae0b893",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.0",
+      "release_date": "2026-08-28",
+      "release_notes": "## Version 0.14.0 – 08/28/2026\r\n\r\n### Desktop\r\n\r\n#### New Features\r\n\r\n• Supported space permission\r\n\r\n#### Bug Fixes\r\n\r\n• Fixed some bugs\r\n\r\n### Mobile\r\n\r\n#### New Features\r\n\r\n• Supported space permission\r\n\r\n#### Bug Fixes\r\n\r\n• Fixed some bugs\r\n\r\n### Security Notice (Windows)\r\n\r\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select **More info → Run anyway**. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.14.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.14.0/AppFlowy-0.14.0-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.14.0-windows-x86_64.exe",
+          "sha256": "48b5e2cffcbdb1730b6eb78ae15cbc5285c7197f79bf5704bc5d18b49ade9702",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.2",
+      "release_date": "2026-08-11",
+      "release_notes": "Version 0.12.5 – 06/23/2026\nDesktop\nBug Fixes\n• Fix：stale WebSocket connection occasionally caused writes to disk to fail, which could lead to data loss in rare cases.\nMobile\nBug Fixes\n• Fix：stale WebSocket connection occasionally caused writes to disk to fail, which could lead to data loss in rare cases.\nSecurity Notice (Windows)\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select More info → Run anyway. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.12.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.13.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.13.2/AppFlowy-0.13.2-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.13.2-windows-x86_64.exe",
+          "sha256": "56719b46cda2a68a60b0a64b496dc2cf157b404a73b2fe378895e0f20c00c3dd",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.0",
+      "release_date": "2026-06-23",
+      "release_notes": "Version 0.12.5 – 06/23/2026\nDesktop\nBug Fixes\n• Fix：stale WebSocket connection occasionally caused writes to disk to fail, which could lead to data loss in rare cases.\nMobile\nBug Fixes\n• Fix：stale WebSocket connection occasionally caused writes to disk to fail, which could lead to data loss in rare cases.\nSecurity Notice (Windows)\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select More info → Run anyway. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.12.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.13.0/AppFlowy-0.13.0-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.13.0-windows-x86_64.exe",
+          "sha256": "f45a48a90487cb0a0835c75e5f5a2ab47b14d5769e6e91c39b72ab697244e288",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.5",
+      "release_date": "2026-06-23",
+      "release_notes": "Version 0.12.5 – 06/23/2026\nDesktop\nBug Fixes\n- Fix: stale WebSocket connection occasionally caused writes to disk to fail, which could lead to data loss in rare cases.\nMobile\nBug Fixes\n- Fix: stale WebSocket connection occasionally caused writes to disk to fail, which could lead to data loss in rare cases.\nSecurity Notice (Windows)\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select More info → Run anyway. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.12.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.12.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.12.5/AppFlowy-0.12.5-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.12.5-windows-x86_64.exe",
+          "sha256": "039d6f1f96763ee4e64748bf18312cd13db83c7bdc5a41cdd6740f239df7d9c5",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.4",
+      "release_date": "2026-06-20",
+      "release_notes": "Version 0.12.4 – 06/20/2026\nDesktop\nNew Features\n- Revamped row page comments with UI improvements and notifications support\n- Added comments support in full row page mode\nBug Fixes\n- Improved the find and replace logic\n- Fixed Kanban board column colors not persisting after they were generated\n- Fixed several tab management issues: the new tab button behavior, tab data not clearing when switching workspaces, and back/forward navigation incorrectly refreshing the sidebar\n- Fixed icon color and display issues in the tab bar\n- Fixed database visibility sync, filter refresh, and an error when deleting a row\n- Fixed PDF embeds to fall back to links when they can't be previewed\nMobile\nBug Fixes\n- Fixed Kanban board column colors not persisting after they were generated\n- Fixed database visibility sync, filter refresh, and an error when deleting a row\n- Fixed PDF embeds to fall back to links when they can't be previewed\nSecurity Notice (Windows)\nThis Windows release is signed with a newly renewed code-signing certificate. Because Windows SmartScreen builds reputation per certificate, you may temporarily see an \"unrecognized app\" warning. This build is properly signed and safe — if prompted, select More info → Run anyway. The warning will clear as the certificate establishes reputation.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.12.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.12.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.12.4/AppFlowy-0.12.4-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.12.4-windows-x86_64.exe",
+          "sha256": "3dfe416f87c3e05d2442bd06477b9e892a59ebf0502f84ae8d896959c1763179",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.2",
+      "release_date": "2026-06-05",
+      "release_notes": "Version 0.12.2 – 05/06/2026\nDesktop\nNew Features\n- Revamped Tab Management: Easier ways to manage tabs with shortcuts\n- Inline Comments in Database Rows: Keep team discussions contextual with granular comment threads right inside your row pages.\n- Kanban Board Column Coloring: Add visual structure to your project pipelines by customizing individual column colors.\nBug Fixes\n- Fixed page mentions sometimes resolving to the wrong ancestor id.\n- Fixed cursor position not being preserved across remote document sync.\n- Fixed copying and pasting content that contains files.\n- Fixed duplicate child view keys that could crash the sidebar.\nMobile\nNew Features\n- Inline Comments in Database Rows: Keep team discussions contextual with granular comment threads right inside your row pages.\n- Kanban Board Column Coloring: Add visual structure to your project pipelines by customizing individual column colors.\nBug Fixes\n- Fixed page mentions sometimes resolving to the wrong ancestor id.\n- Fixed cursor position not being preserved across remote document sync.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.12.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.12.2/AppFlowy-0.12.2-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.12.2-windows-x86_64.exe",
+          "sha256": "8abf6604f6fa260d975012c20a4ef41285cfc330005596a27850d49bff8b7916",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.1",
+      "release_date": "2026-05-27",
+      "release_notes": "Version 0.12.0 – 27/05/2026\nDesktop\nBug Fixes\n- Fixed document sync issue\nMobile\nBug Fixes\n- Fixed document sync issue",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.12.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.12.1/AppFlowy-0.12.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.12.1-windows-x86_64.exe",
+          "sha256": "775248b44ea03c3780a05a8abbb230f7dab2e66be16cb6412debc8b9c9361e27",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.0",
+      "release_date": "2026-05-25",
+      "release_notes": "Version 0.12.0 – 25/05/2026\nDesktop\nNew Features\n- Added document version history to view and restore previous versions.\n- Added inline comments on document pages.\n- Added auto-summarize for YouTube and uploaded file translations.\nBug Fixes\n- Fixed grouped database visualization\n- Fixed the Hide empty groups toggle not restoring correctly\n- Fixed relation cell not opening correctly\n- Fixed mention picker person selection\n- Fixed duplicate empty row document indicator\n- Fixed long URL display in URL cells\n- Fixed Notion import to target the correct view\n- Fixed space reordering and space update refresh issues\n- Gated desktop unpublish behind publish permission\nMobile\nNew Features\n- Added inline comments on document pages.\n- Added auto-summarize for YouTube and uploaded file translations.\nBug Fixes\n- Fixed keeping the mobile comment sheet focused\n- Fixed the PDF block slash menu embed link to handle PDFs and invalid links\n- Fixed space reordering and space update refresh issues",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.12.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.12.0/AppFlowy-0.12.0-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.12.0-windows-x86_64.exe",
+          "sha256": "2245c1285740ecbcec9ac3d60098a2020836c28f4ec68f63264da4fdc76a15a7",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.9",
+      "release_date": "2026-05-12",
+      "release_notes": "Version 0.11.9 – 12/05/2026\nDesktop\nNew Features\n- Added space reordering — drag and drop spaces in the sidebar to customize order\n- Added relative date filters for date fields (e.g., today, this week, last 30 days)\n- Added numeric filtering for rollup fields when the target is a Number field\n- Added Hide empty groups defaulted ON for new grid and list grouped views\n- Added a Hide all properties button to database settings\n- Added a hide-when-empty property visibility option in row detail\n- Added relation cell picker sorted by recency\n- Added Copy date cell value to clipboard from grid\n- Added database search to quickly find rows across a database\n- Added the ability to create a new page directly from a relation property\nBug Fixes\n- Optimized cached database view loading and overall database loading performance\n- Fixed duplicated databases, linked database blocks, and inline databases not preserving filters, sorts, group order, chart subtypes, and row templates\n- Fixed preserving source group order when creating a new linked board view\n- Fixed board grouping defaults and the Group menu state behavior\n- Fixed database block copy/paste to align with duplicate-via-menu semantics\n- Fixed row template embedded database views and database duplication consistency\n- Fixed copied document position being incorrect when duplicating pages\nMobile\nNew Features\n- Added space reordering — drag and drop spaces in the space menu to customize order\n- Added workspace backup export on mobile, including local and cloud workspace\n- Added workspace backup import on mobile\n- Added relative date filters for date fields\nBug Fixes\n- Optimized cached database view loading and overall database loading performance\n- Fixed the relation cell not opening the linked row detail correctly\n- Fixed copied document position being incorrect when duplicating pages",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.9/AppFlowy-0.11.9-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.9-windows-x86_64.exe",
+          "sha256": "26e0977e5151d8e183f8dc2c60c71b8d2c9fff99be774c40094ac9581a384281",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.8",
+      "release_date": "2026-04-24",
+      "release_notes": "Version 0.11.8 – 24/04/2026\nDesktop\nNew Features\n- Added AI Meeting transcript language support for Spanish, German, French, Italian, and Portuguese\n- Added default AI transcript language setting on Settings page\n- Revamped Find and Replace menu with improved search navigation and replace actions\n- Improved background document and database syncing, including recent view sync and database cache persistence\nBug Fixes\n- Fixed duplicated row documents, database blocks, linked databases, inline databases, and subpages not preserving content or filters correctly\n- Fixed cached filter results and multi-view checkbox filters in databases\n- Fixed board auto-group behavior and empty database group display states\n- Fixed possible document data loss when closing a document quickly\n- Fixed the current subpages of the selected page becoming invisible when collapsing all subpages\n- Fixed text selection issue when Table of Contents is collapsed\n- Fixed slash menu, popup menu, bulk toolbar, settings icon, and space button UI issues\n- Fixed desktop window bounds not being restored correctly on startup after resizing on a secondary monitor\nMobile\nNew Features\n- Added the new Find and Replace menu on mobile, including search navigation and replace actions\n- Improved database loading and cache persistence for mobile database views\n- Improved background document and database syncing, including recent view sync and database cache persistence\nBug Fixes\n- Fixed duplicated row documents and database blocks not preserving content correctly\n- Fixed duplicated linked and inline databases not preserving filters correctly\n- Fixed duplicated database views producing broken or misplaced copies\n- Fixed mobile database row duplication context issues",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.8/AppFlowy-0.11.8-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.8-windows-x86_64.exe",
+          "sha256": "7e45b1336fcdbf0e6583c6198cd977207d86088b6694112f26717586c2583364",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.7",
+      "release_date": "2026-04-08",
+      "release_notes": "Version 0.11.7 – 07/04/2026\nDesktop\nNew Features\n- Added text and background color options to the slash menu\n- Revamped the database Group By menu for better user experience\n- Improved database loading speed via lazy hydration, inline fields, and incremental sort\nBug Fixes\n- Fixed PDF export missing Relation field values in embedded databases\n- Fixed pasting numbers with currency symbols or thousand separators (e.g. $1,234.56) into Number cells\n- Fixed duplicating a view of an inline database producing a broken or misplaced copy\n- Fixed filter panel dismissing when adding a new filter\n- Fixed plus menu unable to replace an empty line when inserting an item\nMobile\nNew Features\n- Added text and background color options to the slash menu\n- Improved database loading speed via lazy hydration, inline fields, and incremental sort\nBug Fixes\n- Fixed duplicating a view of an inline database producing a broken or misplaced copy\n- Fixed pasting numbers with currency symbols or thousand separators (e.g. $1,234.56) into Number cells\n- Fixed plus menu unable to replace an empty line when inserting an item",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.7/AppFlowy-0.11.7-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.7-windows-x86_64.exe",
+          "sha256": "32e90927cf692ee01ec9662a0158f0b68a1a85f750cbc962dfa37a0909e5a04b",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.6",
+      "release_date": "2026-04-01",
+      "release_notes": "Version 0.11.6 – 01/04/2026\nDesktop\nBug Fixes\n- Fixed notification refresh timing to improve performance\n- Fixed potential failure when importing Notion zip files\n- Fixed potential data corruption issue for documents\nMobile\nBug Fixes\n- Fixed notification refresh timing to improve performance\n- Fixed potential data corruption issue for documents",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.6/AppFlowy-0.11.6-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.6-windows-x86_64.exe",
+          "sha256": "6f25d0c0a2090562e20e80a651bc95ba857fe94bee4cf33819ccd2e7e61d486f",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.5",
+      "release_date": "2026-03-26",
+      "release_notes": "Version 0.11.5 – 26/03/2026\nDesktop\nNew Features\n- AI Meeting Transcript: Paste a YouTube link to generate a transcript from the video\n- Database Bulk Edit: Optimize bulk edit support for inline database and single database page\nBug Fixes\n- Fixed shortcut conflicts on database cell row\n- Fixed plus menu not inserting a new block on document\n- Fixed grouping sort order when applying number field sort in grouped Grid view\n- Fixed AND/OR condition evaluation order in advanced filters\n- Fixed toggling AND/OR operator unexpectedly mutating other filter rows\n- Fixed errors when opening multiple row detail pages via relation databases\n- Fixed row dialog not dismissing after deleting a database row\n- Fixed row document failing to load, resulting in blank content\n- Fixed sidebar title not updating after chat page was auto-renamed\n- Fixed missing error messages for deleted, trashed, or no-permission pages\nMobile\nNew Features\n- AI Meeting Transcript: Paste a YouTube link to generate a transcript from the video\n- Database Embedded View: Added Feed and List embedded view support\nBug Fixes\n- Fixed long press gesture to drag issue\n- Fixed inline Grid scrolling on mobile\n- Fixed Gallery view display and settings panel",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.5/AppFlowy-0.11.5-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.5-windows-x86_64.exe",
+          "sha256": "e356ade267cf962b73b9ddc275f600bf9133c81a52fe2f45b3dedb005b6b45c4",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.4",
+      "release_date": "2026-03-09",
+      "release_notes": "Release Notes\nVersion 0.11.4 - 09/03/2026\nDesktop\nNew Features\n- Notification System: In-app notification center to track mentions, reminders, and activity updates\n- Revamped Slash Menu: Redesigned / command menu with improved layout and discoverability\n- Editor Block Spacing: Optimize spacing between blocks in the document editor\nBug Fixes\n- Fixed row document issues\n- Fixed bulk delete not working correctly\n- Fixed connection check causing unnecessary errors\nMobile\nNew Features\n- Notification System: In-app notification center to track mentions, reminders, and activity updates\n- Revamped Slash Menu: Redesigned / command menu with improved layout and discoverability\n- Editor Block Spacing: Optimize spacing between blocks in the document editor\nBug Fixes\n- Fixed mobile block selection disappearing\n- Fixed select-all behavior with Gboard on Android\n- Fixed duplicate column names when creating board groups",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.4/AppFlowy-0.11.4-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.4-windows-x86_64.exe",
+          "sha256": "df8e8a71d19af0d161bd6861cab5ab15648eaddadb4df001a1317e49171b82c3",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.3",
+      "release_date": "2026-02-25",
+      "release_notes": "Version 0.11.3 – 25/02/2026\nDesktop\nBug Fixes\n- Fixed the space dropdown menu not displaying correctly\n- Fixed relation filter not applying correctly in advanced filter scenarios\n- Fixed the disconnect banner not refreshing properly\nMobile\nBug Fixes\n- Fixed losing focus after typing the first character in a text cell\n- Fixed FCM blocking the main app on startup",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.3/AppFlowy-0.11.3-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.3-windows-x86_64.exe",
+          "sha256": "0478916122f4226bd15fa6aea94a59885b76b67e4299e02025082ab3f4f84a44",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.2",
+      "release_date": "2026-02-14",
+      "release_notes": "Version 0.11.2 – 14/02/2026\nDesktop\nNew Features\n- New Database View: Feed view\n- AI Transcript & Meeting Blocks: Automatic speaker name guessing, referenced AI summaries, and meeting detection from Google Meet and Slack\n- Google Drive Block: Embed and select Google Drive files via link or connected account\nBug Fixes\n- File Block: Display upload progress during file uploads\n- Image Upload: Improved upload indicator and instant image caching\n- Unsplash Cover Image: Improved preview and keyboard navigation\nMobile\nNew Features\n- New Database View: Feed view\n- Google Drive Block: Embed and select Google Drive files via link or connected account\nBug Fixes\n- File Block: Display upload progress during file uploads\n- Image Upload: Improved upload indicator and instant image caching",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.2/AppFlowy-0.11.2-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.2-windows-x86_64.exe",
+          "sha256": "77a2054f65e34eb7e8d59077455273745b90ff4814fd326eec6ed67927743c82",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.1",
+      "release_date": "2026-01-28",
+      "release_notes": "Release Notes\nVersion 0.11.1 – 28/01/2026\nDesktop\nNew Features\n- New Database Views: Gallery, List, and Chart views\n- Grouping in a Grid (Table) view: Group by allows you to organize database entries into collapsible sections based on property values (e.g., Status, Priority)\n- Multi-row actions: Allows for powerful multi-row (bulk) actions within databases to edit, delete, or duplicate all at once\n- Database advanced filters: Useful when combining AND logic and OR logic in your filter\n- Number property new formats: Comma separated and percent\n- Export as PDF: Export a single page as .PDF\n- Database Cover Images: Added support for cover images to enhance visual representation\n- AI Transcript & Meeting Notes: Use the mention person type for task assignees in the action items of the AI summary\nBug Fixes\n- Enhanced playback experience for video blocks\n- Resolved issue with inline mention styles not matching block text styles\nMobile\nNew Features\n- New Database Views: Gallery, List, and Chart views\nBug Fixes\n- Improved playback experience for video blocks\n- Fixed issue with inline mention styles not matching block text styles",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.1/AppFlowy-0.11.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.1-windows-x86_64.exe",
+          "sha256": "da7e447a48b0c143e37d3774c2024419dc1560ef9af71f2715494586f21e0972",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.0",
+      "release_date": "2026-01-12",
+      "release_notes": "Release Notes\nVersion 0.11.0 – 12/01/2026\nDesktop\nBug Fixes\n- Fixed row detail page button style not following theme changes.\n- Fixed target limit not being removed when creating two-way relation field.\n- Improved speaker selector menu UI style in the transcript tab of AI meeting block.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.11.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.11.0/AppFlowy-0.11.0-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.11.0-windows-x86_64.exe",
+          "sha256": "80a8f12a1b562d4a1fba93dc8adabb30b7e31fba735366b853330de397a2764e",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.9",
+      "release_date": "2026-01-09",
+      "release_notes": "Release Notes\nVersion 0.10.9 – 09/01/2026\nDesktop\nNew Features\n- Database Rollup: A powerful property used to retrieve and aggregate information from items in a related database.\n- Database search: Search names of database pages, as well as property values (such as a status of \"In progress\") and content inside database pages.\n- AI Transcript with auto speaker identification: Upload an audio file to generate transcriptions with speaker labels. You can assign or change speaker names.\n- AI Meeting Notes with auto speaker identification: Real-time transcription during meetings with automatic speaker label detection after recording stops. You can assign or change speaker names.\n- Mermaid diagram support: Add diagrams directly in Code blocks with split, preview, and code display modes, plus an expandable view.\n- Top nav bar breadcrumb revamp: Refreshed design with improved layout.\n- Document and database cover reposition: Reposition cover images for the best display.\nBug Fixes\n- Fixed various database issues to improve stability and performance.\nMobile\nNew Features\n- AI Transcript with auto speaker identification: Upload an audio file to generate transcriptions with speaker labels. You can assign or change speaker names.\n- Mermaid diagram support: Add diagrams directly in Code blocks with split, preview, and code display modes, plus an expandable view.\nBug Fixes\n- Fixed various database issues to improve stability and performance.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.9",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.9/AppFlowy-0.10.9-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.9-windows-x86_64.exe",
+          "sha256": "2c33563f45ce233229064c8818507b89f4fd2d0025d4ede39219a2ed81c9dc9f",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.8",
+      "release_date": "2025-12-22",
+      "release_notes": "Release Notes\nVersion 0.10.8 – 22/12/2025\nDesktop\nBug Fixes\n- Grid sort order preserved after edits — Editing a row no longer moves it to the bottom of a sorted Grid\n- Delete banner for databases — Grid, Board, and Calendar now show restore/delete banner when deleted\n- Timestamp field conversion — Converting Created time or Last modified to Text/Date no longer loses values\n- Unicode string sorting — Sorting now handles accented characters and special symbols correctly\n- Kanban filter fix — Filters now apply correctly to items added after view creation\nMobile\nBug Fixes\n- Grid sort order preserved after edits — Editing a row no longer moves it to the bottom of a sorted Grid\n- Timestamp field conversion — Converting Created time or Last modified to Text/Date no longer loses values\n- Unicode string sorting — Sorting now handles accented characters and special symbols correctly\n- Kanban filter fix — Filters now apply correctly to items added after view creation",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.8",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.8/AppFlowy-0.10.8-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.8-windows-x86_64.exe",
+          "sha256": "e51a2afb48378062a4431d9ea1b5df60137baecfbbaf3edc3a2c42371438e341",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.7",
+      "release_date": "2025-12-20",
+      "release_notes": "Release Notes\nVersion 0.10.7 – 19/12/2025\nDesktop\nNew Features\n- AI Meeting Notes Block: Supports real-time transcription on macOS and Windows. AI will turn everything into a clean, share-ready summary\n- Database Two-way Relations: Automatically sync connected data between databases, ensuring that information added in one place instantly appears in the other\n- Video Block: Upload or embed video files, then view and interact with them directly inside your document\n- Audio Block: Upload or embed audio files, then view and interact with them directly inside your document\n- Callout Block: Supports removing the callout icon\n- Table of Contents Block: Supports collapsing/uncollapsing the content\nBug Fixes\n- Fixed various issues related to database views, including sorting, filtering, counting, syncing, and layouts\n- Fixed various issues related to the linked views of databases\n- Fixed database issues related to date formats, file name display, view tabs, horizontal scroll, and Relation property performance\nMobile\nNew Features\n- Video Block: Upload or embed video files, then view and interact with them directly inside your document\n- Audio Block: Upload or embed audio files, then view and interact with them directly inside your document\n- Callout Block: Supports removing the callout icon\n- Table of Contents Block: Supports collapsing/uncollapsing the content\nBug Fixes\n- Fixed various issues related to database views, including sorting, filtering, counting, syncing, and layouts\n- Fixed various issues related to the linked views of databases\n- Fixed database issues related to date formats, file name display, view tabs, horizontal scroll, and Relation property performance",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.7",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.7/AppFlowy-0.10.7-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.7-windows-x86_64.exe",
+          "sha256": "d20487c9e5b51d3346fb8e66d86a8308b5e19006b201d54ef0d3e7fd3de9d84c",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.6",
+      "release_date": "2025-12-05",
+      "release_notes": "Release Notes\nVersion 0.10.6 – 05/12/2025\nDesktop\nBug Fixes\n- Fixed issues related to the duplicated databases\n- Fixed an issue where the Chinese (Simplified) and Chinese (Traditional) language options were not being saved properly in the summary language of the AI meeting block.\nMobile\nBug Fixes\n- Fixed issues related to the duplicated databases",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.6",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.6/AppFlowy-0.10.6-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.6-windows-x86_64.exe",
+          "sha256": "ce06d3f13450463ae87bc1a93e18ffbbb6f6518695f2dd6da99c25d37c102a1b",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.5",
+      "release_date": "2025-12-02",
+      "release_notes": "Release Notes\nVersion 0.10.5 – 02/12/2025\nDesktop\nNew Features\n- AI Transcript Block: Turn audio and video recordings into ready-to-share notes with AI Transcribe. Easily use our rich-text editing features to refine both the AI transcription and summary. Perfect for work, school, or personal projects\n- PDF Block: Upload or embed PDF files, then view and interact with them directly inside your document\n- Improved Image Block: Supported new features such as captions, embedded external or page links, saving images, and replacing images with more polished visuals and interactions\n- Self-hosted: Enabled custom namespaces, fixed issues with inviting members via link, and removed Pro plan banners that were intended for the managed cloud version\nMobile\nNew Features\n- PDF Block: Upload or embed PDF files, then view and interact with them directly inside your document\n- Improved Image Block: Supported new features such as captions, embedded external or page links, saving images, and replacing images—with more polished visuals and interactions\n- Self-hosted: Fixed issues with inviting members via link, and removed Pro plan banners that were intended for the managed cloud version",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.5/AppFlowy-0.10.5-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.5-windows-x86_64.exe",
+          "sha256": "a8d280ccdae42bb67f43e7700b88a3b38ba7d2fa57a8b93094af80c642a286a7",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.4",
+      "release_date": "2025-11-14",
+      "release_notes": "Release Notes\nVersion 0.10.4 – 14/11/2025\nDesktop\nNew Features\n- Revamped the Math Equation block with an easier-to-use UX and new features: multiline equations, more environment variables, inline math equation markdown support, and Ask AI\n- Revamped the Toggle List block with an improved UI and bug fixes\n- Revamped the right-click Context Menu with a more polished UI and new features: Paste as plain text and Ask AI\nBug Fixes\n- Fixed issues related to the Math Equation and Toggle List blocks\n- Fixed issues related to the right-click Context Menu\nMobile\nNew Features\n- Revamped the Math Equation and Toggle List blocks with improved UIs and new features\nBug Fixes\n- Fixed issues related to the Math Equation and Toggle List blocks",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.4",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.4/AppFlowy-0.10.4-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.4-windows-x86_64.exe",
+          "sha256": "da06b8f8429896086b0d2dff1a73c377dfe007f748d7d0b09d8f075996d421d8",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.3",
+      "release_date": "2025-10-31",
+      "release_notes": "Release Notes\nVersion 0.10.3 - 31/10/2025\nDesktop\nNew Features\n- Revamped the Code block with new features: pin language, caption, Ask AI, and Turn Text into Code\n- Revamped the Callout block with an improved UI and quick styles\n- Revamped the Outline block with a more polished UI and custom background colors\n- Notification Settings: enable or disable mobile push notifications\nBug Fixes\n- Fixed issues related to the Code and Callout blocks\nMobile\nNew Features\n- Supported mobile push notifications: you’ll receive a push message when you’re mentioned, invited to a page, or when page permissions change\n- Revamped the Code, Callout, and Outline blocks with improved UIs and new features",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.3/AppFlowy-0.10.3-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.3-windows-x86_64.exe",
+          "sha256": "555896c649949550db9efdebddab8ea7ca487eb2272ddc15a4a84a6aba07e9d5",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.2",
+      "release_date": "2025-10-24",
+      "release_notes": "Release Notes\nVersion 0.10.2 - 24/10/2025\nDesktop\nBug Fixes\n- Fixed inability to import Notion zip file",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.2/AppFlowy-0.10.2-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.2-windows-x86_64.exe",
+          "sha256": "78325e5c489822e4580ee6bda95b03b402d474b46c5c7810446a045b78f16714",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.1",
+      "release_date": "2025-10-16",
+      "release_notes": "Release Notes\nVersion 0.10.1 - 16/10/2025\nDesktop\nBug Fixes\n- Fixed potential login token expired issue\n- Fixed inability to create Vault workspace on self-hosted servers with commercial plans\n- Fixed switching page rapidly caused the page flash\nMobile\nBug Fixes\n- Fixed potential login token expired issue",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.1/AppFlowy-0.10.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.1-windows-x86_64.exe",
+          "sha256": "42ce91c035da0da9c26074a8406e3547eade1c940d8599d333f21ad22b0aa216",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.0",
+      "release_date": "2025-09-29",
+      "release_notes": "Version 0.10.0 – 29/09/2025\nDesktop\nNew Features\n- Person, a new database property, lets you assign a row to one or more collaborators\nMobile\nNew Features\n- Person, a new database property, lets you assign a row to one or more collaborators\n- iOS Share to AppFlowy: quickly save browser page links with optional notes to a target AppFlowy database\n- Android Share to AppFlowy: quickly save browser page links with optional notes to a target AppFlowy page and database\n- A new Android widget: Quick Page Access",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.10.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.10.0/AppFlowy-0.10.0-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.10.0-windows-x86_64.exe",
+          "sha256": "148964ae401535bcac13112b0c10eae5af3200b49211d04f04149d35ac950c76",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.9",
+      "release_date": "2025-09-11",
+      "release_notes": "Version 0.9.9 – 11/09/2025\nDesktop\nNew Features\n- Workspace user profile: customize your avatar, about me, and profile card banner\nMobile\nNew Features\n- Workspace user profile: customize your avatar, about me, and profile card banner\n- Two new Android widgets: Recent Pages and Favorites\n- A new iOS widget: Quick Page Access\n- iOS Share to AppFlowy: quickly save browser page links with optional notes to a target AppFlowy page",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.9",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.9/AppFlowy-0.9.9-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.9-windows-x86_64.exe",
+          "sha256": "8b66581ff8833b4d5910dba82f3292bbe8f5e6e987bcc402d4e76a00f8e3c234",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.8",
+      "release_date": "2025-08-28",
+      "release_notes": "Version 0.9.8 – 28/08/2025\nDesktop\nNew Features\n- Bulk add collaborators with Can view / Can edit permissions via the Share menu\n- Enable setting the start of the week to Monday to control default calendar layouts in the calendar view and date picker\n- Sync date and time formats, language, and week start day across devices under the same user account\n- Offer 10 premium Select-option colors to Pro Plan users\n- Support managing pending members via Settings → Members\nMobile\nNew Features\n- Support iOS widgets for quick access to recent and favorite pages\n- Offer 10 premium Select option colors to Pro Plan users\n- Support managing pending members via Settings → Members",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.8",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.8/AppFlowy-0.9.8-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.8-windows-x86_64.exe",
+          "sha256": "66f9274b33f94b7cedfca8164144273c4d5f969d769f1d89eb45701df75283e7",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.7",
+      "release_date": "2025-08-13",
+      "release_notes": "Version 0.9.7 – 13/08/2025\nDesktop\nNew Features\n- Mention or assign persons in documents via '@' or '/'\n- Mentioned persons get notified about the mention via email\n- More colors are available for database Select options and page covers\n- Back up your AppFlowy workspace: Export your workspace as a ZIP file and import it back at any time\n- GPT-5 is now available in AppFlowy\nMobile\nNew Features\n- Mention or assign persons in documents via '@' or '/'\n- Mentioned persons get notified about the mention via email\n- More colors are available for database Select options and page cover\nBug Fixes\n- Fixed login page UI overflow issues on small screen devices",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.7",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.7/AppFlowy-0.9.7-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.7-windows-x86_64.exe",
+          "sha256": "566bcd3691f77a5e7bebb65acb42f4c57fa200ca675e44d534edca47e26accdc",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.6",
+      "release_date": "2025-08-05",
+      "release_notes": "Version 0.9.6 – 05/08/2025\nBug Fixes\n- Fixed some syncing issues\n- Improved the Share menu\n- Fixed some UI issues related to database filters and sorts",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.6",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.6/AppFlowy-0.9.6-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.6-windows-x86_64.exe",
+          "sha256": "671f5e65279625139e07c79321a0babc0ec574aac3c9ba5e48254e53501f198b",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.5",
+      "release_date": "2025-07-17",
+      "release_notes": "Version 0.9.5 – 17/07/2025\nDesktop\nNew Features\n- Vault Workspace: A new workspace type, private and offline. AI runs locally with no data transfer\n- Revamped color pickers in documents: Expanded palette with support for custom colors\nMobile\nNew Features\n- iOS In‑App Sign‑In: Sign in directly within the iOS app\n- New colors: Improved text and background color options",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.5/AppFlowy-0.9.5-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.5-windows-x86_64.exe",
+          "sha256": "e91c784c20c447227b6fd3098318447739087f61ec574fb244de23e431c97a85",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.4",
+      "release_date": "2025-07-02",
+      "release_notes": "Version 0.9.4 – 02/07/2025\nDesktop\nNew Features\n- Private page sharing: Add members to private pages with Can View or Can Edit permissions\n- Guest editor collaboration: Invite non-members (guest editors) to collaborate in real-time on your pages\n- Shared with me: Browse all pages shared with you under the new Shared with me section\n- New syncing protocol: Optimized for faster, more reliable multi-user and multi-device data sync\nMobile\nNew Features\n- Shared page collaboration: View and edit pages that have been shared with you on iOS and Android\n- New syncing protocol: Optimized for faster, more reliable multi-user and multi-device data sync",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.4",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.4/AppFlowy-0.9.4-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.4-windows-x86_64.exe",
+          "sha256": "fd828d51529604ff63a9527bcdc2fd385e9c4ec0d22f135bd10dad51a0fc0968",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.3",
+      "release_date": "2025-05-28",
+      "release_notes": "Release Notes\nVersion 0.9.3 - 28/05/2025\nDesktop\nNew Features\n- Meet AppFlowy Workspace AI Search: Quickly find pages by searching titles, keywords, or asking natural-language questions\n- AI Overviews: Ask natural questions and receive instant AI-generated summaries with source links, inspired by Google's AI Overviews\n- Revamped Search Panel: A cleaner, smarter interface to help you search faster and more effectively\n- Custom Prompts: Load a database page as the source for your own custom AI prompts\nBug Fixes\n- Fixed misalignment in database view after setting maxDocumentWidth\n- Centered embedded link when the site name is empty\n- Fixed issue where row observer was not clearing as expected\n- Fixed issue where workspace name reverted after being updated\n- Aligned checkbox icon with the first line of text\nMobile\nNew Features\n- Meet AppFlowy Workspace AI Search: Quickly find pages by searching titles, keywords, or asking natural-language questions\n- AI Overviews: Ask natural questions and receive instant AI-generated summaries with source links, inspired by Google's AI Overviews\n- Revamped Search Tab: A redesigned interface that helps you find what you need more efficiently\nBug Fixes\n- Fixed issue where font size reset after restarting the app",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.3/AppFlowy-0.9.3-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.3-windows-x86_64.exe",
+          "sha256": "ba765be8af3a25d085cc2e56f2964c750ccb10056e342b899a8a4a289580a192",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.2",
+      "release_date": "2025-05-14",
+      "release_notes": "Release Notes\nVersion 0.9.2 - 14/05/2025\nDesktop\nNew Features\n- Supported AI Overview in Search to answer user queries based on their entire workspace\n- Revamped the Search panel in the desktop app\n- Enabled loading custom prompts from an AppFlowy database page\nBug Fixes\n- Improved inserting emojis using the colon (:)\n- Supported automatically filling the link name with the URL if the name is left empty\nMobile\nBug Fixes\n- Supported automatically filling the link name with the URL if the name is left empty",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.2/AppFlowy-0.9.2-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.2-windows-x86_64.exe",
+          "sha256": "f00c08e37445b28b3d4595fb45917f4f21997dc0a00a70efdddaf5ecf59feb3f",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.1",
+      "release_date": "2025-05-02",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.1/AppFlowy-0.9.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.1-windows-x86_64.exe",
+          "sha256": "7bd6b7457045c6faa74f54a05dd30f227c694cf6f190f1b736892187965b08f3",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.0",
+      "release_date": "2025-04-30",
+      "release_notes": "Release Notes\nVersion 0.9.0 - 30/04/2025\nDesktop\nNew Features\n- Added AppFlowy Prompt Library to AI Chat and Document's Ask AI\n- Revamped the desktop in-app notification center\n- Supported login with password, as well as forgot and change password options\n- Supported copying link to invite members\n- Improved the Settings' Members tab with new metadata: member avatar and joined time\nBug Fixes\n- Fixed crash when trying to delete an emoji\n- Fixed Windows scaling issue\n- Correctly displayed mention text by decoding web content\nMobile\nNew Features\n- Supported workspace search\n- Improved UX for links in documents\n- Supported changing password in Mobile Settings\n- Added support for inviting members via links\nBug Fixes\n- Correctly displayed mention text by decoding web content",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.9.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.9.0/AppFlowy-0.9.0-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.9.0-windows-x86_64.exe",
+          "sha256": "cf6586976a0282d80f3d99f1d8acb37c0d79cbb6d69571e240104f27362a0305",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.9",
+      "release_date": "2025-04-17",
+      "release_notes": "Release Notes\nVersion 0.8.9 - 16/04/2025\nDesktop\nNew Features\n- Supported pasting a link as a mention, providing a more condensed visualization of linked content\n- Supported converting between link formats (e.g. transforming a mention into a bookmark)\n- Improved the link editing experience with enhanced UX\n- Added OTP (One-Time Password) support for sign-in authentication\n- Added latest AI models: GPT-4.1, GPT-4.1-mini, and Claude 3.7 Sonnet\nBug Fixes\n- Fixed an issue where properties were not displaying in the row detail page\n- Fixed a bug where Undo didn't work in the row detail page\n- Fixed an issue where blocks didn't grow when the grid got bigger\n- Fixed several bugs related to AI writers\nMobile\nNew Features\n- Added sign-in with OTP (One-Time Password)\nBug Fixes\n- Fixed an issue where the slash menu sometimes failed to display\n- Updated the mention page block to handle page selection with more context.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.8.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.8.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.8.9/AppFlowy-0.8.9-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.8.9-windows-x86_64.exe",
+          "sha256": "116167feddc56747c317fcacd558c8ea7b69fcb7ceb0972f0184a866cdbaa1ce",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.8",
+      "release_date": "2025-04-02",
+      "release_notes": "Release Notes\nVersion 0.8.8 - 01/04/2025\nNew Features\n- Added support for selecting AI models in AI writer\n- Revamped link menu in toolbar\n- Added support for using \":\" to add emojis in documents\n- Passed the history of past AI prompts and responses to AI writer\nBug Fixes\n- Improved AI writer scrolling user experience\n- Fixed issue where checklist items would disappear during reordering\n- Fixed numbered lists generated by AI to maintain the same index as the input",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.8.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.8.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.8.8/AppFlowy-0.8.8-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.8.8-windows-x86_64.exe",
+          "sha256": "fa7e5b23c653e87691289ddbe5c059695e26d9b284bfdf2af5dc752787f51e87",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.7",
+      "release_date": "2025-03-19",
+      "release_notes": "Release Notes\nVersion 0.8.7 - 18/03/2025\nNew Features\n- Made local AI free and integrated with Ollama\n- Supported nested lists within callout and quote blocks\n- Revamped the document's floating toolbar and added Turn Into\n- Enabled custom icons in callout blocks\nBug Fixes\n- Fixed occasional incorrect positioning of the slash menu\n- Improved AI Chat and AI Writers with various bug fixes\n- Adjusted the columns block to match the width of the editor\n- Fixed a potential segfault caused by infinite recursion in the trash view\n- Resolved an issue where the first added cover might be invisible\n- Fixed adding cover images via Unsplash",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.8.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.8.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.8.7/AppFlowy-0.8.7-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.8.7-windows-x86_64.exe",
+          "sha256": "07c8c99804cc5278e857e8d20ecc51bf4b80947c4378d6b87ce3f5c8a984697b",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.15.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "zip",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.15.0/AppFlowy-0.15.0-macos-universal.zip",
+          "host": "github.com",
+          "filename": "AppFlowy-0.15.0-macos-universal.zip",
+          "sha256": "b0a85b0a8f51d96f2c89cb1f46aca61d45ace044bad66300fe93f9d3a4743dec",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "AppFlowy.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Scripts/com.appflowy.macos",
+            "~/Library/Application Support/com.appflowy.appflowy.flutter",
+            "~/Library/Containers/com.appflowy.macos",
+            "~/Library/Preferences/com.appflowy.appflowy.flutter.plist"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "cfb57c8683c26a093b5e5463176d73278d64bf0b",
+      "retrieved_at": "2026-11-06T23:18:56.450Z",
+      "path": "manifests/a/AppFlowy/AppFlowy"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "dcaa56add9b3eb423fe6a1037d47d207d248cc23",
+      "retrieved_at": "2026-11-06T23:18:56.450Z",
+      "path": "Casks/a/appflowy.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/appflowy.json"
+    }
+  ]
+}

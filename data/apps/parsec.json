@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "slug": "parsec",
+  "name": "Parsec",
+  "publisher": "Parsec Cloud Inc.",
+  "ids": {
+    "winget": "Parsec.Parsec",
+    "moniker": "parsec",
+    "homebrew_cask": "parsec",
+    "flathub": "com.parsecgaming.parsec"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Remote desktop you’ll actually love, in crystal clear, interactive HD. Connect to work, games, or projects wherever you are, whenever you want.",
+  "description": "Parsec is a proprietary freeware desktop capturing application primarily used for playing games\nthrough video streaming.\n\nUsing Parsec, a user can stream video game footage through an Internet connection, allowing one to\nrun a game on one computer but play it remotely through another device.\n\nAlthough its main focus is gaming, Parsec can also be used as low-latency desktop sharing software.",
+  "tags": [
+    "gaming",
+    "remote-access",
+    "remote-desktop",
+    "remotedesktop",
+    "game-streaming",
+    "gamestreaming"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://parsec.app/",
+    "publisher": "https://parsec.app/",
+    "support": "https://support.parsec.app/",
+    "privacy": "https://parsec.app/privacy",
+    "purchase": "https://parsec.app/pricing",
+    "documentation": [
+      {
+        "label": "Teams API",
+        "url": "https://parsec.app/docs/teams-api"
+      }
+    ]
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://parsec.app/terms",
+    "copyright": "© 2026 Unity Technologies SF All rights reserved."
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "150.104.1.0",
+    "macos": "150-105c",
+    "linux": "3.9.9"
+  },
+  "versions_total": {
+    "windows": 1,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "150.104.1.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Parsec/Parsec/150.104.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://builds.parsec.app/package/parsec-windows.exe",
+          "host": "builds.parsec.app",
+          "filename": "parsec-windows.exe",
+          "sha256": "b8a9cd519010666def0ef6e119eb42b33b5b811216f34e4f6c8e2e25ac290fbc",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "silent": "/silent /norun /nocleanuser",
+            "silent_with_progress": "/silent /nocleanuser",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "deny",
+          "apps_and_features": [
+            {
+              "display_name": "Parsec",
+              "display_version": "150-104a",
+              "product_code": "Parsec"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://builds.parsec.app/package/parsec-windows.exe",
+          "host": "builds.parsec.app",
+          "filename": "parsec-windows.exe",
+          "sha256": "b8a9cd519010666def0ef6e119eb42b33b5b811216f34e4f6c8e2e25ac290fbc",
+          "switches": {
+            "silent": "/silent /norun /nocleanuser",
+            "silent_with_progress": "/silent /nocleanuser",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "deny",
+          "apps_and_features": [
+            {
+              "display_name": "Parsec",
+              "display_version": "150-104a",
+              "product_code": "Parsec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "150-105c",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "pkg",
+          "url": "https://builds.parsec.app/package/parsec-macos.pkg",
+          "host": "builds.parsec.app",
+          "filename": "parsec-macos.pkg",
+          "no_checksum": true
+        }
+      ],
+      "cask": {
+        "pkgs": [
+          "parsec-macos.pkg"
+        ],
+        "cleanup": {
+          "quit": [
+            "tv.parsec.www"
+          ],
+          "pkgutil": [
+            "tv.parsec.www"
+          ],
+          "zap_paths": [
+            "~/.parsec",
+            "~/Library/Caches/tv.parsec.www",
+            "~/Library/HTTPStorages/tv.parsec.www",
+            "~/Library/Preferences/tv.parsec.www.plist"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "3.9.9",
+      "release_date": "2024-05-10",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.parsecgaming.parsec.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.parsecgaming.parsec.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/p/Parsec/Parsec"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "Casks/p/parsec.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/parsec.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.parsecgaming.parsec",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/com.parsecgaming.parsec",
+      "api_url": "https://flathub.org/api/v2/appstream/com.parsecgaming.parsec",
+      "content_sha256": "35dddcdc39743d9d0fedabbcee1f488c40fdabc4090ef30fb962ddc1254e496e"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.parsecgaming.parsec",
+    "page_url": "https://flathub.org/apps/com.parsecgaming.parsec",
+    "repo_url": "https://github.com/flathub/com.parsecgaming.parsec",
+    "install_command": "flatpak install flathub com.parsecgaming.parsec",
+    "run_command": "flatpak run com.parsecgaming.parsec",
+    "verified": false,
+    "license": "LicenseRef-proprietary",
+    "free_license": false,
+    "developer_name": "Parsec Cloud, Inc.",
+    "categories": [
+      "Network",
+      "Game",
+      "Utility"
+    ],
+    "download_size": 2442260,
+    "installed_size": 4008468,
+    "arches": [
+      "x64"
+    ]
+  }
+}

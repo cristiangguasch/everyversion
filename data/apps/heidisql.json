@@ -1,0 +1,1141 @@
+{
+  "schema_version": 2,
+  "slug": "heidisql",
+  "name": "HeidiSQL",
+  "publisher": "Ansgar Becker",
+  "author": "Ansgar Becker",
+  "ids": {
+    "winget": "HeidiSQL.HeidiSQL",
+    "moniker": "heidisql"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "summary": "A lightweight client for managing MariaDB, MySQL, SQL Server, PostgreSQL and SQLite, written in Delphi",
+  "description": "HeidiSQL is free software for people who work with databases, and aims to be intuitive to use. \"Heidi\" lets you connect to a variety of databases, like MariaDB, MySQL, Microsoft SQL, PostgreSQL, SQLite, Interbase and Firebird. Once you are connected, you can edit data and structures in these databases. Invented in 2002 by Ansgar, HeidiSQL is still a popular tool for MariaDB and MySQL, and actively maintained.",
+  "tags": [
+    "database",
+    "db2",
+    "develop",
+    "development",
+    "ide",
+    "mssql",
+    "mysql",
+    "postgres",
+    "postgresql",
+    "programming",
+    "sql",
+    "sqlite"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.heidisql.com/",
+    "publisher": "https://www.anse.de/",
+    "support": "https://www.heidisql.com/help.php",
+    "privacy": "https://www.heidisql.com/privacy.php",
+    "release_notes": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.22"
+  },
+  "license": {
+    "name": "GPL-2.0",
+    "url": "https://github.com/HeidiSQL/HeidiSQL/blob/HEAD/LICENSE",
+    "spdx": "GPL-2.0",
+    "copyright": "Copyright (c) 2000-2026 Ansgar Becker",
+    "copyright_url": "https://github.com/HeidiSQL/HeidiSQL/blob/master/out/license.txt"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "12.22.0.7382"
+  },
+  "last_updated": "2026-10-25",
+  "versions_total": {
+    "windows": 26
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "12.22.0.7382",
+      "release_date": "2026-10-25",
+      "release_notes": "12.22 - 2026-10-25\n⛰️ Features\n- New login manager for MS SQL Server, closes #17 - (7ffb2f1)\n- New role manager UI for PostgreSQL, closes #80 - (4267133)\n- Show hints in all controls if set. Same as in master/37d02ea3 - (e07a913)\n- Inject branch commit count as build number at build time - (a8fd18e)\n- Build, sign and notarize macOS app bundle in CI - (cae4e0c)\n- Install Lazarus 4.8 on Windows and macOS runners, drop setup-lazarus action - (46ea9be)\n- Use fully qualified table name in \"Select Top x rows\" action when a click on it is combined with Shift - (06ab070)\n- Add Linux Qt theme selection - (816a819)\n🚀 Enhancements\n- Hint at \"Send batch in one go\" for undeclared variables on MS SQL - (4ed6e5f)\n- Rephrase warning message displayed when a grid edit/delete did not affect any row - (9da8a80)\n🐛 Bug Fixes\n- Firebird access violation on macOS; fail app bundling on missing client libs - (b012582)\n- Correct relative target of firebird.msg symlink - (c80253d)\n- Link bundled firebird.msg from Contents into Resources - (de488ed)\n- Place fbclient in Contents/Frameworks for session manager detection - (400944e)\n- Single rpath and @loader_path rewrites for bundled Firebird client - (c83d850)\n- Move bundled Firebird client to Contents/Resources to satisfy codesign - (512bd5f)\n- Pkgutil --expand requires non-existing target directory - (e546c29)\n- Bundle missing fbclient library in macOS app bundle - (feca7eb)\n- Make \"apply filter\" and \"clear\" buttons visually distinguishable - (160187d)\n- Crash when creating event in object editor - (d5ec718)\n- Support InterBase BOOLEAN columns and its missing partial column load. See #2527 - (b572b2f)\n- Only offer matching Firebird or InterBase client libraries - (821c2d4)\n- Interbase/Firebird column types, DEFAULT clause order and SUBSTRING. Closes #2527 - (d9ab3cc)\n- Make build number injection portable to BSD sed on macOS - (620e5b1)\n- Crash when selecting a table on macOS x86_64 - (690972a)\n- Session manager crash on macOS x86_64 from enum dictionary keys - (7c1608e)\n- Repair tab sections with empty name in tabs.ini on restore. See #2637 - (805722c)\n- Blinking caret in query editor after using code completion - (6b1a156)\n- Non-appearing context menus on tree nodes in session manager, table and routine editor - (b280ef0)\n- Visible dropdown arrow on toolbar buttons with dark Qt themes - (84c0f0e)\n- Sort folders and files alphabetically in file open/save dialog - (285cb8b)\n- Prevent slash in session names from corrupting settings import and session clone - (2f21438)\n- Render VirtualTree content at correct size on macOS retina - (832ff89)\n- Missing translation for error message - (a87845f)\n- Indexes created with CREATE INDEX not shown on MS SQL - (8c41545)\n- Hanging query tab and double execution of non-SELECT queries on MS SQL - (a48a722)\n- Use TBlobField.SaveToStream instead of DataStream, unavailable in FPC - (816cbd2)\n- Fetch MS SQL binary column values via TBlobField stream in GetColBinData - (8f34f5f)\n- Wrong hex prefix/postfix for PostgreSQL, insecure break after testing 1024 characters in IsHex - (2b64345)\n- Hide LIKE quick filters in context menu of binary grid values, which would now be broken through quoted hex values - (dc5c5ab)\n- Use correct hex prefix/postfix on MS SQL and PostgreSQL, allow odd length of hex body in MySQL - (bdb27f1)\n- Wrong IsHex result on non-MySQL connections, prevent escaping quotes in SQLite hex values x'aa...' - (29d26b5)\n- Use connection specific hex prefix and postfix when editing binary values in grid - (e06a4ff)\n- Implement TSQLiteQuery.GetColBinData for byte-exact BLOB access - (b49cd3d)\n- Read SQLite BLOB columns via sqlite3_column_blob instead of truncated text - (24b80ba)\n- Assign SQLite procedures sqlite3_column_blob and sqlite3_column_bytes to TSQLiteLib - (707543c)\n- State updated Lazarus 4.8 version used in workflow - (7b0684d)\n- Use Cmd instead of Ctrl for default keyboard shortcuts on macOS - (5aaa0eb)\n- Splitter between query editor and results not draggable on macOS - (1363b16)\n- Invalid JSON export from empty grid result - (f1a1904)\n- Remove invalid -s flag from security set-key-partition-list - (1910c5c)\n- Correct argument order for security set-keychain-settings - (1e108ce)\n- Use plain string for codesign flags instead of empty array (set -u unbound variable) - (9e777d7)\n- Move secrets check from step if: into script (secrets context not allowed in if:) - (072bbb0)\n- Use curl -L with /download suffix for SourceForge installer download on Windows - (2ad4009)\n- Run apt-get update before installing Lazarus debs on Ubuntu - (35e24e8)\n- Re-enable setting width of helpers box on query tabs - (f17d084)\n- Default name for new constraint too long for MySQL - (91ba1d4)\n- Range check error when starting SSH tunnel - (a834721)\n- Keep database nodes expanded on tree refresh, and hide table tabs after dropping the object - (c976d17)\n- Stuck UI after firing query with SQL error on MS SQL - (905eb8f)\n- Access violation on MS SQL connections, after applying filter on data tab - (9a209eb)\n- Make some cancel buttons react on Esc key - (070ea3c)\n- Use newer/renumbered MYSQL_* constants with libmysql v8+ - (aabe034)\n- Preserve Qt tree subclass with standard LFM classes - (81ae758)\n- Keep Lazarus forms designer-compatible - (9e682a1)\n- Backport Lazarus Qt6 HiDPI scaling - (dca7a9a)\n- Avoid cross-thread keep-alive timer access - (ae2b908)\n- Improve VirtualTreeView hints on Qt - (31f5c73)\n- Improve VirtualTreeView interaction on Qt - (1b057bd)\n- Render VirtualTreeView correctly on Qt - (6add51c)\n- Improve Linux font handling - (59a6b09)\n- Bunch of often occurring memory leaks, found by @ArtemRazin - (04d50c5)\n- Require 64bit specific libraries in rpm package, so the client should never decide for 32bit - (b92d253)\n- Crash on macOS while setting listForeignKeys.Width - (6727efc)\n🚜 Refactor\n- Consolidate tree drag-start handlers into TMainForm.AnyGridMouseMove - (1d35fab)\n- Replace deprecated SynEdit line color API - (f1775eb)\n- Replace deprecated SynEdit selection API - (d4a57c3)\n⚙️ Miscellaneous Tasks\n- Keep test-signing for tag builds, rename macOS bundle to upstream scheme - (db843de)\n- Bump LCLVersion to 4.8.0.0 in all forms - (0ae7544)\n- Pin line ending policy in .gitattributes - (9759c5b)\n- Sign tag builds with SignPath release-signing policy, regular builds with test-signing - (1b9cf9a)\n- Make SignPath signing policy configurable via SIGNPATH_SIGNING_POLICY variable - (363f829)\n- Switch SignPath GitHub Action to v3 connector - (3fe7e75)\n- Sign Windows heidisql.exe via SignPath GitHub Action - (1359bce)\n- Upgrade actions to Node.js 24 versions (checkout v6, upload-artifact v6, download-artifact v7, gh-release v3) - (7ea9f11)\nBuild\n- Update Linux builds to Lazarus 4.8 - (ecc4010)\nLocalize\n- Update compiled .mo translation files - (d951a28)\n- Update compiled .mo translation files - (55fb44e)\nNote\n\nFor a list of all the changes up to date, please read CHANGELOG.md.",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.22",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.22.0.7382",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.22/HeidiSQL_12.22.0.7382_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.22.0.7382_Setup.exe",
+          "sha256": "468055814dcedc057821f2692d28cfdde181332265240538b9acb320cae49904",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.22/HeidiSQL_12.22.0.7382_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.22.0.7382_Setup.exe",
+          "sha256": "468055814dcedc057821f2692d28cfdde181332265240538b9acb320cae49904",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.21.0.7344",
+      "release_date": "2026-08-03",
+      "release_notes": "12.21 - 2026-08-03\n⛰️ Features\n- Create opt-in option for displaying columns in database tree - (f492bed)\n- Enhance order of items in completion proposal, so exact matches are at the top - (c1b817b)\n- For keyboard navigation on the completion proposal, wrap around the item list - (db952f8)\n- First attempt to create a user manager for PostgreSQL - (f0d7103)\n- Show index icons on columns in tree, and the data type text color - (e6e90aa)\n- Auto-adjust width of various combo boxes - (ca9b748)\n- Show table columns in tree, as child nodes - (0e20e70)\n- Query size of all indexes in one query - (c5201eb)\n- Display size of each index and paint a color bar behind it - (48a93d2)\n- Make custom proposal popup interval effective - (500c529)\n- Icons, colors and padding in completion proposal - (3d1254d)\n🐛 Bug Fixes\n- (ui) Exchange icon for \"column\" and its variants for add, delete, edit - (08558f9)\n- Sporadic crash in DBtreePaintText with columns - (f76c54f)\n- Enable foreign key drop down on grid field in MS SQL mode - (9f83561)\n- Remove column nodes from tree in table tools dialog - (b09823e)\n- Empty command line part for sshpass on FreeBSD - (ed881b3)\n- Handle MONEY column types as float - (67521d4)\n- Hang and wrong check states in data grid column selection on macOS - (6c5b66c)\n- Invalid folder path for SQL export cannot be created if it contains a duplicated path delimiter - (4555274)\n- Various CVEs regarding libssl and libcrypto - (379d28a)\n- Context menu does not appear at right-click on a tree node text - (8befce3)\n- Crash when opening textfile import dialog, with 0 tables in database - (83c4947)\n- Crash when cancelling session manager while a session rename is active - (1da8683)\n- Prevent crashes from SetFocus on various controls - (bf46821)\n- Data grid header keeps showing previous table's columns on macOS - (255695d)\n- Prevent SQL error \"Property 'MS_Description' already exists\" - (ac50b73)\n- Enhance anchors on some of the table editors controls - (bfebd9e)\n- Bad width of collation combo box - (a90f73c)\n- File > \"New window\" does nothing on macOS - (0583a4e)\n- Still wrong proposal background color in dark mode - (e62c47f)\n- Wrong proposal background color in dark mode - (eec978c)\n- Crash when opening a table, due to using the TCanvas member of a not yet visible form or frame - (bfe29c1)\n- Give the trees and grids more height for the header - (568098a)\n- Widen many TSpinEditEx instances to either 80px or align them with neighbor controls - (5964be6)\n- Some trees have their own OnContextMenu logic set at design time, do not overwrite - (7c2870a)\n- Work around unused Header.PopupMenu menu on Linux when a tree has a PopupMenu - (2030a91)\n- DPI related scale glitches, mainly on completion proposal - (905b126)\n- Do not paint size bar in nodes of level 2, and do not show \"-\" text there neither - (3e678bc)\n- Bad text color for selected item in proposal - (1c46db7)\n- Propose items when editor already contains a leading backtick quote - (8f12b3e)\n- Missing support for custom keyboard shortcut for executing completion popup - (79f1d38)\n- Glitches with padding in completion proposal, and non-restored width - (cf67d11)\n- EXPLAIN actions either disabled or non-working for PostgreSQL and SQLite - (2572681)\n- Hanging in a loop over result nodes by right-click on query result - (bc8f903)\n- Detect release version string from Lazarus project file, and insert into Contents/Info.plist of macOS bundle - (2171b58)\n- Crash during refresh on disconnected session - (0b0106d)\n- When parsing the command line, make use of Application.GetOptionValue and friends, instead of ParamStr(x) with regular expressions - (f436354)\n- Use default library of connection when the one from a stored session contains an invalid path/file - (51023c3)\n- Refresh session tree after import per More > Import settings file - (cfca46f)\n- CAS(x AS CHAR) not supported by MySQL below v4.0.2 - (e9e5263)\n- Always enable release link label on update check dialog, which points to the general download page - (2d475d2)\n- Prepend database name to the trigger name at the correct position, when newer MariaDB versions use IF NOT EXISTS - (27a3a51)\n🚜 Refactor\n- Prefer Delphi friendly SysUtils.PathDelim over System.DirectorySeparator - (84104d0)\n⚡ Performance\n- Avoid full string scans in StrEllipsis - (32f3bd0)\n⚙️ Miscellaneous Tasks\n- Update SQLite libraries to v3.53.4 - (7bfd91d)\n- Ignore auto-created IntelliJ project files - (64613cf)\n- Prefer macos-15 over macos-15-arm64, due to better availability of the Intel runners - (c3be9d4)\n- Stick to macOS 15, because the FPC package is only officially qualified up to macOS 11 and uses a package format Apple has tightened in newer releases, so it no longer installs on the macos 26 runners. - (0c969da)\nCleanup\n- TbsSeparator TToolButton's now seem to have a default width of 8px (was 6px at some point), and TStatusBar's height now has a default height of 23px (was 28px) - (660c82d)\nLocalize\n- Update compiled .mo translation files - (3480cf4)\nNote\n\nFor a list of all the changes up to date, please read CHANGELOG.md.",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.21",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.21.0.7344",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.21/HeidiSQL_12.21.0.7344_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.21.0.7344_Setup.exe",
+          "sha256": "97acf0344313c11bb89c001425a615722b745669e5ffd542e732c418a00e22ed",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.21/HeidiSQL_12.21.0.7344_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.21.0.7344_Setup.exe",
+          "sha256": "97acf0344313c11bb89c001425a615722b745669e5ffd542e732c418a00e22ed",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.20.0.7320",
+      "release_date": "2026-06-22",
+      "release_notes": "12.20 - 2026-06-22\n⛰️ Features\n- Support some keywords like CURRENT_TIMESTAMP in SQLite default value drop-down - (dbadd37)\n🐛 Bug Fixes\n- SelectUserNode on macOS cannot find a newly created node with a TUser, probably because nodes were refreshed too late in OnBeforePaint - (f6c5d2d)\n- Expect \"IF NOT EXISTS\" clause in trigger definition - (71af8d3)\n- Reveal procedures and function in MySQL which are stored with correct case in mysql.proc - (106010e)\n⚙️ Miscellaneous Tasks\n- Ignore all .po translation files pulled from Transifex - (611212a)\n- Restrict cliff release notes from previous tag to current one, prefer spaces indentation in Makefile variable assignment - (548f44f)\nNote\n\nFor a list of all the changes up to date, please read CHANGELOG.md.",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.20",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.20.0.7320",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.20/HeidiSQL_12.20.0.7320_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.20.0.7320_Setup.exe",
+          "sha256": "b811c5fcc43a8703dc567e0b9b3b86e01cf7a05a53b05addc38c5055549387fa",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.20/HeidiSQL_12.20.0.7320_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.20.0.7320_Setup.exe",
+          "sha256": "b811c5fcc43a8703dc567e0b9b3b86e01cf7a05a53b05addc38c5055549387fa",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.19.0.7314",
+      "release_date": "2026-06-20",
+      "release_notes": "12.19 - 2026-06-20\n⛰️ Features\n- Label the new tab like the selected table, in the \"Select top x rows\" action - (f87cc85)\n🚀 Enhancements\n- Pass LogLevel=error to the SSH command line - (923296d)\n🐛 Bug Fixes\n- (ui) Apply \"disabled painting\" to tree node icons, not to the text which gets unreadable - (4b2f469)\n- Crash in grid export with no focused column and usage of IfThen() which evaluates all arguments before the function is called - (bfe336b)\n- Reveal default text value of SQLite columns - (7f6e368)\n- Do not use INVISIBLE keyword on MariaDB - (fb082b8)\n- Prevent duplicate icons in Linux Alt-Tab by providing StartupWMClass with what xprop told me in the WM_CLASS line - (249c311)\n- Compiler error 4001 on arm64: Incompatible type - (1dbe1ae)\n- Compiler error 4001 and 4025on arm64: Incompatible type for arg no. 1: Got \"SYSTEM.UITYPES.TFontStyles\", expected \"GRAPHICS.TFontStyles\" - (aefc8fb)\n- Compiler error 4001 on arm64: Incompatible types: got \"TFontStyles\" expected \"Set Of TFontStyle\" - (f67445f)\n- Unhide hint on lblPasswordHint - (5f35d41)\n- Initially visible password hint may confuse user - (ed0f932)\n- Set new authentication plugin only if the user changed it, and then hint the user this will reset the password - (4ed89b8)\n- Error dialog due to unsupported SHOW GLOBAL VARIABLES query on MySQL 3.x servers - (49c70f8)\n- Truncate strings on UTF-8 boundaries in StrEllipsis - (2174388)\n- Prevent access violation on session disconnect (nil ActivePage) - (f878277)\n- \"sort alphabetically\" checkbox in column selector does nothing on macOS - (ec2b942)\n- A checkbox does not seem to have Focused on macOS during a mouse-click - (c21f646)\n- Work around mysql bug for \"hidden\" routines in UPPERCASE databases - (f51834c)\n⚙️ Miscellaneous Tasks\n- Add missing download QT6ARM step to release job - (7df0567)\n- Align hostname in Transifex config file with the one in my ~/.transifexrc - (1a316c6)\n- Align Transifex config to current directory structure, and add a client for Windows - (40bfb69)\n- Require new step in release job, fix /tmp naming - (1fb805d)\n- Attempt to compile a QT6 binary for Linux ARM64 / RaspiOS - (5dc2bc4)\nLocalize\n- Update compiled .mo translation files - (ae730a8)\nContributors\n- @ansgarbecker\n- @ in #2514",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.19",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.19.0.7314",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.19/HeidiSQL_12.19.0.7314_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.19.0.7314_Setup.exe",
+          "sha256": "33b45fb3e5311ff4030a5d59a698ee3870033a0a80ba4543a8a71ea63ff51f5e",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.19/HeidiSQL_12.19.0.7314_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.19.0.7314_Setup.exe",
+          "sha256": "33b45fb3e5311ff4030a5d59a698ee3870033a0a80ba4543a8a71ea63ff51f5e",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.18.0.7304",
+      "release_date": "2026-06-09",
+      "release_notes": "12.18 - 2026-06-09\n⛰️ Features\n- (packaging) Create .rpm package through Makefile, plus let GH action run that step in release mode - (fc728cf)\n- Create checkbox in advanced session setting for new ForceUnicode setting - (75a0f7f)\n- Create opt-out setting \"ForceUnicode\", for sessions which shall not force Unicode communication - (ed9a94f)\n- Enable connection port visible in a column of the session tree - (7cfdb97)\n- Display auth plugin in a new column of the user listing tree - (3e4f562)\n- Support authentication plugin selection in user manager - (07112a0)\n- Grid export option for exporting the focused grid column only - (d896680)\n- Bypass automatic foreign key lookup in data grid editing through new menu item - (a5ae04b)\n- Add a separate menu item \"copy formatted text\", using the old code for copying SynEdit-highlighted text as HTML - (84c63c6)\n- Filter edit box for shortcuts in preferences - (fb243fc)\n- Create CLI app for adding PE security flags to heidisql.exe - (3e797e2)\n- Rename snippet per right-click on query helpers tree - (7171e48)\n- Name columns in SELECT when exporting table with invisible columns - (1799b0d)\n- Support invisible indexes on MySQL 8.0+ and ignored indexes on MariaDB 10.6+ - (b3fa484)\n- Support assigning a default role to a user - (96d2aef)\n- Support assigning roles to a user or role - (96717cd)\n- Do not require MySQL's RELOAD privilege just for opening the user manager - (f79d9a5)\n- When nodes are filtered, change \"Check all\" action to \"Change all visible\" - (ebd60b3)\n- Disable role rename, add menu item for creating a role, support role deletion - (83472c5)\n- Prevent editing contents of generated columns in data grid - (9ecdff0)\n- Basic support for MariaDB user roles, loaded without SQL error and shown with a different icon - (3249401)\n- Add context menu item for deleting a single query from the history - (0035d5e)\n- Reset a table's current auto_increment value in \"delete + insert data\" mode - (0422bb3)\n- Support cancelling server login dialog - (e5b9574)\n- Keep EXPLAIN output format traditional, on newer MySQL servers - (90f9937)\n- Make HTML export dark/light mode aware - (dc046e9)\n- Allow setting database to in PostgreSQL connections, and show and in the pulldown selector - (950e2ca)\n🚀 Enhancements\n- Disable plugin selector as long as no user was selected - (54dd7d8)\n- Do not copy default type and value from previous column when adding columns to a table - (42a061d)\n- Suppress dialog for saving modified SQL on app close, when tabs get auto-restored - (4ca01d9)\n- Remove FLUSH PRIVILEGES from the user managers FormShow handler. If a click on a non-flushed user in the tree produces an exception, that is caught and shown as a normal error message. - (fe7a5ef)\n- 50% black grid lines, should fit on both light and dark theme - (1872916)\n- Increase supported table size and row limit for quick filter menu showing distinct values - (48eca57)\n🐛 Bug Fixes\n- (ui) Filter away vertical writing fonts with an @ prefix - (1814ee9)\n- (ui) Size and margin of buttons on SQL help dialog - (61bc258)\n- (ui) Apply the same larger tree node height on Linux - (c770406)\n- (ui) Remove default \"add user\" event from add button, turn it into a pure dropdown button - (d7910c1)\n- Copy table dialog crashes when none of dbtree and listtables has Focused=True - (9216061)\n- Prefer SHOW KEYS over SHOW INDEXES, which are synonyms, while very old servers only accept the one with KEYS - (b97122c)\n- Prevent grid queries from doing \"WHERE intcol::text = 1\", due to \"1\" being incompatible to the text value on the left - (bcea889)\n- Vulnerability CVE-2025-70873, updating SQLite libs to v3.53.1 - (2930be8)\n- Complaint about invalid password length on user plugins which have no fixed password length - (510b141)\n- SUBSTRING() on array typed VARCHARs throw \"function substr(...) does not exist\" - (5f2959d)\n- MS SQL throws \"Cannot drop database xyz, because it is currently in use\" when user is about to drop the current database - (fa2bb05)\n- Wrong tab order after inserting new checkbox in the middle - (59d4f1f)\n- Space missing in CREATE TABLE code of PG table with SERIAL column - (1633c33)\n- Quick filter prompts on numbers break WHERE clause through local formatting - (e7646a0)\n- Restore displayed session name in message dialog caption, was removed in commit:63028518f8b0d5869383d3bc0c42f188851797ed - (a6d6e70)\n- Missing bottom anchor on shortcuts tree - (f8c4bde)\n- Broken ci compilation for Windows - (570fab1)\n- Broken ci compilation, move -WB -WR linker options to the conditionals section of the lpi file - (97ec20b)\n- Turn exception in ParseViewStructure into a log message - (7562a1e)\n- Data grid filter cut with several double-dash comments on one line - (dac7b0e)\n- Hidden input box for line terminator in csv import dialog - (f20d634)\n- Mouse click in edited row calls save action although focus did not change - (b8313e5)\n- SSH command line tweaks, patch from jarczakpawel - (454571e)\n- Broken compilation due encoding update to utf-8: ellipsis char constant seen as string now, instead of char - (26b9696)\n- Replace hardcoded Windows directory separator with DirectorySeparator - (41615e6)\n- Explicitly set client encoding on PG connection - (79c5e4c)\n- MSSQL foreign key lookup to include table schema - (305534d)\n- Wrong ENUM column type detection, due to less strict regex - (e731fd0)\n- Do not start edit mode in ListTables on right mouse button click - (89ccbac)\n- Staying on current table by click on \"follow foreign key\" when the foreign table lives in a different database - (8643172)\n- Some crashes found in uploaded crash reports - (7bed735)\n- Enable save button after changing default role per combobox - (508b139)\n- Support backtick quoted user roles, and some other TValueListEditor related bug fixes - (86ea19c)\n- A few compiler warnings - (c6dffe1)\n- Pre-select nothing in BOOL grid cell editor on PostgreSQL - (1895959)\n- Allow non existent SQLite files, only complain when its path does not exist - (02cf4cb)\n- Solution for #2431 breaks other stuff, reverting a part of it - (e940863)\n- Editing table data on mysql versions without generated column support - (32f3e6b)\n- EAbort crash when copying text from SynEdit without a highlighter - (6c219b9)\n- Missing anchors and autosize in user manager form - (91b90bc)\n- Reset tree refresh marker earlier, so SetActiveDatabase triggers events and hides the table + data tab after dropping tables - (d2c9c96)\n- Prevent crash due to unsupported edit-database feature on MS SQL - (68aeb96)\n- Clear data grid before indicating a broken or temporary table for which we get no columns from IS.COLUMNS - (b4ec223)\n- Populate SSH executable combo with only a global \"ssh\" command, do not add .exe files on Linux and macOS - (37f57ce)\n- Call to non existent inherited constructor version of TSQLBatch - (b2f4d5b)\n- TSQLBatch using backslash for escaping single quotes on all server types. Introduce server type specific TSQLBatch.FEscape char. - (e9af525)\n- Crash in SQL export to database for zero length SQL, plus upgrade old-style string handling - (056b5e9)\n- Do not delete selected SQL text from editor when trying to focus the position of erroneous SQL - (f5c5f33)\n- Crash after canceling query - (ee16571)\n🚜 Refactor\n- Convert remaining latin1 unit to utf-8 - (85fb0bd)\n- Sync from master - (9727d53)\n- Revert most of what I did for #2424 - (3d547fd)\n- Prefer qAutoInc in SQLProvider over dedicated AutoIncName method - (2fbb779)\n- Simplify some more calls to Query() with the overloaded variants - (b0ab0fc)\n- Convert more TFeatureOrRequirement's to TQueryId - (9f21853)\nLocalize\n- Update compiled .mo translation files - (53f95d2)\nContributors\n- @ansgarbecker\nNew Contributors ❤️\n- @jonathanp12 made their first contribution",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.18",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.18.0.7304",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.18/HeidiSQL_12.18.0.7304_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.18.0.7304_Setup.exe",
+          "sha256": "2ef48652853a353277aa2d671d955a4c90e4768da810901bad1f902c091fdff9",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.18/HeidiSQL_12.18.0.7304_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.18.0.7304_Setup.exe",
+          "sha256": "2ef48652853a353277aa2d671d955a4c90e4768da810901bad1f902c091fdff9",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.17.0.7270",
+      "release_date": "2026-04-12",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/12.17",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.17.0.7270",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/12.17/HeidiSQL_12.17.0.7270_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.17.0.7270_Setup.exe",
+          "sha256": "938e9f8b364bf23d19c329b5eda49c654e4b80d1bd91de113b42687f5831b48d",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/12.17/HeidiSQL_12.17.0.7270_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.17.0.7270_Setup.exe",
+          "sha256": "938e9f8b364bf23d19c329b5eda49c654e4b80d1bd91de113b42687f5831b48d",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.16.0.7229",
+      "release_date": "2026-03-10",
+      "release_notes": "12.16 - 2026-03-10\n⛰️ Features\n- (packaging) Add libqt6pas dependency - (a3e6d0b)\n- (packaging) Ship qt6 build in deb package, enhance control file fields - (992b673)\n- (ui) Turn all TEdit's with NumbersOnly into TSpinEditEx - (96bb466)\n- Select just created table copy - (18e9431)\n- Add toolbar button for toggling reverse foreign key listing, so the user has the chance to disable its potentially long during query - (938f303)\n- Reverse foreign keys on \"Foreign keys\" tab in table editor - (ca48343)\n- Add menu item Edit > Copy column names - (ce93931)\n- Prevent loading an SQL file multiple times into an editor - (153e61d)\n- Add sshpass.exe v1.0.6 for Windows, and refactor Windows installer script - (d79d462)\n- Inject app name and version into potentially long during SQL queries for the SQL export - (93e1b39)\n- Run user startup script in DoAfterConnect call, which includes reconnects - (1b27b1d)\n- Add \"Display\" main menu, move some spread items there, and add two items for toggling log panel and tree filters - (c0fbcff)\n- Support BOOLEAN column type in MySQL - (e796ad1)\n- Re-enable clickable \"Analyze query\" label on host > processes - (678c7b8)\n- Create SQL export option for wrapping DML commands in a BEGIN/COMMIT transaction - (5560454)\n- Display approximate row count of tables in database tab on MS SQL - (146044f)\n- Support full table status option in SQLite, showing \"Rows\" from COUNT(*) for each table - (422935a)\n- Add security policy for supported versions and reporting - (7ce4a23)\n- Prefer KILL QUERY over KILL on MySQL and MariaDB, when using the \"Kill process\" menu item in Host > processlist - (b3743d8)\n- New attempt to leave the main window invisible behind the session manager - (be5322c)\n- Show virtual, stored and hidden columns in SQLite - (0a87a73)\n🚀 Enhancements\n- Move color scheme submenu from Tools to Display menu - (f7f90e8)\n- Export tables which are hidden through the table filter - (42e5277)\n🐛 Bug Fixes\n- Crash on macOS, due to running Connection.ShowWarnings directly in the TQueryThread - (d62807a)\n- Less aggressive debug compile mode, made the app unresponsive when trying to close - (8d48099)\n- Two more exception causes found in uploaded reports - (e33ea1d)\n- Sporadic \"no database selected\" when updating grid header with row details - (c9eb765)\n- Wrong use of Copy(), which is one-based not zero-based, and remove translated appendix to snipped log message which may use critical chars and confuse SynEdit - (e3fc3f5)\n- Various crash causes, reported in uploaded bug reports - (6215d19)\n- Missing required package LazControls for TSpinEditEx - (519a84a)\n- Remove default keystrokes from query editor: 2x ecRedo and 1x ecDeleteLine - (2bc9d78)\n- Wrong SQL on MS SQL when renaming table per table editor - (a763fd1)\n- Use default brew path to sshpass on macOS - (b7c3d07)\n- Status bar text gets written into the panel right besides the current one, on Linux/macOS - (dfb86d5)\n- Several crash causes Host subtabs when connection is lost externally - (1029657)\n- Non stored global setting for \"sort alphabetically\" checkbox in column selection - (0ccb1ac)\n- High CPU load and unresponsiveness through SynEdit highlighter when starting to edit large text in popup editor - (676fcd7)\n- Crash when enabling TShellListView.MultiSelect in OnFormShow, now sets options per setter method, before FormShow - (2acce35)\n- Crash on right-click in empty area of query result grid - (6309305)\n- Data grid context menu not opening after click in empty area - (10fc117)\n- Repaint columns list after move up/down a column - (6a0cbe3)\n- Out-of-memory error in call to sqlite3_open() on a non-existent SQLite database file - (e93924f)\n- Font bold + italic setting not stored in settings - (cc5b811)\n- Potentially crashing typecast in LoadRecentFilter - (da07591)\n- Non-themed white area on TTabControl, fix from https://github.com/zamtmn/metadarkstyle/issues/75 - (7554364)\n- Forgotten files in c01a439ce5f3bd4b4ec748937175e6045e8d935e - (8098296)\n- Initial FK names assigned in TfrmTableEditor.listForeignKeysNewText() were lacking the referencing table's table name in case the referencing table was not created yet (pr from Jochen Neubeck) - (d8cd61c)\n- Wrong schema queries in SQLite, always shows columns and indexes of first database file - (7072986)\n- BIT values in MS SQL grid queries prefixed with MySQL b'' style - (7456c38)\n- Random crash in dodgy typecast TEdit/TEditButton - (37add0f)\n- Crash when moving added column to very bottom - (b739799)\n- Load any foreign keys, anyway if the user owns them, on PostgreSQL - (dbab4cb)\n- Wrong captions on quick filter actions shown in preferences > shortcuts - (3e0bf91)\n- Crash in OpenTextFile, for a 0-bytes file - override the encoding to one without BOM - (27e26a6)\n- Keep column default value in table editor, when user changes its datatype to one in the same category as before (int ⇒ bigint) - (3c518ad)\n- Trim away spaces around name of routine parameter silently - (b681ebf)\n- Re-enable dropping sql files on main form - (314db47)\n- Missing translations, and rephrase the \"themes not supported\" text - (7dfad02)\n- TDBQuery.TableName always returned an empty string on MS SQL - (520a90c)\n- TDBQuery.Col() crashes with \"Column not available\" on certain locales - (a01acd1)\n- Reset DesignTimePPI in all forms from 120 to the default 96, let the IDE scale controls down and move or add some defaults like LCLVersion. - (e635ae5)\n- Allow $$ as delimiter again on non-PostgreSQL connections, and ` on non-MySQL connections - (71bb25b)\n🚜 Refactor\n- Migration from Array[TSQLSpecifityId] to TSqlProvider - (31ba8bf)\n📚 Documentation\n- (ui) Mark VCL styles as deprecated - (1ce80ea)\n🎨 Styling\n- (ui) Remove border around reverse foreign key list - (6ed145e)\n⚙️ Miscellaneous Tasks\n- Bump version for v12.16 release - (d141124)\n- Move OpenSSL license file out of the dll folder - (5772d09)\n- Add Wine deprecation note used in the Windows builds - (5e34fa9)\nLocalize\n- Update compiled translation files from Transifex - (a5f1a19)\nUi\n- Hint the user in which path we are going to look for sshpass (macOS and Windows) - (86a96bd)\nContributors\n- @ansgarbecker",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.16",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.16.0.7229",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.16/HeidiSQL_12.16.0.7229_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.16.0.7229_Setup.exe",
+          "sha256": "d6632c9fb7041aa6cf9b7f72e36b8cf7c5c5b5aac14265c7d55a39ea32613a91",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.16/HeidiSQL_12.16.0.7229_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.16.0.7229_Setup.exe",
+          "sha256": "d6632c9fb7041aa6cf9b7f72e36b8cf7c5c5b5aac14265c7d55a39ea32613a91",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.15.0.7171",
+      "release_date": "2026-01-30",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.15.1.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.15.0.7171",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.15.1.1/HeidiSQL_12.15.0.7171_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.15.0.7171_Setup.exe",
+          "sha256": "1b46636e7d9e3a101e7062d9ea5f870bfea7f8906b1feb373c586c6ed4b82e40",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.15.1.1/HeidiSQL_12.15.0.7171_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.15.0.7171_Setup.exe",
+          "sha256": "1b46636e7d9e3a101e7062d9ea5f870bfea7f8906b1feb373c586c6ed4b82e40",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.14.0.7165",
+      "release_date": "2025-12-11",
+      "release_notes": "Note: You can already get a preview of v13 for Windows, built on the same codebase as the Linux version. See the\ndownload page for a zip package.\n3rd party updates:\n- update SQLite library to v3.51.0\nBugfixes and enhancements:\n- fix: crash when grid-exporting without required key (issue #2311)\n- fix: cannot save new table when added column was removed (issue #2326)\n- fix: delete CLI-created session settings from registry after disconnect (issue #2162)\n- fix: query batch stops at second last query if it has errors but StopOnErrors is off (issue #2317)\n- feat: support SSH tunnel configuration per commandline (issue #2322)\n- disable tree option asDoubleClickInsertsNodeText by default (issue #2307)\n- fix: require elevation per build button only if app directory is not writable by user (issue #2305)\n- feat: keep time fractions intact for CSV exports (issue #2098)\n- fix: crash in AnyGridPaintText with no query result\n- feat: show NULL values in system variables listing (issue #1281)\n- feat: highlight same text in grids based on all selected rows\n- fix: crash in printer dialog with 0 printers available (issue #2283)\n- feat: support fractional UNIX timestamps in grids (issue #884)\n- feat: add \"source table: xyz\" hint to query result column headers https://www.heidisql.com/forum.php?t=44554",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.14.0.7164",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.14.0.7165",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.14.0.7164/HeidiSQL_12.14.0.7165_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.14.0.7165_Setup.exe",
+          "sha256": "c21749db01d35d807ac986a827be5b6647b1fe9ee5909a46b0854d8090e713b3",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/HeidiSQL/HeidiSQL/releases/download/v12.14.0.7164/HeidiSQL_12.14.0.7165_Setup.exe",
+          "host": "github.com",
+          "filename": "HeidiSQL_12.14.0.7165_Setup.exe",
+          "sha256": "c21749db01d35d807ac986a827be5b6647b1fe9ee5909a46b0854d8090e713b3",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "HeidiSQL_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.13",
+      "release_date": "2025-11-03",
+      "release_notes": "Get it from the release page on Github:\n- Windows: https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.13.0.7147\n- Linux: https://github.com/HeidiSQL/HeidiSQL/releases/tag/v12.13.1.1\nThe v12.13 files are now hosted on the Github release pages, in the \"Assets\" area.\nNew stuff:\n- Linux releases are built through Github Actions, in QT5 and GTK2 variants. A big thank you goes to Gus for making this happen!!\n- feat: sort sessions and folders according to user locale (issue #1828)\n- feat: sort session folders at top per setting (issue #1828)\n- feat: filter box in user manager (issue #2275)\n- add checkbox \"Open file after creation\" to grid export dialog (issue #912)\nBugfixes and enhancements:\n- fix: sort empty session folders like non-empty ones (issue #1828)\n- fix: set modified flag after move per button (issue #2220)\n- fix: column reordering per drag and drop (issue #2220)\n- fix: list procedures in PostgreSQL(issue #2278)\n- fix: missing DELETE HISTORY privilege on MariaDB (issue #1026)\n- fix: prevent crash in auto-refresh action (issue #1060)\n- fix: bad message with no library selected (issue #1020)\n- Table data generator: generate missing values for geometry columns\n- allow modify length of index with binary column (issue #900)\n- fix no longer working move up/down of selected columns, see https://www.heidisql.com/forum.php?t=44467 (issue #2220)\n- end global \"edit function\" mode for grid editing early (issue #875)\n- take care for escaped ENUM definitions (issue #799)\n- work around non-greedy expression when extracting the return data type of a stored function with a space in it. (issue #768)\n- safety replacement for folder separator when renaming a session or folder (issue #682)\n- leave away schema when double-click table for inserting into query editor (issue #551)\n- fix sticky empty-password warning after setting a non-empty one (issue #441)\n- allow sorting columns in table designer by click on their header (issue #2220)\n- ignore semicolon between double-dollar quoted strings when separating SQL queries by semicolon, e.g. $$ foo; bar $$ (issue #1326)",
+      "release_notes_url": "https://www.heidisql.com/forum.php?t=44532",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.13.0.7147_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.13.0.7147_Setup.exe",
+          "sha256": "aa0810276401d650950b85dbee0079be1363c10ddce91b357e25377148c59fcb",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.13.0.7147_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.13.0.7147_Setup.exe",
+          "sha256": "aa0810276401d650950b85dbee0079be1363c10ddce91b357e25377148c59fcb",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.12",
+      "release_date": "2025-10-06",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.12.0.7122_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.12.0.7122_Setup.exe",
+          "sha256": "0a877afba8aef7413791d0d43d0d45d3641fc8d995ae4ce6254b90dc600baea8",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.12.0.7122_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.12.0.7122_Setup.exe",
+          "sha256": "0a877afba8aef7413791d0d43d0d45d3641fc8d995ae4ce6254b90dc600baea8",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.11",
+      "release_date": "2025-06-09",
+      "release_notes_url": "https://www.heidisql.com/forum.php?t=43871",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.11.0.7065_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.11.0.7065_Setup.exe",
+          "sha256": "db670b2122b5bcc407f5b9cca37289b4d8bac1b658ad7213988d014b4e183590",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.11.0.7065_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.11.0.7065_Setup.exe",
+          "sha256": "db670b2122b5bcc407f5b9cca37289b4d8bac1b658ad7213988d014b4e183590",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.10",
+      "release_date": "2025-01-21",
+      "release_notes": "3rd party updates:\n- Issue #2076: exchange 32 bit SSL libraries with their 64 bit pendants, fixing SSL connections with libpq and libmariadb",
+      "release_notes_url": "https://www.heidisql.com/forum.php?t=43871",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.10.0.7000_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.10.0.7000_Setup.exe",
+          "sha256": "5dc23998f6e82a157ea07a3577e390fbcac35174b47cd668038640500ea84573",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.10.0.7000_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.10.0.7000_Setup.exe",
+          "sha256": "5dc23998f6e82a157ea07a3577e390fbcac35174b47cd668038640500ea84573",
+          "product_code": "HeidiSQL_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.9.0.6999_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.9.0.6999_Setup.exe",
+          "sha256": "5f6b3fa95327927f2b6e5a02e9044680218323119f45e164295e4763196b5ac4",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/VERYSILENT /ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.8",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.8.0.6908_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.8.0.6908_Setup.exe",
+          "sha256": "0f47ca8662511f6182fb5580953cf4b098b5aa8fc1bbe1ff32eb5a1c5052286a",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/VERYSILENT /ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.7",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.7.0.6850_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.7.0.6850_Setup.exe",
+          "sha256": "0c2cdd45c4bf69a51dab5f6ab3ec231b3ee072eb6fe70f47a379164a221a1ae7",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/VERYSILENT /ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.6",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.6.0.6765_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.6.0.6765_Setup.exe",
+          "sha256": "6d6e25348eb5c879ca35ac49cbe808a253c03b5ce229b2b12eec4866301c0dd6",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/VERYSILENT /ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.5",
+      "release_date": "2023-05-08",
+      "release_notes_url": "https://github.com/HeidiSQL/HeidiSQL/releases/tag/12.5",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.5.0.6677_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.5.0.6677_Setup.exe",
+          "sha256": "b8d4840ff581ef54d06db0328f8e98ec16af91a9a8e15a758a273422452751ee",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/VERYSILENT /ALLUSERS",
+            "silent_with_progress": "/SILENT /ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.4",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.4.0.6659_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.4.0.6659_Setup.exe",
+          "sha256": "205da1014259b36891981b1044f5429412b9a3050dfc2e2864b9fd724200f227",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/VERYSILENT /ALLUSERS",
+            "silent_with_progress": "/SILENT /ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.3",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.3.0.6589_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.3.0.6589_Setup.exe",
+          "sha256": "6bd45948eed317b0ab59989a7af0f76c4aa7b9c6d79b5a5e7760888ba6a67c79",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.1",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.1.0.6537_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.1.0.6537_Setup.exe",
+          "sha256": "cf3deeb4345a6a9431701030b649a3732779acb173b8a349a4e45e347a9aa37e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_12.0.0.6468_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_12.0.0.6468_Setup.exe",
+          "sha256": "f6d1791ec940f0a4b83e2c33de1312e889beedcdaf43c85cd700b7d69f51ec08",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "11.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/11.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_11.3.0.6295_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_11.3.0.6295_Setup.exe",
+          "sha256": "c1dc9c2779c2e4a0fa171c70dda1446b7c97faf60ee47a24d476b527b62b4299",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "11.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/11.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_11.2.0.6213_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_11.2.0.6213_Setup.exe",
+          "sha256": "e449425684b38ce52e87ffcba1227002118ddc23ee8eedf50a4ff845cb06d850",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "11.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_11.1.0.6116_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_11.1.0.6116_Setup.exe",
+          "sha256": "c3bdc65c3da06669ec91149c40877db28e407f0fdd8bf6c64ccf5f48bd533b7a",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "11.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/h/HeidiSQL/HeidiSQL/11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "inno",
+          "url": "https://www.heidisql.com/installers/HeidiSQL_11.0.0.5919_Setup.exe",
+          "host": "www.heidisql.com",
+          "filename": "HeidiSQL_11.0.0.5919_Setup.exe",
+          "sha256": "2ee3b8ae04681bd0e3717e88bc6c79cd6d26ece6fa73f6d10b58be171cd1ce23",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "7a9b34a267ed1ac18e4d30d41bd8308c72ad8e9e",
+      "retrieved_at": "2026-11-06T12:14:36.662Z",
+      "path": "manifests/h/HeidiSQL/HeidiSQL"
+    }
+  ]
+}

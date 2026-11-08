@@ -1,0 +1,1679 @@
+{
+  "schema_version": 2,
+  "slug": "sourcetree",
+  "name": "Sourcetree",
+  "publisher": "Atlassian",
+  "author": "Atlassian Pty Ltd",
+  "ids": {
+    "winget": "Atlassian.Sourcetree",
+    "moniker": "sourcetree",
+    "homebrew_cask": "sourcetree"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Sourcetree simplifies how you interact with your Git repositories so you can focus on coding. Visualize and manage your repositories through Sourcetree's simple Git GUI.",
+  "tags": [
+    "git",
+    "git-client",
+    "git-gui",
+    "mercurial",
+    "source-control",
+    "source-control-client"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.sourcetreeapp.com/",
+    "publisher": "https://www.atlassian.com/",
+    "support": "https://support.atlassian.com/sourcetree",
+    "privacy": "https://www.atlassian.com/legal/privacy-policy",
+    "release_notes": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.33.html",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://confluence.atlassian.com/get-started-with-sourcetree"
+      }
+    ]
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://www.atlassian.com/legal/software-license-agreement",
+    "copyright": "Copyright Atlassian 2012-2026. All rights reserved.",
+    "copyright_url": "https://www.atlassian.com/legal/software-license-agreement"
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "3.4.33",
+    "macos": "4.2.20"
+  },
+  "last_updated": "2026-10-31",
+  "versions_total": {
+    "windows": 33,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "3.4.33",
+      "release_date": "2026-10-31",
+      "release_notes": "- Fixed: Push and Pull operations ignoring branch tracking remote\n- Fixed: Selected commit position lost or jumping after fetch operation\n- Fixed: Vulnerability allowing Remote Code Execution via Mercurial repository trust check bypass\n- Fixed: Vulnerability allowing Remote Code Execution via untrusted diff configuration in .git/config\n- Fixed: Vulnerability causing coerced NTLM authentication via sourcetree:// URI handler\n- Fixed: Vulnerability causing command execution via Git-flow release and hotfix branch names\n- Fixed: Vulnerability with incomplete Git configuration checks in repository trust prompt\n- Fixed: kdiff3 location resetting to legacy executable path",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.33.html",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.33",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.33.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.33.exe",
+          "sha256": "5d31605b0ad83ae5d3a8736326fa485594c4f623686bc1c8a5e37ae1b24e2d80",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.33.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.33.exe",
+          "sha256": "5d31605b0ad83ae5d3a8736326fa485594c4f623686bc1c8a5e37ae1b24e2d80",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.33.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.33.msi",
+          "sha256": "25d2039f5df02ce813959ddba67e88b58c4277144011507161beb5f49cb78e2c",
+          "product_code": "{12E69714-2A1D-4599-90E3-922FE341278C}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.32",
+      "release_date": "2026-08-28",
+      "release_notes": "- Changes: Added support for rotating OAuth refresh tokens and handling of oversized tokens stored in Windows Credential Manager\n- Fixed: Allow disabling AutoStartSSHAgent when using OpenSSH to support external ssh-agent\n- Fixed: Branch filter preference not saved and resets to \"All Branches\" on restart\n- Fixed: Checkout fails to discard pending submodule changes\n- Fixed: Custom action parameter $BRANCH not always properly replaced\n- Fixed: Jump to Commit not working on first attempt in large repositories\n- Fixed: Opening two repositories with the same folder name simultaneously not supported\n- Fixed: Renaming repository from New Tab screen fails when repository list is filtered\n- Fixed: Search/View in Full Log no longer working",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.32.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.32",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.32.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.32.exe",
+          "sha256": "251bad0cf221c109da8ece913b9258b3ac498bdc7b6e9ea083e6cc1a3f8356a8",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.32.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.32.exe",
+          "sha256": "251bad0cf221c109da8ece913b9258b3ac498bdc7b6e9ea083e6cc1a3f8356a8",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.32.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.32.msi",
+          "sha256": "2dfeae7ab4ec6a11de12b65d2a59221d55bbb6be517dac39a493e34bac16e740",
+          "product_code": "{FDD2D8AF-17CD-4B6A-8AF3-D1E8092F19BF}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.31",
+      "release_date": "2026-06-09",
+      "release_notes": "- Changes: Added support for force fetching tags from the Fetch and Pull dialog\n- Changes: GitLab integration to support viewing repositories by group\n- Fixed: Branch colors in the history graph changed after interactions\n- Fixed: GitLab repositories not appearing or being searchable in the Remote Repositories view",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.31.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.31",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.31.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.31.exe",
+          "sha256": "90c1634a01e8e3b6f6745b5bb5a484987b3902f9f922bd24021b12f7d14e47f0",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.31.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.31.exe",
+          "sha256": "90c1634a01e8e3b6f6745b5bb5a484987b3902f9f922bd24021b12f7d14e47f0",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.31.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.31.msi",
+          "sha256": "d7c9845869072f9c0d10dc703fbf4ab25b21e4b1b01bd7c422920e99c2e2fcd2",
+          "product_code": "{FEC9F8C8-2FAF-4943-BD94-8CB7F5AB17BE}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.30",
+      "release_date": "2026-03-07",
+      "release_notes": "- Fixed: Commit history not refreshing\n- Fixed: ShowRemoteBranch and AllBranches views not working",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.30.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.30",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.30.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.30.exe",
+          "sha256": "07271493c0de23157563b10151db1f9fd7cc8bfcf2507ea3894087e5f9c3529f",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.30.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.30.exe",
+          "sha256": "07271493c0de23157563b10151db1f9fd7cc8bfcf2507ea3894087e5f9c3529f",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.30.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.30.msi",
+          "sha256": "137bd80ac026e6eca635a85fdc66cea5ff66b4ec0b7ffa86ef49be8e359a5fb0",
+          "product_code": "{933E52FB-5447-4CDB-B81B-B57CD98E9530}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.29",
+      "release_date": "2026-02-26",
+      "release_notes": "- Changes: Breaking Changes : Replace Deprecated BBC Cross-Workspace API's\n- Fixed: About box link to official PuTTY website\n- Fixed: File selection behavior in preview and conflict resolution\n- Fixed: Grammar in invalid clone path error message\n- Fixed: Sourcetree gets stuck loading some commits",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.29.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.29",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.29.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.29.exe",
+          "sha256": "c4ceaf5daccd4a6e3389721e78c9ea1e25a559d254c5dc95de9ac8ad04b4bbdd",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.29.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.29.exe",
+          "sha256": "c4ceaf5daccd4a6e3389721e78c9ea1e25a559d254c5dc95de9ac8ad04b4bbdd",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.29.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.29.msi",
+          "sha256": "bb37cdf2006e6351338866e5da6926a12de9f24ad10124362b1c312a3f6ff85b",
+          "product_code": "{136C44FB-7F7C-4A49-9E57-0EB6B17D0321}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.28",
+      "release_date": "2026-01-16",
+      "release_notes": "- Fixed: SourceTree Windows EXE Signing Expiration\n- Fixed: SourceTree doesn't deselect files that are off-screen\n- Fixed: Tags appear in Git log even when \"Show tag labels\" option is unchecked",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.28.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.28",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.28.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.28.exe",
+          "sha256": "eec235a9b7ca72de0b263df3a22a88c8832d54782ca7a3bbff83597dabdb6a2a",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.28.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.28.exe",
+          "sha256": "eec235a9b7ca72de0b263df3a22a88c8832d54782ca7a3bbff83597dabdb6a2a",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.28.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.28.msi",
+          "sha256": "950d4f93aa8bfed389bade9a81684411aedca39ecec76576289bfc9d9999df29",
+          "product_code": "{92BFBBCF-2F4D-4A59-80EC-6C42A4B5118C}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.27",
+      "release_date": "2025-12-04",
+      "release_notes": "- Changes: Added Shortcut Support for Custom Actions\n- Changes: Enhanced Log/History with Selectable Branch Filtering\n- Fixed: Affecting Interactive Rebasing of Child Commits\n- Fixed: Double-Click Diff Action Restored\n- Fixed: Enhanced SourceTree UI for managing autocrlf Values\n- Fixed: Mislabeled Tooltip for “Trust Exit Code”\n- Fixed: Tree View Sort Order Reset in File Status\n- Fixed: Updated Bundled 7-Zip to Address Vulnerabilities\n- Fixed: “Intent to Add” files disappearing from File Status View",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.27.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.27",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.27.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.27.exe",
+          "sha256": "06552ee1a1182188a1760a20c42581b847f9c5a053cecafc0d8058a17595083e",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.27.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.27.exe",
+          "sha256": "06552ee1a1182188a1760a20c42581b847f9c5a053cecafc0d8058a17595083e",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.27.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.27.msi",
+          "sha256": "8999c801177338dab61680b1d80c6f2e131f6a8220565425203e87f2b60da659",
+          "product_code": "{9494D5D9-73A3-4F89-8E7F-7A3426DE6C36}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.26",
+      "release_date": "2025-09-30",
+      "release_notes": "- Fixed: Double-click option incorrectly affected \"Open File\" in context menu\n- Fixed: Embedded Git functionality stability",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.26.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.26",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.26.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.26.exe",
+          "sha256": "f1ddb7461a886af858fcf5e6e964d2d6c32d545a09fe94df1a3dbfbd0cfa05cd",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.26.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.26.exe",
+          "sha256": "f1ddb7461a886af858fcf5e6e964d2d6c32d545a09fe94df1a3dbfbd0cfa05cd",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.26.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.26.msi",
+          "sha256": "09baf3d7a6915d24210f6d97848e87d96cdd6126be64cc0cae98669bc7dcb4a1",
+          "product_code": "{0483B93A-6CB7-4122-909C-ECE342356D97}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.25",
+      "release_date": "2025-09-12",
+      "release_notes": "- Changes: Missing Italian translation\n- Changes: Upgrade to Git 2.51.0 and Git LFS to 3.7.0\n- Fixed: Incompatibility with roaming profiles\n- Fixed: Mercurial.zip repeatedly downloaded and extracted on launch when spellcheck is enabled\n- Fixed: Validation error when saving edited custom actions",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.25.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.25",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.25.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.25.exe",
+          "sha256": "372df01361e288f8cbdf0847f3a93e9ede85ca9393cbee690990fa5a14ab3d81",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.25.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.25.exe",
+          "sha256": "372df01361e288f8cbdf0847f3a93e9ede85ca9393cbee690990fa5a14ab3d81",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.25.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.25.msi",
+          "sha256": "aa60cb1895bd2c0665b1bc873410b36fccc9ef98adb0b11f47a32c2e69f350bd",
+          "product_code": "{49CCADB7-1254-46E2-ABB4-00BAA6EFC456}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.24",
+      "release_date": "2025-07-19",
+      "release_notes": "- Changes: Added support for stashing only selected or staged files\n- Changes: Addressed high CPU usage by SSH-Agent.exe\n- Changes: Allow using Esc as a hotkey for closing message dialogs\n- Changes: Introduced support for API Token-based authentication\n- Fixed: Commit history time display to 24-Hour format for better clarity\n- Fixed: Commit section doesn't update username after refresh\n- Fixed: Delay when closing settings window\n- Fixed: Interactive rebase failing on Cyrillic repository paths\n- Fixed: Italian language support with updated translations\n- Fixed: Japanese language support with updated translations\n- Fixed: Remote repositories filter not working correctly\n- Fixed: Repositories appearing multiple times after account switch\n- Fixed: Vulnerability Causing NTLM Hash Exposure During Clone",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.24.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.24",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.24.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.24.exe",
+          "sha256": "b17096a7f6159077b6b88cdee0df29516beff4a576b9c54fa1d97bf1ccb6a912",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.24.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.24.exe",
+          "sha256": "b17096a7f6159077b6b88cdee0df29516beff4a576b9c54fa1d97bf1ccb6a912",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.24.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.24.msi",
+          "sha256": "cc0b7d197be318a42a7041cf007910b3a350b6e72762f8e2b6195a81fae04414",
+          "product_code": "{30C41AAA-0961-4389-8C77-167E13C07FA6}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.23",
+      "release_date": "2025-07-14",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.23",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.23.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.23.exe",
+          "sha256": "5f52bf46ecbebb8483a89f5b0a4ed23f8aa74087242fc46ea2a471b2cfaaee3e",
+          "product_code": "SourceTree",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.23.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.23.msi",
+          "sha256": "e0df41d50c0601506ed5e4876e95ffe64a5bd3051f131b996baef99eb48ddfc1",
+          "product_code": "{25F5619F-7E3A-4108-8422-86FD8B10B7C7}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "sourcetree"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Sourcetree Enterprise",
+              "product_code": "{25F5619F-7E3A-4108-8422-86FD8B10B7C7}",
+              "upgrade_code": "{E18DCCFE-AFC4-42A5-A020-1FF11BF12D39}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.21",
+      "release_date": "2024-11-13",
+      "release_notes_url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.21.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.21",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.21.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.21.exe",
+          "sha256": "503d4c1fbad714acda48b76dbbbfc7f1cf64f3bd73fb3bae887f8024cd93c8ee",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.21.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.21.msi",
+          "sha256": "7aec40ffa4e28210c49467c56b5679934094e4b861557ec71b6776f419b0e125",
+          "product_code": "{8A756017-B20E-444E-A184-2DFF6CEA85FF}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.20",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.20",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.20.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.20.exe",
+          "sha256": "68653f8c5eb3d4026243b5625d7ddd59bfa8a837b5ab6028649cc6c3424f3137",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.20.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.20.msi",
+          "sha256": "5fbd954b9bf29324e60857ef7fdd6bb8993cf59926dfd3a24588f2a2be732531",
+          "product_code": "{639C331B-FFD1-46FD-A090-036C56BED0C4}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.19",
+      "release_notes_url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.19.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.19",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.19.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.19.exe",
+          "sha256": "8d6d66e4c5079bbd512269029a2d992f20a6696c5782dcb02397a823905f4505",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.19.msi",
+          "host": "downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.19.msi",
+          "sha256": "142bfaf194db72cf1ed46cbbef1f25576e85c03a408048d90259d9c07973b937",
+          "product_code": "{10940B1F-F37F-4645-B223-99EFF3E30C35}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.18",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.18",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.18.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.18.exe",
+          "sha256": "31eac396d507bd88dd659ce6b86283423e7e43fbae6eaea00336a11ef9ef97ad",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.18.msi",
+          "host": "downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.18.msi",
+          "sha256": "e78c75358ea780749567f325926993ed5bad7e06b3f24ecf162a1aeb2f1b886d",
+          "product_code": "{5EF01086-3907-4002-92C9-44B3069A7E8C}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.17",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.17.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.17.exe",
+          "sha256": "e6c7ac39dec6cf2d53bd0644422b7f7de2c8a3f50c89ec58b19718b03eb9f708",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.17.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.17.msi",
+          "sha256": "d927b4e425c6b7abc1a2b685d5dd3a110613f727038cbf172c7a6d183b4c290d",
+          "product_code": "{98D417FA-08D5-4108-A7E8-9D8010F780A7}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.16",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.16.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.16.exe",
+          "sha256": "ed334caf94ce826f1e46d177818fbd246d4d4e1c2691f2226e1aa72452666335",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourcetreeEnterpriseSetup_3.4.16.msi",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourcetreeEnterpriseSetup_3.4.16.msi",
+          "sha256": "5cf870928372e04415ec86a573fa416f1d6af0830cd15db814cc962a93d1de9e",
+          "product_code": "{C3B8C171-79F2-4CF6-8455-738642350BA3}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "ACCEPTEULA=1"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.15",
+      "release_date": "2023-09-27",
+      "release_notes_url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.15.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.15.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.15.exe",
+          "sha256": "07c7cd8f9ca486f8ab249a2c3f5cda249d592a9cd06d2cfb91141d8a5a636712",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.14",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.14.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.14.exe",
+          "sha256": "ab4df2b7c8a8ceadc499934d95b416269e59e52d01d4d709679e814577f56972",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.13",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.13.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.13.exe",
+          "sha256": "e90151dac5ebf5defabc33231d2ebbc202a03480bfa544b59ddea604bd50a2e9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.12",
+      "release_notes_url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.12.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.12.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.12.exe",
+          "sha256": "8d1024eba6c56f951eb99d26512160d259419df04e68785383ded33af4260531",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.11",
+      "release_notes_url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.11.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.11.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.11.exe",
+          "sha256": "a293c54ddd89602593b9068f12012b2e213ae38146618c5d942819b3297a5811",
+          "product_code": "SourceTree",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.10",
+      "release_notes_url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/ReleaseNotes_3.4.10.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.10.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.10.exe",
+          "sha256": "57af0ce69ba06767d69bcc5ffbb1f7b63d27bc7a9daa8713af0d25376222b23f",
+          "product_code": "SourceTree",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.9.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.9.exe",
+          "sha256": "032ca4263a63e98e0c22ba17120a453d250219b11d92e7366b03544ab121c605",
+          "product_code": "SourceTree",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.8.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.8.exe",
+          "sha256": "f466e8b0c0a5939a585c8e15fe241541db6fab69bd93fe6d28a396538a9ef8f4",
+          "product_code": "SourceTree",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.7.exe",
+          "host": "product-downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.7.exe",
+          "sha256": "115f2ea206cdc1142865ba8fb11d3a8d6d20ace9b82a5fe5ccce8806c996b7c5",
+          "product_code": "SourceTree",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.6.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.6.exe",
+          "sha256": "c63a682ba9bd3d83815554d88e7f2c694efec90b38f7d2d7b04b366b99de6a85",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.5.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.5.exe",
+          "sha256": "d13961f40dc06207acd435314e34b461aa4f736bbcc9e72e0e3f9de5a7ab2a13",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.4.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.4.exe",
+          "sha256": "d07af1ca48574b5a1c8b067b50e733e3b31ef3f6dffd7ee8775ea61ad7571eae"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.3.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.3.exe",
+          "sha256": "05e3ccfc3c1dcd766b124b2ca1bb64e98e82e745e3cd28e5ad44b76227d2d9e0",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.4.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.4.1.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.4.1.exe",
+          "sha256": "c00187ce33a834b9b1a6b86a9acc75bec87464eb5132b17e086ae4113f0be234",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.3.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.3.9.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.3.9.exe",
+          "sha256": "ffaef30ad57ab28aefb4dec307af0bdccdb81a99d1e345f2a7f4030dcc48f874",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Atlassian/Sourcetree/3.3.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://downloads.atlassian.com/software/sourcetree/windows/ga/SourceTreeSetup-3.3.8.exe",
+          "host": "downloads.atlassian.com",
+          "filename": "SourceTreeSetup-3.3.8.exe",
+          "sha256": "527468325c27b6ad055c4fc34092d980136340a84207e6b2da5362465083e5c0",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "4.2.20",
+      "source_version": "4.2.20,324",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "zip",
+          "url": "https://product-downloads.atlassian.com/software/sourcetree/ga/Sourcetree_4.2.20_324.zip",
+          "host": "product-downloads.atlassian.com",
+          "filename": "Sourcetree_4.2.20_324.zip",
+          "sha256": "7df535906ce4bfbd635cc72d797cc85c20b7912075496f4a91b1b823a3982c4e"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Sourcetree.app"
+        ],
+        "binaries": [
+          "stree"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.torusknot.SourceTreeNotMAS"
+          ],
+          "launchctl": [
+            "com.atlassian.SourceTreePrivilegedHelper2"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.torusknot.sourcetreenotmas.sfl*",
+            "~/Library/Application Support/SourceTree",
+            "~/Library/Caches/com.torusknot.SourceTreeNotMAS",
+            "~/Library/Logs/Sourcetree",
+            "~/Library/Preferences/com.torusknot.SourceTreeNotMAS.LSSharedFileList.plist",
+            "~/Library/Preferences/com.torusknot.SourceTreeNotMAS.plist",
+            "~/Library/Saved Application State/com.torusknot.SourceTreeNotMAS.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "7a9b34a267ed1ac18e4d30d41bd8308c72ad8e9e",
+      "retrieved_at": "2026-11-06T12:14:36.662Z",
+      "path": "manifests/a/Atlassian/Sourcetree"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "a77de142f12aa96546949db1c269401e81d34e4a",
+      "retrieved_at": "2026-11-06T12:14:36.662Z",
+      "path": "Casks/s/sourcetree.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/sourcetree.json"
+    }
+  ]
+}

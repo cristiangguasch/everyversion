@@ -1,0 +1,72 @@
+# Everyversion: Apache rules for the static site.
+#
+# Source file: assets/htaccess. The build copies it to dist/.htaccess, so deploy the whole of dist/.
+# Needs Apache 2.4 with mod_rewrite, and AllowOverride All (or at least FileInfo and Options) for this folder.
+#
+# What it does:
+#   1. Sends every request to https://everyversion.net/ (no http, no www, no other hostname) in ONE 301 redirect.
+#   2. Never shows a list of files. A folder without an index.html answers 404, not a listing.
+#   3. Hides dotfiles (.DS_Store, .git, .env ...) and editor/backup leftovers.
+#   4. Serves 404.html for missing pages and refused requests.
+
+# ---------------------------------------------------------------------------------------------------------
+# 1. One canonical address: https://everyversion.net/
+# ---------------------------------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# www.everyversion.net, any other hostname, or a bare IP address: go straight to the canonical https address.
+# Only the standard https port (:443) may be written after the canonical host; any other port is redirected too.
+RewriteCond %{HTTP_HOST} !^everyversion\.net(:443)?$ [NC]
+RewriteRule ^(.*)$ https://everyversion.net/$1 [R=301,L]
+
+# http on the canonical host: go to https.
+# The second condition lets a CDN or load balancer that handles TLS for you say "this was https already".
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
+RewriteRule ^(.*)$ https://everyversion.net/$1 [R=301,L]
+
+# Optional, once you are sure https works everywhere: tell browsers to always use https for this host.
+# It is cached for a year and cannot be undone quickly, so it is off by default.
+# <IfModule mod_headers.c>
+# Header always set Strict-Transport-Security "max-age=31536000"
+# </IfModule>
+
+# ---------------------------------------------------------------------------------------------------------
+# 2. No directory listings
+# ---------------------------------------------------------------------------------------------------------
+# Folders that have no index.html today: /api/v1/, /brand/, /fonts/, /schema/. Any folder added later is covered too.
+# The files inside stay reachable by their exact address (for example /api/v1/apps.json).
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html !-f
+RewriteRule ^ - [R=404,L]
+
+# A folder URL without its trailing slash (/vlc): add the slash ourselves, straight to the https address.
+# Apache's built-in version builds the address from the connection it sees, which is plain http when a CDN or proxy handles TLS.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ https://everyversion.net/$1/ [R=301,L]
+</IfModule>
+
+# Second layer. If a host rejects this line (HTTP 500), delete it: the rule above still blocks the listings.
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+
+# ---------------------------------------------------------------------------------------------------------
+# 3. Hide files that should never be public
+# ---------------------------------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+# Any path that has a dot-name in it (.DS_Store, .git/, .env, .htpasswd ...), except /.well-known/ (used for security.txt, certificates).
+RewriteRule (^|/)\.(?!well-known(/|$)) - [R=404,L]
+
+# Backup and scratch files an editor or a deploy can leave behind.
+RewriteRule (~|\.(bak|orig|old|swp|sql|log))$ - [R=404,L]
+</IfModule>
+
+
+# ---------------------------------------------------------------------------------------------------------
+# 4. Error pages
+# ---------------------------------------------------------------------------------------------------------
+# 403 is mapped to the same page, so a blocked file looks like a missing one.
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html

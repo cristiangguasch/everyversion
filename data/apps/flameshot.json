@@ -1,0 +1,545 @@
+{
+  "schema_version": 2,
+  "slug": "flameshot",
+  "name": "Flameshot",
+  "publisher": "flameshot-org",
+  "ids": {
+    "winget": "Flameshot.Flameshot",
+    "moniker": "flameshot",
+    "flathub": "org.flameshot.Flameshot"
+  },
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "summary": "Powerful yet simple to use screenshot software.",
+  "tags": [
+    "capture",
+    "screenshot",
+    "snipping",
+    "image-editing"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://flameshot.org/",
+    "publisher": "https://flameshot.org/",
+    "support": "https://flameshot.org/docs",
+    "release_notes": "https://github.com/flameshot-org/flameshot/releases/tag/v14.0.0"
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/flameshot-org/flameshot/blob/master/LICENSE",
+    "spdx": "GPL-3.0",
+    "copyright_url": "https://github.com/flameshot-org/flameshot/blob/master/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "14.0.0",
+    "linux": "14.0.0"
+  },
+  "last_updated": "2026-06-19",
+  "versions_total": {
+    "windows": 13,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "14.0.0",
+      "release_date": "2026-06-19",
+      "release_notes": "Flameshot v14.0 Release Notes\nThis release brings major improvements to multi-monitor support, fractional scaling support, new capture workflows, and a long list of bug fixes across all platforms.\n\nNew Features\n\nUnified Approach to Multi-Monitor / Scaling\nThe largest change in this version is when a screenshot is taken, the user will be prompted to select which monitor to capture. Previously on Linux and Windows the capture widget was drawn across all monitors. This presents significant challenges as we diversify the DE's that are supported in linux and mixed scaling becomes more common. After a lot of testing and iteration I decided the best path forward is this solution.\nI understand this is a change in workflow, and some may find it cumbersome. However, this will be the path forward for the time being. Please read the following sections as well if you are on X11 or Windows.\nAdditionally, on Linux the primary way to take a screenshot is using the xdg-desktop-portal calls. This is the only way to screenshot on Wayland, and many X11 DE's also support this. I reccomend looking at this Arch Wiki page to see if your DE supports it. If not there is a \"deprecated\" option that can be enabled that will fall back to the legacy method for capturing. (See below)\n\nLegacy X11 Screenshot Fallback\nFor users on minimal window managers (i3, xmonad, etc.) without xdg-desktop-portal, there is now a Settings → General → \"Use legacy X11 screenshot method\" option that bypasses the portal. This is marked as deprecated but ensures Flameshot works in more environments.\n\nTray Menu to select screen\nIf you typically launch flameshot from the tray menu, there is a new dropdown that will directly let you select which monitor to capture and bypass the monitor selection widget.\n\nCapture Active Monitor (X11 & Windows)\nWhen this is enabled Flameshot will skip the monitor selection dialog entirely and will automatically capture whichever monitor your cursor is on. Enable it in Settings → General → \"Capture active monitor (skip monitor selection)\".\n> ⚠️ Not available on Wayland due to security model limitations.\n\nWindows Global Screenshot Shortcut\nFlameshot on Windows now supports a global \"take screenshot\" hotkey, meaning that you can now take screenshots with keybindings other than PrntScn. It can also detect if Windows has reserved PrtScn for Snipping Tool and offers to change that registry setting, or register Flameshot as the system's screen capture application.\n\nD-Bus Capture Method (Linux)\nA new captureScreen() D-Bus method lets scripts and external applications trigger Flameshot's GUI capture programmatically, making automation and integration even more easier on Linux.\n\nPortable Binary Mode (Windows)\nFlameshot can now store its configuration in a flameshot.ini file alongside the executable instead of the user config directory. This enables portable/USB-stick deployment. Controlled by the USE_PORTABLE_CONFIG CMake flag (on by default for Windows).\n\nScreen Subcommand Redesign\nThe flameshot screen CLI subcommand has been reworked to support a per-screen capture paradigm. A new --edit/-e flag enables the user to specify which screen to capture. Users can use this to bind custom hotkeys to screenshot specific monitors to bypass the monitor selection widget.\n\nNix Flake Support\nA comprehensive flake.nix is now included for reproducible builds and development on NixOS. Use nix build, nix run, or nix develop out of the box.\n\nImprovements\n\nLauncher UI Made More Compact\nThe launcher dialog is now significantly smaller: monitor selection is hidden on single-screen setups, layout margins are tighter, and the window auto-fits its content.\n\nUpdate Checker Rework\nThe update notification system has been overhauled. The menu now shows \"Download version X.Y.Z\" when an update is available. Manual checks display \"You have the latest version\" when up to date, and the UI updates smoothly without requiring a menu close/reopen.\n\nNew macOS Icon Set\nThe application icon on macOS has been replaced with a higher-quality, multi-resolution icon set.\n\nRemoved Startup Delay\nThe 500ms arbitrary delay on the desktop entry's \"Take Screenshot\" action has been removed. This was exclusively affecting some Linux users and was initially meant for older version of Unity DE.\n\nBug Fixes\n\nWayland\n- QPainter crashes on KDE Plasma Wayland (Qt 6): Added safety checks across 9 widget files to prevent \"Paint device returned engine == 0\" crashes when the backing store isn't ready.\n- Clipboard runtime detection: A single binary now works on both Wayland and X11 — the clipboard backend is selected at runtime instead of compile time.\n- GNOME clipboard copy failure: Worked around GNOME's requirement for a visible window during clipboard operations. The capture window now stays briefly alive until the compositor fetches the data. (Fixes #4116, #4298)\n\nCosmic Desktop\n- Fixed capture window not going fullscreen on Cosmic DE.\n\nX11 / GNOME\n- Fixed crash caused by Qt::BypassWindowManagerHint on X11 GNOME.\n\nWindows\n- Forced PNG clipboard format on Windows — the JPG option caused compatibility issues and is now disabled.\n\nmacOS\n- Fixed copy-to-clipboard not working when invoked from the terminal.\n\nCross-Platform\n- D-Bus hang fix: Flameshot no longer hangs on systems without a org.freedesktop.Notifications service registered. (Fixes #4353)\n- D-Bus race condition: Fixed a race condition where a temporary QApplication could corrupt Wayland connections, causing subsequent portal calls to hang.\n- Double right-click segfault: Fixed a crash caused by double right-clicking in the capture window.\n- Last region on scaled displays: Saved region coordinates now correctly account for the device pixel ratio on HiDPI screens.\n- Layout warning fix: Removed a duplicate layout parent assignment that printed a Qt warning on every capture.\n\nPackaging & Infrastructure\n- Dropped support for Ubuntu Focal; bumped minimum dependency versions.\n- Added Windows installation instructions for Scoop.\n- Added instructions for setting the screenshot hotkey on GNOME when installed via Flatpak.\n- Updated Flathub badge and GCC version requirement.\n- MacOS intel build is no longer included. The CI was producing binaries users reported as not working in the beta and I have no ability to troubleshoot it\n\nTranslations\n- 19 translation updates via Weblate, including improvements to Spanish, Finnish, and many other languages.\nSpecial thanks to @ElTh0r0 for their contributions, especially regarding the Windows issues.\nThank you to all the contributors who made this release possible! Please report any issues on GitHub.\nSee below for the full list of changes:\n\nWhat's Changed\n- Translations update from Hosted Weblate by @weblate in #4330\n- Translations update from Hosted Weblate by @weblate in #4378\n- Translations update from Hosted Weblate by @weblate in #4379\n- Translations update from Hosted Weblate by @weblate in #4380\n- Fix hang caused by no Notifications service registered in DBus by @samwcoulter in #4357\n- bump CI to see if that picks up newer Qt in appimage by @borgmanJeremy in #4381\n- Translations update from Hosted Weblate by @weblate in #4383\n- Add support for logging to a log file in the qt standard state directory by @samwcoulter in #4371\n- feat(nix): add comprehensive Nix flake by @doprz in #4403\n- Force PNG clipboard on Windows (fix for #2487) by @ElTh0r0 in #4413\n- Fix copy failure on GNOME via GUI by @no7076 in #4363\n- Explicit depends to fix t64 packaging in Ubuntu >noble (#4390) + drop Ubuntu focal + bump dependencies by @QuentiumYT in #4393\n- fix segfault from double right click by @borgmanJeremy in #4414\n- cleanup compiler warnings due to Qt function labeling return value no… by @borgmanJeremy in #4415\n- Revert \"Add support for logging to a log file in the qt standard state directory\" by @borgmanJeremy in #4425\n- Translations update from Hosted Weblate by @weblate in #4427\n- Translations update from Hosted Weblate by @weblate in #4428\n- Translations update from Hosted Weblate by @weblate in #4431\n- fix(nix): ensure Qt6LinguistTools is available in devShell by @marcodsl in #4450\n- Update macOS version in workflow configuration by @borgmanJeremy in #4456\n- Simplification of snapcraft.yaml by @Kyuyrii in #4443\n- change source for mac icon by @cmpute in #4423\n- fix cosmic to use freedesktopportal by @borgmanJeremy in #4477\n- rework the update checker, menu item, and notifier by @borgmanJeremy in #4481\n- Translations update from Hosted Weblate by @weblate in #4447\n- grim: set device pixel ratio on captured screenshots by @BackSlasher in #4479\n- updated color widget to remove compiler warning by @borgmanJeremy in #4483\n- fix: macOS CLI clipboard copy not working by @yuchanns in #4473\n- Readme: Include mention of gnome and how to set screenshot hotkey when installed via flatpak by @zitr0y in #4490\n- Patch flatpak manifest for PR's by @borgmanJeremy in #4499\n- fix: check QPainter::isActive() before drawing to prevent Wayland crashes by @benignobjunior in #4496\n- Add Windows installation instructions for Scoop by @ofek in #4501\n- Multimonitor fix by @borgmanJeremy in #4498\n- fix build issue in debug mode and cleanup wording by @borgmanJeremy in #4525\n- fix: use runtime detection for Wayland clipboard by @benignobjunior in #4497\n- Fix last region on scaled displays by @borgmanJeremy in #4530\n- Add option for portable binary (using flameshot.ini in app folder) by @ElTh0r0 in #4531\n- Fix cli exit warning by @borgmanJeremy in #4546\n- Fix race condition caused by improper dbus hack by @borgmanJeremy in #4547\n- Fixed screen subcommand to fit per screen paradigm by @borgmanJeremy in #4544\n- Update cached iconset for MacOS by @cmpute in #4540\n- Translations update from Hosted Weblate by @weblate in #4554\n- Translations update from Hosted Weblate by @weblate in #4555\n- Translations update from Hosted Weblate by @weblate in #4559\n- Translations update from Hosted Weblate by @weblate in #4561",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v14.0.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/14.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v14.0.0/Flameshot-14.0.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-14.0.0-win64.msi",
+          "sha256": "b3c38680c792410812e787d48ac1825c771fb044380d45789719b9e8373327ea",
+          "product_code": "{341B2BF9-AA0C-4060-B485-05FB7C561C1A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{341B2BF9-AA0C-4060-B485-05FB7C561C1A}",
+              "upgrade_code": "{26D8062A-66D9-48D9-8924-42090FB9B3F9}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.3.0",
+      "release_date": "2025-10-28",
+      "release_notes": "What's Changed\nThis is a hotfix for an issue preventing execution on MacOS\n- link to qtdbus on macos by @borgmanJeremy in #4325\n- Fix multiple memory leaks in Region::process() function by @avineet4 in #4284\nFull Changelog: https://github.com/flameshot-org/flameshot/compare/v13.2.0...v13.3.0",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.3.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/13.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v13.3.0/Flameshot-13.3.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-13.3.0-win64.msi",
+          "sha256": "37ca5916450fab003fb3c64eacd01d103d11d122c30bade6af144d4b0874df66",
+          "product_code": "{8FA03992-037E-4A23-B8A8-AF2768116FBC}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{8FA03992-037E-4A23-B8A8-AF2768116FBC}",
+              "upgrade_code": "{26D8062A-66D9-48D9-8924-42090FB9B3F9}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.2.0",
+      "release_date": "2025-10-25",
+      "release_notes": "What's Changed\nThis release mostly has bug fixes. This has an improvement (but not final fix) for mixed DPI screens from #4169. Please be patient as we work towards a final fix.\n- Minor RPM spec file tweaks by @pointydev in #4166\n- Grab color shortcut rebase by @borgmanJeremy in #4164\n- Adding sha to all builds by @borgmanJeremy in #4190\n- Fix translator memory leak by @borgmanJeremy in #4179\n- Added hash to CI builds by @borgmanJeremy in #4202\n- Fix screen positions in multi-monitor configuration when devicePixelRatio is other than one by @panpuchkov in #4169\n- Resolve translation conflicts by @borgmanJeremy in #4218\n- Windows CLI copy (fix for #4118) by @ElTh0r0 in #4211\n- Fix CI cmake issue on macOS by @borgmanJeremy in #4227\n- Remove color set on widget hide by @borgmanJeremy in #4226\n- Fix Appveyor by @borgmanJeremy in #4245\n- Add UI language selection by @ElTh0r0 in #4249\n- Add masked icon for macOS that adapts to light/dark backgrounds by @artptr in #4257\n- Introduce some exit codes (#3321) by @guyueshui in #4121\n- Show keyboard shortcut in the tray icon menu by @artptr in #4258\n- Fix typo in comment in GlobalShortcutFilter by @AmanChaturvedi24 in #4274\n- Fix memory leak in guiMutexLock() function by @avineet4 in #4277\n- Added libkf6guiaddons-dev as a Debian dependency by @SASHAKT1290 in #4304\nTranslation-related\n- Translations update from Hosted Weblate by @weblate in #4170\n- Refresh translations for weblate by @borgmanJeremy in #4199\n- Translations update from Hosted Weblate by @weblate in #4219\n- Translations update from Hosted Weblate by @weblate in #4229\n- Translations update from Hosted Weblate by @weblate in #4234\n- Add missing translation files by @borgmanJeremy in #4244\n- Refreshed translation files by @borgmanJeremy in #4248\n- Translations update from Hosted Weblate by @weblate in #4250\n- Translations update from Hosted Weblate by @weblate in #4256\n- Translations update from Hosted Weblate by @weblate in #4262\n- Translations update from Hosted Weblate by @weblate in #4266\n- Translations update from Hosted Weblate by @weblate in #4275\n- Translations update from Hosted Weblate by @weblate in #4305\n- Translations update from Hosted Weblate by @weblate in #4309\nNew Contributors\n- @pointydev made their first contribution in #4166\n- @artptr made their first contribution in #4257\n- @AmanChaturvedi24 made their first contribution in #4274\n- @avineet4 made their first contribution in #4277\n- @SASHAKT1290 made their first contribution in #4304\nFull Changelog: https://github.com/flameshot-org/flameshot/compare/v13.1.0...v13.2.0",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.2.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/13.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v13.2.0/Flameshot-13.2.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-13.2.0-win64.msi",
+          "sha256": "48a977f2d290d01ee37cdc9c4330dd06784277cb44ebd2741dfec0db192c279a",
+          "product_code": "{5D698690-B818-4A89-B54B-6C3A7BDB4E8A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{5D698690-B818-4A89-B54B-6C3A7BDB4E8A}",
+              "upgrade_code": "{26D8062A-66D9-48D9-8924-42090FB9B3F9}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.1.0",
+      "release_date": "2025-08-16",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.1.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/13.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v13.1.0/Flameshot-13.1.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-13.1.0-win64.msi",
+          "sha256": "7eabb69576f276fd90b7b012bd8c2cf498042bee78e6b1a7f4436c9a9d0f3e7c",
+          "product_code": "{5034F867-394D-46B7-AE7E-6BD2E8103E66}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.0.1",
+      "release_date": "2025-08-07",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.0.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/13.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v13.0.1/Flameshot-13.0.1-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-13.0.1-win64.msi",
+          "sha256": "2914e1cc9bbba68bbed2b4a62a8b39f91b82eb011ef90618c3f3db2eb1b8db3b",
+          "product_code": "{E930E5AA-A2BD-4D60-9AE8-03CBFDC47C99}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.0.0",
+      "release_date": "2025-08-03",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.0.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/13.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v13.0.0/Flameshot-13.0.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-13.0.0-win64.msi",
+          "sha256": "2190ffe6a9d935d26cbf1bf2be86fc9d1cb49aa6a068c0c5f9d502e1816ed352",
+          "product_code": "{1F0E5C38-CA94-4A0C-BC70-BD35B8E45D19}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.1.0",
+      "release_date": "2022-07-03",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v12.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/12.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v12.1.0/Flameshot-12.1.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-12.1.0-win64.msi",
+          "sha256": "e4559e32213ffa2e60533a02c5845aebfe110d5c8d8592739c6a6d202928fabf",
+          "product_code": "{EBC7D3FB-4ED6-4EF4-ADD0-5695E6716C8B}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "12.0.0",
+      "release_date": "2022-06-22",
+      "release_notes_url": "https://github.com/flameshot-org/flameshot/releases/tag/v12.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/12.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v12.0.0/Flameshot-12.0.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-12.0.0-win64.msi",
+          "sha256": "f68777fc1b768a2058b9717be34bf9a9d4d6f386b8df9651fa6362cd5a07c9af",
+          "product_code": "{B9CE7E83-3919-4AF0-9218-A1C7B13171F5}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "11.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/11.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v11.0.0/Flameshot-11.0.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-11.0.0-win64.msi",
+          "sha256": "ee24a8e3e68d7d03539244c5ec0cc900bc5aaa745af8fe149ead3de8c422194b",
+          "product_code": "{63BEDB58-4BF1-478B-9AF4-CAF53C3EEB33}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/0.10.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v0.10.2/Flameshot-0.10.2-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-0.10.2-win64.msi",
+          "sha256": "b2705f19078bf515151ca1aaa2f71d2ae1316cc74cceeb6bf197aa2650ab4170",
+          "product_code": "{FE3E4507-75F6-483F-99A4-CAF24681E35C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/0.10.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v0.10.1/Flameshot-0.10.1-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-0.10.1-win64.msi",
+          "sha256": "9f93815bc095da98f7a9416bd2d3e18e5ac0ab916cdb09a800ed76146f47c5fa",
+          "product_code": "{9E8A9789-FB41-45C4-A415-43C1F572ACE3}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmp",
+            "jpg",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/0.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v0.9.0/Flameshot-0.9.0-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-0.9.0-win64.msi",
+          "sha256": "64c0381189bf0434fb7d1e10e5b14e4ae8d1ed0a12f125464b6e51bca3ae5205",
+          "product_code": "{394D745F-1575-4621-930A-F0D0926FA668}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/f/Flameshot/Flameshot/0.8.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v0.8.4/Flameshot-0.8.4-win64.msi",
+          "host": "github.com",
+          "filename": "Flameshot-0.8.4-win64.msi",
+          "sha256": "91cb939d440d8a00acdbb995177e88acbbb0609e69c2aba471883d11a0a3ac67",
+          "product_code": "{F629C6DC-4376-4E39-9428-F49D92D824D9}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "version": "14.0.0",
+      "release_date": "2026-06-08",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.flameshot.Flameshot.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.flameshot.Flameshot.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.flameshot.Flameshot.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.flameshot.Flameshot.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/f/Flameshot/Flameshot"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.flameshot.Flameshot",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/org.flameshot.Flameshot",
+      "api_url": "https://flathub.org/api/v2/appstream/org.flameshot.Flameshot",
+      "content_sha256": "544766e6b8fc10ed0a04768460c11bb30a2b5d4bcfe0c482c7bfc4b1485ceeb2"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.flameshot.Flameshot",
+    "page_url": "https://flathub.org/apps/org.flameshot.Flameshot",
+    "repo_url": "https://github.com/flathub/org.flameshot.Flameshot",
+    "install_command": "flatpak install flathub org.flameshot.Flameshot",
+    "run_command": "flatpak run org.flameshot.Flameshot",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "flameshot.org",
+      "verified_on": "2025-06-17"
+    },
+    "license": "GPL-3.0-or-later",
+    "free_license": true,
+    "developer_name": "Flameshot Developers",
+    "categories": [
+      "Utility",
+      "Graphics"
+    ],
+    "download_size": 2933293,
+    "installed_size": 6904832,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

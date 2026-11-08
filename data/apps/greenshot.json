@@ -1,0 +1,606 @@
+{
+  "schema_version": 2,
+  "slug": "greenshot",
+  "name": "Greenshot",
+  "publisher": "Greenshot",
+  "author": "Greenshot",
+  "ids": {
+    "winget": "Greenshot.Greenshot",
+    "moniker": "greenshot"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "summary": "A light-weight screenshot software tool for Windows.",
+  "description": "Greenshot is a light-weight screenshot software tool for Windows with the following key features:\n- Quickly create screenshots of a selected region, window or fullscreen; you can even capture complete (scrolling) web pages from Internet Explorer.\n- Easily annotate, highlight or obfuscate parts of the screenshot.\n- Export the screenshot in various ways: save to file, send to printer, copy to clipboard, attach to e-mail, send Office programs or upload to photo sites like Flickr or Picasa, and others.\n...and a lot more options simplyfying creation of and work with screenshots every day.\nBeing easy to understand and configurable, Greenshot is an efficient tool for project managers, software developers, technical writers, testers and anyone else creating screenshots.",
+  "tags": [
+    "capture",
+    "screenshot"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://getgreenshot.org/",
+    "publisher": "https://getgreenshot.org/",
+    "support": "https://github.com/greenshot/greenshot/issues",
+    "bug_tracker": "https://github.com/greenshot/greenshot/issues",
+    "privacy": "https://getgreenshot.org/privacy-policy/",
+    "release_notes": "https://github.com/greenshot/greenshot/releases/tag/v1.3.328",
+    "documentation": [
+      {
+        "label": "Help",
+        "url": "https://getgreenshot.org/help/"
+      },
+      {
+        "label": "FAQ",
+        "url": "https://getgreenshot.org/faq/"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/greenshot/greenshot/blob/HEAD/LICENSE",
+    "spdx": "GPL-3.0",
+    "copyright": "Copyright (C) 2007-2026 Thomas Braun, Jens Klingen, Robin Krom",
+    "copyright_url": "https://raw.githubusercontent.com/greenshot/greenshot/release/1.3/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.3.328"
+  },
+  "last_updated": "2026-10-19",
+  "versions_total": {
+    "windows": 12
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.3.328",
+      "release_date": "2026-10-19",
+      "release_notes": "Pre-release of Greenshot 1.3.328.\nWhat's Changed\nSecurity\n- Fixed a security issue where Greenshot sent the user's Windows credentials to any server it requested content from, so a malicious image URL could trigger an automatic NTLM authentication exchange. Reported by @Y4k150b4; fixed by @Lakritzator (Robin Krom) and @jklingen in commit 5b7dca1. GHSA-gjcr-pccx-w2vg\nInstaller & Upgrades\n- All executables and DLLs shipped with Greenshot, including plugins and third-party libraries, are now code-signed, so Windows Smart App Control no longer blocks unsigned files — by @Lakritzator (Robin Krom) and @jklingen in PR #1505\nBug Fixes\n- Fixed a crash that could occur when Windows could not create a toast notifier — by @Lakritzator (Robin Krom) in PR #1515\nTechnical Details\n- Release scope: This is the 11th stable release of the 1.3 series. Versions 1.3.324 to 1.3.327 were intermediate builds; their changes are rolled into this release.\n- Full Changelog: https://github.com/greenshot/greenshot/compare/v1.3.323...v1.3.328",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.328",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.328",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.328/Greenshot-INSTALLER-1.3.328-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.328-RELEASE.exe",
+          "sha256": "5d6ec298fb30c010351c100d85dec0fa6f2188833f2bc8edf594d785d9aa478a",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.328/Greenshot-INSTALLER-1.3.328-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.328-RELEASE.exe",
+          "sha256": "5d6ec298fb30c010351c100d85dec0fa6f2188833f2bc8edf594d785d9aa478a",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.323",
+      "release_date": "2026-10-08",
+      "release_notes": "While working on Greenshot 1.4 to provide additional features and more stability, we didn't want to have you waiting for things you can already have now. So with 1.3.323 we want to stabilize Greenshot to make it more reliable for our users. We selectively picked improvements we already made in 1.4 and made them work for 1.3.\nMost of the improvements were provided by the community and we are extremely grateful for their support!\nBesides that we appreciate every single help and interaction, some members of the community are even more outstanding, so a special thanks for @Christian-Schulz, @danrhodes and @FF-Brown they even combined their invested time to work, also with other contributors, on features and bugs together.\nIf you like Greenshot, please make sure you give us a star on https://github.com/greenshot/greenshot\nWhen companies want to support open source, one of their key criteria to select projects is the amount of stars on GitHub.\nWhat's Changed\nSecurity\n- Fixed a security issue where TLS certificate validation was disabled process-wide, exposing OAuth tokens and plugin uploads (Imgur, Box, Dropbox, Flickr, Confluence, Jira) to man-in-the-middle attacks. Reported by @sondt99, @lihnucs, and @dungNHVhust; fixed in backport PR #1122. GHSA-q4w7-9m8v-53fm\n- Fixed an out-of-bounds read that could cause denial of service when processing crafted CF_DIBV5 clipboard data. Reported by @hacker1984; fixed by @Lakritzator and @jklingen in commit 80ccbde9d. GHSA-4674-75g5-79mx\n- Fixed server-side request forgery when opening crafted SVG files by preventing Svg.NET from resolving external resources and entities. Reported by @Zenquiem; fixed by @Lakritzator and @jklingen in commit 40de45d91. GHSA-mmr7-mfv6-wp78\n- Updated vulnerable build and runtime dependencies: Inno Setup 6.2.1 to 6.2.2 (CVE-2025-15595) and log4net 2.0.15 to 3.3.0 (CVE-2026-40021) — by @jklingen in PR #1455.\nBug Fixes\n- Fixed a crash when opening the editor (issue #925) — by @danrhodes in PR #1003\n- More graceful handling when saving to a locked/inaccessible file (issue #946) — by @danrhodes in PR #986\n- Fixed a crash when changing the icon size in preferences (issue #1007) — by @danrhodes in PR #1010\n- Fixed holding CTRL while resizing not working as expected (issue #1055) — by @danrhodes in PR #1087\n- Fixed an error when making a capture (issue #1021) — by @danrhodes in PR #1022\n- Fixed line thickness being able to go out of range (issue #1142) — by @danrhodes in PR #1151\n- Fixed a race condition in editor layout updates (issue #1169) — by @danrhodes in PR #1210\n- Fixed region capture crashes (issues #1153, #1019, #1031) — by @danrhodes in PR #1154\n- Fixed the tray icon disappearing permanently on RemoteApp/RAIL sessions (issue #1324) — by @Lakritzator (Robin Krom) in PR #1348\n- Fixed instabilities when changing the icon size, caused by disposing a shared font — by @Christian-Schulz in PR #981\n- Fixed file format saving inconsistencies — by @Christian-Schulz in PR #1024\n- Fixed multiple toast notification issues, including a cross-thread exception — by @overlord in PR #1147\n- Fixed processing of OneDrive hotkey settings (issue #1170) — by @Lakritzator (Robin Krom)\nNew Features\n- Added a configurable Border effect via a new setting in Greenshot.ini — by @weihongji in PR #730 (their first contribution to Greenshot!)\nInstaller & Upgrades\n- Improved the installer to remove additional leftover files/plugin directories from previous Greenshot versions — by @Lakritzator (Robin Krom) in PR #1092\n- Greenshot 1.3 can now close automatically when the Greenshot 1.4 installer upgrades it via the Windows Restart Manager — by @Christian-Schulz in PR #1109\nTechnical Details\n- Backport scope: Most bug fixes in this release were originally developed and merged into the 1.4 development line first, then selectively backported to release/1.3 for stabilization; see the individual attributions above for each original author.\n- Release scope: This is the 10th stable release of the 1.3 series. Versions 1.3.319, 1.3.320, and 1.3.321 were intermediate builds; their changes are rolled into this release.\n- Full Changelog: https://github.com/greenshot/greenshot/compare/v1.3.315...v1.3.322",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.323",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.323",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.323/Greenshot-INSTALLER-1.3.323-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.323-RELEASE.exe",
+          "sha256": "5ee8bdc558c0b54f07c656bf0ab802e4d835b190e63fbaeb07fb12f6bd09975c",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.323/Greenshot-INSTALLER-1.3.323-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.323-RELEASE.exe",
+          "sha256": "5ee8bdc558c0b54f07c656bf0ab802e4d835b190e63fbaeb07fb12f6bd09975c",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.315",
+      "release_date": "2026-03-20",
+      "release_notes": "What's Changed\n- Fix for Security Advisory GHSA-f8v9-7fph-fr2j. Thanks to @MarioRL0, who has responsibly disclosed the problem to us with a very detailed and well-analyzed report 💚\n- Stability fixes for 1.3 by @Lakritzator in https://github.com/greenshot/greenshot/pull/956\n- Reducing issues with leftovers of installation issues by @Lakritzator in https://github.com/greenshot/greenshot/pull/1084\nFull Changelog: https://github.com/greenshot/greenshot/compare/v1.3.312...v1.3.315",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.315",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.315",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.315/Greenshot-INSTALLER-1.3.315-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.315-RELEASE.exe",
+          "sha256": "9bb4971e729a2ad1612e8aa2fa490b69c33af7f42515f9b642c7d0f80f8c0fd3",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.315/Greenshot-INSTALLER-1.3.315-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.315-RELEASE.exe",
+          "sha256": "9bb4971e729a2ad1612e8aa2fa490b69c33af7f42515f9b642c7d0f80f8c0fd3",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.312",
+      "release_date": "2026-01-07",
+      "release_notes": "What's changed:\n- Fix External Commands Broken due to Backslash Character Being Blocked #787",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.312",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.312",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.312/Greenshot-INSTALLER-1.3.312-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.312-RELEASE.exe",
+          "sha256": "64fd6d75ca1ec23b0aa1c48fbe071baea1c5e82303801a53b7d7b1c2456f8562",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.312/Greenshot-INSTALLER-1.3.312-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.312-RELEASE.exe",
+          "sha256": "64fd6d75ca1ec23b0aa1c48fbe071baea1c5e82303801a53b7d7b1c2456f8562",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.311",
+      "release_date": "2026-01-07",
+      "release_notes": "What's changed:\n- Fix for Security Advisory GHSA-7hvw-q8q5-gpmj. Thanks to @lihnucs, who has responsibly disclosed the problem to us with a very detailed and well-analyzed report 💚",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.311",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.311",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.311/Greenshot-INSTALLER-1.3.311-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.311-RELEASE.exe",
+          "sha256": "920121063699e7add04ba1dfc71d508d02c98464c36785a55e07406c95b31769",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.311/Greenshot-INSTALLER-1.3.311-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.311-RELEASE.exe",
+          "sha256": "920121063699e7add04ba1dfc71d508d02c98464c36785a55e07406c95b31769",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.304",
+      "release_date": "2025-10-31",
+      "release_notes": "What's Changed\n- [Feature] Portable Zip Release by @Christian-Schulz in https://github.com/greenshot/greenshot/pull/667\n- [Fix] File Association and Launch with File Arguments Not Working When Already Running #685 thanks to @Christian-Schulz\nFull Changelog: https://github.com/greenshot/greenshot/compare/v1.3.301...v1.3.304",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.304",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.304",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.304/Greenshot-INSTALLER-1.3.304-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.304-RELEASE.exe",
+          "sha256": "3b1450f1183d7f272bab8c36c3c093bc74711eb40dcf722852b7361e9ef297c4",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.304/Greenshot-INSTALLER-1.3.304-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.304-RELEASE.exe",
+          "sha256": "3b1450f1183d7f272bab8c36c3c093bc74711eb40dcf722852b7361e9ef297c4",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.301",
+      "release_date": "2025-09-16",
+      "release_notes": "What's changed:\n- Fix for Security Advisory GHSA-8f7f-x7ww-xx5w. Thanks to @RipFran, who has responsibly disclosed the problem to us with a very detailed and well-analyzed report, and also helped with re-testing after we implemented a fix 💚\nFull Changelog: https://github.com/greenshot/greenshot/compare/v1.3.300...v1.3.301",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.301",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.301",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.301/Greenshot-INSTALLER-1.3.301-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.301-RELEASE.exe",
+          "sha256": "b917f872d59065f297d63ee0f7228eb78d147f14af9be4fba950d1e8970a4be3",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.301/Greenshot-INSTALLER-1.3.301-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.301-RELEASE.exe",
+          "sha256": "b917f872d59065f297d63ee0f7228eb78d147f14af9be4fba950d1e8970a4be3",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.300",
+      "release_date": "2025-08-20",
+      "release_notes": "What's Changed\n- Fix IncludePlugins and ExcludePlugins options from INI (were broken in previous 1.3 releases). Thanks to @Christian-Schulz in https://github.com/greenshot/greenshot/pull/644\nFull Changelog: https://github.com/greenshot/greenshot/compare/v1.3.296...v1.3.300",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.300",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.300",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.300/Greenshot-INSTALLER-1.3.300-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.300-RELEASE.exe",
+          "sha256": "31e6927465013fa2bb12b5ca7add881706dbfb3edddc05d66ddee4c84c84f928",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.300/Greenshot-INSTALLER-1.3.300-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.300-RELEASE.exe",
+          "sha256": "31e6927465013fa2bb12b5ca7add881706dbfb3edddc05d66ddee4c84c84f928",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.296",
+      "release_date": "2025-07-26",
+      "release_notes": "Bugfix release for Greenshot 1.3\nWhat's Changed\n- Installer: Allow Choice between All-Users (Administrative) and Current-User Installation #625 by @jklingen in https://github.com/greenshot/greenshot/pull/641\n- Also Fixes Registry Entries and Shortcuts for All-Users Installation #546, #611, #598\nFull Changelog: https://github.com/greenshot/greenshot/compare/v1.3.294...v1.3.296",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.296",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.296",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.296/Greenshot-INSTALLER-1.3.296-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.296-RELEASE.exe",
+          "sha256": "98c29ebaf0d41caefe47873387b6b6ecc2812ad1dd4ae7b476f47a266b6aa376",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.296/Greenshot-INSTALLER-1.3.296-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.296-RELEASE.exe",
+          "sha256": "98c29ebaf0d41caefe47873387b6b6ecc2812ad1dd4ae7b476f47a266b6aa376",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.292",
+      "release_date": "2025-07-16",
+      "release_notes": "Bugfix Release for Greenshot 1.3\nFixes issues with elevated (admin) installation, where registry keys ended up in wrong root key, see #546 / #619 .\nFull Changelog: https://github.com/greenshot/greenshot/compare/v1.3.291...v1.3.292",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.292",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.292",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.292/Greenshot-INSTALLER-1.3.292-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.292-RELEASE.exe",
+          "sha256": "724314461c32d199d6ad43a04694602918e9192c78317cde5af0cc22ee44217c",
+          "product_code": "Greenshot_is1",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.292/Greenshot-INSTALLER-1.3.292-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.292-RELEASE.exe",
+          "sha256": "724314461c32d199d6ad43a04694602918e9192c78317cde5af0cc22ee44217c",
+          "product_code": "Greenshot_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.290",
+      "release_date": "2025-05-23",
+      "release_notes": "Release of Greenshot 1.3.290.\nThis is the final release for Greenshot 1.3.\nWhat's Changed\n- Fixed Insecure Deserialization Arbitrary Code Execution - CVE-2023-34634 #579\n- Update master to latest, first 1.2.9 by @Lakritzator in #70\n- Release/1.2.9 bf2 -> master by @Lakritzator in #71\n- Release/1.2.10 -> master by @Lakritzator in #72\n- Typo fix in language-en-US.xml by @clpo13 in #76\n- Update/Add language-ja-JP Files by @Rukoto in #69\n- Sync master to develop by @Lakritzator in #105\n- Zoom for the editor (Feature-84) by @KillyMXI in #201\n- Converters fix for release 1.3 by @KillyMXI in #204\n- Feature/win10 secure version support by @Lakritzator in #207\n- Release/1.3 by @bovirus in #224\n- Add placeholder for random alphanumerics in filename by @peterfab9845 in #216\n- Propagate DPI Changes down to Drawable Containers and Adorners and Resize Grippers Accordingly by @jklingen in #200\n- Update setup.iss by @bovirus in #228\n- italian language files update by @bovirus in #230\n- Update Italian language by @bovirus in #238\n- Update Italian language by @bovirus in #237\n- Italian language update by @bovirus in #241\n- Update Italian language (removed double string) by @bovirus in #245\n- Update installer script by @bovirus in #243\n- Improve DPI support by @Lakritzator in #254\n- Update English language by @bovirus in #242\n- Fix an issue when running Greenshot via Wine by @Lakritzator in #262\n- Reduce maintenance for Windows 10 toast by @Lakritzator in #265\n- BUG-2693: Fix for MAPI detection by @Lakritzator in #266\n- Add CTRL+Wheel zoom by @k41c in #282\n- Code cleanup for the copyright and fixed BUG-2736 by @Lakritzator in #286\n- Fix Unicode text drawing by @Lakritzator in #287\n- Update Italian language by @bovirus in #290\n- Update Help (IT) by @bovirus in #291\n- Update URLs to HTTPS by @TotalCaesar659 in #292\n- Improved Drag & Drop support + cleanup by @Lakritzator in #294\n- Fix text rendering inside text / speech bubble containers by @Lakritzator in #297\n- Get rid of embedded browser by @Lakritzator in #255\n- Fix Inconsistent Scale Behavior when Scaling Objects with Shift Modifier by @jklingen in #300\n- Fix typos by @TotalCaesar659 in #301\n- Project cleanup by @Lakritzator in #302\n- Fix Ellipse and Highlight duplication bug (#322). by @Ishmaeel in #331\n- Corrected czech translation by @Masv-MiR in #330\n- Update of Czech language file by @svatas in #332\n- FEATURE-1196 by @EricCogen in #339\n- Add Traditional Chinese to website and installer by @5idereal in #343\n- fix typo in language-website-en-US.xml by @5idereal in #344\n- Update README.md by @erl-mallard in #351\n- Update language-zh-TW.xml by @5idereal in #345\n- Add shortcuts (0-9, +/-) for foreground color, background color, line thickness, bold and shadow (#338) by @Lakritzator in #366\n- Update language-de-DE.xml by @Mr-Update in #316\n- prevent negative fontsize by @Christian-Schulz in #382\n- Feature Improve file format support by @Lakritzator in #385\n- Enhanced ability to crop an image vertically and horizontally. #249 by @Christian-Schulz in #388\n- Update Italian language by @bovirus in #394\n- IsConfirmable for IDrawableContainer by @Christian-Schulz in #399\n- Refactoring to use Dapplo.Windows by @Lakritzator in #398\n- Fix initial crop selection by @Christian-Schulz in #407\n- Fix of BUG2951 by @jdavila71 in #431\n- add install option to disable the default win11 prtscr tool by @jglathe in #484\n- Add Release Script by @jklingen in #581\n- Calculate optimal font size for StepLabel #457 by @Christian-Schulz in #460\n- Publish Unsigned Release on Commit and Purge CloudFlare Cache on Pages Build by @jklingen in #583\n- #572 Fix Error when Opening .greenshot File with Arrows by @FF-Brown in #574\n- Fix scaling with fixed ratio by @jairbubbles in #514\n- fix: handle picky Win11 ToastNotificationService by @jglathe in #487\n- Resize hotkey by @FF-Brown in #480\nNew Contributors\n- @clpo13 made their first contribution in #76\n- @Rukoto made their first contribution in #69\n- @peterfab9845 made their first contribution in #216\n- @k41c made their first contribution in #282\n- @Ishmaeel made their first contribution in #331\n- @Masv-MiR made their first contribution in #330\n- @svatas made their first contribution in #332\n- @EricCogen made their first contribution in #339\n- @5idereal made their first contribution in #343\n- @erl-mallard made their first contribution in #351\n- @jdavila71 made their first contribution in #431\n- @jglathe made their first contribution in #484\n- @FF-Brown made their first contribution in #574\n- @jairbubbles made their first contribution in #514\nFull Changelog: https://github.com/greenshot/greenshot/compare/Greenshot-RELEASE-1.2.10.6...v1.3.290",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/v1.3.290",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.3.290",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/greenshot/greenshot/releases/download/v1.3.290/Greenshot-INSTALLER-1.3.290-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.3.290-RELEASE.exe",
+          "sha256": "31280716268043ca0596ac2d5dddd103432eb42a4366dcfd5e59f506fefc24ae",
+          "product_code": "Greenshot_is1",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "greenshot"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2.10.6",
+      "release_date": "2021-12-07",
+      "release_notes": "Greenshot 1.2.10.6-c2414cf RELEASERead blog entry for this hereThe changes in this version are:| Ticket | Description |\n| --- | --- |\n|BUG-2235|Imgur authentication issues due to imgur api change|\n|BUG-2227|NullReferenceException when accessing the Imgur History|\n|BUG-2225|NullReferenceException when changing the color of text|\n|BUG-2219|Korean is spelled incorrectly in the installer|\n|BUG-2213|NullReferenceException in the Freehand tool|\n|BUG-2203|ArgumentNullException in the Freehand tool|\n|BUG-2141|Imgur authentication issues due to old embedded IE|\n|BUG-2172|NullReferenceException when using the speech bubble|\n|BUG-2246|Login issues with the Atlassian Jira Cloud|\n|FEATURE-1064|Added CTRL+Backspace & CTRL+A to the text tool|",
+      "release_notes_url": "https://github.com/greenshot/greenshot/releases/tag/Greenshot-RELEASE-1.2.10.6",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/g/Greenshot/Greenshot/1.2.10.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/greenshot/greenshot/releases/download/Greenshot-RELEASE-1.2.10.6/Greenshot-INSTALLER-1.2.10.6-RELEASE.exe",
+          "host": "github.com",
+          "filename": "Greenshot-INSTALLER-1.2.10.6-RELEASE.exe",
+          "sha256": "1687311b4e7a3720be20490e8ed6cc772a32336a7bed8896e475b8ec616c6b81",
+          "product_code": "Greenshot_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Greenshot",
+              "product_code": "Greenshot_is1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/g/Greenshot/Greenshot"
+    }
+  ]
+}

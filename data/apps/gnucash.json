@@ -1,0 +1,983 @@
+{
+  "schema_version": 2,
+  "slug": "gnucash",
+  "name": "GnuCash",
+  "publisher": "GnuCash Development Team",
+  "author": "GnuCash Development Team",
+  "ids": {
+    "winget": "GnuCash.GnuCash",
+    "moniker": "gnucash",
+    "homebrew_cask": "gnucash",
+    "flathub": "org.gnucash.GnuCash"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Personal and small-business financial-accounting software",
+  "description": "GnuCash is personal and small-business financial-accounting software, freely licensed under the GNU GPL and available for GNU/Linux, BSD, Solaris, Mac OS X and Microsoft Windows.\nDesigned to be easy to use, yet powerful and flexible, GnuCash allows you to track bank accounts, stocks, income and expenses. As quick and intuitive to use as a checkbook register, it is based on professional accounting principles to ensure balanced books and accurate reports.",
+  "tags": [
+    "accounting",
+    "finance"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.gnucash.org/",
+    "publisher": "https://www.gnucash.org/",
+    "support": "https://wiki.gnucash.org/wiki/Getting_Help",
+    "privacy": "https://slashdotmedia.com/privacy-statement",
+    "release_notes": "https://github.com/Gnucash/gnucash/releases/tag/5.17",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://www.gnucash.org/docs.phtml"
+      },
+      {
+        "label": "Wiki",
+        "url": "https://wiki.gnucash.org/wiki/GnuCash"
+      },
+      {
+        "label": "FAQ",
+        "url": "https://wiki.gnucash.org/wiki/FAQ"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-2.0-or-later",
+    "url": "https://github.com/Gnucash/gnucash/blob/HEAD/LICENSE",
+    "spdx": "GPL-2.0-or-later",
+    "copyright": "Copyright © 1997-2026 The GnuCash contributors.",
+    "copyright_url": "https://raw.githubusercontent.com/Gnucash/gnucash/stable/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "5.17",
+    "macos": "5.17-1",
+    "linux": "5.17+ (Flathub 5.17)"
+  },
+  "last_updated": "2026-09-27",
+  "versions_total": {
+    "windows": 31,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "5.17",
+      "release_date": "2026-09-27",
+      "release_notes": "Announcement: GnuCash 5.17 Released\n2026-09-27\nGnuCash 5.17 Released\nThe GnuCash development team announces GnuCash 5.17, the seventeenth release in the stable 5.x series.\nBetween 5.16 and 5.17, the following bugfixes were accomplished:\n- Bug 797872 - Multiple check printing results in nothing sent to print queue after first check\n- Bug 799753 - Reconciliation error when reconciling transactions posted after the reconcile date\n- Bug 799772 - Invoice layout: footer should span both columns and header tables should be easier to align/style\n- Bug 799774 - Import transaction from CSV skips fields if CSV file has backslash just before final quote in a quoted field\n- Bug 799790 - RFE: Always put Debits before Credits for CSV register export (order transaction splits as shown on screen)\n- Bug 799791 - Unvoid is not available (Bug from the mailing lists): Use the existence of void timestamp instead of void reason to determine if a transaction is voided. A user can void a transaction without providing a reason.\n- Bug 799798 - bringing back the previous tooltip (from 4.x) as a configurable choice: Enable tooltips on line and bar charts to represent individual points as well as all the points on a particular date.\n- Bug 799799 - Enhancement - making the tooltip more readable\n- Bug 899803 - Split context/category to msgctxt field in gnc-glossary.txt to provide better translation experience Translations aren't changed but are marked fuzzy. Keywords that aren't proper nouns are lower cased, consistent with how words appear in a dictionary.\n- Bug 799806 - Locale \"C.UTF-8\" crashes the Mortgage and Loan Repayment Assistant\n- Bug 799813 - gnucash-cli issue for price updates using Postgressql back-end\nThe following fixes and improvements were not associated with bug reports:\n- Better handling of stocks that have split in the Show Lots dialog: Lot split transactions are hidden and the changes in the amount of the stock are tracked so that the capital gains calculation can determine the correct basis.\n- Reformat chart tooltips to improve readability.\n- Charts: Add global preferences for marker style and size.\n- Charts: Add global preferences for engagement radius, tooltip pointer size, and the position of grouped tooltips.\n- Charts: Add option to show only non-zero values in tooltips.\n- Cash Flow report: Add option to hide the list of involved accounts at the top of the report\n- Multicolumn Reports: Saving the configuration (and this includes quitting GnuCash with a multicolumn report tab open) now saves the multicolumn report even when the user has clicked through to a subreport.\n- Removed MorningstarUK and MorningstarCH from quote sources, no longer supported by Finance::Quote.\n- AqBanking Import: Add option to import pending transactions\n- Qif Import: Fix YDM date parsing.\n- Edit Exchange Rate: Improve the message and comment explaining why the Transfer Dialog isn't shown when Edit Exchange Rate is selected from the context menu in a stock-type register.\n- Sort Id columns in tree views and QofQuery results naturally, meaning that alpha parts of an id are sorted lexically while numeric parts are sorted numerically, instead of always lexically. For example abc1, abc2, abc15 instead of abc1, abc15, abc2.\n- Windows: Force path strings to UTF-8 instead of the locale's DOS code page to ensure non-ASCII paths are handled correctly.\n- Doxygen: Set header version to VCS version if building from VCS\n- C/C++ API Documentation is now built on every push and uploaded to https://gnucash.github.io/gnucash/Documentation/\n- [import-export/test] add tests for gnc_import_parse_date|numeric\n- [import-parse.cpp] compile regex before trying to parse dates\n- [assistant-stock-transaction] After the stock transaction assistant finishes, open the stock account register and jump to the transaction just created.\n- [stylesheets/footer.scm] add markup \"stylesheet-footer\" to footer to allow easier css styling\n- [html-chart.scm] Multi-column reports: Isolate each sub-reports variables to eliminate cross-talk between subreports.\n- Replace removed Python 2 C API macros for SWIG 4.5.0 compatibility\n- [gnc-euro.cpp] use GncNumeric.convert() instead of gnc_numeric_convert\n- Update supported platforms in README.\n- [engine] qof_session_end: Ensure the backend lock is removed in all cases.\n- [backend/dbi] skip the libdbi integrity probe for read-only sessions\n- [gnc-euro.cpp] store euro rates as GncNumeric instead of floating point numbers to speed up euro conversion and ensure accuracy\n- [report-utilities.scm] convert account value accumulator to c++\n- [test-report-utilities.scm] add test at date boundaries\nThe following functions are deprecated:\n- Python: GncPrice.set_source_string\n- Guile: gnc-price-set-source-string\nIn both cases code should use the set_source function that takes an enum instead. The functions will be removed in GnuCash 6.0\nNew and Updated Translations: Chinese (Simplified Han script), Czech, Dutch, English (Australia), English (New Zealand), English (United Kingdom), German, Hungarian, Italian, Norwegian Bokmål, Portuguese, Portuguese (Brazil), Russian, Spanish, Swedish\nHelp translate GnuCash on Weblate\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nBetween 5.16 and 5.17, the following bugfixes were accomplished:\n- Bug 799744 - Import transaction from CSV skips fields if CSV file has backslash just before final quote in a quoted field: Document added checkbox.\nThe following fixes and improvements were not associated with bug reports:\n- Guide Basics: Deleted the note about .xac files\n- Guide Accounts: Changed 'account ' to 'account type':These lists are actually account types.\n- Guide Accounts: Changed 'courses' to 'quotes'\n- Manual Account Actions: Remove Account types section as it's documented in the Guide.\n- Update adjust-dpi.sh to eliminate file changes due to rounding differences and other very small changes.\n- Resize Investment Lots figures to fit in the page.\n- Document CAGR columns in Investment Lots report: Add Realized and Unrealized CAGR documentation to the Investment Lots report in the Help Manual and Tutorial & Concepts Guide\n- Added some field detail to ch_invest. Some clarification added to \"Symbol/abbreviation\" and \"ISIN, CUSIP, or other code\" fields.\nUpdated Translations: None.",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.17",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.17/gnucash-5.17.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.17.setup.exe",
+          "sha256": "a3e8049755e536f647640762a483ebe1b6c79cc50cc81a746fa64a404e98d271",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.16",
+      "release_date": "2026-06-28",
+      "release_notes": "The GnuCash development team announces GnuCash 5.16, the seventeenth release in the stable 5.x series.\nBetween 5.15 and 5.16, the following bugfixes were accomplished:\n- Bug 421610 - RFE: Include logical dates for View->Filter by \"date range\"The Select Range section of the Date tab of the register's Filter By dialog box is changed to provide relative, specific date, or days ago options for the start and end of the filter range. The Show number of days item label is changed to Show from days ago to better reflect what it does.\n- Bug 436105 - esc key not working as expected in register: Enable the escape key to cancel a field edit.\n- Bug 797384 - Gnucash doesn't handle commodity prices with big numerator/denominator properly.\n- Bug 798004 - Next gen UI for stock transactions\n- Bug 799314 - Add \"enter now\" option in scheduled transaction editor. tab to allow users to select the scheduled transactions to be included in a “Since Last Run…” window. If there are no instances of a selected transaction triggered by today’s date, the next instance is triggered.\n- Bug 799751 - autocomplete crash\n- Bug 799759 - Users can't Enable entries via Checkboxes on Scheduled Transactions PageAllow the Enabled box in the list of scheduled transactions to be operated instead of having to open the transaction editor dialog and change the Enabled checkbox. Also added use of the Name column as the secondary column sort for all the other columns.\n- Bug 799762 - Poor handling of cases where hidden/placeholder accounts are used in the account register\n- Bug 799766 - Double line preference not respected in search register\n- Bug 799767 - POST /accounts in bindings/python/example_scripts/rest-api is broken\n- Bug 799777 - `xaccSplitSetParent`: reparenting a committed split silently drops its KVP slots (online_id, cap-gains links)\nThe following fixes and improvements were not associated with bug reports:\n- Numeric values may now be selected to copy in the Accounts page.\n- Add new Finance::Quote source Finnhub.io: Free API key (personal/non-professional use) available at https://finnhub.io. Set FINNHUB_API_KEY environment variable to API key to use this source. As of June 2026, free tier API limit is 60 API calls/minute.\n- The Investment Lots report has new optional columns for Computed Annual Growth Rate.\n- Python Bindings: Improved translation of primary object (Account, Transaction, Split, etc.) so that they can be treated as normal Python objects. This is accomplished with SWIG magic so no existing code is obsoleted.\n- Python Bindings: Better conversion of GLists to Python lists.\n- Python Bindings: Destroy the QofSession in the Python Session dtor to prevent leaving the database locked.\n- [engine] Add first-class online_id accessors for Split and Account and make them available to Python bindings, removing the unused Transaction online_id property.\n- Improve C++ implementation of QofBook.\n- Correct the Doxygen doc for qof_instance_get/set_kvp.\n- [gnc-log-replay.cpp] fix incorrect guid dump\n- Add some Boost library requirements needed by libgnucash-guile to CMakeLists.txt so that missing feature will fail at configure time.\n- Use Compile-time Regular Expressions instead of std::regex in gnc-filepath-utils.cpp and instead of boost::regex in the CSV importer, with the CTRE v3.11.1 header added to borrowed\n- [gnc-filepath-utils.cpp] null check char* arguments\n- Add ChartJS licenses.\n- Removed AEX from list of commodities. euronext.com is now using JS based anti-webscraping.\n- [report-core] always offer options summary in reports. This is useful to debug reports. The Add options summary option is removed because it's no longer optional.\n- Remove remaining obsolete IMContext from sheet\n- Fix blurry text in HiDPI offscreen-rendered widgets\n- Add port field to database connection dialog: The convention of appending the port number after the host isn't obvious.\n- When editing a split in the register treat the account as being changed only if it isn't the one selected before editing instead of if the user performed an edit\n- Return immediately from qof_book_destroy if hash_of_collections is null. If qof_book_destroy is called on a QofBook* freshly created with qof_book_new (usually because it was used to create a session that now must be destroyed) it would try to empty the non-existent hash tables, crashing.\n- Clean up Flathub metadata to solve warnings at flatpak build time.\n- Be consistent in naming GncPluginPage and GncPluginPageRegister\n- HTML: Remove unimplemented function declarations.\n- [gnc-html.cpp] remove unused buggy string conversion functions\n- Convert libgnc-html to C++\n- Apply -Wall -Werr -Wmissing-prototypes to C++ compilation on Windows and fix the resulting errors.\nNew and Updated Translations: Arabic, Croatian, Danish, Dutch, German, Finnish, Hungarian, Korean, Norwegian-Bokmal, Spanish\nHelp translate GnuCash on Weblate\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nThe following fixes and improvements were not associated with bug reports:\n- Fix the description of the Character-separated radio button in the CSV Import Assistant to match the label.\nUpdated Translations: None.",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.16",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.16/gnucash-5.16.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.16.setup.exe",
+          "sha256": "405930f8ae3e943c2b8f0a6ca3336e62922ad041384706f1688823c2135b7d2c",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.15",
+      "release_date": "2026-03-29",
+      "release_notes": "The GnuCash development team announces GnuCash 5.15, the sixteenth release in the stable 5.x series.\nBetween 5.14 and 5.15, the following bugfixes were accomplished:\n- Bug 666536 - smallest fraction of KRW is invalid\n- Bug 798122 - Message about unable to balance transaction: Implement better can't-balance messages for scheduled transactions with more than one template transaction.\n- Bug 798873 - Crash when scrubbing after \"undoing\" changes\n- Bug 799705 - Remove Old Prices by Namespace: Display namespaces and allow selecting particular namespaces in the Remove Old Prices dialog.\n- Bug 799706 - Rename Namespace: Add a rename namespace button to the Security editor that is enabled by the selection of a namespace row in the tree view.\n- Bug 799713 - Account Editor changes account color to gray when default selected.\n- Bug 799722 - Inconsistent wording: Bill and Invoice: Use \"Business Item\" in messages that could apply to any of Bill, Credit Note, or Invoice, including where we reuse the same message in different cases.\n- Bug 799734 - mapped OFX income account not listed\n- Bug 799745 - Import matcher doesn't handle zero length memo and description properly\nThe following fixes and improvements were not associated with bug reports:\n- Major improvement in Python bindings to enable engine methods to return Python objects instead of SWIG pointers. Covers Account, Split, Transaction, GNCLot, gnc_commodity, gnc_commodity_namespace, gnc_commodity_table, GNCPrice, GNCPriceDB, QofBook, QofSession, GncGUID, GncCustomer, GncEmployee, GncVendor, GncJob, GncAddress, GncBillTerm, GncTaxTable, GncInvoice, and GncEntry. GncOwner, the superclass of many of the business classes, is already covered. This allows more pythonic usage:\n  - Call member functions directly, e.g. price.get_commodity() instead of using the C-function style gc.gnc_price_get_commodity(price)\n  - The C-function call now raises a DeprecationWarning if called with a Python object but not if called with the instance, e.g. gc.gnc_price_get_commodity(price.instance)\n  - It is no longer necessary to test and convert return values for being SwigPyObjects or not Python objects: Code like\n    if type(desc).__name__ == 'SwigPyObject':\n         desc = gnucash.Account(instance=desc)\n    or\n    if type(split) != Split:\n        split=Split(instance=split)\n    is no longer required.\n- Enable copy-and-paste in Scheduled Transaction template transactions.\n- Disable the Transaction Paste or Split Paste menu items in the register's Transaction menu when there is no transaction or split in the clipboard.\n- Check all template transactions in a Scheduled Transaction for balance instead of only the first.\n- Fix the last reconcile date sort in the Accounts page so that unreconciled accounts sort after reconciled ones instead of before.\n- Ensure that custom report sub-menus can receive custom report entries.\n- Import Matcher: Add trace messages to make it easier to track why some transactions aren't considered possible matches and uncomment the debug statements so that they can be emitted with --log arguments on the command line.\n- Fix segfault in gnc_gsettings_get_settings_obj when GSettings schemas are not installed.\n- Add tooltip explaining date-format selection to the CSV Import Assistant.\n- CSV Importer: Reparse all import lines when changing date or currency formats or when setting base_account.\n- [new-owner-report.scm] fix display/due-date tooltip\n- Transaction report efficiency improvements.\n- Ensure that gnc_commodity_compare produces a stable sort.\n- Implement full test coverage of libgnucash/engine/qofid except for some unreachable code.\n- Remove unused qof_collection_from_glist function.\n- New function gnc_account_get_earliest_date returns the account's earliest split date. This usually reflects the account opening date.\n- Provide an earliest-date sort option in the Accounts page and the balance-forecast report.\n- Support 64-bit compilation on Windows.\n- gnc_account_child_index: return -1 for non-child.\n- Turn off deprecation warning for wstring_convert. It's deprecated in C++17 with no replacement until C++26.\n- Update GncDateTime to handle new exceptions from Boost::DateTime\n- Use std::chrono to create a GncDateTime. Boost::DateTime uses time_t and in some cases that's still 32-bit, leading to a potential 2038 bug.\n- Fix GUI leaks in register completion cell, GncPluginPageRegister, and GNCPluginPageReport.\n- [gnc-datetime.cpp] Fix potential bug in fast_iso8601_utc_parse\nNew and Updated Translations: Chinese (Simplified Han script), Croatian, Czech, Danish, Dutch, English (Australia), English (New Zealand), English (United Kingdom), French, German, Hungarian, Italian, Portuguese, Portuguese (Brazil), Russian, Spanish, Tamil, Turkish\nHelp translate GnuCash on Weblate\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nThere are no changes in the documentation for this release.\nUpdated Translations: None.",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.15",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.15/gnucash-5.15.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.15.setup.exe",
+          "sha256": "6e10f34f92a1464b45436372a70cdbd16636b14b2842431b72251ded780858bd",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.14",
+      "release_date": "2025-12-21",
+      "release_notes": "The GnuCash development team announces GnuCash 5.14, the fifteenth release in the stable 5.x series.\nBetween 5.13 and 5.14, the following bugfixes were accomplished:\n- Bug 799504 - Description of CAMT 053.001.02 has duplicate text\n- Bug 799538 - Clipboard pastes to wrong field in SX editor Fixed Cut, Copy and Paste when focus is not in GnucashSheet. Now, when the user clicks on the \"Scheduled Transactions\" tab, the focus goes to the last edited cell.\n- Bug 799682 - Unable to \"Save As\" (or open) a non-xml data file\n- Bug 799699 - Inconsistent column headers in scheduled transaction editor Template transactions can't have totals, the formulas are just strings. Don't display the Tot Foo labels, they confuse users.\n- Bug 799701 - SX Editor error When Frequency=Once\n- Bug 799702 - build breaks with guile 3.0.11\nThe following fixes and improvements were not associated with bug reports:\n- Fix crashes in processing invoices and creating mulit-commodity transactions due to premature destruction of the account tree view. This unfortunately un-fixes Bug 799249\n- Change the Transaction report when show subtotals only is selected: When Show only subtotals is selected (which suppresses display of individual transactions) the lowest level of subtotals is displayed in normal type and with just the category name instead of in bold type with a \"Total of\" prefix.\n- Make the version information and the configured paths part of the About Dialog selectable.\n- About dialog: Use the environment variable names for user directory labels instead of capitalized versions of the variables in gnc-filepath-utils. The environment variables are documented in the wiki and are what the user can change.\n- Protect the special environment file prefix variables. A mailing list post reported that GnuCash crashes when he runs it with GNC_HOME=<somewhere random>. We use GNC_HOME to set XDG_DATA_DIR in the environment file to accommodate relocating GnuCash on macOS and Windows and GnuCash crashes when the schemas aren't found so prevent the user from setting the 6 special environment variables either from the environment or by editing the environment file.\n- Add a Postponed column to the Scheduled Transactions list as requested by Bug 799664. The column is hidden by default since it's not useful to people who don't postpone scheduled transaction instances.\n- Fix the overly-narrow text boxes in the options dialogs.\n- Improve the algorithm behind autoclearing transactions. It can now handle up to 30 uncleared transactions in an account reasonably quickly.\n- Fix stale account balances and grand total during transaction import\n- Removed China Merchants Bank from quote sources. The Finance::Quote module is no longer working and will be removed in the next release.\n- Added US Bonds (usbonds) to gnc-commodity.cpp New Finance::Quote module to get prices for series E, EE, or I bonds\n- Bulgarian Lev (BGN) replaced by Euro 1 Jan 2026.\n- SRFI-64 test-equal no longer considers exceptions equal to #f.\n- Improve some translatable strings.\n- Xml Backend: speed up parsing of node text and of GUIDs.\n- A variety of leak fixes and efficiency improvements.\n- Replace deprecated g_binding_get_target, and increase glib version to 2.68\n- API change: Remove gnc_account_foreach_split reverse iteration, not used by GnuCash.\n- Reset gui component session when saving a new file, including Save As of an existing book, reset the managed gui components to the new session prior to clearing the old session.\nNew and Updated Translations: Arabic, Chinese (Simplified Han script), Croatian, Danish, Dutch, French, German, Hungarian, Indonesian, Macedonian, Portuguese, Russian, Serbian, Spanish, Swedish, Tamil, Turkish, Ukrainian\nHelp translate GnuCash on Weblate\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nBetween 5.13 and 5.14 no bug fixes were accomplished.\nThe following fixes and improvements were not associated with bug reports:\n- Bug 728910 - budget balance sheet report liability problem\nUpdated Translations: None.\nThe SHA256 Hashes for the downloadable files are:\n- 0c6fd20214da86a9a0443359f7b62d9a2bd4ed802fd680853da4b757a371ac91  gnucash-5.14.tar.bz2\n- 0cb67a105fc806fc3bf31459eb1f68d3935d382f6e2e6631762f191b5e05589e  gnucash-5.14.tar.gz\n- de3d1dbd84b4ed0a5186d6def95a2273cd69771a9d8e9311e72a43df01b37157  gnucash-5.14.setup.exe\n- 0e424f0a82486852ff14373483c849c6918b49738b7be2fe64c88c7e95080a89  Gnucash-Arm-5.14.dmg\n- e1619de5d9307b6ba6d389d2a8b944485643c56d485d435b5f17383986717eb1  Gnucash-Intel-5.14.dmg\n- 62f6f64b06ac1fe4c00efe5138a2fd1adc77c18223e88878d27ecc02df680588  gnucash-docs-5.14.tar.gz",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.14",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.14/gnucash-5.14.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.14.setup.exe",
+          "sha256": "de3d1dbd84b4ed0a5186d6def95a2273cd69771a9d8e9311e72a43df01b37157",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.13",
+      "release_date": "2025-09-29",
+      "release_notes": "The GnuCash development team announces GnuCash 5.13, the fourteenth release in the stable 5.x series.\nBetween 5.12 and 5.13, the following bugfixes were accomplished:\n- Bug 343711 - Splits to Imbalance-USD do not disappear when zero-valued.\n  To mitigate potential impact, the Imbalance split is only removed when the split transitions to zero value during the commit of the transaction and the split's memo and action have no value.\n- Bug 799249 - Crash while switch to recently opened file\n- Bug 799638 - error: call to non-'constexpr' function\n- Bug 799649 - Ensure that GnuCash does not crash when it converts a foreign-currency transaction into a trading account transaction.\n- Bug 799650 - Reconcile Ending Balance Ignored When Statement Date Set\n- Bug 799652 - Invoice price decimal places\n- Bug 799654 - Zombie entries in the recently accessed file list.\n- Bug 799656 - Invoice and bills still display prices as fractional amounts with \"Force Prices to display as decimals\"\n- Bug 799657 - Incorrect trial Balance report with stocks and multiple currencies\n- Bug 799661 - Exchange Rate entries displayed in reports in an unstable order\n- Bug 799662 - Importing accounts from UTF8 csv file does not work correctly\nThe following fixes and improvements were not associated with bug reports:\n- Provide a new dialog, gtk_action_dialog, for confirming actions that labels buttons with a active verb (e.g. \"Delete\") instead of a confirmation (e.g. \"Yes\" or \"OK\"). This is hypothetically less ambiguous in some cases. Note that the dialog is not yet used anywhere.\n- Transaction Report: Add links to bills and invoices.\n- [gnc-plugin-page-report] confirm before overwriting saved report\n- Added Swiss Fund Data AG to single_quote_sources. New F::Q source will be available in v1.67. The selection will be disabled until F::Q 1.67 is released and installed.\n- Replace deprecated gdk_pixbuf_new_from_xpm_data\n- Fix tests so that they run on Win32 builds.\n- Fix inadvertant insertion in test-trial-balance.scm.\n- extract-translators: Use 'open :encoding' instead of utf::encode/decode.\n- Fix newline disparity in translator-credits\n- Translator credits: Separate translators with a newline Instead of a semicolon. Presents them as a list, one name per line, as with the other credits.\n- [fin.c] fix encoding to utf8\n- [new-owner-report.scm] insert job-ID if available\n- [balsheet-pnl] use gnc:accounts-get-commodities-sorted\n- Set policy CMP0177 and follow the documented recommendations regarding DESTINATION paths.\n- [balsheet-pnl] ensure the account name cell doesn't wrap\n- Specialize get_row_value_from_object for int64_t so that it doesn't try to pass the value in a pointer. That comes out badly on 32-bit systems.\n- [charts] Add chartjs v4 to borrowed so it can be used when available (meaning not on Windows because Windows's JS support via webkit is too old).\n- [charts] use gnc:html-chart-set-xaxis-type!\n- [html-chart] expose gnc:html-chart-set-x-axis-type!; Centralise to ease chartjs upgrade. The option path changes as follows: '(options scales xAxes (0) type) in chartjs-2 '(options scales x type) in chartjs-3\n- [gnc-pricedb.cpp] plug leak from gnc_g_date_new_today\n- [gtest-xml-contents] test xaccTransGetDatePostedGDate from xml\n- Engine: Replace indirect qof_object_set/get calls with direct qof_instance_kvp ones.\n- [gtest-load-and-test-datafile.cpp] add example .gnucash to test contents\nNew and Updated Translations: Catalan, Chinese (Simplified Han script), Chinese (Traditional Han script), Croatian, Danish, English (Australia), English (New Zealand), English (United Kingdom), French, German, Hebrew, Hungarian, Marathi, Portuguese, Portuguese (Brazil), Russian, Slovak, Swedish, Tamil, Ukrainian\nHelp translate GnuCash on Weblate\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nBetween 5.12 and 5.13 no bug fixes were accomplished.\nThe following fixes and improvements were not associated with bug reports:\n- de:manual:ch_Transactions: new description of import format\n- de:manual:ch_Transactions: Rewrite section 'Import with AqB'\n- docbook: gnc-gui-*: Cleanup entities and improve accel\n- DOCDIR_BUILD: We want PROJECT_NAME, not PACKAGE_NAME\n- Fix cmake variable name for build doc directory.\n- manual/ch_Reports: add Transaction Report Display/Invoice manual entry\nUpdated Translations: German.",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.13",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.13/gnucash-5.13.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.13.setup.exe",
+          "sha256": "3422374e1d3ee112946595d88797be8046d1569b9215b51b208bf007392610cd",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.12",
+      "release_date": "2025-06-30",
+      "release_notes": "GnuCash 5.12 Released\nThe GnuCash development team announces GnuCash 5.12, the thirteenth release in the stable 5.x series.\nBetween 5.11 and 5.12, the following bugfixes were accomplished:\n- Bug 648768 - Warning \"Change Reconciled Split\" has wrong cursor focus\n- Bug 797766 - Automatic decimal point doesn't work properly with zeros when entering stocks.\n  Preserve the decimal point when printing numbers with no decimal places to stop the auto-decimal code from triggering when exiting the field.\n- Bug 799490 - Error on start or opening a gnucash file: Can't parse the URL\n- Bug 799506 - reconcile bad date pops to 1969\n- Bug 799521 - Segmentation fault on Autocomplete of Description with ß\n- Bug 799572 - Return proper status code when Finance::Quote errors during price quote retrieval via CLI.\n- Bug 799580 - Swiss currency symbol is displayed as SFr. instead of CHF\n  Replace SFr. with Fr. as SFr. is obsolete but Fr. is still widely used. This is the local symbol so users who want CHF can set it in the security editor.\n- Bug 799582 - Mortgage and Loan Assistant - Compounding Formula\n  Adds a semi-annual compounding period for Canadians and implements the more correct simple-rate formula provided by a Canadian licensed accountant. Also adds support for day-interval loan payments, ensures that the formula on the repayment page reflects changes on that page, ensures that the number and amounts of payments are correct when payments are more frequent than monthly, use the correct intest rate for compunding calculations, and fixes some memory issues.\n- Bug 799590 - Pressing enter after changing date on initial reconcile information window does not change ending balance.\n- Bug 799592 - \"No transactions found\" when importing CSV transactions\n- Bug 799593 - macOS: mariadb hardcodes plugin paths to original install directory.\n- Bug 799594 - GnuCash 5.11 fails to build with boost 1.88\n- Bug 799597 - Crash when deleting all splits in General Journal\n- Bug 799602 - Unit Price on Invoice will NOT display as decimals\n- Bug 799603 - Does not save to mysql on localhost.\n- Bug 799623 - test-backend-dbi fails after 2038\nThe following fixes and improvements were not associated with bug reports:\n- [reports]Lazily generate sub-reports. Reports with links to detail sub-reports like the budget reports would take a long time to generate because they built both the main report and all of the sub-reports. Now the sub-reports generate when the user clicks the link in the main report.\n- Security editor quote sources: Add new source, China Merchants Bank. Remove no longer supported F::Q Modules Bloomberg.pm, DWSFunds, Investor's Exchange (U.S.), Morningstar Australia, Skanddinaviska Enskilda Banken, Tiaacref.pm, Troweprice.pm and many of the multi-source sources from the Security Editor.\n- [import-main-matcher.cpp] Add tooltips to transaction A, U+C, and C action columns in the generic transaction import matcher.\n- [reports] Use ICU for Unicode string comparison and substring search because it knows how to correctly localize comparisons of accented and unaccented characters.\n- [reports] more robust error handling if target report doesn't exist.\n- Register: Ensure splits belong to transaction when doing bulk operations on a transaction's splits.\n- Drop the definition of __EXTENSIONS__ from three files and instead move it to compiler options if on a platform that needs it.\n- Avoid non-POSIX \"echo -n\" behavior in util/gnc-vcs-info.\n- Add testbuild target which builds tests without running them to accommodate packaging processes that run ctest separately.\n- [engine.i] convert gnc_account_accumulate_at_dates to c++.\n- [gnc-engine-guile.cpp] helper gnc_split_to_scm function.\n- [gnc-engine-guile] reduce overhead of gnc_foo_to_scm by caching the result of SWIG_TypeQuery(typestr)\n- [balance-forecast] optimise some loops: fewer temporary lists and gc\n- Let cmake probe for the existence of HAVE_STRUCT_TM_GMTOFF, fix build of test-gnc-date on systems without HAVE_STRUCT_TM_GMTOFF, and avoid unused variable warnings on systems without HAVE_STRUCT_TM_GMTOFF\n- Wrap include of gtest.h and gmock.h with a warning-silencing pragma. See https://github.com/google/googletest/issues/4701 The warnings cause the Arch Linux CI to fail because of -Werror.\n- Fixed GetInvoiceFromTxn to convert to the right type of Python object for a GncInvoice.\n- [test-report-utilities] more tests for gnc:account-accumulate-at-dates testing balances at date boundaries\nNew and Updated Translations: Arabic, Bulgarian, Chinese (Simplified Han script), Danish, Dutch, Finnish, French, German, Hungarian, Portuguese, Romanian, Russian, Spanish, Swedish, Turkish\nHelp translate GnuCash on Weblate\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nThe following fixes and improvements were not associated with bug reports:\n- German translation: Fix some typos\n- German translation: Remove the Finance::Quote appendix. The content has been moved to the wiki.\nUpdated` Translations: German.",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.12",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.12/gnucash-5.12.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.12.setup.exe",
+          "sha256": "9ca8dbd0749212bcab3d986b8c5e39d11fd2a3f734430c1a06d931968175364e",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.11",
+      "release_date": "2025-03-30",
+      "release_notes": "The GnuCash development team announces GnuCash 5.11, the eleventh release in the stable 5.x series.\nBetween 5.10 and 5.11, the following bugfixes were accomplished:\n- Bug 797824 - Inconsistent behavior in Loan Review\n- Bug 798946 - start/end of current/last quarter have off-by-one error\n- Bug 799035 - CSV Export: 'Accounts Selected' text has bad formatting\n- Bug 799334 - GnuCash re-opens to incorrect page\n- Bug 799343 - Dialog boxes won't remain sized and positioned - part1\n- Bug 799449 - Save As... sequence from SQL to XML format does not clear lock on the origin SQL book.\n- Bug 799465 - Register Filter Today radio buttons don't work correctly\n- Bug 799480 - Fails to build with ICU 76\n- Bug 799487 - Unable to save gnucash DB file as XML file\n- Bug 799491 - Add \"Clear All\" button to register filter\n- Bug 799494 - Version 5.10 Fails to import QIF file\n- Bug 799501 - Gnucash grashes on startup ice-9/read.scm error\n- Bug 799502 - Autocomplete of split only completes description\n- Bug 799514 - Pie chart hovering shows wrong information in pop-up\n- Bug 799528 - Crash on account deletion (edit)\n- Bug 799533 - Saved reports configurations are opening with…\n- Bug 799562 - Import Map Editor Non-Bayesian crashes gnucash\n- Bug 799564 - Decimal point confusions when getting stock quotes from aex\n- Bug 799565 - Reconcile date default doesn't update to reflect previous reconciliation.\nThe following fixes and improvements were not associated with bug reports:\n- Adjust quarter begin and end dates to align with Accounting Period (Fiscal Year) start and end dates when the latter are not the first/last of the month.\n- Update Form/Schedule line references for 2024 for the US Income Tax Report\n- Better handling of complex Jump to other split operations:\n  - Expand multi-split transactions in the destination register after a jump and select the destination split.\n  - Emit a warning when a Jump to other split operation can't be performed instead of doing nothing.\n  - When there are multiple splits but only one other account Jump will jump to the transaction in that other account's register regardless of what split is selected in the original register.\n  - Do nothing when the user attempts to jump to another split in the current register's account.\n  - Add a new Register preference \"Jump action for multiple splits\"\n    Make the behaviour when the \"Jump\" operation encounters a transaction with more than two splits configurable. This can be configured as:\n    - Do nothing (this is the default)\n    - Use the split with the largest value\n    - Use the split with the smallest value\n    This makes it much easier to jump between accounts for stock transactions that include splits for fees and taxes, or dividend transactions that have a zero value split for the stock account.\n- Allow more account types in the payment window's transfer account list\n  So far it was limited to Asset, Liability, Credit Card and either Income (for customer payments) or Expenses (for vendor payments). There are however use cases where a customer payment also covers expenses (like for example a Paypal service charge). To allow for as many edge cases as possible the filter now only excludes those account types I worry will break the business logic: AP and AR accounts. That is, with this change you won't be able to create a customer payment (which necessarily has one split an an AR account) that transfers to another AR or to an AP account. While even that may work, I am sure the business features weren't designed to cope with this and I can't exhaustively test that.\n- Support for enums as GtkRadioButton preferences\n  The \"=\" in the widget name will separate the pref name from the enum string value that is used when the radio button is activated. When the radio button is deactivated, its preference update is ignored because another button must have been made active.\n- Allow warning dialogs to be the dismiss-only variant\n  All existing dialogs are either QUESTION or WARNING. Allow INFO, ERROR and OTHER to remember being dismissed without asking a question.\n- Improve GncNumeric(std::string) to handle unicode spaces and thousands separators.\n- Add function to GncQueryView to expand column\n  Add function gnc_query_set_expand_column to GncQueryView so that the expand column can be specified that takes up any available free space. Use this function in the Due Bills/Invoice Reminder to to set the expanding column to the company name.\n- [Account.hpp] New function gnc_account_get_all_parents returns reversed path vector\n- Fix python bindings built with Swig-4.3.0.\nNew and Updated Translations: Chinese (Simplified Han script), Croatian, Dutch, English (Australia), English (New Zealand), English (United Kingdom), Estonian, Finnish, French, German, Greek, Hebrew, Hungarian, Norwegian Bokmål, Persian, Portuguese, Portuguese (Brazil), Russian, Spanish, Swedish, Tamil, Ukrainian\nHelp translate GnuCash on Weblate\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nThe following fixes and improvements were not associated with bug reports:\n- manual:ch_Transactions: insert entities for background colors\n- manual:ch_Transactions: Remove processing instructions. For background colors in <phrase> elements, as they have no effect.\n- docbook: new entities for describing of background colors. The import-matcher uses colored rows to identify the necessary of intervention of the user. These entities encode the colors 'brown1', 'gold', 'darkseagreen1' and 'cornflowerblue' as used in gnucash-fallback.css.\nThere were no translation updates this cycle.\n<h3>Getting GnuCash for Windows and MacOS</h3>\nGnuCash is provided for both Microsoft Windows 10® and later and MacOS 10.13 (High Sierra)® and later in pre-built, all-in-one packages. An installer is provided for Microsoft Windows® while the MacOS® package is a disk image containing a drag-and-drop application bundle.\nGnuCash is also available as a flatpak from Flathub.org. Instructions for installing and running.\nThe SHA256 Hashes for the downloadable files are:\n- 6ba42313aaaa99b5f07ff6e4dbc58b33fbf5f4be6e911376701d65c26fd4debe  gnucash-5.11.tar.bz2\n- a5d3a12991cff287267f6896d70bd8b3fe7030fb552b1d18067300d0ed7f8a2f  gnucash-5.11.tar.gz\n- 9277a8ada93f2a3a2ccad1f8f982b580d78ca741df6cc31184091a3fe446c124  gnucash-5.11.setup.exe\n- ad69a4bcca4b54a910ed71d8e2d184bae30146237ad14b3b9c7810a60ba1f1f5  Gnucash-Arm-5.11-1.dmg\n- 0d15de4acfd8bffdd6a4ecc010f4244218c770c2964aa65f889e4b9cecd7dd3c  Gnucash-Intel-5.11-1.dmg\n- d22a8a1caeffe3b5638de05a9dd3b3166ee0d1c0d2c6e9d6950f1ab7f142e865  gnucash-docs-5.11.tar.gz",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.11",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.11/gnucash-5.11.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.11.setup.exe",
+          "sha256": "9277a8ada93f2a3a2ccad1f8f982b580d78ca741df6cc31184091a3fe446c124",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.10",
+      "release_date": "2024-09-29",
+      "release_notes": "The GnuCash development team announces GnuCash 5.10, the tenth release in the stable 5.x series.\nBetween 5.9 and 5.10, the following bugfixes were accomplished:\n- Bug 798789 - Trading Accounts\n- Bug 799283 - Segfault/Crash if payment dialog change from customer to vendor\n- Bug 799420 - gnucash 5.8 crashes on windows 10 while importing qif\n- Bug 799423 - Crash when creating ETF transaction\n- Bug 799429 - Crash when changing accounting period end date\n- Bug 799430 - Type-Ahead feature lost account setting functionality\n- Bug 799433 - Right-click issue in import window\n  Make the context menu apply to the row under the pointer instead of the selected row.\n- Bug 799435 - Right-click issue in reconcile window\n  Right click should open the context menu, not extend the selection.\n- Bug 799437 - Crash deleting and recreating an SX with the scheduled transaction editor open\n- Bug 799439 - Duplicate information in description when importing CAMT.053.001.02 via aqbanking\n- Bug 799443 - Edit find account jump then open, open the last highlighted account not the jumped to account\n- Bug 799444 - Silent crash on CSV import\n- Bug 799451 - Cannot translate different meanings of string \"_Balance\" to Chinese.\n  Add context to the msgids.\n- Bug 799452 - Transaction Report: Cannot subtotal based on Number field\n  enable grouping and subtotals for Num field\n- Bug 799454 - Numeric value in exported CSV transactions\n- Bug 799456 - Tabbing through fields autoselects all but Num field\n  By which the reporter means that the value in every cell except Num is selected on cell entry.\n- Bug 799458 - Crash attempting to edit a scheduled transaction\n- Bug 799470 - Crash when clicking on Schedule Transaction Editor\nThe following fixes and improvements were not associated with bug reports:\n- Tabs now close when you middle-click on them.\n- The SX editor's saved duration and height are stored differently in preferences so values previously saved will be lost when switching between versions 5.9 and 5.10 (and later). We regret the inconvenience but the new scheme better matches GnuCash's use of the preferences.\n- Allow 0 cash amount when using the Stock Assistant to create a sell transaction. This might happen if the commission and fees exactly balance the proceeds of the sale.\n- Enforce searching for our gsettings schema files first where they were installed. This was not done when the installation prefix was /usr or /usr/local which could potentially cause gnucash to find other schema files first.\n- Set tooltip text on the outer tab container again so that it can be updated by main_window_update_page_long_name.\n- Tooltips on chart reports now appear any time the pointer hovers in the chart area and reflect the nearest point. Previously the pointer had to be very close to a point.\n- Updated the quote source lists in the Security Editor dialog to reflect the current Finance::Quote version.\n- Display a warning dialog when a transaction is unbalanceable because the user has set a minimum fraction on an account smaller than the security's fraction in a book using trading accounts.\n- Deleting a commodity will fail if there are accounts denominated in the commodity. When reporting the error to the user list those accounts.\n- Correct in Tips of the Day the IRC network where GnuCash's channel can be found.\n- Ensure Python bindings Session constructor loads the session's data.\n- Fix compile failures with Boost 1.87. This requires the minimum Boost version to be 1.67, removing the option for distributions to patch older versions.\n- Prevent deleting an account with an open register from logging spurious errors\n- Check that GUI refreshes are not suspended before calling gnc_gui_refresh_all.\n- Unify wording for alphavazntage tooltips.\n- New script to update translator-credits.\n  See POD for usage instructions.\n- Document cmake 3.14 requirement set a year ago.\nNew and Updated Translations: Chinese (Simplified Han script), Chinese (Traditional Han script), Croatian, Dutch, English (Australia), English (New Zealand), English (United Kingdom), French, German, Hebrew, Hungarian, Japanese, Portuguese, Portuguese (Brazil), Russian, Spanish, Swedish, Ukrainian\nHelp translate GnuCash on Weblate\nGerman AQBanking Users:\nThe AQBanking author is still working to get his updated PIN/TAN code finalized so the Flatpak, macOS, and Windows bundles of this release contain the last stable version, 6.5.4. The GnuCash nightly builds have beta releases with the new implementation, so consider using one of those if the stable AQBanking doesn't work for you.\nKnown Problems\nComplete list of all open bugs.\nDocumentation\nThe following fixes and improvements were not associated with bug reports:\n- Update the Security Editor section in manual to match the dialog.\n- add entity for menuchoice 'Export Reports'\n- Remove Finance::Quote appendix. The content has been moved to Wiki.\nNew and Updated Translations: Chinese, German",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.10/gnucash-5.10.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.10.setup.exe",
+          "sha256": "42f71da194db3d2f12a3127760ab153f32759323130c3d74af378ebe9c754c61",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gnucash"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.9",
+      "release_date": "2024-09-29",
+      "release_notes": "Help translate GnuCash on Weblate",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.9/gnucash-5.9.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.9.setup.exe",
+          "sha256": "18882e68d445c32b7f06c58a55b6b81480cef4fdf6e159e8d628040357479b86",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "GnuCash Development Team",
+              "product_code": "GnuCash_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.8",
+      "release_date": "2024-07-07",
+      "release_notes": "Help translate GnuCash on Weblate",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.8/gnucash-5.8.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.8.setup.exe",
+          "sha256": "a8fdeab6ea49dfb78fa5f6b638005b3e392a8d87c1ed6bc9b0f56ebb48eaa48f",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "GnuCash Development Team",
+              "product_code": "GnuCash_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.7",
+      "release_date": "2024-06-30",
+      "release_notes": "Help translate GnuCash on Weblate",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.7/gnucash-5.7.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.7.setup.exe",
+          "sha256": "8c000a84246f08a193e9da22d3ae760499f00fbe4fb77d310488c596715c1487",
+          "product_code": "GnuCash_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "GnuCash Development Team",
+              "product_code": "GnuCash_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.6",
+      "release_date": "2024-03-31",
+      "release_notes": "Help translate GnuCash on Weblate",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.6/gnucash-5.6-1.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.6-1.setup.exe",
+          "sha256": "4596d431e5785ef3d80bcbea6e1c5e1df98c3b9b27314e6d8d2eae679424f56c",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.5",
+      "release_date": "2023-12-17",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.5/gnucash-5.5.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.5.setup.exe",
+          "sha256": "720a60dca57e4199f28b5449158ddc89e62012f042a62c43b16c569fa0890275",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.4",
+      "release_date": "2023-09-24",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.4/gnucash-5.4-1.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.4-1.setup.exe",
+          "sha256": "e1925591bbdddd80b1ff8ddf0634652ef098072bd96a5bb98f000cdcc5c841ff",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.3",
+      "release_date": "2023-06-26",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.3/gnucash-5.3.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.3.setup.exe",
+          "sha256": "4cd66cf6c261fe7f5fc071b8e01314f33fb97e3496fe832e07bad360c1cf685a",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.1/gnucash-5.1.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.1.setup.exe",
+          "sha256": "3ddc5547b5694a11a33e21e4110d1adb908f04995637a54bfa930df68c7df014",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0",
+      "release_date": "2023-03-26",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.0/gnucash-5.0.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-5.0.setup.exe",
+          "sha256": "e9d30e36163a7f047daf2523ac35bf2218d2e661bcfc7f279d57d4d396caa33d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.13",
+      "release_date": "2022-12-18",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/4.13",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.13/gnucash-4.13.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.13.setup.exe",
+          "sha256": "4136404a19804f3f253c16c2ac5ca2acd4a21a6b3f321849013e00912aeb8e75",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.12",
+      "release_date": "2022-09-25",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/4.12",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.12/gnucash-4.12.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.12.setup.exe",
+          "sha256": "3098cbeab534978493740a8e614ef6cafa30372f5ad95a35d8b5d26d0bed8876",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.11",
+      "release_date": "2022-06-27",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/4.11",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.11/gnucash-4.11.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.11.setup.exe",
+          "sha256": "4bb6b616285ae4ddb286595b4270dc1c3e26045bc56d53227d4f6280535c6770",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.10",
+      "release_date": "2022-03-28",
+      "release_notes_url": "https://github.com/Gnucash/gnucash/releases/tag/4.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.10/gnucash-4.10-1.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.10-1.setup.exe",
+          "sha256": "f9e27ce70b3a198f3766a598287c8f31d372ec7f19db251463d36895104fe0c7",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.9/gnucash-4.9.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.9.setup.exe",
+          "sha256": "c50fac9755958c3b5310c1f605149a88bb365eac32c5c361c4174ffa5e314921",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.8/gnucash-4.8.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.8.setup.exe",
+          "sha256": "b8c4a4bad5a073f53ea07ad46d4c13096a5d26d906ceda8c049842a8362d0a86",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.7/gnucash-4.7.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.7.setup.exe",
+          "sha256": "8be9e11f77e1cb56b48d59fa007a2c11e3865231f16df6f27de50eb6035bb64a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.6/gnucash-4.6.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.6.setup.exe",
+          "sha256": "de0447be56f3c56194132a89766221dfac72742c04aa87a84716cdd1ff93cfa7",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.5/gnucash-4.5.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.5.setup.exe",
+          "sha256": "dc0f48cc6a606bf0e7780777dbef34dc8fd5a0eb8014ce79042cbada0f171839",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.4/gnucash-4.4.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.4.setup.exe",
+          "sha256": "34879ef4957a2768f96747ca4f6f8732107d23cac5132d6dc655ae8e53e3798c",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.3/gnucash-4.3.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.3.setup.exe",
+          "sha256": "1e54572f4361e2bd5a61c5c4585e781db1d361ef4961fb7e09ab58083dbcb06e",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.2/gnucash-4.2.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.2.setup.exe",
+          "sha256": "2cb2d9c1ebe746d6d9c8da517b0bdfcca22ed10e22e4eb2ca1890df3d7559892",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/4.1/gnucash-4.1.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-4.1.setup.exe",
+          "sha256": "836b36be639caf61321c2df24dda48691e57ddeb6b7aa13db49f8eddd5b096e0",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GnuCash/GnuCash/3.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/3.10/gnucash-3.10.setup.exe",
+          "host": "github.com",
+          "filename": "gnucash-3.10.setup.exe",
+          "sha256": "5e9eec7694cc6bdf26f143c9b5239aa520d781a58f545d1645539596d984a441",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "5.17-1",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.17/Gnucash-Intel-5.17-1.dmg",
+          "host": "github.com",
+          "filename": "Gnucash-Intel-5.17-1.dmg",
+          "sha256": "56f13c494bca3cd38f7bc1974158d08ddb12e03e877a1cc1fd11a9bbb4ba8c1b"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/Gnucash/gnucash/releases/download/5.17/Gnucash-Arm-5.17-1.dmg",
+          "host": "github.com",
+          "filename": "Gnucash-Arm-5.17-1.dmg",
+          "sha256": "adbc91d6d69a297c1c599ad2849303a06c01310130d355473c0700f80dd2eb32"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Gnucash.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/Gnucash",
+            "~/Library/Preferences/org.gnucash.Gnucash.plist",
+            "~/Library/Saved Application State/org.gnucash.Gnucash.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "5.17+ (Flathub 5.17)",
+      "release_date": "2026-09-26",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.gnucash.GnuCash.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.gnucash.GnuCash.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.gnucash.GnuCash.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.gnucash.GnuCash.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "1464d41576767dbac3497f1cf70f79561fd0e7b6",
+      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "path": "manifests/g/GnuCash/GnuCash"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1aac7c6920d0d8e5026b2892d2bb99f587813241",
+      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "path": "Casks/g/gnucash.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/gnucash.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.gnucash.GnuCash",
+      "retrieved_at": "2026-11-08T14:58:15.929Z",
+      "path": "api/v2/appstream/org.gnucash.GnuCash",
+      "api_url": "https://flathub.org/api/v2/appstream/org.gnucash.GnuCash",
+      "content_sha256": "caf4fde560e2b132f6d64a58d2ae694a31407c52fb3cad28cddf60d2c3449c8d"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.gnucash.GnuCash",
+    "page_url": "https://flathub.org/apps/org.gnucash.GnuCash",
+    "repo_url": "https://github.com/flathub/org.gnucash.GnuCash",
+    "install_command": "flatpak install flathub org.gnucash.GnuCash",
+    "run_command": "flatpak run org.gnucash.GnuCash",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "gnucash.org",
+      "verified_on": "2024-04-11"
+    },
+    "license": "GPL-2.0+",
+    "free_license": true,
+    "developer_name": "The GnuCash Project",
+    "categories": [
+      "Finance"
+    ],
+    "download_size": 113376224,
+    "installed_size": 292244992,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

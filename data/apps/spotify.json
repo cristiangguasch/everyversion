@@ -1,0 +1,244 @@
+{
+  "schema_version": 2,
+  "slug": "spotify",
+  "name": "Spotify",
+  "publisher": "Spotify AB",
+  "author": "Spotify AB",
+  "ids": {
+    "winget": "Spotify.Spotify",
+    "homebrew_cask": "spotify",
+    "flathub": "com.spotify.Client"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "All the music you’ll ever need.",
+  "description": "With Spotify, it’s easy to find the right music or podcast for every moment – on your phone, your computer, your tablet and more.\nThere are millions of tracks and episodes on Spotify. So whether you’re behind the wheel, working out, partying or relaxing, the right music or podcast is always at your fingertips. Choose what you want to listen to, or let Spotify surprise you.\nYou can also browse through the collections of friends, artists, and celebrities, or create a radio station and just sit back.",
+  "tags": [
+    "albums",
+    "artists",
+    "audio",
+    "episode",
+    "music-streaming",
+    "musicstreaming",
+    "playlists",
+    "podcasts",
+    "radio-playlists",
+    "songs",
+    "sound"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.spotify.com/download/windows/",
+    "publisher": "https://www.spotify.com/",
+    "support": "https://support.spotify.com/",
+    "privacy": "https://www.spotify.com/legal/privacy-policy/",
+    "purchase": "https://www.spotify.com/premium/"
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://www.spotify.com/legal/end-user-agreement/",
+    "copyright": "© 2026 Spotify AB."
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "1.3.6.1921.g7086c071a617",
+    "macos": "1.3.6.1921",
+    "linux": "1.2.95.453.g0eeebbed"
+  },
+  "last_updated": "2026-10-21",
+  "versions_total": {
+    "windows": 1,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.3.6.1921.g7086c071a617",
+      "release_date": "2026-10-21",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Spotify/Spotify/1.3.6.1921.g7086c071a617",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://download.scdn.co/SpotifyFullSetupX64.exe",
+          "host": "download.scdn.co",
+          "filename": "SpotifyFullSetupX64.exe",
+          "sha256": "e5ca46ad79de202c8deaf888c26f2a608b9e042142279e0690d589d80640591d",
+          "product_code": "Spotify",
+          "elevation_requirement": "elevationProhibited",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "/silent /skip-app-launch",
+            "silent_with_progress": "/silent /skip-app-launch",
+            "log": "/log-file \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://download.scdn.co/SpotifyFullSetupARM64.exe",
+          "host": "download.scdn.co",
+          "filename": "SpotifyFullSetupARM64.exe",
+          "sha256": "1ab0ff830a6996e69f8db9cc5b7fb08bd6e87fc16e70642f8c5dfbe711ee948d",
+          "product_code": "Spotify",
+          "elevation_requirement": "elevationProhibited",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "/silent /skip-app-launch",
+            "silent_with_progress": "/silent /skip-app-launch",
+            "log": "/log-file \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.3.6.1921",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://download.scdn.co/Spotify.dmg",
+          "host": "download.scdn.co",
+          "filename": "Spotify.dmg",
+          "no_checksum": true,
+          "min_os_version": "13"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://download.scdn.co/SpotifyARM64.dmg",
+          "host": "download.scdn.co",
+          "filename": "SpotifyARM64.dmg",
+          "no_checksum": true,
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Spotify.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.spotify.client"
+          ],
+          "launchctl": [
+            "*.spotify.client.*",
+            "com.spotify.client.startuphelper",
+            "com.spotify.webhelper"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.spotify.client.startuphelper.sfl*",
+            "~/Library/Application Support/Spotify",
+            "~/Library/Caches/com.spotify.client",
+            "~/Library/Caches/com.spotify.client.helper",
+            "~/Library/Cookies/com.spotify.client.binarycookies",
+            "~/Library/HTTPStorages/com.spotify.client",
+            "~/Library/HTTPStorages/com.spotify.client.helper",
+            "~/Library/Logs/Spotify",
+            "~/Library/Preferences/com.spotify.client.helper.plist",
+            "~/Library/Preferences/com.spotify.client.plist",
+            "~/Library/Saved Application State/com.spotify.client.savedState",
+            "~/Library/WebKit/com.spotify.client"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "1.2.95.453.g0eeebbed",
+      "release_date": "2026-08-12",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.spotify.Client.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/s/Spotify/Spotify"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:54.374Z",
+      "path": "Casks/s/spotify.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/spotify.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.spotify.Client",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/com.spotify.Client",
+      "api_url": "https://flathub.org/api/v2/appstream/com.spotify.Client",
+      "content_sha256": "2408c8c89695f43c93dfd33d078413bfc25f6ca1bcdba6f30cf142b52392109e"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.spotify.Client",
+    "page_url": "https://flathub.org/apps/com.spotify.Client",
+    "repo_url": "https://github.com/flathub/com.spotify.Client",
+    "install_command": "flatpak install flathub com.spotify.Client",
+    "run_command": "flatpak run com.spotify.Client",
+    "verified": false,
+    "license": "LicenseRef-proprietary=https://www.spotify.com/us/legal/end-user-agreement/",
+    "free_license": false,
+    "developer_name": "Spotify",
+    "categories": [
+      "Audio",
+      "Music",
+      "Player",
+      "AudioVideo"
+    ],
+    "download_size": 160581520,
+    "installed_size": 174717840,
+    "arches": [
+      "x64"
+    ]
+  }
+}

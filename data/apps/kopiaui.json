@@ -1,0 +1,2138 @@
+{
+  "schema_version": 2,
+  "slug": "kopiaui",
+  "name": "KopiaUI",
+  "publisher": "Kopia Authors",
+  "author": "Kopia Authors",
+  "ids": {
+    "winget": "Kopia.KopiaUI",
+    "moniker": "kopiaui",
+    "homebrew_cask": "kopiaui"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Cross-platform backup tool for Windows, macOS & Linux with fast, incremental backups, client-side end-to-end encryption, compression and data deduplication. CLI and GUI included.",
+  "description": "Kopia is a fast and secure open-source backup/restore tool that allows you to create encrypted snapshots of your data and save the snapshots to remote or cloud storage of your choice, to network-attached storage or server, or locally on your machine.\nKopia does not 'image' your whole machine.\nRather, Kopia allows you to backup/restore any and all files/directories that you deem are important or critical.",
+  "tags": [
+    "backup",
+    "cloud",
+    "encryption",
+    "foss"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/kopia/kopia",
+    "publisher": "https://github.com/kopia/kopia",
+    "support": "https://github.com/kopia/kopia/issues",
+    "bug_tracker": "https://github.com/kopia/kopia/issues",
+    "privacy": "https://kopia.io/docs/privacy-policy",
+    "release_notes": "https://github.com/kopia/kopia/releases/tag/v0.23.1",
+    "documentation": [
+      {
+        "label": "What is Kopia?",
+        "url": "https://kopia.io/docs"
+      }
+    ]
+  },
+  "license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/kopia/kopia/blob/HEAD/LICENSE",
+    "spdx": "Apache-2.0",
+    "copyright_url": "https://github.com/kopia/kopia/blob/master/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.23.1",
+    "macos": "0.23.1"
+  },
+  "last_updated": "2026-06-16",
+  "versions_total": {
+    "windows": 38,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.23.1",
+      "release_date": "2026-06-16",
+      "release_notes": "Repository\n- Basic tests for getting epoch manager blob set (#5418) by Julio López\n- selection of next epoch to compact (#5373) by Julio López\n\nStorage Providers\n- no_extra_providers build tag (#5375) by Julio López\n\nLinter\n- annotations for other platforms (#5413) by Julio López\n\nGraphical User Interface",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.23.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.23.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.23.1/KopiaUI-Setup-0.23.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.23.1.exe",
+          "sha256": "a945db629e4456d6616595a9b9fda4bc0407fc02a8d18fbce8f7f89390307c13",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.23.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.23.1/KopiaUI-Setup-0.23.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.23.1.exe",
+          "sha256": "a945db629e4456d6616595a9b9fda4bc0407fc02a8d18fbce8f7f89390307c13",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.23.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.23.0",
+      "release_date": "2026-05-12",
+      "release_notes": "Command-Line Interface\n- New Feature restrict insecure unauthenticated server to loopback binds (#5354) by Jarek Kowalski\n- registration mechanism for storage providers (#5350) by Julio López\n- hash benchmarking count (#5312) by Julio López\n- leverage x/term.IsTerminal (#5308) by Julio López\n- handle potential conversion overflow when setting progress default (#5271) by Julio López\n\nKopiaUI App\n- skip htmlui tests that are timing out (#5257) by Julio López\n\nGeneral Improvements\n- bigmapbench profiling (#5321) by Julio López\n- clean nits (#5313) by Julio López\n- remove support for LZ4 (#5296) by Julio López\n- retained log size double counting (#5302) by Julio López\n- make counters and size stats uint64 for consistency (#5262) by Julio López\n- address potential conversion overflows (#5266) by Julio López\n- string nits (#5265) by Julio López\n- cleanup nits (#5236) by Julio López\n- do not included concatenated entries in log (#5231) by lif\n- move SafeLongFilename to ospath (#5227) by Julio López\n- add byte units to maintenance stat summaries (#5178) by Julio López\n\nRepository\n- sync index blob file before closing (#5292) by Julio López\n- failures when exceeding Windows MAX_PATH (#5226) by Julio López\n\nSnapshots\n- ErrorEntry policy resolution to use child policy (#5234) by Baixiaochun\n- inaccessible entry causes parent directory to be skipped (#5217) by Julio López\n\nStorage Providers\n- warn messages for extra storage providers (#5324) by Julio López\n- perform maximum of 2 attempt in PutBlobInPath (#5168) by Julio López\n- require.NoError (#5166) by Julio López\n- update injected error message (#5165) by Julio López\n- make tests with injected errors more robust (#5164) by Julio López\n- cleanup temporary file on put blob failure (#5157) by Julio López\n- notify after releasing the lock (#5154) by Julio López\n- sync file in FS provider to ensure data is persisted (#5150) by Julio López\n\nTesting\n- prefer assert.NoError (#5299) by Julio López\n- nits in TestSnapFail tests (#5228) by Julio López\n- TestSnapshotFail* (#5225) by Julio López\n\nInfrastructure\n- tweak copilot instructions (#5278) by Julio López\n- update agent instructions (#5153) by Julio López\n\nCI/CD\n- split out linux-based lint targets (#5349) by ashmrtn\n- license-check-go make target (#5347) by Julio López\n- skip setup step on PRs on MacOS (#5344) by Julio López\n- generate govulncheck SARIF report (#5300) by Julio López\n- avoid duplicate test failure output (#5222) by Julio López\n- add install-checklocks convenience target (#5152) by Julio López\n\nGraphical User Interface",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.23.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.23.0/KopiaUI-Setup-0.23.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.23.0.exe",
+          "sha256": "16bc2896ef21a2c3a9b607fd08e130f42d87c890aea57f697bdd8b2105fa83cc",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.23.0",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.23.0/KopiaUI-Setup-0.23.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.23.0.exe",
+          "sha256": "16bc2896ef21a2c3a9b607fd08e130f42d87c890aea57f697bdd8b2105fa83cc",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.23.0",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.3",
+      "release_date": "2025-12-02",
+      "release_notes": "Defect Fixes\n- Fixes regression in dependency used for compression (#5049)\nSnapshots\n- New Feature localfs support for passing options (#5044) by Jarek Kowalski\nCI/CD\n- Remove ineffective omitempty tags (#5037) by Julio López",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.22.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.22.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.3/KopiaUI-Setup-0.22.3.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.3.exe",
+          "sha256": "b0acc7374da7c3378d4dcc013aea9c2153f04a4fca1f14ecc3845a6dd35f848a",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.3",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.3/KopiaUI-Setup-0.22.3.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.3.exe",
+          "sha256": "b0acc7374da7c3378d4dcc013aea9c2153f04a4fca1f14ecc3845a6dd35f848a",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.3",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.2",
+      "release_date": "2025-11-26",
+      "release_notes": "Storage Providers\n- execute rclone with non-cancelling context (#5040) by Julio López\n- allow S3 versioned tests cleanup to succeed (#5038) by Julio López\nCI/CD\n- make PR title options consistent with chlog (#5036) by Julio López",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.22.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.22.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.2/KopiaUI-Setup-0.22.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.2.exe",
+          "sha256": "dfc148d529021282e295f1a9627f8e389faa293f72a99b22504ac3f7fa0c0396",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.2",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.2/KopiaUI-Setup-0.22.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.2.exe",
+          "sha256": "dfc148d529021282e295f1a9627f8e389faa293f72a99b22504ac3f7fa0c0396",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.2",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.1",
+      "release_date": "2025-11-25",
+      "release_notes": "General Improvements\n- make purpose a string parameter (#5015) by Julio Lopez\n- use contexts in tests (#5009) by Julio Lopez\n- leverage testing.T.Context in testlogging (#5008) by Julio Lopez\n- prevent writing outside of installation target directory (#5003) by Julio Lopez\nCI/CD\n- enable noctx linter (#4972) by Nathan Baulch\n- pass context in helpers for running docker (#5012) by Julio Lopez\n- cleanup TestKopiaRunner (#5010) by Julio Lopez\nGraphical User Interface",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.22.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.22.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.1/KopiaUI-Setup-0.22.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.1.exe",
+          "sha256": "85a51aa08fbcf7167745fc1071f5aaea1365f3b547dc3f2e900cabc3e82379c5",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.1/KopiaUI-Setup-0.22.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.1.exe",
+          "sha256": "85a51aa08fbcf7167745fc1071f5aaea1365f3b547dc3f2e900cabc3e82379c5",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.0",
+      "release_date": "2025-11-18",
+      "release_notes": "Command-Line Interface\n- potential overflow in integer conversion (#4993) by Julio Lopez\n- make --progress flag visible and use it in sync-to command (#3542) (#4877) by yinheli\n- ensure auto-maintenance errors are propagated (#4851) by Julio Lopez\n- enable quick maintenance by default on repo creation (#4840) by Julio Lopez\n- New Feature extend stats for content verification (#4830) by Julio Lopez\n- additional safeguard dangerous commands (#4767) by Julio Lopez\n- deprecate dangerous repo repair sub-command (#4766) by Julio Lopez\n- reword message for dangerous commands (#4765) by Julio Lopez\n- remove deprecated no-op flags (#4764) by Julio Lopez\nGeneral Improvements\n- handle errors closing writable descriptors (#4998) by Julio Lopez\n- avoid wrapping always-nil error (#4997) by Julio Lopez\n- check for nil before de-refencing field (#4996) by Julio Lopez\n- check bounds for memory allocation (#4995) by Julio Lopez\n- fix typos (#4986) by Julio Lopez\n- New Feature fix display errors for maintenance stats (#4984) by lyndon-li\n- omitzero JSON tag in policy structs (#4910) by Julio Lopez\n- New Feature add stats to maintenance run - SnapshotGC (#4964) by lyndon-li\n- leverage stats.CountSum in maintenance stats (#4963) by Julio Lopez\n- remove dry run option for blob retention ext (#4962) by Julio Lopez\n- maintenance stats for rewrite contents phase (#4961) by lyndon-li\n- extendBlobRetentionTime (#4960) by Julio Lopez\n- New Feature maintenance stats for clean up logs phase (#4959) by lyndon-li\n- consistent use \"pack\" where possible (#4952) by Julio Lopez\n- fix field names in ExtendBlobRetentionStats (#4958) by Julio Lopez\n- New Feature maintenance stats for delete unreferenced packs phase (#4955) by lyndon-li\n- New Feature maintenance stats for drop deleted contents and compact indexes (#4948) by lyndon-li\n- fix field names in CompactSingleEpochStats (#4947) by Julio Lopez\n- use explicit return values (#4940) by Julio Lopez\n- New Feature add stats to maintenance run - AdvanceEpoch (#4937) by lyndon-li\n- diskCommitedContentIndexCache (#4939) by Julio Lopez\n- buildinfo helpers (#4936) by Julio Lopez\n- improve randRead helper (#4934) by Julio Lopez\n- index.maxContentLengths (#4932) by Julio Lopez\n- simplify function and generics signatures (#4930) by Julio Lopez\n- lastSettledEpochNumber() helper (#4927) by Julio Lopez\n- fix return value order to match return names (#4926) by Julio Lopez\n- rename GenerateRangeCheckpointStats fields (#4925) by Julio Lopez\n- New Feature add maintenance phase stats - CleanupSupersededIndexes (#4916) by lyndon-li\n- field and variable names (#4911) by Julio Lopez\n- New Feature add stats to maintenance run - CleanupMarkers (#4900) by lyndon-li\n- simplify construction of error messages (#4913) by Julio Lopez\n- omitzero JSON tag (#4907) by Julio Lopez\n- leverage maps.Clone (#4905) by Julio Lopez\n- modernize bloop (#4904) by Julio Lopez\n- modernize (#4903) by Julio Lopez\n- modernize min/max (#4898) by Julio Lopez\n- New Feature reduce number of open file descriptors for indexes on Unix (#4866) by Samuel Maynard\n- address linter warnings (#4897) by Julio Lopez\n- New Feature interfaces and structures for maintenance stats (#4890) by lyndon-li\n- expand triggers for endurance tests (#4860) by Julio Lopez\n- fix endurance test failures (#4859) by Julio Lopez\n- remove unused pproflogging package (#4850) by Julio Lopez\n- cleanup observabilityFlags (#4852) by Julio Lopez\n- New Feature rewrote content logs to always be JSON-based and reorganized log structure (#4822) by Jarek Kowalski\n- increase number of retained maintenance run info (#4846) by Julio Lopez\n- set packID when creating the map entry (#4843) by Julio Lopez\n- minor cleanups (#4842) by Julio Lopez\n- stop background workers when test fails (#4841) by Julio Lopez\n- New Feature content-to-pack consistency checks in maintenance (#4832) by Julio Lopez\n- move content verify functionality to the content package (#4827) by Julio Lopez\n- use testify in content_formatter_test.go (#4775) by Julio Lopez\n- cleanup VSS trailer handling (#4776) by Julio Lopez\n- miscellaneous cleanups (#4774) by Julio Lopez\nSnapshots\n- New Feature Flush after restoring each file (#4825) by lyndon-li\n- Append path separator to Shadow Copy root directory on Windows (#3891) by Hakkin Lain\nStorage Providers\n- make azure.TestUserAgent more robust (#4781) by Julio Lopez\n- fix azure.TestUserAgent (#4780) by Julio Lopez\nCI/CD\n- remove GOEXPERIMENT=coverageredesign (#4988) by Julio Lopez\n- make socket activation test more robust (#4985) by Julio Lopez\n- build kopia with -trimpath (#4983) by Julio Lopez\n- enable wsl_v5:{assign,expr} linter settings (#4982) by Julio Lopez\n- enable wsl_v5:err linter (#4928) by Julio Lopez\n- enable modernize:omitzero linter setting (#4981) by Julio Lopez\n- require Go 1.24 to build site (#4980) by Julio Lopez\n- upgrade to golangci-lint 2.6.1 (#4973) by Nathan Baulch\n- enable wsl_v5:return linter (#4975) by Julio Lopez\n- upgrade to golangci-lint v2.5.0 (#4931) by Nathan Baulch\n- update copilot instructions for reviews (#4935) by Julio Lopez\n- add copilot instructions (#4933) by Julio Lopez\n- add linter config for gofumpt (#4929) by Julio Lopez\n- run endurance test every 6 hours (#4861) by Julio Lopez\n- cleanup parameters for actions/setup-go (#4813) by Julio Lopez\n- upgrade Go toolchain to 1.24.7 (#4807) by Julio Lopez\nGraphical User Interface\n- fix failing test (#384) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.22.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.0/KopiaUI-Setup-0.22.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.0.exe",
+          "sha256": "60ddfc209789cdbc6a583b8736b1f52fc2087cbc897d8bfa01717d5bb8ab8808",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.0",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.22.0/KopiaUI-Setup-0.22.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.22.0.exe",
+          "sha256": "60ddfc209789cdbc6a583b8736b1f52fc2087cbc897d8bfa01717d5bb8ab8808",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.22.0",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.21.1",
+      "release_date": "2025-07-22",
+      "release_notes": "Server\n- fixed scheduling bug (#4732) by Jarek Kowalski\nStorage Providers\n- New Feature Azure Federated Identity support (#4728) by Julio Lopez",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.21.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.21.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.21.1/KopiaUI-Setup-0.21.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.21.1.exe",
+          "sha256": "ee67481765e164f7311df3b047deb5d6741d99113c19f90183b29d05c656c351",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.21.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.21.1/KopiaUI-Setup-0.21.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.21.1.exe",
+          "sha256": "ee67481765e164f7311df3b047deb5d6741d99113c19f90183b29d05c656c351",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.21.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.20.1",
+      "release_date": "2025-05-26",
+      "release_notes": "Command-Line Interface\n- minor cleanups in diff tests (#4594) by Julio Lopez\nServer\n- fixed server-based notifications (#4598) by Jarek Kowalski\nSnapshots\n- fixed snapshotting of \\server\\share (#4603) by Jarek Kowalski\n- Remove checkpoints after a complete snapshot (#4439) by shniubobo\nNotifications\n- fixed notification severities on snapshot creation (#4604) by Jarek Kowalski\nCI/CD\n- enforce consistent formatting of KopiaUI code (#4586) by Jarek Kowalski\nGraphical User Interface\n- reformat code to 120 characters per line (#338) by Jarek Kowalski\n- fixed 'Set Policy' button (#337) by Jarek Kowalski\n- SMTP credentials should not be required (#336) by Jarek Kowalski\n- ignore exceptions when making incremental changes to the policy (#335) by Jarek Kowalski\n- report code coverage (#334) by Jarek Kowalski\n- globally apply prettier formatting (#333) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.20.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.20.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.20.1/KopiaUI-Setup-0.20.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.20.1.exe",
+          "sha256": "714b549c8953f0972086d8541addac27f34ff338068c66ba14fbf9586f0cd98b",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.20.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.20.1/KopiaUI-Setup-0.20.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.20.1.exe",
+          "sha256": "714b549c8953f0972086d8541addac27f34ff338068c66ba14fbf9586f0cd98b",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.20.1",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.20.0",
+      "release_date": "2025-05-20",
+      "release_notes": "Command-Line Interface\n- New Feature helper functions to get preceding snapshots for diff (#4559) by Rohit-BM18\n- Fix crash when doing kopia policy show <path> (#4560) by Donatas Abraitis\n- rename function to setListBlobsParallelismFromFlags (#4564) by Julio Lopez\n- New Feature --stats-only flag for the diff command (#4557) by Rohit-BM18\n- add flag for rclone's startup timeout (#4543) by Julio Lopez\n- cleanup cli.repositoryAccessMode (#4541) by Julio Lopez\n- clarify documentation regarding per-user and per-host (#4512) by blenderfreaky\n- create cache marker in log directories (#4517) by Julio López\n- set build info version and info when not set (#4498) by Julio López\n- misc cleanups in internal/diff (#4484) by Julio López\n- add details to persistent password error message (#4480) by Julio López\n- add newline after policy export output (#4476) by Julio López\n- New Feature compute snapshot diff stats (#4444) by Rohit-BM18\n- diff test (#4422) by Julio López\nKopiaUI App\n- adjust handling of default repository (#4561) by remigius42\nGeneral Improvements\n- cleanup forbidigo linter config (#4540) by Julio Lopez\n- cleanup linter config (#4538) by Julio Lopez\n- avoid removing error cause (#4536) by Julio Lopez\n- enable wsl for all go files (#4524) by Matthieu MOREL\n- cleanup a few tests (#4519) by Julio Lopez\n- leverage os.CreateTemp (#4513) by Julio López\n- minor cleanups and other nits (#4507) by Julio López\n- tempfile.Create on Linux (x64/arm64) (#4504) by Julio López\n- use correct error in call to errors.Wrap (#4477) by alingse\n- prevent infinite loop while resolving ignore file symlinks (#4413) by Julio López\nRepository\n- New Feature role assumption for S3 storage (#4182) by ashmrtn\nServer\n- add empty line between headers and body in email payload (#4545) by Julio Lopez\n- prevent maintenance task on read-only repos (#4408) by Julio López\nSnapshots\n- extracted snapshot.FindPreviousManifests() (#4453) by Jarek Kowalski\n- refactored uploader into separate package (#4450) by Jarek Kowalski\nStorage Providers\n- human-friendly persistence of role durantion (#4546) by Julio Lopez\n- New Feature Azure Blob client certificate authentication (#4535) by Julio Lopez\nCI/CD\n- fix HTMLUI changelog (#4579) by Jarek Kowalski\n- auto-generate clean htmlui changelog (#4578) by Jarek Kowalski\n- upgrade Go toolchain to 1.23.9 (#4568) by Julio Lopez\n- remove exclusion for unused ctx parameters (#4530) by Julio Lopez\n- replace multierr with errors.Join (#4529) by Julio Lopez\n- remove gocritic unnecessaryDefer exclusion (#4525) by Matthieu MOREL\n- enable exptostd linter (#4509) by Julio López\n- utc commit date (#4506) by Julio López\n- bump golangci-lint to v2.1.2 (#4500) by Matthieu MOREL\n- use GH Linux ARM runners (#4367) by Julio López\n- upgrade Go to 1.23 (#4248) by Jarek Kowalski\nGraphical User Interface\n- New Feature add max file size field to policy editor (#321) by blenderfreaky\n- New Feature allow creating per-host, per-user and foreign policies (#320) by blenderfreaky\n- Remove misleading asterisk from extension placeholders (#327) by Kian Kasad\n- don't require login and password to allow using SMTP instead of upgrading to SMTPs (#313) by anaxita\n- reformatted all code using prettier (#330) by Jarek Kowalski\n- added eslint (#329) by Jarek Kowalski\n- migrate htmlui framework to vite, because CRA is deprecated (#316) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.20.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.20.0/KopiaUI-Setup-0.20.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.20.0.exe",
+          "sha256": "b2f76741cb47f74a4d803bd693aa88c32e1589b4dd7aad2693f05dfeed04c35f",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.20.0",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.20.0/KopiaUI-Setup-0.20.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.20.0.exe",
+          "sha256": "b2f76741cb47f74a4d803bd693aa88c32e1589b4dd7aad2693f05dfeed04c35f",
+          "product_code": "7b332f95-7538-5e20-9252-40d703baa034",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.20.0",
+              "product_code": "7b332f95-7538-5e20-9252-40d703baa034"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.19.0",
+      "release_date": "2025-01-24",
+      "release_notes": "Kopia v0.19 improves support for notifications, including:\n- ability to define notification profiles in the web UI/desktop app (in the Preferences tab)\n- notification format tweaks and improvements\n- sending snapshot report notifications from servers\nFull change log follows:Graphical User Interface\n- New Feature upgraded htmlui to the latest version (#4317) by Kopia Builder [bot]\n- New Feature upgraded htmlui to the latest version (#4301) by Kopia Builder [bot]\n- New Feature upgraded htmlui to the latest version (#4300) by Kopia Builder [bot]\nKopiaUI App\n- New Feature support for desktop notifications (#4352) by Jarek Kowalski\n- New Feature support for AppArmor on Ubuntu 24.04 (#4318) by Jarek Kowalski\nGeneral Improvements\n- reduce verbosity for noisy log message (#4357) by Julio López\n- cleanup symlink tests (#4347) by Julio López\n- New Feature misc notifications improvements (#4319) by Jarek Kowalski\nServer\n- ensure server uploads \"repodiag\" blobs (#4358) by Julio López\n- New Feature emit notifications as JSON to stderr when running under KopiaUI (#4322) by Jarek Kowalski\n- New Feature only log successful authentication events when --log-server-requests is enabled (#4296) by Jarek Kowalski\nNotifications\n- New Feature tweak snapshot report template (#4338) by Jarek Kowalski\n- New Feature emit snapshot report notifications in the UI/server (#4323) by Jarek Kowalski\n- New Feature improved notification templates (#4321) by Jarek Kowalski\nDependencies\n- bump codecov/codecov-action to 5.2.0 (#4362) by Julio López\n- bump docker/setup-qemu-action (#4361) by Julio López\n- github.com/Azure/azure-sdk-for-go/sdk/storage/azblob (#4360) by Julio López\n- bump google.golang.org/api (#4356) by dependabot[bot]\n- drop Go patch version to 1.22.0 (#4353) by Julio López\n- upgrade grpc and opentelemetry dependencies (#4354) by Julio López\n- bump the telemetry-dependencies group with 4 updates (#4350) by dependabot[bot]\n- bump the common-golang-dependencies group with 3 updates (#4349) by dependabot[bot]\n- bump github.com/sanity-io/litter from 1.5.5 to 1.5.6 (#4344) by dependabot[bot]\n- bump github.com/mattn/go-colorable from 0.1.13 to 0.1.14 (#4343) by dependabot[bot]\n- bump cloud.google.com/go/storage (#4342) by dependabot[bot]\n- bump github.com/minio/minio-go/v7 from 7.0.82 to 7.0.83 in the common-golang-dependencies group (#4337) by dependabot[bot]\n- bump the kopia-ui-npm-dependencies group (#4327) by dependabot[bot]\n- bump codecov/codecov-action from 5.0.7 to 5.1.2 (#4330) by dependabot[bot]\n- bump docker/setup-buildx-action in the docker group (#4329) by dependabot[bot]\n- bump the github-actions group with 3 updates (#4328) by dependabot[bot]\n- bump github.com/studio-b12/gowebdav from 0.9.0 to 0.10.0 (#4315) by dependabot[bot]\n- bump the common-golang-dependencies group across 1 directory with 8 updates (#4336) by dependabot[bot]\n- bump the common-golang-dependencies group with 4 updates (#4314) by dependabot[bot]\n- bump the telemetry-dependencies group with 4 updates (#4312) by dependabot[bot]\n- bump the common-golang-dependencies group with 4 updates (#4311) by dependabot[bot]\n- bump the common-golang-dependencies group across 1 directory with 3 updates (#4299) by dependabot[bot]\n- bump github.com/prometheus/common (#4298) by dependabot[bot]\n- bump github/codeql-action in the github-actions group (#4286) by dependabot[bot]\n- bump github.com/mocktools/go-smtp-mock/v2 (#4277) by dependabot[bot]\n- bump codecov/codecov-action from 4.6.0 to 5.0.7 (#4287) by dependabot[bot]\n- bump the kopia-ui-npm-dependencies group (#4288) by dependabot[bot]\n- bump github.com/hanwen/go-fuse/v2 from 2.6.4 to 2.7.2 (#4291) by dependabot[bot]\n- bump github.com/minio/minio-go/v7 (#4290) by dependabot[bot]\n- bump github.com/stretchr/testify from 1.9.0 to 1.10.0 (#4275) by dependabot[bot]\n- bump google.golang.org/api (#4274) by dependabot[bot]",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.19.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.19.0/KopiaUI-Setup-0.19.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.19.0.exe",
+          "sha256": "6dd51d77f4dc958fd3e12073df7306f4558be63a74e5c156135c612002fbbc33",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.19.0"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.19.0/KopiaUI-Setup-0.19.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.19.0.exe",
+          "sha256": "6dd51d77f4dc958fd3e12073df7306f4558be63a74e5c156135c612002fbbc33",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.19.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.18.2",
+      "release_date": "2024-11-21",
+      "release_notes": "Kopia v0.18.2\nKopia v0.18.2 is a hot fix release which fixes compatibility with repository server clients which were connected using previous versions.General Improvements\n- New Feature JSON marshaler helper for time.Duration (#4194) by Julio López\nServer\n- handle unset password hash version in user profile (#4259) by Julio López\nSnapshots\n- New Feature Fix for #2037 Add symlink support for .kopiaignore (#4190) by Mario Camou\nNotifications\n- fixed headers for email notifications (#4258) by Jarek Kowalski\nRelease notes for v0.18:\nThere are over 240 changes in this release. Huge thanks to all contributors, testers, doc writers and everybody else who helped make this happen.Full list of changes can be found in: https://github.com/kopia/kopia/compare/v0.17.0...v0.18.0Release highlights\nNotifications\nYou can now define notification profiles to be notified whenever errors occur.\n- support for defining notification profiles and templates via CLI (#4034) by Jarek Kowalski\n- send error notifications and snapshot reports (#4233) by Jarek Kowalski\n- improved snapshot reports (#4244) by Jarek Kowalski\n- added API to manipulate notification profiles in the UI - not used yet (#4171) by Jarek Kowalski\nMaintenance\nMaintenance and manifest management improvements should make working with larger repositories somewhat easier.\n- run epoch maintenance for quick maintenance (#4185) by Julio López\n- allow running quick maintenance with epoch manager (#4198) by Julio López\n- do not run auto-maintenance after a command fails (#4168) by Julio López\n- Reduce memory usage for epoch index compaction (#4139) by lyndon-li\n- Reduce memory allocations during manifest compaction (#4084) by ashmrtn\n- remove ability to enable compaction on index load (#3834) by Julio López\n- Allow extending blob retentions (#4151) by Mike McKay-Dirden\nSnapshot/Restore\nImprovements for snapshot/restore progress reporting.\n- introduce adaptive estimation mechanism (#4218) by Eugene Sumin\n- Increase restore progress granularity (#3655) by Eugene Sumin\nPolicies\n- add policy import/export commands to im-/export policies from/to json ([#4020]) by blenderfreaky\n- added support for per-directory splitter overrides (#3887) by Jarek Kowalski\n- Metadata compression config support for directory and indirect content (#4080) by Prasad Ghangal\nServer\n- BREAKING CHANGE remove support for HTTP-based repository API (#3745) by Jarek Kowalski\n- add server user set-password-hash command (#3974) by Julio López\n- user add set user-password-hashing-algorithm cli option (#3815) by Sirish Bathina\n- Fix client IPv6 URI generation for gRPC connections (#3830) by Nick\nProviders\n- GCS immutability (#4134) by Mike McKay-Dirden\n- info about the B2 S3-compatible endpoint (#3860) by Wyatt Childers\n- upgraded rclone to 1.68.2, fixed Google Drive rclone compatibility (#4249) by Jarek Kowalski\nOther Notable Changes\n- cache hard limits flags (#3846) by Wyatt Childers\n- avoid memory bloat in benchmark encryption command (#4213) by Julio López\n- include clock skew in error message (#4186) by Julio López\n- avoid using empty master keys (#3835) by Mark Severson\n- key derivation algorithm for cache encryption (#3799) by Sirish Bathina\n- allow setting key derivation algorithm for format blob (#3779) by Sirish Bathina\n- include parameters in pbkdf2 instantiation (#3811) by Julio López\n- change default number of iterations for PBKDF2 (#3810) by Julio López",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.18.2",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.18.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.18.2/KopiaUI-Setup-0.18.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.18.2.exe",
+          "sha256": "14b1385760336aa5d46edabddbd97d3f8e2aa72de67078cb2752fc260cd9b11c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.18.2/KopiaUI-Setup-0.18.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.18.2.exe",
+          "sha256": "14b1385760336aa5d46edabddbd97d3f8e2aa72de67078cb2752fc260cd9b11c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.18.1",
+      "release_date": "2024-11-17",
+      "release_notes": "Kopia v0.18.1\nKopia v0.18.1  is a hot fix release which fixes compatibility with repository server clients which were connected using previous versions.See #4255Release notes for v0.18:\nThere are over 240 changes in this release. Huge thanks to all contributors, testers, doc writers and everybody else who helped make this happen.Full list of changes can be found in: https://github.com/kopia/kopia/compare/v0.17.0...v0.18.0Release highlights\nNotifications\nYou can now define notification profiles to be notified whenever errors occur.\n- support for defining notification profiles and templates via CLI (#4034) by Jarek Kowalski\n- send error notifications and snapshot reports (#4233) by Jarek Kowalski\n- improved snapshot reports (#4244) by Jarek Kowalski\n- added API to manipulate notification profiles in the UI - not used yet (#4171) by Jarek Kowalski\nMaintenance\nMaintenance and manifest management improvements should make working with larger repositories somewhat easier.\n- run epoch maintenance for quick maintenance (#4185) by Julio López\n- allow running quick maintenance with epoch manager (#4198) by Julio López\n- do not run auto-maintenance after a command fails (#4168) by Julio López\n- Reduce memory usage for epoch index compaction (#4139) by lyndon-li\n- Reduce memory allocations during manifest compaction (#4084) by ashmrtn\n- remove ability to enable compaction on index load (#3834) by Julio López\n- Allow extending blob retentions (#4151) by Mike McKay-Dirden\nSnapshot/Restore\nImprovements for snapshot/restore progress reporting.\n- introduce adaptive estimation mechanism (#4218) by Eugene Sumin\n- Increase restore progress granularity (#3655) by Eugene Sumin\nPolicies\n- add policy import/export commands to im-/export policies from/to json ([#4020]) by blenderfreaky\n- added support for per-directory splitter overrides (#3887) by Jarek Kowalski\n- Metadata compression config support for directory and indirect content (#4080) by Prasad Ghangal\nServer\n- BREAKING CHANGE remove support for HTTP-based repository API (#3745) by Jarek Kowalski\n- add server user set-password-hash command (#3974) by Julio López\n- user add set user-password-hashing-algorithm cli option (#3815) by Sirish Bathina\n- Fix client IPv6 URI generation for gRPC connections (#3830) by Nick\nProviders\n- GCS immutability (#4134) by Mike McKay-Dirden\n- info about the B2 S3-compatible endpoint (#3860) by Wyatt Childers\n- upgraded rclone to 1.68.2, fixed Google Drive rclone compatibility (#4249) by Jarek Kowalski\nOther Notable Changes\n- cache hard limits flags (#3846) by Wyatt Childers\n- avoid memory bloat in benchmark encryption command (#4213) by Julio López\n- include clock skew in error message (#4186) by Julio López\n- avoid using empty master keys (#3835) by Mark Severson\n- key derivation algorithm for cache encryption (#3799) by Sirish Bathina\n- allow setting key derivation algorithm for format blob (#3779) by Sirish Bathina\n- include parameters in pbkdf2 instantiation (#3811) by Julio López\n- change default number of iterations for PBKDF2 (#3810) by Julio López",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.18.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.18.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.18.1/KopiaUI-Setup-0.18.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.18.1.exe",
+          "sha256": "56a31f6aaed0189eac6edcf99a8a615222bef2921cb3bbf7f87679475e2c3248",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.18.1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.18.1/KopiaUI-Setup-0.18.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.18.1.exe",
+          "sha256": "56a31f6aaed0189eac6edcf99a8a615222bef2921cb3bbf7f87679475e2c3248",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.18.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.18.0",
+      "release_date": "2024-11-16",
+      "release_notes": "Kopia v0.18.0\nThere are over 240 changes in this release. Huge thanks to all contributors, testers, doc writers and everybody else who helped make this happen.Full list of changes can be found in: https://github.com/kopia/kopia/compare/v0.17.0...v0.18.0Release highlights\nNotifications\nYou can now define notification profiles to be notified whenever errors occur.\n- support for defining notification profiles and templates via CLI (#4034) by Jarek Kowalski\n- send error notifications and snapshot reports (#4233) by Jarek Kowalski\n- improved snapshot reports (#4244) by Jarek Kowalski\n- added API to manipulate notification profiles in the UI - not used yet (#4171) by Jarek Kowalski\nMaintenance\nMaintenance and manifest management improvements should make working with larger repositories somewhat easier.\n- run epoch maintenance for quick maintenance (#4185) by Julio López\n- allow running quick maintenance with epoch manager (#4198) by Julio López\n- do not run auto-maintenance after a command fails (#4168) by Julio López\n- Reduce memory usage for epoch index compaction (#4139) by lyndon-li\n- Reduce memory allocations during manifest compaction (#4084) by ashmrtn\n- remove ability to enable compaction on index load (#3834) by Julio López\n- Allow extending blob retentions (#4151) by Mike McKay-Dirden\nSnapshot/Restore\nImprovements for snapshot/restore progress reporting.\n- introduce adaptive estimation mechanism (#4218) by Eugene Sumin\n- Increase restore progress granularity (#3655) by Eugene Sumin\nPolicies\n- add policy import/export commands to im-/export policies from/to json ([#4020])\n- added support for per-directory splitter overrides (#3887) by Jarek Kowalski\nkopia/kopia/issues/4020)) by blenderfreaky\n- Metadata compression config support for directory and indirect content (#4080) by Prasad Ghangal\nServer\n- BREAKING CHANGE remove support for HTTP-based repository API (#3745) by Jarek Kowalski\n- add server user set-password-hash command (#3974) by Julio López\n- user add set user-password-hashing-algorithm cli option (#3815) by Sirish Bathina\n- Fix client IPv6 URI generation for gRPC connections (#3830) by Nick\nProviders\n- GCS immutability (#4134) by Mike McKay-Dirden\n- info about the B2 S3-compatible endpoint (#3860) by Wyatt Childers\n- upgraded rclone to 1.68.2, fixed Google Drive rclone compatibility (#4249) by Jarek Kowalski\nOther Notable Changes\n- cache hard limits flags (#3846) by Wyatt Childers\n- avoid memory bloat in benchmark encryption command (#4213) by Julio López\n- include clock skew in error message (#4186) by Julio López\n- avoid using empty master keys (#3835) by Mark Severson\n- key derivation algorithm for cache encryption (#3799) by Sirish Bathina\n- allow setting key derivation algorithm for format blob (#3779) by Sirish Bathina\n- include parameters in pbkdf2 instantiation (#3811) by Julio López\n- change default number of iterations for PBKDF2 (#3810) by Julio López",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.18.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.18.0/KopiaUI-Setup-0.18.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.18.0.exe",
+          "sha256": "f8de20fd2e35e928cadff6c7c03a4940d125098693f2bbb7bfec75de2a6fe472",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.18.0"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.18.0/KopiaUI-Setup-0.18.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.18.0.exe",
+          "sha256": "f8de20fd2e35e928cadff6c7c03a4940d125098693f2bbb7bfec75de2a6fe472",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.18.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.17.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.17.0/KopiaUI-Setup-0.17.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.17.0.exe",
+          "sha256": "6d592de6be4a9c887a26477ccfbfe34c8633edc28d28fa16f9834f6d2219d10f",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.17.0"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.17.0/KopiaUI-Setup-0.17.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.17.0.exe",
+          "sha256": "6d592de6be4a9c887a26477ccfbfe34c8633edc28d28fa16f9834f6d2219d10f",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.17.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.16.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.16.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.16.1/KopiaUI-Setup-0.16.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.16.1.exe",
+          "sha256": "77477e138b50714aee1c9457d9aba3f47cbb51bbef0b082f7a7af98826d601c0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.16.1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.16.1/KopiaUI-Setup-0.16.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.16.1.exe",
+          "sha256": "77477e138b50714aee1c9457d9aba3f47cbb51bbef0b082f7a7af98826d601c0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.16.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.16.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.16.0/KopiaUI-Setup-0.16.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.16.0.exe",
+          "sha256": "e98a3e812d77bfe2eb8fad4c0b374f9e2cc8875ddb22177455733cc7264099cd",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.16.0"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.16.0/KopiaUI-Setup-0.16.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.16.0.exe",
+          "sha256": "e98a3e812d77bfe2eb8fad4c0b374f9e2cc8875ddb22177455733cc7264099cd",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.16.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.15.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.15.0/KopiaUI-Setup-0.15.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.15.0.exe",
+          "sha256": "da9f431f15aaed6a680cdfb19cf8055cf901ee2be528e69dd1d4d58346fb461a",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.14.1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.15.0/KopiaUI-Setup-0.15.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.15.0.exe",
+          "sha256": "da9f431f15aaed6a680cdfb19cf8055cf901ee2be528e69dd1d4d58346fb461a",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.14.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.1",
+      "release_date": "2023-09-18",
+      "release_notes": "Command-Line Interface\n- New Feature Added option to allow running missed snapshots on Kopia start (#3311) by PhracturedBlue\nGraphical User Interface\n- fixed dark mode via kopia/htmlui#191 (#3314) by Jarek Kowalski\nKopiaUI App\n- Workaround for wrong window bounds in multi display environments (#3315) by Christoph Anderson\nCI/CD\n- auto-delete old RPM and DEB packages (#3310) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.14.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.14.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.14.1/KopiaUI-Setup-0.14.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.14.1.exe",
+          "sha256": "71fffb5c01f39f160c727d2beea0b875fd88f504427a41331761aa2e4fdda938",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.14.1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.14.1/KopiaUI-Setup-0.14.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.14.1.exe",
+          "sha256": "71fffb5c01f39f160c727d2beea0b875fd88f504427a41331761aa2e4fdda938",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.14.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.0",
+      "release_date": "2023-09-16",
+      "release_notes": "Graphical User Interface\n- changed default tab to Snapshots (#3308) by Jarek Kowalski\n- New Feature Allow specifying whether local or all snapshots are shown by default in the UI (#3289) by PhracturedBlue\n- New Feature imported latest UI changes (#3272) by Jarek Kowalski\n- fixed error counter reported on task level (#3190) by Christoph Anderson\n- New Feature UI updates (Theming support, action fix) (#3145) by Jarek Kowalski\nCommand-Line Interface\n- added output to indicate completion of snapshot verification (#3275) by Jarek Kowalski\n- New Feature added '--otlp-trace' flag that replaces Jaeger tracing with OTLP over gRPC (#3264) by Jarek Kowalski\n- minor nits for observability flags (#3209) by Julio Lopez\n- New Feature save observability metric before exiting the process (#3201) by Julio Lopez\n- break down observability.startMetrics() (#3196) by Julio Lopez\n- correct typo in blob stats command (#3194) by Julio Lopez\n- prevent duplicate snapshots when --all and a source path are given (#3067) by NickIAm\n- log cache full when on debug level (#3085) by Aurélien Rouëné\n- New Feature new storage config input from file when creating a repo (#2756) by Shikhar Mall\n- preserve error exit code when '--json' output is specified (#3163) by Julio Lopez\n- New Feature add --override-source parameter to allow overriding source when snapshotting (#3041) by Maxim Schuwalow\nKopiaUI App\n- fixed opening file browser for mounted directories (#3307) by Jarek Kowalski\n- New Feature Retain window size and location after close (#3302) by Christoph Anderson\nGeneral Improvements\n- fixed TestOnNthCompletion test flake, which was 1-5/10000 runs (#3263) by Jarek Kowalski\n- remove unnecessary //nolint directives (#3256) by Julio Lopez\n- add checklocks annotation (#3247) by Julio Lopez\n- rename cache variable in test (#3211) by Julio Lopez\n- change cache full logging frequency & message (#3193) by Julio Lopez\n- add crash consistency test to validate repository consistency when kopia stops abruptly (#3142) by Minyi Zou\n- Cleaner error checking in retention tests (#3164) by ashmrtn\n- minor followups to #3041 (#3141) by Julio Lopez\n- cleanup \"stale\" error naming (#3129) by Julio Lopez\n- output content rewritten bytes to INFO (#3061) by NickIAm\n- Handle no space left errors in robustness tests (#3043) by chaitalisg\nRepository\n- removed useless log (#3299) by Jarek Kowalski\n- New Feature apply retention policies server-side (#3249) by Jarek Kowalski\n- New Feature added hard size limit to the on-disk cache (#3238) by Jarek Kowalski\n- New Feature allow configuring auto compaction count (#3240) by Vaibhav Kamra\n- Disable manifest manager compaction when in read-only mode (#3226) by ashmrtn\n- skip epoch compaction and advancement on read-only storage (#3225) by ashmrtn\n- More precise check for retention in tests (#3220) by ashmrtn\n- Storage config blob caching (#3192) by ashmrtn\n- fix s3 list bucket permission error (#3072) by lyndon\n- New Feature Implement retention time extension on S3 buckets using Object Locks (#2179) by PhracturedBlue\nServer\n- New Feature reduce server refreshes of the repository  (#3265) by Jarek Kowalski\n- New Feature introduced generic scheduler (#3293) by Jarek Kowalski\n- New Feature Add socket-activation support (#3283) by PhracturedBlue\n- New Feature fixed server logging file & console (#3262) by Jarek Kowalski\n- New Feature add server support for unix domain sockets (#3216) by PhracturedBlue\nSnapshots\n- New Feature added ability to use cron expressions to schedule snapshots (#3149) by Jarek Kowalski\nStorage Providers\n- fixed list/get caching with rclone providers (#3284) by Jarek Kowalski\n- New Feature allow other GCS OAuth2.0 credential types (#3064) by Le Tran\n- Create default provider that has common functions (#3241) by ashmrtn\n- New Feature Create IsReadOnly API for blob storage (#3230) by ashmrtn\n- New Feature improve performance of SFTP uploads (#3235) by Jarek Kowalski\n- New Feature support for auth with Azure AD (#3131) by Wenkai Yin(尹文开)\n- use target ref in repo checkout (#3159) by Julio Lopez\n- split providers test workflow (#3158) by Julio Lopez\n- use minio SDK credentials package in S3 STS test (#3148) by Julio Lopez\nDependencies\n- use commit id for GH action versions (#3298) by Julio Lopez\n- bump ossf/scorecard-action from 2.1.2 to 2.2.0 (#3291) by dependabot[bot]\n- bump github/codeql-action from 2.2.4 to 2.21.5 (#3292) by dependabot[bot]\n- bump actions/checkout from 3.1.0 to 4.0.0 (#3290) by dependabot[bot]\n- bump actions/checkout from 3 to 4 (#3271) by dependabot[bot]\n- bump github.com/google/fswalker from 0.3.0 to 0.3.2 (#3268) by dependabot[bot]\n- bump the common-golang-dependencies group with 4 updates (#3273) by dependabot[bot]\n- bump github.com/hanwen/go-fuse/v2 from 2.3.0 to 2.4.0 (#3270) by dependabot[bot]\n- bump the common-golang-dependencies group with 4 updates (#3242) by dependabot[bot]\n- bump github.com/google/uuid from 1.3.0 to 1.3.1 (#3243) by dependabot[bot]\n- bump github.com/pkg/sftp from 1.13.5 to 1.13.6 (#3222) by dependabot[bot]\n- bump the common-golang-dependencies group with 2 updates (#3221) by dependabot[bot]\n- bump the common-golang-dependencies group with 4 updates (#3198) by dependabot[bot]\n- bump go.uber.org/zap from 1.24.0 to 1.25.0 (#3199) by dependabot[bot]\n- bump github.com/chromedp/chromedp from 0.9.1 to 0.9.2 (#3200) by dependabot[bot]\n- bump the kopia-ui-npm-dependencies group (#3188) by dependabot[bot]\n- bump the common-golang-dependencies group with 2 updates (#3186) by dependabot[bot]\n- bump the common-golang-dependencies group with 1 update (#3173) by dependabot[bot]\n- have dependabot ignore kopia/htmluibuild updates (#3166) by Julio Lopez\n- bump the common-golang-dependencies group with 1 update (#3160) by dependabot[bot]\n- add Azure to common-golang dependabot group (#3155) by Julio Lopez\n- bump the kopia-ui-npm-dependencies group (#3156) by dependabot[bot]\n- bump github.com/Azure/azure-sdk-for-go/sdk/azcore (#3152) by dependabot[bot]\n- bump github.com/Azure/azure-sdk-for-go/sdk/storage/azblob (#3153) by dependabot[bot]\n- bump the common-golang-dependencies group with 2 updates (#3151) by dependabot[bot]\n- bump the common-golang-dependencies group with 6 updates (#3137) by dependabot[bot]\n- bump github.com/aws/aws-sdk-go from 1.44.256 to 1.44.298 (#3138) by dependabot[bot]\n- bump the kopia-ui-npm-dependencies group in /app with 8 updates (#3120) by dependabot[bot]\n- bump the common-golang-dependencies group with 9 updates (#3115) by dependabot[bot]\n- bump github.com/studio-b12/gowebdav (#3116) by dependabot[bot]\n- bump github.com/klauspost/reedsolomon from 1.11.7 to 1.11.8 (#3117) by dependabot[bot]\n- bump github.com/stretchr/testify from 1.8.3 to 1.8.4 (#3119) by dependabot[bot]\n- switch to ubuntu:kinetic in tools/docker/Dockerfile to reduce vulnerabilities (#3076) by Kopia Builder [bot]\n- app/package.json & app/package-lock.json to reduce vulnerabilities (#3075) by Kopia Builder [bot]\n- update all golang dependencies (#3066) by Jarek Kowalski\n- upgrade Azure blob module to latest (#3056) by Vaibhav Kamra\n- bump github.com/aws/aws-sdk-go from 1.44.254 to 1.44.256 (#3009) by dependabot[bot]\n- bump github.com/prometheus/client_golang (#3007) by dependabot[bot]\n- bump google.golang.org/api from 0.120.0 to 0.121.0 (#3008) by dependabot[bot]\n- bump go.opentelemetry.io/otel from 1.14.0 to 1.15.1 (#3001) by dependabot[bot]\n- bump github.com/aws/aws-sdk-go from 1.44.253 to 1.44.254 (#2996) by dependabot[bot]\nDevelopment Dependencies\n- bump the kopia-ui-npm-dependencies group (#3261) by dependabot[bot]\n- bump the kopia-ui-npm-dependencies group (#3167) by dependabot[bot]\n- bump playwright-core from 1.33.0 to 1.35.1 in /app (#3104) by dependabot[bot]\n- bump playwright-core from 1.32.3 to 1.33.0 in /app (#2995) by dependabot[bot]\n- bump @playwright/test from 1.32.3 to 1.33.0 in /app (#2994) by dependabot[bot]\nInfrastructure\n- add timeout for make.yml build.Build step (#3202) by Julio Lopez\n- run golangci_lint in Go version from go.mod (#3154) by Julio Lopez\n- use correct parameter for message in stale action (#3126) by Julio Lopez\n- update stale workflow settings (#3124) by Julio Lopez\nCI/CD\n- upgraded UI (#3305) by Jarek Kowalski\n- switched back to LTS version of Ubuntu for Docker image (#3295) by Jarek Kowalski\n- use 'with.go-version-file' in actions/setup-go (#3282) by Julio Lopez\n- always use latest patch version of Go (#3280) by Jarek Kowalski\n- upgrade golang to 1.21 (#3277) by Jarek Kowalski\n- upgrade rclone to 1.63.1 (#3278) by Jarek Kowalski\n- add OSSF Scorecard workflow (#3260) by Julio Lopez\n- added exponential back-off to gettool (#3267) by Jarek Kowalski\n- add govulncheck step to lint workflow (#3252) by Julio Lopez\n- add page with workflow status badges for quick reference (#3248) by Julio Lopez\n- reenable check-locks after the fix was merged upstream (#3245) by Jarek Kowalski\n- upgraded linter to 1.54.0 (#3239) by Jarek Kowalski\n- notarization fix (#3237) by Jarek Kowalski\n- fixed notarization, switched to using API keys (#3236) by Jarek Kowalski\n- switched to @electron/notarize (#3175) by Jarek Kowalski\n- fixes for ARM64 runner on AWS (#3179) by Jarek Kowalski\n- avoid hung CI jobs while notarizing the kopia app on MacOS  (#3168) by Julio Lopez\n- add test for theme selection (#3157) by Christoph Anderson\n- skip license check for non-dev dependencies since we don't ship those (#3121) by Jarek Kowalski\n- typo fix (#3118) by Jarek Kowalski\n- group dependabot upgrades and switch to weekly (#3103) by Jarek Kowalski\n- restore dependabot removed in PR3017 (#3102) by Jarek Kowalski\n- fix npm audit failure by removing electron-first-run and upgrading electron and semver (#3101) by Jarek Kowalski\n- bump gotestsum to v1.10.0 (#3083) by Jarek Kowalski\n- upgraded linter to 1.53.3 (#3079) by Jarek Kowalski\n- exclude docsy theme from snyk (#3065) by Jarek Kowalski\n- disable dependabot and replace with Snyk (#3017) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.14.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.14.0/KopiaUI-Setup-0.14.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.14.0.exe",
+          "sha256": "0121ec578e30aa1beb5cf00a860635dff8f535fb32be86f27f182fe96479a55c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.14.0"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.14.0/KopiaUI-Setup-0.14.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.14.0.exe",
+          "sha256": "0121ec578e30aa1beb5cf00a860635dff8f535fb32be86f27f182fe96479a55c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.14.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.0",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.13.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.13.0/KopiaUI-Setup-0.13.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.13.0.exe",
+          "sha256": "dbb8423e62a4d1a9a729c9f274a268a74b48cae14f3142054193edf491f616b9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.13.0"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.13.0/KopiaUI-Setup-0.13.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.13.0.exe",
+          "sha256": "dbb8423e62a4d1a9a729c9f274a268a74b48cae14f3142054193edf491f616b9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.13.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.1",
+      "release_date": "2022-10-01",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.12.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.12.1/KopiaUI-Setup-0.12.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.12.1.exe",
+          "sha256": "5461e737bc4c130508d1b252549fb0c03c3099e8096b0dc25e8a79f24d2675aa",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.12.1",
+              "publisher": "Kopia Authors"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.12.1/KopiaUI-Setup-0.12.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.12.1.exe",
+          "sha256": "5461e737bc4c130508d1b252549fb0c03c3099e8096b0dc25e8a79f24d2675aa",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.12.1",
+              "publisher": "Kopia Authors"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.0",
+      "release_date": "2022-09-28",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.12.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.12.0/KopiaUI-Setup-0.12.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.12.0.exe",
+          "sha256": "af7634f931efd2391d697c8d8cf18fe71eccd912a2d8b4880c09001fb4aba9ed",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.12.0",
+              "publisher": "Kopia Authors"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.12.0/KopiaUI-Setup-0.12.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.12.0.exe",
+          "sha256": "af7634f931efd2391d697c8d8cf18fe71eccd912a2d8b4880c09001fb4aba9ed",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "KopiaUI 0.12.0",
+              "publisher": "Kopia Authors"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.3",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.11.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.3/KopiaUI-Setup-0.11.3.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.3.exe",
+          "sha256": "7235168ff48a409a5922f3a4be4a9e81bec540bfd91fb66dff8cbdf6b53b1d9b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.3/KopiaUI-Setup-0.11.3.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.3.exe",
+          "sha256": "7235168ff48a409a5922f3a4be4a9e81bec540bfd91fb66dff8cbdf6b53b1d9b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.11.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.2/KopiaUI-Setup-0.11.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.2.exe",
+          "sha256": "1765c6777fb39ad51cadb0b54065f35c91f2ca20cfb92fde6fbba23be8b0ebff",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.2/KopiaUI-Setup-0.11.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.2.exe",
+          "sha256": "1765c6777fb39ad51cadb0b54065f35c91f2ca20cfb92fde6fbba23be8b0ebff",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.1/KopiaUI-Setup-0.11.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.1.exe",
+          "sha256": "945f499f9b685d3b5eeaa23715bc67b3bf4a0e36ea36a5c00a37bea19c2c9d0a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.1/KopiaUI-Setup-0.11.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.1.exe",
+          "sha256": "945f499f9b685d3b5eeaa23715bc67b3bf4a0e36ea36a5c00a37bea19c2c9d0a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.0/KopiaUI-Setup-0.11.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.0.exe",
+          "sha256": "781dc3fd0465eb0f44f8c1b059372f096996aaeba03e050c6bc2e08849201567",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.11.0/KopiaUI-Setup-0.11.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.11.0.exe",
+          "sha256": "781dc3fd0465eb0f44f8c1b059372f096996aaeba03e050c6bc2e08849201567",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.7",
+      "release_date": "2022-04-07",
+      "release_notes": "Important Notes\n• This release reorganizes local content cache to fix an important bug (see #1844), which causes old cache contents to be ignored.. Metadata cache content is not affected, so impact should be minimal.\n\nCommand-Line Interface\n• New Feature show storage capacity in repo status (#1867) by Ali Dowair\n• New Feature improved kopia benchmark commands (#1849) by Jarek Kowalski\n• New Feature add --json output to 'repo status' command (#1834) by Julio Lopez\n• fixing ignoring lines starting with '#' in 'policy edit' (#1830) by Jarek Kowalski\n• fixed and unified help text for policy commands (#1829) by Jarek Kowalski\n\nGeneral Improvements\n• Add a test method to perform repository format version upgrade (#1832) by chaitalisg\n\nRepository\n• extracted content index building and parsing into repo/content/index (#1881) by Jarek Kowalski\n• New Feature automatically compress all kopia internal metadata using zstd-fastest (#1880) by Jarek Kowalski\n• fixed accidental cache directory location change during refactoring (#1866) by Jarek Kowalski\n• unified data and metadata cache implementations (#1864) by Jarek Kowalski\n• fixed 'unable to get content data and info' (#1844) by Jarek Kowalski\n• major server code refactoring (#1837) by Jarek Kowalski\n• New Feature ensure we don't run parallel fetches for the same blob IDs (#1835) by Jarek Kowalski\n• switched from opencensus to directly exporting prometheus metrics (#1831) by Jarek Kowalski\n• minor refactor for common code path in helper (#1833) by Julio Lopez\n• streamlined internal content cache API (#1828) by Jarek Kowalski\n• moved index blob cache to separate directory (#1827) by Jarek Kowalski\n• New Feature added 'hint' to Prefetch methods. (#1825) by Jarek Kowalski\n• fix deduplication when snapshotting identical files in parallel (#1815) by Jarek Kowalski\n\nServer\n• fixed server startup race condition (#1842) by Jarek Kowalski\n\nSnapshots\n• New Feature support for controlling upload parallelism via policies (#1850) by Jarek Kowalski\n• New Feature support restoring sparse files (#1823) by Ali Dowair\n• fixed snapshotting of mounted VSS snapshot roots (#1816) by Jarek Kowalski\n\nStorage Providers\n• New Feature Implement API to get Storage free space (#1753) by Ali Dowair\n\nDependencies\n• bump google.golang.org/api from 0.73.0 to 0.74.0 (#1872) by dependabot[bot]\n• bump github.com/aws/aws-sdk-go from 1.43.26 to 1.43.31 (#1873) by dependabot[bot]\n• bump github.com/zalando/go-keyring from 0.1.1 to 0.2.1 (#1857) by dependabot[bot]\n• bump github.com/sanity-io/litter from 1.5.2 to 1.5.4 (#1861) by dependabot[bot]\n• bump github.com/zeebo/blake3 from 0.2.2 to 0.2.3 (#1862) by dependabot[bot]\n• bump google.golang.org/protobuf from 1.27.1 to 1.28.0 (#1863) by dependabot[bot]\n• bump github.com/chromedp/chromedp from 0.7.8 to 0.8.0 (#1854) by dependabot[bot]\n• bump github.com/aws/aws-sdk-go from 1.43.9 to 1.43.26 (#1860) by dependabot[bot]\n• bump github.com/stretchr/testify from 1.7.0 to 1.7.1 (#1859) by dependabot[bot]\n• bump github.com/golang-jwt/jwt/v4 from 4.3.0 to 4.4.1 (#1855) by dependabot[bot]\n• bump github.com/klauspost/compress from 1.14.4 to 1.15.1 (#1853) by dependabot[bot]\n• bump google.golang.org/api from 0.70.0 to 0.73.0 (#1852) by dependabot[bot]\n• bump plist from 3.0.4 to 3.0.5 in /app (#1851) by dependabot[bot]\n• upgrade minimist to 1.2.6 (#1845) by Jarek Kowalski\n\nDevelopment Dependencies\n• bump electron from 17.2.0 to 18.0.1 in /app (#1871) by dependabot[bot]\n• bump electron-notarize from 1.1.1 to 1.2.1 in /app (#1858) by dependabot[bot]\n• bump electron from 17.1.0 to 17.2.0 in /app (#1856) by dependabot[bot]\n\nCI/CD\n• fixed TestThrottler flake (#1841) by Jarek Kowalski\n• fixed flaky TestServerControl (#1840) by Jarek Kowalski\n• added checklocks static analyzer (#1838) by Jarek Kowalski\n• upgraded linter to 1.45 (#1836) by Jarek Kowalski\n• skip non-deterministic tests when computing code coverage (#1817) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.10.7",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.7/KopiaUI-Setup-0.10.7.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.7.exe",
+          "sha256": "e83fc7189f5dfe395fa540b7f3f9caabe76bee272c2f88949323e0e807db1dd2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.7/KopiaUI-Setup-0.10.7.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.7.exe",
+          "sha256": "e83fc7189f5dfe395fa540b7f3f9caabe76bee272c2f88949323e0e807db1dd2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.6",
+      "release_date": "2022-03-07",
+      "release_notes": "Graphical User Interface\n• New Feature display snapshot description in snapshot list (#1806) by Jarek Kowalski\n\nCommand-Line Interface\n• New Feature improved formatting of 'policy show' outputs (#1767) by Jarek Kowalski\n• New Feature added snapshot list flags: --storage-stats and --reverse (#1766) by Jarek Kowalski\n\nKopiaUI App\n• New Feature support both left and right click to open tray menu (#1805) by Jarek Kowalski\n• New Feature provide feedback for 'Check For Updates Now' (#1804) by Jarek Kowalski\n\nGeneral Improvements\n• New Feature Upgrade lock retries & monitoring during open & write sessions (#1758) by Shikhar Mall\n\nRepository\n• New Feature removed noisy log output (#1803) by Jarek Kowalski\n• better context cancelation handling (#1802) by Jarek Kowalski\n• New Feature added PrefetchObjects() API (#1779) by Jarek Kowalski\n• added context to beforeop callbacks (#1800) by Jarek Kowalski\n• fixed 'context canceled' regression (#1799) by Jarek Kowalski\n• expose ContentInfo() on repo.Repository (#1765) by Jarek Kowalski\n• New Feature repository writer upgrade lock apis (#1742) by Shikhar Mall\n\nSnapshots\n• refactored TreeWalker to use workshare (#1762) by Jarek Kowalski\n• New Feature big upload performance improvements by parallelizing directory traversal (#1752) by Jarek Kowalski\n\nStorage Providers\n• Instructions for how to use the Google Drive backend. (#1760) by xkxx\n• New Feature add Google Drive support (#1731) by xkxx\n\nDependencies\n• bump go.uber.org/zap from 1.20.0 to 1.21.0 (#1795) by dependabot[bot]\n• bump github.com/aws/aws-sdk-go from 1.42.44 to 1.43.9 (#1785) by dependabot[bot]\n• bump google.golang.org/api from 0.69.0 to 0.70.0 (#1791) by dependabot[bot]\n• bump github.com/minio/minio-go/v7 from 7.0.21 to 7.0.23 (#1794) by dependabot[bot]\n• bump github.com/chromedp/chromedp from 0.7.6 to 0.7.8 (#1793) by dependabot[bot]\n• bump github.com/klauspost/compress from 1.14.2 to 1.14.4 (#1792) by dependabot[bot]\n• bump nanoid from 3.1.30 to 3.3.1 in /app (#1790) by dependabot[bot]\n• bump electron-updater from 4.6.1 to 4.6.5 in /app (#1781) by dependabot[bot]\n• bump go.uber.org/multierr from 1.7.0 to 1.8.0 (#1783) by dependabot[bot]\n• bump actions/checkout from 2 to 3 (#1782) by dependabot[bot]\n• bump github.com/golang-jwt/jwt/v4 from 4.2.0 to 4.3.0 (#1787) by dependabot[bot]\n• bump electron-log from 4.4.5 to 4.4.6 in /app (#1788) by dependabot[bot]\n• bump cloud.google.com/go/storage from 1.19.0 to 1.21.0 (#1789) by dependabot[bot]\n\nDevelopment Dependencies\n• bump electron from 17.0.0 to 17.1.0 in /app (#1784) by dependabot[bot]\n\nInfrastructure\n• upgraded linter to 1.44.2 (#1768) by Jarek Kowalski\n\nCI/CD\n• New Feature automatically bump homebrew version on tag (#1807) by Jarek Kowalski\n• remove changelog type filter (#1761) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.10.6",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.6/KopiaUI-Setup-0.10.6.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.6.exe",
+          "sha256": "5bbc065b916d517eee3c53ad29a3094077889591e141120b2cd4ef8296ff4af2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.6/KopiaUI-Setup-0.10.6.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.6.exe",
+          "sha256": "5bbc065b916d517eee3c53ad29a3094077889591e141120b2cd4ef8296ff4af2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.5",
+      "release_date": "2022-02-12",
+      "release_notes": "Graphical User Interface\n• New Feature support for editing pins and description (#1748) by Jarek Kowalski\n• New Feature support for defining snapshot and folder actions (#1746) by Jarek Kowalski\n• fix parsing of times of day between 00:00 and 00:59 (#1736) by Jarek Kowalski\n• New Feature support for snapshot and source deletion (#1730) by Jarek Kowalski\n\nGeneral Improvements\n• New Feature Upgrade Lock intent definitions (#1727) by Shikhar Mall\n• misc nits (#1729) by Julio Lopez\n\nSnapshots\n• treat empty retention policy as retaining ALL, not NONE (#1733) by Jarek Kowalski\n\nDependencies\n• bump follow-redirects from 1.14.6 to 1.14.8 in /app (#1745) by dependabot[bot]\n• update storage/azblob to v0.3.0 (#1743) by Jarek Kowalski\n\nCI/CD\n• auto-cancel previous workflows on the same branch (#1747) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.10.5",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.5/KopiaUI-Setup-0.10.5.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.5.exe",
+          "sha256": "bfd96caee8fdf7f4147094828f2cdbfe8d22ac1fa449ec71aa7f4c8ca3998b50",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.5/KopiaUI-Setup-0.10.5.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.5.exe",
+          "sha256": "bfd96caee8fdf7f4147094828f2cdbfe8d22ac1fa449ec71aa7f4c8ca3998b50",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.4",
+      "release_date": "2022-02-03",
+      "release_notes": "Command-Line Interface\n• New Feature allow changing retention parameters from CLI (#1680) by Shikhar Mall\n• An in-memory storage mock setup for CLI tests (#1697) by Shikhar Mall\n\nStorage Providers\n• New Feature treat token expiration errors as non-retryable (#1675) by Onkar Bhat\n• fixed rclone connection in KopiaUI (#1712) (#1713) by Jarek Kowalski\n\nDependencies\n• bump github.com/minio/minio-go/v7 from 7.0.20 to 7.0.21 (#1715) by dependabot[bot]\n• bump github.com/prometheus/client_golang (#1716) by dependabot[bot]\n• bump cloud.google.com/go/storage from 1.18.2 to 1.19.0 (#1714) by dependabot[bot]\n• bump github.com/google/go-cmp from 0.5.6 to 0.5.7 (#1708) by dependabot[bot]\n• bump github.com/klauspost/compress from 1.13.6 to 1.14.2 (#1704) by dependabot[bot]\n• bump github.com/sanity-io/litter from 1.5.1 to 1.5.2 (#1709) by dependabot[bot]\n• bump electron-log from 4.4.4 to 4.4.5 in /app (#1700) by dependabot[bot]\n• bump github.com/zeebo/blake3 from 0.2.1 to 0.2.2 (#1703) by dependabot[bot]\n• bump google.golang.org/grpc from 1.43.0 to 1.44.0 (#1710) by dependabot[bot]\n• bump google.golang.org/api from 0.63.0 to 0.66.0 (#1702) by dependabot[bot]\n• bump github.com/aws/aws-sdk-go from 1.42.25 to 1.42.44 (#1706) by dependabot[bot]\n• bump go.uber.org/zap from 1.19.1 to 1.20.0 (#1707) by dependabot[bot]\n\nDevelopment Dependencies\n• bump electron from 16.0.5 to 17.0.0 in /app (#1705) by dependabot[bot]\n• bump electron-builder from 22.14.11 to 22.14.13 in /app (#1699) by dependabot[bot]\n• bump concurrently from 6.5.1 to 7.0.0 in /app (#1701) by dependabot[bot]\n\nCI/CD\n• add rclone binaries to the list of artifacts (#1719) by Jarek Kowalski\n• added rclone 1.57.0 to Docker container images (#1718) by Jarek Kowalski",
+      "release_notes_url": "https://github.com/kopia/kopia/releases/tag/v0.10.4",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.4/KopiaUI-Setup-0.10.4.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.4.exe",
+          "sha256": "53b969d0f83de0179375a566d621c267ce958deb431c96672ce518212ba2cccf",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.4/KopiaUI-Setup-0.10.4.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.4.exe",
+          "sha256": "53b969d0f83de0179375a566d621c267ce958deb431c96672ce518212ba2cccf",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.3",
+      "release_date": "2022-01-30",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.3/KopiaUI-Setup-0.10.3.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.3.exe",
+          "sha256": "844c9fd0217c5466f24823659ee24c9f3a9eb8d4bfd2af9bceec6f4098d9cf1b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.3/KopiaUI-Setup-0.10.3.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.3.exe",
+          "sha256": "844c9fd0217c5466f24823659ee24c9f3a9eb8d4bfd2af9bceec6f4098d9cf1b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.2",
+      "release_date": "2022-01-30",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.2/KopiaUI-Setup-0.10.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.2.exe",
+          "sha256": "2ac903fc2ca50d94ab47e1e30c04b52918260cf15a027efbfe6b8f157b9e2a87",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.2/KopiaUI-Setup-0.10.2.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.2.exe",
+          "sha256": "2ac903fc2ca50d94ab47e1e30c04b52918260cf15a027efbfe6b8f157b9e2a87",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.1/KopiaUI-Setup-0.10.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.1.exe",
+          "sha256": "1be0a6500238d4ae7bd11693644262d567159ed04bde051063531f97c282adba",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.1/KopiaUI-Setup-0.10.1.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.1.exe",
+          "sha256": "1be0a6500238d4ae7bd11693644262d567159ed04bde051063531f97c282adba",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.0/KopiaUI-Setup-0.10.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.0.exe",
+          "sha256": "f038a3744a08a446ecfc31d277057fb71a2b3d2b6e32f0462286f10b5ae1ab44",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.10.0/KopiaUI-Setup-0.10.0.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.10.0.exe",
+          "sha256": "f038a3744a08a446ecfc31d277057fb71a2b3d2b6e32f0462286f10b5ae1ab44",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.8",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.9.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.9.8/KopiaUI-Setup-0.9.8.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.9.8.exe",
+          "sha256": "3b26a464d22bbd793eb1f075ecc1e0ee289ba2bf51df7baa98e5dd5136463397",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.9.8/KopiaUI-Setup-0.9.8.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.9.8.exe",
+          "sha256": "3b26a464d22bbd793eb1f075ecc1e0ee289ba2bf51df7baa98e5dd5136463397",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.7",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.9.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.9.7/KopiaUI-Setup-0.9.7.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.9.7.exe",
+          "sha256": "a0f658b5ef03cc62981a926a67ee933c7c55592c2cf3d74077d68cbbe37c7159",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.9.7/KopiaUI-Setup-0.9.7.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.9.7.exe",
+          "sha256": "a0f658b5ef03cc62981a926a67ee933c7c55592c2cf3d74077d68cbbe37c7159",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.4",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.9.4/KopiaUI-Setup-0.9.4.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.9.4.exe",
+          "sha256": "579663bd310d31a04e90fbd6af40cc333b00f0713d622fc1b5206859819eab57",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/Kopia/KopiaUI/0.9.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.9.3/KopiaUI-Setup-0.9.3.exe",
+          "host": "github.com",
+          "filename": "KopiaUI-Setup-0.9.3.exe",
+          "sha256": "bf0dca1b71d9eb7031b94a048194005ba40ad79b5d689f62dc2c69ec6eacbe8e",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.23.1",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.23.1/KopiaUI-0.23.1.dmg",
+          "host": "github.com",
+          "filename": "KopiaUI-0.23.1.dmg",
+          "sha256": "518c6ff1ed4c992085f1c2ce3eeec0d8616562d855c12b82d7da02eb2103b7a5",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/kopia/kopia/releases/download/v0.23.1/KopiaUI-0.23.1-arm64.dmg",
+          "host": "github.com",
+          "filename": "KopiaUI-0.23.1-arm64.dmg",
+          "sha256": "f2adb1869c603c66aaeabd846affd21df426c614cc8285230f5465f9389a003c",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "KopiaUI.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/kopia",
+            "~/Library/Caches/kopia",
+            "~/Library/Logs/kopia",
+            "~/Library/Logs/kopia-ui",
+            "~/Library/Preferences/io.kopia.ui.plist",
+            "~/Library/Saved Application State/io.kopia.ui.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "7ba156ba3b98370906bafbaa35808b8d6cfe55f1",
+      "retrieved_at": "2026-11-05T12:08:19.012Z",
+      "path": "manifests/k/Kopia/KopiaUI"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "4075b2218ff4073f481d7a9299faa66ea2435943",
+      "retrieved_at": "2026-11-05T12:08:19.012Z",
+      "path": "Casks/k/kopiaui.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/kopiaui.json"
+    }
+  ]
+}

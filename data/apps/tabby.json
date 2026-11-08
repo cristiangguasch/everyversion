@@ -1,0 +1,4289 @@
+{
+  "schema_version": 2,
+  "slug": "tabby",
+  "name": "Tabby",
+  "publisher": "Tabby Developers",
+  "author": "Eugene Pankov",
+  "ids": {
+    "winget": "Eugeny.Tabby",
+    "moniker": "tabby",
+    "homebrew_cask": "tabby"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "A terminal for a more modern age.",
+  "description": "Tabby (formerly Terminus) is a highly configurable terminal emulator, SSH and serial client for Windows 10, macOS and Linux\n- Integrated SSH and Telnet client and connection manager\n- Integrated serial terminal\n- Theming and color schemes\n- Fully configurable shortcuts and multi-chord shortcuts\n- Split panes\n- Remembers your tabs\n- PowerShell (and PS Core), WSL, Git-Bash, Cygwin, MSYS2, Cmder and CMD support\n- Direct file transfer from/to SSH sessions via Zmodem\n- Full Unicode support including double-width characters\n- Doesn't choke on fast-flowing outputs\n- Proper shell experience on Windows including tab completion (via Clink)\n- Integrated encrypted container for SSH secrets and configuration\n- SSH, SFTP and Telnet client available as a web app (also self-hosted)",
+  "tags": [
+    "command-line",
+    "console",
+    "terminal",
+    "terminus"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://tabby.sh/",
+    "publisher": "https://github.com/Eugeny",
+    "support": "https://github.com/Eugeny/tabby/issues",
+    "bug_tracker": "https://github.com/Eugeny/tabby/issues",
+    "release_notes": "https://github.com/Eugeny/tabby/releases/tag/v1.0.238",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/Eugeny/tabby/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/Eugeny/tabby/blob/HEAD/LICENSE",
+    "spdx": "MIT",
+    "copyright": "Copyright (c) 2026 Eugene Pankov",
+    "copyright_url": "https://raw.githubusercontent.com/Eugeny/tabby/master/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.0.238",
+    "macos": "1.0.238"
+  },
+  "last_updated": "2026-10-06",
+  "versions_total": {
+    "windows": 86,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.0.238",
+      "release_date": "2026-10-06",
+      "release_notes": "Features\n- feat(settings): label a plugin's vault secret by its key's description by @meanaverage in #11765\nFixes\n- fix(terminal): unbounded O(n²) output buffer for tabs that were never focused by @meanaverage in #11722\n- fix(terminal): every closed tab leaks its terminal (WebGL cursor blink timer never disposed) by @meanaverage in #11720\n- fix(terminal): closed sessions leak via PTY IPC listeners (destroy() re-entrancy) by @meanaverage in #11719\n- fix(terminal): send current terminal size in the deferred initial resize by @anseltaft in #11760\n- fix(terminal): don't steal focus from modal dialog inputs by @siparker in #11745\n- fix(core): don't fire a hotkey twice for one keystroke by @bptrsn in #11769\n- fix(app): keep the window draggable by its tab bar while a dialog is open by @meanaverage in #11766\n- fix(ssh): pass PuTTY (.ppk) private keys to WinSCP without converting them by @manjotsc in #11767\nNew Contributors\n- @meanaverage made their first contribution in #11719\n- @siparker made their first contribution in #11745\n- @manjotsc made their first contribution in #11767\n- @bptrsn made their first contribution in #11769\nFull Changelog: https://github.com/Eugeny/tabby/compare/v1.0.237...v1.0.238",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.238",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.238",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.238/tabby-1.0.238-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.238-setup-x64.exe",
+          "sha256": "55d15ddd2ed4307d13359a5f9f79ea0728cead4c5c723d4a5029715ccfb7886b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.238/tabby-1.0.238-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.238-setup-x64.exe",
+          "sha256": "55d15ddd2ed4307d13359a5f9f79ea0728cead4c5c723d4a5029715ccfb7886b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.238/tabby-1.0.238-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.238-setup-arm64.exe",
+          "sha256": "12da48a8b7dca68ff7910f6d12d986e80d06f642f43693854da18e04e764f09f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.238/tabby-1.0.238-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.238-setup-arm64.exe",
+          "sha256": "12da48a8b7dca68ff7910f6d12d986e80d06f642f43693854da18e04e764f09f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.237",
+      "release_date": "2026-09-25",
+      "release_notes": "Features\n- feat: Add Windows 11 Acrylic window support by @bluekani in https://github.com/Eugeny/tabby/pull/11481\n- Add custom labels for individual split panes by @liewstar in https://github.com/Eugeny/tabby/pull/11613\nFixes\n- ssh: fix session sometimes not ending when remote shell exits by @anseltaft in https://github.com/Eugeny/tabby/pull/11692\n- Fix chained public key and keyboard-interactive authentication by @cofedish in https://github.com/Eugeny/tabby/pull/11492\n- fix(ssh): allow blank passwords in profile and keychain auth by @uadhran in https://github.com/Eugeny/tabby/pull/11358\n- fix(ssh): prevent port forwarding messages from polluting terminal output by @osm1892 in https://github.com/Eugeny/tabby/pull/11664\n- fix: honour vault passphrase remember duration and clarify unlock modal by @uadhran in https://github.com/Eugeny/tabby/pull/11342\n- fix(local): restore mouse scrolling in Windows TUIs by @liewstar in https://github.com/Eugeny/tabby/pull/11614\n- fixed #11705 - gate fcitx fix on keydown by @Eugeny in https://github.com/Eugeny/tabby/commit/93a360b5\nNew Contributors\n- @anseltaft made their first contribution in https://github.com/Eugeny/tabby/pull/11692\n- @cofedish made their first contribution in https://github.com/Eugeny/tabby/pull/11492\n- @liewstar made their first contribution in https://github.com/Eugeny/tabby/pull/11613\nFull Changelog: https://github.com/Eugeny/tabby/compare/v1.0.236...v1.0.237",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.237",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.237",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.237/tabby-1.0.237-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.237-setup-x64.exe",
+          "sha256": "38b63b09c082d1c13db82bb95e8f5b0a80311cd04a57a673c3db7b3c20ccd3b7",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.237/tabby-1.0.237-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.237-setup-x64.exe",
+          "sha256": "38b63b09c082d1c13db82bb95e8f5b0a80311cd04a57a673c3db7b3c20ccd3b7",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.237/tabby-1.0.237-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.237-setup-arm64.exe",
+          "sha256": "f2f287e61f6cbdb5dafcd13b5059eb4031f9025c5be521fb6220f1ce1529da43",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.237/tabby-1.0.237-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.237-setup-arm64.exe",
+          "sha256": "f2f287e61f6cbdb5dafcd13b5059eb4031f9025c5be521fb6220f1ce1529da43",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.235",
+      "release_date": "2026-07-22",
+      "release_notes": "Security fixes\n- GHSA-59p9-8gwf-v9v7: Windows SFTP path traversal allows a malicious server to write files outside the selected download directory\nChanges\n- feat(core): add pinned tabs by @tyr1k in https://github.com/Eugeny/tabby/pull/11146\n- Sort baud rate selector by numeric order by @bluekani in https://github.com/Eugeny/tabby/pull/11297\n- feat: Add mouse wheel support for hotkeys by @bluekani in https://github.com/Eugeny/tabby/pull/11324\n- [Feature] Group nesting \"folders\" & Profile tree view by @D3VL-Jack in https://github.com/Eugeny/tabby/pull/10788\n- Make keyboard-interactive auth URLs clickable by @puneetdixit200 in https://github.com/Eugeny/tabby/pull/11327\n- Bundle MSVC runtime DLLs in Windows portable packages by @bluekani in https://github.com/Eugeny/tabby/pull/11372\n- Adding Cool Retro Term Amber theme by @saudiqbal in https://github.com/Eugeny/tabby/pull/11337\n- [FEATURE] refresh Windows environment variables from registry for new sessions by @MicroGery in https://github.com/Eugeny/tabby/pull/11321\n- fix(terminal): expose debug hotkeys in settings for remap/disable by @uadhran in https://github.com/Eugeny/tabby/pull/11420\n- feat: add Connect, Disconnect, and Reconnect buttons to serial tab toolbar by @uadhran in https://github.com/Eugeny/tabby/pull/11288\nFixes\n- fix: restore terminal redraw after tab reactivation by @uadhran in https://github.com/Eugeny/tabby/pull/11275\n- fix: Plugins search by @bluekani in https://github.com/Eugeny/tabby/pull/11330\n- fix(terminal): restore transparent background when vibrancy is enabled by @Specboss in https://github.com/Eugeny/tabby/pull/11326\n- fix: Restore hotkey edit and remove actions by @bluekani in https://github.com/Eugeny/tabby/pull/11374\n- fix: Exclude unnecessary Windows build artifacts by @bluekani in https://github.com/Eugeny/tabby/pull/11371\n- fix: Pin Windows build runner to windows-2022 by @bluekani in https://github.com/Eugeny/tabby/pull/11370\n- fix(terminal): reset stale DEC modes on connectable reconnect by @balajieswaramoorthi in https://github.com/Eugeny/tabby/pull/11368\n- fix(ssh): prevent keepalive flooding by mapping null/0 keepaliveInterval to undefined by @linzack in https://github.com/Eugeny/tabby/pull/11340\n- fix: ZMODEM transfer by @ruanimal in https://github.com/Eugeny/tabby/pull/11319\n- fix(ssh): honor profile port settings on connect by @uadhran in https://github.com/Eugeny/tabby/pull/11366\n- fix(terminal): robust context loss recovery and direct DOM fallback during GPU resets by @Gerry9000 in https://github.com/Eugeny/tabby/pull/11354\n- fix(settings): guard hotkey config lookup for missing plugin paths by @uadhran in https://github.com/Eugeny/tabby/pull/11422\n- fix(terminal): restart visual bell shake on repeated BEL by @uadhran in https://github.com/Eugeny/tabby/pull/11388\n- fix: handle vault unlock modal cancellation gracefully by @uadhran in https://github.com/Eugeny/tabby/pull/11356\n- feat: Add dropdown arrow to form-select elements by @bluekani in https://github.com/Eugeny/tabby/pull/11399\n- fix(ssh): prevent SFTP path navigation freeze by @A-Words in https://github.com/Eugeny/tabby/pull/11393\n- fix: replace exec() with execFile() to prevent shell injection in shellIntegration.service by @uadhran in https://github.com/Eugeny/tabby/pull/11290\n- fix: replace exec() with execFile() to prevent shell injection in app.ts by @uadhran in https://github.com/Eugeny/tabby/pull/11289\nNew Contributors\n- @cayenne17 made their first contribution in https://github.com/Eugeny/tabby/pull/11284\n- @bluekani made their first contribution in https://github.com/Eugeny/tabby/pull/11297\n- @D3VL-Jack made their first contribution in https://github.com/Eugeny/tabby/pull/10788\n- @puneetdixit200 made their first contribution in https://github.com/Eugeny/tabby/pull/11327\n- @Specboss made their first contribution in https://github.com/Eugeny/tabby/pull/11326\n- @balajieswaramoorthi made their first contribution in https://github.com/Eugeny/tabby/pull/11368\n- @linzack made their first contribution in https://github.com/Eugeny/tabby/pull/11340\n- @saudiqbal made their first contribution in https://github.com/Eugeny/tabby/pull/11337\n- @Gerry9000 made their first contribution in https://github.com/Eugeny/tabby/pull/11354\n- @MicroGery made their first contribution in https://github.com/Eugeny/tabby/pull/11321\n- @tyr1k made their first contribution in https://github.com/Eugeny/tabby/pull/11146\n- @A-Words made their first contribution in https://github.com/Eugeny/tabby/pull/11393\nFull Changelog: https://github.com/Eugeny/tabby/compare/v1.0.234...v1.0.235",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.235",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.235",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.235-setup-x64.exe",
+          "sha256": "1cc11bf9442133b4a40f9be61bb3b8b0bc7927fb09c4db75cb8739feb6c00aa4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.235-setup-x64.exe",
+          "sha256": "1cc11bf9442133b4a40f9be61bb3b8b0bc7927fb09c4db75cb8739feb6c00aa4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.235-setup-arm64.exe",
+          "sha256": "da8516d3378fad36ea7f9db29ce8854dca1ec18bb3a5e7e1e57881d8a6f83afd",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.235/tabby-1.0.235-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.235-setup-arm64.exe",
+          "sha256": "da8516d3378fad36ea7f9db29ce8854dca1ec18bb3a5e7e1e57881d8a6f83afd",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.234",
+      "release_date": "2026-05-17",
+      "release_notes": "Security fixes\nGHSA-m937-jm93-pfp6\n- Dragging and dropping a file with a specially crafted name onto the terminal could cause the terminal to execute an arbitrary command contained in the file name.\nFeatures\n- auto-sudo-password multi language and sudo-rs support (#11019) #11019 (Ponder)\n- add 'Export to file' option to terminal context menu (#11109) #11109 (Utkarsh Adhran)\nFixes\n- improve transfer menu readability (#11272) #11272 (mouse)\n- b82ac4c: Make macOS build fail if code signing fails (#11255) (Copilot) #11255\n- b0c2f5f: handle keytar password load errors (Eugene)\n- 012a62d: Fix CLI crashes on Wayland due to unhandled X11 error in Glasstron (#11264) (Chris McGrath) #11264\n- 03e9aa0: fixed #11283 - missing terminal titles (Eugene)",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.234",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.234",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.234-setup-x64.exe",
+          "sha256": "4bb7066c302bd5cf18bcc8d27128e51833f03338994faefe53a4959beb85ba3b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.234-setup-x64.exe",
+          "sha256": "4bb7066c302bd5cf18bcc8d27128e51833f03338994faefe53a4959beb85ba3b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.234-setup-arm64.exe",
+          "sha256": "cfb358d86914ea6a22934a596b24c083d1bcea79df782ae21da087e37a85c679",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.234/tabby-1.0.234-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.234-setup-arm64.exe",
+          "sha256": "cfb358d86914ea6a22934a596b24c083d1bcea79df782ae21da087e37a85c679",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.233",
+      "release_date": "2026-05-07",
+      "release_notes": "Changes\n- ssh: add hotkey to open SFTP panel (#11106) #11106 (Utkarsh Adhran)\n- add refresh button for SFTP (#11047) #11047 (Ponder)\n- bf91668: Bundle Visual C++ Redistributable in Windows NSIS installer (#11060) (JosephMcEvoy) #11060\nFixes\n- configSync: require HTTPS for sync host to prevent MITM RCE (#11228) #11228 (Sebastion)\n- disable spellchecker to prevent automatic dictionary downloads (#11107) #11107 (Utkarsh Adhran)\n- hide blacklisted profiles from OS dock/taskbar menu (#11108) #11108 (Utkarsh Adhran)\n- remove unsafe exec() in UAC.cpp (#11195) #11195 (orbisai0security)\n- use switchMap instead of flatMap for plugin search to prevent st… (#11089) #11089 (Varun Subramanyan)\n- improve agent authentication error handling and socket path validation (#11034) #11034 (ayaya)\n- fix UI degradation with large SSH config files. Issue #11078 (#11094) #11094 (hsdelirium)\n- 9152306: add user confirmation for zmodem transfers\n- 45fa605: Hide all keyboard-interactive prompts where server indicates no echo - not just \"password\" ones\n- e70fafd: remove control characters from dropped paths\n- 9eff849: prompt before running commands via protocol handler\n- bca5138: fix group selector in profile editing modal\n- 6e47c2f: add user warning for the tabby:// paste commands\n- 4c4b1f0: Fix themed backgrounds for side tabs and title bar (#11219) (nguyenhuukhoi) #11219\n- 220f719: Add option to replace line breaks with spaces on paste (#11218) (iroaK) #11218\n- 25ca30e: Implement write queue for Zmodem transfer (#11155) (gmd20) #11155\n- 0e9c570: Fix frosted glass persistence (#11083) (Utkarsh Adhran) #11083\n- 2e85f8d: generate 256 palette (#11043) (jake-stewart) #11043\n- 78a5632: Fix OSC 11 background color reporting (#11074) (Utkarsh Adhran) #11074",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.233",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.233",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.233/tabby-1.0.233-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.233-setup-x64.exe",
+          "sha256": "c635ccf53a9b24f7cfe26ba548c45f0580fb5dd77f219f3786f6fc2e8ebaf7cb",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.233/tabby-1.0.233-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.233-setup-x64.exe",
+          "sha256": "c635ccf53a9b24f7cfe26ba548c45f0580fb5dd77f219f3786f6fc2e8ebaf7cb",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.233/tabby-1.0.233-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.233-setup-arm64.exe",
+          "sha256": "d28c926ff0e081155bcd8509e08251dee72873487272beaedb9aa7e717c57b83",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.233/tabby-1.0.233-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.233-setup-arm64.exe",
+          "sha256": "d28c926ff0e081155bcd8509e08251dee72873487272beaedb9aa7e717c57b83",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.232",
+      "release_date": "2026-05-04",
+      "release_notes": "Security fixes\nGHSA-cmpc-v2x9-j9x9\n- fb9bec8: Tabby now warns when opening clickable application URIs in the terminal.\nFixes\n- 56908f4: fix incorrect imports in tabby-ssh (Eugene)",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.232",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.232",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.232/tabby-1.0.232-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.232-setup-x64.exe",
+          "sha256": "2034532e66878f8fa46afeb403f74eef34e3aa8ffc5498b4ad035e41f15492b8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.232/tabby-1.0.232-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.232-setup-x64.exe",
+          "sha256": "2034532e66878f8fa46afeb403f74eef34e3aa8ffc5498b4ad035e41f15492b8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.232/tabby-1.0.232-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.232-setup-arm64.exe",
+          "sha256": "c60173b50f0be66fd95da30ec9abbad212fc360d6b6bce119d422e0e094091dd",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.232/tabby-1.0.232-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.232-setup-arm64.exe",
+          "sha256": "c60173b50f0be66fd95da30ec9abbad212fc360d6b6bce119d422e0e094091dd",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.231",
+      "release_date": "2026-05-03",
+      "release_notes": "Changes\n- ssh: pre-populate vault password in auth prompts for MFA (fixes #9911) (#11170) #11170 (syrexjohnson)\n- 8506173: Add SFTP context menu download for files (#10971) (Leonardo Berbert) #10971\n- Implement tabby:// URL scheme handler (#11005) #11005 (Ponder)\n- Allow third-party plugins to add quick connection support. (#11004) #11004 (Ponder)\nFixes\n- pluginsSettingsTab.component.pug: flex wrapper for gap in buttons (#10986) #10986 (Grovvik)\n- upgraded webpack from 5.86.0 to 5.104.1 to fix ES6 class extension bug with xterm.js v6. (#11007) #11007 (Ponder)\n- handle OSC sequences split across buffer chunks (#11144) #11144 (ToastyTheBot)\n- terminal: prevent scroll-to-top race during fast output (#11102) #11102 (Phil Condreay)\n- 4566a91: Fix hiding the app from macos dock when docking is enabled (#10960) (SergeBakharev) #10960\n- 10a4f54: fixed recovered tabs crashing after upgrade - fixes #10619, fixes #10635, fixes #10672, fixes #10682, fixes #10688, fixes #10730, fixes #10843\n- 18bca3e: Fix trailing semicolons in clickable URLs (#11166) (chaoliang yan) #11166\n- abc16d2: fixed #10131 - bump russh to prevent auto-disconnects\n- c3ede45: Disable global shortcuts on older plasma versions (#11157) (Mario Limonciello) #11157\n- 5d5ac4d: bump xterm (#10974) #10974\nFull Changelog: https://github.com/Eugeny/tabby/compare/v1.0.230...v1.0.231",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.231",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.231",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.231/tabby-1.0.231-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.231-setup-x64.exe",
+          "sha256": "b1461262a572217eaa5848263d60c4a2d57b77a66de42bb18263552974e80861",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.231/tabby-1.0.231-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.231-setup-x64.exe",
+          "sha256": "b1461262a572217eaa5848263d60c4a2d57b77a66de42bb18263552974e80861",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.231/tabby-1.0.231-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.231-setup-arm64.exe",
+          "sha256": "65eb791b5244497161a92ece00b48b56bfb72530838693096d6c479aa4580ee8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.231/tabby-1.0.231-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.231-setup-arm64.exe",
+          "sha256": "65eb791b5244497161a92ece00b48b56bfb72530838693096d6c479aa4580ee8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.230",
+      "release_date": "2026-01-13",
+      "release_notes": "Fixes\n- 2d01b9a: fixed #10580, fixed #10558, fixed #10237, fixed #8450 - fixed X11 forwarding (Eugene)\n- ssh: add EOF handling and error propagation for port forwarding (#10964) #10964 (ajkrj)\n- include http proxy settings in ssh multiplexer key (#10943) #10943 (TheBlind)\n- ssh: fix windows openssh agent detection logic (#10954) #10954 (Andy_Allan)\n- 315083d: Packagecloud_upload_for_Debian_forky_duke (#10890) (gh-log) #10890\nFeatures\n- ssh: support agent authentication using specific public key identity (#10953) #10953 (Andy_Allan)",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.230",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.230",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.230/tabby-1.0.230-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.230-setup-x64.exe",
+          "sha256": "375fec6f4572852678305acde9eb844e39ea343ff77cc8f55e53b0b087ac6fb8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.230/tabby-1.0.230-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.230-setup-x64.exe",
+          "sha256": "375fec6f4572852678305acde9eb844e39ea343ff77cc8f55e53b0b087ac6fb8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.230/tabby-1.0.230-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.230-setup-arm64.exe",
+          "sha256": "cf93ef0104655d95e9dbfa3ba56057b1c561e7fe5bd760ef23845382df6768c4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.230/tabby-1.0.230-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.230-setup-arm64.exe",
+          "sha256": "cf93ef0104655d95e9dbfa3ba56057b1c561e7fe5bd760ef23845382df6768c4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.229",
+      "release_date": "2025-11-11",
+      "release_notes": "Fixes\n- 5246355: Disable SSH compression by default as a workaround for SFTP upload bugs (Eugene)\n- adjust ssh config time resolution (#10803) #10803 (osm1892)\n- unexpected configuration was selected in the recent profiles (#10817) #10817 (Kairlec)\nChanges\n- 2cf6ef0: Add support to connect in winscp throug tunnel. (#10829) (Indigo.liu) #10829\n- 4f14e92: Bumped node-pty",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.229",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.229",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.229/tabby-1.0.229-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.229-setup-x64.exe",
+          "sha256": "2b18c689f6c9c2770268d22878b77f3d53a8b30089921dcef663325b7da7dcd3",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.229/tabby-1.0.229-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.229-setup-x64.exe",
+          "sha256": "2b18c689f6c9c2770268d22878b77f3d53a8b30089921dcef663325b7da7dcd3",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.229/tabby-1.0.229-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.229-setup-arm64.exe",
+          "sha256": "22eb190b62c28aeb61df90f5614da6540cb860530440b781c68603e87050ecd1",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.229/tabby-1.0.229-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.229-setup-arm64.exe",
+          "sha256": "22eb190b62c28aeb61df90f5614da6540cb860530440b781c68603e87050ecd1",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.228",
+      "release_date": "2025-10-16",
+      "release_notes": "Changes\n- c4db286: SSH: added mlkem768x25519-sha256 key exchange - fixes #10792, fixes #10560\n- d1196a0: Reenabled SSH keepalive by default\nFixes\n- e76314d: fixed #10749: Too small draggable area when tabs with vertical-left and window is set to thin (#10750) (Seungyong Hong) #10750\n- d92540f: fixed #10726 - The indicator does not show success when uploading files through SFTP (#10733) (zhaolei) #10733\n- 5060344: bump russh for pageant fixes\n- cf5b994: Bump electron to version 38 (#10801) (et304383) #10801\n- 264f1cb: fixed #10786 - login broken if dynamic SSH username is used by default (Florian Kefferpütz) #10786",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.228",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.228",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.228/tabby-1.0.228-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.228-setup-x64.exe",
+          "sha256": "c3c7b72e687745e3ddf06bdae8da2e90c87d2105c1c4b6d96ad128ed3dcf6663",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.228/tabby-1.0.228-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.228-setup-x64.exe",
+          "sha256": "c3c7b72e687745e3ddf06bdae8da2e90c87d2105c1c4b6d96ad128ed3dcf6663",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.228/tabby-1.0.228-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.228-setup-arm64.exe",
+          "sha256": "1febb696fd0a92c2f1d93caa3791c777198dee5d70d5ecd3ea9561a555e64347",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.228/tabby-1.0.228-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.228-setup-arm64.exe",
+          "sha256": "1febb696fd0a92c2f1d93caa3791c777198dee5d70d5ecd3ea9561a555e64347",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.227",
+      "release_date": "2025-08-25",
+      "release_notes": "Commits\n- 9e44ba6/79129e6: bumped russh, fixes SSH disconnects\n- 0e09945: bump electron - fixes GTK symbols errors on Linux - fixes #10633, fixes #10609, fixes #10666 (Eugene)\n- 61f02d1: fixed SSH connection crashes - #10619",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.227",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.227",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.227/tabby-1.0.227-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.227-setup-x64.exe",
+          "sha256": "eeec24c64efcbc09ea06c10166a64ed2a39ab93b64ab32058d0abfb4ebb53fd9",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.227/tabby-1.0.227-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.227-setup-x64.exe",
+          "sha256": "eeec24c64efcbc09ea06c10166a64ed2a39ab93b64ab32058d0abfb4ebb53fd9",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.227/tabby-1.0.227-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.227-setup-arm64.exe",
+          "sha256": "4fd40129d8a75728903900ed14c24b5b6e8c64a48d6af35dde0a5d51f05c72f2",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.227/tabby-1.0.227-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.227-setup-arm64.exe",
+          "sha256": "4fd40129d8a75728903900ed14c24b5b6e8c64a48d6af35dde0a5d51f05c72f2",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.226",
+      "release_date": "2025-08-17",
+      "release_notes": "Changes\n- a2d27fe: fixed node-pty conpty assertion failure - fixes #10618 (Eugeny)",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.226",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.226",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.226/tabby-1.0.226-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.226-setup-x64.exe",
+          "sha256": "de3eddeef69ec296e92ca8e221d8781946ad43e45b9643c8e5f68cb3ba72348b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.226/tabby-1.0.226-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.226-setup-x64.exe",
+          "sha256": "de3eddeef69ec296e92ca8e221d8781946ad43e45b9643c8e5f68cb3ba72348b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.226/tabby-1.0.226-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.226-setup-arm64.exe",
+          "sha256": "d1e82a32b78f26343437dc7fba21423565074a09c5f3cb8aa2250c6ad2e67671",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.226/tabby-1.0.226-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.226-setup-arm64.exe",
+          "sha256": "d1e82a32b78f26343437dc7fba21423565074a09c5f3cb8aa2250c6ad2e67671",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.225",
+      "release_date": "2025-08-09",
+      "release_notes": "Fixes\n- b9e3358: upgraded node-pty, fixing import failures on Windows",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.225",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.225",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.225/tabby-1.0.225-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.225-setup-x64.exe",
+          "sha256": "eed73f987925d41056d882d4e3878477bb0ae9d9498ba90e7c2e95049b318c23",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.225/tabby-1.0.225-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.225-setup-x64.exe",
+          "sha256": "eed73f987925d41056d882d4e3878477bb0ae9d9498ba90e7c2e95049b318c23",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.224",
+      "release_date": "2025-08-08",
+      "release_notes": "Changes\n- 7e1905c: SFTP folder downloads (#10586) #10586\n- 56ee368: SFTP filter bar (#10590) #10590\n- c5759b2: make up/arrow buttons navigate between search results (#10371) (gh-log) #10371\n- 020372c: add ssh compression option (#10396) (loopx9) #10396\n- 93e4306: fixed #9953 - use ng-bootstrap tooltips\nBug Fixes\n- 3c17654: fixed zmodem corruption issues (#10587) #10587\n- 912e0aa: fixed #10454 - \"Warn on multi-line paste\" fails to trigger on Unix-style newlines (\\n) in Windows\n- ssh/settings: formats date value according to locale rules (#10468) #10468 (Clem)\n- 0cf9886: fixes #10039 - ignore focus escape sequences when auto-scrolling to the bottom (#10555) (SilverFox) #10555\n- b31c2a5: disable SSH keepalive by default\n- c8aea9d: log exact errors when plugin install fails\n- 4a5087a: fixed #5672 - incorrect microphone entitlement on macOS\n- e0c34ef: fixed #10482 - duplicate browser tab opening when clicking a link with an IP in it\n- 7b942c4: fix search hotkey (#10371)\nCI\n- 66257c8: Packagecloud_upload_for_Debian_testing_unstable (#10370) (gh-log) #10370\n- update GitHub actions (#10480) #10480 (Roman)\nDocs\n- c3dfb35: Add new plugins to README files for multiple languages (#10440) (thuanpham582002) #10440\n- bbf3b78: Fix typos (#10582) (shchae04) #10582",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.224",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.224",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.224/tabby-1.0.224-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.224-setup-x64.exe",
+          "sha256": "2842f1ff3d0f6f5601146d7b026992d279d403343282a4571afd95c670cc56eb",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.224/tabby-1.0.224-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.224-setup-x64.exe",
+          "sha256": "2842f1ff3d0f6f5601146d7b026992d279d403343282a4571afd95c670cc56eb",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.224/tabby-1.0.224-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.224-setup-arm64.exe",
+          "sha256": "664688142eab13221f144386328d755ab133944f2d334d5c373f2cd9d15f5962",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.224/tabby-1.0.224-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.224-setup-arm64.exe",
+          "sha256": "664688142eab13221f144386328d755ab133944f2d334d5c373f2cd9d15f5962",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.223",
+      "release_date": "2025-03-12",
+      "release_notes": "Changes\n- 424b062: Added hotkeys to scroll terminal by a single line (#10353) (gh-log) #10353\nFixes\n- 5deb725: fixed rsa-sha2-* signature negotiation",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.223",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.223",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.223/tabby-1.0.223-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.223-setup-x64.exe",
+          "sha256": "9ea9154b3c60dfb99b92b29171f11a0d6b26eff65b5bdf04b9415db296ed425c",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.223/tabby-1.0.223-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.223-setup-x64.exe",
+          "sha256": "9ea9154b3c60dfb99b92b29171f11a0d6b26eff65b5bdf04b9415db296ed425c",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.223/tabby-1.0.223-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.223-setup-arm64.exe",
+          "sha256": "dac5bd2410e5cdaeb6fba103d282c3e9d542f5eb6e53a75aac2917620dd241c8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.223/tabby-1.0.223-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.223-setup-arm64.exe",
+          "sha256": "dac5bd2410e5cdaeb6fba103d282c3e9d542f5eb6e53a75aac2917620dd241c8",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.222",
+      "release_date": "2025-03-05",
+      "release_notes": "Changes\n- d1c1b48: SSH: automatically select best hash for RSA keys when server-sig-algs extension is available\n- 380c306: SSH: added a warning when a server disconnects during authentication\n- 47b4b54: SSH: agent authentication fails with some RSA keys\n- c7b39bd: SSH: re-added support for insecure 1024 bit RSA keys (relevant for old network switches)\n- 4be1e12: Add Tokyonight color scheme (#10283) (aminelch) #10283\n- 934cdff: Using ssh default profile(user/password/port) without host (#10076) (ianaflous) #10076\n- 4a515d9: Add support for %h and %r escape characters in IdentityFile for SSH. (#10343) (mannjani) #10343\nFixes\n- e407ee8: fixed #9845, fixed #10302 - allow alternative OSC52 suffix\n- 5d2d179: SSH: prefer the saved password to keyboard interactive auth\n- Unable to launch WinSCP for SSH sessions using private key (#10308) #10308 (OpaqueGlass)\n- ab87099: CI: add debian bullseye, bookworm and trixie deb package upload (#10314) (Timo Schnaible) #10314",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.222",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.222",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.222/tabby-1.0.222-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.222-setup-x64.exe",
+          "sha256": "47b8449e254dc9c886f480d8e921229f8e3d8fdf32e5ce3f9972603e319c2cda",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.222/tabby-1.0.222-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.222-setup-x64.exe",
+          "sha256": "47b8449e254dc9c886f480d8e921229f8e3d8fdf32e5ce3f9972603e319c2cda",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.222/tabby-1.0.222-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.222-setup-arm64.exe",
+          "sha256": "7d432158026cf19b8577d5ad38d62a5bce3fb450290777940eab28d899ab99ec",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.222/tabby-1.0.222-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.222-setup-arm64.exe",
+          "sha256": "7d432158026cf19b8577d5ad38d62a5bce3fb450290777940eab28d899ab99ec",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.221",
+      "release_date": "2025-01-22",
+      "release_notes": "Fixes\n- d525374: fixed missing app theme at the initial vault password prompt\n- c4a514f: fixed agent login regression - fixes #10248, fixes #10174\n- d1b1613: bump russh for error handling crash fix - fixes #10184, fixes #10244, fixes #10178, fixes #8481, fixes #10215, fixes #10203, fixes #7659\nChanges\n- 2fa7678: use Github's native ARM64 runners for the ARM64 Linux build",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.221",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.221",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.221/tabby-1.0.221-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.221-setup-x64.exe",
+          "sha256": "3cdf3f2baa16bf1283f92acf8a151afc120549a821c35fde16b3eb73680b0c89",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.221/tabby-1.0.221-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.221-setup-x64.exe",
+          "sha256": "3cdf3f2baa16bf1283f92acf8a151afc120549a821c35fde16b3eb73680b0c89",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.221/tabby-1.0.221-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.221-setup-arm64.exe",
+          "sha256": "61ca36089b9f613ae152433ab5b793e70abe87cb87ecfd307075ef053c2fb9b3",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.221/tabby-1.0.221-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.221-setup-arm64.exe",
+          "sha256": "61ca36089b9f613ae152433ab5b793e70abe87cb87ecfd307075ef053c2fb9b3",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.220",
+      "release_date": "2025-01-17",
+      "release_notes": "Changes\n- f9dadf0: Set the application's dark mode to follow the app settings on macOS. (#10186) (fireblue) #10186\n- 66c173b: Keep the translucency effect even when the window loses focus on macOS. (#10196) (fireblue) #10196\nFixes\n- 92c729d: fixed keyboard-interactive authentication and random session crashes\n- 6ffeb61: fixed dropping files into the terminal not inserting the path - fixes #10221, fixes #10206\n- d8d346c: fixed agent auth",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.220",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.220",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.220/tabby-1.0.220-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.220-setup-x64.exe",
+          "sha256": "8b6749a5f8f7995840c8d918ee8c1407cc1af4025ca5a073779336685503c6c5",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.220/tabby-1.0.220-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.220-setup-x64.exe",
+          "sha256": "8b6749a5f8f7995840c8d918ee8c1407cc1af4025ca5a073779336685503c6c5",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.220/tabby-1.0.220-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.220-setup-arm64.exe",
+          "sha256": "2fe435980ad59bb2e59a7d300878457bc0dfb5eb023b822d1d9cba5dd41dc700",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.220/tabby-1.0.220-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.220-setup-arm64.exe",
+          "sha256": "2fe435980ad59bb2e59a7d300878457bc0dfb5eb023b822d1d9cba5dd41dc700",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.219",
+      "release_date": "2025-01-10",
+      "release_notes": "Fixes\n- ba7c31d: fixed #10146 - Fixed SSH agent auth\n- 0a475da: fixed #10180 - Fixed the error when loading an encrypted PPK key",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.219",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.219",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.219/tabby-1.0.219-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.219-setup-x64.exe",
+          "sha256": "65c2c42e8027e8221b204f649329997baf447ee1050601559369b0856f03f304",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.219/tabby-1.0.219-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.219-setup-x64.exe",
+          "sha256": "65c2c42e8027e8221b204f649329997baf447ee1050601559369b0856f03f304",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.219/tabby-1.0.219-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.219-setup-arm64.exe",
+          "sha256": "3e4049b48008c9fb145a23e739c238c136c2a6be17c3f20ad5f53f144c734955",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.219/tabby-1.0.219-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.219-setup-arm64.exe",
+          "sha256": "3e4049b48008c9fb145a23e739c238c136c2a6be17c3f20ad5f53f144c734955",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.218",
+      "release_date": "2025-01-08",
+      "release_notes": "Changes\n- This release focuses on fixes for the new SSH backend, including:\n  - Issues with jump host connections\n  - ED25519 key support\n  - Putty PPK key format support\n  - X9.62 EC private keys support\n  - DH GEX algorithms support\n- 1e44d8c: Bump Electron to 32 as 29 is EOL (#10118) (geodic) #10118\nSecurity fixes\nGHSA-prcj-7rvc-26h4\n- 9351354: tweak electron fuses (Eugene)\nIt was in theory possible (on macOS) for other applications to exploit the TCC permissions (microphone/camera) previous given to Tabby by the user for malicious purposes by abusing NODE_OPTIONS env var or the debug mode. This is now fixed by disabling the corresponding Electron fuses.\nFixes\n- 39e3ba3: Update sshImporters.ts to parse Include directive (#10105) (Hiroaki Ogasawara) #10105\n- case-insensitive hostname check (#10130) #10130 (Hiroaki Ogasawara)",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.218",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.218",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.218/tabby-1.0.218-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.218-setup-x64.exe",
+          "sha256": "e8988dbae122b804256431da3531404733d78da3a44c18abb05f99e9cac45a36",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.218/tabby-1.0.218-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.218-setup-x64.exe",
+          "sha256": "e8988dbae122b804256431da3531404733d78da3a44c18abb05f99e9cac45a36",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.218/tabby-1.0.218-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.218-setup-arm64.exe",
+          "sha256": "3e2bbaf591c11be163e8a480995b1e63d741f1bca881269b381ffb307061c0cb",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.218/tabby-1.0.218-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.218-setup-arm64.exe",
+          "sha256": "3e2bbaf591c11be163e8a480995b1e63d741f1bca881269b381ffb307061c0cb",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.216",
+      "release_date": "2024-12-25",
+      "release_notes": "New SSH backend\n- aab7e28: replace ssh2 with russh\nThis version comes with an all-new SSH backend based on russh. New features include:\n- Support for chacha20-poly1305 cipher\n- 3DES-CBC cipher (for old Cisco hardware)\n- remembering answers to password prompts in keyboard-interactive auth\nOther changes\n- 2ecccad: Feat#10008: add hotkeys to open profile selectors for a specific group (#10015) (Clem) #10015\n- aa67130: Fix Issue #10012 - better ssh config parsing (#10043) (Andy Law) #10043\n- e84cbd8: added support for custom color schemes for local shell profiles\n- 6196f3b: Update clink to 1.7.6 (#10097) (Davide) #10097\n- 2bc95bb: removed legacy themes\nFixes\n- fix terminal type in readme (#9985) #9985 (AuroraTea)\n- 21aedb6: fixed #9323 - \"Save as profile\" profile editability\n- ac6f60f: add ubuntu 24.10 to build.yml (#10047) (Snuupy) #10047",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.216",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.216",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.216/tabby-1.0.216-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.216-setup-x64.exe",
+          "sha256": "d52d23bdaea8f3e72570e27600c7dabcd73473250c465b7fd2b1051ef35f4ef4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.216/tabby-1.0.216-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.216-setup-x64.exe",
+          "sha256": "d52d23bdaea8f3e72570e27600c7dabcd73473250c465b7fd2b1051ef35f4ef4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.216/tabby-1.0.216-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.216-setup-arm64.exe",
+          "sha256": "88daacd7bd22cdf18a957d1778d054f28a9e6814d70cf782db8701ea1462d824",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.216/tabby-1.0.216-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.216-setup-arm64.exe",
+          "sha256": "88daacd7bd22cdf18a957d1778d054f28a9e6814d70cf782db8701ea1462d824",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.215",
+      "release_date": "2024-09-26",
+      "release_notes": "Fixes\n- e8fdb8b: fixed #9947 - window not showing up on first start\nChanges\n- 0ca097f: updated locales",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.215",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.215",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.215/tabby-1.0.215-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.215-setup-x64.exe",
+          "sha256": "9c4461d30893590dee034bfa33ba959f7c5abf7c55b0fdb2d38a050d1b9afd9f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.215/tabby-1.0.215-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.215-setup-x64.exe",
+          "sha256": "9c4461d30893590dee034bfa33ba959f7c5abf7c55b0fdb2d38a050d1b9afd9f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.215/tabby-1.0.215-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.215-setup-arm64.exe",
+          "sha256": "236fee1b699ec0a009e276081c553b635efbeb7026466b3561b34458c44f858f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.215/tabby-1.0.215-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.215-setup-arm64.exe",
+          "sha256": "236fee1b699ec0a009e276081c553b635efbeb7026466b3561b34458c44f858f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.214",
+      "release_date": "2024-09-23",
+      "release_notes": "Security update\nFixes\n- 1c07714: fixed #9955 - host key checking race\nTabby would incorrectly prompt for credentials / send saved password while the host key verification prompt is still visible, leading to credentials leakage if your session is intercepted in a MitM attack.",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.214",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.214",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.214/tabby-1.0.214-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.214-setup-x64.exe",
+          "sha256": "596fa69efc900cfc0d1bc3ab22937c85d50086713ccc258fd62fb78da288ae11",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.214/tabby-1.0.214-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.214-setup-x64.exe",
+          "sha256": "596fa69efc900cfc0d1bc3ab22937c85d50086713ccc258fd62fb78da288ae11",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.214/tabby-1.0.214-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.214-setup-arm64.exe",
+          "sha256": "402aae26620f4b3cad5b6ed2e5770a072a22ac8a4056bbb0cd438d17422b1c30",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.214/tabby-1.0.214-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.214-setup-arm64.exe",
+          "sha256": "402aae26620f4b3cad5b6ed2e5770a072a22ac8a4056bbb0cd438d17422b1c30",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.213",
+      "release_date": "2024-09-18",
+      "release_notes": "Changes\n- deaa529: Basic folder upload in SFTP (marko1616) #9891\n- 69fc780: Added entitlement requests to allow the app to send AppleScript events to other applications (Andy Law) #9859\n- 5fca7cc: Modify the NSVisualEffectView material in app/lib/window.ts to \"fullscreen-ui\" on macOS to achieve a more glass-like effect. (Zongxuan Su) #9899\nFixes\n- 5587e10: Fixed the issue where Windows Vibrancy was not working on newer versions of macOS due to the outdated macos-release package. (Zongxuan Su) #9896\n- 3740166: fixed #9894 - incorrect background color for profiles with custom color schemes\n- 0241623: fixed #9829 - show the active pane's title as the first in the split tab title\nOther\n- 64d9c98: Better crossbuild v3 + fixes (Jai-JAP) #9355\n- 3f0b78e: upgraded to Electron 29",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.213",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.213",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.213/tabby-1.0.213-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.213-setup-x64.exe",
+          "sha256": "c8094e54d79f564ee02be89e06bef958cb184345875d5518ac99da2352e23541",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.213/tabby-1.0.213-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.213-setup-x64.exe",
+          "sha256": "c8094e54d79f564ee02be89e06bef958cb184345875d5518ac99da2352e23541",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.213/tabby-1.0.213-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.213-setup-arm64.exe",
+          "sha256": "89850079a53f48fdaf7c931dff9c072662715bbbbb73d0d5a4a209b0af65733b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.213/tabby-1.0.213-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.213-setup-arm64.exe",
+          "sha256": "89850079a53f48fdaf7c931dff9c072662715bbbbb73d0d5a4a209b0af65733b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.211",
+      "release_date": "2024-07-19",
+      "release_notes": "Changes\n- 72a5da5: Revert a potentially broken WSL profile icon improvement\nFixes\n- 3d7308c: fixed #9751 - title/color observers not detaching when detaching a tab",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.211",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.211",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.211/tabby-1.0.211-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.211-setup-x64.exe",
+          "sha256": "0c2d5689e1d910d27af2ec66fd6f7c618cd12533c39b7c9d978ac7296f4b233d",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.211/tabby-1.0.211-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.211-setup-x64.exe",
+          "sha256": "0c2d5689e1d910d27af2ec66fd6f7c618cd12533c39b7c9d978ac7296f4b233d",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.211/tabby-1.0.211-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.211-setup-arm64.exe",
+          "sha256": "14a9f0b0c48593bc02a9ee75e21084c1cd9aed58143a3a181fe9cb07f4edc7f3",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.211/tabby-1.0.211-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.211-setup-arm64.exe",
+          "sha256": "14a9f0b0c48593bc02a9ee75e21084c1cd9aed58143a3a181fe9cb07f4edc7f3",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.210",
+      "release_date": "2024-07-16",
+      "release_notes": "Fixes\n- 9d11730: fixed #9746, #9748, #9757, #9779 - altIsMeta not working on macOS\n- a769fdd: fixed #9760, #9742, #9762, #9763 - terminals unexpectedly going to sleep\n- b4c3ac8: handle node-powershell failing during icon resolution",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.210",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.210",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.210/tabby-1.0.210-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.210-setup-x64.exe",
+          "sha256": "8454f030216d95091df90b4dc03bc41d102e66e8fb30fea80d0fb40884d60fb4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.210/tabby-1.0.210-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.210-setup-x64.exe",
+          "sha256": "8454f030216d95091df90b4dc03bc41d102e66e8fb30fea80d0fb40884d60fb4",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.210/tabby-1.0.210-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.210-setup-arm64.exe",
+          "sha256": "af81924698064812e64bc23e0474eb7a1f23e27762a27f54526c0c3935584d62",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.210/tabby-1.0.210-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.210-setup-arm64.exe",
+          "sha256": "af81924698064812e64bc23e0474eb7a1f23e27762a27f54526c0c3935584d62",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.209",
+      "release_date": "2024-07-10",
+      "release_notes": "Changes\n- Get the distro icon from the package family name #9749 (Matheus Castello)\n- Ensure IP is selectable in SSH tab #9773 (GeminiLn)\nFixes\n- fa9ee75: SSH Lag Fix (Vadhvis) #9768",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.209",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.209",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.209/tabby-1.0.209-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.209-setup-x64.exe",
+          "sha256": "284604e6a28d8334c245adb0fecc793f0e7194955260464500cf83d259ad4fc9",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.209/tabby-1.0.209-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.209-setup-x64.exe",
+          "sha256": "284604e6a28d8334c245adb0fecc793f0e7194955260464500cf83d259ad4fc9",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.209/tabby-1.0.209-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.209-setup-arm64.exe",
+          "sha256": "0e863cc9659fd83cb4ec1f0ca80ece93a1e9c7e045ba610308a38b2ae09faf01",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.209/tabby-1.0.209-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.209-setup-arm64.exe",
+          "sha256": "0e863cc9659fd83cb4ec1f0ca80ece93a1e9c7e045ba610308a38b2ae09faf01",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.208",
+      "release_date": "2024-06-22",
+      "release_notes": "Changes\n- 3b15b35: electron-builder: removed gconf dependencies from Debian packages (Clem) #9512\n- 9425920: added setting to hide the tray icon (Charles Buffington) #9624\n- ebf0d89: bumped xterm to 5.4.0\n- c906af5: Make autoSync more robust for network errors (bc547) #9546\n- ab48990: export SSHMultiplexerService from tabby-ssh\nFixes\n- 0894c30: fixed #9482 - dragged-in panes going to sleep after some time\n- bacb458: fixed #9164 - only auto-open a new tab if there are no tabs recovered after startup\n- 242f136: fixed: cli usage on linux (Riccardo Manzan) #9657\n- bba72b4: fixed #9698, fixed #9697, fixed #9651, fixed #8371, fixed #9483 - fixed huge search bar",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.208",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.208",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.208/tabby-1.0.208-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.208-setup-x64.exe",
+          "sha256": "7359a3244aeb1fa7c5b68373d3d3cedc725bd91e1d7d7fae5c527bd63d914e7f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.208/tabby-1.0.208-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.208-setup-x64.exe",
+          "sha256": "7359a3244aeb1fa7c5b68373d3d3cedc725bd91e1d7d7fae5c527bd63d914e7f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.208/tabby-1.0.208-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.208-setup-arm64.exe",
+          "sha256": "f5fe0e3b48cadd0996092e4398d72fa05cc265d3708c557d95708b0a5b6ed302",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.208/tabby-1.0.208-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.208-setup-arm64.exe",
+          "sha256": "f5fe0e3b48cadd0996092e4398d72fa05cc265d3708c557d95708b0a5b6ed302",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.207",
+      "release_date": "2024-03-04",
+      "release_notes": "Fixes\n- efe1772: fixed Linux builds (Clem Fern) #9238\n- force display title-bar when tab-bar on left/right #9249 (Clem Fern)\n- c59e9c1: fixed keyboard shortcut (control + backspace) in windows (zKXDEX) #9253\n- use data folder on portable app, do not use normal installer to update portable version #9251 (Clem Fern)\n- 345e90c: fixed #9239 - missing sync token field\nCommits\n- 04a1b0f: add tabby-background plugin. (Cat in the orange box) #9234",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.207",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.207",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.207/tabby-1.0.207-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.207-setup-x64.exe",
+          "sha256": "f88b5527802c50936c0c55bd071f14033b713fe4782abde20d7e3b738897f64b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.207/tabby-1.0.207-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.207-setup-x64.exe",
+          "sha256": "f88b5527802c50936c0c55bd071f14033b713fe4782abde20d7e3b738897f64b",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.207/tabby-1.0.207-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.207-setup-arm64.exe",
+          "sha256": "c01401212acb0e44e27f187966a09113d3ca9997647f7c2050edc27785390b3f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.207/tabby-1.0.207-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.207-setup-arm64.exe",
+          "sha256": "c01401212acb0e44e27f187966a09113d3ca9997647f7c2050edc27785390b3f",
+          "product_code": "71445fac-d6ef-5436-9da7-5a323762d7f5",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.205",
+      "release_date": "2023-11-21",
+      "release_notes": "Fixes\n- efe1772: fixed Linux builds (Clem Fern) #9238\n- force display title-bar when tab-bar on left/right #9249 (Clem Fern)\n- c59e9c1: fixed keyboard shortcut (control + backspace) in windows (zKXDEX) #9253\n- use data folder on portable app, do not use normal installer to update portable version #9251 (Clem Fern)\n- 345e90c: fixed #9239 - missing sync token field\nCommits\n- 04a1b0f: add tabby-background plugin. (Cat in the orange box) #9234",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.205",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.205",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.205/tabby-1.0.205-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.205-setup-x64.exe",
+          "sha256": "c147e888e5569d1990f1442f2b2fab1f2e71b7d8e194c9c0bde47514c83e14ac",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.205/tabby-1.0.205-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.205-setup-x64.exe",
+          "sha256": "c147e888e5569d1990f1442f2b2fab1f2e71b7d8e194c9c0bde47514c83e14ac",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.205/tabby-1.0.205-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.205-setup-arm64.exe",
+          "sha256": "56137920400575d1cc9eacaf5a710de9ff1d603da145eb6ffbe399e14e9998a3",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.205/tabby-1.0.205-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.205-setup-arm64.exe",
+          "sha256": "56137920400575d1cc9eacaf5a710de9ff1d603da145eb6ffbe399e14e9998a3",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.204",
+      "release_date": "2023-11-15",
+      "release_notes": "Fixes\n- 98719aa: fix native modules rebuild on macos (Clem Fern) #9232\n- 5d1a35a: Show custom profiles in default profiles selection (Jude Cooray) #9082\n- f3196ac: Refresh default profile selection when profiles are modified (Jude Cooray) #9084\nChanges\n- 0e8164f: Add Noctis colors plugin to themes section (Aaron Huggins) #9098\n- 26d6d14: updated locales",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.204",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.204",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.204/tabby-1.0.204-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.204-setup-x64.exe",
+          "sha256": "f49a5bbff07275337cb102f89160b595de33c5299febc1949d835cccc1a88b25",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.204/tabby-1.0.204-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.204-setup-x64.exe",
+          "sha256": "f49a5bbff07275337cb102f89160b595de33c5299febc1949d835cccc1a88b25",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.204/tabby-1.0.204-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.204-setup-arm64.exe",
+          "sha256": "eef5a37e7d2bc920bd8aaaffb753ffbd3d731d6f0a8f0c44061787d9693f64f7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.204/tabby-1.0.204-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.204-setup-arm64.exe",
+          "sha256": "eef5a37e7d2bc920bd8aaaffb753ffbd3d731d6f0a8f0c44061787d9693f64f7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.201",
+      "release_date": "2023-10-06",
+      "release_notes": "Fixes\n- terminal: fixed the issue where input could be invisible with the WebGL frontend #9066 (Clem Fern)\n- 169aded: fixed #9009 - allow color schemes per serial connection\nImprovements\n- core: prevent editing selection on keydown in profile selector #8960 (Clem Fern)\n- 8bc2375: Add \"show secret\" functionality to vault (Sibren van Setten) #8897\n- a17da4b: #8907 Fix interactive auth being not selectable in SSH (Sibren van Setten) #8911\n- 04b53ab: clear service message on connection succeeds only (Clem) #8918\n- 6ebfccd: added catppuccin theme (Jakub Z) #9008\n- d70be3a: added possibility to set config file path in environment file (Nathaniel Walser) #9048\n- bb27314: bumped xterm to 5.3.0",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.201",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.201",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.201/tabby-1.0.201-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.201-setup-x64.exe",
+          "sha256": "ea3284f154fc917a964244e241c461e102564286037a3c1d8ba87e9c71a72501",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.201/tabby-1.0.201-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.201-setup-x64.exe",
+          "sha256": "ea3284f154fc917a964244e241c461e102564286037a3c1d8ba87e9c71a72501",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.201/tabby-1.0.201-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.201-setup-arm64.exe",
+          "sha256": "ea6e7d5527c77a7e57974d7174dd171dcfd6bd11729be661732c082bcd07f609",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.201/tabby-1.0.201-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.201-setup-arm64.exe",
+          "sha256": "ea6e7d5527c77a7e57974d7174dd171dcfd6bd11729be661732c082bcd07f609",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.200",
+      "release_date": "2023-08-29",
+      "release_notes": "Commits\n- dc9a7d8: fixed #8886 - crash on the color schemes settings tab (Eugene)",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.200",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.200",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.200/tabby-1.0.200-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.200-setup-x64.exe",
+          "sha256": "556d9775e43be935e05ca7146196c209fc51e8e376560fc7c25a39cdd53d5323",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.200/tabby-1.0.200-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.200-setup-x64.exe",
+          "sha256": "556d9775e43be935e05ca7146196c209fc51e8e376560fc7c25a39cdd53d5323",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.200/tabby-1.0.200-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.200-setup-arm64.exe",
+          "sha256": "d87dcf3fac84053f1e05a3c855298303430108420383e75426d321e0e6178efa",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.200/tabby-1.0.200-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.200-setup-arm64.exe",
+          "sha256": "d87dcf3fac84053f1e05a3c855298303430108420383e75426d321e0e6178efa",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.199",
+      "release_date": "2023-08-29",
+      "release_notes": "Fixes\n- 6042a52: fixed #8868 - not starting on a fresh install\n- 0becf8c: fixed #8878 - default back to dark mode",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.199",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.199",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.199/tabby-1.0.199-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.199-setup-x64.exe",
+          "sha256": "525eac27464bbbf37d88784c493a937cd392de5c524bd26421fc8a154996408a",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.199/tabby-1.0.199-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.199-setup-x64.exe",
+          "sha256": "525eac27464bbbf37d88784c493a937cd392de5c524bd26421fc8a154996408a",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.199/tabby-1.0.199-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.199-setup-arm64.exe",
+          "sha256": "a6a9cdcbbc3bcfaea0dd962db519d603ab10df1151ea34d4a300ecbea31244f6",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.199/tabby-1.0.199-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.199-setup-arm64.exe",
+          "sha256": "a6a9cdcbbc3bcfaea0dd962db519d603ab10df1151ea34d4a300ecbea31244f6",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.198",
+      "release_date": "2023-08-27",
+      "release_notes": "Features\n- Eugeny/tabby#3999: profile groups can how specify inheritable settings #8726 (Clem Fern)\n- Eugeny/tabby#7265: added a button to reset global & groups settings to defaults #8726 (Clem Fern)\n- 299be86: #3934: added automatic dark/light theme switching\n- Eugeny/tabby#5688: added a global Save As Profile context menu option #8663 (Clem)\n- Eugeny/tabby#8680: configurable default quick connect plugin #8709 (Clem)\n- Eugeny/tabby#6518: added a \"disconnect tab\" context menu item #8589 (Clem Fern)\n- #8589: added a \"disconnect tab\" hotkey #8589 (Clem Fern)\n- implemented Window Controls Overlay #8707 (Evan / Fero)\n- 86cff8d: changed the terminal.autoOpen default to true\n- fcac52a: #5862: configurable Backspace key behaviour\n- c983743: #7727: allow hiding individual profiles from the selector\n- bc8ac12: #8588: hide hidden profiles in the \"new profile\" selector\n- 77b74ad: added Czech locale\n- 1e9f5ca: updated xterm to v5.2\nBug Fixes\n- 4dedbbc: Eugeny/tabby#7057: sorted recent profiles (Clem Fern) #8726\n- fixed broken selection in command selection #8842 (Clem)\n- 6eef2c9: hotkeys containing Enter input a linebreak into the active terminal (sangboak.lee) #8471\n- b97c334: #8417: ensure that serial output is chunked at utf8 char boundaries\n- 1112766: #8404: missing SFTP progressbar\n- 5075c83: #8263: make placeholders more legible\n- a494d9c: #8313: recover tab icons and colors ealier during start\n- e813133: #8440: multiple separate \"ungrouped\" groups appearing\n- 9a82c4c: Stop local echo when remote echo is on (DehanLUO) #8677\n- aafe510: #8765, fixed #8753: font size field cut off\n- 79cabb6: Fix issue with setTitleBarOverlay method on non-win32 platforms. (Andrii Zhovtiak) #8811\n- e237650: Expanded devtoolPlugin condition to cover Linux platform (Andrii Zhovtiak) #8820\n- dragging window by tab headers no longer possible after electron update\nBuilds\n- 87a8934: Cross Compile linux armhf/arm64 artifacts #8613 by @Jai-JAP\nPerformance Improvements\n- improved startup time by loading plugins in parallel #8528 (Clem Fern)\n- unload invisible tabs from VRAM #8801 (binghuiluo(罗炳辉))",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.198",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.198",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.198/tabby-1.0.198-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.198-setup-x64.exe",
+          "sha256": "60b308d6d5f7cadaa3241c49bb25c1c6e5f9e3251992c249238f7bd913a95c6b",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.198/tabby-1.0.198-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.198-setup-x64.exe",
+          "sha256": "60b308d6d5f7cadaa3241c49bb25c1c6e5f9e3251992c249238f7bd913a95c6b",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.198/tabby-1.0.198-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.198-setup-arm64.exe",
+          "sha256": "b48c92f43b1eadc057617c0a9c84e81d78ea769ee39760ba40ec3bb1ef785db8",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.198/tabby-1.0.198-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.198-setup-arm64.exe",
+          "sha256": "b48c92f43b1eadc057617c0a9c84e81d78ea769ee39760ba40ec3bb1ef785db8",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.197",
+      "release_date": "2023-04-27",
+      "release_notes": "Features\n- Made tab behaviour configurable when a session is disconnected (close / keep / reconnect)  (Clem) #8206\n- Added a hotkey and a command to reconnect the current tab #8201 (Clem)\nChanges\n- Improved contrast between tab headers and background, added active tab indicator\nFixes\n- 9835466: fix Eugeny/tabby#8154 : search panel counter starts from 0 (Clem) #8198\n- 4e6b1d2: fixed #8134 - can't change serial session baudrate\n- 84b0e13: \"hide on focus loss\" not working with multiple windows/modals - #7162, #7309, #6812",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.197",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.197",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.197/tabby-1.0.197-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.197-setup-x64.exe",
+          "sha256": "7112b623a885de4c669846469c75a4af1f0562941201ddf0eda1e87ada2fac4d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.197/tabby-1.0.197-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.197-setup-x64.exe",
+          "sha256": "7112b623a885de4c669846469c75a4af1f0562941201ddf0eda1e87ada2fac4d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.197/tabby-1.0.197-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.197-setup-arm64.exe",
+          "sha256": "220777c18d964cb16f7dae60423cac9fd5cb10c97465dd0a3f05da314bbe1ab5",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.197/tabby-1.0.197-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.197-setup-arm64.exe",
+          "sha256": "220777c18d964cb16f7dae60423cac9fd5cb10c97465dd0a3f05da314bbe1ab5",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.196",
+      "release_date": "2023-03-21",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.196",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.196",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.196/tabby-1.0.196-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.196-setup-arm64.exe",
+          "sha256": "3e37de2500751eab0bf736955a823d63f0b0b6b47f4c615ae0514e75290bac7f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.196/tabby-1.0.196-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.196-setup-arm64.exe",
+          "sha256": "3e37de2500751eab0bf736955a823d63f0b0b6b47f4c615ae0514e75290bac7f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.196/tabby-1.0.196-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.196-setup-x64.exe",
+          "sha256": "91cb33bfa175bb9c51f963d789c153cfeb69cd3c344e545cdac0aea287724534",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.196/tabby-1.0.196-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.196-setup-x64.exe",
+          "sha256": "91cb33bfa175bb9c51f963d789c153cfeb69cd3c344e545cdac0aea287724534",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.194",
+      "release_date": "2023-03-21",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.194",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.194",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.194/tabby-1.0.194-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.194-setup-arm64.exe",
+          "sha256": "06c7302c57db8a9d2e5e26c8ae6cb0c7da3c6193525b02a6e552747eb40e205a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.194/tabby-1.0.194-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.194-setup-arm64.exe",
+          "sha256": "06c7302c57db8a9d2e5e26c8ae6cb0c7da3c6193525b02a6e552747eb40e205a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.194/tabby-1.0.194-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.194-setup-x64.exe",
+          "sha256": "64548b3125cbec0a6090c9c1c0bf5751a752f9e4edb572209c7b830dab53bc6a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.194/tabby-1.0.194-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.194-setup-x64.exe",
+          "sha256": "64548b3125cbec0a6090c9c1c0bf5751a752f9e4edb572209c7b830dab53bc6a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.193",
+      "release_date": "2023-03-19",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.193",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.193",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.193/tabby-1.0.193-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.193-setup-arm64.exe",
+          "sha256": "0bf790d35ab5d449ae8afa9eb377e159756a0da4acee3f460ec5de536d3eb45c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.193/tabby-1.0.193-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.193-setup-arm64.exe",
+          "sha256": "0bf790d35ab5d449ae8afa9eb377e159756a0da4acee3f460ec5de536d3eb45c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.193/tabby-1.0.193-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.193-setup-x64.exe",
+          "sha256": "641808026dff56931f1184324eeb6b273c4f053675763d74eaa0eba2167cba7e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.193/tabby-1.0.193-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.193-setup-x64.exe",
+          "sha256": "641808026dff56931f1184324eeb6b273c4f053675763d74eaa0eba2167cba7e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.189",
+      "release_date": "2023-02-20",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.189",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.189",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.189/tabby-1.0.189-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.189-setup-arm64.exe",
+          "sha256": "fc5903575385d48ffce4e441caf0e060d97e049fe276c559dadc7703ee807141",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.189/tabby-1.0.189-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.189-setup-arm64.exe",
+          "sha256": "fc5903575385d48ffce4e441caf0e060d97e049fe276c559dadc7703ee807141",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.189/tabby-1.0.189-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.189-setup-x64.exe",
+          "sha256": "dfc7ca0f6be1ff11f3cc1ab50e7d37d624b24d5d56485f78edc48598a8e28bfd",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.189/tabby-1.0.189-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.189-setup-x64.exe",
+          "sha256": "dfc7ca0f6be1ff11f3cc1ab50e7d37d624b24d5d56485f78edc48598a8e28bfd",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.188",
+      "release_date": "2023-01-05",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.188",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.188",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.188/tabby-1.0.188-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.188-setup-arm64.exe",
+          "sha256": "d7f1ae66cf7345819cc6f2bcf99f6a6d08f01b594eddfd1a32d399ab9f768805",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.188/tabby-1.0.188-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.188-setup-arm64.exe",
+          "sha256": "d7f1ae66cf7345819cc6f2bcf99f6a6d08f01b594eddfd1a32d399ab9f768805",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.188/tabby-1.0.188-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.188-setup-x64.exe",
+          "sha256": "c6c343e754cc0a4934316a133b657b4e3105ae8c7d912e5528d71a89adc28b3e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.188/tabby-1.0.188-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.188-setup-x64.exe",
+          "sha256": "c6c343e754cc0a4934316a133b657b4e3105ae8c7d912e5528d71a89adc28b3e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.187",
+      "release_date": "2022-11-21",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.187",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.187",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.187/tabby-1.0.187-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.187-setup-arm64.exe",
+          "sha256": "98d200e1b72fdd0197e96f9e1d227581ede3d9f46cf53dc02bd4e75ff901bc50",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.187/tabby-1.0.187-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.187-setup-arm64.exe",
+          "sha256": "98d200e1b72fdd0197e96f9e1d227581ede3d9f46cf53dc02bd4e75ff901bc50",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.187/tabby-1.0.187-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.187-setup-x64.exe",
+          "sha256": "47ec4a231e51b4370403768b05ba13d9146df833e6c7451a5499620324ff6a46",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.187/tabby-1.0.187-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.187-setup-x64.exe",
+          "sha256": "47ec4a231e51b4370403768b05ba13d9146df833e6c7451a5499620324ff6a46",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.186",
+      "release_date": "2022-11-04",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.186",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.186",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.186/tabby-1.0.186-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.186-setup-arm64.exe",
+          "sha256": "f1f45b965353b490c91b11a5d6dfd0d16e9e5f9f12e3cb938cc907decb590117",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.186/tabby-1.0.186-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.186-setup-arm64.exe",
+          "sha256": "f1f45b965353b490c91b11a5d6dfd0d16e9e5f9f12e3cb938cc907decb590117",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.186/tabby-1.0.186-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.186-setup-x64.exe",
+          "sha256": "2eadb5ef4e7877ccbaf2dd89b010d59b85305e19b8109064f02f5112f808907a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.186/tabby-1.0.186-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.186-setup-x64.exe",
+          "sha256": "2eadb5ef4e7877ccbaf2dd89b010d59b85305e19b8109064f02f5112f808907a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.185",
+      "release_date": "2022-10-27",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.185",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.185",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.185/tabby-1.0.185-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.185-setup-arm64.exe",
+          "sha256": "625284b9bc5d82d82baa96e232d594195accfc39110d0a9b8e396dde3f9c70da",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.185/tabby-1.0.185-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.185-setup-arm64.exe",
+          "sha256": "625284b9bc5d82d82baa96e232d594195accfc39110d0a9b8e396dde3f9c70da",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.185/tabby-1.0.185-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.185-setup-x64.exe",
+          "sha256": "fc277d91eaf4a395db37a03e93fc0bc7637e2909fce3d0b0af6d9abd59b8a7dc",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.185/tabby-1.0.185-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.185-setup-x64.exe",
+          "sha256": "fc277d91eaf4a395db37a03e93fc0bc7637e2909fce3d0b0af6d9abd59b8a7dc",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.184",
+      "release_date": "2022-10-01",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.184",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.184",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.184/tabby-1.0.184-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.184-setup-arm64.exe",
+          "sha256": "4108f67f7057700bce2deff174c5ba345395311a7f7b6110a6beb9950dc86983",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.184/tabby-1.0.184-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.184-setup-arm64.exe",
+          "sha256": "4108f67f7057700bce2deff174c5ba345395311a7f7b6110a6beb9950dc86983",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.184/tabby-1.0.184-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.184-setup-x64.exe",
+          "sha256": "28429a97a113f6cd768de443e6d481e4d154bd9dce0aa8921e8b2ef1e54e847b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.184/tabby-1.0.184-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.184-setup-x64.exe",
+          "sha256": "28429a97a113f6cd768de443e6d481e4d154bd9dce0aa8921e8b2ef1e54e847b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.183",
+      "release_date": "2022-08-01",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.183",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.183",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.183/tabby-1.0.183-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.183-setup-arm64.exe",
+          "sha256": "cf2faa3dbcfef3093840d2091f301fb353d036aaaef8c8b2fb37514f0f7bd49d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.183/tabby-1.0.183-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.183-setup-arm64.exe",
+          "sha256": "cf2faa3dbcfef3093840d2091f301fb353d036aaaef8c8b2fb37514f0f7bd49d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.183/tabby-1.0.183-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.183-setup-x64.exe",
+          "sha256": "f48145da9649d9c69f6a30714ccc40e49e0a326ae3814a96d633476bbf696a0f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.183/tabby-1.0.183-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.183-setup-x64.exe",
+          "sha256": "f48145da9649d9c69f6a30714ccc40e49e0a326ae3814a96d633476bbf696a0f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.182",
+      "release_date": "2022-07-29",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.182",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.182",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.182/tabby-1.0.182-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.182-setup-arm64.exe",
+          "sha256": "d2be3e81318f8ea0b2721d9180325b2eb5b9b9d1337831884a3c95cbb598df96",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.182/tabby-1.0.182-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.182-setup-arm64.exe",
+          "sha256": "d2be3e81318f8ea0b2721d9180325b2eb5b9b9d1337831884a3c95cbb598df96",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.182/tabby-1.0.182-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.182-setup-x64.exe",
+          "sha256": "af8325ec3c136da9f5a06b2a9cd31cdd5dfb273121622f17653dc5a74d149ed9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.182/tabby-1.0.182-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.182-setup-x64.exe",
+          "sha256": "af8325ec3c136da9f5a06b2a9cd31cdd5dfb273121622f17653dc5a74d149ed9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.181",
+      "release_date": "2022-06-18",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.181",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.181",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.181/tabby-1.0.181-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.181-setup-arm64.exe",
+          "sha256": "fedf42f58f37e1355697f0490e32ca8d4c938616f017505c02079857bb21e8b4",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.181/tabby-1.0.181-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.181-setup-arm64.exe",
+          "sha256": "fedf42f58f37e1355697f0490e32ca8d4c938616f017505c02079857bb21e8b4",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.181/tabby-1.0.181-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.181-setup-x64.exe",
+          "sha256": "6fa822f18fe7f1f6e83620dba26737a0df6fa623b376df2293f8fc7845ac6877",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.181/tabby-1.0.181-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.181-setup-x64.exe",
+          "sha256": "6fa822f18fe7f1f6e83620dba26737a0df6fa623b376df2293f8fc7845ac6877",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.179",
+      "release_date": "2022-05-31",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.179",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.179",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.179/tabby-1.0.179-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.179-setup-arm64.exe",
+          "sha256": "c9d3a777798542c0009bd1d8e20ac2328868e20182195a1371a4d7bdd7bf0f06",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.179/tabby-1.0.179-setup-arm64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.179-setup-arm64.exe",
+          "sha256": "c9d3a777798542c0009bd1d8e20ac2328868e20182195a1371a4d7bdd7bf0f06",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.179/tabby-1.0.179-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.179-setup-x64.exe",
+          "sha256": "7a0cd5b2e4a755b0fd43873914df4980d9d7813c1b0960b33f8cfd02ba0adbb5",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.179/tabby-1.0.179-setup-x64.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.179-setup-x64.exe",
+          "sha256": "7a0cd5b2e4a755b0fd43873914df4980d9d7813c1b0960b33f8cfd02ba0adbb5",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.174",
+      "release_date": "2022-03-21",
+      "release_notes_url": "https://github.com/Eugeny/tabby/releases/tag/v1.0.174",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/e/Eugeny/Tabby/1.0.174",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.174/tabby-1.0.174-setup.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.174-setup.exe",
+          "sha256": "31678395b52f9844485916f988c42aba5c2eb6982b4ab1bfb954d1eaf667eb72",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.174/tabby-1.0.174-setup.exe",
+          "host": "github.com",
+          "filename": "tabby-1.0.174-setup.exe",
+          "sha256": "31678395b52f9844485916f988c42aba5c2eb6982b4ab1bfb954d1eaf667eb72",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.0.238",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "zip",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.238/tabby-1.0.238-macos-x86_64.zip",
+          "host": "github.com",
+          "filename": "tabby-1.0.238-macos-x86_64.zip",
+          "sha256": "93935cc99fed5ff76a4cceaef15fdd15802aa7f49e9227f9c883df6eeebee9b4",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "zip",
+          "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.238/tabby-1.0.238-macos-arm64.zip",
+          "host": "github.com",
+          "filename": "tabby-1.0.238-macos-arm64.zip",
+          "sha256": "c877d8962f63a67baf40f3400b2d57a195f97d7b3547d7e804adae0e7df6754c",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Tabby.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.tabby.sfl*",
+            "~/Library/Application Support/tabby",
+            "~/Library/Caches/org.tabby",
+            "~/Library/Caches/org.tabby.ShipIt",
+            "~/Library/HTTPStorages/org.tabby",
+            "~/Library/Preferences/ByHost/org.tabby.ShipIt.*.plist",
+            "~/Library/Preferences/org.tabby.helper.plist",
+            "~/Library/Preferences/org.tabby.plist",
+            "~/Library/Saved Application State/org.tabby.savedState",
+            "~/Library/Services/Open Tabby here.workflow",
+            "~/Library/Services/Paste path into Tabby.workflow"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
+      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "path": "manifests/e/Eugeny/Tabby"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
+      "retrieved_at": "2026-11-04T20:50:37.029Z",
+      "path": "Casks/t/tabby.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/tabby.json"
+    }
+  ]
+}

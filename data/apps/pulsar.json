@@ -1,0 +1,641 @@
+{
+  "schema_version": 2,
+  "slug": "pulsar",
+  "name": "Pulsar",
+  "publisher": "Pulsar Edit",
+  "ids": {
+    "winget": "Pulsar-Edit.Pulsar",
+    "homebrew_cask": "pulsar",
+    "flathub": "dev.pulsar_edit.Pulsar"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "A Community-led Hyper-Hackable Text Editor",
+  "tags": [
+    "electron",
+    "javascript",
+    "pulsar",
+    "pulsar-edit"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/pulsar-edit/pulsar",
+    "publisher": "https://pulsar-edit.dev/",
+    "support": "https://github.com/pulsar-edit/pulsar/issues",
+    "bug_tracker": "https://github.com/pulsar-edit/pulsar/issues",
+    "release_notes": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.133.1"
+  },
+  "license": {
+    "name": "MIT License",
+    "url": "https://github.com/pulsar-edit/pulsar/blob/master/LICENSE.md",
+    "copyright": "Copyright (c) 2022-2024 Pulsar-Edit Original work copyright (c) 2011-2022 GitHub Inc."
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.133.1",
+    "macos": "1.133.1",
+    "linux": "1.133.1"
+  },
+  "last_updated": "2026-11-01",
+  "versions_total": {
+    "windows": 18,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.133.1",
+      "release_date": "2026-11-01",
+      "release_notes": "This release addresses a severe bug in the Linux builds that caused the renderer to crash upon opening a file. Windows and macOS users can skip this release if they like; nothing will be different for them.\n\nSorry for letting this through! We have updated our Linux smoke tests to be more thorough to ensure this sort of issue cannot happen again.\n\n### Pulsar\n\n- Rework Linux builds to use a manylinux_2_28 image with gcc-toolset [@savetheclocktower](#1686)\n- Ensure Playwright tests run serially [@savetheclocktower](#1689)",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.133.1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.133.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.133.1/Windows.Pulsar.Setup.1.133.1.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.133.1.exe",
+          "sha256": "0cadf8fc6da9762b0acfba01b1e2e538bf54ed580ddc0cb3a610b6a393ec3374",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.132.1",
+      "release_date": "2026-05-20",
+      "release_notes": "This patch release fixes an issue encountered by users of some community UI themes.\n1.132.1\n- Fix an issue where missing theme variables prevented the project window from initializing. @Daeraxa",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.132.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.132.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.132.1/Windows.Pulsar.Setup.1.132.1.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.132.1.exe",
+          "sha256": "0086dd54caa0a325162ce915cbb3bf5ecca0bd11f9df81e97665ef48e64eefb9",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.132.0",
+      "release_date": "2026-05-17",
+      "release_notes": "This release delivers something that we hope will make most users’ lives easier, whether they’re veteran Pulsar users or brand-new users giving us a try: a [new core terminal package](/posts/20260510-savetheclocktower-terminal-package/)!\n\nAlso on offer: a new experimental setting that we think will improve the experience of switching Git branches. When enabled, core.promptOnConflict will recognize when you’ve made edits against a file whose contents changed on disk _after_ you started making the edits, and will warn you when you try to save your edits! This is one step toward improving the experience of users who often switch branches in version control.\n\nWe’ve also added a setting that might make life easier for those who routinely edit large files, quality-of-life improvements for Pulsar contributors and package authors, better window management when opening projects from the command line, new configurable behavior for autocomplete-plus, and a handful of improvements to syntax highlighting.\n\nAs always, a huge thank you to our community, contributors, and donations.\nHappy coding, and see you amongst the stars!\n- The Pulsar Team\n\n---\n\n## 1.132.0\n\n- New terminal package!\n- New editor.largeFileThreshold setting that allows the user to configure the file-size threshold of the “large file mode” present in TextMate-style grammars.\n- New experimental setting: core.promptOnConflict. When enabled, Pulsar will ask for confirmation if you try to save an item while it’s in a “conflicted” state. You may decide whether to cancel or proceed with overwriting the file on disk. (For an editor, the “conflicted” state occurs if you open a file and make changes, but another program writes different contents to the file on disk before you can save your changes in Pulsar.) Since this setting is experimental, it is disabled by default… but we encourage users to enable it and help us test it!\n- Minor Electron version increase to v30.5.1.\n\n### Pulsar\n\n- Bump @pulsar-edit/fuzzy-native to 1.3.1 [@savetheclocktower](#1551)\n- Tree-sitter fixes, bonus 1.132 edition [@savetheclocktower](#1545)\n- [find-and-replace] Ensure a pattern without any path separators will be applied against only the filename rather than the entire path. [@savetheclocktower](#1544)\n- Bump our versions of atom-keymap and underscore-plus… including pointing all usages of underscore-plus to our new fork at @pulsar-edit/underscore-plus [@savetheclocktower](#1543)\n- Bump terminal to 0.3.2 [@savetheclocktower](#1539)\n- feat: Add editor.largeFileThreshold config for TextMate large file mode [@asiloisad](#1413)\n- Cirrus: Update Rolling release token [@DeeDeeG](#1542)\n- Resolve keyBindingCommand tooltip label lazily instead of at registration time [@asiloisad](#1536)\n- fix: clamp cursor column during rendering to prevent display at invalid positions [@asiloisad](#1414)\n- Hide empty file-info element in status bar [@asiloisad](#1415)\n- Honor activatePane: false when workspace.open split creates a new pane [@asiloisad](#1532)\n- Fix language-gfm setext header symbol queries [@bwanders](#1537)\n- Cirrus: bump node from v16 to v20 [@DeeDeeG](#1538)\n- Fix keyBindingCommand breaking function-based tooltip titles [@asiloisad](github.com/pulsar-edit/pulsar/pull/1516)\n- [find-and-replace] Fix project search regression when searching modified buffers. [@savetheclocktower](#1499)\n- Guard against a user saving while the text buffer is conflicted by alerting them to the problem and giving them a choice between cancelling and overwriting the contents on disk. [@savetheclocktower](#1478)\n- Chore: Restore org templates to repo [@Daeraxa](#1527)\n- CI: Bump 'nick-fields/retry' to v4.0.0 (exact SHA) due to Node 20 Actions deprecation [@DeeDeeG](#1528)\n- Add the new terminal package to core [@savetheclocktower](#1373)\n- [ci] Run Package tests more appropriately [@confused-Techie](#1508)\n- Use SHA256 Digest for RPM Build [@ChrisLeinbach](#1522)\n- fix(deps): update dependency temp to ^0.9.0 [renovate (bot)](#1519)\n- chore(deps): update dependency temp to ^0.9.0 [renovate (bot)](#1518)\n- chore(deps): update dependency temp to ^0.9.0 [renovate (bot)](#1515)\n- chore(deps): update actions/upload-artifact action to v7 [renovate (bot)](#1514)\n- chore(deps): update actions/checkout action to v6 [renovate (bot)](#1513)\n- chore(deps): update actions/cache action to v5 [renovate (bot)](#1510)\n- fix(deps): update dependency minimatch to v3.1.4 [security] [renovate (bot)](#1500)\n- chore(deps): update dependency dompurify to v3.3.2 [security] [renovate (bot)]#1503\n- [exception-reporting] Remove core package [@confused-Techie](#1486)\n- Improve \"Project does not exist\" popup [@kiskoza](#954)\n- Bump Electron version to v30.5.1 [@DeeDeeG](#1452)\n- Change timing of window focus when a new project is opened [@savetheclocktower](#1492)\n- Ensure NodeJS version matches what we actually use [@confused-Techie](#1436)\n- [build] Check Windows version during install [@confused-Techie](#1489)\n- Fix crashes in measureHorizontalPositions and updateBlockDecorations for non-rendered rows [@asiloisad](#1490)\n- [archive-view] Bump ls-archive => @pulsar-edit/ls-archive [@confused-Techie](#1447)\n- [autocomplete-plus] Allow matching suggestions to stay in the list after filtering… even if the first character of the suggestion does not match the first character of what the user typed. [@savetheclocktower](#1428)\n- Remove unmaintained Dockerfile [@DeeDeeG](#1479)\n- Tree-sitter rolling fixes, 1.132 edition [@savetheclocktower](#1429)\n\n### @pulsar-edit/atom-keymap\n\n- feat: add CmdOrCtrl modifier alias for cross-platform keybindings [@asiloisad](https://github.com/pulsar-edit/atom-keymap/pull/8)\n- Remove reference to old package in readme [@Daeraxa](https://github.com/pulsar-edit/atom-keymap/pull/11)\n\n### @pulsar-edit/fuzzy-native\n\n- Explicitly include cstdint to make GCC happy [@savetheclocktower](https://github.com/pulsar-edit/fuzzy-native/pull/9)\n\n### @pulsar-edit/ls-archive\n\n- PR from before Pulsar's fork:\n  - Support bzip2 [@YtvwlD](https://github.com/atom/node-ls-archive/pull/14)\n- PRs since Pulsar's fork began:\n  - Adds Testing GH Actions [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/2)\n  - Rebrand Repository [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/3)\n  - Manual decaf source [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/4)\n  - Manual decaf specs [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/6)\n  - Get tests to run w/ our latest version of NodeJS [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/5)\n  - Bump almost all dependencies [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/7)\n  - Bump tar dependency [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/8)\n  - Make this repository publishable to NPM [@confused-Techie](https://github.com/pulsar-edit/node-ls-archive/pull/9)\n\n### @pulsar-edit/text-buffer\n\n- Fix incorrect isInConflict logic [@savetheclocktower](https://github.com/pulsar-edit/text-buffer/pull/11)\n\n### terminal\n\n- New package by @savetheclocktower; “Uses XTerm.js and node-pty.” “Based heavily on atomic-terminal, x-terminal-reloaded, and all their predecessors.”\n  - See https://github.com/pulsar-edit/terminal#terminal for details\n- Fixes terminal:set-selection-as-find-pattern keybind [@Daeraxa](https://github.com/pulsar-edit/terminal/pull/14)\n- Fix context menu commands [@Daeraxa](https://github.com/pulsar-edit/terminal/pull/16)\n- Fix: update keymap selector to work correctly on linux [@Daeraxa](https://github.com/pulsar-edit/terminal/pull/5)\n\n### @pulsar-edit/underscore-plus\n\n- PRs from before Pulsar's fork:\n  - Only decaffeinate [@aminya](https://github.com/atom/underscore-plus/pull/22)\n  - Migrate to Github actions [@darangi](https://github.com/atom/underscore-plus/pull/23)\n- PRs since Pulsar's fork began:\n  - Add cmdorctrl to modifier key maps [@asiloisad](https://github.com/pulsar-edit/underscore-plus/pull/1)\n  - Update all GHA [@confused-Techie](https://github.com/pulsar-edit/underscore-plus/pull/2)\n  - Manually define a default export in order to play better with transpiled code in the Pulsar codebase. [@savetheclocktower](https://github.com/pulsar-edit/underscore-plus/pull/5)\n  - Opt into \"loose\" mode for transpiling to CommonJS so that the exports can be mocked in specs. [@savetheclocktower](https://github.com/pulsar-edit/underscore-plus/commit/79eb75a068ee98d65ec233acfb90fa2dd72fc159)\n\n### ppm\n\n- Bump bundled Node to 20.16.0, to sync with Electron 30.5.1 in Pulsar core repo [@DeeDeeG](https://github.com/pulsar-edit/ppm/pull/168)",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.132.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.132.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.132.0/Windows.Pulsar.Setup.1.132.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.132.0.exe",
+          "sha256": "95f8d86be13a858fe182857f26314e10c287a12f3a2c23467c2e439ceaa7f0e1",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.131.3",
+      "release_date": "2026-03-20",
+      "release_notes": "This is a quick release in order to fix a regression introduced in one of the bug fixes included in the 1.132.2 release.\nFour patch releases under 1.131 is plenty, as far as we're concerned! We hope to get back to working on the next regular release and the slew of new features we've got planned. See you then!\n> Reminder for .rpm users: (There is an issue with the postuninstall scriptlet from the Pulsar 1.131.0 and 1.131.1 .rpms, causing the unintended removal of pulsar and ppm from /usr/bin/, specifically during upgrade installs. See #1482 for details.)\n>\n> For pulsar and ppm to remain on your PATH, please uninstall any copy of the Pulsar 1.131.0 or 1.131.1 .rpm before installing this release's .rpm, or alternatively you can dnf install and then dnf reinstall this release's updated .rpm. Furthermore, installing any two patched .rpms, such 1.131.2 and this one, would also flush out the old scriptlet and resolve the issue.\n>\n> Otherwise the old postuninstall scriptlet will run, removing pulsar and ppm from /usr/bin/ and thus from your PATH. This release has an updated postuninstall scriptlet with the fix, so this is a one-time workaround.\n1.131.3\n- [settings-view] Fix regression with rendering badges on package search results.\n- Fix failure to include localization files in the built application.\nPulsar\n- [build] Ensure locales dir is included when building Pulsar @confused-Techie\n- [settings-view] Don't try to attach a listener if the ref doesn't exist @savetheclocktower",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.131.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.131.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.131.3/Windows.Pulsar.Setup.1.131.3.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.131.3.exe",
+          "sha256": "15a2ea3636c44ddbe4d80279b0f1fbc3347dd604266bb88d6da1d68d0aed7086",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.131.2",
+      "release_date": "2026-03-16",
+      "release_notes": "Hello again, everyone! This release has a focus on bug fixes since our big Electron 30 upgrade! We've been busy addressing the issues our community has found since the release of v1.131.0.\nThanks to @asiloisad, we've got a new way to add multiple roots to a project at once via atom.project.addPaths. We're also excited to see a contribution from @catb0t, their first ever contribution to the project!\n> Note for .rpm users: (There is an issue with the postuninstall scriptlet from the Pulsar 1.131.0 and 1.131.1 .rpms, causing the unintended removal of pulsar and ppm from /usr/bin/, specifically during upgrade installs. See #1482 for details.)\n>\n> For pulsar and ppm to remain on your PATH, please uninstall any prior version of the Pulsar 1.131 .rpm before installing this release's .rpm, or alternatively you can dnf install and then dnf reinstall this release's updated .rpm.\n>\n> Otherwise the old postuninstall scriptlet will run, removing pulsar and ppm from /usr/bin/ and thus from your PATH. This release has an updated postuninstall scriptlet with the fix, so this is a one-time workaround.\n1.131.2\n- [settings-view] Fix issue that closes project windows when the user clicks on a badge in a package card.\n- [find-and-replace] Fix issue that prevents searches with patterns from working properly in projects with multiple roots.\n- Fix issue affecting keybinding interpretation on non-QWERTY keyboards in Linux/X11 environments.\n- Fix Linux issue causing the menu bar to hide immediately after a project window opens.\n- Fix macOS issue causing buffer contents to fail to update for some users when modified by another program.\n- Fix issue causing the .deb installation to refuse to launch because of improper permissions/AppArmor profile.\n- Fix issue causing the .rpm installation to run the wrong script when upgrading (restore pulsar and ppm to PATH).\n- Fix issue causing the --package switch not to work correctly when invoked directly on the Pulsar binary, rather than on pulsar.sh/pulsar.cmd.\n- Fix issue that prevents ppm from being symlinked or un-symlinked correctly in Linux install/uninstall scripts.\n- Add atom.project.addPaths method for adding multiple project roots at once.\nPulsar\n- script: Fix pulsar and ppm removal from PATH during upgrade with .rpms @DeeDeeG\n- Fix pulsar --package usage when APM_PATH is not set @savetheclocktower\n- [settings-view] Prevent weird half-crash when clicking on a badge such as an \"Archived\" badge next to a package card @savetheclocktower\n- [find-and-replace] Fix project search path pattern interpretation when the project has more than one root directory @savetheclocktower\n- Update to a version of pathwatcher that uses kqueue on macOS instead of FSEvents @savetheclocktower\n- Fix inability to use require('clipboard') and its other deprecated siblings @savetheclocktower\n- Re-assert core.setAutoHideMenuBar after a call to setFullScreen so that the menu bar isn't automatically hidden on Linux @savetheclocktower\n- settings-view: rebrand README and Restart notification @catb0t\n- Bump atom-keymap to v9.0.3 @savetheclocktower\n- Update the post-install.sh script to set permissions properly after .deb and .rpm installations @savetheclocktower\n- Cirrus: Update Rolling release token @DeeDeeG\n- script: Fix ppm symlinking issues in Linux install/uninstall scripts @DeeDeeG\n- Cirrus: Update brew uninstall node@20 to brew uninstall node@24 @DeeDeeG\n- Fix deprecated electron.remote usage in reopen-project-menu-manager @asiloisad\n- Add Project.addPaths to batch multiple root folders with a single event @asiloisad\n- [meta] Exclude blockmaps again @confused-Techie\n- Migrate Renovate config @renovate\n- Update whitespace package @renovate\n@pulsar-edit/pathwatcher\n- Introduce an alternative macOS implementation that uses kqueue to better match this library's pre-v9 behavior @savetheclocktower\n@pulsar-edit/atom-keymap\n- Bump @pulsar-edit/keyboard-layout to 3.0.5 @savetheclocktower\n@pulsar-edit/keyboard-layout\n- Stop considering XInputContext in X11 when translating keys to characters @savetheclocktower",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.131.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.131.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.131.2/Windows.Pulsar.Setup.1.131.2.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.131.2.exe",
+          "sha256": "1968d9bcf40730623103c8ed4405ce006dcf4ab475248ae6a95990d5261abfa1",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.131.1",
+      "release_date": "2026-02-17",
+      "release_notes": "1.131.1\n- Fix an issue in superstring that occasionally caused crashes while editing text.\n- Add support for additional image formats in Pulsar's Markdown renderer.\n- Minor reduction of binary size through various means.\nPulsar\n- Bump @pulsar-edit/superstring to 3.0.5 @savetheclocktower\n- [core] Add support for data:image/svg+xml in ui.renderMarkdown @confused-Techie\n- Remove abandoned fstream dependency @asiloisad\n- Bump async @confused-Techie\n- Add exclusions borrowed from node-prune @confused-Techie\nsuperstring\n- Fix a crash caused by improper management of async workers @savetheclocktower",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.131.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.131.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.131.1/Windows.Pulsar.Setup.1.131.1.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.131.1.exe",
+          "sha256": "28233e59b9a5cd0f688ffd45153008bad2a206fa4bb8f06cfb4ea49e5874d38f",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.131.0",
+      "release_date": "2026-02-15",
+      "release_notes": "Hello, and welcome, one and all! This release brings the long-awaited (and long-previewed in our Rolling releases) upgrade to Electron 30 to our stable \"Regular\" releases!\nCatching up, at least somewhat, with the rapid pace of new Electron versions is a goal we've been actively working on since we started Pulsar almost 4 years ago. We're happy to make one of the larger steps in that direction since we began with this release (from Electron 12 to Electron 30.) We recognize that Electron 30 is still not the latest Electron version, but it took a tremendous amount of work to get here, and we are still working diligently on further upgrades.\nOn a more business-as-usual note, we also have several language/grammar improvements, various bugfixes and miscellaneous improvements. Please see the full changelog below for details.\nWe're very excited for this milestone, and please do let us know if anything needs fixing -- this was a huge undertaking under the hood! (Did we mention the accompanying blog post?: https://blog.pulsar-edit.dev/posts/20251202-savetheclocktower-pulsar-on-electron-30/)\nAs always, a huge thank you to our community, contributors, and donations.\nHappy coding, and see you amongst the stars!\n- The Pulsar Team\n\n---\n\n## 1.131.0\n\nBecause this is such a huge upgrade to Pulsar, some of your community packages may be affected!\nIf you handle distributions for Pulsar as a community maintainer make sure to read this changelog carefully to make things compatible!\nFor more information, read [Pulsar on Electron 30: what it means for you](https://blog.pulsar-edit.dev/posts/20251202-savetheclocktower-pulsar-on-electron-30/).\n\n- Update Electron to version 30!\n  * Node is now version 20.11.1\n  * Chromium is now version 124\n  * This means better performance, better Node library compatibility, and ability for community packages to use newer features of Chromium.\n  * It should also vastly improve the Pulsar experience for Linux users in Wayland environments.\n  * Because this is such a big upgrade, some of your community packages might be affected!\n- Bump ppm to use Node 20.11.1\n  * For the first time in a long time, both ppm and Pulsar are using the same version of Node; this should avoid some rare bugs encountered when installing certain packages.\n- Fix handling when opening files to certain line numbers via CLI - e.g. pulsar foo.txt:30.\n- Prevent packages from spawning new background tasks if the environment is unloading (as would happen during a window reload or while quitting Pulsar).\n- [find-and-replace] Fix an issue where certain files would show results in a project-wide search even when they would be excluded by the file/directory pattern.\n- [markdown-preview] Fix situations where \"Save as HTML\" and \"Copy as HTML\" silently failed with certain kinds of content.\n- [autocomplete-plus] Prevent certain kinds of suggestions from being incorrectly filtered out of the result set.\n- [language-java] Update to the latest tree-sitter-java parser, adding support for multiline strings, among other things.\n- [language-python] Better highlighting of except clauses; fixed folding of certain if blocks.\n- [language-typescript] Better highlighting of template literals; adding folding of interface and enum blocks.\n- [language-javascript] Proper highlighting of JSX with namespaced attributes.\n\n### Pulsar\n\n- Enhance documentation for atom.commands.dispatch() method [@trusktr](#1411)\n- Fix autocomplete-plus crash with non-workspace editors [@asiloisad](#1381)\n- Fix tree-view crash when dock pane is split [@asiloisad](#1409)\n- Tree-sitter rolling fixes, 1.131.0 edition [@savetheclocktower](#1377)\n- Always show suggestions with textEdits instead of filtering them out [@savetheclocktower](#1422)\n- Fix incorrect interpretation of a line-number spec on the command line [@savetheclocktower](#1400)\n- Prevent task spawning during unload [@savetheclocktower](#1387)\n- [markdown-preview] Fix failure to serialize to HTML when the document contains certain kinds of code blocks [@savetheclocktower](#1374)\n- Bump to latest ppm after fixing the force-process-config issue in ppm#162 [@savetheclocktower](#1396)\n- Remove reliance on title key of a setting to avoid using locale labels [@confused-Techie](#1391)\n- Bump CI runners to macos-14 [@savetheclocktower](#1389)\n- Fix text-editor-component annoying bug [@Psychosynthesis](#1336)\n- Migrate to python3 style super for new class snippets in language-python [@bridgetjs](#1385)\n- Update to Electron 30 [@mauricioszabo and @savetheclocktower](#1367)\n- Cirrus: Update Rolling upload token [@DeeDeeG](#1382)\n- [find-and-replace] Prevent addition of project results from editors whose paths are not matched by the current path inclusions [@savetheclocktower](#1380)\n- Tree-sitter rolling fixes, 1.130.0 edition [@savetheclocktower](#1320)\n- Update actions/setup-python action to v6 [@renovate](#1365)\n- Update actions/setup-node action to v6 [@renovate](#1364)\n- [meta] Add new and missing packages to our renovate config [@confused-Techie](#1359)\n- Update pulsar-updater package [@renovate](#1356)\n- Update actions/checkout action to v5 [@renovate](#1357)\n- Add \"Regular Release Checklist\" issue template [@DeeDeeG](#1346)\n\n#### Changes for Electron 30\n> Internals of 'Update to Electron 30' PR\n\n- Remove all support for legacy Tree-sitter\n- Prefer @electron/remote, deprecate direct usage of electron.remote and switch all internal usages to @electron/remote.\n- Decaffeinate tree-view\n- Fix a failing autocomplete-plus spec\n- Get dev-live-reload specs passing\n- Get image-view specs passing\n- [language-ruby] Add a basic grammar test spec\n- [markdown-preview] Get specs passing\n- [settings-view] Get specs passing\n- Point to Electron 30.0.9 and point our dependencies to the NPM-published versions under the @pulsar-edit namespace that are compatible with Electron 30.0.9.\n- Fix some TextEditorComponent issues related to changes in Chromium sometime between Electron 12 and Electron 30.\n- Eliminate reliance on typescript-simple in favor of a custom solution that uses the typescript package directly.\n- Consume get-scrollbar-style to replace the deprecated scrollbar-style module\n- Additional changes related to device pixel ratio that probably should have gone in the earlier commit.\n- Add the ability to report crashes via Electron's standard crashReporter interface.\n- Delete deprecated \"app.allowRendererProcessReuse = false\"\n- Enable @electron-remote for the given window during startup and disable a Blink experimental feature that was causing trouble with package compatibility (because it added an on method to all DOM nodes!).\n- Be more paranoid about release channels in a handful of places in case we want to maintain a next (or nightly or preview) release channel on an ongoing basis.\n- Cache Language instances in web-tree-sitter so that the specs don't run out of memory.\n- Preserve an ATOM_CHANNEL environment variable if it exists and other changes related to release-channel agnosticism.\n- [snippets] Get specs passing\n- [spell-check] Get specs passing and abandon atom-pathspec in favor of an internal implementation.\n- [tabs] Fix an exception that can happen in unusual scenarios when the browser can't give us an element under a given X/Y coordinate.\n- [update-package-dependencies] Get specs passing\n- [symbol-provider-tree-sitter] Unmock clock in the standard way\n- Remove outdated Tree-sitter documentation\n- Update GitHub Actions CI jobs to include Wayland-related keyboard dependencies.\n- Update CirrusCI build job to include Wayland-related keyboard dependencies.\n- Revert to a single entitlements.plist now that we're no longer affected by the awful libuv bug that was present in Electron 12.\n- Update script/electron-builder.js to support a couple of command-line switches and to build correctly for Electron 30.\n- Fix ThemeManager specs\n- Define two methods on the atom global to work around tree-view issues related to trashing and revealing items in electron.shell.\n- Comment reformatting\n- Some integration test fixes\n- Fix PackageManager specs\n- Use yarn.lock from updated-latest-electron branch\n- Swallow exceptions raised by pending tests\n- Disallow if( and the like in .eslitrc\n- Add submodules: true back into certain workflows\n- Remove atom.trashItem and atom.showItemInFolder since they weren't even being used. The equivalent functions from the shell module of @electron/remote have been performing the same task in PulsarNext for a while now.\n- Update ppm to commit d288b0978b35f7c0ffb3dc5c1e50c\n- Update ppm to commit 07faba10096ee4239ce671218d9953fb2e40ecbf\n- Remove unnecessary Promise.all\n\n### ppm\n\n- Fix CI [@DeeDeeG](https://github.com/pulsar-edit/ppm/pull/154)\n- Fix misnamed variable in rebuild command [@savetheclocktower](https://github.com/pulsar-edit/ppm/pull/155)\n- Upgrade Node to version 20.11.1 [@savetheclocktower](https://github.com/pulsar-edit/ppm/pull/156)\n- Add TypeScript template [@savetheclocktower](https://github.com/pulsar-edit/ppm/pull/152)\n- Revert setting of --force-process-config now that we’re on Electron 30 [@savetheclocktower](https://github.com/pulsar-edit/ppm/pull/162)",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.131.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.131.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.131.0/Windows.Pulsar.Setup.1.131.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.131.0.exe",
+          "sha256": "f8250c6bb9cf0aff70527530251991295aec1dc6b1cdad96b77ba50fb338849e",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.130.1",
+      "release_date": "2025-10-10",
+      "release_notes": "Hotfix: Restore Windows app to working condition, after it was mis-built in v1.130.0.\nDescription of the issue affecting v1.130.0 on Windows: The Windows version of the app was broken, due to its native C/C++ dependencies remaining built for NodeJS when electron-rebuild failed, and due to our CI being mistakenly configured in a way that hid the failure. Electron-rebuild failed in CI due to a missing Windows 10 SDK.\nResolution: We have worked around the missing Windows 10 SDK issue in CI by installing it manually, and also updated our CI workflow so that a failure of electron-rebuild would be more likely to be caught.\nNote: Binaries for macOS and Linux are also provided to make it simple to find the latest binaries for all platforms attached to one GitHub Release. Other than coming from a new CI run with a new patch version bump, there should be no other changes from v1.130.0 on macOS or Linux.",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.130.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.130.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.130.1/Windows.Pulsar.Setup.1.130.1.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.130.1.exe",
+          "sha256": "943a0db0414bc9b7e1aeaab2faf103b9c8e9b075c585870c6996238487bf692a",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.130.0",
+      "release_date": "2025-10-08",
+      "release_notes": "# Pulsar 1.130.0: Spooktacular Edition\n\nWelcome to another Spooktacular Pulsar release!\nTo welcome in the Autumn, we'd like to shout out some updates to our website!\nThe long awaited revamp of our web presence not only massively improves and updates our documentation, it also unifies our web design. There are new subdomains for each service, and we've put our hugely improved documentation live (which you may have seen during its beta period). It's now more in-depth and updated, and it's finally got auto-updating API docs for Pulsar, which we have been missing since the beginning.\nAs for the Pulsar editor itself, we've got some updated Tree-sitter and language support, as well as autocomplete-css and autocomplete-plus updates and improvements, a focus fix for tree-view on Windows, a fix so that find-in-project searches properly exclude open-and-modified files that don't match the given path filter, and a change to `snippets` to restore legacy compatibility with the `emmet` package.\nA new \"I18n\" API (short for \"internationalization\") allows Pulsar and even community packages to localize all their text to a user's preferred language. It's in its very early stages, but after some more time and work you should be able to set your preferred language and have Pulsar respect it.\nAs always, a huge thank you to our community, contributors, and donations.\nHappy coding, and see you amongst the stars!\n- The Pulsar Team\n\n---\n\n## 1.130.0\n- `autocomplete-plus` can now make other text edits to the buffer when a suggestion is accepted - for instance, adding an `import` for that suggestion.\n- Experimental localization support is now being added into the editor, allowing the editor, core packages and even community packages to localize their interface for any language.\n- `autocomplete-css` has gotten significantly updated completions.\n- Various documentation and UI links updated after website update.\n- Changed some returns in a backwards compatible way to ensure the community package `emmet` will work again.\n\n### Pulsar\n- [find-and-replace] When a path pattern is provided on a project-wide search, Pulsar won't include any open and modified buffers in the search unless their paths also match the given pattern. [@savetheclocktower](https://github.com/pulsar-edit/pulsar/pull/1298)\n- [autocomplete-plus] Add support for \"additional\" text edits when a suggestion is accepted [@savetheclocktower](https://github.com/pulsar-edit/pulsar/pull/1301)\n- Cirrus: Update Rolling Release binary upload token [@DeeDeeG](https://github.com/pulsar-edit/pulsar/pull/1331)\n- update-manager-spec.js - release notes url spec change [@wesinator](https://github.com/pulsar-edit/pulsar/pull/1329)\n- [snippets] Add getter to fix `emmet` package [@savetheclocktower](https://github.com/pulsar-edit/pulsar/pull/1334)\n- Update dependency minimatch to v3 [SECURITY] [@renovate](https://github.com/pulsar-edit/pulsar/pull/1322)\n- [tree-view] Ensure Explorer opens in focus on Windows [@confused-Techie](https://github.com/pulsar-edit/pulsar/pull/1167)\n- [core] i18n: Fresh Start [@confused-Techie](https://github.com/pulsar-edit/pulsar/pull/1074)\n- [autocomplete-css] Update Completions, deps, improve completions data sources [@confused-Techie](https://github.com/pulsar-edit/pulsar/pull/1191)\n- Resolve Issues in packaged Pulsar Localization [@confused-Techie](https://github.com/pulsar-edit/pulsar/pull/1337)\n- [meta] remove legacy atom project md files [@wesinator](https://github.com/pulsar-edit/pulsar/pull/1330)\n- Update keymap documentation links [@williamtheaker](https://github.com/pulsar-edit/pulsar/pull/1339)\n- [core & timecop] Locale loading Statistics [@confused-Techie](https://github.com/pulsar-edit/pulsar/pull/1338)\n- Cirrus: Pin fpm gem to ~> 1.16.0 [@DeeDeeG](https://github.com/pulsar-edit/pulsar/pull/1347)\n- Ensure `watchPath` \"de-normalizes\" filesystem event paths if opted into so that users of `watchPath` don't have to do their own realpath resolution [@savetheclocktower](https://github.com/pulsar-edit/pulsar/pull/1286)",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.130.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.130.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.130.0/Windows.Pulsar.Setup.1.130.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.130.0.exe",
+          "sha256": "720109619759c3ea493fc979a0a93c8fe96ec62fc6924f8d8574fd83733e7097",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.129.0",
+      "release_date": "2025-08-06",
+      "release_notes": "Pulsar 1.129.0: An August Occasion\nHowdy folks,\nAnother fine Pulsar release, Pulsar 1.129.0, is available for your use and enjoyment. See changelog below for details.\nA big shout-out to @Drsheppard01 for their first contribution in the form of PR #1241, and to @jmanuel1 for the issue report #1302 that led to a quick fix from @savetheclocktower in PR #1303. And to several members of the community who have given feedback on GitHub, Discord, etc.\nAs always, a huge thank you to our community, contributors, and donations.\nHappy coding, and see you amongst the stars!\n- The Pulsar Team\n1.129.0\n- Some minor Tree-sitter fixes, including fixing a bug in SCSS highlighting and ensuring proper highlighting support for abstract methods in TypeScript.\n- When viewing a file that exists on disk outside of your project root, you may now use Tree View: Rename to “import” it into your project folder by giving it a relative path.\n- Updated various dependencies for security reasons.\n- Updated AppImages to type 2 runtime -- libfuse is no-longer required to be installed on the end-user's system to use Pulsar's AppImages!\nPulsar\n- Cirrus: Fetch Buster packages from archive.debian.org @DeeDeeG\n- Update deps June 2025 @DeeDeeG\n- Update appimagetool link in ./scripts/fix-linux-appimage.sh @ Drsheppard01\n- Tree-sitter rolling fixes, 1.129 edition @savetheclocktower\n- Fix CI build job in Ubuntu @savetheclocktower\n- [tree-view] Allow tree-view:rename to \"import\" the current file… @savetheclocktower\n- Cirrus: Update Rolling upload token @DeeDeeG\n- Refactor StateStore to remove dependency on the atom global @savetheclocktower",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.129.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.129.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.129.0/Windows.Pulsar.Setup.1.129.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.129.0.exe",
+          "sha256": "16d00fa5a3375f3e715a80d177f3f4c997ce5a4cef3ab05f5c248b7c343ca4b0",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.128.0",
+      "release_date": "2025-05-01",
+      "release_notes": "Pulsar v1.128.0: May There Be a Spring in Your Step!\nHello, folks. Another month or so, another Pulsar release!\nWe've got performance improvements, an improved editing experience for RTL languages, and comment handling for JSON and JSONC files. Please also be aware this month's release contains a security fix, so do update when you can. Thank you to the reporter of this issue.\nAs always, a huge thank you to our community, contributors, and donations.\nHappy coding, and see you amongst the stars!\n- The Pulsar Team\n- Vastly improved support for right-to-left text editing — meaning languages like Arabic, Hebrew, and Farsi.\n- Added support for comments in JSON — both via a new grammar for .jsonc files and via a setting to enable comments in regular .json files.\n- Fixed performance issues that can arise when reopening a project with existing editor windows.\n- Updated DOMPurify. This is a security fix.\nPulsar\n- Tree-sitter rolling fixes, 1.128 edition @savetheclocktower\n- Cirrus: Pin macOS builds to using Sonoma images @DeeDeeG\n- Bump Ubuntu in CI to ubuntu-latest @savetheclocktower\n- Restore ability for packages to focus specs on both Jasmine 1 and Jasmine 2 test runners @savetheclocktower\n- [markdown-preview] Update dompurify to 2.5.7 @savetheclocktower\n- Create SECURITY.md @confused-Techie\n- Improve support for RTL text input @savetheclocktower\n- [find-and-replace] Fix some bugs in the spec suite @savetheclocktower",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.128.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.128.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.128.0/Windows.Pulsar.Setup.1.128.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.128.0.exe",
+          "sha256": "018e779b3f2dfdd83afde0a2121aed2ad8273fd255e44aa81ccd6001e93c004f",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.127.1",
+      "release_date": "2025-03-30",
+      "release_notes": "Pulsar v1.127.1 (Hotfix Release)\nHere's a quick hotfix release, reverting a change that caused an issue for Linux users.\n(For all other changes since v1.126.0, please see the release notes for v1.127.0.)\nAs always, a huge thank you to our community, contributors, and donations.\nHappy coding, and see you amongst the stars!\n- The Pulsar Team\n- Hotfix: Reverted a Wayland-related change that Linux users reported issues with on Electron 12.\nPulsar\n- Revert \"Wayland pulsar script\" @mauricioszabo",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.127.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.127.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.127.1/Windows.Pulsar.Setup.1.127.1.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.127.1.exe",
+          "sha256": "438a2367cce1f4be3e94c61198e1788fe1cee2d1c25bc94eb6098a0908740831",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.125.0",
+      "release_date": "2025-01-22",
+      "release_notes": "Pulsar v1.125.0: Happy New Years!\nThe Pulsar team is happy to welcome everyone to the new year on our 2̶0̶25th regular release.\nWe've gone back on our last update's decision to add source comment to the spell-check.grammar setting by default, as it had a greater performance impact than anticipated. This does mean that by default comments in code are no longer spell-checked — but if you liked the feature, you can add that setting back in! Just re-add source comment to the list of scopes under \"Settings > Packages > spell-check > Grammars.\"\nWe've also restored an internal API that was changed a while back, after we learned the change affected the project-plus community package.\nWe have our usual improvements to the Tree-sitter grammars — such as language-css's parser being updated to the latest, and language-python getting improved indentation hinting for some unusual code constructs.\nWe've fixed an issue that would cause pulsar and ppm to be removed from the user's PATH on Windows during an upgrade, to ensure the choices you select during installation are respected.\nWe've also engaged in some maintenance and updates to our CI operations, to ensure we can keep things working on all of our supported platforms.\nAs always, a huge thank you to our community, contributors, and donations.\nHappy coding, and see you amongst the stars!\n- The Pulsar Team\n- The Windows installer no longer removes pulsar and ppm from your path when you update Pulsar to a newer version.\n- [spell-check] Removed source comment from the list of automatically checked scopes because of reports of high CPU usage. This means that Pulsar will no longer automatically perform spell-checking for all code comments in all source files. (If you liked the behavior, you can add it back to the list in the spell-check.grammars config setting.)\n- [language-python] Improved indentation hinting in some unusual scenarios like on one-line blocks and after code comments.\n- [language-css] Updated tree-sitter-css to latest. Selector handling is now much better when typing incomplete selectors in a brand-new CSS file or at the bottom of an existing file.\n- Restored functionality of project-plus via exposing previously removed internal APIs.\nPulsar\n- Tree-sitter rolling fixes, 1.125 (or 1.124.1) edition @savetheclocktower\n- Windows: Only remove Pulsar/PPM from PATH during uninstall @confused-Techie\n- CI: Retry on timeout when building macOS bins @DeeDeeG\n- Install dependencies for CI documentation job @savetheclocktower\n- Attempt to install dependency on new Ubuntu CI images @savetheclocktower\n- CI: No dpkg shenanigans for package tests workflow @DeeDeeG\n- Expose dbPromise in StateStore @confused-Techie\npulsar-updater\n- Don't prompt to update on non-default release channels @savetheclocktower\nspell-check\n- Fixes for a possible patch release @savetheclocktower",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.125.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.125.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.125.0/Windows.Pulsar.Setup.1.125.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.125.0.exe",
+          "sha256": "cea2bdde165cd593051670574b5483bc6234367f55f9e3aa9fe33bbc46c53cbc",
+          "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f",
+          "apps_and_features": [
+            {
+              "publisher": "Pulsar-Edit",
+              "product_code": "0949b555-c22c-56b7-873a-a960bdefa81f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.124.0",
+      "release_date": "2024-12-16",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.124.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.124.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.124.0/Windows.Pulsar.Setup.1.124.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.124.0.exe",
+          "sha256": "914be3ef73df40427d8cbf030f45d4267389c54dd7740e99044bc126d782ff8d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.114.0",
+      "release_date": "2024-02-16",
+      "release_notes": "A Valentine's release bursting with love, Pulsar 1.114.0 is available now!\nWelcome to a brand new Pulsar release! I think it is safe to say that this month has been one of our more eventful due to the switchover we made to the new Tree-sitter implementation. This release features a lot of updates and fixes for this new implementation, thanks to all the feedback we got from the community. We also have a number of other bug fixes and new features to introduce, such as restoring compatibility with older Linux distributions, and a new flag for an old favorite ppm command.As mentioned above, we have quite a few changes relating to our new Tree-sitter implementation that we made default in Pulsar 1.113.0. First of all, we have some fixes and updates to make sure the new implementation isn't a regression from the legacy implementation. One such update is restoring support for the semanticolor package, which was supported by the previous implementation. Otherwise, if you had any particular issue with syntax highlighting, then we hope it has now been resolved, as a lot of changes and fixes have been made in response to community feedback. If not, then please visit our ongoing \"Mega-issues\" and see if your issue has been raised, and if not, please raise it there.Back in Pulsar 1.111.0, we created a new UI api to make an easy and universal way for packages to interact with Pulsar. This implementation did contain a couple of small oversights, which have now been resolved. One issue with the markdown implementation was the display of non-functional heading anchors when rendering a package README; the other was a small rendering bug that was causing a misalignment of content after a linebreak. We had also inadvertently introduced a new problem with fuzzymatcher that could cause the command palette to hang if it failed to highlight a match.One issue raised a while ago was that, starting with Pulsar 1.109.0, users of older LTS Linux distributions, such as AlmaLinux 8 and RockyLinux 9, were no longer able to run Pulsar. This was due to the CI runners we use being updated to newer OSs, and therefore Pulsar was being compiled against a newer version of glibc. We have changed our workflows to compile Pulsar in a Debian 10 Docker container instead, which should resolve this problem.It was noticed a while ago that the github package wasn't quite working correctly on ARM Linux systems. We have bumped the version of dugite (a library for using git in NodeJS and Electron) to resolve the problem.Lastly, we have two new features in ppm. The first is a new flag --force that can be specified on ppm link, which will forcibly replace a conflicting package without needing to manually remove it. The other is an update to ppm's syntax theme template so that, when generating a new syntax theme, it now includes some style variables that the editor has long supported, but which were not in the template, so theme authors might have been unaware of them. (As a bonus: there are two new variables supported by default in the editor, and added to the template as well! Theme authors, feel free to take advantage of these!)And that is it for yet another Pulsar release. We hope you enjoy this release and look forward to the next one!Until next time, happy coding, and see you amongst the stars!- The Pulsar team\n\n- Prevented an exception raised in the command palette in certain unusual filtering scenarios.\n- Refrain from rendering anchor icons when showing a package's README file in settings-view.\n- Build Linux binaries on Debian 10, for older glibc and compatibility with older Linux distros.\n- Fixed a rendering error in atom.ui.markdown.render when disableMode was set to \"strict\" and the input contained HTML line breaks.\n- Added support for the semanticolor package in modern tree-sitter grammars.\n- Added new --force flag to ppm link command that will uninstall any conflicting package already installed.\n- Added language entity colors to syntax-variables.less.\n- Numerous Tree-Sitter Grammar syntax highlighting fixes.\n- Bumped dugite to make the github package compatible with ARM Linux.\nPulsar\n- Fixed: fix(tree-sitter): pass node text to grammar @claytoncarter\n- Fixed: Fix issue with Markdown rendering after line break in strict mode @savetheclocktower\n- Updated: Update README badges @Daeraxa\n- Updated: Update copyright year to 2024 @Daeraxa\n- Added: CI: build Linux x86-64 binaries on older Linux @DeeDeeG\n- Fixed: Tree-sitter rolling fixes (January edition) @savetheclocktower\n- Fixed: Fix failing spec @savetheclocktower\n- Fixed: [settings-view] Don't display heading anchor icons within a README @savetheclocktower\n- Updated: ppm: Update ppm to commit 241d794f326b63b5abdb9769 @DeeDeeG\n- Fixed: script: Update version check in Rolling release binary upload script to exclude '-dev' versions @DeeDeeG\n- Fixed: CI: Fix tag Linux binaries are uploaded to for Rolling @DeeDeeG\n- Fixed: [command-palette] Guard against failure to highlight a match @savetheclocktower\n- Fixed: symbols-view rolling fixes @savetheclocktower\n- Fixed: Tree-sitter rolling fixes (February) @savetheclocktower\n- Updated: [meta] Update Cirrus GITHUB_TOKEN @confused-Techie\n- Updated: deps: Update github to v0.36.20-pretranspiled to bump dugite @DeeDeeG\n- Fixed: [symbols-view] Remap go-to-declaration commands on Windows/Linux @savetheclocktower\nPPM\n- Fixed: Fix test failure due to missing atom command @toddy15\n- Updated: Update syntax-variables.less to include language entity colors @savetheclocktower\n- Added: feat(link): add --force flag @claytoncarter\ngithub\n- Updated: Bump dugite to 2.5.2 @DeeDeeG",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.114.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.114.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.114.0/Windows.Pulsar.Setup.1.114.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.114.0.exe",
+          "sha256": "65f447565aa13a35fb39a0f4bc6d27c0e189fe8d76c89b4a0f8e50f82bd4925a"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.113.0",
+      "release_date": "2024-01-16",
+      "release_notes": "- The Pulsar Team\n- Enabled Modern Tree-sitter Grammars by default\n- Added a modern Tree-sitter grammar for PHP.\n- Fix a measurement issue that was causing visual glitches in the github package's diff views.\n- Enabled the core symbols-view package to accept symbols from a number of sources, including Tree-sitter grammars and IDE packages.\n- Switch default to false for converting ASCII emoticons to emoji when rendering Markdown.\n- Fix certain find-and-replace scenarios when the \"Preserve Case During Replace\" setting is enabled.\n- Fix an issue in symbols-view when returning from visiting a symbol declaration.\nPulsar\n- Fixed: Tree-sitter fixes for December (including a PHP grammar!) @savetheclocktower\n- Added: Make useExperimentalModernTreeSitter the default... @savetheclocktower\n- Fixed: Ensure editor is visible before measuring block decorations @savetheclocktower\n- Added: Overhaul symbols-view @savetheclocktower\n- Added: Default to no emoji when rendering Markdown @savetheclocktower\nfind-and-replace\n- Fixed: [find-and-replace] Fix capitalize utility @savetheclocktower\nsymbols-view\n- Fixed: [symbols-view] Fix issue with returning from a declaration @savetheclocktower",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.113.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.113.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.113.0/Windows.Pulsar.Setup.1.113.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.113.0.exe",
+          "sha256": "74fe5fad563b6eaec53668431db2dfa854021c4b0126c311363bcda6d47adf4f"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.106.0",
+      "release_date": "2023-06-15",
+      "release_notes": "- Fixed a bug that happens on some systems when trying to launch Pulsar using the Cinnamon desktop environment\n- Added a modern implementation of Tree-Sitter grammars behind an experimental flag. Enable the \"Use Modern Tree-Sitter Implementation\" in the Core settings to try it out\n- Bugfix: fixed Clojure indentation on tree-sitter\n- Improved the Clojure language support by migrating it to tree-sitter and support block comments, quoting, and other advanced features on modern tree-sitter implementation\n- Fixed a bug that could cause images to not appear the first time opening them\n- autocomplete-css Completions are now sorted in a way that may match what users expect\n- Added a \"Log Out\" menu item for the github package\nPulsar\n- Updated:\n  deps: Bump github to v0.36.16-transpiled @DeeDeeG\n- Removed:\n  Mostly remove request @confused-Techie\n- Fixed:\n  Fix: Image doesn't appear at first open @asiloisad\n- Removed:\n  Remove specific cinnamon condition @mauricioszabo\n- Fixed:\n  Fix of Clojure's indentation rules by removing query file @mauricioszabo\n- Fixed:\n  Update links in settings page @Daeraxa\n- Added:\n  [autocomplete-css] Sort completions.json @confused-Techie\n- Fixed:\n  Fixes on \"comment block\" for Clojure grammar @mauricioszabo\n- Added:\n  Hardcode NSIS GUID @confused-Techie\n- Fixed:\n  Make yarn sane @mauricioszabo\n- Fixed:\n  Huge improvement on Clojure highlighting @mauricioszabo\n- Removed:\n  Remove unused_require method @mauricioszabo\n- Bumped:\n  Update dependency underscore to 1.12.1 [SECURITY] @renovate\n- Added:\n  Add modern tree-sitter support behind an experimental flag @savetheclocktower\n- Added:\n  Make CHANGELOG easier to merge and update dompurify @mauricioszabo\n- Added:\n  js operators @icecream17\n- Bumped:\n  Update dependency postcss to v8.2.13 [SECURITY] @renovate\ngithub\n- Added:\n  Add logout menu option @Daeraxa\n- Updated:\n  ci: Bump action dependencies @Spiker985",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.106.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.106.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.106.0/Windows.Pulsar.Setup.1.106.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.106.0.exe",
+          "sha256": "a1db7bb0aed97607136a54ae3e147e09103f27bed4d2dea4ec384c63a2fc632b"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.105.0",
+      "release_date": "2023-05-16",
+      "release_notes": "- The Pulsar Team\n- Rebranded notifications, using our backend to find new versions of package,\n- Bumped to latest version of second-mate, fixing a memory usage issue in vscode-oniguruma\n- Removed a cache for native modules - fix bugs where an user rebuilds a native\n- Removed nslog dependency\n- Fixed an error where the GitHub package tried to interact with a diff view after it was closed\n- Fixed RPM installation failure when Atom was installed on the same machine\n- Added a new set of Package activationHooks, ...:uri-opened lets a package activate when any URI is opened within Pulsar, and ...:file-name-opened lets a package activate when any specific filename is opened within Pulsar.\nPulsar\n- Added:\n  Add new ...:uri-opened && ...:file-name-opened Package Activation Hook @confused-Techie\n- Fixed:\n  Properly localize Download/Stargazer Counts within settings-view @confused-Techie\n- Added:\n  Add bookmarks service for consumption by other packages @savetheclocktower\n- Added:\n  Bundle notifications @mauricioszabo\n- Fixed:\n  Fix Ripgrep download issues in CirrusCI @confused-Techie\n- Removed:\n  Revert Incorrect Commit @confused-Techie\n- Fixed:\n  Making CI green, hopefully @mauricioszabo\n- Bumped:\n  Bump second-mate to 96866771 @savetheclocktower\n- Removed:\n  Remove cache of incompatible native packages @mauricioszabo\n- Added:\n  Simplify and bundle fuzzy-finder @mauricioszabo\n- Added:\n  Bundle find and replace @mauricioszabo\n- Added:\n  Bundle tree view @confused-Techie\n- Added:\n  Bundle autocomplete-atom-api @confused-Techie\n- Added:\n  Add FPM option to stop rpm buildid clash @Daeraxa\n- Bumped: chore(deps): update dependency minimist [security] @renovate\n- Fixed:\n  Disable Failing Tests @confused-Techie\n- Bumped: chore(deps): update dependency ajv to 6.12.3 [security] @renovate\n- Bumped: chore(deps): update dependency async to 3.2.2 [security] @renovate\n- Added:\n  Add \"icon only\" class to settings view icon @Daeraxa\n- Bumped: chore(deps): update dependency minimatch [security] @renovate\n- Removed:\n  Remove nslog dependency @mauricioszabo\n- Added:\n  Setup Renovate @confused-Techie\n- Fixed:\n  Don't mark diff ranges on a destroyed buffer @savetheclocktower\n- Added:\n  First Architectural Design Records @mauricioszabo\n- Bumped: use pular's typscript-simple fork, which bumps typescript to 5.0.3 @Meadowsys\n- Added:\n  CI: cache and restore dependencies, plus skip rebuilding all over the place (saves a lot of time) @DeeDeeG\nnotifications\n- Fixed:\n  Cleanup and rename @Sertonix\n- Added: reject promise with Error instance @Sertonix\n- Added:\n  Add our Testing Action @confused-Techie\n- Fixed:\n  Change atom strings to pulsar @mdibella-dev\n- Bumped:\n  Bump to v3.2 of action-pulsar-dependency @confused-Techie\n- Fixed:\n  Fix all Tests @confused-Techie",
+      "release_notes_url": "https://github.com/pulsar-edit/pulsar/releases/tag/v1.105.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/Pulsar-Edit/Pulsar/1.105.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.105.0/Windows.Pulsar.Setup.1.105.0.exe",
+          "host": "github.com",
+          "filename": "Windows.Pulsar.Setup.1.105.0.exe",
+          "sha256": "bff670f75f52da3b8c712bb9d51d0487e879cb00297afbcef621748579cc50b4"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.133.1",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.133.1/Intel.Mac.Pulsar-1.133.1.dmg",
+          "host": "github.com",
+          "filename": "Intel.Mac.Pulsar-1.133.1.dmg",
+          "sha256": "d3e15fc9d964bca11d895b470152aa60184e053787723522b59d74b2ea5ca57d"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/pulsar-edit/pulsar/releases/download/v1.133.1/Silicon.Mac.Pulsar-1.133.1-arm64.dmg",
+          "host": "github.com",
+          "filename": "Silicon.Mac.Pulsar-1.133.1-arm64.dmg",
+          "sha256": "93f42641b58669a1aba5b306a26a6043cf8e3ec12b7813133db511df33e9338c"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Pulsar.app"
+        ],
+        "binaries": [
+          "ppm",
+          "pulsar.sh",
+          "pulsar"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/.pulsar",
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/dev.pulsar-edit.pulsar.sfl*",
+            "~/Library/Application Support/Pulsar",
+            "~/Library/Preferences/dev.pulsar-edit.pulsar.plist",
+            "~/Library/Saved Application State/dev.pulsar-edit.pulsar.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "1.133.1",
+      "release_date": "2026-11-01",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/dev.pulsar_edit.Pulsar.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "dev.pulsar_edit.Pulsar.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/dev.pulsar_edit.Pulsar.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "dev.pulsar_edit.Pulsar.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "cfb57c8683c26a093b5e5463176d73278d64bf0b",
+      "retrieved_at": "2026-11-06T23:18:56.450Z",
+      "path": "manifests/p/Pulsar-Edit/Pulsar"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "dcaa56add9b3eb423fe6a1037d47d207d248cc23",
+      "retrieved_at": "2026-11-06T23:18:56.450Z",
+      "path": "Casks/p/pulsar.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/pulsar.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/dev.pulsar_edit.Pulsar",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/dev.pulsar_edit.Pulsar",
+      "api_url": "https://flathub.org/api/v2/appstream/dev.pulsar_edit.Pulsar",
+      "content_sha256": "28f550ec5d7c0f66bd47276be0fb890332e17b095f2c90bb201afa38008991c7"
+    }
+  ],
+  "flathub": {
+    "app_id": "dev.pulsar_edit.Pulsar",
+    "page_url": "https://flathub.org/apps/dev.pulsar_edit.Pulsar",
+    "repo_url": "https://github.com/flathub/dev.pulsar_edit.Pulsar",
+    "install_command": "flatpak install flathub dev.pulsar_edit.Pulsar",
+    "run_command": "flatpak run dev.pulsar_edit.Pulsar",
+    "verified": false,
+    "license": "MIT",
+    "free_license": true,
+    "developer_name": "Pulsar Edit",
+    "categories": [
+      "Development"
+    ],
+    "download_size": 257857050,
+    "installed_size": 748290048,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

@@ -1,0 +1,1315 @@
+{
+  "schema_version": 2,
+  "slug": "rufus",
+  "name": "Rufus",
+  "publisher": "pbatard",
+  "author": "Pete Batard",
+  "ids": {
+    "winget": "Rufus.Rufus",
+    "moniker": "rufus"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "summary": "A utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc.",
+  "description": "Rufus is a utility that helps format and create bootable USB flash drives.\n\nFeatures:\n- Format USB, flash card and virtual drives to FAT/FAT32/NTFS/UDF/exFAT/ReFS/ext2/ext3\n- Create DOS bootable USB drives using FreeDOS or MS-DOS\n- Create BIOS or UEFI bootable drives, including UEFI bootable NTFS\n- Create bootable drives from bootable ISOs (Windows, Linux, etc.)\n- Create bootable drives from bootable disk images, including compressed ones\n- Create Windows 11 installation drives for PCs that don't have TPM or Secure Boot\n- Create Windows To Go drives\n- Create VHD/DD, VHDX and FFU images of an existing drive\n- Create persistent Linux partitions\n- Compute MD5, SHA-1, SHA-256 and SHA-512 checksums of the selected image\n- Perform runtime validation of UEFI bootable media\n- Improve Windows installation experience by automatically setting up OOBE parameters (local account, privacy options, etc.)\n- Perform bad blocks checks, including detection of \"fake\" flash drives\n- Download official Microsoft Windows 8, Windows 10 or Windows 11 retail ISOs\n- Download UEFI Shell ISOs\n- Modern and familiar UI, with 38 languages natively supported\n- Small footprint. No installation required.\n- Portable. Secure Boot compatible.",
+  "tags": [
+    "operating-system-booting",
+    "os-booting",
+    "formatting",
+    "foss",
+    "uefi",
+    "unetbootin",
+    "utility",
+    "bootable-drives",
+    "windows-to-go"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://rufus.ie/",
+    "publisher": "https://github.com/pbatard",
+    "support": "https://github.com/pbatard/rufus/issues",
+    "bug_tracker": "https://github.com/pbatard/rufus/issues",
+    "release_notes": "https://github.com/pbatard/rufus/releases/tag/v4.15",
+    "documentation": [
+      {
+        "label": "FAQ",
+        "url": "https://github.com/pbatard/rufus/wiki/FAQ"
+      },
+      {
+        "label": "Wiki",
+        "url": "https://github.com/pbatard/rufus/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0-or-later",
+    "url": "https://github.com/pbatard/rufus/blob/HEAD/LICENSE.txt",
+    "spdx": "GPL-3.0-or-later",
+    "copyright": "Copyright © 2011-2026 Pete Batard"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "4.15"
+  },
+  "last_updated": "2026-06-30",
+  "versions_total": {
+    "windows": 25
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "4.15",
+      "release_date": "2026-06-30",
+      "release_notes": "- Add RISC-V 64 support to UEFI:NTFS\n- Improve the guards for using the \"silent\" Windows installation option\n- Improve the ability to cancel during write retries\n- Improve progress reporting for compressed image extraction\n- Fix unrestricted XML entity expansion and integer overflow in ezxml parser (courtesy of @esadowski4) [GHSA-55r2-34wg-8mv9]\n- Fix \"silent\" Windows installation failing at 75% in most cases [#2960]\n- Fix a crash during boot when using UEFI:NTFS on Snapdragon X based ARM64 platforms [#2934]\n- Fix first WUE option always being checked by default [#2965]\n- Fix an infinite loop when using Windows ISOs that contain multiple WIMs\n- Fix \"Enable runtime UEFI media validation\" checkbox not always being properly enabled\n- Other WUE improvements/fixes for OneDrive removal and username validation (with thanks to @christian8641) [#2984, #2991]",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.15",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.15/rufus-4.15_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.15_x86.exe",
+          "sha256": "20e1345715aff4aebf016839f721390882201a2b5d00655424c4ca38cb919576",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.15/rufus-4.15.exe",
+          "host": "github.com",
+          "filename": "rufus-4.15.exe",
+          "sha256": "84c8a437f8af89257524478489e5c85f1edf25f761d299e2bcde46ac0afbe106",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.15/rufus-4.15_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.15_arm64.exe",
+          "sha256": "af01a2136db7391eb8a52de7001fd231f0731cd27e042318dc2743d87fa35c1c",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.14",
+      "release_date": "2026-04-30",
+      "release_notes": "- Windows User Experience improvements:\n  - Add a \"Quality of Life\" option, to disable Teams, Outlook, Copilot and other Microsoft forced nuisances\n  - Add a Silent installation option, that automatically, and WITHOUT PROMPT, installs Windows on the first detected disk on the target platform\n  - Add an option to copy SkuSiPolicy.p7b to the ESP on installation (please refer to KB5042562 for more info)\n  - Add tooltips for all the dialog options\n- Add limited support for El-Torito UEFI image extraction (Mostly for Dell BIOS update ISOs)\n- Improve error report when the user tries to use an image that resides on the target drive\n- Improve the UEFI:NTFS partition label to make the install media more explicit during Windows Setup disk partitioning\n- Improve support for Bazzite and other Fedora derivatives that don't follow EFI conventions\n- Improve reporting of GRUB and Isolinux MBRs\n- Improve detection and exclusion of the new Bitdefender hidden VHDs (#2953)\n- Fix potential errors during creation of Windows To Go media, due to the use of new versions of bcdboot (#2940)\n- Fix errors with local accounts that start or end with whitespaces (#2950)",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.14",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.14_x86.exe",
+          "sha256": "c4c2030901c9069228f90ea37a33d2b38ec83c2caba8bb88a4c3b8e27bb4fb78",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14.exe",
+          "host": "github.com",
+          "filename": "rufus-4.14.exe",
+          "sha256": "9fcad316c82ba3d0c3130c9f43fb0fe147e9eb62e1bf830716a0bbb6c58d24ee",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.14_arm64.exe",
+          "sha256": "65461a08dd88f0f2d7bb08fe0e8feae33ebc75bc68f25f8dd7803b8f42bc5267",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.13",
+      "release_date": "2026-02-17",
+      "release_notes": "- Fix UEFI:NTFS not selecting the proper driver for ARM/ARM64\n- Update embedded GRUB to v2.14",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.13",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.13/rufus-4.13_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.13_x86.exe",
+          "sha256": "41fdaec35b173fbd00e24af18a763a0dd19135d3571e145661844b31cd576721",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.13/rufus-4.13.exe",
+          "host": "github.com",
+          "filename": "rufus-4.13.exe",
+          "sha256": "a314db019d608e3d9b2eda797ba5bbe4dfc91bcd621decd144a580080eb13b1b",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.13/rufus-4.13_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.13_arm64.exe",
+          "sha256": "e4853c8f540631efe9ffe4e09a1ed6ad7c42eda37c6cc444020eef8830645320",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.12",
+      "release_date": "2026-01-30",
+      "release_notes": "- Filter out the new Bitdefender VHDs\n- Filter disallowed characters in local account names\n- Improve Microsoft Dev Drive detection (#2873, courtesy of @MartinKuschnik)\n- Improve the pre-formatting partition cleanup code\n- Improve error reporting on ISO extraction issues\n- Improve detection of drives with long hardware IDs (typically SSDs) (#2894)\n- Improve conflicting process reporting\n- Improve support for Nutanix (#2884) and umbrelOS ISOs\n- Fix a TOCTOU vulnerability in Fido script execution (CVE-2026-2398, reported by @independent-arg)\n- Fix replacement vulnerabilities for diskcopy.dll and oscdimg.exe\n- Fix FFU image creation being erroneously invocated, when trying to save an ISO image (#2889)\n- Fix saving of ISO images to paths that contain spaces (#2829)\n- Update UEFI:NTFS and UEFI DBXs to latest",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.12/rufus-4.12_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.12_x86.exe",
+          "sha256": "ea003a94ecd3b96117f57657b899bbe03c29740d5ea0f2c636cd651b292bc32d",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.12/rufus-4.12.exe",
+          "host": "github.com",
+          "filename": "rufus-4.12.exe",
+          "sha256": "c19e9aea0e944dcd36bcde3d5bebb60772de4afd844c6ae7cb7f5c5ad5742ae0",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.12/rufus-4.12_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.12_arm64.exe",
+          "sha256": "039690f1408eeedcccd60cd5c42b648a2dd691990f5a1d91528d34ec27d19180",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.11",
+      "release_date": "2025-10-02",
+      "release_notes": "- Add a cheat mode (Ctrl-Alt-D) to toggle between Light and Dark mode (#2814)\n- Improve WUE option text relating to the CA 2023 option\n- Update Linux SBAT / Microsoft SVN Secure Boot revocation values to latest\n- Fix some GRUB/Syslinux download dialogs showing only the 'Close' button (#2813)\n- Fix an assert being triggered when using the WUE CA 2023 option on its own (#2815, #2818)\n- Fix an application crash on systems that have a failed dynamic disk (#2794)",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.11",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.11/rufus-4.11_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.11_x86.exe",
+          "sha256": "da70b5a684b643798eb20b720bf362e01ab6987ec47bd99a12f6e2d950a446bf",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.11/rufus-4.11.exe",
+          "host": "github.com",
+          "filename": "rufus-4.11.exe",
+          "sha256": "abbf04d50a44a9612c027fc8072f6da67f5bcda2b826f1f852c9c24d7a1fcdff",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.11/rufus-4.11_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.11_arm64.exe",
+          "sha256": "d826e054400c2801ff36baa2a46684ee5e133b5267e4b6a97b02bab337152018",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.10",
+      "release_date": "2025-09-24",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.10",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.10/rufus-4.10_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.10_x86.exe",
+          "sha256": "e35d98ff73fbf7d09ab6cac73f65c7ef959c2b5810a53cc803acca4a7f8a7023",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.10/rufus-4.10.exe",
+          "host": "github.com",
+          "filename": "rufus-4.10.exe",
+          "sha256": "286912931e906857911ea7efff981bf804a42e569b49f94b9d52ad354e577775",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.10/rufus-4.10_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.10_arm64.exe",
+          "sha256": "92b2f9d1ad82e6d48c8c74f118c0a13afdc1080bb0f9326f5c3f38214f2da384",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.9",
+      "release_date": "2025-06-15",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.9",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.9/rufus-4.9_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.9_x86.exe",
+          "sha256": "8118ed5d380e4c45367521fdaf7c4ef73f80e43b3f057d464587d1a05c6c5f7e",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.9/rufus-4.9.exe",
+          "host": "github.com",
+          "filename": "rufus-4.9.exe",
+          "sha256": "497f796e6d076d4855d697965c04626e6d3624658fce3eca82ab14f7414eede2",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.9/rufus-4.9_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.9_arm64.exe",
+          "sha256": "aa2440122f448eec694c681676358e26e1a1605e712caa0c52815d5d26989aa2",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.8",
+      "release_date": "2025-06-11",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.8/rufus-4.8_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.8_x86.exe",
+          "sha256": "24da1feca004f8d6908a24ad76de7e2d51904d1d079e8fa8a449f91a5e881409",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.8/rufus-4.8.exe",
+          "host": "github.com",
+          "filename": "rufus-4.8.exe",
+          "sha256": "092b1c10c0240e4ae16f30989c3f06a8e784067a944e4aa3e8a11a75f803d71b",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.8/rufus-4.8_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.8_arm64.exe",
+          "sha256": "01420ee7ab4438a93379be61f4652740af6a6a28ad57b5c0da40038d4039445f",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.7",
+      "release_date": "2025-04-09",
+      "release_notes": "- Add a mechanism to detect and download updated DBXs from the official UEFI repository\n- Add ztsd compression support for disk images\n- Add a new exclusion feature in the settings, to ignore disks with a specific GPT GUID\n- Improve detection for compressed VHD images that are too large to fit the target drive\n- Fix commandline hogger not being deleted when running Rufus from a different directory\n- Fix FAT filenames from embedded images being potentially truncated on image extraction\n- Fix a side-loading vulnerability [CVE-2025-26624] with cfgmgr32.dll (with thanks to @EmperialX)\n- Fix UI memory leaks (courtesy of @ozone10)\n- Fall back to user/system default locale when getting error description (courtesy of @Wack0)\n- Don't run the commandline hogger on POSIX shells\n- Drop ARM 32-bit builds (Note that ARM 64-bit builds are NOT affected by this)\n- Update FreeDOS and Grub4DOS to latest",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.7/rufus-4.7_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.7_x86.exe",
+          "sha256": "38215a377d73441be536453697045f1a8d1f533c405fd69e90b4ff1b0650247d",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.7/rufus-4.7.exe",
+          "host": "github.com",
+          "filename": "rufus-4.7.exe",
+          "sha256": "45777d818fc9ba187bcc7b930583764130ea71100fd9e3c66d4a7143bdbce4c5",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.7/rufus-4.7_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.7_arm64.exe",
+          "sha256": "589af8786a40793c7f5fb0c9c25173288b567d8593d8eb18344ac255b26bae29",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6",
+      "release_date": "2024-10-21",
+      "release_notes": "- Add a new setup.exe wrapper to bypass Windows 11 24H2 in-place upgrade restrictions (#2568)\n- Add TimeZone to regional options replication (#2499)\n- Set local account passwords to not expire by default\n- Fix an error when trying to write compressed VHD images (#2468)\n- Fix an error when invoking Rufus from the PowerShell commandline (#2556)\n- Improve revoked UEFI bootloaders check to support Linux SBAT, Windows SVN and cert DBX\n- Improve support for ReactOS boot media (#2589)",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.6",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.6/rufus-4.6_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.6_x86.exe",
+          "sha256": "1c3edd36bdb686de09e3a0ad6507d52b9f91fa3ae2a24658fb0f7c157c2c8dcf",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.6/rufus-4.6.exe",
+          "host": "github.com",
+          "filename": "rufus-4.6.exe",
+          "sha256": "8279696c1d78b14618500e9135886a3667b9decc65946f3729002e4bfdbb20ab",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.6/rufus-4.6_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-4.6_arm.exe",
+          "sha256": "72eee5aaa819b442aee34aea7b075b0fb478a8da189a57ee2936520707d41a2f",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.6/rufus-4.6_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.6_arm64.exe",
+          "sha256": "318f89696b36be6667b1d70eaf211851b8289020bd61cdaa57ebc3a1500436e1",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.5",
+      "release_date": "2024-05-22",
+      "release_notes": "- Add new advanced option to perform runtime UEFI media validation of suitable images (Windows, most Linux)\n- Move the Use Rufus MBR advanced option to a cheat mode (Alt-A)\n- Fix truncation of VHDX images, as well as a benign error message when writing VHD/VHDX (#2468)\n- Fix support for Linux persistence in some configurations (Mint, Ubuntu 24.04)\n- Fix multiple potential vulnerabilities (with thanks to Mansour Gashasbi)\n- Update internal GRUB to version 2.12\n- Update UEFI:NTFS to latest (now always uses the ntfs-3g driver, rather than the buggy AMI NTFS one)\n- Increase buffer size when copying ISO files, in an attempt to minimize the AMI NTFS UEFI driver bug\n- Improve partition creation handling\n- Don't display the WUE dialog when a conflicting unattend.xml already exists (#2451)",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.5",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe",
+          "host": "github.com",
+          "filename": "rufus-4.5.exe",
+          "sha256": "c6e6cdba209f899e5087f1a1a4babc759414b4a687b60ba4bce62b6b37e8e82b",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe",
+          "host": "github.com",
+          "filename": "rufus-4.5.exe",
+          "sha256": "c6e6cdba209f899e5087f1a1a4babc759414b4a687b60ba4bce62b6b37e8e82b",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe",
+          "host": "github.com",
+          "filename": "rufus-4.5.exe",
+          "sha256": "c6e6cdba209f899e5087f1a1a4babc759414b4a687b60ba4bce62b6b37e8e82b",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe",
+          "host": "github.com",
+          "filename": "rufus-4.5.exe",
+          "sha256": "c6e6cdba209f899e5087f1a1a4babc759414b4a687b60ba4bce62b6b37e8e82b",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4",
+      "release_date": "2024-01-17",
+      "release_notes": "- Add workaround for distros that use broken symbolic links as their UEFI bootloaders (such as Mint 21.3)\n- Add support for GRUB 2.12\n- Fix a crash when saving .ffu images\n- Fix UEFI:NTFS partition not being added, in MBR mode, for some Linux ISOs\n- Prevent Microsoft Dev Drives from being listed [#2395]\n- Improve support for SDXC card readers\n- Improve Large FAT32 formatting by aligning start of data regions to 1 MB (courtesy of Fred) [#2387]",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.4",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.4/rufus-4.4_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.4_x86.exe",
+          "sha256": "3dd2c19f81cf78d0d31add3c099f0bb99558b6c9e16c5b459065bcd2828e717f",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.4/rufus-4.4.exe",
+          "host": "github.com",
+          "filename": "rufus-4.4.exe",
+          "sha256": "42cdb16f6dd64c4fec30c7a71960fe4d0015862c37e7b02c8dba5c0d68384c74",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.4/rufus-4.4_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-4.4_arm.exe",
+          "sha256": "79fe5cc04af761bf15ab4ae56487c2cfd29444e25e001a88772fe60e37d80cab",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.4/rufus-4.4_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.4_arm64.exe",
+          "sha256": "d58c8ae1a54a68486918d595d02c533eb3baf0daa19b4f3cbf6283b95b89c0af",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3",
+      "release_date": "2023-10-19",
+      "release_notes": "- Add support for symbolic link preservation when NTFS is used\n- Add an exception to enforce NTFS for Linux Mint's LMDE\n- Add an expert feature to restrict a Windows installation to S Mode\n- Fix persistence support for Debian 12 in BIOS mode\n- Fix a regression that prevented the opening of .vhd images (#2309)\n- Update UEFI:NTFS to report a more explicit error on bootmgr security issues\n- Improve the search for conflicting processes, by running it in a background thread\n- Improve support for Slax Linux (#2336)",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.3",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.3_x86.exe",
+          "sha256": "9507fddb33adb3e8a1832b0083847df70e423ab8e63c15eb9e66ae507ef33ad9",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3.exe",
+          "host": "github.com",
+          "filename": "rufus-4.3.exe",
+          "sha256": "9158fed9fb694bc7f7c0520205c101defdffe225a4c1f9af1a3c62314d51fdca",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-4.3_arm.exe",
+          "sha256": "b43002c98835e8d3d2b1a3a839844581c9a35274d6bc62aa082331285e1d7002",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.3_arm64.exe",
+          "sha256": "51f7095cddbe64da4c60efa4306d3c469f8651ca2e9fb08e7af10a7676ddca5d",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2",
+      "release_date": "2023-07-26",
+      "release_notes": "- Add detection and warning for UEFI revoked bootloaders (including ones revoked through SkuSiPolicy.p7b) (#2244)\n- Add ZIP64 support, to extract .zip images that are larger than 4 GB (#2264)\n- Add saving and restoring current drive to/from compressed VHDX image\n- Add saving and restoring current drive to/from compressed FFU (Full Flash Update) image [EXPERIMENTAL]\n- Fix a crash when trying to open Windows ISOs, with the MinGW compiled x86 32-bit version (#2272)\n- Fix an issue where ISOs that contain a boot image with an EFI label are not detected as bootable (#2288)\n- Increase the ISO → ESP limit for Debian 12 netinst images\n- Ensure that the main partition size is aligned to the cluster size",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.2",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.2/rufus-4.2.exe",
+          "host": "github.com",
+          "filename": "rufus-4.2.exe",
+          "sha256": "c8420cf0f9f5e9a413865a34d998c6e56617cece45b2fb9f92dc28615bcc0ed7",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.2/rufus-4.2.exe",
+          "host": "github.com",
+          "filename": "rufus-4.2.exe",
+          "sha256": "c8420cf0f9f5e9a413865a34d998c6e56617cece45b2fb9f92dc28615bcc0ed7",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.2/rufus-4.2_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-4.2_arm.exe",
+          "sha256": "4085cdb0770ce474923acca28b6061a7fa55ad217985bce3b59301537d22a0a9",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.2/rufus-4.2_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.2_arm64.exe",
+          "sha256": "1e95fbf8dcc2f7d4ea564eeee9863cf30ce99150ec79cb248b951a48a1a4e577",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1",
+      "release_notes": "What's Changed\n- Add timeouts on enumeration queries that may stall on some systems.\n- Restore MS-DOS drive creation through the download of binaries from Microsoft.\n- Update the log button icon.\n- Fix UEFI:NTFS incompatibility with Windows Dev Kit 2023 platform (pbatard/uefi-ntfs#37).\n- Fix more GRUB out of range pointer errors with Ubuntu/Fedora when booting in BIOS mode.",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.1",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.1/rufus-4.1.exe",
+          "host": "github.com",
+          "filename": "rufus-4.1.exe",
+          "sha256": "8f680fdc6e91aff40066ecebdcfbe985a058313e6ddc024a9123fe0985493035",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.1/rufus-4.1_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.1_x86.exe",
+          "sha256": "d4395b56adfbe8e0362db463534e4b11fe8388297b58d0ec9fd9783a544ded93",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.1/rufus-4.1_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-4.1_arm.exe",
+          "sha256": "553b7224e672b1f234bf4d73c40fbd13834da4d2150fa3239e793302c8433bc2",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.1/rufus-4.1_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.1_arm64.exe",
+          "sha256": "393b677fb2f281514b739e8c05fc326829af0afec5fe5f3b91b55fc3b6237c65",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0",
+      "release_notes": "- Fix persistent partition not working with Ubuntu 23.04 (#2231)\n- Fix out-of-range pointer error with Ubuntu 23.04 when booting in BIOS mode (#2233)\n- Fix boot freeze with Ubuntu Studio when Secure Boot is enabled (#2210)\n- Fix incorrect architecture detection when checking for updates\n- Fix a Windows Store application crash when processing GRUB bootloaders\n- Fix a Windows Store application crash when enumerating processes that contain a % sign\n- Fix a Windows Store application crash when using German localization\n- Note that the major version was bumped on account of:\n  - New versions of Rufus requiring Windows 8 or later\n  - New versions of Rufus defaulting to a 64-bit executable\n  - Old versions of Rufus potentially not being able to update properly",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.0/rufus-4.0.exe",
+          "host": "github.com",
+          "filename": "rufus-4.0.exe",
+          "sha256": "bfecf4dcf1a63d8b64b900906102edf666642316291c9bba42eb0fb9c7bccbd6",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.0/rufus-4.0_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.0_x86.exe",
+          "sha256": "d41d72c239c4561d86a4d4c0d76a0dca41bd8798bcfefb7bfcb7efd073a6f391",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.0/rufus-4.0_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-4.0_arm.exe",
+          "sha256": "1e9adae0f5160966a13ab7d1d48b88aac64d4a04082378ed18a06ad6175a4627",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.0/rufus-4.0_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.0_arm64.exe",
+          "sha256": "0496d29183fe30f00ab452249ae4afb358628258ab63bd9e85c077d162dbc6d7",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.22",
+      "release_date": "2023-03-25",
+      "release_notes": "- Allow the provision of an arbitrary local account username in the Windows User Experience dialog\n- Improve Windows version reporting from ISO/.wim\n- Update UEFI:NTFS' NTFS drivers to v1.4 and exFAT drivers to v1.9\n- Switch to remote download for nonstandard GRUB (Fedora 37, openSUSE Live, GeckoLinux)\n- Fix UEFI:NTFS partition not being set in MBR mode for ISOs with a >4GB file (UwUntu)\n- Fix GRUB support for Arch and derivatives, when a non FAT compliant label is used (#2086)\n- Fix incorrect detection of GRUB with nonstandard prefixes\n- Fix tab order not working on the Windows User Experience dialog",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v3.22",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.22",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22.exe",
+          "host": "github.com",
+          "filename": "rufus-3.22.exe",
+          "sha256": "ac2a1743bbfc19268c36280b50a003366d41854863d4808099cd87f77fa5f433",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-3.22_arm.exe",
+          "sha256": "6dbc625b182f6a9307247f123d03aaa28e9cf8f169a678cc34c39707b0e2079f",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-3.22_arm64.exe",
+          "sha256": "3b07d65b2ab8a482708e787ba44a1a8d0283d84eaf37280a5d865afa0973c0f6",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.21",
+      "release_date": "2022-11-28",
+      "release_notes": "- Allow the provision of an arbitrary local account username in the Windows User Experience dialog\n- Improve Windows version reporting from ISO/.wim\n- Update UEFI:NTFS' NTFS drivers to v1.4 and exFAT drivers to v1.9\n- Switch to remote download for nonstandard GRUB (Fedora 37, openSUSE Live, GeckoLinux)\n- Fix UEFI:NTFS partition not being set in MBR mode for ISOs with a >4GB file (UwUntu)\n- Fix GRUB support for Arch and derivatives, when a non FAT compliant label is used (#2086)\n- Fix incorrect detection of GRUB with nonstandard prefixes\n- Fix tab order not working on the Windows User Experience dialog",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v3.21",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.21",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.21/rufus-3.21p.exe",
+          "host": "github.com",
+          "filename": "rufus-3.21p.exe",
+          "sha256": "d0554f1fc47407d678a4d8eace607272013c475033b636bfb1824ed6b1a22e36",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.21/rufus-3.21_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-3.21_arm64.exe",
+          "sha256": "df9d4a8bed7aabb343914f69817a4edd9a53f1ba6427257abb771c1bb39a8026",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.21/rufus-3.21_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-3.21_arm.exe",
+          "sha256": "9bfca68b1451151835c1908b3eff778f8ec24c5b390c63a5a5dea7bfa0ec9a91",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.20",
+      "release_date": "2022-08-03",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v3.20",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.20",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.20/rufus-3.20p.exe",
+          "host": "github.com",
+          "filename": "rufus-3.20p.exe",
+          "sha256": "042f0b284af6e3316baf6235a4f0141966a051873b5631c7e5a724cf1f5e7973",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.20/rufus-3.20_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-3.20_arm64.exe",
+          "sha256": "990a903e697d30eef5787feeca7a62e6ac3a92294aa1bf9340c1396d630b59c9",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.20/rufus-3.20_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-3.20_arm.exe",
+          "sha256": "1271f3fc66ae7516d06afb1d72484cbfd13c168ab4cd19c4e60ffa72a95424f6",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.19",
+      "release_date": "2022-07-01",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v3.19",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.19",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.19/rufus-3.19p.exe",
+          "host": "github.com",
+          "filename": "rufus-3.19p.exe",
+          "sha256": "75827940e5d821f30951e641772696bab6d97e37e3479f70e1ca4b8cb4d40132",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.19/rufus-3.19_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-3.19_arm64.exe",
+          "sha256": "163e93b8116ca76045d0fc34daf735cb72fdfbdf7938ba293ee39187e9674135",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.19/rufus-3.19_arm.exe",
+          "host": "github.com",
+          "filename": "rufus-3.19_arm.exe",
+          "sha256": "273329940f34dadaf7526eee89afb6b3e3f728855320c20c0f4f7296be4450af",
+          "min_os_version": "10.0.0.0",
+          "commands": [
+            "rufus"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Akeo Consulting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.13.1730.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.13.1730.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "appx",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.13/Rufus-3.13.appx",
+          "host": "github.com",
+          "filename": "Rufus-3.13.appx",
+          "sha256": "728ba1c9326527347e7f5a648648cb88ba8ee04fb90fbbd5d23a378501ab0fd1",
+          "signature_sha256": "a35e9273d1ae8874092fc35e7510d6ff4419589cbe3722c2b5f7c90447857cd8",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.12",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "appx",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.12/Rufus-3.12.appx",
+          "host": "github.com",
+          "filename": "Rufus-3.12.appx",
+          "sha256": "b566c700db92041e96d9e75319f70f5fd37ad4346c8daff282389c386bfdf8dd",
+          "signature_sha256": "1410cd616f4278d6023063fb7e93653cee6f1b1074f97e6f4d11e2a243a756a5",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "appx",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.11/Rufus-3.11.appx",
+          "host": "github.com",
+          "filename": "Rufus-3.11.appx",
+          "sha256": "66376e1c2a184f9921d18557bd7a82142b60bb58301f04b5bdef167196041e5f",
+          "signature_sha256": "4b8d1d77240547e069890130009e678b94e1eb64a054b018f6afb1c2c2a9b2a9",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.10",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "appx",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.10/Rufus-3.10.appx",
+          "host": "github.com",
+          "filename": "Rufus-3.10.appx",
+          "sha256": "dc90913a38656c5f38d0e3ea5bbb65f4e91331cfe6effec2720fd9a9774c5868",
+          "signature_sha256": "25b4818e7f85560faa78cffbd6b2cd3fc21e068b89d4d068e2731e8ba3cfbab6",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.1624.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/3.9.1624.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "appx",
+          "url": "https://github.com/pbatard/rufus/releases/download/v3.9/Rufus-3.9.appx",
+          "host": "github.com",
+          "filename": "Rufus-3.9.appx",
+          "sha256": "c1bca33151a047f962cb9feb885399f30be38db862233e7302301719df42adf4",
+          "signature_sha256": "204b93f845c22842edab787c6a8e85efb045d50969375c5a19b34a307a453337",
+          "min_os_version": "10.0.14316.0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/r/Rufus/Rufus"
+    }
+  ]
+}

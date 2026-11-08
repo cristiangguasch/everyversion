@@ -1,0 +1,857 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://everyversion.net/schema/app.schema.json",
+  "title": "everyversion.net app record (v2: winget + Homebrew cask)",
+  "description": "One record per software title, merged across sources. Facts come straight from winget-pkgs manifests and Homebrew cask definitions; nothing is invented. Fields the sources cannot supply (file size, SHA1, categories, translation link, signature verification) are intentionally absent.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "slug",
+    "name",
+    "publisher",
+    "ids",
+    "platforms",
+    "pricing",
+    "license",
+    "latest_versions",
+    "versions",
+    "versions_total",
+    "provenance",
+    "verification"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Flat URL slug: /<slug>"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publisher": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "type": "string"
+    },
+    "ids": {
+      "type": "object",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {
+        "winget": {
+          "type": "string"
+        },
+        "moniker": {
+          "type": "string"
+        },
+        "homebrew_cask": {
+          "type": "string"
+        },
+        "flathub": {
+          "type": "string",
+          "description": "Flathub application id (e.g. net.cozic.joplin_desktop), the source of the Linux (Flatpak) platform"
+        },
+        "custom": {
+          "type": "string",
+          "description": "Id of a custom source (config/custom-sources.json) for apps that do not come from winget-pkgs"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "winget"
+          ]
+        },
+        {
+          "required": [
+            "custom"
+          ]
+        }
+      ]
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "windows",
+          "macos",
+          "linux"
+        ]
+      }
+    },
+    "summary": {
+      "type": "string",
+      "description": "winget ShortDescription"
+    },
+    "description": {
+      "type": "string",
+      "description": "winget Description (latest version, default locale)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locale": {
+      "type": "string",
+      "description": "Locale of the descriptive text"
+    },
+    "urls": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "homepage": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "support": {
+          "type": "string"
+        },
+        "bug_tracker": {
+          "type": "string",
+          "description": "Only set when the support URL is a code-host issues URL"
+        },
+        "privacy": {
+          "type": "string"
+        },
+        "purchase": {
+          "type": "string"
+        },
+        "release_notes": {
+          "type": "string"
+        },
+        "documentation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "label",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "source_code": {
+          "type": "string",
+          "description": "Project source repository, as stated by the app's own source configuration"
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "winget License string, verbatim"
+        },
+        "url": {
+          "type": "string"
+        },
+        "spdx": {
+          "type": "string",
+          "description": "Set only when the license string is a recognised SPDX identifier"
+        },
+        "copyright": {
+          "type": "string"
+        },
+        "copyright_url": {
+          "type": "string"
+        }
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "required": [
+        "status",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "open-source",
+            "freeware",
+            "free-to-download",
+            "unknown"
+          ]
+        },
+        "source": {
+          "enum": [
+            "derived-from-license",
+            "curated",
+            "none"
+          ]
+        }
+      }
+    },
+    "last_updated": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ReleaseDate of the latest Windows version, if the manifest provides one"
+    },
+    "versions_total": {
+      "type": "object",
+      "description": "Versions present upstream, per platform",
+      "additionalProperties": false,
+      "properties": {
+        "windows": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "macos": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "linux": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "versions": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Grouped by platform (windows first), newest first within each. May be truncated; see versions_total. Homebrew casks expose only the current release.",
+      "items": {
+        "$ref": "#/definitions/version"
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "level",
+        "label",
+        "checks"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            0,
+            1
+          ],
+          "description": "0 = hashes copied from upstream manifests, nothing independently checked. 1 = installers downloaded from the publisher and SHA-256 re-computed; see summary."
+        },
+        "checked_at": {
+          "type": "string",
+          "description": "Date of the independent check (level 1 only)"
+        },
+        "summary": {
+          "type": "object",
+          "description": "Counts from the independent check (level 1 only)"
+        },
+        "label": {
+          "type": "string"
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hash_in_manifest": {
+              "type": "boolean"
+            },
+            "hash_recomputed": {
+              "type": "boolean"
+            },
+            "signature_checked": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "platform",
+          "repo",
+          "retrieved_at",
+          "path"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "enum": [
+              "winget-pkgs",
+              "homebrew-cask",
+              "flathub",
+              "custom"
+            ]
+          },
+          "platform": {
+            "enum": [
+              "windows",
+              "macos",
+              "linux"
+            ]
+          },
+          "repo": {
+            "type": "string"
+          },
+          "commit": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$",
+            "description": "Upstream commit at which this platform's content was last observed to change (winget-pkgs and Homebrew only)"
+          },
+          "retrieved_at": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string",
+            "description": "winget: package folder; cask: Ruby source path; flathub: API path of the AppStream record"
+          },
+          "api_url": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string",
+            "description": "For source 'custom': the id of the custom source"
+          },
+          "content_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "For sources 'custom' and 'flathub': SHA-256 of this platform's version data, so a change is visible"
+          }
+        }
+      }
+    },
+    "latest_versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "windows": {
+          "type": "string"
+        },
+        "macos": {
+          "type": "string"
+        },
+        "linux": {
+          "type": "string"
+        }
+      }
+    },
+    "flathub": {
+      "type": "object",
+      "description": "Flathub (Linux / Flatpak) facts, copied from the Flathub API (https://flathub.org/api/v2). Attribution: app data comes from Flathub and each app's own AppStream metadata; page_url is the app's Flathub page.",
+      "required": [
+        "app_id",
+        "page_url",
+        "install_command",
+        "verified"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "app_id": {
+          "type": "string"
+        },
+        "page_url": {
+          "type": "string",
+          "pattern": "^https://flathub\\.org/apps/"
+        },
+        "repo_url": {
+          "type": "string",
+          "description": "The app's build repository in the github.com/flathub organisation"
+        },
+        "install_command": {
+          "type": "string"
+        },
+        "run_command": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "True when Flathub shows the publisher-verified badge: the app's publisher has proven control of the app id (by website or by a code-host login) or was verified manually by Flathub"
+        },
+        "verification": {
+          "type": "object",
+          "description": "How Flathub verified the publisher (only present when verified)",
+          "additionalProperties": false,
+          "properties": {
+            "method": {
+              "type": "string",
+              "description": "website, login_provider or manual"
+            },
+            "login_provider": {
+              "type": "string"
+            },
+            "login_name": {
+              "type": "string"
+            },
+            "login_is_organization": {
+              "type": "boolean"
+            },
+            "website": {
+              "type": "string"
+            },
+            "verified_on": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            }
+          }
+        },
+        "license": {
+          "type": "string",
+          "description": "The app's license as Flathub lists it (an SPDX expression or LicenseRef)"
+        },
+        "free_license": {
+          "type": "boolean",
+          "description": "Flathub's flag for a free-software license"
+        },
+        "developer_name": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "download_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bytes, as reported by Flathub"
+        },
+        "installed_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bytes, as reported by Flathub"
+        },
+        "arches": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "x64",
+              "arm64"
+            ]
+          }
+        }
+      }
+    },
+    "release_series": {
+      "type": "array",
+      "description": "For sources that publish parallel release series (e.g. CockroachDB): one entry per series still available",
+      "items": {
+        "type": "object",
+        "required": [
+          "series",
+          "kind"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "series": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "maintenance_ends": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "assistance_ends": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "binary_removal_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lts": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": true
+          },
+          "latest_version": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "version": {
+      "type": "object",
+      "required": [
+        "platform",
+        "version",
+        "installers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "enum": [
+            "windows",
+            "macos",
+            "linux"
+          ]
+        },
+        "version": {
+          "type": "string"
+        },
+        "release_date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "release_notes": {
+          "type": "string"
+        },
+        "release_notes_url": {
+          "type": "string"
+        },
+        "manifest_version": {
+          "type": "string"
+        },
+        "manifest_dir": {
+          "type": "string"
+        },
+        "installers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/installer"
+          }
+        },
+        "source_version": {
+          "type": "string",
+          "description": "Raw upstream version string when it carried extra build data (cask 'version,build')"
+        },
+        "cask": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "apps": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "pkgs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "binaries": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "other_artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "manual_installer": {
+              "type": "boolean"
+            },
+            "auto_updates": {
+              "type": "boolean"
+            },
+            "caveats": {
+              "type": "string"
+            },
+            "depends_on": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "casks": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "formulae": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "cleanup": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "quit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "launchctl": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pkgutil": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "remove": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "login_items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zap_paths": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "series": {
+          "type": "string",
+          "description": "Release series this version belongs to (custom sources)"
+        },
+        "lts": {
+          "type": "boolean",
+          "description": "True when the series' long-term-support line has started at this version (custom sources)"
+        }
+      }
+    },
+    "installer": {
+      "type": "object",
+      "required": [
+        "platform",
+        "architecture",
+        "type",
+        "url",
+        "filename"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "enum": [
+            "windows",
+            "macos",
+            "linux"
+          ]
+        },
+        "architecture": {
+          "enum": [
+            "x86",
+            "x64",
+            "arm",
+            "arm64",
+            "neutral",
+            "universal"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "description": "winget InstallerType (exe, msi, msix, nullsoft, inno, wix, burn, zip, portable...) or, for macOS, the download format derived from the URL (dmg, pkg, zip, tar, unknown) or, for Linux from Flathub, flatpak"
+        },
+        "nested_type": {
+          "type": "string"
+        },
+        "scope": {
+          "enum": [
+            "user",
+            "machine"
+          ]
+        },
+        "locale": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string",
+          "description": "Hostname of url, shown so domain changes are visible"
+        },
+        "filename": {
+          "type": "string",
+          "description": "Last path segment of url"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "Lower-case hex copied from the upstream manifest. Required for Windows; macOS installers may lack it (see no_checksum)."
+        },
+        "signature_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "MSIX/APPX signature hash from the manifest. Not a verification result."
+        },
+        "product_code": {
+          "type": "string"
+        },
+        "min_os_version": {
+          "type": "string",
+          "description": "Windows: MinimumOSVersion. macOS: minimum macOS major version from the cask."
+        },
+        "elevation_requirement": {
+          "type": "string"
+        },
+        "install_modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "switches": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "silent": {
+              "type": "string"
+            },
+            "silent_with_progress": {
+              "type": "string"
+            },
+            "interactive": {
+              "type": "string"
+            },
+            "install_location": {
+              "type": "string"
+            },
+            "log": {
+              "type": "string"
+            },
+            "upgrade": {
+              "type": "string"
+            },
+            "custom": {
+              "type": "string"
+            }
+          }
+        },
+        "upgrade_behavior": {
+          "type": "string"
+        },
+        "protocols": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "file_extensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "windows_features": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "windows_libraries": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "packages": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "apps_and_features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "display_name": {
+                "type": "string"
+              },
+              "publisher": {
+                "type": "string"
+              },
+              "display_version": {
+                "type": "string"
+              },
+              "product_code": {
+                "type": "string"
+              },
+              "upgrade_code": {
+                "type": "string"
+              },
+              "installer_type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "no_checksum": {
+          "const": true,
+          "description": "The source declares no checksum: a Homebrew cask with :no_check, or a Flatpak from Flathub (an OSTree repository signed by Flathub, with no per-file hash)."
+        },
+        "version": {
+          "type": "string",
+          "description": "Set only when this installer is on a different version than the entry's headline version (e.g. Intel builds that lag Apple-silicon builds)."
+        }
+      }
+    }
+  }
+}

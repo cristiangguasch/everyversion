@@ -1,0 +1,1836 @@
+{
+  "schema_version": 2,
+  "slug": "mullvad-vpn",
+  "name": "Mullvad VPN",
+  "publisher": "Mullvad VPN",
+  "author": "Mullvad VPN",
+  "ids": {
+    "winget": "MullvadVPN.MullvadVPN",
+    "moniker": "mullvad",
+    "homebrew_cask": "mullvad-vpn"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Mullvad is an open-source commercial virtual private network service based in Sweden.",
+  "description": "Mullvad is an open-source commercial virtual private network service based in Sweden.",
+  "tags": [
+    "network",
+    "open-source",
+    "privacy",
+    "private",
+    "private-network",
+    "security",
+    "vpn"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://mullvad.net/",
+    "publisher": "https://mullvad.net/",
+    "support": "https://mullvad.net/help",
+    "privacy": "https://mullvad.net/en/help/privacy-policy",
+    "purchase": "https://mullvad.net/en/account/create",
+    "release_notes": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2026.5"
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/mullvad/mullvadvpn-app/blob/HEAD/LICENSE.md",
+    "spdx": "GPL-3.0",
+    "copyright": "Copyright (C) 2024 Mullvad VPN AB",
+    "copyright_url": "https://github.com/mullvad/mullvadvpn-app/blob/main/README.md"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2026.5",
+    "macos": "2026.5"
+  },
+  "last_updated": "2026-09-14",
+  "versions_total": {
+    "windows": 48,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2026.5",
+      "release_date": "2026-09-14",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2026.4:\nAdded\n- Add explicit log levels for mullvad log set-level command: off, error, warn, info,\n  debug and trace.\nChanged\n- Do not show dialog when rendering the map fails due to disabled GPU acceleration.\n- Clicking on the tray icon will toggle the window instead of just showing it.\n- Old mullvad log set-level command has been renamed to mullvad log set-rust-log.\nLinux\n- Make all timestamps embedded in .deb and .rpm packages deterministic by deriving them from\n  the git commit being built instead of the time of the build. Required for reproducible builds.\n- Set the BUILDHOST header of .rpm packages to a fixed value instead of the hostname of the\n  build machine. Required for reproducible builds.\n- De-couple mullvad-daemon.service \"After=\" dependencies from systemd.resolved and NetworkManager.\n- Start mullvad-early-boot-blocking.service before network-pre.target instead of basic.target.\nWindows\n- Sign the uninstaller, Electron binaries, and native modules. Some NSIS binaries are still\n  unsigned.\n- Switch winreg out for windows_registry.\n- Add timeout to device cleanup tasks during installs.\n- Increase timeout on flushing DNS cache.\nRemoved\nWindows\n- Stop removing leftover Wintun adapters during installation. Wintun dropped support for adapter\n  pools, so this has not been necessary since 2022.5-beta1.\nFixed\n- Reject invalid DAITA fraction limits in tunnel config responses before starting the tunnel.\n- Ignore DAITA tunnel config responses unless DAITA was requested.\n- Fix infinite loop of account checks when account ran out of time.\n- Fix IPv6 obfuscation relay selection when the relay's WireGuard endpoint only has IPv4.\n- Fix the device sometimes being incorrectly marked as revoked when the API rejects an expired\n  access token.\n- Fix daemon crashing on startup when migrating settings that contain no WireGuard entry location.\nWindows\n- Preserve the app's own theme colors when Windows high contrast (forced-colors) mode is\n  enabled in order to prevent toggle switches and other custom-styled controls from becoming\n  invisible.\n- Fix the installer UI from looking blurry by making the installer DPI-aware.\n- Wait for the tunnel routes to become usable, and retry the connection to the tunnel config\n  service if the tunnel is not ready yet. This may help with connection failures that occur\n  immediately after the tunnel is set up, when using quantum-resistant tunnels or DAITA.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2026.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2026.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.5/MullvadVPN-2026.5_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.5_x64.exe",
+          "sha256": "2a3efc4de6a97a2ea1c034ea617c699c5c94b8006d24beece7508d3443b760d5",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.5",
+              "display_version": "2026.5",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.5/MullvadVPN-2026.5_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.5_arm64.exe",
+          "sha256": "43d15a32dd7ce6feeb64aa573a4a76b41e818877e25533787e9be04c6b8a3f4a",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.5",
+              "display_version": "2026.5",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2026.4",
+      "release_date": "2026-08-17",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2026.3:\nAdded\n- Add Ukrainian as a new language in the app.\n- installer-downloader logs are aggregated by mullvad-problem-report.\nChanged\n- Update gotatun to 0.8.1.\nWindows\n- Update wireguard-nt to version 1.1. This retires the Mullvad fork at\n  https://github.com/mullvad/wireguard-nt.\nmacOS\n- Use arch-specific installers to deliver updates. This makes updates around 50% smaller.\nFixed\n- Align ciphers for custom shadowsocks API access methods between clients and mullvad-daemon. Any\n  existing, invalid access method is removed with a settings migration.\nmacOS\n- Fix split tunneling related parse error on macOS 27.\nLinux\n- Fix issue where gotatun would fail to start on Linux systems where the\n  IPv6 stack had been disabled.\nWindows\n- Fix misleading \"split tunneling\" error when offline.\n- Fix unhandled error: \"Reached the end of the file. (os error 38)\"\nSecurity\n- Linux and macOS: Fix management interface socket being created with less restrictive permissions\n  when using MULLVAD_MANAGEMENT_SOCKET_GROUP. This addresses the advisory GHSA-p9rr-wc9m-qmwg.\nLinux\n- Plug hole in Custom DNS firewall rules for LAN resolvers.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2026.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2026.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.4/MullvadVPN-2026.4_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.4_x64.exe",
+          "sha256": "69e5aff2ca2e1ce954358a2b2dab2f33d4c29098da853ce9824ccf3aef9073c3",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.40",
+              "publisher": "Mullvad VPN",
+              "display_version": "2026.4",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.4/MullvadVPN-2026.4_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.4_arm64.exe",
+          "sha256": "8d2593bac4878fe6ea14e0f8b0b6e04239c36ff9506603e5f847245d27a2d2f2",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.40",
+              "publisher": "Mullvad VPN",
+              "display_version": "2026.4",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2026.3",
+      "release_date": "2026-06-15",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2026.2:\nAdded\n- Add port setting for LWO obfuscation.\n- Add list of recent server selections in the select location view.\n- Add context menu to locations in the select location view.\n- GotaTun is now used as the userspace WireGuard implementation on all desktop platforms, not just\n  macOS. It replaces wireguard-go.\nChanged\n- Optimize LWO performance. This gives a 1.5 to 3 times speedup in our benchmarks.\n- Change default retry connection attempts. LWO is now the third default\n  constraint. The relative order among the following constraints is preserved.\nLinux\n- Switch memory allocator to jemalloc to reduce fragmentation.\n- mullvad-early-boot-blocking.service now waits for local file system to be mounted\n  (After=local-fs.target). This was assumed before, but not required (and is still not required).\n- mullvad-daemon now installs the same shutdown handler for SIGHUP as SIGINT and SIGTERM.\n- mullvad-daemon now exits without tearing down firewall rules on SIGUSR1.\n  This is used to avoid leaking network traffic when restarting systemd service.\nmacOS\n- Restart the GUI after an update if it was running.\n- mullvad-daemon now installs the same shutdown handler for SIGHUP as SIGINT and SIGTERM.\nFixed\n- Fix duplicate \"Connected\"/\"Disconnected\" desktop notifications caused by the daemon sending\n  multiple consecutive tunnel state events for the same state.\n- Fix GUI appearing stuck in \"Disconnecting\" state when daemon transitions directly from error to\n  disconnected.\n- Fix QUIC obfuscation not always being used if relays only had IPv6 addresses for QUIC.\n- Fix a bug with Shadowsocks-based API access methods where some ciphers were configurable by\n  Mullvad VPN clients while not being supported by the system service.\n- Fix IPv6 addresses not being allowed as endpoints for Socks5 and Shadowsocks API access methods.\nLinux\n- Fix 'mullvad split-tunnel clear' getting stuck.\nWindows\n- Fix potential access violation during cleanup on ARM64.\n- Fix conflicts caused by some other VPN clients that depend on Mullvad's split tunnel driver. Note\n  that split tunneling still cannot be used simultaneously in different clients.\n- Fix timeout when loading split tunnel driver during boot.\nSecurity\n- Remove ability for renderer process to execute arbitrary binaries. This is a defence-in-depth\n  measure to ensure that the renderer process does not have any capabilities beyond that of a\n  regular user of the app. Affects platforms with the in-app updates feature, i.e. macOS and\n  Windows. Fixes GHSA-h72f-j6r4-c3jc",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2026.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2026.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.3/MullvadVPN-2026.3_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.3_x64.exe",
+          "sha256": "e335507b948083100b54f8000ef5bb733e3ee959f8df6a573e9404c506cb139a",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.3.00",
+              "publisher": "Mullvad VPN",
+              "display_version": "2026.3.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.3/MullvadVPN-2026.3_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.3_arm64.exe",
+          "sha256": "adc84e88313998023ef854cb4c9584d9be0c6771d28a5c5e215261afb77ccee9",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.3.00",
+              "publisher": "Mullvad VPN",
+              "display_version": "2026.3.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2026.2",
+      "release_date": "2026-04-28",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2026.1:\nAdded\nLinux\n- Make it possible to build for RISC-V from source.\n- Add --daemon-only build option for deb and rpm packages for CLI usage.\nChanged\n- Location setting no longer defaults to Sweden, instead it uses your current location if it\n  has available relays, and falls back to Sweden otherwise.\n- mullvad-daemon now defaults to ERROR log level when -v is not specified.\n  mullvad-daemon -vv is used in system services to maintain previous DEBUG log level.\n- Update GotaTun from version 0.2.0 to 0.5.1. This improves compliance with the\n  WireGuard spec by adding handshake jitter and implementing padding to multiples of 16 bytes,\n  fixes a minor vulnerability when generating peer indices, and fixes another when registering\n  incoming decoy packets for DAITA.\n- Disable SNI for Mullvad API traffic. This prevents DPI based on domain name when obfuscation is\n  disabled.\n- Redact other users' home paths in logs.\nmacOS\n- GotaTun is now used as the WireGuard implementation. It replaces wireguard-go.\nFixed\nWindows\n- Fix regression in 2026.1 that could cause split tunneling to become unavailable.\nSecurity\nmacOS\n- Mitigate multiple local privilege escalation attacks from admin user to root in the preinstall\n  and postinstall scripts.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2026.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2026.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.2/MullvadVPN-2026.2_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.2_x64.exe",
+          "sha256": "8b6da422b19eaeb55588454092b7065deaae782fef2b0db31c1df57fea3b2222",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.2.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.2/MullvadVPN-2026.2_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.2_arm64.exe",
+          "sha256": "8cfbfe645abafd384188ec034d451ec5959d8191c599b0aa1cf58b51b367cc9d",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.2.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2026.1",
+      "release_date": "2026-03-16",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.14:\nChanged\n- Change WireGuard port to no longer affect the port used for LWO.\n- Change Mullvad Bridges access method to randomly pick any Mullvad-owned bridge.\n  Previously the access method was constrained to the five bridges closest to the exit relay.\n- Changed CLI command mullvad obfuscation to mullvad anti-censorship\n- The tunnel setup will not error out if sending ICMP is prohibited by the operating system.\nLinux\n- Change \"Go back\" keyboard shortcut from Esc to Alt + Left Arrow or Alt + [.\n- Use Wayland by default on Linux if available, otherwise fall back to X11.\nmacOS\n- Change \"Go back\" keyboard shortcut from Esc to Cmd + Left Arrow or Cmd + [.\nWindows\n- Change \"Go back\" keyboard shortcut from Esc to Alt + Left Arrow or Alt + [.\n- Make Mullvad service run in case the\n  split tunnel driver fails to load.\nFixed\n- Fix \"Time left\" label in main view not updating when time passes.\nWindows\n- Update split tunnel driver to 1.2.5.0. This fixes audit issue MLLVD-CR-24-102,\n  and a BSOD when the driver was improperly unloaded.\n- Detect and kill processes preventing updates.\nmacOS\n- Ignore utun interfaces when figuring out default routes. This prevents split tunneling from\n  failing when running some other software.\nSecurity\nWindows\n- Warn user before clearing firewall rules during failed downgrades. This fix only applies to\n  downgrades to this version and future versions.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2026.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2026.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.1/MullvadVPN-2026.1_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.1_x64.exe",
+          "sha256": "37b809fdb44f3823c0981d2a2400a3c0653a50d50d213b08dd667077eea7fcc1",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.1.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2026.1/MullvadVPN-2026.1_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2026.1_arm64.exe",
+          "sha256": "7633f266ce3796dc8af7736821845acf6528203f310a145f63adef3e86a1fd14",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2026.1.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.14",
+      "release_date": "2025-12-09",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.13:\n[2025.14] - 2025-12-09\nThis release is identical to 2025.14-beta3.\n[2025.14-beta3] - 2025-12-01\nFixed\n- Fix a regression introduced in 2025.14-beta1 where the WireGuard port selection was not respected.\n[2025.14-beta2] - 2025-11-26\nAdded\n- Add port 443 to list of valid UDP2TCP ports.\nFixed\n- Fix issues where the in-app updates view is not in sync with the daemon after system is supended\n  or daemon is restarted.\n[2025.14-beta1] - 2025-11-11\nChanged\n- Change mullvad reconnect to print an error message and exit with a non-zero exit code if issued\n  in the disconnected state.\n- Move settings in WireGuard settings view into the VPN settings view.\n  - Rename Enable IpV6 setting to In-tunnel IPv6.\n  - Rename IP version setting to Device IP version.\n  - Merge Obfuscation settings and WireGuard port setting into new Anti-censorship view.\nRemoved\n- Remove OpenVPN support from the app.\n  - See blog post for more info: https://mullvad.net/en/blog/removing-openvpn-15th-january-2026\n- Remove \"Automatic\" as a setting for the \"Quantum-resistant tunnel\" option.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.14",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.14/MullvadVPN-2025.14_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.14_x64.exe",
+          "sha256": "332a1f05bc367a199f0a17fb1e19d3ffcbf79a5024bced619c9e771d31281830",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.14.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.14/MullvadVPN-2025.14_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.14_arm64.exe",
+          "sha256": "4e08b1aa64aa9cde1a7290705a337b50b58d3a7cc4c317a979fd9507ee308309",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.14.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.13",
+      "release_date": "2025-11-10",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.12:\nAdded\n- Add settings reset command to the CLI ('mullvad reset-settings').\n- Make feature indicators in connection panel navigate to the relevant setting when clicked.\n- Add Lightweight WireGuard Obfuscation method (LWO). This is a cheap obfuscation method that\n  prevents packets from being identified as standard WireGuard packets.\n- Add possibility to manage devices from account view.\nChanged\n- Add validation for API access methods to only allow unique names. Access methods with\n  duplicated names will be renamed.\n- Change how externally triggered navigation is handled in the UI. This could potentially reduce\n  issues where users get stuck in the out-of-time view.\n- Update Electron from 36.5.0 to 37.6.0.\n- Run version check hourly and when interacting with the app instead of once per day.\n- Add support for gradual rollouts of new app releases\nFixed\n- Fix bug introduced in 2025.13-beta1 with translations sometimes not being formatted\n  correctly.\nmacOS\n- Fix high CPU usage on macOS 26 by updating Electron. This affected the app when it was visible.\nLinux\n- Install AppArmor profile on all Linux distributions that support AppArmor abi 4.0.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.13",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.13/MullvadVPN-2025.13_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.13_x64.exe",
+          "sha256": "b7fe9b230b00486adde57bb94953c8370b01bdd65d8a5ec4b68e8bf79134c5a9",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.13.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.13/MullvadVPN-2025.13_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.13_arm64.exe",
+          "sha256": "000fc3122bdbdb0c0e31d9e4f7a56ceb9b883905f2e55ae58a0a933e2ecde610",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.13.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.12",
+      "release_date": "2025-10-20",
+      "release_notes": "This release is for Windows only.\nThis release is based on 2025.10 with the addition of a fix for a BSOD that some users experienced.\nHere is a list of all changes since last stable release 2025.11:\nAdded\n- Add helpful warnings when clearing account history. This helps users not lose their account\n  numbers.\nWindows\n- Add additional logging for tunnel devices and split tunneling to problem reports.\n- Log WFP sessions when transaction lock timeout occurs.\nChanged\n- Move placement of login button from inside the account number input to under account number.\nWindows\n- Implement UDP GSO for QUIC on client socket. This improves download speeds slightly.\nFixed\n- Fix version being labeled unsupported unexpectedly. So far, this only an issue when using\n  development builds.\n- QUIC obfuscation only using one in-address when connecting. It will now randomly select one of\n  the available in-addresses for each connection attempt.\n- quinn_udp crate flooding mullvad-daemon.log with warnings.\nWindows\n- Mitigate BSOD caused by split tunnel driver during boot.\nmacOS\n- Fix apps attempting to use IPv6 with in-tunnel IPv6 disabled.\n- Re-add missing loopback alias if removed. This fixes some issues with DNS resolution.\nSecurity\nWindows\n- Block traffic to exit node from non-Mullvad processes. This fixes a leak where traffic could be\n  encrypted once, but leave the entry node unencrypted, if and only if the destination were the exit\n  node. E.g., this might occur if a browser tries to open a TCP connection to the exit node IP.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.12",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.12/MullvadVPN-2025.12_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.12_x64.exe",
+          "sha256": "dc97425252f71d83a9ebcd9f4123ffe53469e4bfadc9ea8c17448796b587a41b",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.12.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.12/MullvadVPN-2025.12_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.12_arm64.exe",
+          "sha256": "cf4f5fa4e4405fc2ac12fbedb24996751242964ddcd7663d6a6671d012a1d28a",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.12.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.11",
+      "release_date": "2025-10-13",
+      "release_notes": "This release is for desktop only.\nHere are the changes since last stable release 2025.10:\nThis release is for Windows only. This release reverts all functionality to how the app worked in\nversion 2025.9 to fix a BSOD (boot loop) bug. Only a few users experienced the issue, but we deemed\nit critical enough to revert everything until we have a better understanding of the problem.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.11",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.11/MullvadVPN-2025.11_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.11_x64.exe",
+          "sha256": "67574ec4da45fcd5fdab247c49c9d52ad5d97cfeda3b5aa1e928887075150d8f",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.11.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.11/MullvadVPN-2025.11_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.11_arm64.exe",
+          "sha256": "d233255fd9bbaf21fe54249db2d357e86520f107bebaab159516939b2b5d030e",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.11.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.10",
+      "release_date": "2025-10-09",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.9:\nAdded\n- Add helpful warnings when clearing account history. This helps users not lose their account\n  numbers.\nWindows\n- Add additional logging for tunnel devices and split tunneling to problem reports.\n- Log WFP sessions when transaction lock timeout occurs.\nChanged\n- Move placement of login button from inside the account number input to under account number.\nWindows\n- Implement UDP GSO for QUIC on client socket. This improves download speeds slightly.\nFixed\n- Fix version being labeled unsupported unexpectedly. So far, this only an issue when using\n  development builds.\n- QUIC obfuscation only using one in-address when connecting. It will now randomly select one of\n  the available in-addresses for each connection attempt.\n- quinn_udp crate flooding mullvad-daemon.log with warnings.\nmacOS\n- Fix apps attempting to use IPv6 with in-tunnel IPv6 disabled.\n- Re-add missing loopback alias if removed. This fixes some issues with DNS resolution.\nSecurity\nWindows\n- Block traffic to exit node from non-Mullvad processes. This fixes a leak where traffic could be\n  encrypted once, but leave the entry node unencrypted, if and only if the destination were the exit\n  node. E.g., this might occur if a browser tries to open a TCP connection to the exit node IP.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.10",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.10/MullvadVPN-2025.10_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.10_x64.exe",
+          "sha256": "8ff38df303446fd5a27ef30bd31444a358dbdd505f0f564437877ddbb29f5427",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.10.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.10/MullvadVPN-2025.10_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.10_arm64.exe",
+          "sha256": "874a8ca06cf8410de55c79aed645b67249751fe16ec2fea6cda291a18dbb9679",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.10.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.9",
+      "release_date": "2025-09-05",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.8:\nAdded\n- Add QUIC obfuscation (WireGuard only). It will be used automatically when connecting fails with\n  other methods.\nFixed\nmacOS\n- Add support for parsing eslogger output version 10. This fixes split tunneling on macOS 26.\n- Avoid interpreting negative numbers from eslogger as PIDs.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.9",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.9/MullvadVPN-2025.9_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.9_x64.exe",
+          "sha256": "fefa3b6337954746aa692f911bb768e771f3757a32e0196c75608efb835359b6",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.9.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.9/MullvadVPN-2025.9_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.9_arm64.exe",
+          "sha256": "183c6290e11c8c6879c7796247d0a9b3a0f99ccf5a75bdd2fd8034d6592ebf42",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.9.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.8",
+      "release_date": "2025-08-14",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.7:\nAdded\n- Add in-app updates to Windows and macOS. This new feature lets you download, verify, and install\n  new versions from within the app.\nLinux\n- Make it possible to run the app with cgroups v1 fully disabled. Note that split tunneling is\n  currently unavailable when this is the case.\nWindows\n- Add a button to start the Mullvad VPN system service if it's unavailable at launch\nChanged\nmacOS\n- Use a local DNS resolver on the 127.0.0.0/8 network, regardless of macOS version.\nWindows\n- Make firewall rules applied while upgrading the app not persist on reboot, unless \"Lockdown mode\"\n  or \"Auto-connect along with \"Launch app on start-up\" is enabled. This serves as a safety fallback\n  if the update fails and the user is left with blocking firewall rules and no app.\nFixed\nmacOS\n- Add grace period when best default route goes away to reduce frequency of random reconnects.\nSecurity\n- Prevent unprivileged users from impersonating the gRPC server. This was relatively harmless\n  previously but is required due to in-app updates.\nWindows\n- Enable control flow integrity checks (CFG) for some C++ code. This excludes wintun,\n  wireguard-nt, and OpenVPN. This addresses MLLVD-CR-24-101 to the extent that we found\n  it valuable.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.8",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.8/MullvadVPN-2025.8_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.8_x64.exe",
+          "sha256": "4bafa476fe149a642e59811d034ac2fc1cc39b01f650b7774b2cbb81086feb10",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.8.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.8/MullvadVPN-2025.8_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.8_arm64.exe",
+          "sha256": "d31187b581564be16e6552fda584126a7c410e3f6809d4ded7b807f685c8a20b",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.8.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.7",
+      "release_date": "2025-06-24",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.6:\nAdded\n- Add notification that shows when the user is connected to WireGuard with a port that is not\n  supported.\nLinux\n- The deb package repositores now have static codenames on top of the existing distro version\n  specific codenames. The stable repository always have the \"stable\" codename,\n  and the beta repository has the \"beta\" codename.\nChanged\n- Replace Classic McEliece with HQC as one of the post-quantum safe key exchange\n  mechanisms used for the quantum-resistant tunnels. The main benefits here are that HQC\n  uses a lot less CPU to compute the keypair, and the public key sent to the server\n  is drastically smaller.\nFixed\n- Automatically connect when IP version becomes available.\nLinux\n- Fix syntax error in Apparmor profile.\n- Fix issue where settings were lost after an upgrade if mullvad-daemon was not restarted\n  before mullvad-early-boot-blocking.service. That is, before a reboot.\nWindows\n- Fix issue where daemon got stuck trying to connect only over IPv4 (or only IPv6).\nmacOS\n- Fully uninstall the app when it is removed by being dropped in the bin.\nSecurity\nmacOS\n- Fix potential local privilege escalation when app was incorrectly removed by being dropped\n  in the bin but still leaving behind a launch daemon. This fixes CVE-2025-46351 reported by\n  Egor Filatov (Positive Technologies).",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.7",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.7/MullvadVPN-2025.7_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.7_x64.exe",
+          "sha256": "5a54a0fb4ff81263c68c3f3a7d16d7b6403481bbdf80ce9e3b7db3ef350be51c",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.7.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.7/MullvadVPN-2025.7_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.7_arm64.exe",
+          "sha256": "e67932f4dfb7862568294a3d2aadb14340052faf3cec6508c0cbb86281a625ba",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.7.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.6",
+      "release_date": "2025-05-19",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.5:\nAdded\n- Add a notification for notifying users about the sunsetting of OpenVPN.\nChanged\nWindows\n- Rename win-shortcuts native module to windows-utils.\nRemoved\n- Remove \"Automatic\" option for tunnel protocol. The default is now WireGuard.\nFixed\n- Fix mullvad-cli panicking if it tried to write to a closed pipe on Linux and macOS.\n- Fix bug where new users are not forwarded to the main view after payment.\n- Will no longer try to connect over IPv4 if IPv4 is not available.\nWindows\n- Fix error setting up tunnel when MTU was incorrectly set to a value below 1280 for IPv6.\n- Fix node native module being unpacked to a temporary folder.\n- Fix BSOD caused by routing loop in wireguard-nt.\nmacOS\n- Fix bug in parsing of network services from SCDynamicStore.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.6/MullvadVPN-2025.6_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.6_x64.exe",
+          "sha256": "3f7a160bfb26a4f20c17c933c031cc9fb363159788abab2738d45bf88b1e8ab6",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.6.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.6/MullvadVPN-2025.6_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.6_arm64.exe",
+          "sha256": "c4d4b6405ddc19f0a27fb43718224d2fba25399fc212bf9f71a7a2db937b32cc",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.6.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.5",
+      "release_date": "2025-03-26",
+      "release_notes": "This release is for desktop only.\nThis release is identical to 2025.5-beta1:\nHere is a list of all changes since last stable release 2025.4:\nAdded\nWindows\n- Add support for DAITA V2.\n- Add back wireguard-go (userspace WireGuard) support.\nRemoved\n- Stop bundling https://github.com/mullvad/apisocks5 as a standalone binary.\nFixed\nmacOS\n- Fix daemon ending up in blocked state if the user toggled split tunneling without having granted\n  Full Disk Access to mullvad-daemon. This could only ever be accomplished from the CLI.\n- Fix routing issue caused by upgrading tun.\nRemoved\n- Remove Google's resolvers from encrypted DNS proxy.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.5/MullvadVPN-2025.5_x64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.5_x64.exe",
+          "sha256": "50b7715223397942c16636bf2c0bb17dd6b030e80b9540b14a207283a3f1a441",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.5.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.5/MullvadVPN-2025.5_arm64.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.5_arm64.exe",
+          "sha256": "fa4c9e96cfe7ad09fa13ac417c48723eef67ca0666d048edf2a597e3d654cbae",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2025.5.0",
+              "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.4",
+      "release_date": "2025-02-13",
+      "release_notes": "This release is for desktop only.\nThis release is identical to 2025.4-beta1.\nHere is a list of all changes since last stable release 2025.3.\nFixed\nWindows\n- Fix GUI crashing at launch on some systems.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.4/MullvadVPN-2025.4.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.4.exe",
+          "sha256": "050b09be6733c7c48a30e245e634ba0cdc41625488188ffce90d167379e8a400",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.3",
+      "release_date": "2025-02-07",
+      "release_notes": "This is a desktop only release.\nHere is a list of all changes since last stable release 2025.2.\n\nAdded\nWindows\n- Add support for Windows ARM64.\n\nChanged\n- (Linux and macOS only) Update to DAITA v2.\n  The main difference is that many different machines are\n  provided by relays instead of a bundled list.\n  The bundled `maybenot_machines` file was removed.\n- Move changelog from a dialog to a separate view.\n- Reduce the setup time of PQ tunnels by pre-computing McEliece keys.\n- Change order of items in settings view to show DAITA and multihop at the top.\n- Update Electron from 30.0.4 to 33.4.0.\n\nFixed\n- (macOS and Windows only) Add the correct route when using obfuscation with Wireguard.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.3/MullvadVPN-2025.3.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.3.exe",
+          "sha256": "1eae931e3016de17839c04c95d9398ab0571f8748e61800e053d92d9c519259b",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.2",
+      "release_date": "2025-01-08",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2025.1.\n\nFixed\n- Fix crash when Wireguard tunnel setup timed out.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.2/MullvadVPN-2025.2.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.2.exe",
+          "sha256": "f4b25713d13f2819a300f2ffa94d967463aaeea0d357fbd7479a281154ba0460",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.1",
+      "release_date": "2025-01-02",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2024.8.\n\nAdded\n- Add a new access method: Encrypted DNS Proxy.\n  Encrypted DNS proxy is a way to reach the API via proxies.\n  The access method is enabled by default.\nmacOS\n- Detect whether full disk access is enabled in the split tunneling view.\n- Add button to restart system service in split tunneling view.\n  This can help mitigate edge-case issues when enabling full disk access.\n\nChanged\n- Replace the draft key encapsulation mechanism Kyber (round 3) with the standardized\n  ML-KEM (FIPS 203) dito in the handshake for Quantum-resistant tunnels.\n- Make Smart Routing override multihop if both are enabled.\n  To manually set the entry relay, explicitly enable the \"Direct only\" option in the DAITA settings.\n- Update maybenot from 1.1.3 to 2.0.1.\n\nWindows\n- Enable quantum-resistant tunnels by default (when set to `auto`).\n\n\nFixed\n- Handle network switching better when using WG over Shadowsocks.\n- Fix multihop entry location list sometimes being shown when multihop is disabled.\nmacOS\n- Fix GUI getting stuck when opening the split tunneling view.\n- Fix packets being duplicated on LAN when split tunneling is enabled.\n- Fix DNS issues caused by forcibly using a local DNS resolver in all states.\n  Note that this fix is not present on macOS versions between 14.6 and 15.1.\n\nSecurity\nWindows\n- Block WSL/Hyper-V traffic in secured states (except the connected state).\n  The normal firewall (WFP) filters normally do not apply for VMs.\n  This mitigates the issue by ensuring that it does not leak (as easily) when the VPN tunnel is up.\n  Previously, WSL would leak while in the blocked or connecting state, or while lockdown mode was active.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2025.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2025.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2025.1/MullvadVPN-2025.1.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2025.1.exe",
+          "sha256": "0afc854ac421f174ff9696e8e1665b4e4bf0fd53de97b9c116ac65d90ab08ff9",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.8",
+      "release_date": "2024-12-04",
+      "release_notes": "This release is for desktop only.This release addresses issues identified in a recent audit. Here is a list of all changes since last stable release 2024.7.Security\n- Remove invalidly set up alternative stack for fault signal handlers on unix based systems. This prevents potential stack overflow and heap memory corruption. Fixes audit issue MLLVD-CR-24-01.\n- Remove/disable not signal safe code from fault signal handler on unix based systems. Fixes audit issue MLLVD-CR-24-02.\nWindows\n- Fix issue where the installer would allow any executable named taskkill.exe in the working directory to run as admin. This fixes audit issue MLLVD-CR-24-06.\nLinux\n- Prevent attackers able to send ARP requests to the device running Mullvad from figuring out the in-tunnel IP. Fixes 2024 audit issue MLLVD-CR-24-03.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2024.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.8/MullvadVPN-2024.8.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.8.exe",
+          "sha256": "15ea8cbbec3b24f6422610af288d0f5972ea37224b415ad6a160cdec1bf2eb1a",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.7",
+      "release_date": "2024-10-30",
+      "release_notes": "This release is for desktop only.\nThis release is identical to 2024.7-beta1.\nHere is a list of all changes since last stable release 2024.6.\n\nFixed\nmacOS\n- Fix DNS not working due to broken PF redirect.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2024.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.7/MullvadVPN-2024.7.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.7.exe",
+          "sha256": "e719430f68e1e9c0e755f9babd0f070b41a3887acc0ea81f259a8d29b2832452",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.6",
+      "release_date": "2024-10-09",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2024.5.\n\nAdded\n- Add WireGuard over Shadowsocks obfuscation. It can be enabled in \"WireGuard settings\".\n  This will also be used automatically when connecting fails with other methods.\n- Add feature indicators to the main view along with redesigning the connection details.\n- Add \"Smart Routing\" feature which simplifies connecting to DAITA-enabled relays.\n\nChanged\n- Never use OpenVPN as a fallback protocol when any of the following features is enabled:\n  multihop, quantum-resistant tunnels, or DAITA.\n- Improved output format of mullvad status command, which now also prints feature indicators.\n- Move DAITA and multihop to the root settings view along with moving multihop into a dedicated view with more information.\nmacOS\n- Disable split tunnel interface when disconnected.\n  This prevents traffic from being sent through the daemon when the VPN is disconnected.\n- Enable IPv6 by default. This fixes DNS and routing being broken on some systems.\n- Proxy DNS queries through a local resolver.\n\nFixed\nLinux\n- Set tunnel name to `wg0-mullvad` for userspace WireGuard.\nmacOS\n- Exclude programs when executed using a relative path from a shell.\n- Reduce packet loss when using split tunneling.\n- Don't block fragmented packets in the PF firewall.\n  Fixes various issues relating to connecting (and general instability) when IP fragmentation is present.\n- Fix Apple services not working by forcing stray connections out through the VPN tunnel.\n  This fix only applies to Wireguard, OpenVPN is still affected.\n- Disable DNS redirect when custom DNS is set to localhost.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2024.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.6/MullvadVPN-2024.6.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.6.exe",
+          "sha256": "594793308de26031dc79e56275f73ea31cb46e68d033a1a67cd44702cf080b61",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.5",
+      "release_date": "2024-09-03",
+      "release_notes": "This release is for desktop only.\nHere is a list of all changes since last stable release 2024.4.\n\nAdded\n- Add DAITA (Defence against AI-guided Traffic Analysis) setting for Linux and macOS.\n- Add --json flag to mullvad status CLI.\n\nChanged\n- Ignore obfuscation protocol constraints when the obfuscation mode is set to auto.\nmacOS\n- Enable quantum resistant tunnels by default (when set to auto).\n\nFixed\n- Fix mullvad cli bug causing mullvad status listen command to miss events if they occurred too quickly.\n- Fix bug causing app to enter blocked state when toggling DAITA on and off.\n- macOS and Linux: Fix potential crash when disconnecting with DAITA enabled.\nmacOS\n- Fix intermittent failures to connect with PQ enabled.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2024.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.5/MullvadVPN-2024.5.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.5.exe",
+          "sha256": "5411fef047adadb03e49ab2b9f5b5efd0b1ab4f8c544dd4842582444895462c8",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.4",
+      "release_date": "2024-07-25",
+      "release_notes": "This release is for desktop only.\nThis release is identical to 2024.4-beta1.\nHere is a list of all changes since last stable release 2024.3.\nAdded\n- Add custom bridge settings in GUI. A custom bridge server can be used to cirvunment censorship when regular Mullvad bridge servers don't work\n- Bundle https://github.com/mullvad/apisocks5 as a standalone binary.\nmacOS\n- Add support for split tunneling.\nChanged\n- Update Electron from 28.1.3 to 30.0.4.\nFixed\nWindows\n- Fix a race condition which could cause a BSOD when DAITA was enabled during disconnects.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2024.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.4/MullvadVPN-2024.4.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.4.exe",
+          "sha256": "40b6c1d8cb9259d944c737d9e3cdb483bf425335069fd2685cf13629334cc938",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.3",
+      "release_date": "2024-05-15",
+      "release_notes": "This release is for desktop only.\nThis release is identical to 2024.3-beta1.\nHere is a list of all changes since last stable release 2024.2.\nAdded\nWindows\n- Add DAITA (Defence against AI-guided Traffic Analysis) setting. On supported servers, this makes website fingerprinting more difficult by sending random padding packets along with padding all packets to the same size.\nChanged\n- Don't fail to start daemon when the offline monitor fails to be initialized.\nFixed\nLinux\n- Fix GUI not working on Ubuntu 24.04 by adding an AppArmor profile.\n- Service failed to start when IPv6 was disabled in the kernel.",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2024.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.3/MullvadVPN-2024.3.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.3.exe",
+          "sha256": "58019eafc12f0a922577f511c489d3412c2857475789c407e08a2c8e71194dd7",
+          "product_code": "2A356FD4-03B7-4F45-99B4-737BE580DC82",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.2/MullvadVPN-2024.2.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.2.exe",
+          "sha256": "d17b57268c3776c9e72dc5d1cb56d1eaf5e07003270c4b696b53ba70a8668bf6",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2024.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2024.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2024.1/MullvadVPN-2024.1.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2024.1.exe",
+          "sha256": "49ee14871a1efab88921c1338349d40a732d4fb8c370eaa5047676ac5906768f",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.6.0",
+      "release_date": "2023-12-06",
+      "release_notes": "Added\n- Add customizable relay lists to the CLI on desktop.\n  Custom lists can be managed through\n- Add custom lists to location selector in desktop app.\n- Add custom API access methods to the CLI on desktop.\n  Custom API access methods allow the user to\n- Add social media content blocker.\n- Add ability to override server IPs to the CLI.\nChanged\n- Update Electron from 25.2.0 to 26.3.0.\n- Update OpenVPN to 2.6.8 from 2.6.0.\nLinux\n- Don't block forwarding of traffic when the split tunnel mark (ct mark) is set.\nRemoved\nWindows\n- Remove wireguard-go (userspace WireGuard) support.\nFixed\n- Show correct endpoint in CLI for custom relays.\n- Lower risk of being rate limited.\n- Fix error dialog when failing to write to console by handling the thrown error.\n- Fix error dialog displayed when the daemon was killed.\n- Fix desktop app freezing when navigations occur in very quick succession.\nWindows\n- Correctly detect whether OS is Windows Server (primarily for logging in daemon.log).\nSecurity\n- Update OpenVPN to 2.6.8 to fix CVE-2023-46850, which could cause freed memory to be sent to the peer.\nWindows\n- Fix possible privilege escalation by setting stricter permissions on mullvad directories such as",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2023.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2023.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2023.6/MullvadVPN-2023.6.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2023.6.exe",
+          "sha256": "1a212857d3edcfe44cfdf0ac50db27a1fb325721f7fd9aa9a1e8fcc8b4bda64c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2023.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2023.5/MullvadVPN-2023.5.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2023.5.exe",
+          "sha256": "60589fcbeb1c26ec028be1ee1f1d8ee105b0262f5ec9daa841cb016c1980283d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2023.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2023.4/MullvadVPN-2023.4.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2023.4.exe",
+          "sha256": "a3dfb832cc4d29a5e2ea70956819d4d6e6b28acf2cce4e7c40d96ad46a53c8a7",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.3.0",
+      "release_date": "2023-04-05",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2023.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2023.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2023.3/MullvadVPN-2023.3.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2023.3.exe",
+          "sha256": "c05b4e02395ab29f7b8231bf251b0607d536d3f335db0e7c8cc0bf350c9e1505",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.2.0",
+      "release_date": "2023-03-07",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2023.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2023.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2023.2/MullvadVPN-2023.2.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2023.2.exe",
+          "sha256": "78372ded0f058ea252192fd7298c38f1133a4a15e5b4736bfd8df52b6efc1b07",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.1.0",
+      "release_date": "2023-02-20",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2023.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2023.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2023.1/MullvadVPN-2023.1.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2023.1.exe",
+          "sha256": "f3a9ff35d371c58820c9dd587943caa016f936f278c8bb36cc0297663cfd6c1a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.5.0",
+      "release_date": "2022-10-14",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2022.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2022.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.5/MullvadVPN-2022.5.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2022.5.exe",
+          "sha256": "ff5813895e951467e761e24d12d74f49f0b81573961b8388c305afc28c50e7c6",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.4.0",
+      "release_date": "2022-08-19",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2022.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2022.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.4/MullvadVPN-2022.4.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2022.4.exe",
+          "sha256": "d1e6ee73d0e5e0dc37aaddf9241f95562462886a248c714747b1dcdde3f88859",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2022.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.3/MullvadVPN-2022.3.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2022.3.exe",
+          "sha256": "5e8b760e600e05bdd0a8209c9cd687b5a11160d80b4f50fee605818d5938f983",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.2.0",
+      "release_date": "2022-06-13",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2022.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2022.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.2/MullvadVPN-2022.2.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2022.2.exe",
+          "sha256": "cec224a4288323a54a1c12d88389c83c1ffa3cc5f604981ce396ed0e174ebd8a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.1",
+      "release_date": "2022-03-01",
+      "release_notes": "'Here is a list of all changes since last stable release 2021.6.\nAdded\n• Add information about the always on kill switch in the desktop app.\n• Add WireGuard multihop setting and entry location selection to desktop app.\n• Add malware blocking to the desktop app. Implemented via DNS on the relays.\n• Add changes dialog which will include the most notable changes in each new version.\n• Show warning message when blocking internet while logged out, and make it possible to unblock the\n• connection from the login view.\n\nChanged\n• Keep unspecified constraints unchanged in the CLI when providing specific tunnel constraints\n• instead of setting them to default values.\n• Obscure account number in account view and add button for copying instead of copying when text is\n• pressed.\n• Disable logging of translation errors in production. This will among other things prevent error\n• messages from translating the country in the disconnected state.\n• Update Electron from 15.0.0 to 16.0.4.\n• Gradually increase the WireGuard connectivity check timeout, lowering the timeout for the first\n• few attempts.\n• Stop preferring OpenVPN when bridge mode is enabled.\n• CLI command for setting a specific server by hostname is no longer case sensitive.\n• Example: mullvad relay set hostname SE9-WIREGUARD should now work.\n• Update the default Shadowsocks password to mullvad and cipher to aes-256-gcm in the CLI\n• when using it to configure a custom Shadowsocks bridge. The Mullvad bridges recently changed\n• these parameters on port 443 (which is the default port).\n\nWindows\n• Update wireguard-nt to 0.10.1.\n• Make wireguard-nt the default driver for WireGuard. This is used instead of wireguard-go and\n• Wintun.\n• Increase firewall transaction timeout from 2 to 5 seconds to lower the chance of errors when\n• setting the firewall policy.\n• Update split tunnel driver to 1.2.0.0. Notably, this driver release allows firewall filters\n• added by other software to block excluded apps.\n\nRemoved\nWindows\n• Drop support for pre-Windows 10 systems.\n\nFixed\n• Always kill sslocal if the tunnel monitor fails to start when using bridges.\n• Show relay location constraint correctly in the CLI when it is set to any.\n• Prevent gRPC from trying to run the app-daemon IPC communication through a HTTP proxy when the\n• environment variable http_proxy is set. This caused the app to fail to connect to the daemon.\n• Disable built-in DNS resolver in Electron. Prevents Electron from establishing connections to\n• DNS servers set in system network preferences.\n• Fix tray context menu showing or executing wrong actions, using wrong language or in other\n• ways not update properly.\n• Prevent settings file being truncated before being read. This caused the daemon to read an empty\n• settings file, restore to default settings and log out.\n• Improve performance for automatically scrolling text in desktop app.\n• Increase availability of the API by allowing to issue requests to the API when connecting to the\n• relay even if account data might be invalid.\n\nmacOS\n• Resolve issues with the app blocking internet connectivity after sleep or when connecting to new\n• wireless networks.\n• Fix issue where the app would get stuck in offline state after a reboot or a reinstall by using\n• route monitor instead of relying on SCNetworkReachability API to infer whether the host is\n• offline.\n\nWindows\n• Fix app size after changing display scale.\n• Fix daemon not starting if all excluded app paths reside on non-existent/unmounted volumes.\n• Remove tray icon of current running app version when upgrading.\n• Allow Mullvad wireguard-nt tunnels to work simultaneously with other wg-nt tunnels.\n• Fix notifications on Windows not showing if window is unpinned and hidden.\n• Wait for IP interfaces to arrive before trying to configure them when using wireguard-nt.\n• Fix panic that occurs in the split tunnel monitor when a path consisting only of a prefix,\n• such as \"C:\", is excluded using the CLI.\n\nLinux\n• Remove auto-launch file, GUI settings and other files created by the app in user directories, when\n• uninstalling/purging.\n\nSecurity\n• Restrict which applications are allowed to communicate with the API while in a blocking state.\n• This prevents malicious scripts on websites from trying to do so. On Windows, only\n• mullvad-problem-report.exe and mullvad-daemon.exe executables are allowed to reach the API,\n• whereas on Linux and macOS only root processes are able to reach the API.\n• Enable \"Always require VPN\" by default if the settings cannot be parsed. This reduces the number\n• of errors that lead to the daemon unexpectedly starting into non-blocking mode.'",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2022.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2022.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2022.1/MullvadVPN-2022.1.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2022.1.exe",
+          "sha256": "e636c12b09b5273017cf081517c069c49bad504d8f309f65c2c8a11e11293b75",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2021.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2021.6/MullvadVPN-2021.6.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2021.6.exe",
+          "sha256": "33a7b4fc689f2a5e9c8e9ab5eb663d86092b32d1303a615ae8c1afb106aaf99a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2021.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2021.5/MullvadVPN-2021.5.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2021.5.exe",
+          "sha256": "c8de346e401df64db66d7a0b18f1ac3960461ea18840a13106d679ccb3ce3ddd",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2021.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2021.4/MullvadVPN-2021.4.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2021.4.exe",
+          "sha256": "282e922e18599b4ae4e2eff38830345847bb01d9f1824d4e4f4c71123c23a875",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2021.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2021.3/MullvadVPN-2021.3.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2021.3.exe",
+          "sha256": "c34580a8179141ea5fa9c1502b0c0784a40e93280cdcff8912f8b3190c196a17",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2021.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2021.2/MullvadVPN-2021.2.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2021.2.exe",
+          "sha256": "a96483eecbc58da8a8dc696946300a5d6c4e8fe05f4d38ea264b41db711a77dc",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2021.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2021.1/MullvadVPN-2021.1.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2021.1.exe",
+          "sha256": "bed42a7cb009ebd027194f20940b2b9856037a0e581a9bdfaf9b325b8d2f6af3",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2020.7.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2020.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2020.7/MullvadVPN-2020.7.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2020.7.exe",
+          "sha256": "cb6901742cb3ad88e20b79fca1fdf569ed619ce3afa9b9709ebfb5a7eb189ad4",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2020.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2020.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2020.6/MullvadVPN-2020.6.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2020.6.exe",
+          "sha256": "678a560487e0ab5ea7fe6459b86be1bce266fa98c438cd16a300adfb1909e374",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2020.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2020.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2020.5/MullvadVPN-2020.5.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2020.5.exe",
+          "sha256": "13c92c77184b2a7724df55be7e4afdfa9b807c64f8c36399fc016b93b5a346bf",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2020.4.0",
+      "release_date": "2020-05-12",
+      "release_notes_url": "https://github.com/mullvad/mullvadvpn-app/releases/tag/2020.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/MullvadVPN/MullvadVPN/2020.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/mullvad/mullvadvpn-app/releases/download/2020.4/MullvadVPN-2020.4.exe",
+          "host": "github.com",
+          "filename": "MullvadVPN-2020.4.exe",
+          "sha256": "52ecef8bab5252de60559fd02b3ce0622428607c93bc91ccf74cea5eba5c406f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Mullvad VPN 2020.4.0",
+              "publisher": "Mullvad VPN",
+              "product_code": "{2A356FD4-03B7-4F45-99B4-737BE580DC82}",
+              "installer_type": "nullsoft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2026.5",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "pkg",
+          "url": "https://cdn.mullvad.net/app/desktop/releases/2026.5/MullvadVPN-2026.5.pkg",
+          "host": "cdn.mullvad.net",
+          "filename": "MullvadVPN-2026.5.pkg",
+          "sha256": "7c68dd93ae01c1b56ce29c48b293a6ecb29ad61769ee90619887fa71a7dd867b",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "pkgs": [
+          "MullvadVPN-2026.5.pkg"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "net.mullvad.vpn"
+          ],
+          "launchctl": [
+            "net.mullvad.daemon"
+          ],
+          "pkgutil": [
+            "net.mullvad.vpn"
+          ],
+          "remove": [
+            "/Library/Caches/mullvad-vpn",
+            "/opt/homebrew/share/fish/vendor_completions.d/mullvad.fish",
+            "/opt/homebrew/share/zsh/site-functions/_mullvad",
+            "/usr/local/bin/mullvad",
+            "/usr/local/bin/mullvad-problem-report",
+            "/usr/local/share/fish/vendor_completions.d/mullvad.fish",
+            "/usr/local/share/zsh/site-functions/_mullvad",
+            "/var/log/mullvad-vpn"
+          ],
+          "zap_paths": [
+            "/etc/mullvad-vpn",
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/net.mullvad.vpn.sfl*",
+            "~/Library/Application Support/Mullvad VPN",
+            "~/Library/Logs/Mullvad VPN",
+            "~/Library/Preferences/net.mullvad.vpn.helper.plist",
+            "~/Library/Preferences/net.mullvad.vpn.plist"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
+      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "path": "manifests/m/MullvadVPN/MullvadVPN"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
+      "retrieved_at": "2026-11-04T20:50:37.029Z",
+      "path": "Casks/m/mullvad-vpn.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/mullvad-vpn.json"
+    }
+  ]
+}

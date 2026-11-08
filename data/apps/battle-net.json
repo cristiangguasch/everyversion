@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "slug": "battle-net",
+  "name": "Battle.net Setup",
+  "publisher": "Blizzard Entertainment",
+  "author": "Blizzard Entertainment",
+  "ids": {
+    "winget": "Blizzard.BattleNet",
+    "moniker": "battle.net",
+    "homebrew_cask": "battle-net"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Launcher client for Blizzard games.",
+  "description": "Battle.net is an Internet-based online game, social networking service, digital distribution, and digital rights management platform developed by Blizzard Entertainment.",
+  "tags": [
+    "games",
+    "gaming",
+    "purchase",
+    "gamestore",
+    "store",
+    "platform",
+    "battle.net",
+    "battledotnet",
+    "blizzardentertainment",
+    "activisionblizzard"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://download.battle.net/en-us/desktop",
+    "publisher": "https://www.blizzard.com",
+    "support": "https://us.battle.net/support",
+    "privacy": "https://www.blizzard.com/legal/8c41e7e6-0b61-42c4-a674-c91d8e8d68d3/blizzard-entertainment-privacy-policy"
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://www.blizzard.com/legal/fba4d00f-c7e4-4883-b8b9-1b4500a402ea/blizzard-end-user-license-agreement",
+    "copyright": "© 2005-2023 Blizzard Entertainment Inc.",
+    "copyright_url": "https://www.blizzard.com/legal"
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "2.0.0.4232",
+    "macos": "2.0.0.4232"
+  },
+  "versions_total": {
+    "windows": 1,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.0.0.4232",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/b/Blizzard/BattleNet/2.0.0.4232",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe",
+          "host": "downloader.battle.net",
+          "filename": "getInstaller",
+          "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "product_code": "Battle.net",
+          "switches": {
+            "install_location": "--installpath=\"<INSTALLPATH>\"",
+            "custom": "--lang=enUS"
+          },
+          "apps_and_features": [
+            {
+              "product_code": "Battle.net"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.0.0.4232",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "unknown",
+          "url": "https://www.battle.net/download/getInstallerForGame?os=mac&locale=enUS&version=LIVE&gameProgram=BATTLENET_APP",
+          "host": "www.battle.net",
+          "filename": "getInstallerForGame",
+          "no_checksum": true
+        }
+      ],
+      "cask": {
+        "manual_installer": true,
+        "auto_updates": true,
+        "caveats": "If your installation directory is not /Applications, you will need to\nuninstall this cask manually.",
+        "cleanup": {
+          "remove": [
+            "/Applications/Battle.net.app"
+          ],
+          "zap_paths": [
+            "/Users/Shared/Battle.net",
+            "/Users/Shared/Blizzard",
+            "~/Library/Application Support/Battle.net",
+            "~/Library/Caches/net.battle.bootstrapper",
+            "~/Library/Preferences/net.battle.app.helper.plist",
+            "~/Library/Preferences/net.battle.Authenticator.prefs",
+            "~/Library/Preferences/net.battle.Identity.prefs",
+            "~/Library/Preferences/net.battle.net.app.plist",
+            "~/Library/Preferences/net.battle.plist",
+            "~/Library/Preferences/net.battnet.battle.plist",
+            "~/Library/Saved Application State/net.battle.app.savedState",
+            "~/Blizzard"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/b/Blizzard/BattleNet"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "Casks/b/battle-net.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/battle-net.json"
+    }
+  ]
+}

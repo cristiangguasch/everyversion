@@ -1,0 +1,298 @@
+{
+  "schema_version": 2,
+  "slug": "itch",
+  "name": "itch",
+  "publisher": "itch corp.",
+  "author": "Itch Corp.",
+  "ids": {
+    "winget": "ItchIo.Itch",
+    "moniker": "itch.io",
+    "homebrew_cask": "itch",
+    "flathub": "io.itch.itch"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Install, update and play indie games",
+  "description": "The itch.io app, itch, lets you effortlessly download and run games and software from itch.io. All of your downloads are kept in a single place and are automatically updated. Access your collections and purchases, or browse for new games via the in-app browser.",
+  "tags": [
+    "game"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://itch.io/app",
+    "publisher": "https://itch.io/",
+    "support": "https://itch.io/support",
+    "privacy": "https://itch.io/docs/legal/privacy-policy",
+    "release_notes": "https://github.com/itchio/itch/releases/tag/v26.22.0",
+    "documentation": [
+      {
+        "label": "Docs",
+        "url": "https://itch.io/docs"
+      },
+      {
+        "label": "User Guide",
+        "url": "https://itch.io/docs/itch"
+      },
+      {
+        "label": "FAQ",
+        "url": "https://itch.io/docs/app/faq"
+      }
+    ]
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/itchio/itch/blob/HEAD/LICENSE",
+    "spdx": "MIT",
+    "copyright": "Copyright (c) 2026 itch corp., https://itch.io",
+    "copyright_url": "https://itch.io/docs/legal/terms"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "26.22.0",
+    "macos": "26.22.0",
+    "linux": "26.22.0"
+  },
+  "last_updated": "2026-10-06",
+  "versions_total": {
+    "windows": 3,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "26.22.0",
+      "release_date": "2026-10-06",
+      "release_notes": "This release adds collection editing to the app, fixes a number of problems with the Steam shortcuts manager, adds Proton support for Windows games in Steam shortcuts on Linux, and updates butler to 15.32.0 and Electron to 44.5.1.\nCollections\nYou can now manage your itch.io collections from the app. To choose which of your collections a game is in, right click its cover and pick \"Add or edit collections...\", or use the new collections button next to the install button on the game's page. You can insert a game into a many collections at once or easily create a new collection from the new collections dialog.\nFrom a collection's page you can edit its title and privacy, delete it, or use the new re-order dialog to bulk order or remove items from a collection.\nIn the in-app browser, any \"Add to collection\" button you click will will trigger the action within the app, so it works regardless of if you are logged into the in-app browser or not.\nSteam shortcuts\nThanks for all the feedback from testing the Steam Shortcuts feature we released in v26.0.0. We have a bunch of reliability fixes here to address issues where users couldn't set their shortcuts.\n- Fixed the Steam shortcuts dialog failing with \"Could not determine which Steam user to add shortcuts for\" when more than one Steam account had been used on the computer (#3504). When Steam doesn't record which account was used last, the most recently active one is picked, and account folders left over from logins that never finished are ignored\n- With more than one Steam account, you can choose which one to add shortcuts to, and the choice is remembered\n- If no Steam account has signed in on the computer yet, the dialog says so instead of showing a generic error\n- On Linux and Steam Deck, Windows-only games can be added as direct shortcuts. Steam runs them through Proton Experimental, and you can pick a different compatibility tool in the shortcut's properties in Steam (#3495, #3362, #2797)\n- itch://steam-shortcuts opens the Steam shortcuts dialog, optionally for a specific game with ?game_id=\nbutler 15.32.0\nThe app now requires butler 15.32.0. Changes you'll notice in the app:\n- Better launch target detection: arm64 builds are no longer mistaken for amd64, helper executables like crash handlers and prerequisite installers are no longer offered as launch options, and more engines are recognized (Godot, PICO-8, Ren'Py, RPG Maker, and more)\n- Soundtracks, source code, mods and other content uploads no longer always open in the file manager. If there's something runnable inside, it's offered alongside \"Open folder\"\n- Update checks stay on the installed upload's platform, so a Linux install is no longer offered a Windows-only upload because wine is installed\n- Uploads that are a single Linux or macOS executable with no file extension can now be installed (itchio/hush#9)\n- Fixed a stale install folder lock that could block operations on a game after a crash or reboot\n- Hardening against malicious archives\nFull butler release notes: https://github.com/itchio/butler/releases/tag/v15.32.0\nMisc changes\n- Electron updated to 44.5.1 (Chromium 152.0.7977.130)\n- itch --shutdown asks a running instance to quit, the same as File > Quit\nTranslations\nThank you to all our contributors who contributed translations for this version. You can contribute on weblate: https://weblate.itch.zone/projects/itchio/itch/.\nBugs\n- Fixed search fields (library, collections, dashboard) dropping characters typed while the previous search was still applying",
+      "release_notes_url": "https://github.com/itchio/itch/releases/tag/v26.22.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/i/ItchIo/Itch/26.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "exe",
+          "scope": "user",
+          "url": "https://broth.itch.zone/install-itch/windows-amd64/1.31.0+808e1c8/archive/default",
+          "host": "broth.itch.zone",
+          "filename": "default",
+          "sha256": "4d0e2f46efefebe90a5cf4920c5b88ba93623dc2400c7733fa50d5c89dc698d5",
+          "product_code": "itch",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "upgrade": "--upgrade"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "itch",
+            "itchio"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.18.0",
+      "release_date": "2026-08-03",
+      "release_notes": "This is a small patch to address crashing issue introduced in the last version on MacOS due to misconfigured entitlements.\nIf you app is stuck in a crash loop you will need to reinstall it from the setup program available here: https://itch.io/app",
+      "release_notes_url": "https://github.com/itchio/itch/releases/tag/v26.18.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/i/ItchIo/Itch/26.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "exe",
+          "scope": "user",
+          "url": "https://broth.itch.zone/install-itch/windows-amd64/1.29.0+808e1c8/archive/default",
+          "host": "broth.itch.zone",
+          "filename": "default",
+          "sha256": "90b1c102d63b8afec9a4dc67b07fcd7d0c6404720bac53682f863f33ccac4770",
+          "product_code": "itch",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "upgrade": "--upgrade"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "itch",
+            "itchio"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.1.9",
+      "release_date": "2024-06-18",
+      "release_notes": "Please Note: This will be the last version of the app compatible with Windows 7 and 8.\nThis release upgrades a number of dependencies, especially Electron (to version 22), to resolve some lingering security issues. It also includes some performance and efficiency improvements.\nThe logic for game updates has changed. The app will check for updates any time you view a game page or run a game. You can check your full library for game updates at any time in the Preferences menu via the \"Check for game updates\" action.\nFull Changelog: https://github.com/itchio/itch/compare/v25.6.2...v26.1.9",
+      "release_notes_url": "https://github.com/itchio/itch/releases/tag/v26.1.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/i/ItchIo/Itch/26.1.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "exe",
+          "scope": "user",
+          "url": "https://broth.itch.zone/install-itch/windows-amd64/_9/archive/default",
+          "host": "broth.itch.zone",
+          "filename": "default",
+          "sha256": "59e5c78b1423caee383827ee131d34c1e58b2fd9e316145c90c4af9f23a57694",
+          "product_code": "itch",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "upgrade": "--upgrade"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "itch",
+            "itchio"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "26.22.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "tar",
+          "url": "https://github.com/itchio/itch/releases/download/v26.22.0/itch-v26.22.0-darwin-amd64.tar.gz",
+          "host": "github.com",
+          "filename": "itch-v26.22.0-darwin-amd64.tar.gz",
+          "sha256": "3a13b128b57a5b52e406b7b1ccf4439703d63b9326fe54bbaf5e60a2ab738c68",
+          "min_os_version": "13"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "tar",
+          "url": "https://github.com/itchio/itch/releases/download/v26.22.0/itch-v26.22.0-darwin-arm64.tar.gz",
+          "host": "github.com",
+          "filename": "itch-v26.22.0-darwin-arm64.tar.gz",
+          "sha256": "fd31ff479b6e085a5599bd4c2599005d4505e50f13ba87fa7357ffedb2c07e19",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "itch.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "io.itch.mac"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/io.itch.mac.sfl*",
+            "~/Library/Application Support/CrashReporter/itch_*.plist",
+            "~/Library/Application Support/itch",
+            "~/Library/Logs/DiagnosticReports/itch-*.ips",
+            "~/Library/Preferences/io.itch.mac.helper.plist",
+            "~/Library/Preferences/io.itch.mac.plist"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "26.22.0",
+      "release_date": "2026-10-06",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/io.itch.itch.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "io.itch.itch.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "ca3de5f957f41c0c1c818788b187c45357e50fba",
+      "retrieved_at": "2026-11-07T17:28:24.997Z",
+      "path": "manifests/i/ItchIo/Itch"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "286239cc5939c6639ddd0f80ac6dd3ff51dd35b9",
+      "retrieved_at": "2026-11-07T17:28:24.997Z",
+      "path": "Casks/i/itch.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/itch.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/io.itch.itch",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/io.itch.itch",
+      "api_url": "https://flathub.org/api/v2/appstream/io.itch.itch",
+      "content_sha256": "35dc6bea2b2a08ea8857de51b8e5b06ab58aaa0bab1a063cbd57101c49325916"
+    }
+  ],
+  "flathub": {
+    "app_id": "io.itch.itch",
+    "page_url": "https://flathub.org/apps/io.itch.itch",
+    "repo_url": "https://github.com/flathub/io.itch.itch",
+    "install_command": "flatpak install flathub io.itch.itch",
+    "run_command": "flatpak run io.itch.itch",
+    "verified": false,
+    "license": "MIT",
+    "free_license": true,
+    "developer_name": "itch.io",
+    "categories": [
+      "Game",
+      "PackageManager"
+    ],
+    "download_size": 271533323,
+    "installed_size": 745913344,
+    "arches": [
+      "x64"
+    ]
+  }
+}

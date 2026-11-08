@@ -1,0 +1,1766 @@
+{
+  "schema_version": 2,
+  "slug": "blockbench",
+  "name": "Blockbench",
+  "publisher": "JannisX11",
+  "author": "JannisX11",
+  "ids": {
+    "winget": "JannisX11.Blockbench",
+    "homebrew_cask": "blockbench",
+    "flathub": "net.blockbench.Blockbench"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Blockbench - A boxy 3D model editor.",
+  "description": "Blockbench is a free, modern model editor for boxy models and pixel art textures.\nModels can be exported for Minecraft Java and Bedrock Edition as well as most game engines and other 3D applications.\nBlockbench features a modern and intuitive UI, plugin support and innovative features.\nIt is the industry standard for creating custom 3D models for the Minecraft Marketplace.",
+  "tags": [
+    "3d",
+    "blockbench",
+    "electron",
+    "hytale",
+    "low-poly",
+    "minecraft",
+    "pixel-art"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.blockbench.net/",
+    "publisher": "https://github.com/JannisX11/blockbench",
+    "support": "https://github.com/JannisX11/blockbench/issues",
+    "bug_tracker": "https://github.com/JannisX11/blockbench/issues",
+    "release_notes": "https://github.com/JannisX11/blockbench/releases/tag/v5.2.2"
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/JannisX11/blockbench/blob/HEAD/LICENSE.MD",
+    "spdx": "GPL-3.0",
+    "copyright_url": "https://github.com/JannisX11/blockbench/blob/HEAD/LICENSE.MD"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "5.2.2",
+    "macos": "5.2.2",
+    "linux": "5.2.2"
+  },
+  "last_updated": "2026-10-08",
+  "versions_total": {
+    "windows": 63,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "5.2.2",
+      "release_date": "2026-10-08",
+      "release_notes": "## Changes\n• Added supported for object texture references + `force_translucent` field in Minecraft Java block/item format\n• Added warning to code reference in Flipbook Editor that flipbook animations do not work for bedrock attachables\n\n\n## Fixes\n• Fixed #3280 FBX export fails on smooth mesh with stray vertex\n• Fixed #3796 Color Blend Mode should ignore added color lightness\n• Fixed collection sorting line guide not spanning full width\n• Fixed bidirectional cube scaling in integer size format (JannisX11/hytale-blockbench-plugin#150)\n• Fixed #3818 using alt to colorpick deselects texture\n• Improved performance of rendering forms\n• Fixed #3817 keep vertex weights when merging mesh\n• Fixed UV size dialog adjust modes (#3776, thanks @ewanhowell5195)\n• Hide duplicate un-/install plugin actions in action control\n• Fixed IK baking of pre-rotated bones\n• Fixed Tiled View settings using the onion skin config (#3791, thanks @ewanhowell5195)\n• Bumped electron builder to fix #3800\n• Fixed flipbook detection when opening vertical ratio image in image editor\n• Fixed #3814 IK baking creates undo entry that contains the wrong keyframes\n• Fixed text inputs not unfocusing when switching tabs\n• Fixed particle watcher reload issue\n• Fixed selection rectangle not working from UV editor background outside of the frame\n• Fixed glTF exporter UV scaling issue with multi material geometries and non-power-of-2 textures\n• Fixed Center Individual Pivots producing incorrect result in Java block/item format\n• Fixed #3797 detecting blockbench.asar as model file on Arch Linux\n• Fixed pasting formatted text into num slider and timeline timecode\n• Fixed effect keyframes being ignored when selecting pre/after/column\n• Fixed issue with form input data lists",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.2.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.2.2/Blockbench_5.2.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.2.2.exe",
+          "sha256": "de14d72e27a6598ad5595ca5e66c15ea0e360de5218207f934572265245a2bc1",
+          "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.2.2",
+              "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.1",
+      "release_date": "2026-09-21",
+      "release_notes": "## Changes\r\n• Added option for static color wheel picker\r\n• IK controllers are now inactive if the null object does not have any keyframes, allowing IK to be turned on and off per animation\r\n• Removed window name in window menu bar when using native window frame\r\n\r\n\r\n## Bugfixes\r\n• Fixed #3782 glTF animation export issue with multiple animations using IK\r\n• Fixed #3783 color history spam on mobile interface\r\n• Fixed bone/null object name conflict issue\r\n• Fixed inaccurate depth rendering in orthographic camera\r\n• Mirror modeling no longer syncs bone colors\r\n• Fixed IK glitch when bones and pole are fully in-line\r\n• Fixed #3777 Copy and Pasting groups between different windows not working\r\n• Fixed #3781 touch navigation in UV/2D Editor\r\n• Fixed #3779 Issue when moving image selection as layer\r\n• Fixed #3774 IK baking issue when pole is animated\r\n• Fixed Connect UV Faces not working\r\n• Fixed #3785 Opening multiple child models at once has issues when resolving",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.2.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.2.1/Blockbench_5.2.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.2.1.exe",
+          "sha256": "d86966ab863e4f067a3a17c5d2d686762cb532034a3cfaf78589a01b62d43fa1",
+          "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.2.1",
+              "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.0",
+      "release_date": "2026-09-18",
+      "release_notes": "# Welcome to Blockbench 5.2 - The Screen-Space Update!\r\n\r\n## Highlights of this update:\r\n• Screen-Space Brush\r\n• Layer Groups\r\n• 3D Plane Reference Images\r\n• Movable Reference Models\r\n• New Color Wheel\r\n• Better Inverse Kinematics\r\n\r\n**Update Video:** [Blockbench 5.2 is out! All new features - Youtube](https://youtu.be/9MET5-wH5uw)\r\n\r\n\r\n\r\n## Screen-Space Brush\r\nThe Screen Space brush (#1384) is a new brush preset that lets you paint on the viewport as if it was a flat painting.\r\nIt does not snap to the face your are painting, and is ideal for painting and blending together the edges between faces.\r\n\r\nLike most brush options, there are two ways to enable this:\r\n• You can use a brush preset. Press the small down arrow next to the brush tool and use the built-in \"Screen Space Brush\" preset. Or click \"Brush Presets...\" and create your own preset with the \"Screen Space Brush Projection\" option enabled\r\n• Use the \"Screen Space Brush Projection\" toggle and add it to a toolbar or a keyboard shortcut. This is useful for toggling the option on the fly without switching to a different brush.\r\n\r\n\r\n## References\r\n• Added the new view mode \"3D Plane\" for reference images. This lets you place your reference image in the 3D space of your project, it will move with the model as you move your view.\r\n• Added new \"Add Reference Image\" dialog. This provides basic options when adding a new reference image, such as selecting the view mode.\r\n• Video reference images now have a video controls UI (#2800). This lets you skip to a certain part of the video, control the sound, etc. It has the following options:\r\n\t* Play/pause button\r\n\t* Video progress bar and timecode\r\n\t* Audio toggle and volume control\r\n\t* Full screen toggle\r\n\t* Additional options (on desktop app and most browsers)\r\n• Reference images now have better support in the 2D image editor, including support for Locked Blueprint mode\r\n• Added new reference model \"Minecraft Crafting Table\"\r\n• Preview Models can now be toggled individually from View > Preview Models\r\n• Preview models can now be transformed from the same menu and will remember their position after a restart (JannisX11/hytale-blockbench-plugin#83)\r\n• Skyboxes are now rendered in orthographic view (#3702, thanks @ewanhowell5195!)\r\n• Disabled preview scenes in the GUI display slot (#3703, thanks @ewanhowell5195!)\r\n\r\n\r\n## Inverse Kinematics (IK) upgrades\r\nThe IK System has been improved. Thanks @PROMETHIA-27 for their contributions!\r\n• Added IK Poles. These are positions that can be placed via Locator or Null Object and determine in which direction an IK chain bends. This is useful for animating things like legs.\r\n• IK compatibility with armatures (#3339)\r\n• IK options and target elements can now be controlled in the Element panel\r\n• Improved IK rendering performance\r\n\r\n\r\n## Texturing Tools\r\n• Added Layer Groups\r\n• Added brush aspect ratio slider\r\n• New custom HSV color selector wheel (#1020)\r\n• The current color is now displayed in the panel selector bar on mobile\r\n• Fill faces and elements via Paint Bucket in UV editor (#3739, thanks @Kannoma!)\r\n• Added setting to switch opacity sliders between 100 and 255 range (#3404, #2254, JannisX11/hytale-blockbench-plugin#182)\r\n• Added option to lock brush to first clicked element or face, or to all selected faces (#1898)\r\n• Color picker now allows picking on locked elements\r\n• Face selections are now kept while switching to Paint mode and painting\r\n• Added presets for Generate PBR Map (#3658)\r\n\r\n\r\n## Mesh Modeling & Weight Painting\r\n• Added more mesh primitives：Icosphere, Octahedron, Dodecahedron\r\n• Added even loop cutting (#1269)\r\n• Use spatial interval as default for extrude/solidify (#3545, thanks @nklbdev!)\r\n• Compute new UVs when using Inset (#3545, thanks @nklbdev!)\r\n• Added proportional editing support on resize and rotate (#3731)\r\n• Made vertices more visible during weight painting\r\n• Made Set Vertex Weights available in object selection mode\r\n\r\n\r\n## Transform UX Improvements\r\n• Added \"Flip in place\" actions\r\n• Added toggle for moving elements individually with position sliders (JannisX11/hytale-blockbench-plugin#187)\r\n• Added \"Move Pivot Values Directly\" toggle\r\n\r\n\r\n## Animation\r\n• Added Select Keyframes Before/After Playhead actions\r\n• Added Variable Placeholder panel toolbar\r\n• Added Create Variable Placeholder tool\r\n• Added View Built-in Variables tool (#3355)\r\n• You can now drag to reorder entire animation groups or files\r\n• Particle effects no longer pause at the last frame in \"hold on last frame\" animations\r\n• Remember timeline filter preferences between restarts\r\n\r\n\r\n## Interface\r\n• Added \"Native Window Frame\" setting (#3529)\r\n• Added \"New Project Dialog\" setting\r\n• Improvements to file inputs in dialogs (#3693, thanks @ewanhowell5195!)\r\n\t* Long paths overflow on the left, so you see the file name instead of the drive letter\r\n\t* Full path on hover as a tooltip\r\n\t* Files can be dropped onto an input\r\n• Settings can now be searched by their plugin name\r\n• Rank settings search results by relevance\r\n• Added the ability to resize the start screen\r\n• Double clicking the dialog resizer will now reset dialog size\r\n• Text in the \"About\" dialog and on the update screen is now user selectable\r\n\r\n\r\n## Plugin Browser\r\n• Added Recently Updated plugin row (#2811)\r\n• Added setting to disable plugin auto updates\r\n• Change plugin icon rendering based on resolution (#3538)\r\n• Save plugin files in the web app (#1186) (#3733, thanks @ewanhowell5195!)\r\n\r\n\r\n## Experimental Settings\r\nAdded Experimental Settings menu (#3641)\r\nAn alternative to the settings menu, but for niche use-cases, debugging, and experiments.\r\nBy design with no localization, no settings profiles, no Action Control integration.\r\nContains the following settings (to be expanded in the future):\r\n• Plugin load timeout (#3640)\r\n• Max chat message length\r\n• Edit Session server\r\n• Projected Brush sample interval\r\n\r\n\r\n## Minecraft\r\n• Added Cushion skin preset\r\n• Improvements to generated Java item models (#2813) (#3697, thanks @ewanhowell5195!)\r\n\t* Read the PR for more details\r\n• Option to resolve the whole parent chain when opening a child model (#3730, thanks @ewanhowell5195)\r\n• Added new Minecraft Java \"Shade Direction Override\" cube property\r\n• Fill in the bedrock display transform defaults (#3734, thanks @ewanhowell5195)\r\n• Remember bedrock geo material config files in recent project\r\n• Automatically turn on Holding Item toggle for attachables\r\n• Particles and sound effects in animations are now automatically loaded from Minecraft Bedrock resource pack (#3604)\r\n• Exclude new supported Molang queries from generating placeholders (#3355)\r\n\r\n\r\n## Misc changes\r\n• Added \"Constant Outlines\" setting\r\n• Added option to export armatures to GLTF with multiple separate meshes (#3596)\r\n• The Advanced Screenshot tool now displays a preview of the result\r\n• Added billboard marker colors (#3664)\r\n• Toggle to display element markers in viewport for locators, null objects (#3626)\r\n• Added Keybind to configure scroll to pan view (#3555)\r\n• Allow selecting faces of not selected elements in UV editor (JannisX11/hytale-blockbench-plugin#186)\r\n• Added Close other tabs and Close tabs to the right options (#2651)\r\n• Added support for drag and dropping files from VS Code into Blockbench\r\n• Update Scale tool box UV warning message\r\n• Added new language：Arabic\r\n• Added Max Zoom Distance setting\r\n• Improved Action Control sorting of search results\r\n• Unfold/collapse Groups now affects other nested elements\r\n• Added relative asset path support for sound/particle keyframes (#3177)\r\n• Custom context menu for 2D editor\r\n• Added Flipbook Editor sorting for multi-selection\r\n• Flipbook Editor now displays initial frame indices\r\n• Bounding boxes are now available in generic models\r\n• Center View on Selection in UV panel now focuses on all faces of selected element if no faces are selected (#3744, thanks @ewanhowell5195)\r\n\r\n\r\n## Technical Changes\r\n• Added event hook `get_outliner_node_classes` to let plugins add classes to outliner HTML elements\r\n• Form API\r\n\t* Added new form input type `outliner_node`\r\n\t* Added new boolean option `display_icon` to SelectInput\r\n\t* Form `extra_actions` field now works for all form input types\r\n\t* Added form input `reset_button` option\r\n• Added `BBAnimation` and `BBKeyframe` aliases\r\n• Added new format feature flag `molang`\r\n• Added types for BarItems registry\r\n• Added RenderTarget util, a performance-optimized alternative to raycasting what's in the viewport\r\n• Improved typescript types and updated parts of the codebase to typescript\r\n• Update dependencies (electron, workbox-build, esbuild)\r\n• Auto-upgrade vertex weights to new format when opening models\r\n• Default plugin author field to \"Unknown\"\r\n\r\n\r\n## Fixes\r\n• Fixed image edit tools not using correct texture in some cases\r\n• Fixed Clear Unused Texture Space not working repeatedly in some cases\r\n• Exclude stylus from UV editor touch navigation (JannisX11/hytale-blockbench-plugin#221)\r\n• Fixed #3672 keyframes move on middle-click drag\r\n• Tweak offset of resize handle for timeline head\r\n• Fixed UI offset while creating new image project\r\n• Fixed edges and vertices selection when mesh faces are visible (#3540, thanks @nklbdev!)\r\n• Fixed orthographic camera clipping and raycaster for models larger than default frustum (#3576, thanks @nklbdev!)\r\n• fix：dispose rebuilt color picker forms (#3584, thanks @sjh9714)\r\n• Fixed error when dragging image from UI\r\n• Fixed #3608 flash in system color when opening application\r\n• Fixed #3602 \"Move To\" does not work from Action Control\r\n• Fixed #3613 Shift + rectangle select clears selection when click is inside object\r\n• Fixed import issue with multiple nested groups in legacy Modded Entity importer (#3627, thanks @JoshieGemFinder!)\r\n• Fixed #3652 Bedrock bone parent resolution is case-sensitive\r\n• Fixed some UV actions still being available in Paint mode and visible in context menu\r\n• Fixed launch setting not updating file when chang",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.2.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.2.0/Blockbench_5.2.0.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.2.0.exe",
+          "sha256": "60c5281ce7ed55b76e3f72bcdf28c499883e6f4a31e453547b754ad5a35e7ec9",
+          "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.2.0",
+              "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.6",
+      "release_date": "2026-07-18",
+      "release_notes": "Changes\n• New language：Thai\n• Added rounded corners in dialog progress bar\n• Display version number in error screen\n• Updated shading on benchbot (default) Minecraft skin\n• Automatically sanitize bedrock animation names to prevent white-spaces in export\nFixes\n• Fixed #3630 error loading bbmodel with animators targeting non-existent elements\n• Fixed #3634 Knife tool deselection issue\n• Increased plugin list request timeout and added additional console warning\n• Fixed #2664 issue with vertex-snapping group pivot\n• Fixed issues with adding armatures to collection\n• Fixed Power-of-two rescaling in glTF export when textures are external (#3622, thanks @Tamicktom)\n• Fixed #3629 Edit Session issue when syncing texture layers\n• Fixed #3624 Billboard not updating when recording GIF\n• Fixed #3625 Scale step keyframes incorrectly load as uniform\n• Fixed #3619 preview.scale bugs switching between animation projects\n• Fixed #3170 Animation Controllers don't save or load pre_effect_script\n• Fixed incorrect handling of multi‑statement molang (#3594, thanks @InformationKiller)\n• Fixed dragging groups/elements into a selected group (#3595, thanks @SahinEmirhan)\n• Fixed TGA texture loading in skin format and fixed Phantom skin preset (#3597, thanks @SahinEmirhan)\n• Fixed translation issue in share model error message\n• Fixed side effect of mouse wheel keybindings\n• Fixed #3602 \"Move To\" does not work from Action Control\n• Fixed per_group_texture not working with meshes (#3600, thanks @Buwwet)\n• Fixed #3550 false molang validation error in effect keyframes\n• Fixed mesh face highlights not updating when selecting island in UV editor\n• Fixed undo issue when centering nested groups\n• Fixed #3574 can no longer reorder animators in timeline\n• Fixed Linux paths for Aseprite, PixiEditor, Photoshop, and GIMP (#3553, thanks @TheCastleDev)\n• Added fallback for mismatch when loading outliner structure data\n• Fixed #3639 Binding in Elements section does not update when editing binding via dialog\n• Fixed error when dragging image from UI into Blockbench\n• Fixed #3558 groups can be added to armatures via null object\n• Fixed #3581 overflow of checklist dialogs\n• Fixed UI offset when creating new image project\n• Fixed #3292 Adjust Curves adds 1/255 in RGB values\n• Fixed mirror modeling undo issue\n• Fixed armature bone of different meshes used to highlight weights",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.1.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.1.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.1.6/Blockbench_5.1.6.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.1.6.exe",
+          "sha256": "60f9070fb23231389f529da69018c47137424d87bc4c1c861d673e403dd070ce",
+          "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.1.6",
+              "product_code": "{F73268A5-4451-5BB0-B2B7-A92A16EE01D9}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.5",
+      "release_date": "2026-07-18",
+      "release_notes": "Changes\n- New language: Thai\n- Added rounded corners in dialog progress bar\n- Display version number in error screen\n- Updated shading on benchbot (default) Minecraft skin\n- Automatically sanitize bedrock animation names to prevent white-spaces in export\nFixes\n- Fixed #3630 error loading bbmodel with animators targeting non-existent elements\n- Fixed #3634 Knife tool deselection issue\n- Increased plugin list request timeout and added additional console warning\n- Fixed #2664 issue with vertex-snapping group pivot\n- Fixed issues with adding armatures to collection\n- Fixed Power-of-two rescaling in glTF export when textures are external (#3622, thanks @Tamicktom)\n- Fixed #3629 Edit Session issue when syncing texture layers\n- Fixed #3624 Billboard not updating when recording GIF\n- Fixed #3625 Scale step keyframes incorrectly load as uniform\n- Fixed #3619 preview.scale bugs switching between animation projects\n- Fixed #3170 Animation Controllers don't save or load pre_effect_script\n- Fixed incorrect handling of multi‑statement molang (#3594, thanks @InformationKiller)\n- Fixed dragging groups/elements into a selected group (#3595, thanks @SahinEmirhan)\n- Fixed TGA texture loading in skin format and fixed Phantom skin preset (#3597, thanks @SahinEmirhan)\n- Fixed translation issue in share model error message\n- Fixed side effect of mouse wheel keybindings\n- Fixed #3602 \"Move To\" does not work from Action Control\n- Fixed per_group_texture not working with meshes (#3600, thanks @Buwwet)\n- Fixed #3550 false molang validation error in effect keyframes\n- Fixed mesh face highlights not updating when selecting island in UV editor\n- Fixed undo issue when centering nested groups\n- Fixed #3574 can no longer reorder animators in timeline\n- Fixed Linux paths for Aseprite, PixiEditor, Photoshop, and GIMP (#3553, thanks @TheCastleDev)\n- Added fallback for mismatch when loading outliner structure data\n- Fixed #3639 Binding in Elements section does not update when editing binding via dialog\n- Fixed error when dragging image from UI into Blockbench\n- Fixed #3558 groups can be added to armatures via null object\n- Fixed #3581 overflow of checklist dialogs\n- Fixed UI offset when creating new image project\n- Fixed #3292 Adjust Curves adds 1/255 in RGB values\n- Fixed mirror modeling undo issue\n- Fixed armature bone of different meshes used to highlight weights",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.1.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.1.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.1.5/Blockbench_5.1.5.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.1.5.exe",
+          "sha256": "59ecdf5caff44b36854f601fe3384ff9c8314594b0c38b254dafb8751e0253f3",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.1.5",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.4",
+      "release_date": "2026-04-25",
+      "release_notes": "Changes\n- Restoring cube faces now defaults to a texture that's assigned to other faces\n- Use encompassing collider for minecraft:selection_box generator (#3469, thanks @IllagerCaptain)\n- Added molang validator check for complex expressions with no return value\n- Updated plugin store text\n- Added more detailed error message for when plugin API cannot be accessed\n- Animated texture custom frame order can now be previewed in Blockbench\nTechnical changes\n- Added node:stream and node:perf_hooks as safe requestable APIs (#3509)\n- Added scoped FS watch APIs (#3510)\n- Exposed UVSizeUtil for dealing with UV sizes\nFixes & Performance\n- Fixed #3500 Opening a second blockbench instance shows file unsupported dialog\n- Fixed #3519 Open With Blockbench not working with special character at end of file names\n- FIxed #3476 Resolve Group does not undo track child groups correctly\n- Fixed mirror modeling issues\n- Fixed undo issues after duplicating nested groups or armature bones\n- Fixed issue with Preserve World Transform on meshes\n- Improved viewport raycast performance\n- Improved toggle visibility performance\n- Fixed timeline CSS issue\n- Fixed #3503 wrong UV on beak on java edition parrot skin preset\n- Fixed java version of zombie skin preset texture not matching UV (#3490)\n- Fixed positioning of elytra in skin preset\n- Fixed #3505 Advanced screenshot with ortho preset has wrong size on first use\n- Fixed UI overflow of long layer names\n- Fixed copy brush not working when brush resizing is assigned to ctrl + left drag\n- Fixed labels missing on num sliders\n- Fixed texture content not updating when duplicating layer\n- Fixed #3483 Toggling cube face only works if the face is selected\n- Fixed speed button in flipbook timeline opening properties dialog twice\n- Fixed #3515 Mirror Modeling Weight Painting not working on armature with individual meshes",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.1.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.1.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.1.4/Blockbench_5.1.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.1.4.exe",
+          "sha256": "ef51ad91596d1993522e84a8403661f193ddb4eeb9ce67907ba37f6ec0fc372c",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.1.4",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.3",
+      "release_date": "2026-04-05",
+      "release_notes": "Changes\n- Center View on Selection now also targets the UV editor when hovering over it (#2182)\n- Added recover models info/warning message\nFixes & Performance\n- Fixed brush line drawing issues (#3471)\n- Improved painting performance on complex meshes\n- Fixed Center View on Selection shifting UV view even when no UV is selected\n- Fixed #3465 Dragging groups in outliner does not display number of dragged nodes\n- Fixed #3467 mesh deformation behavior is inconsistent when switching away from animation mode\n- Fixed recover model overflowing screen on some mobile devices\n- Fixed #3460 action side menu button click detection area does not cover entire side",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.1.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.1.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.1.3/Blockbench_5.1.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.1.3.exe",
+          "sha256": "47c68d1542a0aeb454e0d3549f0e5cd174da2d6c39ba28ebbd1c2614ee560a33",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.1.3",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.2",
+      "release_date": "2026-04-04",
+      "release_notes": "Changes\n- Changed timeline marker icon\n- Textures are now marked as unsaved after changing the file format (#3444)\n- The group visibility toggle no longer changes the visibility of their own scene object (#3413)\nFixes\n- Fixed drag and drop not correctly importing \".animation.json\" files\n- Fixed faces not being marked as selected in Face Properties editor\n- Fixed #3414 Cannot drag texture in Textures panel without selecting it first\n- Fixed texture wrap not displaying correctly on model after opening project\n- Reordering outliner sometimes inserts nodes at the wrong position\n- Fixed #3443 Tab Bar ignores auto-hide setting and remains open\n- Improved painting performance on complex meshes\n- Fixed paint brush drawing lines between disconnected mesh faces\n- Fixed copy pasting texture selections using selected texture instead of UV editor texture\n- Fixed Molang input overflow in dialogs\n- Fixed #3430 export OBJ fails with some unknown element types\n- Fixed #3421 snap UV to pixels not working on cube\n- Fixed #3427 Issue toggling group visibility via collection\n- Fixed pasting keyframes not working when timeline is empty\n- Fixed animation compile error in legacy fallback function\n- Fixed #3446 Pasting layer does not initialize enable layers\n- Fixed #3420 Texture meshes in attachables loaded with player get incosistent scaling\n- Fixed #3423 Centering UV Editor view does not work with Box UV cubes selected from outliner\n- Fixed #3452 Toggling armature bone visibility resets animation pose\n- Fixed #3451 performance issues with armature bones and motion trails\n- Fixed #3450 Cannot bake IK if animatable nodes without IK support exist in the project\n- Fixed #3448 Render Mode Layered - Not updating on image deletion",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.1.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.1.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.1.2/Blockbench_5.1.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.1.2.exe",
+          "sha256": "59cd4754fae802b689ac7e10a682853491e4293255e075b28116b82c75077b3b",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.1.2",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.1",
+      "release_date": "2026-03-25",
+      "release_notes": "Changes\n- Improved toast notification design\n- Flip Animation now defaults to 0 phase offset\nFixes\n- Fixed Flip Animation not applying to center bones\n- Fixed cube resizing on two axes setting size to the same value on both\n- Fixed Mirror Animating changes not previewing in real time\n- Fixed #3399 Opacity not fully supported on alpha mask layers\n- Fixed #3407 Cannot reorder tools in toolbar\n- Fixed animation export bug in web app\n- Restricted trackpad panning to trackpad zoom events (#3400)\n- Fixed issue when using scale keyframes in an overriding animation\n- Fixed result of comparing beta to non-beta in version util\n- Fixed resizing texture layer moves it instead (#3408)\n- Fixed #3398 issue with touch input in viewport\n- Fixed browser default menu opening when right clicking timeline\n- Fixed #3285 Knife tool offset issue on cubes\n- Fixed #3401 Toggling axes in the scale tool has no effect",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.1.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.1.1/Blockbench_5.1.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.1.1.exe",
+          "sha256": "a2181fcb44f6b97d27d73362628f21a44152f0ff5975357735b4a29cbdfa24da",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.1.1",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.0",
+      "release_date": "2026-03-24",
+      "release_notes": "Welcome to Blockbench 5.1 - The Workflow Update!\nHighlights of this update:\n- Mirror Animating!\n- Native support for image formats, including Jpeg, TGA, and WebP\n- Bounding Boxes\n- Better pen tablet support\n- Preserve World Transform option\n- UV Size Editor\n- Texture wrap mode / Texture tiling\n- Editing of Minecraft: Bedrock Edition attachables\nUpdate Video: https://youtu.be/OH82WjNwriE\nPainting\n- Improved pen tablet support (#3214)\n  - If you are having trouble getting pressure sensitivity to work, ensure Windows Ink is enabled in your pen tablet software, and set a modifier in the Blockbench paint settings (for example \"Brush Size Modifier\") to \"Pressure\".\n- Added mouse drag gestures to adjust sliders such as brush size, which can be enabled in keybindings (#3235)\n- The Layers panel is now always visible (#2904)\n- Added automatic tool switch when using color picker (#3369, thanks @Kannoma!)\n  - When holding alt to color-pick, if the picked pixel was transparent, it will switch back to the eraser when releasing the button\n  - When using the eraser and using Alt to color pick, picking a colored pixel will switch back to the brush tool\n  - Added setting \"Color Picker Tool Switch\" to toggle this behavior (on by default)\n- Added new layer blend mode \"Alpha Mask\"\n- Line tool length and angle are now displayed in status bar\n- Added Set Opacity option in the Adjust Opacity tool (#3374)\n- Added a Brightness slider to the Adjust Hue/Saturation tool\n- The Opacity Slider is now visible while using the Color Picker (#3300)\n- The Hold keybinding for the Color Picker can now be customized in the keybindings menu (JannisX11/hytale-blockbench-plugin#140)\nTextures\n- Textures now support multiple formats natively! The following formats can be loaded into Blockbench, refresh in real time, and can be saved:\n  - PNG\n  - TGA (#1787, #2343)\n  - JPEG\n  - WebP\n- Added a TGA texture workflow that supports retaining color accuracy at low opacity pixels. To use this, click Split Alpha Channel into Layer and keep the alpha channel as a separate layer\n- \"Split RGB channels into Layer\" now support the alpha channel (#3302)\n- Added setting for individual FPS per flipbook texture (#2851)\n- Flipbook texture animations now play in sync with the animation timeline, can be turned off in setings (#2850)\nModeling\n- Added \"Preserve World Transform\" option when reparenting outliner nodes. This lets you keep the global position of an element when adding it to another group, even if the parent groups have different rotations\n- Added setting to transform cubes from the center in the transform panel\n- Added setting to display positions in local space (JannisX11/hytale-blockbench-plugin#130)\n- New armature bones now inherits dimensions from parent bones (#3279)\nAnimation\n- Added Mirror Animating (#2321)\n  - Similar to Mirror Modeling and Mirror Painting, this live-flips your keyframe changes to the other side. Useful for symmetrical animations such as walk cycles!\n  - Bones need to follow a left/right naming schema (e. g. L/R, left/right etc.) to be mirrored\n  - The mirror phase offset can be configured (#2375)\n- Added Copy Animation Pose action\n- Added action to Add All to Timeline (#3150)\n- Added Round Keyframe Values action (#3363)\n- Created Keyframe Column variation to create keyframes on all channels. This is activated by holding Shift, but can be configured in Keybindings (#1457)\n- Timeline markers can now be named\n- Added timeline marker properties dialog\n- Timeline markers can now be dragged by holding control (#1483)\n- Option to clear opposite when flipping animation\n- Display timeline scrub tooltip in frames if setting is enabled\n- Support custom channels in Filter Channels menu in timeline\nUV\n- Added new \"Edit UV Size\" tool. This makes changing or adjusting UV sizes much more intuitive by providing a live preview and offering options to adjust UV values on elements accordingly.\n  - This tool can be accessed by clicking the UV size number at the top of the UV editor, or by editing the UV size value in the project or texture properties, depending on format.\n- Added new tool \"Move UV to cursor\" to simplify moving UVs on large texture maps (#2852)\n- Added Texture Wrap setting for textures (#1391)\n  - This setting is available in supported formats and lets you select how the texture behaves in regards to UV faces being outside of the texture\n    - \"Restricted\" restricts UV to only exist on the texture\n    - \"Repeat\" tiles the texture infinitely\n    - \"Clamp Edge\" lets you add UVs outside the texture, but the texture value is clamped to the edge, so only the pixels on the edge repeat forever\n  - Repeat displays a 3x3 tiled area in the UV editor.\n  - Based on #3072, thanks @nklbdev!\n- \"Move Texture with UV\" support for UV rotation and flip operations (#3319, thanks @Kannoma!)\n- Simplified Display UV setting and UV overlay toggles, they are now global instead of per-project.\n- Display UV and UV overlay options are now saved between restarts (JannisX11/hytale-blockbench-plugin#55)\n- Improved rectangle select in UV editor when showing all faces\n- Changed style of UV editor face selector bar\nBounding Boxes\nAdded a new type of element, the Bounding Box!\nThis represents an axis-aligned bounding box that can be used by various formats and games/engines for anything ranging from hitbox to collision and culling shape.\n- Each bounding box can be assigned one or multiple Functions in the element panel, these determine if the bounding box gets exported for a specific purpose.\n- Bounding Boxes for the current model can be auto-generated from Tools > Generate Bounding Boxes\n- Please note that bounding boxes are not part of most model formats and need to be exported separately, they are not part of the file. You can, however, save your model as a project file (.bbmodel) to keep bounding boxes in your project.\nBounding Box uses for Minecraft: Bedrock Edition\n- Block collision and selection components can be generated from bounding boxes in your model via Tools > Copy Collision/Selection Component\n- Entity Collision and custom hit test components can be generated from bounding boxes in your model via Tools > Copy Collision/Hitbox Component\n- The new Bedrock voxel shape file type can be imported, edited, and saved\n- Bedrock block collision and selection components are auto-loaded from the behavior pack block file if available\n- Pasting or drag-and-dropping the JSON code for a collision or selection component into Blockbench will load it as bounding boxes\nCollections & Multi file editing\nBlockbench has been expanded with a system to allow different formats to enable multi file editing workflows. Multi file means multiple files can be open in one project, but still save to separate files.\nThis is implemented with the help of object scopes and collections. This is an ongoing project, but Blockbench 5.1 has the first built-in use-cases for this with Minecraft Bedrock attachable and multi block editing.\n- Added scopes as an integer property on outliner nodes, collections, textures, animations. Scopes cannot be set by the user directly in most cases but are used by multi file editing workflows to identify which file an object belongs to.\n- If a scope is set to a value higher than 0, it is displayed as a scope color on the left edge of the object in the respective list\n- Collections, if they point to an export file, will now get marked as having unsaved changes.\n- Unsaved changes are displayed as a floppy disk icon in the collection list. Clicking it will save the collection to file.\n- Added \"Offset\" option, which will display if the collection exports to a codec with the support_offset field set to true.\n- Added Show in File Explorer option to collections\nMinecraft\n- Added baby mobs from the \"Minecraft: Tiny Takeover\" update as skin presets, and updated existing presets\n- Added embedded/flowerpot display slot for bedrock (#3361)\n- Added toggle in display mode to pause ground item animation\n- Added missing support for reading inflate value per bone in bedrock geometry (#3318)\n- Added texture mesh texture name property to element panel (#2996)\n- Added query.get_default_bone_pivot preview support\n- Added support for cross referencing texture keys in java block model (#330)\nPlayer and Attachable Editing\nBased on multi file editing, viewing Minecraft Bedrock Edition attachables alongside an entity and animating both in the same project is now possible.\n- Added \"Bedrock Player Model\", a new model loader that can be accessed via File > New and will generate a new player model.\n- Added File > Import > Import Bedrock Attachable to import a .geo.json file into the current project as an attachable.\n- When editing an attachable model separately, you can use Load with Bedrock Player from the top toolbar to load it into a project alongside a player model for reference.\n- When editing an attachable alongside a player, attachable bones attach to and move with base model bones if they have the same name, or their binding property is set.\n- The automatic rule to make each group name unique now only applies within one file. Groups from different files can have the same name.\n- Colletions are created for each imported attachable. If unsaved, the floppy disk icon in the collection can be pressed to save the changes to file.\n- In Animate mode, the Bedrock Animation Mode select can be used to preview player and attachables along with animations in first person view.\n- Animations are locked to one scope\n  - Bones from another scope cannot be animated in this animation\n  - When importing an animation, the scope will automatically be figured out based on the bones that are used in it\n  - When creating a new animation, the scope will be set based on the selected bone\n  - The animation scope can be set in the animation properties",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.1.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.1.0/Blockbench_5.1.0.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.1.0.exe",
+          "sha256": "1ff79d8e5355a0fb36ab6885dfb23dcba5f5f317306a49dfc3f3c51df7e2bc26",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.1.0",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.7",
+      "release_date": "2025-12-23",
+      "release_notes": "Fixes\n- Fixed issue with Group Elements action\n- Fixed and improved vertical resizing of sidebar panels\n- Fixed mesh loop selection issue\n- Fix issue when merging mesh while mirror modeling is enabled\n- Improved the performance of working with smooth meshes\n- Fixed #3210 Skin: \"Load from Minecraft\" option silently fails in web app\n- Fixed Issue when drag-selecting box UV cubes (JannisX11/hytale-blockbench-plugin#62)\n- Fixed issue with cube auto UV on non-square textures\n- Fixed inconsistent interval in smooth brush stroke\n- Fixed #3208 RPM Auto-updater uses the wrong package manager\n- Fixed editing reference image properties resets blueprint position\nDeveloper options\n- Added Uncorrupt Mesh action to the developer menu\n- Added error log copy button",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.7",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.7/Blockbench_5.0.7.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.7.exe",
+          "sha256": "40702f96d81a74b7b157a432432493a465e08adc3da01437f6de4245472bb27a",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.7",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.6",
+      "release_date": "2025-12-18",
+      "release_notes": "Changes\n- Added setting for default java block/item format version (#3204)\n- Renamed default mesh shape from \"cuboid\" to \"mesh\" to clarify its purpose\n- Disabled duplicate name warning pop-up on bone animators\nTechnical changes\n- Added priority option for element behavior overrides\n- Added display_default_pose event hook\nFixes\n- Fixed #3200 cube with rotation on one axis still exports to new 1.21.11 format\n- Fixed #2785 Knife tool not working well with touch controls\n- Fixed brush outline on touch input\n- Fixed ground plane scale in larger block size formats\n- Fixed plugin update fail if min_version is unspecified\n- Improved error handling when loading plugins\n- Fixed colors on edges when generating normal maps\n- Fixed default camera angle preset is not applied correctly in new projects\n- Fixed grid color change not applying\n- Fixed features not depending on the block size value (pixel density label in textures list)\n- Fixed #3191 animation groups not working in generic model\n- Adjusted cube auto UV overflow prevention\n- Fixed pivot marker being visible in paint mode in some cases\n- Fixed keybind display while holding Alt in Action Control\n- Fixed splash screen label for 4th place\n- Fixed dithering on low opacity smooth brush\n- Fixed behavior configuration for group renaming rules\n- Fixed #3194 rescale option is invisible in Java block 1.21.11 format version\n- Fixed rescale option import\n- Fixed rendering of rescale option with multi axis rotation\n- Removed outdated descriptions from shared actions such as Delete\n- Fixed shelf display settings being available in bedrock\n- Fixed export of display mirroring option in java vs bedrock\n- Fixed #3201 brushes with smoothness cause blur on entire layer when expanding layer\n- Fixed #3202 preview.texture in variable placeholder panel lowers framerate when playing animation",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.6",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.6/Blockbench_5.0.6.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.6.exe",
+          "sha256": "03310cc51acea510c14136840614872b120642b80fc95bff710d76fa06d342e4",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.6",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.5",
+      "release_date": "2025-12-10",
+      "release_notes": "Features & Changes\n- New Java block/item format version with no rotation limit (#3146)\n- Added Nautilus and Nautilus Baby skin presets\n- Added new language \"Portuguese (Brazil)\" (thanks @IagoEmanuel15!)\n- Reduced contrast of grid color\n- When auto UV is enabled on a cube, using the resize tool will now expand UVs in the direction in which it is being expanded\nTechnical/API Changes\n- Added new event hooks:\n  - display_model_stats\n  - interpolate_keyframes\n  - generate_texture_template\n- Added undo message argument to finish-/ed_edit event hook\n- Added displayFrame option on custom animator channels\n- Added support for boolean properties on keyframes\n- Added condition option for custom animation channels\n- Added support for requestable native API clipboard\n- The UV resolution in new projects now defaults to the format block size\n- Resolution presets in template generator are now displayed relative to block size\n- Added format option for forward direction, can be one of -z, +z, -x, +x\n- Made Model Stats customizable via plugin\n- Added animation_grouping format option to support one-per-file animation files\nFixes\n- Fixed undo issue when creating armature (#3183)\n- Fixed #3151 Shelf display missing as a preset option\n- Fixed UV navigator showing when UV editor is not zoomed out\n- Fixed selection issue with armature inside nested bone chain\n- Fixed rotating armature bone chain applying rotation to all selected bones\n- Fixed being able to create armature as child of armature bone\n- Fixed pasting into outliner with no elements selected\n- Panel update performance improvements\n- Improved armature posing performance\n- Fixed #3156 action.merge_splines is missing translation\n- Fixed cube auto UV not supporting mirrored faces\n- Fixed dragging unselected outliner elements issue\n- Fixed vertical alignment in dialog forms\n- Fixed timeline css issues\n- Fixed undo message when cutting texture selection\n- Fixed #3178 Unselect All not working in animation mode\n- Fixed issue with requesting file system access if scoped access is already granted\n- Fixed default values when creating keyframe extending animation on \"once\"\n- Fixed UV editor shifting when activating texture layers\n- Fixed #3189 interpolate option from mcmeta files is ignored\n- Fixed several issues related to Clear Unused Texture Space\n  - Fixed #2841 and #2840 feature is not working correctly with layers\n  - Fixed incorrect UV on cubes when using per texture UV size\n- Fixed vertex weight calculation issues when mesh has transformations",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.5/Blockbench_5.0.5.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.5.exe",
+          "sha256": "d28722f22854b2df79ed494ec0fc31179b6ae164af36730994c6336372d4b638",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.5",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.4",
+      "release_date": "2025-11-10",
+      "release_notes": "Changes\n- Changed color of unweighted mesh from black to dark blue\n- Armature bones are now hidden in Paint mode\n- 3D mouse input no longer depends on the Controller Input setting\n- Updated the list of default external image editors, added\n  - Aseprite\n  - PixiEditor\n  - Affinity\nFixes\n- Fixed #3128 Currently selected frame in the animated texture breaks gltf export\n- Fixed #3127 Cannot upload to Sketchfab\n- Fixed \"password\" form input not working correctly\n- Toggling properties and renaming no longer triggers mirror modeling\n- Fixed armature mirror modeling issues\n- Fixed issue with group undo tracking in mirror modeling\n- Updated electron-builder and electron-updater\n- Fixed #3123 Mirror Modeling ignores rotation values when choosing opposite elements\n- Fixed selection getting lost after undoing certain group edits\n- Fail-safe for group actions that do not register changes to undo (#3121, #3104)\n- Fixed flipping bones not registering undo correctly\n- Fixed outliner line guide only appearing for groups\n- Downgrade electron (potential fix for #3118)\n- Fixed armature without mesh not exporting to glTF (#3117)\n- Apply render sides setting to material preview material (#3066)\n- Fixed brush opacity issue\n- Remove electron-color-picker dependency on mac and linux (#2066)\n- Fixed #3107 Motion graph shows wrong positions on child bones\n- Fixed double click to rename not working with single group\n- Fixed UX of hybrid menus when overlapping with right screen edge\n- Fixed being able to copy-paste unsupported elements into armature bone\n- Fixed #3132 Deleting group with unselected children omits children in undo entry\n- Fixed image editor change not being saved\n- Fixed Optimize Animation not handling scale keyframe values correctly (#3134, thanks @respectZ)\n- Fixed mesh texture redrawing on templates for 180° rotated faces\n- Fixed UV editor size not updating correctly when attached to other panel\n- Fix #3131 Shift+click to select group sometimes does not select face\n- Unselect parent after unselecting an element (#3132)\n- Fix model stats dialog displaying lang key for splines\n- Fixed unselected children moving along when using pivot tool on group\n- Fixed cube auto UV not using per texture UV size\n- Fixed pinned auto UV updating when moving cube\n- Fix weight brush outline not disappearing when ending touch input",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.4",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.4/Blockbench_5.0.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.4.exe",
+          "sha256": "4d64e30e41b1495549ee4c91fab67a5ac9e5162e658a8eebb1517281333994f3",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.4",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.3",
+      "release_date": "2025-10-25",
+      "release_notes": "General Changes\n- Added ability to use multiple meshes in one armature\n- Added setting to select default bedrock format (entity or block)\n- Auto-detect bedrock block format when display settings exist\n- Made Edit Binding dialog resizable\n- Made it easier to double click to rename armature bone\n- Added support for new Minecraft Bedrock 1.21.120 Molang math and easing functions\n- Added setting for whether to limit brush opacity per stroke, defaults to on\nMobile & Touch UX\n- Display transform toolbar in status bar to improve mobile UX\n- Added setting to control whether to use the transform panel or use transform toolbars in the status bar\n- Offset cursor tooltip on touch input towards the top to make it more readable\nTechnical changes\n- Return false in action click event to cancel use\n- Included source maps in electron build to make the console easier to read\n- Improved missing WebGL API error message\nFixes\n- Fixed color variable set to wrong value when opening theme dialog\n- Fixed issue loading models with texture mesh\n- Fixed group values not updating properly in element panel\n- Fixed stretch tool appearing in paint mode\n- Fixed stretch slider interval\n- Fixed stretch slider default value\n- Normalise vertex weights when exporting to glTF\n- Fixed UV editor scrollbar click detection\n- Fixed outliner element name color on iOS\n- Remember which panel tab was selected when switching modes or restarting\n- Fixed color picker not updating when switched to palette tab\n- Fixed artifacts in brush stroke with lower opacity\n- Fixed web app not caching correctly for offline use\n- Fixed dialog form issue in Change Animation Speed\n- Fixed easing generator not working in animation controller editor\n- Fixed missing lang string for version in theme editor\n- Fixed #3085 copy pasting group does not retain texture\n- Fixed #3078 Toggling off Flipbook Animation not on the first frame erases texture\n- Fixed fonts not working in offline PWA\n- Fixed #3098 Pasting into num slider from context menu not working\n- Fixed waist bone not resetting when switching pose\n- Fixed factory reset button not working in some cases (#3087)\n- Fixed dev tools not opening when loading fails\n- Fixed #3100 Wrong targets in Flip Animation\n- Disabled feature to automatically remove builtin java-item parent, which is no longer required\n- Fixed #3070 transform space selector missing when using resize tool\n- Fixed selecting parent group of armature not selecting all armature bones\n- Fixed @import in custom themes not working",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.3/Blockbench_5.0.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.3.exe",
+          "sha256": "836ab286f0ecef4509bf66bead2e98dba8fe792a81068bdae13429b6b3dfbaee",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.3",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.2",
+      "release_date": "2025-10-16",
+      "release_notes": "Changes\n- Added collection context menu entry to open file\n- Deprecation notes are now displayed directly on the plugin page\n- Added argv API to Blockbench namespace\n- Added CSS layer for plugin styles\nFixes\n- Fixed palette panel not expanding correctly\n- Fixed undo issue when deleting multiple nested groups\n- Fixed timeline effects icon\n- Fixed locators not appearing in IK target menu\n- Improved toolbars on mobile, remove overflow icon in main toolbar\n- Fixed mobile UI issue when using image editor\n- Fixed cursor tooltip display on mobile\n- Fixed mobile timeline navigation\n- Blueprints now auto-update references to new data format\n- Fixed issue with exporting step interpolation keyframes to bedrock\n- Fixed #3045 vertex points in gltf export\n- Fixed centering grouped elements in java block/item\n- Fixed #3061 cannot take a screenshot of the model in the GUI slot\n- Fixed #3058 selection issue after mirror modeling in object mode\n- Fixed #3046 groups not properly tracked in scaling undo\n- Fixed rotating multi-selected groups\n- Fixed error when displaying empty plugin list (#3050)\n- Fixed #3047 Collections are not saved in bbmodel\n- Fixed bedrock export of bezier curves and IK\n- Fixed dialog API not being requireable\n- Weight brush mirror modeling fix\n- Tweaked automatic weight generator\n- Fixed layered texture not updating when editing multiple times\n- Fixed #3064 Drag and drop skin issue\n- Fixed issue with flipping billboards\n- Fixed billboards not always rotating towards camera when used in animations",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.2/Blockbench_5.0.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.2.exe",
+          "sha256": "645d2b22d219560a3ee26cce56117b1c7af770f2f9d8c070fa073a40cbe1cf7a",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.2",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.1",
+      "release_date": "2025-10-13",
+      "release_notes": "Changes\n- Enabled face direction view mode on cube projects\n- Added back render order option to cube context menu\n- Made adding outliner elements via context menu more user friendly\nFixes\n- Fixed app failing to load for some users due to certain UI customizations\n- Fixed JSON syntax highlighting not working in plugin created code editors\n- Fixed #3036 Crash on Model Exit Confirmation Dialog on Linux\n- Fixed #3037 Generic Models cannot be exported as Collada if they contain a mesh\n- Fixed #3038 cannot delete palette color\n- Fixed #3035 limit to pallete broken\n- Fixed issue when exporting palette\n- Fixed palette saving issue\n- Fixed #3032 cannot move mesh with the parent group selected\n- Fixed action control sometimes installing/uninstalling wrong plugin when duplicates exist\n- Fixed keybinding conflicts being displayed with mouse keys\n- Fixed weight brush painting when moving camera with same key\n- Fixed #3031 Issue with mesh UV after switching to animation mode (#3034)\n- Fixed issue with build script in Linux (#2954)\n- Fixed molang invert issue\n- Fixed incorrect panel size after switching mode",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.1/Blockbench_5.0.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.1.exe",
+          "sha256": "5ec867f1bd631ba4b49e75943dbf8dd5f3c1fc31420883d315f5425d7cf3b82a",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.1",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.0",
+      "release_date": "2025-10-12",
+      "release_notes": "Welcome to Blockbench 5.0!\nThis update introduces multiple new elements, a new design, armatures, and much more!\nimage\nArmatures\nArmatures introduce a new way of animating models. Attach an armature to a mesh to create a rig, then animate the rig.\nRigs can bend and deform meshes, allowing greater flexibility when setting up a model for animation.\nAlongside armatures, the new tool \"Weight Brush\" has been added. This tool lets you control which parts of a mesh are affected by a certain bone.\nSelect the tool, select a bone, and then paint on the mesh. A black area on your mesh indicates that the bone has no effect on it.\nThe warmer the color, the higher the effect of the bone will be. A red vertex will be fully controlled by the bone.\nYou can automatically calculate vertex weights based on the position of the bones, and the weight brush lets you refine this.\n- Added Armatures\n- Added Armature Bones\n- Added new Weight Brush tool\n- Added Vertex Weight and Vertex Bone Color view modes\nimage\nSplines\nSplines are a new mesh type that simplify the creation of long mesh shapes following a specific path.\nSplines offer a great way to model objects like cables, branches, pipes, snakes, stylized hair, and all sorts of shapes like that.\nOverview over spline functionality\nThanks to @Azagwen for developing this new feature!\nUI Changes\n- Upgraded the design of Blockbench, introducing more rounded corners, gradients, shadows, and paddings, and improving usability\n- Multiple panels can now be added into one as tabs\n- Renamed former \"Element\" panel to \"Transform\"\n- Added \"Element\" panel as a tab behind \"Transform\"\n- Added Montserrat as new headline font\n- Settings that were added by a plugin now display the plugin name in the UI\n- Added modifier key hint for moving panels without docking\n- Updated keyframe icons (#2712, thanks @MrSirSquishy!)\n- Form labels no longer have colons by default\n- Node icons are now displayed in timeline\n- Reorganized and sorted Load Images menu into categories\n- Removed edit session dialog close button\n- Added panel menu option to reset size\nPreview options\n- Added preview options menu\n- Added option to show/hide gizmos (#2803)\n- Added quick preview background color option (#1788)\n- Allow blueprint reference images in front of the model\n- Added setting to toggle double click to select reference image\n- Shift click in orbit gizmo to select middle, (#2685)\n- Set antialiasing bleeding fix setting to true by default\nExporting\n- Added STL exporter\n- Added GIF exporter for images (#2679)\n- Before asking for save locations for multiple textures when saving, a pop-up now opens to confirm you want to save them\n- Added git text normalization for JSON files\nAnimation\n- Added expanded Molang expression editor (#2636)\n- Added animation groups (#2327)\n- The animation list is now searchable\n- Added setting to change default keyframe interpolation mode (#2319)\n- Bind to actor property on keyframes (#2827)\n- Allow locking animation as playing while selected\n- Added support for shift and control modifiers when sliding keyframes with keyboard\n- Move keyframes up and down in graph editor with arrow keys (#2314)\n- Added animation file save as context menu option\n- Added channel filter action to timeline context menu\n- Added quaternion interpolation mode (opt-in per timeline animator in generic models)\nTexturing\n- Added darken/lighten blend modes\n- Added Flipbook texture toggle in texture context menu\n- Searchable texture list\n- Add action to import image as layer (#2980)\n- Added normal map color picker\n- Added setting to toggle automatically loading textures as flipbook (#2920)\n- Images with an aspect ratio of 1x2 are now no longer automatically loaded as flipbook textures\n- Added standalone action to apply selected texture to selected elements\nNew elements\n- Added billboards\n- Added splines\n- Added armatures and armature bones\n- The add element actions in the outliner toolbar have been combined into one Add Element action with a submenu\nMinecraft\n- Added display settings support for the new shelf slot (#2900, thanks @Nogard-YT!)\n- Added java display settings GUI slot clipping\n- Added fallback for query.model_scale (#2902)\n- Added support for cem model field in jem format (#2899)\nMinecraft skin editor\n- Added skin menu\n- Added waist bone for minecraft player skins\n- Option to convert between slim and wide skin model (#1735)\n- Added custom skin pose saving (#1614)\n- Option to load skin textures from Minecraft vanilla samples pack\nThemes customization\n- Added a new CSS-based .bbtheme file format (More info)\n- Theme configuration options (Better organization for sets of themes #2657)\n- Workflow improvements for theme creators\n  - Themes can now be edited in an external code editor using CSS syntax\n  - You can reload themes with the press of a button\n  - You can enable automatic reload to apply your changes instantly when you save them\n- Separate CSS layer for themes, allowing full CSS control without using !important.\nMiscellaneous changes\n- Added mesh smooth shading option (#2024)\n- Added Record Gizmos option to GIF Recorder\n- Added setting for relative or absolute asset paths (#1322)\n- Allow specifying custom install location on Windows (#1884)\n- Added setting to disable autocomplete (#2473)\n- Added a keybind for adding a mesh to the blender bbkeymap (#3019)\n- Improved outdated client message when opening newer bbmodel\n- Added confirmation dialog when loading palette to confirm replacing other palette\n- Added button to open file in external program in the JSON error dialog\n- Made stretch gizmo operate more granularly\n- Added model identifier in collections (#2750)\n- Added legacy bbmodel export\n- Improve automatic node name flipping to support R and L notation\n- Improve Flip Animation tool to support more left/right name notations\nTechnical updates\n- Switched codebase to use modules and esbuild\n- Introduced typescript\n- Added new development workflow, scripts, and VSCode renderer debug integration (see readme.md on the \"next\" branch)\n- Updated required browser version to ES2023\n- Replaced compareVersions with new VersionUtil (#2995)\n- Renamed selectLow to markAsSelected on outliner nodes\n- Implemented new element behavior system, allowing more hard-coded behavior of elements to be customized on custom element types\n- Added full clone support for \"object\"-type properties\n- Change how outliner hierarchy + groups are saved in undo history and bbmodel\n- Mobile UI tweaks\n- Support for separators in menu sidebars\n- Added permission system for plugins using native APIs\n- Added scoped file system\n- Changed Group.selected to return array\n- Added dialog onResize hook\n- Plugin dependency order is now resolved on load\n- Added collection contains API\n- Added support for any data:image/ URL to getIconNode (#3000)\n- Added events loaded_plugin and unloaded_plugin\n- Addsed delete functions to Menu and MenuBar classes to make them match their types\n- Added new SystemInfo API to get common information about the system that the program is running on\n- Added developer menu option to expose native APIS in dev tools\n- Added block_size option in ModelFormat\n- Made euler order configurable per format\n- Support for property inputs in collections\n- Changed collection save-over to no longer show file dialog\n- Add category option to message box commands\n- Added element behavior override system\n- Added external data loader option to codec parse functions (#2806)\n- Changed third argument in codec load + parse methods\n- Added property support on timeline animators\n- Added animation loop wrapping as a format feature flag\n- Ensure consistent mesh quad vertex order (#2932)\nThere are some breaking changes to the plugin API in this update. Read Upgrading Plugins to 5.0 for details.\nTypescript\nThe codebase is now partially using typescript, with the goal to move everything to typescript over time.\nSome files are now fully written in typescript. Legacy files files are still written in javascript, and types are defined as .d.ts files in the ./types/custom directory.\nTypes from typescript files are automatically generated from source and saved inside ./types/generated.\nThe blockbench-types package is now generated from this repository, the old repository will become deprecated. This will help keep types up-to-date and verify their correctness when making changes.\nFixes\n- Fixed #2839 Pivot sliders move position of meshes\n- Fixed brush outline not showing up when using WebGL1\n- Fixed #2832 invalid texture state after rotating layer\n- Fixed animation axis directions\n- Fixed scrollbar colors in 2D editor\n- Fixed missing centroid in texture vertex shader\n- Fixed element selection issue in Condition resolving\n- Fixed HSV sliders affecting each other while using\n- Fixed loop cut direction when loop of faces is selected\n- Fixed hybrid menu mouse hover issue\n- Fixed closing window sometimes requiring two clicks\n- Disabled UV remapping when changing project resolution (#2799)\n- Improved viewport orbit rotation on ultra wide screens (#2801)\n- Improved texture bleeding fix in display reference models (#2860)\n- Fixed applying animation controller preset not registering undo edit\n- Fixed #2875 Incorrect importing of discontinuous keyframes\n- Fixed #2874 bedrock display settings scale can export as negative\n- Fixed clicking on UV editor scroll bar triggering paint tool\n- Fixed texture mesh shape with PBR map selected\n- Fixed variable placeholder not working with number arguments\n- Fixed #3009 Changing Model or File name does not mark it with unsaved changes\n- Fixed collection item text overflow (#3012)\n- Fixed #3004 TGA textures fail to load when importing texture_set file\n- Fixed TGA texture import failing when using drag & drop\n- Fixed split RGB channels into layers\n- Fixed issues with JSON comment stripping\n- Fixed #2983 Floating Panels do not overflow correctly\n- Fixed UV face rotating issue\n- Fixed vindicator skin preset arm angle\n- Fixed Alex reference model arm origins",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v5.0.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/5.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.0.0/Blockbench_5.0.0.exe",
+          "host": "github.com",
+          "filename": "Blockbench_5.0.0.exe",
+          "sha256": "498ef96680d3bb752e467848fb24f1d0aa2eff2e89121bb4bad83b231c6df8c2",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 5.0.0",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.12.6",
+      "release_date": "2025-08-05",
+      "release_notes": "Changes\n- Added Copper Golem skin preset\n- Added support for variables/queries with arguments (such as query.property) in variable placeholders\n- Updated MolangJS to 1.6.6, adds support for new math function Math.min_angle\n- Added PBR material capability to Minecraft Java formats (#2808)\n- Added the option to generate normal maps\n- New language: Turkish\nFixes\n- Fixed error in bogged_layer skin template\n- Fixed #2752 Error when resizing MER Texture\n- Fixed #2832 invalid texture state after rotating layer\n- Fixed rendering of emissive maps\n- Fixed #2871 context.foo not working as variable placeholder\n- Fixed generating box UV template out of per face UV using wrong texture sources\n- Fixed molang validator flagging curly brackets as invalid character",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.12.6",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.12.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.12.6/Blockbench_4.12.6.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.12.6.exe",
+          "sha256": "7da67bd4d3f273e125dfb7f147339e7ce3606d4b662446fcfaeb672d68eebc03",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 4.12.6",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.12.5",
+      "release_date": "2025-06-17",
+      "release_notes": "Changes\n- Added happy ghast skin preset\n- Added ghast harness skin preset\n- Disabled 22.5 degree rotation restriction on Java block/item models for version 1.21.6\n- Added format version selector in project settings for Java block/item models to version new free rotation ability\n- Added default resolution option for skin presets\n- Vertex snap now works with null objects and locators\n- Color picker with Combined Color turned off now picks combined color if active layer is transparent\n- Added support for locators in sound keyframe\n- Changed minimum size for generating texture to 1x1 pixels\nFixes\n- Fixed #2787 Grouping bones+cubes behaving unexpectedly\n- Fixed #2804 color picker layer offset issue\n- Parse variable placeholders once on text change to improve performance (#2786)\n- Fixed #2741 Timeline horizontal scroll not working with wheel/trackpad\n- Fixed #1637 Box UV can generate with decimals, causing visual issues\n- Fixed #2775 Copy Animation dialog sometimes opening when duplicating bones that are not animated (#2776)\n- Fixed #2791 Cannot resolve multiple groups at once\n- Fixed marker color index out of bounds issues (#2777)\n- Fixed mesh marker color not randomized per new mesh\n- Fixed size slider behaving incorrectly on cubes with negative size\n- Fixed #2759 Invalid rotation values in default display presets\n- Fixed #2760 Text Input Changes to Display Transforms Not Undoable\n- Fixed #2758 Fit to frame not saved to display presets\n- Fixed #2817 Error when exporting animation to gltf as armature without bone\n- Fixed #2807 Added namespace support for OptiFine CEM\n- Fixed #2823 UV rotation breaks box UV",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.12.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.12.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.12.5/Blockbench_4.12.5.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.12.5.exe",
+          "sha256": "194702408696d33ad9f05a4ae90889780b03d96cd738b8150a92079d33b4ebaa",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 4.12.5",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.12.4",
+      "release_date": "2025-03-28",
+      "release_notes": "Changes\n- Added new Minecraft skin model variants to support the new \"Spring to Life\" game drop\n  - Cow: New regular model, warm variant, cold variant\n  - Pig: New model with support for variants\n  - Chicken: New cold variant\n  - Magma cube: New model with updated UV map\n- Support for editing subsurface scattering in texture sets\n- Auto-load texture sets when opening bedrock model\n- When generating multiple MER maps, they are now combined into existing MER textures as an additive layer\n- Added a setting to pick combined colors with the color picker. By default, it will now pick the color of the active layer\n- Add image edit option to split RGB channels of a texture into separate layers\n- Renamed bone binding item slot from \"Main Hand\" to \"Item Slot\" to better describe its behavior\nTechnical changes\n- Improved performance of JSON compiler\nFixes\n- Fixed # 2731 Error when dragging group into outliner root\n- Fixed height map rendering blurry when converted to different pbr channel\n- Improved texture set and pbr map name generation\n- Fixed #2378 issue with selecting faces in the Face Properties editor\n- Fixed PBR actions being available in formats without PBR support\n- Fixed context menu not closing when selecting texture from textures panel\n- FIxed #2604 \"Keep Multi Texture Occupancy\" doesn't work for mirrored UV\n- Fixed MER map not updating when editing layers\n- Fixed issue with loading animation controllers\n- Fixed #2723 Multiple images in the same image project can overwrite each other on save\n- Fixed issues with generating MER map from existing texture\n- Fixed MER map display issues\n- Materials can no longer be created from textures that are already in a material\n- Fixed #2720 Open Parent & Adopt Textures still does an action when dismissing dialog\n- Fixed #2688 NaN is exported to JSON as NaN",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.12.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.12.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.12.4/Blockbench_4.12.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.12.4.exe",
+          "sha256": "14c3624bc108386dc58de32122321b916a1a245cf61f5dd9a525f31d2577f8a8",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 4.12.4",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.12.3",
+      "release_date": "2025-02-19",
+      "release_notes": "Changes\n- Added skin preset for the \"Creaking\"\n- Changed vector inputs to update ratio from current numbers when enabling linked ratio\n- Condensed Ignore Axis options of Vertex Snap tool into one line\n- Limited height of placeholder variable buttons list\n- Added support for three.js vector as argument in V3_set\nFixes\n- Fixed directions of new faces when extruding edge loop\n- Fixed amend edit not working when extruding edges\n- Fixed invalid selection after mirror modeling mesh\n- Ignore box UV cubes with face rotation value when determining format version for bedrock geo\n- Fixed #1334 Mesh wireframes sometimes do not update\n- Fixed #2665 tiny numbers not rounded in minified bbmodel\n- Fixed per group texture not being saved in custom formats\n- Fixed #2661 dragging multiple groups in outliner can causes recursive structure\n- Fixed material instances in face properties editor not applying to all selected cubes\n- Made minimum reference image size scale with zoom level\n- Fixed issue where undoing a selection of a deleted element would create invalid state\n- Made tool config API match type\n- Fixed #1851 default actions cannot be removed from toolbars in some cases\n- Fixed texture not updating when moving cube into group in per group texture format\n- Fixed #2644 selecting collections with invalid state can lock interface\n- Fixed issue in edit session when undo selections is enabled\n- Fixed edit sessions not snycing correctly\n- Fixed bbmodels saving as .bbmodel.txt on some android devices",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.12.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.12.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.12.3/Blockbench_4.12.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.12.3.exe",
+          "sha256": "1b19fdecdb9203b0c703760c7fc78656d557029f32289bf63343b8242352249b",
+          "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Blockbench 4.12.3",
+              "product_code": "f73268a5-4451-5bb0-b2b7-a92a16ee01d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.9.4",
+      "release_date": "2024-02-16",
+      "release_notes": "Changes\n- Added webp support for reference images\n- Added \"Add Image\" option when dropping png file into image editor\nFixes\n- Fixed Merge Down of layer ignoring opacity and blend mode\n- Fixed issue when resizing or scaling textures with layers\n- Fixed auto UV not working on negative size cubes\n- Fixed potential line overflow in error log dialog\n- Fixed molang editor overflow in animation properties dialog\n- Created temporary fix for large backup models preventing the program from starting\n- Fixed zoom not working correctly in orthographic camera angle presets\n- Fixed errors when typing text into some numeric inputs\n- Fixed animation controllers exporting line breaks in transitions\n- Fixed #2197 Highlight Brush line drawn from mirrored spot\n- Fixed clicking cancel on export options not canceling export\n- Fixed bedrock attachable reference player arm not correctly rotated\n- Fixed UV size sliders not updating UV on meshes\n- Fixed mesh UV rotation snapping not being super precise\n- Fixed plugin details tab issues\n- Fixed non-critical background tab texture error message\n- Fixed mesh viewport menu acting like outliner menu\n- Allow palette colors to be styled smaller via theme",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.9.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.9.4/Blockbench_4.9.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.9.4.exe",
+          "sha256": "ac657f360f1b648e01628b66d53e838796bc17e3b923325838159e037389f46f",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.9.1",
+      "release_date": "2023-12-04",
+      "release_notes": "Changes\n- Respect texture animation when pasting image sections\n- Updated bbmodel format version to 4.9 to highlight per-texture-UV-size system\nFixes\n- Fixed #2133 issue when generating templates\n- Fixed UV resolution changing when converting projects\n- Fixed missing option to disable color when appending to template\n- Fixed UV editor navigation issue on Firefox + iOS\n- Fixed settings profile issue with removed settings\n- Fixed timeline scrolling CSS issue\n- Fixed issue with brushes restricting to cube faces\n- Fixed pixel grid on box UV generic models\n- Fixed #2129 Hybrid menus close when cursor passes over menu separator\n- Fixed hybrid menu icon updating incorrectly in nested menus\n- Fixed #2132 issue with UV preview\n- Fixed UV export in OBJ and Collada exporter\n- Fixed round color picker creating too many color history entries\n- Fixed #2121 line brush preview not disappearing when releasing shift outside of window\n- Fixed #2123 Highlight Brush line drawn from arbitrary position before having painted\n- Fixed incorrect category for layer crop keybinding\n- Fixed cropping texture to selection issue on mac and Linux builds\n- Hide removed cube faces\n- Exclude removed cube faces from UV selection frame (#2135)\n- Fixed #2137 narrow list in model import dialog\n- Fixed onion skinning memory leak\n- Fixed issue with moving layers when grabbing outside of canvas",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.9.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.9.1/Blockbench_4.9.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.9.1.exe",
+          "sha256": "69d55af2f55155aeb0bbedbb1237217e8e83c6644782b1a803ca620d6fbbc1b0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.8.3",
+      "release_date": "2023-08-30",
+      "release_notes": "Fixes\n- Fixed #2016 Global mirror painting not working on centered elements\n- Fixed issue with hybrid menu not staying open\n- Fixed exporting textures with # in path\n- Timeline ruler labels not rounded\n- Updated electron to 25.7",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.8.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.8.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.8.3/Blockbench_4.8.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.8.3.exe",
+          "sha256": "4b6377efdb5ccdef8ed8986c4d2301b662fd572b4facce43f27e67d95385ecac",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.8.2",
+      "release_date": "2023-08-27",
+      "release_notes": "Changes\n- Elytra + cape skin model\n- Banner skin model (#1997)\n- Elements now support name flipping (#1982)\n- Added update_scene_shading event hook\n- Added a CDN mirror option, to solve plugins being unavailable in Egypt\nFixes\n- Fixed #2002 Issue with loop cut on triangle shape\n- Fixed #1984 Mesh merge undo does not track hierarchy\n- Fixed amend edit can undo other changes after error in function\n- Fixed graph editor box select selects graph on mouseup\n- Fixed texture path issues\n- Issue with duplicate texture detection\n- Issue with relative texture paths in bbmodel export\n- Fixed issue opening image project in web app\n- Fixed #1920 Copy brush issues\n- Fixed issue with loading new version plugins in the web app\n- Fixed plugin settings deleting in rare cases\n- Added limit + improved performance of searchable menus\n- Fixed mirror modeling issues\n- Fixed issue with recording high FPS GIFs\n- Fixed num slider sliding not working on touch screens\n- Fixed icon issues in action control\n- Fixed incorrect location of brush outline in java block/item\n- Reloading local plugin does not reload icon and about file\n- Fixed #1976 issue when offsetting mirror editing loop cut\n- Close #1981 Mirror modeling now no longer updates names\n- Fixed #1994 Assigning left click for panning messes up UV editor and timeline controlls\n- Fixed #1991 Zombie head does not change rotation when applying a pose\n- Fixed #1992 unchanged backups not persistent after second crash (#2003)\n- Fixed menu navigation issue on touch devices\n- Fixed mesh flipping issue: Flipping a vertex of edge selection of a mesh would not invert the affected faces\n- Fixed GIF recording with unlinked camera\n- Fixed issue with tab key in variable placeholder field\n- Optimize keybinding saving, fixed potential error\n- Fixed issue with generating mirror modeling box UV templates",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.8.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.8.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.8.2/Blockbench_4.8.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.8.2.exe",
+          "sha256": "5340ed4bacc7358036867c78473518e2cbbaac69428968bd9a3c7b3468acaf73",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.8.1",
+      "release_date": "2023-07-30",
+      "release_notes": "Changes\n- Adjust boder size of 3D brush outline based on size\n- Added settings to toggle 2D and 3D brush cursor\n- Added message box with instructions before updating\n- Switching page on paginated lists now scrolls to top of list\nFixes\n- Fixed issues with \"Color\" blend mode\n- Fixed generated bones in mirror modeling not having unique names in some cases\n- Fixed issue with painting through transparency\n- Fixed incorrect GIF FOV in preview scenes\n- Fixed #1970 issue drag and dropping skin file\n- Fixed #1968 mirror painting not working on certain faces\n- Fixed file inputs in some dialogs not clearing properly\n- Fixed painting on selected layered texture when it's hidden\n- Fixed Russian language using English strings instead",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.8.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.8.1/Blockbench_4.8.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.8.1.exe",
+          "sha256": "1704dd4e0d4315386308c5960fc77cd7349d79724c4a958008ad426637b3e09e",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.7.4",
+      "release_date": "2023-05-27",
+      "release_notes": "Fixes\n- Fixed #1890 Brush and eraser no longer work in 2D editor\n- Returning from hovering over side menu in menu entry (e. g.\n  Plugins...) to the main menu entry does not update highlight\n- Fixed missing translation for Start Screen button tooltip, when Hide Tab Bar is enabled",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.7.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.7.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.7.4/Blockbench_4.7.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.7.4.exe",
+          "sha256": "acdd83152293d9a8aeb0c001d7b27813a7de9a5335063c65aabdda23ecdc7081",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.7.2",
+      "release_date": "2023-04-30",
+      "release_notes": "Changes\n- Use alt key to amplify keyframe graph from center\n- Added icon to reference image delete dialog\nFixes\n- Fixed FBX position keyframe scale (#1853)\n- Fixed animation controller blending using blend value of wrong state\n- Fixed reference image drag & drop\n- Fixed seam tool still selecting edges based on vertices\n- Fixed #1850 disabled cube faces block UV dragging\n- Fixed reference images being selectable through model\n- Fixed cube face rotation not always restricted to format\n- Fixed mesh alignment on higher res texture templates\n- Updated electron builder to potentially solve #1755\n- Fixed password toggle in settings not displaying in line\n- Fixed #1854 Cannot paint on Skin Block preset\n- More accurate animation playback speed\n- Fix #1262 inset faces don't have default UV mapping\n- Fixed moving mesh selection in group space",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.7.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.7.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.7.2/Blockbench_4.7.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.7.2.exe",
+          "sha256": "2cea8963e8bbbb276a89e08ff826c37827d684146978af7b32bb748ac6ca5a60",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6.5",
+      "release_date": "2023-03-09",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.6.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.6.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.6.5/Blockbench_4.6.5.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.6.5.exe",
+          "sha256": "f5095949eafff2791e0b95b84a01ced87646954770df806902161845804cf903",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6.4",
+      "release_date": "2023-02-04",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.6.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.6.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.6.4/Blockbench_4.6.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.6.4.exe",
+          "sha256": "ef4dc29261dae47627a67ceea5a94dd6d0847d5e2bb8970e452537d83c872b84",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6.3",
+      "release_date": "2023-02-02",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.6.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.6.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.6.3/Blockbench_4.6.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.6.3.exe",
+          "sha256": "63c692c14e77ff12f19dfdbc724d4b5d77a304c4a6ee93941f971115fb2e4af1",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6.1",
+      "release_date": "2023-01-20",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.6.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.6.1/Blockbench_4.6.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.6.1.exe",
+          "sha256": "9c6b98f2aae9b921267652438d23c36fd0554aa5a0c1e6f86f9da76f78bfbbe7",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6.0",
+      "release_date": "2023-01-16",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.6.0/Blockbench_4.6.0.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.6.0.exe",
+          "sha256": "33c3584611893a38c741475f51a412af1e90b88c83b582dfe71adce72e8bf62d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.5.2",
+      "release_date": "2022-11-20",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.5.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.5.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.5.2/Blockbench_4.5.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.5.2.exe",
+          "sha256": "6d51160c50ff083c0706cc7e569abd30b1fc58d0a4bb12b989db962715678e64",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.5.1",
+      "release_date": "2022-11-12",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.5.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.5.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.5.1/Blockbench_4.5.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.5.1.exe",
+          "sha256": "6c277be4e30b4e11b0f1e49f0d36bcba50152c058e8cd60aee0723b19601df6a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.5.0",
+      "release_date": "2022-11-10",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.5.0/Blockbench_4.5.0.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.5.0.exe",
+          "sha256": "6a235829eebec29e1c7e25bef98af236c9ff9c80834bef801c2595f81ff3630b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4.3",
+      "release_date": "2022-10-19",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.4.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.4.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.4.3/Blockbench_4.4.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.4.3.exe",
+          "sha256": "350fbb3e9d03a9c7b85136da5d189633c241a54ff9c67536c2dd377f32ba2782",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4.2",
+      "release_date": "2022-10-02",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.4.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.4.2/Blockbench_4.4.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.4.2.exe",
+          "sha256": "115ec9bd56c6edf1146e0c10e9672b8506f0d921ee54c05a4092267fa3cf0819",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4.1",
+      "release_date": "2022-09-16",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.4.1/Blockbench_4.4.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.4.1.exe",
+          "sha256": "92b53d4832bc8697c9c4595265925d3c0f86b9b3a36ca3b66c93078d354b0d10",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.1",
+      "release_date": "2022-07-25",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.3.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.3.1/Blockbench_4.3.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.3.1.exe",
+          "sha256": "df899650f5a29f32a111c331d6c7dd66d899d71dd4c95c1a537e539fe999016c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.5",
+      "release_date": "2022-06-10",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.2.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.2.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.2.5/Blockbench_4.2.5.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.2.5.exe",
+          "sha256": "9ccd8f9d2edee9c8ca3d19dca0298771b8a1b6c928ade1393c11fbd5a4ac5cc0",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.4",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.2.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.2.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.2.4/Blockbench_4.2.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.2.4.exe",
+          "sha256": "ac6127a64f35d90900c0798e1c4e197ee35f20ba541112d4e2433a483dba21b3",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.2.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.2.3/Blockbench_4.2.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.2.3.exe",
+          "sha256": "31f8d33ec7d41ba8cc32a2de57a06ffc72e21c35b0b2967eb4af24f06d43c0f4",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.5",
+      "release_notes_url": "https://github.com/JannisX11/blockbench/releases/tag/v4.1.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.1.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.1.5/Blockbench_4.1.5.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.1.5.exe",
+          "sha256": "d02da16d37815db25b8852bd73ce01445ccf3054f7c9825d545de4d86e5aa8cd",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.1.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.1.4/Blockbench_4.1.4.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.1.4.exe",
+          "sha256": "50ac5d9326ae13d63ae2bde8e34b7e237a64f62fe0cc9622ed4cb50f2f8e6adf",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.1.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.1.3/Blockbench_4.1.3.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.1.3.exe",
+          "sha256": "c5799a1c541d15c262df37fcb82e9e4c4378b6143a7feca31098e70db2591d70",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.1.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.1.2/Blockbench_4.1.2.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.1.2.exe",
+          "sha256": "bbc3c937d988f171f7264f71f740cc6b739ad079627ca29ec15b4f856223b272",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.1.1/Blockbench_4.1.1.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.1.1.exe",
+          "sha256": "627450a78aa1f56613592406ee9b6581f5eedc52c66c1482672d3a556be3b461",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/j/JannisX11/Blockbench/4.0.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v4.0.5/Blockbench_4.0.5.exe",
+          "host": "github.com",
+          "filename": "Blockbench_4.0.5.exe",
+          "sha256": "c16e26f1419e2fc514fbf3095f3b43383d81419d7c960e0eed6175570b7959ac",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bbmodel"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "5.2.2",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.2.2/Blockbench_x64_5.2.2.dmg",
+          "host": "github.com",
+          "filename": "Blockbench_x64_5.2.2.dmg",
+          "sha256": "d743fa5d92db3e5081a450ca91ab0536c7a62ac12b9c1a7374040e2524a15469",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/JannisX11/blockbench/releases/download/v5.2.2/Blockbench_arm64_5.2.2.dmg",
+          "host": "github.com",
+          "filename": "Blockbench_arm64_5.2.2.dmg",
+          "sha256": "0d072bf863ee3e0bcaecbd0de67a5ffd29dfbf6ee2e8fe5eeb872a14331c5c03",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Blockbench.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/Blockbench",
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/blockbench.sfl*",
+            "~/Library/Preferences/blockbench.plist",
+            "~/Library/Saved Application State/blockbench.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "5.2.2",
+      "release_date": "2026-10-08",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/net.blockbench.Blockbench.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "net.blockbench.Blockbench.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "1464d41576767dbac3497f1cf70f79561fd0e7b6",
+      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "path": "manifests/j/JannisX11/Blockbench"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1aac7c6920d0d8e5026b2892d2bb99f587813241",
+      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "path": "Casks/b/blockbench.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/blockbench.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/net.blockbench.Blockbench",
+      "retrieved_at": "2026-11-08T14:58:15.929Z",
+      "path": "api/v2/appstream/net.blockbench.Blockbench",
+      "api_url": "https://flathub.org/api/v2/appstream/net.blockbench.Blockbench",
+      "content_sha256": "2fc7b091bae0f0035c7f7a7c150859023c454b132484a63ff3d061148824b3d1"
+    }
+  ],
+  "flathub": {
+    "app_id": "net.blockbench.Blockbench",
+    "page_url": "https://flathub.org/apps/net.blockbench.Blockbench",
+    "repo_url": "https://github.com/flathub/net.blockbench.Blockbench",
+    "install_command": "flatpak install flathub net.blockbench.Blockbench",
+    "run_command": "flatpak run net.blockbench.Blockbench",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "blockbench.net",
+      "verified_on": "2026-03-26"
+    },
+    "license": "GPL-3.0",
+    "free_license": true,
+    "developer_name": "JannisX11",
+    "categories": [
+      "Graphics",
+      "3DGraphics"
+    ],
+    "download_size": 139360064,
+    "installed_size": 370318336,
+    "arches": [
+      "x64"
+    ]
+  }
+}

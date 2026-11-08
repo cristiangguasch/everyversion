@@ -1,0 +1,1702 @@
+{
+  "schema_version": 2,
+  "slug": "darktable",
+  "name": "darktable",
+  "publisher": "darktable team",
+  "ids": {
+    "winget": "darktable.darktable",
+    "moniker": "darktable",
+    "flathub": "org.darktable.Darktable"
+  },
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "summary": "Photography workflow application and raw developer",
+  "description": "darktable is an open source photography workflow application and raw developer. A virtual lighttable and darkroom for photographers. It manages your digital negatives in a database, lets you view them through a zoomable lighttable and enables you to develop raw images and enhance them.",
+  "tags": [
+    "darkroom",
+    "editor",
+    "image",
+    "lighttable",
+    "negative",
+    "photo",
+    "photography",
+    "picture",
+    "raw",
+    "viewer"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.darktable.org/",
+    "publisher": "https://www.darktable.org/",
+    "support": "https://www.darktable.org/contact/",
+    "release_notes": "https://github.com/darktable-org/darktable/releases/tag/release-5.6.2",
+    "documentation": [
+      {
+        "label": "Resources",
+        "url": "https://www.darktable.org/resources/"
+      },
+      {
+        "label": "Wiki",
+        "url": "https://github.com/darktable-org/darktable/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/darktable-org/darktable/blob/HEAD/LICENSE",
+    "spdx": "GPL-3.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "5.6.2",
+    "linux": "5.6.2"
+  },
+  "last_updated": "2026-10-04",
+  "versions_total": {
+    "windows": 36,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "5.6.2",
+      "release_date": "2026-10-04",
+      "release_notes": "The Big Ones\nThe following is a summary of the main features added to darktable 5.6.2. Please see the user manual for more details of the individual changes (where available).\n- N/A\nUI/UX Improvements\n- N/A\nPerformance Improvements\n- N/A\nOther Changes\n- N/A\nDocumentation updates\n- Versioning of the docs has resumed! With release of each new major version of darktable we take a snapshot of the current state of the development-docs.\n- The stable documentation for 5.6.2 can be found here and now contains a version switcher at the top to switch between 5.6 and development version of the manual.\n- If you find room for improvement on the manual, you are welcome to open an\n  issue, post to\n  pixls.us,\n  or submit a PR yourself.\n- Translations of the docs are maintained through weblate.\nBug Fixes\n- Fixed highlights modes for 4BAYER (CYGM/RGBE) raws, only clipping mode is available for those.\n- Fixed darktable stealing the focus from other applications on Windows, pushing itself in front of whatever you were using and\n  taking the keyboard. This could happen when hovering over lighttable thumbnails, during import and export, and when log messages appeared\n  or expired. While darktable was minimized it took the keyboard without becoming visible.\n- Fixed Alt+Tab failing to switch away from darktable on Windows when the mouse pointer was over a lighttable thumbnail.\n- Fixed the console windows that repeatedly appeared on Windows when darktable or a Lua script ran an external command. darktable now\n  keeps a single console session for its lifetime instead of creating a new console for each command.\n- Fixed highlights laplacian OpenCL code.\n- Fixed OpenCL input gamma corrected scaling for some devices.\n- Fixed an OpenCL error in filmicrgb leading to wrong masks.\n- Fixed transparent dialog title bars on macOS 27.\n- Fixed a crash when importing a style whose module order is empty. The malformed order is now ignored and the style keeps the default one.\n- Fixed a crash at the end of neural restore's raw denoise on certain sensor sizes, where blending the tile seams wrote past the edge of\n  the image.\n- Fixed small memory leaks when expanding variables, which grew with the number of images exported or imported in one run.\n- Fixed a small memory leak each time a history stack was pasted onto the image open in darkroom.\n- Fixed a crash or hang on Windows when checking a faulty custom ONNX Runtime library.\n- Fixed corrupted output or a crash when an AI model returns more data than darktable reserved for it, affecting object masks and Lua models.\n- Fixed OpenCL support for recent Intel drivers.\nLua\nAPI Version\n- N/A\nNew Features\n- N/A\nBug Fixes\n- Stop script_manager from starting twice and causing a stack overflow.\n- Change to user installed scripts directory before updating.\n- Execute user luarc file in all cases.\nNew Scripts\n- N/A\nOther Lua changes\n- N/A\nNotes\n- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific metadata (e.g. geo-tag or creator) is not currently possible. For\n  AVIF, EXR, JPEG XL, and XCF formats, darktable will not include any metadata fields unless the user selects all of the checkboxes in the\n  export module's preference options.\n- Starting with release 5.4, macOS versions older than 14.0 are no longer supported on Apple Silicon Macs, nor older than macOS 15 on\n  Intel Macs.\n- On Windows 11 24H2 and later, darktable no longer creates any console window. On earlier Windows versions one console window is\n  retained for as long as darktable runs and closes automatically when darktable exits.\nChanged Dependencies\nMandatory\n- N/A\nOptional\n- N/A\nCamera support, compared to 5.6.1\nBase Support\n- N/A\nWhite Balance Presets\n- Leica SL3-P (DNG)\n- Sony ILCE-7RM6\nNoise Profiles\n- N/A\nMissing Compression Mode Support\n- Apple ProRAW DNGs\n- CinemaDNG lossless (Blackmagic, some DJI, etc.) and lossy (Blackmagic)\n- DNG 1.7 using JPEG XL (Adobe enhanced, Samsung Expert RAW)\n- Fujifilm lossy RAFs\n- Nikon high efficiency NEFs\n- Phase One other than IIQ L\n- Sony ARW 4.0/5.0 downsized lossless (\"M\" for full-frame, \"S\" for full-frame & APS-C)\n- Sony ARW 6.0 compressed and compressed (HQ)\nSuspended Support\nSupport for the following cameras is suspended because no samples are available on https://raw.pixls.us:\n- Creo/Leaf Aptus 22(LF3779)/Hasselblad H1\n- Fujifilm IS-1\n- Kodak EasyShare Z980\n- Leaf Aptus-II 5(LI300059)/Mamiya 645 AFD\n- Leaf Credo 60\n- Leaf Credo 80\n- Olympus SP320\n- Phase One IQ250\n- ST Micro STV680\nTranslations\n- Albanian\n- Brazilian Portuguese\n- Chinese (Simplified)\n- Chinese (Traditional)\n- Czech\n- Dutch\n- European Spanish\n- Finnish\n- French\n- German\n- Hungarian\n- Japanese\n- Korean\n- Lao\n- Norwegian Bokmål\n- Polish\n- Russian\n- Slovenian\n- Swedish\n- Ukrainian",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.6.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.2/darktable-5.6.2-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.6.2-win64.exe",
+          "sha256": "7f7a1eabcd0a1b548dcfacac842c8203fc85a4175697fb09f90bb891c8931edd",
+          "product_code": "darktable_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.2/darktable-5.6.2-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.6.2-win64.exe",
+          "sha256": "7f7a1eabcd0a1b548dcfacac842c8203fc85a4175697fb09f90bb891c8931edd",
+          "product_code": "darktable_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.6.1",
+      "release_date": "2026-08-27",
+      "release_notes": "The Big Ones\nThe following is a summary of the main features added to darktable\n5.6.1. Please see the user manual for more details of the individual\nchanges (where available).\n- N/A\nUI/UX Improvements\n- N/A\nPerformance Improvements\n- Reverted increased preview pipe dimension for UI performance.\nOther Changes\n- AI model downloads now resume after an interruption and retry on\n  transient network errors instead of starting over.\n- AI raw denoise now refuses legacy Fujifilm Super CCD sensors, whose\n  sensor layout the models were not trained for.\n- Color labels, ratings and manually applied geotags are now copied to\n  images created by AI denoise and upscale, in addition to EXIF data\n  and tags.\nDocumentation updates\n- The manual has seen a lot of attention this cycle: the documentation\n  is up to date again, and translations are flowing once more via Weblate.\n- We've also expanded the docs on how dtdocs itself is set up and maintained, making it easier for new contributors to get\n  involved. If you find room for improvement, you are welcome to open an issue, post to pixls.us, or submit a PR yourself.\nBug Fixes\n- Fixed a bug that left OpenCL AMD devices disabled on Windows\n  systems.\n- Fixed a bug in demosaic module resulting from bad green\n  equilibration data.\n- Fixed a bug preventing the tether mode to connect when using a non\n  English UI.\n- Fixed an out-of-bounds read in wavelet decomposition that could\n  occasionally crash darktable when generating previews.\n- Fixed an out-of-bounds write in path masks that could lead to\n  crashes when two nodes overlapped exactly.\n- Fixed a bug in the retouch module that would prevent cache\n  invalidation after shape changes when blending is active.\n- Fixed an out-of-bounds read in the code responsible for raster\n  mask caching.\n- Fixed a possible crash when applying .cube, .3dl, or compressed\n  GMIC 3D LUTs.\n- Enforce darktable loading screen on windows systems to avoid\n  darkroom refreshing issues.\n- Fixed a bug in CPU opposed highlights code that could lead to out of\n  memory crashes.\n- Fixed a crash on Windows when auto-detecting an incompatible ONNX\n  Runtime library, or when reopening preferences after configuring\n  one.\n- Fixed the preferences dialog blocking when opened on a slow or\n  unreachable network. The AI model update check now runs in the\n  background.\n- Fixed a crash in neural restore raw denoise on raws where the\n  visible area extends to the sensor edge, e.g. some phone\n  tele-lens DNGs.\n- Fixed the \"add to the current collection\" checkbox in neural\n  restore being ignored when the global \"ignore non-raw images\"\n  import filter is enabled.\n- Fixed neural restore writing past the CFA buffer on 4-Bayer\n  sensors (CYGM, RGBE). Output is now a Linear DNG.\n- Fixed Sony embedded lens-correction tags being stripped from\n  exported TIFF and DNG files. Re-imported files now offer the\n  \"embedded metadata\" lens-correction mode again.\n- Fixed a crash and white cast in neural restore preview on\n  LINEAR-class images (Apple ProRAW, computational raws).\n- Fixed sRaw images being rejected as unsupported by neural\n  restore. They now route through the LINEAR pipeline.\n- Fixed wrong blue colors for 16bit png exports.\n- Fixed some subtle segment issues in highlights segmentation mode.\n- Fixed two-finger scrolling falling through to zoom when drawing masks,\n  scrolling now pans unless the active mask consumes the gesture.\n- Fix feather rendering on path masks whose control points coincide\n  with their corners; previously produced wildly displaced border\n  lines instead of a proper offset outline.\n- Fixed the on-screen rating message showing the wrong value when\n  rating multiple images at once (for example, clearing 1-star still\n  reported rating 1).\n- Fixed a bug leading to subtle color errors after history changes.\n- Fixed lighttable full preview jumping to the first image when\n  rejecting with filmstrip auto-scroll disabled and the collection\n  filtered to hide rejected images.\n- Fixed the image index and filmstrip selection in culling mode not\n  updating when navigating with the arrow keys.\n- Fixed lighttable filemanager scrolling to the top when assigning\n  a star rating or color label while the first row was only partly\n  visible.\n- Fixed calculation of pixelpipe cache payloads while preparing the\n  cache and while checking for requested tiling thus reducing oom kills\n  on small systems.\n- Fixed possible over-allocations of OpenCL memory that could lead to\n  instabilities or dt crashing on small devices\n- Fixed corrupted pixels on some AMD GPUs using the Mesa rusticl OpenCL\n  driver. Colorspace conversions, the lookup table module and the contrast\n  equalizer no longer read from and write to the same image buffer on the\n  GPU, which the OpenCL specification leaves undefined.\n- Fixed the AppImage defaulting to x11/Xwayland in native Wayland\n  sessions.\n- Fixed masks being altered by modules blending.\n- Ignore possible OpenCL null events (uninitialized) due to hard\n  memory pressure.\n- Fixed performance drop due to larger mipmaps being used. This has\n  been reviewed to ensure the performance is back to usable on small\n  systems.\n- Fixed distortion of one out of every four pixels in JPEG 2000 images\n  with YCbCr 4:2:0 subsampling.\n- Fixed a bug where drawn path masks with many nodes rendered a\n  chaotic feather line instead of following the mask outline.\n- Fixed a crash when switching the lens correction method from\n  embedded metadata to Lensfun and back.\n- Fixed the AI raw denoise preview showing a different area than the\n  one selected on cropped images, and the area picker remaining\n  unavailable until darktable was restarted.\nLua\nAPI Version\n- N/A\nNew Features\n- N/A\nBug Fixes\n- Stop script_manager from starting twice and causing a stack overflow.\n- Change to user installed scripts directory before updating.\n- Execute user luarc file in all cases.\nNew Scripts\n- N/A\nOther Lua changes\n- N/A\nNotes\n- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific\n  metadata (e.g. geo-tag or creator) is not currently possible. For\n  AVIF, EXR, JPEG XL, and XCF formats, darktable will not include any\n  metadata fields unless the user selects all of the checkboxes in the\n  export module's preference options.\n- Starting with release 5.4, macOS versions older than 14.0 are no\n  longer supported on Apple Silicon Macs, nor older than macOS 15 on\n  Intel Macs.\nChanged Dependencies\nMandatory\n- N/A\nOptional\n- N/A\nCamera support, compared to 5.6.0\nBase Support\n- N/A\nWhite Balance Presets\n- N/A\nNoise Profiles\n- N/A\nMissing Compression Mode Support\n- Apple ProRAW DNGs\n- CinemaDNG lossless (Blackmagic, some DJI, etc.) and lossy (Blackmagic)\n- DNG 1.7 using JPEG XL (Adobe enhanced, Samsung Expert RAW)\n- Fujifilm lossy RAFs\n- Nikon high efficiency NEFs\n- Phase One other than IIQ L\n- Sony ARW 4.0/5.0 downsized lossless (\"M\" for full-frame, \"S\" for full-frame & APS-C)\n- Sony ARW 6.0 compressed and compressed (HQ)\nSuspended Support\nSupport for the following cameras is suspended because no samples are available on https://raw.pixls.us:\n- Creo/Leaf Aptus 22(LF3779)/Hasselblad H1\n- Fujifilm IS-1\n- Kodak EasyShare Z980\n- Leaf Aptus-II 5(LI300059)/Mamiya 645 AFD\n- Leaf Credo 60\n- Leaf Credo 80\n- Olympus SP320\n- Phase One IQ250\n- ST Micro STV680\nTranslations\n- Albanian\n- Brazilian Portuguese\n- Chinese (Simplified)\n- Chinese (Traditional)\n- Czech\n- Dutch\n- European Spanish\n- Finnish\n- French\n- German\n- Hungarian\n- Japanese\n- Korean\n- Lao\n- Norwegian Bokmål\n- Polish\n- Russian\n- Slovenian\n- Swedish\n- Ukrainian",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.6.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.1/darktable-5.6.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.6.1-win64.exe",
+          "sha256": "bb15a8e4d24c21097cfdef0a560920f7fa0c05dec93482448dd538f2be02d6c4",
+          "product_code": "darktable_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.1/darktable-5.6.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.6.1-win64.exe",
+          "sha256": "bb15a8e4d24c21097cfdef0a560920f7fa0c05dec93482448dd538f2be02d6c4",
+          "product_code": "darktable_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.6.0",
+      "release_date": "2026-06-21",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.6.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.0/darktable-5.6.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.6.0-win64.exe",
+          "sha256": "b42989195dfff44540c0b767b407987329ca99853612304cbbf14c48d1d3f803",
+          "product_code": "darktable",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.4.1",
+      "release_date": "2026-02-05",
+      "release_notes": "The Big Ones\nThe following is a summary of the main features added to darktable\n5.4. Please see the user manual for more details of the individual\nchanges (where available).\n- N/A\nUI/UX Improvements\n- N/A\nPerformance Improvements\n- N/A\nOther Changes\n- N/A\nBug Fixes\n- Fixed wrong handling of scaling factor during multi-preset export.\n- Fixed missing help URL, pointing to the online documentation, for\n  the new AgX module.\n- Fixed wrong handling of overwrite if changed in export.\n- Fixed images exported with wrong settings when using multi-preset\n  export.\n- Fixed wrong RAW specific auto-applied preset being applied to non\n  RAW images.\n- Fixed subtle color casts in bayer dual demosaicers.\n- RustiCL gets the default optimizing compiler flags as other\n  platforms.\n- Fixed loading some Olympus ORF files (e.g. E-410 and E-510)\n  due to a possible crash or memory corruption when parsing\n  highlight-preservation Exif tag.\n- Fixed the mask support in scale pixels module.\n- Fixed a possible crash when using workspace due to the non\n  deterministic ordering of the list of workspace read on disk.\n- The list of the allowed tags in the metadata editor preferences has\n  been restricted to tags which are supposed to be user-editable.\n- Fixed the thumbnail information update in the overlay or the tooltip\n  when some metadata variable are used. That is, when changing the\n  metadata we need to recompute the thumbnail information.\n- Fixed a possibly standstill while discarding history on fast\n  systems.\n- Fixed a possible crash in the way the Color Equalizer module GUI is\n  initialized.\n- Fixed an issue in culling layout where switching to the darkroom\n  sometimes failed with an error message.\n- Fixed an inconsistency in the styles module UI when shown in the\n  darkroom view. It is not possible to create a duplicate to which the\n  style is applied, and the setting of the corresponding checkbox has\n  just been ignored. To avoid confusion, the checkbox is now hidden in\n  the darkroom view.\n- Fixes resets to default OpenCL per device setting.\n- Fixed possibly outdated metadata when returning from darkroom. For\n  example if the image is cropped in darkroom, the metadata $(WIDTH.x)\n  and $(HEIGHT.x) where not correct on lighttable.\n- Fixed a missing thumbnail overlays with $(CATEGORY[n,m]) variables\n  update when a tag is assigned.\n- Fixed jumping of curvature slider when used on the mask manager.\n- Fixed a crash when mounting a camera from Darktable due to the\n  current locale. Mounting is now done using the C locale.\nLua\nAPI Version\n- API version is now 9.6.0\nNew Features\n- N/A\nBug Fixes\n- N/A\nAdd action support for Lua\nOther Lua changes\n- N/A\nNotes\n- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific\n  metadata (e.g. geo-tag or creator) is not currently possible. For\n  AVIF, EXR, JPEG XL, and XCF formats, darktable will not include any\n  metadata fields unless the user selects all of the checkboxes in the\n  export module's preference options.\n- Starting with release 5.4, macOS versions older than 14.0 are no\n  longer supported on Apple Silicon Macs, nor older than macOS 15 on\n  Intel Macs.\nChanged Dependencies\nMandatory\n- N/A\nOptional\n- N/A\nRawSpeed changes\n- N/A\nCamera support, compared to 5.4.0\nBase Support\n- N/A\nWhite Balance Presets\n- N/A\nNoise Profiles\n- Canon EOS 10D\n- Sony ILCE-7CR\nMissing Compression Mode Support\n- Apple ProRAW DNGs\n- CinemaDNG lossless (Blackmagic, some DJI, etc.) and lossy (Blackmagic)\n- DNG 1.7 using JPEG XL (Adobe enhanced, Samsung Expert RAW)\n- Fujifilm lossy RAFs\n- Nikon high efficiency NEFs\n- Phase One other than IIQ L\n- Sony ARW 4.0/5.0 downsized lossless (\"M\" for full-frame, \"S\" for full-frame & APS-C) and ARW 6.0 lossy\nSuspended Support\nSupport for the following cameras is suspended because no samples are available on https://raw.pixls.us:\n- Creo/Leaf Aptus 22(LF3779)/Hasselblad H1\n- Fujifilm IS-1\n- Kodak EasyShare Z980\n- Leaf Aptus-II 5(LI300059)/Mamiya 645 AFD\n- Leaf Credo 60\n- Leaf Credo 80\n- Olympus SP320\n- Phase One IQ250\n- ST Micro STV680\nTranslations\n- Czech\n- German\n- European Spanish\n- Finnish\n- French\n- Hungarian\n- Italian\n- Japanese\n- Korean\n- Dutch\n- Polish\n- Brazilian Portuguese\n- Slovenian\n- Albanian\n- Swedish\n- Ukrainian\n- Chinese (Simplified)\n- Chinese (Traditional)",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.4.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.4.1/darktable-5.4.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.4.1-win64.exe",
+          "sha256": "df3b9f2f9f1375b9166c2fb2f1503455c3ceaa44c702b8a9144419e65e0cfdf9",
+          "product_code": "darktable",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.4.0",
+      "release_date": "2025-12-21",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.4.0/darktable-5.4.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.4.0-win64.exe",
+          "sha256": "655ce83046f27d20e1385bffa1e5471b702033083772f65db1fe1a07445c3eb8",
+          "product_code": "darktable",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.1",
+      "release_date": "2025-08-06",
+      "release_notes": "The Big Ones\nThe following is a summary of the main features added to darktable\n5.2. Please see the user manual for more details of the individual\nchanges (where available).\n- N/A\nUI/UX Improvements\n- Reset window position if it can't be placed at last used position on\n  any available monitor in a multi-monitor setup.\nPerformance Improvements\n- N/A\nOther Changes\n- Add busy cursor while generating a GPX track preview and a progress\n  bar while applying positions from a track to images.\nBug Fixes\n- Fixed translation of snapshot module's labels.\n- Expanded width of preference boxes Lua Options so that long input is visible.\n- Fixed compilation when OpenMP is disabled.\n- Fixed an OpenCL bug in rastermask module for non-raw images.\n- Fixed regression introduced in darktable 5.0 with inability to read\n  raw files from ancient (over two decades old) Canon cameras that\n  recorded raw files with .tiff extension.\n- Fixed the inability of external raster masks module to work in\n  Windows with PFM files that have Unicode characters in the file\n  name.\n- Fixed a bug in liquify OpenCL code leading to incorrect clamped\n  output.\n- Fix color equalizer picker not working in quick access panel.\n- Paletted TIFFs were read incorrectly by the main libtiff-based\n  loader, with loss of color information. We are now handing them over\n  to the GraphicsMagick/ImageMagick fallback loader (usually available\n  in official/distro builds) for correct reading.\n- The variable names for the metadata tags variables have been changed\n  to the full case sensitive tag name to avoid ambiguity.\n- Fixed inability to remove collections with ' in the name.\nLua\nAPI Version\n- API version is now 9.5.0\nNew Features\n- Added apply_sidecar to dt_lua_image_t so that a sidecar file can be loaded\n  and applied to an image in lighttable.\nBug Fixes\n- N/A\nAdd action support for Lua\n- N/A\nOther Lua changes\n- N/A\nNotes\n- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific\n  metadata (e.g. geo-tag or creator) is not currently possible. For\n  AVIF, EXR, JPEG XL, and XCF formats, darktable will not include any\n  metadata fields unless the user selects all of the checkboxes in the\n  export module's preference options.\n- Starting with release 4.8, macOS versions older than 13.5 are not\n  supported.\nChanged Dependencies\nMandatory\n- N/A\nOptional\n- N/A\nRawSpeed changes\n- OM Sytem OM-1 Mark II and OM-3 crop was updated for better handling\n  of high-resolution raws.\nCamera support, compared to 5.2.0\nBase Support\n- Nikon D200 (12bit-compressed)\n- Nikon D5300 (12bit-compressed)\n- Panasonic DC-GH7 (4:3)\n- Pentax K-r (PEF)\n- Samsung GX-1L\nWhite Balance Presets\n- Fujifilm GFX 100 model name fix\n- Nikon Z50_2\nNoise Profiles\n- Fujifilm GFX100S II\n- Panasonic DC-S5M2X\n- Pentax *ist D\nMissing Compression Mode Support\n- Apple ProRAW DNGs\n- CinemaDNG lossless (Blackmagic, some DJI, etc.) and lossy (Blackmagic)\n- DNG 1.7 using JPEG XL (Adobe enhanced, Samsung Expert RAW)\n- Fujifilm lossy RAFs\n- Nikon high efficiency NEFs\n- Phase One other than IIQ L\n- Sony downsized lossless ARWs (\"M\" for full-frame, \"S\" for full-frame & APS-C)\nSuspended Support\nSupport for the following cameras is suspended because no samples are available on https://raw.pixls.us:\n- Creo/Leaf Aptus 22(LF3779)/Hasselblad H1\n- Fujifilm IS-1\n- Kodak EasyShare Z980\n- Leaf Aptus-II 5(LI300059)/Mamiya 645 AFD\n- Leaf Credo 60\n- Leaf Credo 80\n- Olympus SP320\n- Phase One IQ250\n- ST Micro STV680\nTranslations\n- Czech\n- German\n- European Spanish\n- Finnish\n- French\n- Hungarian\n- Italian\n- Japanese\n- Korean\n- Dutch\n- Brazilian Portuguese\n- Russian\n- Slovenian\n- Albanian\n- Ukrainian\n- Chinese (Simplified)\n- Chinese (Traditional)",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.2.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.2.1/darktable-5.2.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.2.1-win64.exe",
+          "sha256": "c470779d92a08345c6f9b65457484e2fe4406537b0604a6e0df0339c81059158",
+          "product_code": "darktable",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.0",
+      "release_date": "2025-06-16",
+      "release_notes": "The Big Ones\nThe following is a summary of the main features added to darktable\n5.2. Please see the user manual for more details of the individual\nchanges (where available).\n- View snapshots side-by-side with the current image, instead of as a\n  partial overlay, by clicking the button next to \"take snapshot\". The\n  center viewport is divided in two equal panels and can be zoomed and\n  panned (by dragging while holding the \"a\" key) as before. The\n  dividing line can not be moved and any click without \"a\" rotates the\n  layout.\n- The metadata module is now fully configurable and allows to add and\n  maintain any tags which are supported by exiv2.\n- Added a new module \"raster mask import\". After setting up a root\n  folder containing PFM files, a file can be selected to be used as a\n  raster mask, it is scaled to full image size. You can also define\n  what combination of the RGB channels of that PFM file will be used\n  for the raster mask.\n- Sigmoid module is now the default tone-mapper selected for new\n  installation.\n- The export module has got a new section multi-preset export which\n  allows to export the selected images with multiple presets in one\n  single export run.\nUI/UX Improvements\n- Replaced the zoom range widget, which controls the number of\n  thumbnails displayed on the thumbnail table, with a spin\n  button. This makes it easier to set the exact value.\n- In the 4 ways tab in Color Balance RGB, ctrl+click now\n  picks the actual color while regular click continues to pick the\n  opposite color. This gives users more flexibility and control when\n  selecting hues.\nPerformance Improvements\n- Eliminated unnecessary GUI refreshes.\n- Improved user interface responsiveness for blending operations.\nOther Changes\n- Removed the levels and contrast brightness saturation modules (which\n  were deprecated in 2023) from the deprecated modules group. Since\n  this group would be empty after that, it has also been removed for\n  now.\n- Due to an upstream issue, exporting JPEG XL in 16-bit float at\n  quality 100 is not currently mathematically lossless.\n- Allow reading of files in Cineon format (developed by Kodak) and DPX\n  format (developed by SMPTE) with .cin and .dpx file extensions.\n- The \"prefer performance over quality\" preference setting has been\n  removed.\n- A workaround for old broken AMD OpenCL drivers that has been in\n  place for 12 years has been disabled by default. Hopefully more\n  recent drivers don't need it anymore and it caused problems with the\n  translation of the user interface during startup, causing part of it\n  to appear in English. If you have problems with OpenCL that you\n  believe may be caused by this change, please do two things:\n  - Add the line opencl_force_c_locale=anything to your\n    ~/.config/darktable/darktablerc file.\n  - If that solves your problem, please report the issue to GiHhub\n    PR #18342, including information on the make of your GPU and the\n    version of your drivers. We can then for the next release either\n    by default re-enable the workaround for drivers that need them,\n    or warn people with antiquated drivers that they need to update.\n- Presets can now be arranged in sub menus, like styles can, by\n  inserting | in their name between levels. The shortcuts\n  dialog/preferences tab now show these collapsible hierarchies for\n  styles and presets too (and the bug that style shortcuts were not\n  translated is fixed).\n- Give a hint for pending background work when darktable is closing.\n- Improved rendering output of Denoise Profile, Dither and Astrophoto\n  Denoise on second window or in high quality processing mode.\n- Hide \"reduce resolution of preview image\" preference setting. This\n  was a way to get better responsiveness on slow systems introduced in\n  2020, but at the same time it was making the color picker and mask\n  support inaccurate (quality loss).\n- Improved quality of inpaint opposed highlight recovery algorithm for\n  sRAW images.\n- Reduced haze removal visible difference between exports and HQ\n  darkroom processing.\n  For some images the algorithm fails to calculate correction\n  parameters, this is reported via control log.\n- Lens info is now read from OM-System/Olympus image files taken with\n  lenses without electronic data if this info is entered in the\n  camera lens info settings dialog. The lens correction module will\n  automatically find the lens, if it is supported by lensfun and the\n  entered name matches the lensfun name, which can be seen in the lens\n  selection drop down list.\n- Raster masks got internal improvements and now support the same refinement\n  tools as all other masks including details threshold, feathering guide and\n  radius, blurring radius and contrast. Some UI refinements for raster-masks.\n- The highlights module offers a raster mask with information about level above\n  clip level.\n- Changing orientation (via the flip module) respects changes done in\n  crop module.\n- The shown dimension while cropping now matches the default export\n  dimension and keeps the exact chosen ratio.\n- In the history module item tooltip, fixed the formatting and scaling\n  of the changes to match the values as seen in the modules\n  themselves.\n- Added auto login to the piwigo export module. This can be enabled in\n  the security section of the preferences.\n- Add 45x35 aspect ratio to the crop module, which is popular on IDs\n  and passports.\n- Color assessment conditions: Changed total border width to relative\n  scaling which should work well on small and big screens, independent\n  of physical screen resolution, added pop-up window for\n  parameterization and removed ISO12464 reference.\n- Improved visibility of masks in darkroom. This is controlled by the\n  new hidden \"darkroom/ui/develop_mask_mix\" configuration option.\n- Add a new setting to change which images are taken into account for\n  actions: By default, the image under the cursor takes priority. With\n  this parameter enabled, the selected images will take priority, and\n  the image under the cursor will only be taken into account to feed\n  the information modules.\n- Added a tag icon on thumbnails to display the list of attached tags\n  when hovering over it.\n- In the map view, it is possible to pan the entire track in one of\n  the following ways: by double-clicking on the track segment list, by\n  left-clicking on the list header, or by shortcut option.\nBug Fixes\n- Fixed sidecar writing if quitting from darkroom.\n- Fixed some rare race conditions while processing the pixelpipes.\n- Fixed collection filter presets based on capture time creating an\n  empty widget.\n- Proper high quality demosaicing and details blending support for\n  second window.\n- Fixed a bug that allowed NULL pointer dereference in tethering mode\n  under certain conditions, which resulted in a crash.\n- Fixed darktable shutdown code so pending background jobs are properly finished\n  and give a control log if there is pending work.\n- Fixed a crash in the import dialog when trying to add a new place to\n  an empty places list.\n- Fixed bit-depth setting not saved in AVIF export presets.\n- Fixed reset button not working in the geotagging module. Also a\n  loaded GPX track in the geotagging module is now properly removed.\n- Fixed darktable-cli crashing if the darktable database is locked.\n- Fixed image not properly layout in the print module after being\n  rotated from Lighttable.\n- Fixed a bug where the changes in various edit fields are not saved\n  correctly when the field loses the input focus.\n- Fixed incorrect reporting of whether a flash was fired in expansion\n  variables $(EXIF.FLASH.ICON) and $(EXIF.FLASH) under certain\n  conditions.\n- Fixed the edit style dialog to show all module's duplicates. Also,\n  when creating a new style we don't show the whole history but only\n  the last version of each module.\n- Fixed a bug in xtrans demosaicers that could feed NaNs into the\n  pixelpipe.\n- Fixed display of image using a composite module when the modules are\n  reordered.\n- Many TIFF loader fixes and improvements:\n  - Fixed crash on files for which libtiff would issue warnings or errors\n  - Fixed crash on files with missing SAMPLESPERPIXEL tag\n  - Enabled CMYK TIFF support\n  - Added support for loading TIFF with missing/undefined sample format\n  - Fixed reading of grayscale images with min-is-white interpretation\n    (made them not inverted)\n  - Fixed regression in support of many more exotic variations\n    of the TIFF format, such as tiled encoding, planar layout,\n    uncommon bit depths (such as 12 or 14 bits, or less than 8)\nLua\nAPI Version\n- API version is now 9.5.0\nNew Features\n- Added apply_sidecar to dt_lua_image_t so that a sidecar file can be loaded\n  and applied to an image in lighttable.\nBug Fixes\n- Expanded width of preference boxes Lua Options so that long input is visible.\nAdd action support for Lua\nOther Lua changes\n- N/A\nNotes\n- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific\n  metadata (e.g. geo-tag or creator) is not currently possible. For\n  AVIF, EXR, JPEG XL, and XCF formats, darktable will not include any\n  metadata fields unless the user selects all of the checkboxes in the\n  export module's preference options.\n- Starting with release 4.8, macOS versions older than 13.5 are not\n  supported.\nChanged Dependencies\nMandatory\n- N/A\nOptional\n- n/a\nRawSpeed changes\n- OM System 14-bit high-resolution ORFs are now supported.\n- Canon EOS 5D Mark II crop was updated.\n- Fujifilm FinePix X100 crop was updated.\n- Samsung EX1 crop and white level were updated.\n- Sony ILCE-1M2 color matrix was updated.",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.2.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.2.0/darktable-5.2.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.2.0-win64.exe",
+          "sha256": "4c1499e9d137efcd87e8b70fb6a0374f7139f1d0f0c49baeac9923ef7df7bdaa",
+          "product_code": "darktable",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "bmq",
+            "cin",
+            "cine",
+            "cs1",
+            "dc2",
+            "dcm",
+            "dpx",
+            "exr",
+            "fit",
+            "fits",
+            "fts",
+            "gpr",
+            "hdr",
+            "hej2",
+            "ia",
+            "j2c",
+            "j2k",
+            "jng",
+            "jp2",
+            "jpc",
+            "jpf",
+            "jpx",
+            "kc2",
+            "miff",
+            "mng",
+            "pam",
+            "pbm",
+            "pfm",
+            "pgm",
+            "pnm",
+            "ppm",
+            "pxn",
+            "qoi",
+            "qtk",
+            "rdc",
+            "sti"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.1",
+      "release_date": "2025-02-09",
+      "release_notes": "We're proud to announce the new bug-fix release of darktable, 5.0.1!\nThe github release is here: https://github.com/darktable-org/darktable/releases/tag/release-5.0.1.\nTo build from source, do not use the autogenerated tarball provided by GitHub on the release page, download our tar.xz file instead. If you're just building for yourself without creating a package for some distribution, then using source code cloning in git is an even more convenient way.\nThe checksums are:\n$ sha256sum darktable-5.0.1.tar.xz\n4a918d094ebba983ef67a10cc715c3d7e8ca738009920a9ff65d33417b6dd984  darktable-5.0.1.tar.xz\n$ sha256sum darktable-5.0.1-x86_64.dmg\nce05f2a9efa4cde090a939e42813ee98cf98f5b5e6a14304c9d8c3d71a589a01  darktable-5.0.1-x86_64.dmg\n$ sha256sum darktable-5.0.1-arm64.dmg\n66296ab8d26e4ac14061a5407eafe0f31ddb7ac1de9995bd2e05043e9c0b0c60  darktable-5.0.1-arm64.dmg\n$ sha256sum darktable-5.0.1-arm64-13.5.dmg\n19878fca36ab52d6b629ae6b372345665809df3941fd9e168b470237ed6cb4b9  darktable-5.0.1-arm64-13.5.dmg\n$ sha256sum darktable-5.0.1-win64.exe\n2ea64535f1d42793f2ef53aec971eca43818748aba036b5e778624297ea0fb34  darktable-5.0.1-win64.exe\n$ sha256sum darktable-5.0.1-x86_64.AppImage\n881e4cfb79c473404f871d48bd60ed2d6234f90f71e33c1bdc033dafd6901f06  Darktable-5.0.1-x86_64.AppImage\nWhen updating from the stable 4.8 series, please bear in mind that your edits will be preserved during this process, but the new library and configuration will no longer be usable with 4.8.\nYou are strongly advised to take a backup first.\nImportant note: to make sure that Darktable can keep on supporting the raw file format for your camera, please read this post on how/what raw samples you can contribute to ensure that we have the full raw sample set for your camera under CC0 license!\nSince Darktable 5.0.0:\n- 105 commits to Darktable+rawspeed\n- 57 pull requests handled\n- 15 issues closed\nPlease note that the Darktable documentation is not currently complete for release 5.0\nand contributions are greatly appreciated. Please see the\nproject documentation\nfor more information on how to contribute.\nThe Big Ones\nThe following is a summary of the main features added to Darktable\n5.0.1. Please see the user manual for more details of the individual\nchanges (where available).\n- N/A\nUI/UX Improvements\n- N/A\nPerformance Improvements\n- Improved performance of discarding history of selected images.\nOther Changes\n- Harmonized style selection in print settings with the update made in\n  the export module for release 5.0.\n- Darktable now includes the Lensfun database into the AppImage.\n- Center collapsible module section labels.\nBug Fixes\n- Fixed a scrolling bug in the collections module where the collection\n  tree was not scrolled to the previous position when returning from\n  darkroom.\n- Fix crash when attempting to move up the top or only shape in a\n  group in the mask manager.\n- Fix collection module when using the \"module\" filter which was\n  listing none of the processing modules.\n- Fix iop-order user presets use. It was not possible to get a user's\n  iop-order preset to be applied as the Darktable internal presets\n  where always picked up first.\n- Fixed a crash in variable expansion for $(SEQUENCE[n,m]).\n- Fixed handling on click from filmstrip when in map and print\n  view. On map we now properly center the image on the map. On the\n  print view, we use the selected image as content of the main print\n  area.\n- Fixed a regression introduced in 5.0.0 where we lost the ability to\n  read 2-channel TIFF files and files with more than 4 channels. This\n  fix allows them to be read by the TIFF loader, whereas previously\n  the TIFF loader rejected such files and they were loaded by a\n  fallback loader (GraphicsMagick or ImageMagick).\n- Fixed not being able to pan with a mouse in the zoomable layout.\n- Fixed possibly collapsing the module header when restoring defaults.\n- Fixed a case of XMP being written without actual image modification.\n- Fixed a crash of Darktable when reimporting XMP having overlay\n  images referenced.\n- Fixed the support for single lib module opened at a time when in\n  darkroom.\n- Fixed xmp sidecar writing while working as a gimp plugin.\n- Fixed issues when applying a style in darkroom using the Styles\n  module.\n- Fixed a possible crash when using Ctrl+z reproduced on\n  macOS.\n- Fixed Darktable crashing in enlarge-canvas module.\n- Fixed Darktable crashing using details mask due to bad tiling.\n- Fixed a hash calculation bug leading to pixelpipe instabilities.\n- Fixed issue to handle auto-presets when the focal length is greater\n  then 1000.\n- Fixed crash on macOS when closing the darkroom's second window.\n- Fixed possible jump in filmstrip when entering darkroom from full\n  preview.\n- Fixed a performance regression in haze removal module.\n- Fixed reading palette-based PNG with transparency.\n- Fixed possible crash in lens correction module when changing camera\n  and/or lens model.\n- Fixed crash after deleting style or preset that was selected in\n  shortcuts dialog.\n- Fixed a crash when the currently active module instance is being\n  deleted.\n- We now support the correct orientation for JPEG XL if it was\n  specified in the format's metadata but not in Exif (or Exif is\n  missing). We also avoid over-transformation if it is specified in\n  both the basic data and Exif.\nLua\nAPI Version\n- API version is now 9.4.0\nNew Features\n- N/A\nBug Fixes\n- N/A\nAdd action support for Lua\nOther Lua changes\n- N/A\nNotes\n- The AppImage package is compatible with distribution releases that\n  have glibc version 2.35 or higher. For example, if we consider some\n  popular distributions, Ubuntu 22.04, Debian 12, Fedora 36 and newer\n  releases are compatible.\n- The macOS *-x86_64.dmg and *-arm64-13.5.dmg packages require at\n  least macOS 13.5 (Ventura), the *-arm64.dmg package requires at\n  least macOS 14.0 (Sonoma).\n- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific\n  metadata (e.g. geo-tag or creator) is not currently possible. For\n  AVIF, EXR, JPEG XL, and XCF formats, Darktable will not include any\n  metadata fields unless the user selects all of the checkboxes in the\n  export module's preference options.\nChanged Dependencies\nMandatory\n- Bump SQLite requirement to 3.26\nOptional\n- N/A\nRawSpeed changes\n- Fujifilm GFX cameras now use the vendor supplied crop\nCamera support, compared to 5.0.0\nBase Support\n- Leica SL3-S (DNG)\n- Minolta DiMAGE 5\n- Panasonic DC-S5D (3:2)\nWhite Balance Presets\n- N/A\nNoise Profiles\n- Fujifilm GFX100 II\n- Fujifilm X-S20\n- Fujifilm X100VI\nMissing Compression Mode Support\n- Apple ProRAW DNGs\n- CinemaDNG lossless (Blackmagic, some DJI, etc.) and lossy (Blackmagic)\n- DNG 1.7 using JPEG XL (Adobe enhanced, Samsung Expert RAW)\n- Fujifilm lossy RAFs\n- Nikon high efficiency NEFs\n- OM System 14-bit high resolution ORFs\n- Sony downsized lossless ARWs (\"M\" for full-frame, \"S\" for full-frame & APS-C)\nSuspended Support\nSupport for the following cameras is suspended because no samples are available on https://raw.pixls.us:\n- Creo/Leaf Aptus 22(LF3779)/Hasselblad H1\n- Fujifilm IS-1\n- Kodak EasyShare Z980\n- Leaf Aptus-II 5(LI300059)/Mamiya 645 AFD\n- Leaf Credo 60\n- Leaf Credo 80\n- Olympus SP320\n- Phase One IQ250\n- Sinar Hy6/ Sinarback eXact\n- ST Micro STV680\nTranslations\n- Albanian\n- Brazilian Portuguese\n- Chinese (Simplified)\n- Chinese (Traditional)\n- Czech\n- Dutch\n- European Spanish\n- Finnish\n- French\n- German\n- Hungarian\n- Japanese\n- Polish\n- Slovenian\n- Swedish\n- Ukrainian",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.0.1/darktable-5.0.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.0.1-win64.exe",
+          "sha256": "2ea64535f1d42793f2ef53aec971eca43818748aba036b5e778624297ea0fb34",
+          "product_code": "darktable",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.0",
+      "release_date": "2024-12-21",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-5.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/5.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.0.0/darktable-5.0.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-5.0.0-win64.exe",
+          "sha256": "40444d5c7d310b1e1e859bd6b7c5d5e35d538a7bf9ad3e918b0e883c971451ea",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.8.1",
+      "release_date": "2024-07-22",
+      "release_notes": "We're proud to announce the new corrective release of darktable, 4.8.1!The github release is here: https://github.com/darktable-org/darktable/releases/tag/release-4.8.1.As always, please don't use the autogenerated tarball provided by\ngithub, but only our tar.xz file. The checksums are:\n$ sha256sum darktable-4.8.1.tar.xz\n901b0e2caed36fb8619fdf4c60edfb8d31134b947d3054b5c66fd55c38af5991  darktable-4.8.1.tar.xz\n$ sha256sum darktable-4.8.1-x86_64.dmg (macOS 13.5)\n84698315ad23c745cb126b5b695b211781f3e6355924cb9016e36d4c2dc0c6f7  darktable-4.8.1-x86_64.dmg\n$ sha256sum darktable-4.8.1-arm64.dmg (macOS 14.0)\n1947ffb16f1fcc21d43c7bc7002e79f49fa82ee3d17a76832c11ee6b4d3cad73  darktable-4.8.1-arm64.dmg\n$ sha256sum darktable-4.8.1-win64.exe\na7255eaad0cd36ad4771441ef5ad052d3069a90991de50f9b394a7c235de61e3  darktable-4.8.1-win64.exe\n$ sha256sum darktable-4.8.1-x86_64.AppImage\n15f12e6e17d01035692608eda7f9d79724ce9956beb43155f07dd40a98ca5617  darktable-4.8.1-x86_64.AppImage\n\nWhen updating from the stable 4.6 series, please bear in\nmind that your edits will be preserved during this process, but the new\nlibrary and configuration will no longer be usable with 4.6.You are strongly advised to take a backup first.Important note: to make sure that darktable can keep on supporting the raw file format for your camera, please read this post on how/what raw samples you can contribute to ensure that we have the full raw sample set for your camera under CC0 license!\nSince darktable 4.8.0:\n- 93 commits to darktable+rawspeed\n- 26 pull requests handled\n- 1 issues closed\nPlease note that the darktable documentation is not currently complete for release 4.8\nand contributions are greatly appreciated. Please see the\nproject documentation\nfor more information on how to contribute.The Big Ones\nThe following is a summary of the main features added to darktable\n4.8. Please see the user manual for more details of the individual\nchanges (where available).\n- n/a\nPerformance Improvements\n- n/a\nOther Changes\n- n/a\nBug Fixes\n- Fixed export without high quality sampling but with up-scaling\nactivated.\n- Fixed support for all vectorscope modes when using CMYK profiles as\nfor softproofing.\n- Fixed empty lighttable when importing from command-line. Now\ndarktable opens lighttable on first filmroll when importing from\ncommand-line.\n- Fixed color picker area resizing using corners when heavy distorting\nis applied into image.\n- Fixed wrong cropping in rotate and perspective module with strong\nrotation and automatic cropping set to \"original format\".\n- Fixed possible color shift (pink) when using the Retouch module with\nthe embedded lens correction module.\n- Fixed histogram display when using a color picker area on a rotated\nor flipped image.\n- Fixed a crash while using the -d imageio option.\n- Fixed large image exports due to a bug in finalscale module.\n- Fixed failure to load valid JPEG2000 files with unspecified color\nspace.\n- Fixed image jump if collection is empty.\nLua\nAPI Version\n- API version is now 9.3.0\nBug Fixes\nAdd action support for Lua\nOther Lua changes\n- n/a\nNotes\n- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific\nmetadata (e.g. geo-tag or creator) is not currently possible. For\nAVIF, EXR, JPEG XL, and XCF formats, darktable will not include any\nmetadata fields unless the user selects all of the checkboxes in the\nexport module's preference options.\n- Release 4.8 drops support for macOS versions older than 13.5.\nChanged Dependencies\nMandatory\n- Minimum libpng version 1.5.x is now required\n- Bump Exiv2 requirement to 0.27.2\n- Minimum pugixml version 1.5 is now required\n- Minimum libcurl version 7.56 is now required\nOptional\n- n/a\nRawSpeed changes\n- Fujifilm X-Trans 4 based and newer cameras now use the vendor supplied crop\nCamera support, compared to 4.6\nBase Support\n- Canon EOS R100 (requires LibRaw 202403 and later)\n- Canon EOS R50 (requires LibRaw 202403 and later)\n- Canon EOS R6 Mark II (requires LibRaw 202403 and later)\n- Canon EOS R8 (requires LibRaw 202403 and later)\n- Canon EOS Ra (requires LibRaw 202403 and later)\n- Fujifilm FinePix S9600fd\n- Fujifilm X100VI (compressed)\n- GoPro FUSION (DNG)\n- Leica SL3 (DNG)\n- OM System OM-1 Mark II\n- Panasonic DC-TZ95D (4:3)\n- Panasonic DMC-FX150 (4:3, 3:2, 16:9)\n- Panasonic DMC-FZ28 (3:2)\n- Phase One P25+\n- Phase One P45+\n- Ricoh GR III HDF (DNG)\n- Ricoh GR IIIx HDF (DNG)\n- Sony ILCE-9M3\n- Sony UMC-R10C\nWhite Balance Presets\n- Canon EOS R6 Mark II (requires LibRaw 202403 and later)\n- Fujifilm X-H2\n- OM System OM-1 Mark II\n- OM System OM-5\nNoise Profiles\n- Canon EOS R6 Mark II (requires LibRaw 202403 and later)\n- Fujifilm GFX 50R\n- OM System OM-1 Mark II\n- OM System OM-5\n- Phase One IQ180\n- Sony ILCE-9M3\n- Sony ZV-1\nMissing Compression Mode Support\n- Apple ProRAW DNGs\n- CinemaDNG lossless (Blackmagic, some DJI, etc.) and lossy (Blackmagic)\n- DNG 1.7 using JPEG XL (Adobe enhanced, Samsung Expert RAW)\n- Fujifilm lossy RAFs\n- Nikon high efficiency NEFs\n- OM System 14-bit high resolution ORFs\n- Sony downsized lossless ARWs (\"M\" for full-frame, \"S\" for full-frame & APS-C)\nSuspended Support\nSupport for the following cameras is suspended because no samples are available on https://raw.pixls.us:\n- Creo/Leaf Aptus 22(LF3779)/Hasselblad H1\n- Fujifilm IS-1\n- Kodak EasyShare Z980\n- Leaf Aptus-II 5(LI300059)/Mamiya 645 AFD\n- Leaf Credo 60\n- Leaf Credo 80\n- Minolta DiMAGE 5\n- Olympus SP320\n- Phase One IQ250\n- Sinar Hy6/ Sinarback eXact\n- ST Micro STV680\nTranslations\n- Czech\n- German\n- European Spanish\n- Finnish\n- French\n- Hungarian\n- Italian\n- Japanese\n- Dutch\n- Polish\n- Brazilian Portuguese\n- Russian\n- Slovenian\n- Albanian\n- Ukrainian\n- Chinese (Simplified)\n- Chinese (Traditional)",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-4.8.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.8.1/darktable-4.8.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.8.1-win64.exe",
+          "sha256": "a7255eaad0cd36ad4771441ef5ad052d3069a90991de50f9b394a7c235de61e3",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.4.2/darktable-4.4.2-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.4.2-win64.exe",
+          "sha256": "3f3557281a24f61080181cbde09c3d0f9853f81ff08485247e844afa9b2171a6",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.4.1/darktable-4.4.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.4.1-win64.exe",
+          "sha256": "70dca4f5f3c4fec897a6561484fb14f81709aca3185373d9118b630d24ae2098",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.4.0/darktable-4.4.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.4.0-win64.exe",
+          "sha256": "23a4831ca52c707984b64cc6b9122526e96606ce86b04a0906fe32fd8327d956",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.1",
+      "release_date": "2023-02-22",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-4.2.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.2.1/darktable-4.2.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.2.1-win64.exe",
+          "sha256": "31c4d6c522818eda87e48df44f267afd531339ef9d374fa02d44891e3755f7b5",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.0",
+      "release_date": "2022-12-21",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-4.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.2.0/darktable-4.2.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.2.0-win64.exe",
+          "sha256": "748e617d36f810890fcc7829fdf0e9999da2906b20293a2ac919808f80709e27",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.1",
+      "release_date": "2022-09-17",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-4.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.0.1/darktable-4.0.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.0.1-win64.exe",
+          "sha256": "96b584edbc7d65f26b76dc7c57b9dce6fe33792b839f0ac4c712cd6834051dad",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.0",
+      "release_date": "2022-07-02",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-4.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/4.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-4.0.0/darktable-4.0.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-4.0.0-win64.exe",
+          "sha256": "d0e09efb2f74beae9f5387a296d366c160d9fb87e571c9559c53cd0111b7b955",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.8.1/darktable-3.8.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.8.1-win64.exe",
+          "sha256": "9ed13cc0972c4473c7e5ac69b3393e6636ba9e2a2cf8b8b9e2a51882288235d1",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.8.0/darktable-3.8.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.8.0-win64.exe",
+          "sha256": "c74d76f9feefc5648c41938bf430b261d3a3308df0ef87085be590b5a5d1110d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.6.1/darktable-3.6.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.6.1-win64.exe",
+          "sha256": "34b4c1748ffe7ac66c3c79ad474b86a7aaa01ba296f8cd21929fe8024ebf3262",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.6.0/darktable-3.6.0.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.6.0.1-win64.exe",
+          "sha256": "986b7bd1bea817013f8b7ab6e93907ac3b8b93f66671612e3f36a5c40d321eea",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.1.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.4.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.4.1/darktable-3.4.1.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.4.1.1-win64.exe",
+          "sha256": "251453a776b7749b7f7701b7b58e6b9eba7747370c228bfa298f2053200d9fec",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.4.0/darktable-3.4.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.4.0-win64.exe",
+          "sha256": "29dee565292a4a72443874bb970663d46420f5a9ba74a5acfcb3251a48c86f7c"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.1",
+      "release_date": "2020-08-10",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-3.2.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.2.1/darktable-3.2.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.2.1-win64.exe",
+          "sha256": "7d21442aa31a627428cf9e56c85ecb4e985b544ea950d98b54ed0a6f123ad6d3",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.0.2/darktable-3.0.2-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.0.2-win64.exe",
+          "sha256": "2702b553acd09250f923f6e39d71d3c0f4ba0f81801c9c1ea55466bcf1ffab42",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.1",
+      "release_date": "2020-03-09",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-3.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.0.1/darktable-3.0.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.0.1-win64.exe",
+          "sha256": "a9b0c8aced2786965616e6313910df26638d3cf02bc188b58210ce83c4ba2812",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.0",
+      "release_date": "2019-12-24",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-3.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/3.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-3.0.0/darktable-3.0.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-3.0.0-win64.exe",
+          "sha256": "d3b33eb2a732e9d460dc6ab1ffed9dfc5e033f0a7b68a6e1f365d53a0ec76bdd",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.3",
+      "release_date": "2019-10-20",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.6.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.6.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.6.3/darktable-2.6.3-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.6.3-win64.exe",
+          "sha256": "716bde75c7b1ba6d57344747773a7dde3a88b707bcceb8090062b02eed863bae",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.2",
+      "release_date": "2019-03-20",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.6.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.6.2/darktable-2.6.2-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.6.2-win64.exe",
+          "sha256": "eee5f4c1f0f6c5f8d5a16d66da1afb92ebde06101e6a84706785df504c8865cd",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.1",
+      "release_date": "2019-03-06",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.6.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.6.1/darktable-2.6.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.6.1-win64.exe",
+          "sha256": "c0b31a3ac4f02151f4fc0ee4e8e39dc1e5c8ef409b2f23eee440affba9cd73f6",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.0",
+      "release_date": "2018-12-24",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.6.0/darktable-2.6.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.6.0-win64.exe",
+          "sha256": "54ce952f64aca88528e132ee3da98ed1c98f986e54e5effc5e5f31998f63661a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.4",
+      "release_date": "2018-06-05",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.4.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.4.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.4.4/darktable-2.4.4-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.4.4-win64.exe",
+          "sha256": "3763d681de4faa515049daf3dae62ee21812e8c6c206ea7a246a36c0341eca8c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.3",
+      "release_date": "2018-04-24",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.4.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.4.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.4.3/darktable-2.4.3-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.4.3-win64.exe",
+          "sha256": "a34361924b4d7d3aa9cb4ba7e5aeef928c674822c1ea36603b4ce5993678b2fa",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.2",
+      "release_date": "2018-03-21",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.4.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.4.2/darktable-2.4.2-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.4.2-win64.exe",
+          "sha256": "5181dad9afd798090de8c4d54f76ee4d43cbf76ddf2734364ffec5ccb1121a34",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.1",
+      "release_date": "2018-01-22",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.4.1/darktable-2.4.1-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.4.1-win64.exe",
+          "sha256": "0be1e0dd8dec61a7cea41598c52db258edaee8783c543b4311fa0ac56ab43d2a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.0",
+      "release_date": "2017-12-24",
+      "release_notes_url": "https://github.com/darktable-org/darktable/releases/tag/release-2.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/darktable/darktable/2.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-2.4.0/darktable-2.4.0-win64.exe",
+          "host": "github.com",
+          "filename": "darktable-2.4.0-win64.exe",
+          "sha256": "5b7b00a0bed8ea0d5ac45b0a0668f1998ad396e4bc3b5791e7a17f7c70b90f7c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "cr2",
+            "exr",
+            "hdr",
+            "jpeg",
+            "nef",
+            "pfm",
+            "ppm",
+            "raf",
+            "tiff"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "version": "5.6.2",
+      "release_date": "2026-10-04",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.darktable.Darktable.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.darktable.Darktable.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.darktable.Darktable.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.darktable.Darktable.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
+      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "path": "manifests/d/darktable/darktable"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.darktable.Darktable",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/org.darktable.Darktable",
+      "api_url": "https://flathub.org/api/v2/appstream/org.darktable.Darktable",
+      "content_sha256": "9c27611a8dbfc87b8461d8c0b0c334eaa303a7605ed45e69c2ac59d533ebd680"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.darktable.Darktable",
+    "page_url": "https://flathub.org/apps/org.darktable.Darktable",
+    "repo_url": "https://github.com/flathub/org.darktable.Darktable",
+    "install_command": "flatpak install flathub org.darktable.Darktable",
+    "run_command": "flatpak run org.darktable.Darktable",
+    "verified": false,
+    "license": "GPL-3.0+",
+    "free_license": true,
+    "developer_name": "darktable developers",
+    "categories": [
+      "Graphics",
+      "Photography"
+    ],
+    "download_size": 72754305,
+    "installed_size": 183570432,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

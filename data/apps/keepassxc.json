@@ -1,0 +1,1036 @@
+{
+  "schema_version": 2,
+  "slug": "keepassxc",
+  "name": "KeePassXC",
+  "publisher": "KeePassXC Team",
+  "author": "KeePassXC Team",
+  "ids": {
+    "winget": "KeePassXCTeam.KeePassXC",
+    "moniker": "keepassxc",
+    "homebrew_cask": "keepassxc",
+    "flathub": "org.keepassxc.KeePassXC"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "KeePassXC is a cross-platform community-driven port of the Windows application “Keepass Password Safe”.",
+  "description": "KeePassXC is a modern, secure, and open-source password manager that stores and manages your most sensitive information. You can run KeePassXC on Windows, macOS, and Linux systems. KeePassXC is for people with extremely high demands of secure personal data management. It saves many different types of information, such as usernames, passwords, URLs, attachments, and notes in an offline, encrypted file that can be stored in any location, including private and public cloud solutions. For easy identification and management, user-defined titles and icons can be specified for entries. In addition, entries are sorted into customizable groups. An integrated search function allows you to use advanced patterns to easily find any entry in your database. A customizable, fast, and easy-to-use password generator utility allows you to create passwords with any combination of characters or easy to remember passphrases.",
+  "tags": [
+    "credential",
+    "password",
+    "protect",
+    "protection",
+    "security",
+    "vault"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://keepassxc.org/",
+    "publisher": "https://keepassxc.org/",
+    "support": "https://github.com/keepassxreboot/keepassxc/issues",
+    "bug_tracker": "https://github.com/keepassxreboot/keepassxc/issues",
+    "privacy": "https://keepassxc.org/privacy/",
+    "release_notes": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.8.0",
+    "documentation": [
+      {
+        "label": "Documentation and FAQ",
+        "url": "https://keepassxc.org/docs/"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-2.0-or-later",
+    "url": "https://github.com/keepassxreboot/keepassxc/blob/HEAD/COPYING",
+    "spdx": "GPL-2.0-or-later",
+    "copyright": "Copyright (C) 2016-2026 KeePassXC Team <team@keepassxc.org>",
+    "copyright_url": "https://github.com/keepassxreboot/keepassxc/blob/develop/COPYING"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.8.0",
+    "macos": "2.8.0",
+    "linux": "2.8.0"
+  },
+  "last_updated": "2026-10-21",
+  "versions_total": {
+    "windows": 21,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.8.0",
+      "release_date": "2026-10-21",
+      "release_notes": "New Features\n- Add remote database synchronization and import using external tools [#7222, #10896, #11271]\n- Allow configuring keyboard shortcuts [#9643]\n- SSH Agent: Add support for generating RSA, ECDSA, and Ed25519 keys [#7215]\n- Linux: Add Wayland Auto-Type support using XDG Desktop Portals [#13359, #13449, #13579, #13770, #13810]\n- Linux: Add Quick Unlock using Polkit (adds a UUID to public metadata, marking database as modified on first launch) [#8983]\n- Linux Add AArch64 AppImage [#13816]\n- macOS: Allow Quick Unlock using the device password when Touch ID is unavailable [#11410]\n- Windows: Allow administrators to enforce certain user settings via global Group Policy overrides [#11223]\n- Windows: Add native Arm64 builds [#13678, #13727]\nMajor Changes\n- Migrate to Qt 6 [#11651, #7783, #13456, #13473, #13684, #13784]\n- Linux: Store application state in XDG_STATE_HOME instead of XDG_CACHE_HOME [#9755]\n- Build: Bundle build features under a single KPXC_MINIMAL CMake option [#11003]\nSecurity Fixes\n- Fix use-after-free when importing crafted KDB files (CVE-2026-69150; Credits: A. Ramos (@aramosf)) [#13500]\n- Browser: Prevent entry reference injection when creating or updating entries via browser extension (CVE-PENDING; Credits: Davonte (@BadPingHere)) [#13580, #13670, #13688]\n- Browser: Fix out-of-bounds writes when encrypting and decrypting native messaging messages (CVE-PENDING; Credits: @sigure21) [#13679]\n- Windows: Randomize shared memory mapping names when sending SSH keys to Pageant (CVE-PENDING; Credits: NATO Cyber Security Centre (NCSC), Viktor Markopoulos NCIA/NCSC) [#13680]\n- Fix integer overflow and out-of-bounds read in legacy KDB importer (CVE-PENDING; Credits: NATO Cyber Security Centre (NCSC), Viktor Markopoulos NCIA/NCSC) [#13682]\n- Secret Service: Exclude protected attributes from attribute listings (Credits: Koda Reef (@kodareef5)) [#13674]\n- Windows: Fix clipboard exclusion format name (Credits: @ByeWhiteLists) [#13352]\n- Improve clearing of decrypted database fragments from memory used by zlib [#13677]\nChanges\n- Change Clone Entry shortcut to Ctrl+D [#10903]\n- Show suggestions when adding or renaming additional attributes [#13633]\n- Add passkey and TOTP entry counts to database statistics in GUI and CLI [#13632]\n- Remove legacy KeePassHTTP attribute conversion [#8007]\n- Browser: Support get-database-entries request to list entry titles, URLs, and UUIDs [#7292]\n- CLI: Reduce GUI library dependencies and simplify line reader code [#9701, #13330]\n- Proton Pass Importer: Support Wi-Fi, SSH keys, and unknown entry types [#13148]\n- Update translations and clean up code [#9702, #12611, #13258, #8008, #7999, #7998]\nFixes\n- Fix application lockups on systems with one or two CPU cores [#13296]\n- Preserve entry custom data in newly created history items [#13573]\n- Fix password strength evaluation for referenced passwords [#13479]\n- Respect password generator settings when auto-generating passwords for new entries [#13277]\n- Fix case-sensitive search with the + prefix modifier [#13493]\n- Fix directory creation error handling [#13508]\n- Fix favicon download redirect limit being ignored [#13663]\n- Fix showing challenge-response credentials without a password [#13615]\n- Fix key file selection link not being clickable when translated incorrectly [#13396]\n- Prevent database unlock controls from shrinking vertically [#13428]\n- Prevent mouse wheel scrolling from changing the unfocused alternative save method setting [#13358]\n- Fix password font size not following application font size [#13658]\n- Fix typos and documentation links [#10124, #10893, #9993]\n- Fix null pointer dereference in Secret Service integration [#13655]\n- Fix ellipsis password reuse tooltip in database reports [#13091]\n- Fix database lock after autosave due to external changes [#13733]\n- Auto-Type: Support {PGDN} placeholder [#13463]\n- Auto-Type: Refactor Auto-Type plugins to integrate them into the main binary [#13469]\n- Browser: Fix showing and closing the password generator [#9984, #9743]\n- Browser: Respect selected database when storing a new passkey [#13798]\n- CSV Import: Fix automatic column mapping for English headers with non-English UI languages [#13531]\n- Secret Service: Fix crash when a database locks while the item access dialog is open [#13598, #13602]\n- SSH Agent: Prevent recursive updates when changing entry settings and attachments [#13068]\n- Linux: Improve AppImage desktop integration [#13470, #13476]\n- Linux: Include keyutils in Snap builds [#10687]\n- Linux: Fix race condition in dark mode detection at startup [#13366]\n- Linux: Do not query X root window without a display with QT_QPA_PLATFORM=offscreen [#13761]\n- Linux: Improve TLS handling im AppImages [#13805]\n- macOS: Improve window tray hide and restore behaviour [#13645]\n- macOS: Use the native temporary directory for the browser integration socket [#13484]\n- macOS: Prevent deleting entries and groups while a modal dialog is open [#13383]\n- macOS: Prevent hiding the menu bar [#13147]\n- macOS: Fix application icon installation for IDE builds [#12679]\n- Windows: Fix SSH Agent builds with MSYS2 [#8708]\n- Build: Fix build-system-related issues [#13278, #13275]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.8.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-x64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.8.0-x64.msi",
+          "sha256": "4f105af5ba780428718c8be5614cf95deceed5cb3b474a9bd624c5df81cec6e5",
+          "product_code": "{7B154FB8-DD64-452C-9B09-64AD98205DE1}",
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-ARM64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.8.0-ARM64.msi",
+          "sha256": "85eb8f60a7780136b82d672b834822b7047e773d824459acce4f118c4bfde1c1",
+          "product_code": "{50FB50D0-44F0-4F21-861D-EDEA05A7F061}",
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.12",
+      "release_date": "2026-03-10",
+      "release_notes": "Changes\n- Passkeys: Set BE and BS flags to true (NOTE: MAY BREAK EXISTING PASSKEYS) [#13042]\n- Support TIMEOTP autotype and entry placeholder [#13117]\n- Browser: Show URLs in browser access dialog [#12906]\n- Bitwarden Import: Add support for nested folders [#13081]\nFixes\n- Prevent exploits through OpenSSL configurations [#13118, #13124]\n- Auto-Type: Revert change that caused race condition on Linux [#12738]\n- Auto-Type: Fix help button enablement [#12937]\n- Browser: Fix showing correct checkbox value in entry Browser Integration settings [#12980]\n- Browser: Fix setting browser related values to customData [#13026]\n- Passkeys: Add publicKey to register response [#12757]\n- Fix main entry URL validation when using placeholders [#12964]\n- Fix minor font and theme issues [#12814]\n- Fix 'Remove' button in Plugin Data being enabled when no row is selected [#12916]\n- Sanitize attachment file names before saving [#13114]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.12-Win64.msi",
+          "sha256": "feee096c1d5d0d7bb7b36b18174818f7bac889be7668c550ff0e5ef9206ea9a5",
+          "product_code": "{638CBFF8-D709-4E43-8B2B-AB97A8E0F2ED}",
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.11",
+      "release_date": "2025-11-23",
+      "release_notes": "Changes\n- Add image, HTML, Markdown preview, and text editing support to inline attachment viewer [#12085, #12244, #12654]\n- Add database merge confirmation dialog [#10173]\n- Add option to auto-generate a password for new entries [#12593]\n- Add support for group sync in KeeShare [#11593]\n- Add placeholder for use in references [#12511]\n- Add “Wait for Enter” search option [#12263]\n- Add keyboard shortcut to “Jump to Group” from search results [#12225]\n- Add predefined search for TOTP entries [#12199]\n- Add confirmation when closing database via ESC key [#11963]\n- Add support for escaping placeholder expressions [#11904]\n- Reduce tab indentation width in notes fields [#11919]\n- Cap default Argon2 parallelism when creating a new database [#11853]\n- Database lock after inactivity now enabled by default and set to 900 seconds [#12689, #12609]\n- Copying TOTP now opens setup dialog if none is configured for entry [#12584]\n- Make double click action configurable [#12322]\n- Remove unused “Last Accessed” from GUI [#12602]\n- Auto-Type: Add more granular confirmation settings [#12370]\n- Auto-Type: Add URL typing preset and add copy options to menu [#12341]\n- Browser: Do not allow sites automatically if entry added from browser extension [#12413]\n- Browser: Add options to restrict exposed groups [#9852, #12119]\n- Bitwarden Import: Add support for timestamps and password history [#12588]\n- macOS: Add Liquid Glass icon [#12642]\n- macOS: Remove theme-based menubar icon toggle [#12685]\n- macOS: Add Window and Help menus [#12357]\n- Windows: Add option to add KeePassXC to PATH during installation [#12171]\nFixes\n- Fix window geometry not being restored properly when KeePassXC starts in tray [#12683]\n- Fix potential database truncation when using direct write save method with YubiKeys [#11841]\n- Fix issue with database backup saving [#11874]\n- Fix UI lockups during startup with multiple tabs [#12053]\n- Fix keyboard shortcuts when menubar is hidden [#12431]\n- Fix clipboard being cleared on exit even if no password was copied [#12603]\n- Fix single-instance detection when username contains invalid filename characters [#12559]\n- Fix “Search Wait for Enter” setting not being save [#12614]\n- Fix hotkey accelerators not being escaped properly on database tabs [#12630]\n- Fix confusing error if user cancels out of key file edit dialog [#12639]\n- Fix issues with saved searches and “Press Enter to Search” option [#12314]\n- Fix URL wildcard matching [#12257]\n- Fix TOTP visibility on unlock and settings change [#12220]\n- Fix KeeShare entries with reference attributes not updating [#11809]\n- Fix sort order not being maintained when toggling filters in database reports [#11849]\n- Fix several UI font and layout issues [#11967, #12102]\n- Prevent mouse wheel scroll on edit username field [#12398]\n- Improve base translation consistency [#12432]\n- Improve inactivity timer [#12246]\n- Documentation improvements [#12373, #12506]\n- Browser: Fix ordering of clientDataJSON in Passkey response object [#12120]\n- Browser: Fix URL matching for additional URLs [#12196]\n- Browser: Fix group settings inheritance [#12368]\n- Browser: Allow read-only native messaging config files [#12236]\n- Browser: Optimise entry iteration in browser access control dialog [#11817]\n- Browser: Fix “Do not ask permission for HTTP Basic Auth” option [#11871]\n- Browser: Fix native messaging path for Tor Browser launcher on Linux [#12005]\n- Auto-Type: Fix empty window behaviour [#12622]\n- Auto-Type: Take delays into account when typing TOTP [#12691]\n- SSH Agent: Fix out-of-memory crash with malformed SSH keys [#12606]\n- CSV Import: Fix modified and creation time import [#12379]\n- CSV Import: Fix duplication of root groups on import [#12240]\n- Proton Pass Import: Fix email addresses not being imported when no username set [#11888]\n- macOS: Fix secure input getting stuck [#11928]\n- Windows: Prevent launch as SYSTEM user from MSI installer [#12705]\n- Windows: Remove broken check for MSVC Redistributable from MSI installer [#11950]\n- Linux: Fix startup delay due to StartupNotify setting in desktop file [#12306]\n- Linux: Fix memory initialisation when --pw-stdin is used with a pipe [#12050]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.11",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.11/KeePassXC-2.7.11-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.11-Win64.msi",
+          "sha256": "74abea9e12282cc2b0feb51ebc6db65299eb4ef0086e89cfad8dcaafc94a6f67",
+          "product_code": "{D6D6D43E-C39C-4518-80DC-2A480473DBF4}",
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.10",
+      "release_date": "2025-03-02",
+      "release_notes": "Check out our updated User Guide --> https://keepassxc.org/docs/KeePassXC_UserGuide\nChanges\n- Allow adjusting application font size [#11567]\n- Add Proton Pass importer [#11197]\n- Support KeePass2 TOTP settings [#11229]\n- Add New/Preview Entry Attachments dialog and functionality [#11637, #11699, #11650]\n- Add database name, color, and icon options for unlock view [#10819, #11725]\n- Show entry background color as column [#6798]\n- Use icons for password strength [#9844]\n- Add \"Group Full Path\" column in entry view [#10278]\n- Passphrase \"MIXED case\" Type [#11255]\n- Allow deleting extension plugin data from Browser Statistics [#11218]\n- Add --minimized option to keepassxc [#11693]\n- Implement T-CONV and T-REPLACE-RX entry placeholders [#11453]\n- Option to disable opening browser when URL field double-clicked [#11332]\n- Overhaul action states and add icons to toolbar [#11047]\n- Show character count in password generator dialog [#10940]\n- Add ability to expire entries from context menu [#8731]\n- Add copy field shortcuts to Auto-Type select dialog [#11518]\n- Passkeys: Add support for selecting group on creation [#11260]\n- Browser: Refactor Access Control Dialog [#9607]\n- Browser: Add support for URL wildcards and exact URL [#9835, #11752]\n- Browser: Allow groups to restrict by browser integration key [#9852]\n- CLI: Add -d dry-run shortcut to merge command [#11192]\n- CLI: HTML export [#11590]\n- macOS: Add option to disable database lock when switching user [#9707]\n- SSH Agent: Implement feature to clear all identities [#10649]\nFixes\n- Major enhancements to documentation [#11745, #10875]\n- Various UI and style fixes [#11535, #11672, #11511, #11445, #11426, #11273, #11455, #11321, #11594, #11539, #11351, #11354, #10748, #11602, #11303, #11291, #10091, #9417]\n- Various improvements to tags [#11676, #11652, #11625]\n- Reset splitter sizes on database unlock [#11014]\n- Remember sort order in Auto-type popup dialog [#9508]\n- Fix database password clearing when modifying key file / hardware key [#11001]\n- Fix issues with reloading and handling of externally modified db file [#10612]\n- Support passkeys with Bitwarden import [#11401]\n- Fix various quirks with CSV import [#11787]\n- Show Auto-Type select dialog even if window title is empty [#11603]\n- Refactor hardware key code to avoid deadlock [#11703, #10872]\n- Show a clear error if hardware key is found slots are not configured [#11609]\n- Fix signal/slot disconnect when opening import wizard [#11039]\n- Fix setting window title as modified [#11542]\n- Fix assert hit when viewing entry history [#11413]\n- Fix multiple crashes on Linux [#11513]\n- Fix backup file path time substitution [#10834]\n- Prevent long-running threads from deadlocking the program with only 1 CPU [#11155]\n- Hide the menubar when menus lose focus (if toggled off) [#11355, #11605]\n- CLI: Restore the original codepage on windows [#11470]\n- Passkeys: Various fixes [#10934, #10951]\n- Browser: Fix cancel with database unlock dialog [#11435]\n- Browser: Resolve references in Access Confirm dialog [#11055]\n- SSH Agent: Add timeout to streams to prevent deadlock [#11290]\n- macOS: Replace legacy code for screen recording permissions [#11428]\n- macOS: Implement Secure Input Mode [#11623]\n- macOS: Fix showing ambigious name in settings [#11373]\n- macOS: Fix copy-to-clipboard shortcut in entry preview widget [#10966]\n- Linux: Prevent multiple lock requests [#11306]\n- Snap: Prevent need for snap helper script to configure browser extension [#10924]\n- Windows: Detect outdated VC Redist with MSI installer [#11469]\n- Windows: Additional exclusion fields for clipboard [#11521]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.10/KeePassXC-2.7.10-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.10-Win64.msi",
+          "sha256": "57781a64392d55c950fe734d084b500b836ef5a8029995ae4dfd8d911aba4b44",
+          "product_code": "{E86A6926-F1BD-42B8-BE36-12E8A3A052AC}",
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.9",
+      "release_date": "2024-06-19",
+      "release_notes": "Changes\n- Passkeys: Ability to easily remove a passkey from an entry [#10777]\n- Snap: Use new desktop portal for native messaging integration [#10906]\nFixes\n- Improve entry placeholder/reference feature [#10846]\n- Improve CSV importing when title field isn't specified [#10843]\n- Improve encrypted Bitwarden importing [#10800]\n- Improve database settings UX [#10821]\n- Improve handling of clipboard actions from entry preview [#10810]\n- Improve group/entry view resize behavior and set sensible defaults [#10641]\n- Passkeys: Fix incorrect username fill [#10874]\n- Passkeys: Return additional data to the extension [#10857]\n- Fix password clear timer inconsistency on unlock view [#10708]\n- Fix portability check [#10760]\n- Fix page overflow on HTML exports [#10735]\n- Fix broken builds when using system provided zxcvbn [#10717]\n- Fix copy password button when text is selected [#10853]\n- Fix tab ordering on application settings pages [#10907]\n- SSH Agent: Fix broken decrypt button [#10638]\n- Windows: Fix ALT Auto-Type modifier [#10795]\n- Windows: Fix wrong DACL memory size allocation [#10712]\n- macOS: Fix monospace font sizing [#10739]\n- Flatpak: Fix configuration settings off-by-one error [#10688]\n- BSD: Fix compiling with libusb implementation [#10736]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.9",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.9/KeePassXC-2.7.9-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.9-Win64.msi",
+          "sha256": "3b544343ce369377e54a3a6ac7a023b3c202ac034eea6e6886bb8185e95b6a49",
+          "product_code": "{4D0AFBD7-7864-4FF3-A481-513DEBFAB175}",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{4D0AFBD7-7864-4FF3-A481-513DEBFAB175}",
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.8",
+      "release_date": "2024-05-06",
+      "release_notes": "Changes\n- Add hotkey for showing search help [#10591]\n- Add hotkey for group switching (Ctrl+Shift+PgUp/PgDown) [#10625]\n- Add per-database auto-save delay setting [#9100]\n- Add configurable password strength check on database password [#9782]\n- Add setting to hide menubar [#10341]\n- Improve Bitwarden 1PUX import and support organization collections [#10499]\n- Show advanced settings checkbox only for settings that have them [#6513]\n- Remove obsolete setting for requiring repeated password entry [#9722]\n- Passkeys: Allow registering Passkeys to existing entries [#10408]\n- Passkeys: Show warning about data being unencrypted before Passkey export [#10411]\n- Passkeys: Support NFC and USB transports [#10402]\n- Passkeys: Pass extension JSON data to browser [#10615]\n- SSH Agent: Do not use entries from recycle bin [#10518]\n- Linux: Change hotkey sequence used for {CLEARFIELD} Auto-Type [#10008]\n- Windows: Improve DACL memory access protection [#10618]\nFixes\n- Fix crash when deleting history items [#10451]\n- Fix crash on screen lock or computer sleep [#10458]\n- Fix search field not being focused after unlock [#10459]\n- Fix loss of window focus when Auto-Type needs to unlock a database [#10555]\n- Fix inconsistent TOTP visibility on unlock [#10009]\n- Fix CSV import skipping over single-name groups [#10575]\n- Fix key file folder being remembered even if disabled in settings [#10636]\n- Fix issues with entry editing and database locking [#10667]\n- Fix key file text when provided on command line [#10642]\n- Fix issues with hardware key auto detection [#10663]\n- Do not override monospace font size [#10282]\n- Perform group sort only when group view is in focus [#10202]\n- Do not show decimals for attachment sizes in Bytes [#10595]\n- Prevent merging of global custom data when merging databases [#10452]\n- Fix minor translation issues [#10635]\n- Passkeys: Fix StrongBox incompatibility [#10420]\n- Passkeys: Set RP ID to effective domain if unset instead of returning an error [#10384]\n- Passkeys: Various UI fixes and improvements [#10427, #10608, #10609]\n- AppImage: Fix URL opening [#10624]\n- Flatpak: Fix application autostart [#10563]\n- Linux/macOS: Fix button sizes on modal alert popups [#10500]\n- Linux: Fix clipboard clear on Wayland [#10500]\n- Windows: Preserve file-hidden attribute [#10343]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.8",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.8/KeePassXC-2.7.8-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.8-Win64.msi",
+          "sha256": "d940da0d5f009a3f9fa9e182acaa292c239a87066fbb7d37e6dfede1aab53982",
+          "product_code": "{3506E9B7-340F-4ABF-B703-D74F274040B4}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.7",
+      "release_date": "2024-03-09",
+      "release_notes": "Changes\n- Support USB Hotplug for Hardware Key interface [#10092]\n- Support 1PUX and Bitwarden import [#9815]\n- Browser: Add support for PassKeys [#8825, #9987, #10318]\n- Build System: Move to vcpkg manifest mode [#10088]\nFixes\n- Fix multiple TOTP issues [#9874]\n- Fix focus loss on save when the editor is not visible anymore [#10075]\n- Fix visual when removing entry from history [#9947]\n- Fix first entry is not selected when a search is performed [#9868]\n- Prevent scrollbars on entry drag/drop [#9747]\n- Prevent duplicate characters in \"Also choose from\" field of password generator [#9803]\n- Security: Prevent byte-by-byte and attachment inference side channel attacks [#10266]\n- Browser: Fix raising Update Entry messagebox [#9853]\n- Browser: Fix bugs when returning credentials [#9136]\n- Browser: Fix crash on database open from browser [#9939]\n- Browser: Fix support for referenced URL fields [#8788]\n- MacOS: Fix crash when changing highlight/accent color [#10348]\n- MacOS: Fix TouchID appearance depending on lid open/closed [#10092]\n- Windows: Fix terminating KeePassXC processes with MSI installer [#9822]\n- FdoSecrets: Fix database merge crash when enabled [#10136]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.6",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.7/KeePassXC-2.7.7-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.7-Win64.msi",
+          "sha256": "9c3dab957db0f769c4e67bfdf4f0134a65ecfa65c5569718a36aa88e649158cd",
+          "product_code": "{2D8B88BF-C678-465A-8C59-92DFF9CB311C}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.6",
+      "release_date": "2023-08-16",
+      "release_notes": "Changes\n- Significant improvement to visual when drag/drop entries [#9698]\n- Automatically prompt for Quick Unlock when showing unlock dialog [#9697]\n- Improve colorful lock icon and fix file MIME icon on KDE [#9632]\n- Ability to search by entry UUID [#9571]\n- Add challenge-response support for NitroKey 3 [#9631]\n- Auto-Type: Disable entry level Auto-Type when disabled at group/entry [#9672]\n- Browser: Show warning when adding duplicate URL's to entry [#9588][#9635]\n- Browser: Improve error message when proxy cannot be found [#9385]\nFixes\n- Fix crash on exit on macOS [#9620]\n- Fix crash on search if entry doesn't have a group [#9633]\n- Fix several issues with Quick Unlock [#9697]\n- Enable save button when not auto-saving non-data changes [#9634]\n- Several UI/UX fixes [#9647]\n- Move toolbar back to top of window when disabling movement [#9699]\n- Browser: Fix handling of expired credentials [#9595]\n- Windows: Prevent white flicker when launching application [#9637]\n- Linux: Fix warning message about allow screencapture [#9638]\n- FdoSecrets: Fix access confirmation dialog showing even when disabled [#9690]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.6",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.6/KeePassXC-2.7.6-Win64-LegacyWindows.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.6-Win64-LegacyWindows.msi",
+          "sha256": "efaf26903e0a6088bb0ab4e4f56f067d36a54d90f0402e9c1bc9ef46551e2675",
+          "product_code": "{620E353A-56BA-46ED-A729-CE4A92A14DAC}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{88785A72-3EAE-4F29-89E3-BC6B19BA9A5B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.5",
+      "release_date": "2023-05-14",
+      "release_notes": "Changes\n- Add menu option to allow screenshots [#8841]\n- Add support for Botan 3 [#9388]\n- Increase max TOTP step to 24 hours [#9149]\n- Improve HTML export layout [#8987]\n- Turn search reset off by default [#9153]\n- Use QClipboard::clear() instead of setting blank text [#9148]\n- Hide group column header choice when not in search [#9171]\n- Improve look of KeePassXC logo and icons [#9355]\n- Add keyboard shortcuts for app and database settings [#9007]\n- Hide rename button from attachments preview panel [#8842]\n- Linux: Set SingleMainWindow in .desktop file [#7430]\nFixes\n- Fix crash when search clears while creating new entry [#9230]\n- Fix crash when using Windows Hello in a Remote Desktop session [#9006]\n- Fix crash in Group Edit after enabling Browser Integration [#8778]\n- Fix canceling quick unlock when it is unavailable [#9034]\n- Set password input field font correctly [#8732]\n- Greatly improve performance when rendering entry view [#9398]\n- Fix various accessibility issues [#9138]\n- Fix arrows size when expand/collapse a group [#9096]\n- Select the clone instead of the original after cloning an entry [#9070]\n- Fix bugs with preview widget [#9170]\n- Fix status bar update when switching to other DB [#9073]\n- Fix database settings spin box bug [#9101]\n- Fix Ctrl+Tab shortcut to cycle databases in unlock dialog [#8839]\n- Fix TOTP QR code maintaining square ratio [#9027]\n- Fix Auto-Type configuration page on custom sequence selection [#8752]\n- Fix unexpected behavior of --lock when KeePassXC is not running [#8889]\n- Make open folder icon exempt from \"Apply group icon to entry\" [#9205]\n- Allow setting default file open directory with env var [#9192]\n- SSH Agent: Fix support for AES-256/GCM openssh keys [#8968]\n- Browser: Fix Native Messaging script path with BSD OS's [#8835]\n- MacOS: Fix text selection for Auto-Type clear field [#9066]\n- MacOS: Don't rely on AppleInterfaceStyle for theme switching [#8615]\n- Windows: Remove registry detection of desktop shortcut [#9380]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.5",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.5/KeePassXC-2.7.5-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.5-Win64.msi",
+          "sha256": "93e36894c81181fb2200de57e0592836e5dcb6124f776db44ac185add6f90bd6",
+          "product_code": "{1E19FA50-098D-4AE0-BE3C-4F41147A853D}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.4",
+      "release_date": "2022-10-29",
+      "release_notes": "Changes\n• Add 2 months expiration preset [#8687]\n• CLI: Add Unicode support on Windows [#8618]\n\nFixes\n• Fix crash on macOS when unlocking database [#8676]\n• Fix display of passwords in preview panel [#8633]\n• Fix clicking links in entry preview panel [#8644]\n• Prevent expired entries search if no results returned [#8643]\n• Browser: Revert code causing connection problems [#8665]\n• Browser: Fix socket file symbolic link on Linux [#8656]\n• Flatpak: Fix launching browser proxy service [#8680]\n• SSH Agent: Fix paegent support on Windows [#8619]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.4",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.4/KeePassXC-2.7.4-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.4-Win64.msi",
+          "sha256": "ca614ead325513480378f6b55a570c05ed0570e199fea63230985e9b15b59ede",
+          "product_code": "{B016A590-4085-406D-BBF6-1A0F181D9571}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.3",
+      "release_date": "2022-10-23",
+      "release_notes": "Changes\n• Enhance Tags Support and Add Saved Searches [#8435, #8607]\n• Significant improvements to entry preview panel [#7993]\n• Add password strength indicator to all password fields [#7885]\n• Limit zxcvbn entropy estimation length to 128 characters [#7748]\n• Try full URL path when fetching favicon [#8565]\n• Hide usernames in preview panel when hidden in entry view [#8608]\n• Enable dark title bar on windows when accent color is not used [#8498]\n• Add option to display passwords in color in preview panel [#7097]\n• Add XML Export option to GUI [#8524]\n• Increase entropy required for a \"good\" password rating to 75 [#8523]\n• Add shortcut to copy password with TOTP appended [#8443]\n• Show entry count in status bar [#8435]\n• Allow KeePassXC to be built without X11 [#8147]\n• Enable use of VivoKey Apex and Dangerous Things FlexSecure tokens [#8332]\n• Add setting for number of recent files [#8239]\n• Add Ctrl+Tab shortcut to cycle databases in unlock dialog [#8168]\n• Replace offensive words in eff_large.wordlist [#7968]\n• Auto-Type: PICKCHARS can specify attribute and ignore BEEP [#8118]\n• Linux: Add isHardwareKeySupported and refreshHardwareKeys to DBus methods [#8055]\n• Add config variable to specify default database file name [#8042]\n• Support numeric aware sorting on Windows and macOS [#8363]\n• CLI: Add db-edit command [#8400]\n• CLI: Add option to display all attributes with show command [#8256]\n• CLI: Show UUID and tags with show and clip commands [#8241]\n• Browser: Move socket into separate directory on Linux [#8030]\n• Browser: Add group setting to omit WWW subdomain when matching URLs [#7988]\n• FdoSecrets: Ask to unlock the database when creating items [#8022, #8028]\n• FdoSecrets: Skip entries in recycle bin when searching [#8021]\n\nFixes\n• Fix potential deadlock in UI when saving [#8606]\n• Fix newlines when copying notes from preview panel [#8542]\n• Fix dark mode detection on Linux [#8477]\n• Fix crash when deleting items in recycle bin while searching [#8117]\n• Fix crash when trying to close database during unlock [#8144]\n• Fix tabbing around the interface [#8435, #8520]\n• Fix OPVault import when there are multiple OTP fields [#8436]\n• Fix various Windows Hello bugs [#8354]\n• Fix use of Apple Watch for Quick Unlock [#8311]\n• Better handling of \"Lock on Minimize\" setting [#8202]\n• Check for write permission before entering portable mode [#8447]\n• Correct regex escape logic to prevent parse errors [#7778]\n• Normalize slashes and file case for last used databases [#7864, #7214]\n• Link ykcore against pthread [#7807]\n• Auto-Type: Fix menu entries in selection dialog on Windows [#7987]\n• Auto-Type: Fix use of modifiers under macOS [#8111]\n• CLI: Fix output when using clip with the -t flag [#8271]\n• Browser: Use asynchronous access confirm dialog [#8273]\n• Browser: Always send database locked/unlocked status [#8114]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.3/KeePassXC-2.7.3-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.3-Win64.msi",
+          "sha256": "cefd32f45a5d0a934a92486e70936f3fce9fba142fa06b2755c9c5465846850a",
+          "product_code": "{9056F0C5-05F5-42D0-ABE4-762DE09EA49B}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.1",
+      "release_date": "2022-04-06",
+      "release_notes": "Changes\n• Show when tags are changed in entry history [#7638]\n• Improve tags editing and allow spaces in tags [#7708]\n• Improve layout of entry preview panel [#7767]\n• Incorporate patches to support Flatpak distribution [#7728]\n• Add expiration presets for 12 and 24 hours [#7738]\n\nFixes\n• Fix crash when building history change list [#7638]\n• Fix hiding password on database unlock [#7725]\n• Fix AES KDF slow transform speed [#7755]\n• Auto-Type: Correct timing issue on macOS and Linux that prevented typing [#7588]\n• Auto-Type: Fix use of Ctrl/Alt/Shift/Win modifiers on Windows [#7629]\n• Auto-Type: Reduce/eliminate delay when searching for entries [#7598]\n• Auto-Type: Map ASCII dead keys on Linux for international keyboards [#7614]\n• CLI: Fix detection of hardware keys (YubiKey) [#7593]\n• CLI: Add missing parameter -c to add/edit entries command [#7594]\n• Secret Service: Fix crash when multiple prompts are shown [#7786]\n• SSH Agent: Fix default agent selection on Windows [#7764]\n• Fix database unlock dialog not being the top window on Linux [#7771]\n• Fix drag/drop entries between tabs on Wayland [#7628]\n• Fix compiling with minizip-ng [#7638]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.1/KeePassXC-2.7.1-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.1-Win64.msi",
+          "sha256": "a737dd49a49a3c4b5feadcc4fc60b7b039155d68c6ea68779f50431e8bd9bb37",
+          "product_code": "{99269C6A-01B3-4880-A0EE-0DEABB33C014}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.0",
+      "release_date": "2022-03-21",
+      "release_notes": "Major Additions\n• Implement KDBX 4.1 [#7114]\n• Add direct write save option for cloud storage and GVFS [#6594]\n• Prevent screen capture on Windows and macOS [#6030]\n• Support quick unlock using Windows Hello [#7384]\n• Support quick unlock using Apple Watch [#5526]\n• Allow specifying database backup paths [#7035]\n• Add tag functionality [#6487][#7436][#7446]\n• Add password rating column to entry view [#4797]\n• Add group clone action [#6124]\n• Show modifications between entry history items [#6789]\n• Ability to bulk-delete and purge unused custom icons [#5970]\n• Support adding custom passphrase wordlists [#6799]\n• Support passphrase wordlists in numbered and PGP-signed formats [#6791]\n• Implement support for hardware keys via wireless NFC [#6895]\n• SSH Agent: Add support for OpenSSH 8.2 FIDO/U2F keys [#6371]\n• CLI: Implement attachment handling [#5538]\n• CLI: Add support for okon in offline HIBP checks [#5478]\n• CLI: Implement search command and remove locate [#6805]\n• CLI: Add db statistic output to db-info command [#7032]\n• CLI: Add -i/--include option to generate command. [#7112]\n• CLI: Add a -n (--notes) option to add and edit commands [#4646]\n• CLI: Add keyfile option to import command [#5402]\n• CLI: Adding a best option to clip to copy a password of the best match [#4489]\n• Browser: Add Microsoft Edge support on Linux [#7100]\n• Browser: Support native password generator from the extension [#6529]\n• Browser: Add group settings [#4180]\n• Browser: Add feature to ignore entries for HTTP-Auth Logins [#5394]\n• Browser: Support triggering Auto-Type from browser extension [#6272]\n• Browser: Add delete-entry command to API [#6899]\n• Browser: Add search 'by-path' url to API [#5535]\n• Browser: search for entries by UUID to API [#4763]\n• Browser: Support auto-download of favicon on entry addition [#7179]\n• Auto-Type: Major improvements to Auto-Type [#5864][#7463][#7435][#7391][#7129][#6400][#6364][#6361][#5283][#7507]\n• Auto-Type: Fix typing to virtual machines on Windows [#7366]\n• Auto-Type: Re-implement X11 keysym emulation [#7098]\n• Auto-Type: Support multiple Xkb layouts [#6247]\n• Auto-Type: Abort keystroke if modifiers held on X11 [#6351][#6357]\n• Auto-Type: Add TOTP option to entry level Auto-Type menu [#6675]\n• FdoSecrets: Major Refactor and Code Consolidation [#5747][#5660][#7043][#6915]\n• FdoSecrets: Implement unlock before search [#6943]\n• Reports: Add browser statistics report [#7197]\n\nMajor Changes\n• Port crypto backend to Botan [#6209]\n• Improve attachment handling and security [#6606][#5034][#7083]\n• Allow selecting any open database in unlock dialog [#5427]\n• KeeShare: Remove checking signed container and QuaZip dependency [#7223]\n• Introduce security option to enable copy on double click (default off) [#6433]\n• Add 'delete entry without confirm' functionality [#5812]\n• Improve macOS and Windows platform integration [#5851]\n• Lock only the current database by default [#6652]\n• Show expired entries on DB unlock [#7290]\n• Update D-Bus adaptor interface class name to match definition file [#7523]\n\nOther Changes and Fixes\n• Add countdown progress bar to TOTP preview [#6930]\n• Enter favicon url directly on icons page [#6614]\n• Set C++17 as standard in the build system [#7180]\n• Internalize ykcore into code base [#6654]\n• Transition to Visual Studio builds on Windows [#5874]\n• Ability to delete entries from health check reports [#6537]\n• Enhance remembering last-used directories [#6711]\n• Implement org.freedesktop.appearance.color-scheme support on Linux [#7422]\n• Support sorting HTML export [#7011]\n• Add display number of characters in passphrases [#5449]\n• Use Alt+Tab on macOS to switch between databases [#5407]\n• Add feature to sort groups using shortcut keys [#6999]\n• Add CTRL+Enter to apply password generator changes [#6414]\n• Display Database created timestamp on statistics report [#6876]\n• Browser: Improve best matching credentials setting [#6893]\n• SSH Agent: Use both Pageant and OpenSSH agent simultaneously on Windows [#6288]\n• SSH Agent: Allow using database path to resolve keys [#6365]\n• SSH Agent: Show correct error messages in main window [#7166]\n• Multiple fixes for MSI installer [#6630]\n• Fix tab order for CSV import dialog to match screen order [#7315]\n• Don't mark kdbx:// urls as invalid [#7221]\n• Make selected text copyable instead of copying password [#7209]\n• Detect timestamp resolution for CSV files [#7196]\n• Fix crash while downloading favicon [#7104]\n• Correct naming of newly generated keyx files [#7010]\n• Place the 'Recycle Bin' at the bottom of the list when groups are sorted [#7004]\n• Handle tilde with custom browser paths [#6659]\n• Don't scroll up when deleting an entry [#6833]\n• Set the MIME-Type to text/plain when using wl-copy on wayland [#6832]\n• Fix adaptive icon painting [#5989][#6033]\n• Fix favicon download from URL with non-standard port [#5509]\n• Ignore recycle bin on KeePassHTTP migration [#5481]\n• Fix keepassxc-cr-recovery utility [#7521]\n• Fix Auto-Type not working when audio recording indicator is active on macOS 12.2+ [#7526]",
+      "release_notes_url": "https://github.com/keepassxreboot/keepassxc/releases/tag/2.7.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.0/KeePassXC-2.7.0-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.7.0-Win64.msi",
+          "sha256": "9474b9afba75043886d0e02e62ae17b9433b9ad0777023a2d753b00c418a9b86",
+          "product_code": "{C285F124-6DA6-4D6A-BF11-7D1A44F741E2}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.6",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.6.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.6/KeePassXC-2.6.6-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.6-Win64.msi",
+          "sha256": "41ab0337bc630fe7c0f91b89e3fd868e75ba8c10e4bc6011aa5799f1a0a738e4",
+          "product_code": "{89472929-1ED2-410F-B9CC-974CEE93800E}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.6/KeePassXC-2.6.6-Win32.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.6-Win32.msi",
+          "sha256": "4b48f83dd63d9388c8d982037a671832e72767dfc296ff5b91d2e76049095fed",
+          "product_code": "{F40DE30F-0EE5-4424-98C1-25CFE6B46B6C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.5",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.6.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.5/KeePassXC-2.6.5-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.5-Win64.msi",
+          "sha256": "037722add4ac4da52ed5df43640b990ef4123ada185da73835dc7c636ae876f7",
+          "product_code": "{E407B32D-5073-4AE6-A96A-529960C5CAF9}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.5/KeePassXC-2.6.5-Win32.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.5-Win32.msi",
+          "sha256": "970e7c8214b0b71ddd0c9845175492d88363559569ed14ea7c37d2ddbe6a2375",
+          "product_code": "{140CA1F9-96D9-49E7-B28E-2D8ECEC95D4C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.4",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.6.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.4/KeePassXC-2.6.4-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.4-Win64.msi",
+          "sha256": "5912aa09d1ffc35e12c6454ad156940f6440a2b9874e948c7315e79e84e709c0",
+          "product_code": "{568952A1-F1D6-481E-B2DF-B7A5BE94AB3B}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.4/KeePassXC-2.6.4-Win32.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.4-Win32.msi",
+          "sha256": "73744686af131e99a3bec6fe28d4944834f9f81a99a7790c386fe5a75b144b64",
+          "product_code": "{7079B753-3E9F-4FFD-81DB-C528C1EF6393}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.3",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.6.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.3/KeePassXC-2.6.3-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.3-Win64.msi",
+          "sha256": "4b7ee425400007f61783fc1d82a822f7ca79472caf9308d1712411facc5c6f3a",
+          "product_code": "{818F5613-3450-47D7-87AA-155849339FAC}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/passive /norestart"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.2/KeePassXC-2.6.2-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.2-Win64.msi",
+          "sha256": "3b95a44ecac25df638323c7b75789eb14497db50d25b67c90b170c2ba4b5fc85",
+          "product_code": "{FEE3E3CD-2A6C-464E-8424-DE7512D4A5D0}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/passive /norestart"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.1/KeePassXC-2.6.1-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.1-Win64.msi",
+          "sha256": "2761465ebd9a9a02a714f1d27ee7b0b5965db1a3d4057ea4138344c7f66ea9cb",
+          "product_code": "{1C96B5C7-88A7-4129-9ECB-EADF610CE438}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/passive /norestart"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.6.0/KeePassXC-2.6.0-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.6.0-Win64.msi",
+          "sha256": "9c3924b39773b4dd15d52d97cdf5d66117259742bbe753c84207eb8a82bab5fb",
+          "product_code": "{3A78D61F-504B-4652-9635-D66B323C2990}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.4",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KeePassXCTeam/KeePassXC/2.5.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.5.4/KeePassXC-2.5.4-Win64.msi",
+          "host": "github.com",
+          "filename": "KeePassXC-2.5.4-Win64.msi",
+          "sha256": "01bf1b593efc4a9b92e0ca7148414f6d4f0e63521aefa64d1f8caa0327d35e91",
+          "product_code": "{BF3CDEF9-A637-4C18-A3DC-80CAAF5CD120}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.8.0",
+      "source_version": "2.8.0,2.8.0-1",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-1-x86_64.dmg",
+          "host": "github.com",
+          "filename": "KeePassXC-2.8.0-1-x86_64.dmg",
+          "sha256": "28492c5535570020179150b2871b3c54abd032cbb8cdee2f1b3fa7c46cdba43e",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-1-arm64.dmg",
+          "host": "github.com",
+          "filename": "KeePassXC-2.8.0-1-arm64.dmg",
+          "sha256": "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "KeePassXC.app"
+        ],
+        "binaries": [
+          "keepassxc-cli"
+        ],
+        "cleanup": {
+          "quit": [
+            "org.keepassxc.keepassxc"
+          ],
+          "zap_paths": [
+            "~/.keepassxc",
+            "~/Library/Application Support/CrashReporter/KeePassXC_*.plist",
+            "~/Library/Application Support/keepassxc",
+            "~/Library/Caches/org.keepassx.keepassxc",
+            "~/Library/Logs/DiagnosticReports/KeePassXC_*.crash",
+            "~/Library/Preferences/keepassxc.keepassxc.plist",
+            "~/Library/Preferences/org.keepassx.keepassxc.plist",
+            "~/Library/Saved Application State/org.keepassx.keepassxc.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "2.8.0",
+      "release_date": "2026-10-21",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.keepassxc.KeePassXC.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.keepassxc.KeePassXC.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.keepassxc.KeePassXC.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.keepassxc.KeePassXC.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/k/KeePassXCTeam/KeePassXC"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:54.374Z",
+      "path": "Casks/k/keepassxc.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/keepassxc.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.keepassxc.KeePassXC",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/org.keepassxc.KeePassXC",
+      "api_url": "https://flathub.org/api/v2/appstream/org.keepassxc.KeePassXC",
+      "content_sha256": "6f36148d8f9ba8cc9cab327133210e69873b3d5f60639fe049864f8bca238121"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.keepassxc.KeePassXC",
+    "page_url": "https://flathub.org/apps/org.keepassxc.KeePassXC",
+    "repo_url": "https://github.com/flathub/org.keepassxc.KeePassXC",
+    "install_command": "flatpak install flathub org.keepassxc.KeePassXC",
+    "run_command": "flatpak run org.keepassxc.KeePassXC",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "keepassxc.org",
+      "verified_on": "2023-02-25"
+    },
+    "license": "GPL-3.0-or-later",
+    "free_license": true,
+    "developer_name": "KeePassXC Team",
+    "categories": [
+      "Utility",
+      "Security"
+    ],
+    "download_size": 22819129,
+    "installed_size": 50558976,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

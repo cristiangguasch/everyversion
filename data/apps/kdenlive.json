@@ -1,0 +1,2055 @@
+{
+  "schema_version": 2,
+  "slug": "kdenlive",
+  "name": "Kdenlive",
+  "publisher": "KDE e.V.",
+  "author": "KDE e.V.",
+  "ids": {
+    "winget": "KDE.Kdenlive",
+    "moniker": "kdenlive",
+    "homebrew_cask": "kdenlive",
+    "flathub": "org.kde.kdenlive"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Free and Open Source Video Editor",
+  "description": "Kdenlive is an acronym for KDE Non-Linear Video Editor.\nIt is a free software (GPL licensed) primarily aimed at the Linux platform, but it also works on BSD1 as it relies only on portable components (Qt and MLT framework). Windows versions are also available, with some drawbacks. See Windows Issues for more information. A port on MacOS is also available.\nThrough the MLT framework Kdenlive integrates many effects for video and audio processing or creation. Furthermore, Kdenlive brings a powerful titling tool, a subtitling feature with AI-supported speech to text conversion, nested timelines (new in version 23.04), animation support through Glaxnimate integration (new in version 22.08) and thus can be used as a complete studio for video creation. Check out What’s New for the most recent feature additions.",
+  "tags": [
+    "clip",
+    "creative",
+    "creativity",
+    "edit",
+    "editor",
+    "film",
+    "movie",
+    "video",
+    "video-editing",
+    "video-editor"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://kdenlive.org/",
+    "publisher": "https://kde.org/",
+    "support": "https://community.kde.org/Kdenlive",
+    "privacy": "https://kde.org/privacypolicy-apps/",
+    "release_notes": "https://kdenlive.org/news/releases/26.08.2/",
+    "documentation": [
+      {
+        "label": "User Manual",
+        "url": "https://docs.kdenlive.org/"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://invent.kde.org/multimedia/kdenlive/-/blob/HEAD/COPYING",
+    "spdx": "GPL-3.0",
+    "copyright": "Copyright © 2007–2026 Kdenlive authors",
+    "copyright_url": "https://kdenlive.org/trademark-logo/"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "26.08.2",
+    "macos": "26.08.2",
+    "linux": "26.08.3"
+  },
+  "last_updated": "2026-10-13",
+  "versions_total": {
+    "windows": 49,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "26.08.2",
+      "release_date": "2026-10-13",
+      "release_notes": "The second maintenance release of the 26.08 series is out with the usual batch of stability fixes and workflow improvements. Highlights include improved project handling and ability to set the frame count to start at 1 in the Dynamic Text filter which is useful for animation workflows. This release also fixes several issues in proxy clips, titles, and audio levels.\nKdenlive needs your support\nOur small team has been working for years to build an intuitive open source video editor that does not track you, does not use your data, and respects your privacy. However, to ensure a proper development requires resources, so please consider a donation if you enjoy using Kdenlive - even small amounts can make a big difference.\nFull Changelog\n- Add option to control whether qmllint runs during build. Commit.\n- Do not set mlt cache to 0 to improve file handle situation. Commit. See bug #526044\n- Fix possibly incorrect detection of proxied clip, causing proxy to be considered the original clip. Commit.\n- Fix path detection on missing root. Commit.\n- Fix title images not found on project opening. Commit.\n- Fix project storage incorrectly switching from project folder to default location when editing settings of unsaved project. Commit.\n- Fix monitor not refreshing on subtitle cut, add or delete. Commit. See bug #526379\n- Avoid hardcoding absolute root path in generated MLT clip. Commit. Fixes bug #495091\n- Fix clip monitor image sometimes not cleared after deleting a bin clip. Commit.\n- Fix editor font size zoom. Commit.\n- Fix incorrect proxy param breaking nvidia encoding. Commit. Fixes bug #526155\n- Fix resize handles appearing on deselected titler items. Commit.\n- Fix stale selected pointer overriding new selection in Titler. Commit.\n- Fix titler animation viewports moving after being deselected. Commit.\n- Fix changing project's storage folder if not yet saved. Commit.\n- Fix ClipMonitor job info width binding loop. Commit.\n- Fix possible freeze on audio failed recording. Commit.\n- Fix audio recording sometimes correctly monitoring but recording nothing. Commit.\n- Fix proxy crash and proxying .kdenlive playlist clips. Commit.\n- Don't try to generate sub playlists if .kdenlive file only containe 1 sequence. Commit.\n- Do not seek playhead if clip did not insert. Commit.\n- Feat(effects): add keyword to dynamictext. Commit.\n- Disconnect monitor signal on deactivation in RotatedRectHelper. Commit. Fixes bug #523263\n- Fix leaking monitor helper caused rotation on wrong clip. Real fix for !998. Commit. Fixes bug #523263\n- Fix arrow keys moving playhead instead of grabbed clip after monitor interaction. Commit. Fixes bug #472365\n- Fix incorrect handling of missing proxies on document open. Commit.\n- Move default safe proxy params to C++ so that any change is not shadowed by a custom list. Commit.\n- Fix crash caused by uninitialized track in new project. Commit. See bug #525583\n- Fix master audio levels incorrect with latest MLT. Commit. Fixes bug #525578\n- Fix merge problem breaking qml. Commit.\n- Fix audio thumbs not correctly showing on clip monitor and audio/video drag icon inconsistently working. Commit.\n- Fix clip monitor clip name history not shown on hover monitor. Commit.\n- Remove incorrect cxx version set in kdenlivelib. Commit.",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.08.2/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.08.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.2.exe",
+          "sha256": "9f89d8ac53b190ba506af86fb37b31f17b60a532394bd5303af4e505b3a5bee6",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.2.exe",
+          "sha256": "9f89d8ac53b190ba506af86fb37b31f17b60a532394bd5303af4e505b3a5bee6",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.08.1",
+      "release_date": "2026-09-10",
+      "release_notes": "The first maintenance release of the 26.08 series is out with the usual batch of stability fixes and workflow improvements. Highlights include a big batch of fixes for crashes when changing Timeline Preview settings, deleting sequences, stopping audio recordings, and using ripple editing when the Project Monitor is hidden. This release also fixes Effects Zones not being kept inside the clip boundary and tabs are now readable on theme changes on Windows.\nJoin us at Akademy\n\nSome of the team members will be in Graz for Akademy, celebrating 30 years of KDE. Also Jean-Baptiste Mardelle will be giving a talk about Kdenlive.\nKdenlive needs your support\nOur small team has been working for years to build an intuitive open source video editor that does not track you, does not use your data, and respects your privacy. However, to ensure a proper development requires resources, so please consider a donation if you enjoy using Kdenlive - even small amounts can make a big difference.\nFull Changelog\n- Fix effect zone going outside clip when enabled. Commit.\n- Minor cleanup in mixer widget. Commit.\n- Fix the crash when changing the Timeline Preview when creating a new project. Commit.\n- Fix: bug: crash when save exit after deleting a sequence. Commit.\n- FIx possible crash stopping a failed audio recording. Commit.\n- Add entitlement info for MacOS. Commit.\n- Fix reuse. Commit.\n- Add entitlement file for MacOS. Commit.\n- Ensure no audio is processed on thumbnail producers. Commit.\n- Fix crash on ripple edit with project monitor hidden. Commit.\n- Fix(transcoding): replace deprecated -vsync with -fps_mode for modern FFmpeg. Commit.\n- Remove ghost menu caused by deprecated marker_menu entry. Commit.\n- Fix: bug: hang when splash closed, and false crash alarm on restart. Commit.\n- Fix typo. Commit.\n- Update KDDockWidgets tabbar proxystyle on application palette change, fixes unreadable tabs on Windows. Commit. Fixes bug #522933",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.08.1/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.08.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.1.exe",
+          "sha256": "b436430eb7dd4b3d1da318a53a77798cdaf3543a9f790824df214588b07f5d1e",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.1.exe",
+          "sha256": "b436430eb7dd4b3d1da318a53a77798cdaf3543a9f790824df214588b07f5d1e",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.08.0",
+      "release_date": "2026-08-28",
+      "release_notes": "- Added snapping in the title editor\n- Added rounded corners on rectangles for titles\n- Added copy & paste title elements\n- Added option to replace the timeline clip when adding a new title clip\n- Introduced copy selection to new sequence\n- Added arbitrary rotation anchor for transform effect\n- Added auto-keyframe generation for additional effects\n- Added detect embedded MKV subtitle streams and display count in clip properties\n- Added Shift+Click for additive soloing on audio tracks\n- Introduced reorder timeline tracks\n- Added Add Markers at Gaps feature to Timeline menu\n- Added configuration of colors for clip types (video, audio, title, image, slideshow)\n- Added warning before deleting tracks that contain clips\n- Added insert clips to timeline using timecode metadata\n- Added setting for “Return playhead to start position on stop” in the timeline\n- Renamed and repositioned “Replace Timeline Clip” action\n- Added move clip marker with mouse\n- Added duplicate clip action\n- Added 6 new effects: gradientmap, baltan, lightgraffiti, avfilter curves, lagfun, pseudocolor",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.08.0/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.08.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.0.exe",
+          "sha256": "8e40613a25f3316308eed8c6a19f2f5bf0b16374f7a495594a8ddab4090d3514",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.0.exe",
+          "sha256": "8e40613a25f3316308eed8c6a19f2f5bf0b16374f7a495594a8ddab4090d3514",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.04.3",
+      "release_notes": "The last maintenance release of the 26.04 series is out, bringing the usual batch of bug fixes and workflow and stability improvements. Highlights include fixes for crashes when undoing sequence creation and recording audio without an audio device, as well as improvements to Rectangular Alpha Mask and Rotoscoping effects. This release also continues the security hardening efforts of this cycle by preventing unwanted command execution on MLT versions below 7.40.\nFull Changelog\n- FIx typo. Commit.\n- Ensure we don't execute unwanted commands on MLT < 7.40. Commit.\n- Fix typo. Commit.\n- Fix possible crash in exit. Commit.\n- Fix history not cleared if clearing and closing splash. Commit.\n- Fix qml warning on qml shortcuts. Commit.\n- Don't try to save audio thumbs to invalid empty path (happens in tests). Commit.\n- Fix possible crash when trying to record without audio device. Commit. See bug #519900\n- Fix fake rect not correctly initialized on add effect. Commit.\n- Fix Rectangular Alpha mask keyframes. Commit.\n- Fix effect with multiple color picker broken, and effect not disabled when picking. Commit. Fixes bug #521396\n- Fix enforcing video stream in multi stream video clips. Commit. Fixes bug #505314\n- Fix clip with mix left on incorrect subplaylist after cut. Commit.\n- Fix timeline playhead going out of view while playing. Commit. Fixes bug #517494\n- Fix crash undoing create sequence from selection. Commit. See bug #519268\n- Fix cannot move rotoscoping shape after playing monitor. Commit. See issue #2200",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.04.3/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.04.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.3.exe",
+          "sha256": "f5dcd8ddb7a8ef6754cee7515513d6c777bc68079c6fec37e20373f628f65fe1",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.3.exe",
+          "sha256": "f5dcd8ddb7a8ef6754cee7515513d6c777bc68079c6fec37e20373f628f65fe1",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.04.2",
+      "release_notes": "The second maintenance release of the 26.04 series is out with the usual batch of bug fixes and improvements for workflow and stability. This update comes with fixes to rendering, timeline editing, project file handling, and Windows, MacOS, AppImage and Flatpak packaging.\nOne noteworthy bug closed in this version is a fix on Windows to finally allow exporting your videos to a network drive, closing a 4-year-old bug.\nHead to our download section to get the latest binaries, or check the updates from your package manager. Please note that for Linux only AppImage and Flatpak are supported by the Kdenlive team.\nFull Changelog\n- Remove not needed actions from render info, fix rough size calculation for rendering. Commit.\n- Fix clip sometimes not inserted in timeline when moving vertically in bin drag. Commit.\n- Fix transcoding from clip properties. Commit.\n- Cleanup render profile audio quality. Commit.\n- Use percent based value for audio quality, and adjust the range accordingly per codec. Commit. Fixes bug #520750\n- Enforce even numbers for render width/height. Commit. Fixes bug #520737\n- Fix nightly flatpak - disable rnnoise until implemented. Commit.\n- Fix missing initialization. Commit.\n- Edit mediacapture.cpp. Commit.\n- Fix document unnecessarily marked as modified on opening, triggering a backup request. Commit.\n- Fix incorrect detection of missing and remote clips causing unwanted backups. Commit. Fixes issue #2194\n- Fix tests. Commit.\n- Fix tmp files copied to wrong location when setting project folder. Commit. Fixes bug #467740\n- Fix color clips not selected on creation. Commit.\n- Use QFileInfo instead of QUrl/QDir to try fixing Windows shared drives. Commit. Fixes bug #451413\n- Fix timeline preview incorrectly invalidated when a track with effect duration changed. Commit. See bug #514541\n- Fix missing var. Commit.\n- Display paths in native format in render widget. Commit. Fixes bug #520428\n- Simple splash: fix pressing return always triggered the same button. Commit.\n- Minor update to simple splash. Commit.\n- Fix unwanted clips added to timeline and cleanup. Commit. Fixes issue #2190\n- Minor layout improvements to welcome screen, add Quit and Open shortcuts. Commit.\n- Fix broken welcome dialog layout in tiling compositors. Commit.\n- (craft) Limit the number of CPU cores used during a Windows build with mingw as some .cpp files are memory intensive to build. Commit.\n- (kde-ci) Limit the number of CPU cores used during a build as some .cpp files are memory intensive to build. Commit.\n- (kde-ci) Cleanup old entries. Commit.\n- Another fix for animation crash. Commit.\n- Fix uninitialized function - crash on create animation. Commit.\n- Another attempt to fix MacOS permissions. Commit.\n- MacOS: fix bundle release version. Commit.\n- Fix MacOS plist path. Commit.\n- Fix MacOS build. Commit.\n- Explicitely link against Qt::Core. Commit.",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.04.2/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.04.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.2.exe",
+          "sha256": "a9fc060aa7d026126dc68bb24d0f5adb4f610a3d91bf6775daaf25fd1bd63145",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.2.exe",
+          "sha256": "a9fc060aa7d026126dc68bb24d0f5adb4f610a3d91bf6775daaf25fd1bd63145",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.04.1",
+      "release_notes": "The first maintenance release of the 26.04 series is now available, with the usual batch of stability fixes and workflow improvements.\nThis release also contains an important security fix, so we strongly advise all users to upgrade to the latest 26.04.1 version.\nThanks to an NLnet/NGI0 grant, we had a security audit provided by Radically Open Security. The audit found one serious vulnerability that can happen when opening a malicious project file, allowing remote code execution. This is fixed with Kdenlive 26.04.1. Thanks to Edoardo Geraci and Radically Open Security for helping us make our software safer!\nWe are not aware of the vulnerability being exploited so far. It is important to understand that this security issue is about a manipulated .kdenlive project file containing potentially malicious code. Therefore, it is only relevant if you open a .kdenlive project file that you received from someone else or downloaded from the internet. If you are working only with your own projects or with shared projects in collaboration with fully trusted partners, there is no security risk.\nIf you cannot upgrade, do not open a project file that was not created by you.\nAlthough the vulnerability is fixed in 26.04.1, we have also implemented another layer of security checks for the upcoming 26.08.0 to warn the user if some other unexpected input is detected in a project file.\nHead to our download section to get the latest binaries, or check the updates from your package manager. Please note that for Linux only AppImage and Flatpak are supported by the Kdenlive team.\nFull Changelog\n- Try to fix MacOS app permissions. Commit.\n- Fix minimum MacOS supported version in Info.plist. Commit.\n- Ensure we don't try to access uninitialized media recorder. Commit.\n- Ensure we don't try to access audio device before permission confirmed. Commit.\n- Warn user on invalid preset on document open. Commit.\n- Fix Clip Monitor position stuck when switch clip. Commit. Fixes issue #2177\n- Fix otiotest. Commit.\n- Fix nonstop message asking to confirm sequence resize. Commit. Fixes bug #518990\n- MacOS: explicitely request mic permission. Commit. See bug #509281\n- Fix tab order in create color clip dialog. Commit.\n- Fix plist typo. Commit.\n- Update Mac plist. Commit. See bug #509281\n- Fix dropping sequence without audio in timeline. Commit. Fixes bug #519583\n- Fix clip monitor playhead remains the same when switching clips. Commit. See issue #2177\n- Fix welcome screen recent profile opening incorrect project profile. Commit.\n- Fix archiving of title files with images. Commit. See bug #518992\n- Fix crash cutting subtitle on layer > 0. Commit. Fixes bug #519505\n- Switch transition preview to gif format since most of our binaries don't encode webp. Commit.\n- Fix transition preview generation. Commit.\n- Fix crash switching multiple times between icon and list view in transitions list. Commit.\n- Fix trying to access uninitialized core profile on document open. Commit.\n- Fix render test suite crash on unknown render profile. Commit.\n- Sanitize proxy parameters. Commit.\n- Limit the number of supported layers in subtitles. Commit.\n- Always adjust composition duration on drop if there are clips above and below. Commit.\n- Fix missing Q_EMIT keyword. Commit.\n- Only show transition preview action if python is found. Commit.\n- Fix freeze canceling project recovery. Commit.\n- Fix playlist with different profile always have audio + video. Commit. Fixes bug #497943\n- Fix proxying playlist clip always adds audio. Commit. See bug #497943\n- MacOS: fix monitor offset with transform on zoom. Commit.\n- Bin icon mode: show folder indicator when item has zones, double click a sequence will expand/colapse it as well as open the sequence in timeline. Commit. Fixes bug #518857\n- Ensure double click opens sequence even when it has subclips. Commit. Fixes bug #518857\n- Cleanup audio level code, fix possible crash when adding first clip. Commit.\n- Transitions preview: script should only generate previews for custom lumas for now. Commit.\n- Don't show incorrect transition preview. Commit.\n- Fix crash closing app through welcomne screen close button. Commit.",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.04.1/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.04.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.1.exe",
+          "sha256": "6eb87f934ce9b37d5c0d8d584227dc970d5b31279a77d95a07add6bd39ad7902",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.1.exe",
+          "sha256": "6eb87f934ce9b37d5c0d8d584227dc970d5b31279a77d95a07add6bd39ad7902",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.04.0",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.04.0/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.04.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.0.exe",
+          "sha256": "2de6fd3e7f0a606daf55be7b1fbd08d8d066c5ac20be03c183100f1ac997ba2b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.04/windows/kdenlive-26.04.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.04.0.exe",
+          "sha256": "2de6fd3e7f0a606daf55be7b1fbd08d8d066c5ac20be03c183100f1ac997ba2b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.12.3",
+      "release_notes": "The last maintenance release of the 25.12 series is out with the usual batch of stability fixes and workflow improvements. Highlights include small interface refinements such as better dock widget behavior, improved shortcut handling in fullscreen mode, logically grouped marker menu items, and a new option to disable timeline effects in the hamburger menu. The release also brings improvements to multistream clip handling and ripple editing, as well as fixing small memleak in the render widget and a crash in the curve editor. See the changelog below for more details.\nThe macOS versions will be available at a later time due to technical issues while generating the packages.\nKdenlive needs your support\nOur small team has been working for years to build an intuitive open source video editor that does not track you, does not use your data, and respects your privacy. However, to ensure a proper development requires resources, so please consider a donation if you enjoy using Kdenlive - even small amounts can make a big difference.\nFull Changelog\n- Fix dragging audio clips from clip monitor button. Commit.\n- Fix Whisper plugin install on Python 3.14. Commit.\n- When hiding a dockwidget with hidden title bar, ensure freed space is reused. Commit.\n- Correctly handle shortcuts with Shift modifier when in fullscreen mode. Commit. Fixes bug #516326\n- Fix possible crash un curve editor. Commit.\n- Fix mix not invalidating preview on change. Commit.\n- Shutdown after rendering: don't shutdown after abort, show prompt before shutting down on KDE. Commit. Fixes bug #513510\n- Kdenlive Settings: fix apply button disabled after changing audio rec device. Commit.\n- Fix import of clips with multiple video streams. Commit.\n- Fix small mem leak in Render Widget. Commit. See bug #514763\n- Fix insertion of multistream clips. Commit.\n- Fix timeline preview invalidates full track when adding clip. Commit. Fixes bug #514541\n- Never raise the effect stack on item selection if Effect Stack is docked with Timeline. Commit. Fixes bug #514547\n- Fix resize Item start in ripple mode. Commit. Fixes bug #516099\n- Fix ripple moving playhead. Commit. Fixes bug #516098\n- Moved avfilter.gradfun to Image Adjustment category. Commit.\n- Backport avfilter_gradfun fix. Commit.\n- Fix shortcut conflict with extract action. Commit. Fixes bug #516750\n- Make cppcheck happy. Commit.\n- Ensure the track audio levels are always checked after the other track effects. Commit. Fixes bug #441452\n- Fix audio scrubbing when Pause on Seek is disabled. Commit. Fixes bug #509667\n- Refactor disabling clip, fixes audio stream lost on disable/enable. Commit. Fixes bug #474139\n- Ensure no audio frame stays in the queue when switching clip in Clip Monitor. Commit. See bug #433601\n- Don't scroll up on bin drag when entering timeline. Commit. Fixes bug #439323\n- Fix incorrect audio tracks count when timeline preview is enabled, breaking copy-paste. Commit. Fixes bug #515124\n- Fix missing variable in split screen overlay. Commit.\n- Grouping menu items logically. Commit.\n- Add Disable Timeline Effects function to timeline hamburger menu. Commit.\n- Fix rotoscoping right click to close shape. Commit.\n- Try to fix image position on MacOS in fixed size mode. Commit.",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.12.3/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.12.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.3.exe",
+          "sha256": "f0ecab2ffca1b812de51c0c9556ed4480e1c9d611e32d67b79106965819a42c4",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.3.exe",
+          "sha256": "f0ecab2ffca1b812de51c0c9556ed4480e1c9d611e32d67b79106965819a42c4",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.12.2",
+      "release_notes": "The second maintenance release of the 25.12 series is with the usual batch of stability fixes and workflow improvements. Highlights of this release include fixes to various monitor issues and refactoring of the monitor dragging mechanism. See the changelog below for more details.\nKdenlive needs your support\nOur small team has been working for years to build an intuitive open source video editor that does not track you, does not use your data, and respects your privacy. However, to ensure a proper development requires resources, so please consider a donation if you enjoy using Kdenlive - even small amounts can make a big difference.\nFull Changelog\n- Disable sequence audio thumbnails until properly fixed. Commit. See issue #2134\n- Fix crash opening and quickly closing Kdenlive settings. Commit.\n- Fix MacOs. Commit.\n- Fix pasting effects always enables built-in effects. Commit. Fixes bug #514885\n- Expand bin and render profiles folders when doing a search. Commit.\n- Fix monitor image position on fixed scale with small profile size. Commit.\n- Try to workaround possible double free in audio thumbs. Commit.\n- Fix remaining issues in clip monitor click and drag. Commit.\n- Documentation.yml is no more needed. Commit.\n- Refactor monitor dragging to fix audio/video only drag and disappearing audio waveform in clip monitor. Commit.\n- Clip monitor audio thumbail: immediatly apply change in always show audio thumb setting. Commit.\n- Fix sequence clips audio thumbnails (update each time duration changes). Commit. See bug #472627\n- Fix licensing. Commit.\n- Hide some irrelevant effects from UI using hidden_effects.txt / hidden_transitions.txt files. Allow copy from effects list description. Commit. See bug #473086\n- Fix app glitch opening project with missing clip on Windows. Commit. See bug #513648\n- Fix monitor rotoscoping overlay sometimes not correctly updating. Commit.\n- Fix monitors always displayed on activation even when explicitely hidden. Commit. Fixes bug #514831",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.12.2/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.2.exe",
+          "sha256": "a9a3c693edf66f730eff3332b95faf0d88daf610027678cddf5720402d58e373",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.2.exe",
+          "sha256": "a9a3c693edf66f730eff3332b95faf0d88daf610027678cddf5720402d58e373",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.12.1",
+      "release_notes": "Happy New Year! The first maintenance release of the 25.12 series is with the usual batch of stability fixes and workflow improvements. Highlights of this release include further polishing of the new welcome screen, added AMF encoding profile for Windows, fixes to audio capture and effects alongside numerous smaller improvements throughout the interface. See changelog for more details.\nFull Changelog\n- Fix slow opening through file manager. Commit. See bug #513648\n- Fix project monitor initialized at frame 1 in new projects. Commit. Fixes bug #513907\n- Rotoscoping: don't reset mask points when seeking while shape is not yet closed. Commit. Fixes bug #513801\n- Minor cleanup media capture. Commit.\n- Audio capture: minor cleanup, ensure we use a channel count/sample rate compatible with mic. Commit. See bug #493308\n- Fix crash on copy. Commit. Fixes bug #513964\n- Use Qt native method to fetch audio level in capture. Commit. See issue #2116\n- Fix crash toggling audio monitor. Commit. See issue #2116\n- Refresh monitor after changing interpolation. Commit.\n- Fix paste clips doesn't follow disabled state. Commit. Fixes bug #513473\n- Fix xmlgui related crash starting an older Kdenlive version (< 25.08.3). Commit.\n- Keep duration info when moving ranged markers. Commit.\n- Don't load Kdenlive in the background if welcome screen is displayed to avoid busy cursor / greyed out screen on Wayland. Commit.\n- Fix window does not appear after crash and no welcome screen. Commit.\n- Ensure we cannot call a welcome screen action before it is connected. Commit.\n- Fix possible crash in welcome screen trying to open profile or file when main window was not ready yet. Commit.\n- Fix changing keyframe type for multiple keyframes not working. Commit. Fixes issue #2104\n- CI: Add documentation build. Commit.\n- Add AMF encoding profile for Windows. Commit.\n- Don't allow saving a custom effect with the name of an existing effect. Commit.\n- Fix horizontal editing layout not loaded. Commit.\n- Hsvhold similarity must be > 0. Commit.\n- Fix copy paste resets keyframe type. Commit. Fixes bug #513053\n- Fix editing transform on monitor discards opacity. Commit. Fixes issue #2108\n- Don't check for readOnly in QStorageInfo on Mac. Commit.\n- Fix app not opening after crash and opening project from command line. Commit.\n- Don't incorrectly show warning about hidden monitor. Commit.\n- Fix project layout not correctly restored if opened from welcome screen. Commit.",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.12.1/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.1.exe",
+          "sha256": "63ce996abfd04e13ae9a0a08ae0a0b402cbfc8b03626d5d92ff5661b958e7023",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.1.exe",
+          "sha256": "63ce996abfd04e13ae9a0a08ae0a0b402cbfc8b03626d5d92ff5661b958e7023",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.12.0",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.12.0/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.0-B.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.0-B.exe",
+          "sha256": "2617f8025b3add844b62d9534c58ac1851142ed07b4eb88be8cf56587dd2dde7",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.12/windows/kdenlive-25.12.0-B.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.12.0-B.exe",
+          "sha256": "2617f8025b3add844b62d9534c58ac1851142ed07b4eb88be8cf56587dd2dde7",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.08.3",
+      "release_notes": "The last maintenance release of the 25.08 series is out with fixes to issues with clip pasting on projects with different fps, subtitle styles, image rendering, as well as problems with image sequences. This version also adds support for SVG file replacement and correctly checks for disk space when archiving among other improvements.\nFull Changelog\n- Fix incorrectly handled clip length crashing on past clips with different fps. Commit. Fixes issue #2075\n- FIx possible crash using newer ui.rc file. Commit.\n- Disable native font dialog in subtitle styles on Linux. Commit. See bug #509564\n- FIx space check in archive widget. Commit.\n- Fix typo. Commit.\n- Incorrect regexp use. Commit.\n- Fix image with percent in name incorrectly detected as slideshow. Commit.\n- Fix image sequence by Mime broken. Commit. Fixes bug #500542\n- Don't consider unused clips when checking if we use VFR clips. Commit. Fixes issue #2079\n- Fix some images not rendered in timeline preview. Commit. Fixes bug #511249\n- Only add resize effect to video / image clips. Commit. Fixes issue #2080\n- Add svg as supported file type. Commit. Fixes bug #511250\n- Fix crash on normalize track. Commit. See issue #2076\n- Fix incorrect font size passed in font selector of subtitle style. Commit.\n- Don't stop MLT::Consumer when switching monitors. Commit. See issue #2064",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.08.3/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.08.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.3.exe",
+          "sha256": "cf6479268107396b1a9ba1f73cd96e676c208620525861acd32089fe64aea04f",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.3.exe",
+          "sha256": "cf6479268107396b1a9ba1f73cd96e676c208620525861acd32089fe64aea04f",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.08.2",
+      "release_notes": "The second maintenance release of the 25.08 series is out continuing the focus on stability and polish. It fixes issues with effects and transitions, improves clip selection, and resolves crashes related to filter jobs and effects on sequences. This version also comes with updated parameters for frei0r effects and GIF rendering preset.\nThe Windows package also fixes an annoying short freeze issue affecting the 25.08.1 version.\nFull Changelog\n- Fix fade to black preset incorrectly applied. Commit. Fixes bug #509108\n- Fix crash dragging effect from another window. Commit. Fixes bug #510253\n- Added new pass-through alpha parameter to frei0r_pixeliz0r.xml. Commit.\n- Added new VSync parameter to frei0r_nosync0r.xml. Commit.\n- Updated frei0r_sigmoidaltransfer.xml. Commit.\n- Fix crash using filter job (tracker, loudness) on sequence clip. Commit. See bug #509769\n- Fix monitor audio waveform using incorrect normalize factor when switching betwwen clips. Commit.\n- Improve selection and resize of small clips. Commit. Fixes bug #509911\n- Fix job QProcess created in incorrect thread. Commit.\n- Fix sequence subclips disappear after reopening project. Commit. Fixes bug #509773\n- Drop v4l in ffmpeg too. Commit.\n- Doc: remove the space after a 'url' tag. Commit.\n- Fix incorrect links in appdata. Commit.\n- CI - Flatpak - Use our mirror as ladspa URL is unreliable. Commit.\n- Fix freeze loading invalid clip. Commit.\n- Fix gif preset not finding the correct file. Commit. Fixes issue #2044",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.08.2/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.08.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.2.exe",
+          "sha256": "9d67edab7be66f4e016580139f183131b2f62a712c3d48954bfe3dae89de8d6b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.2.exe",
+          "sha256": "9d67edab7be66f4e016580139f183131b2f62a712c3d48954bfe3dae89de8d6b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.08.1",
+      "release_notes": "First maintenance release of the 28.08 series is out continuing the focus on stability and polish with many fixes for crashes and regressions as well as user interface and usability improvements.\nSome packaging issues caused a small delay for this release announcement, sorry for the inconvenience. Thanks to all the people who help make Kdenlive more stable by reporting bugs, providing patches or sending constructive feedback.\nFull Changelog\n- Remove deprecated reference to frei0r.scal0tilt. Commit.\n- Fix playlist clips (or kdenlive projects) not reloading when modified. Commit.\n- Fix render path reset when creating a new sequence in the project. Commit.\n- Fix Transform effect when current clip is not below play head / timeline cursor. Commit. Fixes bug #508818\n- Fix crash on bin clip deletion. Commit.\n- Fix clip monitor image stays visible after closing a project. Commit.\n- Fix crash on project open. Commit. See bug #509077\n- Curve editors can use the full width. Commit. See bug #508258\n- Fix crash trying to apply an effect on a subclip. Commit. See bug #509005\n- Fix macOS project files icon. Commit.\n- Fix recent regression in render with multiple audio files. Commit.\n- Fix create sequence from selection sometimes not working. Commit. Fixes bug #508576\n- Fix crash on failed sequence creation. Commit. See bug #508576\n- Fix incorrect mime icon names. Commit.\n- Fix 2 pass rendering. Commit.\n- Try to fix MacOS icon. Commit. See bug #508508\n- Snapcraft: Fix protobuf crash. Commit.\n- Fix peak indicators immediately resetting when no audio is coming in. Commit.\n- Fix ugly icons in Clip Properties panel. Commit.\n- Don't attempt to update geometry scene when its not actually loaded. Commit.\n- Fix crash starting bin clip task in multiple bin project. Commit.\n- Fix monitor playing when clicking in the zoombar area. Commit.\n- Monitor transform: Fix changing into moving state when doing keyframe selection. Commit.\n- Monitor transform: Fix keyframe selection via center points when rotated. Commit.\n- Fix crash clicking on effects timeline on an empty project. Commit.\n- Don't install 1024px icon breaking Flatpak. Commit.\n- Ignore old project file black producer on opening. Commit.\n- Add higher res icons. Commit. See bug #508508\n- Fix MacOS icon is low resolution. Commit. See bug #508508\n- [Flatpak nightly] Disable MLT movit module. Commit.\n- Fix freeze adding an unsupported file to project bin. Commit.\n- Fix corrupted/missing font in effect stack and stabilize dialog. Commit.",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.08.1/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.08.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.1_A.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.1_A.exe",
+          "sha256": "4adcdb19fbd650a95592e5b4a5eada11f84baecec8aa5e60d813d6275d37526b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.1_A.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.1_A.exe",
+          "sha256": "4adcdb19fbd650a95592e5b4a5eada11f84baecec8aa5e60d813d6275d37526b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.08.0",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.08.0/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.08.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.0.exe",
+          "sha256": "533898498fb16502b7b16efcda8d636cb9e556e00deb2c1fd043d9b0c132e46e",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.08/windows/kdenlive-25.08.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.08.0.exe",
+          "sha256": "533898498fb16502b7b16efcda8d636cb9e556e00deb2c1fd043d9b0c132e46e",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.04.3",
+      "release_notes": "The last maintenance release of the 25.04 series is out with fixes to the volume and transform effects as well as some issues with guides.\nFull Changelog\n- Fix build-in volume effect still disabled after enabling it. Commit.\n- Fix OTIO export tracks order and ensures .otio file extension. Commit.\n- Fix guides not correctly adjusted when changing profile to clip profile from bin messsage action. Commit. See bug #434585\n- Fix guides position not adjusted after project profile change. Commit. Fixes bug #434585\n- By default insert to the lowest video track, not top track. Commit. Fixes bug #503028\n- When the transform on monitor rectangle is small, apply an offset to resize handles so rect can be moved. Commit. Fixes bug #505224",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.04.3/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.04.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.3.exe",
+          "sha256": "be4bca1b8aabc31f454ad520d8e94af6d9e8ae9d837f96b3c85dea84fefe2b20",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.3.exe",
+          "sha256": "be4bca1b8aabc31f454ad520d8e94af6d9e8ae9d837f96b3c85dea84fefe2b20",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.04.2",
+      "release_notes_url": "https://kdenlive.org/news/releases/25.04.2/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.04.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.2.exe",
+          "sha256": "5e7356f0c422c08dbc6930b93a51e9a24d17551e2313f32884233bb9706e231b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.2.exe",
+          "sha256": "5e7356f0c422c08dbc6930b93a51e9a24d17551e2313f32884233bb9706e231b",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.04.1",
+      "release_notes_url": "https://docs.kdenlive.org/more_information/whats_new.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.04.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.1.exe",
+          "sha256": "b302a867e461882bf73c1f9197b30e9a481efa86a8ccbbd9db9d774dcdb9853a",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.1.exe",
+          "sha256": "b302a867e461882bf73c1f9197b30e9a481efa86a8ccbbd9db9d774dcdb9853a",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.04.0",
+      "release_notes_url": "https://docs.kdenlive.org/more_information/whats_new.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/25.04.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.0.exe",
+          "sha256": "46093697018e770beed154de314d67da9aaa23e0f73f6bdfb12f2c57e137e498",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/25.04/windows/kdenlive-25.04.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-25.04.0.exe",
+          "sha256": "46093697018e770beed154de314d67da9aaa23e0f73f6bdfb12f2c57e137e498",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.12.3",
+      "release_notes": "The last maintenance release of the 24.12 cycle is out.\n- Fix audio playback breaks when switching between bin clips. Commit. See bug #500491.\n- Fix crash on single item deletion in group. Commit.\n- Fix crash pasting clips with a same track transition (like dissolve). Commit.\nThe post Kdenlive 24.12.3 released appeared first on Kdenlive.",
+      "release_notes_url": "https://kdenlive.org/en/2025/03/kdenlive-24-12-3-released/",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.12.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.3.exe",
+          "sha256": "897869933906d90d7e844dbc62676823c0cd393eeb92badf64c6343ff2ba7731",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.3.exe",
+          "sha256": "897869933906d90d7e844dbc62676823c0cd393eeb92badf64c6343ff2ba7731",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.12.2",
+      "release_notes": "The second maintenance release of the 24.12 cycle is out with multiple bug fixes. Notable changes include fixes for crashes, UI resizing issues, effect stack behavior, proxy clip handling, and rendering progress display, along with improvements to Speech-to-text in Flatpak and macOS packages.\n\n- Don’t try to update monitor overlay if effect is disabled. Commit.\n- Fix crash setting empty name for folder. Commit. Fixes bug #499070.\n- Better fix for expand library clips broken with proxies. Commit. Fixes bug #499171.\n- Try to fix Whisper models folder on Flatpak. Commit. See bug #499012.\n- Don’t try to delete ui file elements on subtitlemanager close. Commit.\n- Fix effect stack widget not properly resizing. Commit.\n- Ensure built-in effects reset button is enabled. Commit.\n- Ensure vidstab external files are correctly listed and archived. Commit.\n- Added 2 decimals for the rotation parameter (addresses bug #498586). Commit.\n- Rescale 48-apps-kdenlive.png to 48×48. Commit.\n- Fix effects layout broken on resize. Commit. Fixes bug #498749.\n- Fix possible crash on exit. Commit.\n- Reassemble proxy profile elements in the correct order after validation. Commit. Fixes bug #485356.\n- Fix the spinbox range for title position and size. Commit. Fixes bug #487950.\n- Fix rendering progress not shown when rendering a zone. Commit.\n- Fix FFmpeg for STT not found on Mac. Commit. Fixes bug #498949.\n- Backport fix for invalid file names in custom effects. Commit. Fixes bug #498710.\nThe post Kdenlive 24.12.2 released appeared first on Kdenlive.",
+      "release_notes_url": "https://kdenlive.org/en/2025/02/kdenlive-24-12-2-released/",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.2.exe",
+          "sha256": "5add33f6ac8c05f56c2af9559b38a189568741d262ccb8a90f16c0b66dc3f021",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.2.exe",
+          "sha256": "5add33f6ac8c05f56c2af9559b38a189568741d262ccb8a90f16c0b66dc3f021",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.12.1",
+      "release_notes_url": "https://docs.kdenlive.org/more_information/whats_new.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.1.exe",
+          "sha256": "eb6bef8491cfa2f214af18d6e5dc2c1d14ce0043a41fa19b0eb64375dd1efee1",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.1.exe",
+          "sha256": "eb6bef8491cfa2f214af18d6e5dc2c1d14ce0043a41fa19b0eb64375dd1efee1",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.12.0",
+      "release_notes": "- Introduced multiple Subtitle Tracks\n- Introduced built-in effects\n- Introduced resizing multiple timeline items\n- Added a on effects and compositions a direct link to the documentation\n- Added a shortcut to extract clip from timeline\n- Added new MLT HSL color correction effect",
+      "release_notes_url": "https://docs.kdenlive.org/more_information/whats_new.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.0.exe",
+          "sha256": "7bdd286828837118804e97d2a9d9cf1bb66dc1f21cb8a89378081ee543ddd327",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.12/windows/kdenlive-24.12.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.12.0.exe",
+          "sha256": "7bdd286828837118804e97d2a9d9cf1bb66dc1f21cb8a89378081ee543ddd327",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.08.3",
+      "release_notes_url": "https://docs.kdenlive.org/more_information/whats_new.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.08.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.3.exe",
+          "sha256": "ef6ce7bac088fa28de1ba845afaf71bb360053bceb48e2cd3476e260859f99f4",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.3.exe",
+          "sha256": "ef6ce7bac088fa28de1ba845afaf71bb360053bceb48e2cd3476e260859f99f4",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.08.2",
+      "release_notes_url": "https://docs.kdenlive.org/more_information/whats_new.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.08.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.2.exe",
+          "sha256": "a0880f7e61b29ea4ec4e9f6ece3c6dbfce05717edd6c34b62485fc8acaeabd56",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.2.exe",
+          "sha256": "a0880f7e61b29ea4ec4e9f6ece3c6dbfce05717edd6c34b62485fc8acaeabd56",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.08.1",
+      "release_notes": "Kdenlive 24.08.1 is out and we urge all to upgrade. This version fixes recent playback and render regressions while fixing a wide range of bugs.\nFull changelog:\n- Fix reassigning timecode to project clip. Commit. Fixes bug #492697.\n- Fix possible crash on undo/redo single selection move. Commit.\n- Fix dragging transitions to a clip cut to create a mix. Commit.\n- Fix multiple selection broken. Commit.\n- Fix clip offset not appearing on selection in timeline. Commit.\n- Ensure bin clips with effects disabled keep their effects disabled when added to a new sequence. Commit.\n- Fix keyframe at last frame prevents resizing clip on high zoom. Commit.\n- Fix effects/compositions list size. Commit. Fixes bug #492586.\n- Fix compositions cannot be easily selected in timeline. Commit.\n- Replace : and ? chars in guides names for rendering. Commit. See bug #492595.\n- Don’t trigger timeline scroll when mouse exits timeline on a clip drag, it caused incorrect droppings and ghost clips. Commit. See bug #492720.\n- Fix scolling timeline with rubberband or when dragging from file manager can move last selected clip in timeline. Commit. Fixes bug #492635.\n- Fix adding marker from project notes always adds it at 00:00. Commit. Fixes bug #492697.\n- Fix blurry widgets on high DPI displays. Commit.\n- Fix keyframe param not correctly enabled on first keyframe click. Commit.\n- Fix curveeditor crash on empty track. Commit.\n- Ensure rendering with separate file for each audio track keeps the correct audio tag in the file name. Commit.\n- Fix render project folder sometimes lost, add proper enums instead of unreadable ints. Commit. See bug #492476.\n- Fix MLT lumas not correctly recognized by archive feature. Commit. Fixes bug #492435.\n- Fix configure toolbars messing UI layout. Commit.\n- Effects List: ensure deprecated category is always listed last. Commit.\n- Fix tabulations in Titler (requires latest MLT git). Commit.\n- Titler: ensure only plain text can be pasted, prepare support for tabulations (needs MLT patch). Commit.\n- Don’t accept empty whisper device. Commit.\n- Fix ffmpeg path for Whisper on Mac. Commit.\n- Fix archive doesn’t save the video assets when run multiple times. Commit.\n- Fix document notes timecode links may be broken after project reload. Commit. See bug #443597.\n- Fix broken qml font on AppImage. Commit.\n- Remove incorrect taskmanager unlock. Commit.\nThe post Kdenlive 24.08.1 released appeared first on Kdenlive.",
+      "release_notes_url": "https://kdenlive.org/en/2024/09/kdenlive-24-08-1-released/",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.08.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.1.exe",
+          "sha256": "8a3d34adf7593a0d03b30a841431d30d5bcf495869631b4ef5d70ae4b8928702",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.1.exe",
+          "sha256": "8a3d34adf7593a0d03b30a841431d30d5bcf495869631b4ef5d70ae4b8928702",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.08.0",
+      "release_notes_url": "https://kdenlive.org/en/2024/09/kdenlive-24-08-0-released/",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.08.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.0.exe",
+          "sha256": "059399d5401021ba8a8794c0793104e7a399c3b7ee1c4bdf833997f36306b392",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.08/windows/kdenlive-24.08.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.08.0.exe",
+          "sha256": "059399d5401021ba8a8794c0793104e7a399c3b7ee1c4bdf833997f36306b392",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.05.2",
+      "release_notes": "The second maintenance release of the 24.05 series is out,\nFull changelog\n- Fix guides categories not correctly saved in document. Commit. Fixes bug #489079.\n- Fix adding record track adds a normal audio track. Commit. Fixes bug #489080.\n- Fix rendering with aspect ratio change always renders with proxies. Commit.\n- Fix compilation on Windows with KF 6.3.0. Commit.\n- Fix timeline duration not correctly updated, resulting in audio/video freeze in timeline after 5 min. Commit.\n- Fix Windows build without DBUS. Commit.\n- Fix crash on spacer tool with subtitles. Commit.\nThe post Kdenlive 24.05.2 released appeared first on Kdenlive.",
+      "release_notes_url": "https://kdenlive.org/en/2024/07/kdenlive-24-05-2-released/",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.05.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.05/windows/kdenlive-24.05.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.05.2.exe",
+          "sha256": "1b66f69a233d4731365a615ba01e59419c57f1db30b1eab9ac9b63e89d8e1675",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.05/windows/kdenlive-24.05.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.05.2.exe",
+          "sha256": "1b66f69a233d4731365a615ba01e59419c57f1db30b1eab9ac9b63e89d8e1675",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.05.1",
+      "release_notes": "The first maintenance release of the 24.05 series is out fixing issues in the spacer tool, effects and compositions, subtitle management and project settings to name a few. We addressed recently introduced crashes and freezes, including fixing the undo/redo track insertion and multiple track insertion issues. This version also improves AppImage packaging and enables notarization for macOS.\nFull changelog\n- Don’t try renaming sequence on double click in empty area of timeline tab bar. Commit.\n- Fix deletion of wrong effect wihh multiple instances of an effect and group effects enabled. Commit.\n- Fix single selected clip disappearing from timeline when dragging a new clip in timeline. Commit.\n- [cmd rendering] Ensure proper kdenlive_render path for AppImage. Commit.\n- Fix freeze/crash on undo/redo track insertion. Commit.\n- Fix crash on undo/redo multiple track insertion. Commit.\n- Project settings: don’t list embedded title clips as empty files in the project files tab. Commit.\n- Fix undo move effect up/down. On effect move, also move the active index, increase margins between effects. Commit.\n- Fix removing a composition from favorites. Commit.\n- Properly activate effect when added to a timeline clip. Commit.\n- Fix spacer tool can move backwards and overlap existing clips. Commit.\n- Fix crash deleting subtitle when the file url was selected. Commit. Fixes bug #487872.\n- Fix build when using openGLES. Commit. Fixes bug #483425.\n- Fix possible crash on project opening. Commit.\n- Fix extra dash added to custom clip job output. Commit. See bug #487115.\n- Fix usage of QUrl for LUT lists. Commit. See bug #487375.\n- Fix default keyframe type referencing the old deprecated smooth type. Commit.\n- Be more clever splitting custom ffmpeg commands around quotes. Commit. See bug #487115.\n- Fix effect name focus in save effect. Commit. See bug #486310.\n- Fix tests. Commit.\n- Fix selection when cutting an unselected clip under mouse. Commit.\n- Fix loading timeline clip with disabled stack should be disabled. Commit.\n- Fix crash trying to save effect with slash in name. Commit. Fixes bug #487224.\n- Remove quotes in custom clip jobe, fix progress display. Commit. See bug #487115.\n- Fix setting sequence thumbnail from clip monitor. Commit.\n- Fix locked track items don’t have red background on project open. Commit.\n- Fix spacer tool doing fake moves with clips in locked tracks. Commit.\n- Hide timeline clip status tooltip when mouse leaves. Commit\nThe post Kdenlive 24.05.1 released appeared first on Kdenlive.",
+      "release_notes_url": "https://kdenlive.org/en/2024/06/kdenlive-24-05-1-released/",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.05.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.05/windows/kdenlive-24.05.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.05.1.exe",
+          "sha256": "21a6ecd97b4c98c7f2f165c2721f61f4617a40931e2b0389b9370db2ba696861",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.05/windows/kdenlive-24.05.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.05.1.exe",
+          "sha256": "21a6ecd97b4c98c7f2f165c2721f61f4617a40931e2b0389b9370db2ba696861",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.05.0",
+      "release_notes": "- Added ability in audio recording to set default bin\n- Changed that new recorded audio don’t get highlighted in the project bin\n- Revamped audio recording short keys\n- Added ability to use custom project subfolder on disk\n- Added ability in monitor to play zone from cursor position\n- Added ability to configure play/pause playback when clicking into monitor\n- Introduced subtitles translation using SeamlessM4T engine\n- Added ability to set maximum character per subtitle\n- Added an output log when subtitles are generated\n- Added the possibility to customizing camcorder proxy files\n- Introduced configurable behavior to change all effects in a group\n- Added ability for multi-format rendering\n- Revamped and improved multiple project bin\n- Introduced double click to select a track",
+      "release_notes_url": "https://docs.kdenlive.org/more_information/whats_new.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.05.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/24.05/windows/kdenlive-24.05.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.05.0.exe",
+          "sha256": "cdd9c65e0493536ffae84e59806011502c447985219ee86dbdfd52ef47080bf9",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/24.05/windows/kdenlive-24.05.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.05.0.exe",
+          "sha256": "cdd9c65e0493536ffae84e59806011502c447985219ee86dbdfd52ef47080bf9",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.02.2",
+      "release_date": "2024-04-13",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.02.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/24.02/windows/kdenlive-24.02.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.02.2.exe",
+          "sha256": "3aac423b17e9386eea4edf8fc2881ee732f18d9fe5be4ec124a858c538fc129a",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.02.1",
+      "release_date": "2024-03-27",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.02.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/24.02/windows/kdenlive-24.02.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.02.1.exe",
+          "sha256": "4f5cc1b44a9d3aeeeb36c327d6bae04673c19c2555c4bd8ec6884bfbc76eb880",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.02.0",
+      "release_date": "2024-03-09",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/24.02.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/24.02/windows/kdenlive-24.02.0_A.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-24.02.0_A.exe",
+          "sha256": "993f00a713e4cc9612bf9d28f6e5065a2abbe9325328e45ab3782311f77561dd",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.08.4",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/23.08.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/23.08/windows/kdenlive-23.08.5.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-23.08.5.exe",
+          "sha256": "83c3b30ddf2298916a2fef39cee2cb2579764e6b99fe908efe8cdb3cd12b8846",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.08.2",
+      "release_date": "2023-11-10",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/23.08.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/23.08/windows/kdenlive-23.08.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-23.08.2.exe",
+          "sha256": "a29ad1c1af4a876aac5e3295ddaef15b8d10edb263115f58b9445dc7b4929f91",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.04.2",
+      "release_date": "2023-06-14",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/23.04.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/23.04/windows/kdenlive-23.04.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-23.04.2.exe",
+          "sha256": "bb0cfa7f01a8989c23cde6cb44f5d39b07a47031f08a0eaf29a6a10f5f0348da",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.04.1",
+      "release_date": "2023-05-13",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/23.04.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/23.04/windows/kdenlive-23.04.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-23.04.1.exe",
+          "sha256": "51a48c133ae4775fd8972bab67bd74c3c8cc39ca3bb87ad75be1a2d5f74f4158",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "22.12.3",
+      "release_notes_url": "https://kdenlive.org/en/2023/03/kdenlive-22-12-3-released/",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/22.12.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/22.12/windows/kdenlive-22.12.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.12.3.exe",
+          "sha256": "8a15f952e7fc20b367ee7e7f55e8a79904b06248ce93fae6f11323395b3a2ad3",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "22.08.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/22.08.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.kde.org/stable/kdenlive/22.08/windows/kdenlive-22.08.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.08.1.exe",
+          "sha256": "3de88d4a43294dbe9ff8b4a21d9f5e0a6353b091eef70f06a25bb098bc755cbb",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "22.04.3",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/22.04.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/22.04/windows/kdenlive-22.04.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.04.3.exe",
+          "sha256": "5dcef7cdddf9d6f2920d7b184b4e8e23554877891f6bf5f03114cd38a0d2cbe3",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/22.04/windows/kdenlive-22.04.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.04.3.exe",
+          "sha256": "5dcef7cdddf9d6f2920d7b184b4e8e23554877891f6bf5f03114cd38a0d2cbe3",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "22.04.0",
+      "release_date": "2022-04-30",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/22.04.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/22.04/windows/kdenlive-22.04.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.04.0.exe",
+          "sha256": "904caf9539e92f0f7e68b299a9348b816ed88185c1bba7ba205066364c96dd2b",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/22.04/windows/kdenlive-22.04.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.04.0.exe",
+          "sha256": "904caf9539e92f0f7e68b299a9348b816ed88185c1bba7ba205066364c96dd2b",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "22.04.0-1",
+      "release_date": "2022-05-01",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/22.04.0-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/22.04/windows/kdenlive-22.04.0-1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.04.0-1.exe",
+          "sha256": "0b534ca34feef79422b84bf140809cf8c68dc00911cf4eb9d100cdffb69561e8",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/22.04/windows/kdenlive-22.04.0-1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-22.04.0-1.exe",
+          "sha256": "0b534ca34feef79422b84bf140809cf8c68dc00911cf4eb9d100cdffb69561e8",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "21.12.3",
+      "release_date": "2022-03-04",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/21.12.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/21.12/windows/kdenlive-21.12.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.12.3.exe",
+          "sha256": "e4ea3ed366de72ddad3359902a9811742574c5be9a0c8e0d2a8983d61248a92e",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/21.12/windows/kdenlive-21.12.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.12.3.exe",
+          "sha256": "e4ea3ed366de72ddad3359902a9811742574c5be9a0c8e0d2a8983d61248a92e",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "21.12.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/21.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/21.12/windows/kdenlive-21.12.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.12.2.exe",
+          "sha256": "553b759bf506bce3c2c8e6c2579c6c0bc62436fba2932610f17356acb41393a6",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/21.12/windows/kdenlive-21.12.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.12.2.exe",
+          "sha256": "553b759bf506bce3c2c8e6c2579c6c0bc62436fba2932610f17356acb41393a6",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "21.12.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/21.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/21.12/windows/kdenlive-21.12.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.12.0.exe",
+          "sha256": "20a96ccba33b8b577f2d009d015e836861d9035dc34621861945384041afac3e",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/21.12/windows/kdenlive-21.12.0.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.12.0.exe",
+          "sha256": "20a96ccba33b8b577f2d009d015e836861d9035dc34621861945384041afac3e",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "21.08.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/21.08.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/21.08/windows/kdenlive-21.08.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.08.1.exe",
+          "sha256": "035494892885b1e73d26fc38c4560f3afe82f09c460aeb4f79c4ccd958c4bb8e",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/21.08/windows/kdenlive-21.08.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.08.1.exe",
+          "sha256": "035494892885b1e73d26fc38c4560f3afe82f09c460aeb4f79c4ccd958c4bb8e",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "21.04.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/21.04.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/21.04/windows/kdenlive-21.04.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.04.2.exe",
+          "sha256": "e4e1583976c7057cb517a3bc7b18b95cbeb1166664796f3edf321c9f8deb7d09",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "21.04.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/21.04.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/21.04/windows/kdenlive-21.04.1.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-21.04.1.exe",
+          "sha256": "8f0b01a2b99a4f4af9b5f418511730dfa3597ea163bb66ea5e1ea188a2a232a4",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "20.12.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/20.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.kde.org/stable/kdenlive/20.12/windows/kdenlive-20.12.2.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-20.12.2.exe",
+          "sha256": "f99812450da234c4230fb87841448b2866eb4e31a0efcd6820c648b94d81b158",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "26.08.2",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.2-x86_64.dmg",
+          "host": "cdn.download.kde.org",
+          "filename": "kdenlive-26.08.2-x86_64.dmg",
+          "sha256": "45e07f190581eeba8e87a12d2e879b3f754a83df19787dc9fdea389a51259b33",
+          "min_os_version": "13"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.2-arm64.dmg",
+          "host": "cdn.download.kde.org",
+          "filename": "kdenlive-26.08.2-arm64.dmg",
+          "sha256": "ffcbff6d6e6651fe7a7cd2b00cb7304c8ef049da8287c389dbda146d5e8928ac",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "kdenlive.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/kdenlive",
+            "~/Library/Caches/kdenlive",
+            "~/Library/Preferences/kdenlive-layoutsrc",
+            "~/Library/Preferences/kdenliverc",
+            "~/Library/Preferences/org.kde.Kdenlive.plist"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "26.08.3",
+      "release_date": "2026-11-05",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.kde.kdenlive.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.kde.kdenlive.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/k/KDE/Kdenlive"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:54.374Z",
+      "path": "Casks/k/kdenlive.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/kdenlive.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.kde.kdenlive",
+      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "path": "api/v2/appstream/org.kde.kdenlive",
+      "api_url": "https://flathub.org/api/v2/appstream/org.kde.kdenlive",
+      "content_sha256": "85a2178e70a61f4b126b892ffbbe4c442d68aa21fe7cd427f82264c0edcec054"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.kde.kdenlive",
+    "page_url": "https://flathub.org/apps/org.kde.kdenlive",
+    "repo_url": "https://github.com/flathub/org.kde.kdenlive",
+    "install_command": "flatpak install flathub org.kde.kdenlive",
+    "run_command": "flatpak run org.kde.kdenlive",
+    "verified": true,
+    "verification": {
+      "method": "login_provider",
+      "login_provider": "kde",
+      "login_name": "teams/flathub",
+      "login_is_organization": true,
+      "verified_on": "2023-04-14"
+    },
+    "license": "GPL-3.0-only",
+    "free_license": true,
+    "developer_name": "KDE",
+    "categories": [
+      "AudioVideo",
+      "AudioVideoEditing"
+    ],
+    "download_size": 108017214,
+    "installed_size": 264073728,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

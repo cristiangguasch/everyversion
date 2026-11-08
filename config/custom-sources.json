@@ -1,0 +1,58 @@
+{
+  "_readme": "Custom sources: software that is not in winget-pkgs or Homebrew and is read straight from the publisher's own release feeds. Every run of `npm run ingest` / `npm run daily` re-checks each enabled source (scripts/custom.mjs). Each source has an adapter in scripts/sources/<adapter>.mjs that turns the feeds into versions and installers; the `app` block is what the feeds do not say (name, publisher, license, links). Anything in `app` is hand-written from the publisher's own pages. Nothing here is guessed. `app.icon_url` (optional) is the publisher's own icon, fetched by scripts/icons.mjs (PNG, JPEG, WebP, GIF or ICO, https only, 400 KB at most).",
+  "sources": [
+    {
+      "id": "cockroachdb",
+      "enabled": true,
+      "adapter": "cockroachdb",
+      "slug": "cockroachdb",
+      "feeds": {
+        "releases": "https://binaries.cockroachdb.com/releases/v1/releases.json",
+        "series": "https://binaries.cockroachdb.com/releases/v1/series.json"
+      },
+      "download_base": "https://binaries.cockroachdb.com",
+      "file_prefix": "cockroach",
+      "release_notes_url": "https://docs.cockroachlabs.com/docs/releases/{series}",
+      "max_versions": 50,
+      "app": {
+        "name": "CockroachDB",
+        "publisher": "Cockroach Labs",
+        "summary": "CockroachDB — the cloud native, distributed SQL database designed for high availability, effortless scale, and control over data placement.",
+        "tags": [
+          "cockroachdb",
+          "database",
+          "distributed-database",
+          "go",
+          "sql"
+        ],
+        "pricing": "free-to-download",
+        "icon_url": "https://www.cockroachlabs.com/icon1.png",
+        "license": {
+          "name": "CockroachDB Software License",
+          "url": "https://github.com/cockroachdb/cockroach/blob/master/LICENSE"
+        },
+        "urls": {
+          "homepage": "https://www.cockroachlabs.com",
+          "publisher": "https://www.cockroachlabs.com",
+          "source_code": "https://github.com/cockroachdb/cockroach",
+          "release_notes": "https://docs.cockroachlabs.com/docs/releases",
+          "purchase": "https://www.cockroachlabs.com/pricing/",
+          "documentation": [
+            {
+              "label": "Documentation",
+              "url": "https://docs.cockroachlabs.com/docs"
+            },
+            {
+              "label": "Install CockroachDB",
+              "url": "https://docs.cockroachlabs.com/docs/stable/install-cockroachdb"
+            },
+            {
+              "label": "Licensing FAQs",
+              "url": "https://docs.cockroachlabs.com/docs/stable/licensing-faqs"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

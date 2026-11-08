@@ -1,0 +1,2599 @@
+{
+  "schema_version": 2,
+  "slug": "tor-browser",
+  "name": "Tor Browser",
+  "publisher": "Tor Project",
+  "author": "Tor Project",
+  "ids": {
+    "winget": "TorProject.TorBrowser",
+    "moniker": "tor-browser",
+    "homebrew_cask": "tor-browser"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Protect yourself against tracking, surveillance, and censorship.",
+  "description": "The Tor software protects you by bouncing your communications around a distributed network of relays run by volunteers all around the world, it prevents somebody watching your Internet connection from learning what sites you visit, it prevents the sites you visit from learning your physical location, and it lets you access sites which are blocked.",
+  "tags": [
+    "anonymity",
+    "browser",
+    "cross-platform",
+    "foss",
+    "gecko",
+    "network",
+    "open-source",
+    "privacy",
+    "relay",
+    "security",
+    "tor",
+    "web-browser"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.torproject.org/",
+    "publisher": "https://www.torproject.org/",
+    "support": "https://support.torproject.org/",
+    "release_notes": "https://blog.torproject.org/new-release-tor-browser-160",
+    "documentation": [
+      {
+        "label": "Glossary",
+        "url": "https://support.torproject.org/glossary/"
+      },
+      {
+        "label": "User Manual",
+        "url": "https://tb-manual.torproject.org/"
+      }
+    ]
+  },
+  "license": {
+    "name": "MPL-2.0",
+    "url": "https://support.torproject.org/about/distribute-tor/",
+    "spdx": "MPL-2.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "16.0",
+    "macos": "16.0"
+  },
+  "last_updated": "2026-10-29",
+  "versions_total": {
+    "windows": 75,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "16.0",
+      "release_date": "2026-10-29",
+      "release_notes": "Tor Browser 16.0 is now available for Desktop and Android. This is our first stable release based on Firefox ESR 153, incorporating a year's worth of changes that have been shipped upstream in Firefox. As part of this process, we've also completed our annual ESR transition audit, where we reviewed and addressed over 270 Bugzilla issues covering changes in Firefox that could negatively affect the privacy and security of Tor Browser users.\n\nWhat's new for Desktop?\n\nRedesigned Settings\nTor Browser connects millions of people to the Tor network (and by extension, the free and open internet) out of the box. However, for those who need to circumvent advanced censorship, boost their security level, or tailor their browsing experience, clear and easy-to-use Settings are essential. To that end, Tor Browser 16.0 introduces a complete redesign of the Settings experience based on a parallel redesign shipped in Firefox in June. Improvements include a cleaner layout, updated navigation, and clearer labels and descriptions aimed at making settings easier to find, understand, and manage. Other noteworthy changes include:\n- The long-standing \"General\" page has been retired, with its contents distributed across new pages for Appearance, Downloads, Tabs and browsing, Accessibility and Languages.\n- Pages and components that are unique to Tor browser like Connection and Security Level have been rebuilt from scratch using Firefox's new components so they look and feel consistent with the rest of Settings.\n- Some settings that, if enabled, could compromise your privacy or make your browser easier to fingerprint have either been hidden or feature clear warnings.\nFear not: your existing preferences will remain saved even if the original setting has moved or changed, and you can use the search bar at the top of Settings to find anything you're struggling to track down.\n\nGeneric window titles\nAnother new addition to Settings is the option to use generic window titles, which can be found under Privacy and security → Protections from third‑party applications. Like most browsers, Tor Browser uses the title of the page you're currently viewing for the names of its windows. However, other applications on your computer or your operating system itself can read these titles without special permissions. When enabled, this option simply replaces all window titles with \"Tor Browser\" — preventing other software from snooping on your browsing history. As always, for more comprehensive protection from third‑party applications on your device, we recommend using Tails.\nFor now, this option is strictly opt‑in, as we did not have sufficient time during this release cycle to properly evaluate potential side‑effects for users. In particular, we worry that enabling this setting may reduce the browser's usability for those who rely on accessibility tools (e.g. screen‑readers) or those with highly customized systems (e.g. less‑popular desktop managers, application switchers, etc). If you are one of these users, we would ask that you try using this setting, and report back any bugs or usability issues you find!\n📣 Generic window titles have also been upstreamed to Firefox as part of the Tor Uplift Project. Advanced Firefox users can enable this feature by opening about:config and setting privacy.exposeContentTitleInWindow (for normal windows) and privacy.exposeContentTitleInWindow.pbm (for private browsing windows) to false.\n\nNew user manual\nThe Tor Browser manual, which can be found by visiting about:manual or through the application menu (☰) → Help → Tor Browser manual, has also received a complete revamp. Since the release of our new Support portal in 2025, the team has had to maintain two sets of documentation: one for the traditional manual that's available to read in Tor Browser, and another for the new Support site. With this release, we've solved that problem by replacing the older material in the Tor Browser manual with our latest and greatest help content from the new Support site. Like the previous iteration of the manual, the new version is bundled with Tor Browser for Desktop so it can be read offline, which comes in particularly handy when troubleshooting issues that prevent you from connecting to the Tor network.\n\nLinux on ARM\nFinally, after a year of testing, Tor Browser 16.0 now features native support for Linux computers with 64‑bit ARM (AArch64) processors, such as Raspberry Pis and Apple Silicon Macs running Linux. If you have been relying on Tor Browser Alpha for support for these devices, we recommend switching over to the stable release channel unless you plan to continue testing Alpha releases. Meanwhile, Tor Browser 16.0 follows Firefox in ending support for 32‑bit x86 Linux computers. Fortunately, very few people should be affected, as we currently receive around 200 update checks from this platform a day, down from a peak of around 4,000 in 2019. Most remaining 32‑bit users should be able to switch to the 64‑bit version unless they're running outdated hardware or versions of Linux.\n\nWhat's new for Android?\nTor Browser for Android has also benefited from Mozilla's ongoing work to modernize Firefox, as seen in the Settings redesign on desktop. Over the past year, Firefox has been gradually transitioning to Jetpack Compose — Google's newest framework for building native Android interfaces. In this release, we've made significant progress applying the same changes to Tor Browser. As a result, large swaths of Tor Browser's user interface has been updated to Material Design 3 — the latest iteration of Google's design language for Android — with more yet to come in future releases.\nGoogle Play limits the size of apps distributed as APKs to 100 MB. Since Firefox for Android continues to grow with each release, keeping Tor Browser within this limit has been an ongoing challenge — for example, this issue has prevented us from bundling Tor Browser's manual on Android so that it can be accessed offline. Nevertheless, we've found various ways to reduce the size of our Android package over the years and stay within the limit. Most recently, this involved carefully and creatively compressing some of the built‑in resources Firefox uses to display its interface.\n\nWhat's in the works?\nTor Browser users can expect additional improvements over the next few months as we continue to refine the new Settings experience for desktop and Material Design 3 for Android. If you find a bug or have a suggestion for how we could improve this release, we'd love to hear your feedback.\nThe team is also working hard on a new and improved circuit display, coming soon to Tor Browser Alpha, which integrates site information directly into the circuit panel and can visualize more complex multi‑path circuits. Multi‑path circuits use additional relays to split your traffic into two paths that converge on a single exit, improving both connection speed and reliability. These circuits already exist for regular websites (but not onion sites) and are randomly assigned based on network availability. Although Tor Browser's traditional circuit display can only show a single path at a time, you have likely benefited from a multi‑path circuit without even knowing it. What's more, this exciting update will mark the debut of the circuit display on Tor Browser for Android, which has been exclusive to desktop until now.\n\nContributions <3\n- NoisyCoil\n- Soni\n\nFull changelog\n\nAll Platforms\n- Updated NoScript to 13.6.37.1984\n- Updated tor to 0.4.9.15\n- Bug tor-browser#43857: Review in-source TODOs\n- Bug tor-browser#43858: Clean out deprecated or unused methods in TorConnect\n- Bug tor-browser#44118: Decide how to deal with upstream feature gates in a RR world\n- Bug tor-browser#44251: Drop pt_config.json meek-azure migration logic\n- Bug tor-browser#44257: Disable locale-based font rules as a defense-in-depth\n- Bug tor-browser#44280: Test stream isolation\n- Bug tor-browser#44420: Drop \"rights\" from components.conf\n- Bug tor-browser#44492: Fix python linting warnings in our test files\n- Bug tor-browser#44562: Set the new online Suggest prefs to false\n- Bug tor-browser#44571: Disable restrict_to_adults for potential fingerprintability\n- Bug tor-browser#44580: Registers NoScript to check for updates on first run\n- Bug tor-browser#44619: Add custom logs to Tor logs\n- Bug tor-browser#44621: Move about:torconnect back to browser\n- Bug tor-browser#44647: Clean up patch for SearchEngineSelector.sys.mjs.\n- Bug tor-browser#44663: NoScript behavior on “Safer” security level prevents integrity checks for dynamically loaded javascript\n- Bug tor-browser#44687: Expect javascript.options.asmjs to be false for all security levels\n- Bug tor-browser#44701: Unexpected change to netwerk/url-classifier/components.conf\n- Bug tor-browser#44720: Migrate New Identity commit to Tor Browser\n- Bug tor-browser#44753: Drop TorProvider.isBootstrapDone\n- Bug tor-browser#44755: Trusted Types (Firefox 148 and above) + Web Workers broken on Safer Level\n- Bug tor-browser#44763: Disable WebGPU until audited\n- Bug tor-browser#44764: Hide some AI settings using browser.ai.control.default\n- Bug tor-browser#44767: Safer Level's worker patching throws on new about:blank frames with Trusted Types\n- Bug tor-browser#44778: Safer Level: xray causes patched TrustedTypePolicy instances to be unusable by content.\n- Bug tor-browser#44795: Revert BB 27604 patch as not needed anymore\n- Bug tor-browser#44796: Adjust TorProviderBuilder to report the provider state to consumers\n- Bug tor-browser#44801: Redact onion origins from Location.ancestorOrigins.\n- Bug tor-browser#44811: Remove the lock on pdfjs.disable.\n- Bug tor-browser#44814: Disable trustpanel until our new designs are ready\n- Bug tor-browser#44815: Disable harmful addon URL blocking\n- Bug tor-browser#44828: Remove browser module references from toolkit/modules/ActorManagerParent.sys.mjs",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-160",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/16.0/tor-browser-windows-i686-portable-16.0.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-16.0.exe",
+          "sha256": "c814c7c60ff9f6dad18a3f792c443af717362633176c21eab38158b6a43c663f",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/16.0/tor-browser-windows-x86_64-portable-16.0.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-16.0.exe",
+          "sha256": "5bb6b180ff9f37535cc033821b3d94401e44df159dce9ffabaf3446b66ec940b",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.26",
+      "release_date": "2026-10-21",
+      "release_notes": "Tor Browser 15.0.26 is now available from the Tor Browser download page and also from our distribution directory.\nThis version blocks compromised intermediate eMudhra certificates.\nNote: the updated revocation database can take some minutes to build on first browser startup.\n\nThe full changelog since Tor Browser 15.0.25 is:\n- All Platforms\n  - Bug tor-browser#45397: Update CA intermediates and other settings dumps\n- applications\n- releases",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15026",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.26",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.26/tor-browser-windows-i686-portable-15.0.26.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.26.exe",
+          "sha256": "9503682c4be41df534f46a1207b3ab29e96d27a0b417e866f57574b4fa7f01f7",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.26/tor-browser-windows-x86_64-portable-15.0.26.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.26.exe",
+          "sha256": "37c2201f31f2fd9ea8470cf8f3cafc8dd3cd92d9ed9109b3913e1105b47d2af5",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.25",
+      "release_date": "2026-10-12",
+      "release_notes": "All Platforms\n- Updated Tor to 0.4.9.14\n- Updated NoScript to 13.6.36.1984\n- Updated OpenSSL to 3.5.9\n- Bug tor-browser#45377: Remove alt text from YEC 2026\n- Bug tor-browser#45382: Backport Security Fixes from 158\n\nBuild System\nAll Platforms\n- Bug tor-browser-build#41885: Update changelogs as a last step in relprep.py\nWindows\n- Bug tor-browser-build#41890: Update sign-exe wrapper to use new Windows signing cert",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15025",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.25",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.25/tor-browser-windows-i686-portable-15.0.25.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.25.exe",
+          "sha256": "06ebb5051cd074e0cab2c1cdfad453a2212c8be286a70a7030744550b11c8863",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.25/tor-browser-windows-x86_64-portable-15.0.25.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.25.exe",
+          "sha256": "948f79f7312c7b62dffeb1d65a51d49ea6bcb22b47b271fdd2edee9d5e22d561",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.24",
+      "release_date": "2026-09-29",
+      "release_notes": "Windows Package Signature Issue\nThe DigiCert EV code‑signing certificate we use to sign Windows installation packages expired on September 1st and is being renewed. This delay caused Windows users installing Tor Browser 15.0.21 and 15.0.22 from scratch to see “bad signature” warnings. As a temporary workaround, Windows users can install Tor Browser 15.0.20 (the latest correctly signed version) and rely on automatic updates (signed with a different key) to reach the current version. Users who prefer to download the latest version directly, ignoring the certificate expiration warning, can do so from the Tor Project distribution directory.\n\nNew PGP subkey\nThis release is signed using a new subkey. If you previously used GPG to verify Tor Browser downloads, you may need to refresh the Tor Browser signing key (0xEF6E286DDA85EA2A4BA7DE684E2C6E8793298290) in your local keyring. See the signature verification page for details.\n\nSend us your feedback\nIf you find a bug or have a suggestion for how we could improve this release, please let us know.\n\nFull changelog\nAll Platforms\n- Updated NoScript to 13.6.35.1984\n- Updated Tor to 0.4.9.13\n- Bug tor-browser#45358: Rebase Tor Browser stable onto 140.17.0esr\n- Bug tor-browser#45366: Backport Security Fixes from Firefox 157\n- Bug tor-browser#45368: Account for onion aliases in NoScript site parsing\n- Bug tor-browser#45371: Hook CharacterData/Range insertion sinks for content patches propagation\nWindows + macOS + Linux\n- Updated Firefox to 140.17.0esr\n- Bug tor-browser#45218: Implement YEC 2026 Takeover for Desktop Stable\nLinux\n- Bug tor-browser#44996: Change the 32‑bit linux message to the expired version for the final 15.0 release\nAndroid\n- Updated GeckoView to 140.17.0esr\n- Bug tor-browser#45217: Implement YEC 2026 Takeover for Android Stable\nBuild System\nAll Platforms\n- Bug tor-browser-build#41847: Sign all releases using new gpg subkey\nmacOS\n- Bug tor-browser-build#41883: Fix sha256sum definition in projects/hfsplus-tools/config",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15024",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.24",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.24/tor-browser-windows-i686-portable-15.0.24.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.24.exe",
+          "sha256": "d30acc71e3413a58b6f405421e72cf222e6633576ffa9e95750f3f56821668b8",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.24/tor-browser-windows-x86_64-portable-15.0.24.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.24.exe",
+          "sha256": "a549824c31dd9ee8143ecc6bc97b8f2d5fd5cba8b13f528f1444a0b769758c6c",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.23",
+      "release_date": "2026-09-15",
+      "release_notes": "This version includes important security updates to Firefox.\n\nWindows Package Signature Issue\nThe DigiCert EV code‑signing certificate we use to sign Windows installation packages expired on September 1st and we are currently in the process to renew it. This process is delayed and not yet complete. This has caused Windows users trying to install Tor Browser 15.0.21 and 15.0.22 from scratch to receive “bad signature” warnings. As a temporary work‑around, for Windows only we are keeping Tor Browser 15.0.20 (the latest correctly signed version) listed on our download page, relying on automatic updates (which are signed with a different key, not involving this expired certificate) to bring Windows users to the current version. Users who prefer to download the latest version directly, ignoring the certificate expiration warning, can download it from the distribution directory.\n\nFull changelog\n- All Platforms\n  - Updated NoScript to 13.6.33.1984\n  - Bug tor-browser#45296: (H1) SharedWorker Identity Mismatch allows WebAssembly execution at Safer\n  - Bug tor-browser#45297: (H1) Missing setHTMLUnsafe hook leaves a permanent WebAssembly‑capable child realm at Safer\n  - Bug tor-browser#45299: Backport Security Fixes from Firefox 156\n  - Bug tor-browser#45303: Rebase Tor Browser stable onto 140.16.0esr\n  - Bug tor-browser-build#41875: Update relprep.py for the new versions.ini URL\n- Windows + macOS + Linux\n  - Updated Firefox to 140.16.0esr\n- Linux\n  - Bug tor-browser#44996: Change the 32‑bit linux message to the expired version for the final 15.0 release\n- Android\n  - Updated GeckoView to 140.16.0esr\n- Build System\n  - All Platforms\n    - Bug tor-browser-build#41871: Update downloads repository references in relprep templates",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15023",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.23",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.23/tor-browser-windows-i686-portable-15.0.23.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.23.exe",
+          "sha256": "aae9e267edd4dc03e24ecf7868c1899805a01f9a2b212efbd37742e0a0f6fa96",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.23/tor-browser-windows-x86_64-portable-15.0.23.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.23.exe",
+          "sha256": "64bf85ad2a3e3db115a1ca2fea31ea5441ddd369593cb30eaa95606f9d5096dc",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.22",
+      "release_date": "2026-09-09",
+      "release_notes": "This version includes important security updates to Tor.\n\nFull changelog\n- All Platforms\n  - Updated Tor to 0.4.9.12\n- applications\n- releases",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15022",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.22",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.22/tor-browser-windows-i686-portable-15.0.22.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.22.exe",
+          "sha256": "b7fc24edcda8043105ab838592f154d12f56b406851d5e53dad47569377395bf",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.22/tor-browser-windows-x86_64-portable-15.0.22.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.22.exe",
+          "sha256": "1bca1c74798f6624e35ef6bd2713c51d92f71e51f2897d8f203991aa310476db",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.21",
+      "release_date": "2026-09-01",
+      "release_notes": "This version includes important security updates to Firefox.\n\nAll Platforms\n- Updated NoScript to 13.6.32.1984\n- Updated OpenSSL to 3.5.8\n- Bug tor-browser#45223: Backport tor-browser#45220 - about:torconnect doesn't show when launching the browser in non-PBM\n- Bug tor-browser#45253: Rebase Tor Browser stable onto 140.15.0esr\n- Bug tor-browser#45259: Backport Security Fixes from Firefox 155\n\nWindows + macOS + Linux\n- Updated Firefox to 140.15.0esr\n- Bug tor-browser#44996: Change the 32-bit linux message to the expired version for the final 15.0 release\n- Bug tor-browser#45264: Use parent process for TorConnect redirections\n\nAndroid\n- Updated GeckoView to 140.15.0esr\n\nBuild System\n- Windows + Linux + Android\n  - Updated Go to 1.25.14",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15021",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.21",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.21/tor-browser-windows-i686-portable-15.0.21.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.21.exe",
+          "sha256": "fd9c1dfef9e5a3f9512357397cd36e961c616adf5eb8a758cdef2c7daee53c2e",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.21/tor-browser-windows-x86_64-portable-15.0.21.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.21.exe",
+          "sha256": "85997f863265119435af3feb88ff617f1801119bccbed8283a56f64eb1ee462f",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.20",
+      "release_date": "2026-08-18",
+      "release_notes": "Full changelog\n- All Platforms\n  - Bug tor-browser#45204: Rebase Tor Browser stable onto 140.14.0esr\n  - Bug tor-browser#45219: Backport Security Fixes from Firefox 154\n- Windows + macOS + Linux\n  - Updated Firefox to 140.14.0esr\n- Android\n  - Updated GeckoView to 140.14.0esr\n- Build System\n  - All Platforms\n    - Bug tor-browser-build#41839: Backport tor-browser-build-browser#41831: Update libevent to 2.1.13\n    - Bug tor-browser-build#41850: Update keyring/torbrowser.gpg for new subkey and updated expiration date of the main key\n  - Windows + Linux + Android\n    - Updated Go to 1.25.13",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15020",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.20",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.20/tor-browser-windows-i686-portable-15.0.20.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.20.exe",
+          "sha256": "c62f2407ed9cbe9e0d6a153086d6271a45eda9df31a2c17b1f9013a3e4223ad2",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.20/tor-browser-windows-x86_64-portable-15.0.20.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.20.exe",
+          "sha256": "508331e09a3484993cb018ac7c62b927f3b4b4feb901f2be2252efe7b4da6620",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.19",
+      "release_date": "2026-07-21",
+      "release_notes": "All Platforms\n- Updated NoScript to 13.6.31.1984\n- Bug tor-browser#44748: Revert Funding the Commons Implementations\n- Bug tor-browser#45117: Rebase Tor Browser stable onto 140.13.0esr\n- Bug tor-browser#45124: Backport Security Fixes from Firefox 153\n\nWindows + macOS + Linux\n- Updated Firefox to 140.13.0esr\n\nAndroid\n- Updated GeckoView to 140.13.0esr\n\nBuild System\nAll Platforms\n- Bug tor-browser-build#41838: Update personal_access_tokens URL in tools/fetch_changelogs.py\n\nWindows\n- Bug tor-browser-build#41819: Fix windows-rs URL in projects/firefox/config",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15019",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.19",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.19/tor-browser-windows-i686-portable-15.0.19.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.19.exe",
+          "sha256": "6464e941baf60d5ba47fdd4fc3ef208bd0ae0bdb29fbd6a12591164dea4b7f34",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.19/tor-browser-windows-x86_64-portable-15.0.19.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.19.exe",
+          "sha256": "0d4cc3a7b734a10c500217fb0df89452ee39185709193966831677bbd43c98f8",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.18",
+      "release_date": "2026-07-14",
+      "release_notes": "All Platforms\n- Updated NoScript to 13.6.30.1984\n- Bug tor-browser#45111: Cherry-pick latest firefox/esr140 commits on 140.12.0esr\n\nBuild System\n- All Platforms\n  - Bug tor-browser-build#41821: Update gpg subkeys for boklm\n- Windows + Linux + Android\n  - Updated Go to 1.25.12",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15018",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.18",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.18/tor-browser-windows-i686-portable-15.0.18.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.18.exe",
+          "sha256": "d522d8b93316a661b6471201fb26dcbeba978618cd9629032442f5ed5224834c",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.18/tor-browser-windows-x86_64-portable-15.0.18.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.18.exe",
+          "sha256": "0222d39ab5e0e9157af1c5d8f01f79fdb6fd62ee337a671ca3f0cc6ed9aa1736",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.17",
+      "release_date": "2026-06-28",
+      "release_notes": "Full changelog\n- All Platforms\n  - Updated Tor to 0.4.9.11\n  - Updated NoScript to 13.6.25.1984\n- Build System\n  - All Platforms\n    - Bug tor-browser-build#41821: Update gpg subkeys for boklm\n    - Bug tor-browser-build#41827: Update morgan's keychain with renewed key",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15017",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.17/tor-browser-windows-i686-portable-15.0.17.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.17.exe",
+          "sha256": "ae5e49067f756985af9effb64c3ba1803ae2030c557d0a196f5b1473f54c52fd",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.17/tor-browser-windows-x86_64-portable-15.0.17.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.17.exe",
+          "sha256": "13d3e0a229443b643c683de1615456ace7632f4d801b62720a9390ad953f8c80",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.16",
+      "release_date": "2026-06-17",
+      "release_notes": "Full changelog\n- All Platforms\n  - Updated NoScript to 13.6.24.1984\n  - Updated OpenSSL to 3.5.7\n  - Bug tor-browser#45044: NS 13.6.19.902 DocStartInjection regressed\n  - Bug tor-browser#45046: Rebase Tor Browser stable onto 140.12.0esr\n  - Bug tor-browser#45054: Backport Security Fixes from Firefox 152\n- Windows + macOS + Linux\n  - Updated Firefox to 140.12.0esr\n- Android\n  - Updated GeckoView to 140.12.0esr\n- Build System\n  - All Platforms\n    - Bug tor-browser-build#41802: Remove the tor daemon requirement for signing\n  - Windows + Linux + Android\n    - Updated Go to 1.25.11",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15016",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.16/tor-browser-windows-i686-portable-15.0.16.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.16.exe",
+          "sha256": "8c06f3f9b8f1be74b3afbe08340f074133a13fe18175396590b8ff8547896ea3",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.16/tor-browser-windows-x86_64-portable-15.0.16.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.16.exe",
+          "sha256": "f3228ceebef9a3fb82e97c41b93e3dde54eb643703781252683ec463f6f626fa",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.15",
+      "release_date": "2026-06-03",
+      "release_notes": "This release contains important security updates to the tor daemon and fixes some censorship circumvention problems.\n\nChangelog:\n- Updated NoScript to 13.6.20.1984\n- Updated Tor to 0.4.9.9\n- Bug tor-browser#42436: Allow for multiple configured (front, reflector) domain fronting pairs in Moat module\n- Bug tor-browser#44997: Captcha doesn't work in TB desktop\n- Bug tor-browser#44886: Backport tor-browser#44361: Notify Linux i686 users that they won't receive updates anymore",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15015",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.15/tor-browser-windows-i686-portable-15.0.15.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.15.exe",
+          "sha256": "f987806f8ef2c766bab348ddd51a0236e52da0222b4752e59ad90b17a34e57cd",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.15/tor-browser-windows-x86_64-portable-15.0.15.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.15.exe",
+          "sha256": "bc33f30d25db4ccf35aeef90d5ee0d7d556c4b8f8a04d13ccac50df89223b6dd",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.14",
+      "release_date": "2026-05-19",
+      "release_notes": "All Platforms\n- Bug tor-browser#44958: Backport Security Fixes from Firefox 151\nWindows + macOS + Linux\n- Updated Firefox to 140.11.0esr\nAndroid\n- Updated GeckoView to 140.11.0esr\nBuild System\nAll Platforms\n- Bug tor-browser-build#41781: Fix clean section in rbm.local.conf.example\n- Bug tor-browser-build#41798: Update the URL to versions.ini in relprep.py\nWindows + Linux + Android\n- Updated Go to 1.25.10",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15014",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.14/tor-browser-windows-i686-portable-15.0.14.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.14.exe",
+          "sha256": "3792abfd6d4f1fed0f9092782ca4c73df6a4386a5221c21f419510ebd53ab787",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.14/tor-browser-windows-x86_64-portable-15.0.14.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.14.exe",
+          "sha256": "f4048faea4c26e0241104ebb6cb0979937532961737ea5d87e5387196a8116ae",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.13",
+      "release_date": "2026-05-07",
+      "release_notes": "Send us your feedback\nIf you find a bug or have a suggestion for how we could improve this release, please let us know.\n\nFull changelog since Tor Browser 15.0.12 is:\n- All Platforms\n  - Updated tor to 0.4.9.8\n  - Updated NoScript to 13.6.19.1984",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15013",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.13/tor-browser-windows-i686-portable-15.0.13.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.13.exe",
+          "sha256": "82d85c0e4a3486f07e1f3d0828ca6faa02e2e4f4e77fe7802797cdeb44663a6d",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.13/tor-browser-windows-x86_64-portable-15.0.13.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.13.exe",
+          "sha256": "04df90b475c3b21b62665d84f625359c8964aaf5e174624cd1eda7a150d314ca",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.12",
+      "release_date": "2026-05-07",
+      "release_notes": "Changelog\nAll Platforms\n- Updated tor to 0.4.9.7\n- Bug tor-browser#44940: Rebase Tor Browser stable onto 140.10.2esr\nWindows + macOS + Linux\n- Updated Firefox to 140.10.2esr\n- Bug tor-browser#44746: Funding the Commons Implementation (Desktop)\nAndroid\n- Updated GeckoView to 140.10.2esr\n- Bug tor-browser#44747: Funding the Commons Implementation (Android)\nBuild System\nAll Platforms\n- Bug tor-browser-build#41781: Fix clean section in rbm.local.conf.example",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15012",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.12/tor-browser-windows-i686-portable-15.0.12.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.12.exe",
+          "sha256": "d82ac01e3bf5193efb7aaa0beb50621cd314628237f70de5ed03a31b6641bc8b",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.12/tor-browser-windows-x86_64-portable-15.0.12.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.12.exe",
+          "sha256": "856d7192969115523c1e93391fc3389d612b31cf01e155284fd8bf6f0e783cdb",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.11",
+      "release_date": "2026-04-28",
+      "release_notes": "This version includes important security updates to Firefox.\n\nFull changelog since Tor Browser 15.0.10:\n- All Platforms\n  - Updated NoScript to 13.6.18.1984\n  - Bug tor-browser#44907: Rebase Tor Browser onto 140.10.1esr\n- Windows + macOS + Linux\n  - Updated Firefox to 140.10.1esr\n- Android\n  - Updated GeckoView to 140.10.1esr",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15011",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.11/tor-browser-windows-i686-portable-15.0.11.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.11.exe",
+          "sha256": "2add3db7c7bd29f94a149a52515070305645fabb649b3ab60c625e8eba0be996",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.11/tor-browser-windows-x86_64-portable-15.0.11.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.11.exe",
+          "sha256": "3ae94669801d4c1370066c2322eb3bd58a4e3cd063dab6670ea3eecf286145e7",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.10",
+      "release_date": "2026-04-21",
+      "release_notes": "Full changelog\nAll Platforms\n- Updated OpenSSL to 3.5.6\n- Bug tor-browser#44749: Check search engines parameter replacements\n- Bug tor-browser#44852: Rebase Tor Browser stable onto 140.10.0esr\n- Bug tor-browser#44859: Backport Bugzilla 1666613: Display XML error pages in the browser directionality while force LTRing the XML code itself, without the use of intl.css\n- Bug tor-browser#44863: Backport Security Fixes from Firefox 150\n- Bug tor-browser-build#41775: Update list of Snowflake STUN servers in default bridge line, 2026 edition\nWindows + macOS + Linux\n- Updated Firefox to 140.10.0esr\n- Bug tor-browser#44288: New identity fails to block loading a custom home page\nAndroid\n- Updated GeckoView to 140.10.0esr\nBuild System\nAll Platforms\n- Bug tor-browser-build#41767: Add jwilde to allowed signer for browser projects\nWindows + Linux + Android\n- Updated Go to 1.25.9",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-15010",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.10/tor-browser-windows-i686-portable-15.0.10.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.10.exe",
+          "sha256": "3a09e23b9e0661baf9334ef66c5859b25227ec972e608d14d1c9dd6116583f37",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.10/tor-browser-windows-x86_64-portable-15.0.10.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.10.exe",
+          "sha256": "b0b015aee358bc27521a84005a60a813c321030393403c03255450a03b06a703",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.9",
+      "release_date": "2026-04-07",
+      "release_notes": "This version includes important security updates to Firefox.\n\nFull changelog since Tor Browser 15.0.8:\n- All Platforms\n  - Updated Tor to 0.4.9.6\n  - Updated NoScript to 13.6.15.1984\n  - Bug tor-browser#44837: Rebase Tor Browser stable onto 140.9.1esr\n- Windows + macOS + Linux\n  - Updated Firefox to 140.9.1esr\n- Android\n  - Updated GeckoView to 140.9.1esr\n- Build System\n  - All Platforms\n    - Bug tor-browser-build#41758: Rename tools/signing/deploy-legacy to tools/signing/redeploy-update_responses-release\n  - Windows + macOS\n    - Bug tor-browser-build#41741: Create a 13.5-specific update path",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-1509",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.9/tor-browser-windows-i686-portable-15.0.9.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.9.exe",
+          "sha256": "f65d10ed7e4c209dc93a1f10529405a4302e252ba921faf349554c2ab452aad0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.9/tor-browser-windows-x86_64-portable-15.0.9.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.9.exe",
+          "sha256": "2f7dea5cb68c538ed0cf257b5fe3f0e6dd4cdb82d065dd099c82790e2b101622",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.8",
+      "release_date": "2026-03-24",
+      "release_notes": "All Platforms\nUpdated NoScript to 13.6.12.1984\nBug tor-browser#44663: NoScript behavior on “Safer” security level prevents integrity checks for dynamically loaded javascript\nBug tor-browser#44680: Properly handle subdocuments created by data: URLs\nBug tor-browser#44761: Safer Level's worker patching filters out Worker constructor options\nBug tor-browser#44771: Rebase Tor Browser stable onto 140.9.0esr\nBug tor-browser#44784: Backport Security Fixes from Firefox 149\nBug tor-browser-build#41738: Allow to specify an unsupportedURL on update responses\n\nWindows + macOS + Linux\nUpdated Firefox to 140.9.0esr\nBug tor-browser#44327: ERROR: Your Tor Browser profile cannot be loaded. It may be missing or inaccessible\nBug tor-browser#44386: Firefox profiles no longer work in Tor Browser 15.0\n\nLinux\nBug tor-browser#44657: Backport tor-browser#44394: Do not read default prefs from /etc/firefox\n\nAndroid\nUpdated GeckoView to 140.9.0esr\n\nBuild System\nWindows + Linux + Android\nUpdated Go to 1.25.8\nBug tor-browser#44249: Backport tor-browser-build#41580: Update Go major to 1.25.x",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-1508",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.8/tor-browser-windows-i686-portable-15.0.8.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.8.exe",
+          "sha256": "11e043679689b9d0e1084f8ab66c9a8136b42a4a0a815b2603b125f3379d4062",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.8/tor-browser-windows-x86_64-portable-15.0.8.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.8.exe",
+          "sha256": "9e944e98ccb25186b9fd851938648d18ea2d65d77fd758383c5605abac9f1d04",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.7",
+      "release_date": "2026-02-24",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.7/tor-browser-windows-i686-portable-15.0.7.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.7.exe",
+          "sha256": "b4fa8b74118a09e63c55c3c9fba4af39301056d1421527857edfa2b9ab1a12ba",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.7/tor-browser-windows-x86_64-portable-15.0.7.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.7.exe",
+          "sha256": "958626901dbe17fc003ed671b61b3656375e6f0bc06c9dff60bd2f80d4ace21b",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.6",
+      "release_date": "2026-02-17",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.6/tor-browser-windows-i686-portable-15.0.6.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.6.exe",
+          "sha256": "62719d6fb8e1c6049d49e1e466dee75bef81503a743cbd1f6f53a6ce2435ccc2",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.6/tor-browser-windows-x86_64-portable-15.0.6.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.6.exe",
+          "sha256": "fd0d4b77d1c1c911c7dbb00de5fd53924d9d369641dca640c6947103772d5ae3",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.5",
+      "release_date": "2026-01-29",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.5/tor-browser-windows-i686-portable-15.0.5.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.5.exe",
+          "sha256": "cc1bb13bb9c3dc4f4a189c7ea9251156e09b43d4235bfb450f4efd31a5ae1414",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.5/tor-browser-windows-x86_64-portable-15.0.5.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.5.exe",
+          "sha256": "15448e951583b624c3f8fdfa8bc55fa9b65e1bcafd474f3f2dfd5444e4178846",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.4",
+      "release_date": "2026-01-13",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.4/tor-browser-windows-i686-portable-15.0.4.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.4.exe",
+          "sha256": "48a8c9cd3253f6635af8d480ff1d92cd697fd71425d77ad3a0a858641df4de8a",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.4/tor-browser-windows-x86_64-portable-15.0.4.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.4.exe",
+          "sha256": "0f363ddf43c8a6e627ec77d54823266eb1c1b35df9a72aa941c94f23dea1cf9f",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.3",
+      "release_date": "2025-12-08",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.3/tor-browser-windows-i686-portable-15.0.3.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.3.exe",
+          "sha256": "79d66a5c9f7b6396494bea657986467c85a08afbb83579d53d4289311652b5e6",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.3/tor-browser-windows-x86_64-portable-15.0.3.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.3.exe",
+          "sha256": "b0588a2bf8ac6a2a47ee4a06799360fc3ddc3be251c8461af2893aaa1e1f60ff",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.2",
+      "release_date": "2025-11-19",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.2/tor-browser-windows-i686-portable-15.0.2.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.2.exe",
+          "sha256": "a44b527ceaaa6f94cfe6805fa9039ad8c45040dfa6bd705ff0075eaf34303b3c",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.2/tor-browser-windows-x86_64-portable-15.0.2.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.2.exe",
+          "sha256": "c9ea87f9bfe704b83a1c8af80442f41187620729dbc1468147595ab7f1c819d0",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0.1",
+      "release_date": "2025-11-11",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.1/tor-browser-windows-i686-portable-15.0.1.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.1.exe",
+          "sha256": "5a861a448b7500fc6e964375921a65a0882fbd394bf84c959edfd18bcad38432",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0.1/tor-browser-windows-x86_64-portable-15.0.1.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.1.exe",
+          "sha256": "66793f7208919a15087bac96d8e31151ff53f9620d9fd7bfd340794fa6d5f86c",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "15.0",
+      "release_date": "2025-10-28",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0/tor-browser-windows-i686-portable-15.0.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-15.0.exe",
+          "sha256": "8479864ed1fdbae7da9155e761373a63110fcf45a029c953e7b88e6e11acc32d",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/15.0/tor-browser-windows-x86_64-portable-15.0.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-15.0.exe",
+          "sha256": "fd022504bb6e57e379668ed4b82966f284f19508dd88d76eaaf33e505add4f43",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.8",
+      "release_date": "2025-10-07",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.8/tor-browser-windows-i686-portable-14.5.8.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.8.exe",
+          "sha256": "5289f9fbf146d8b2d78d7e3a12896decca8921e19427ad337eb094e63c2ff070",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.8/tor-browser-windows-x86_64-portable-14.5.8.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.8.exe",
+          "sha256": "42175e455f814e5a691195c92df92695f68bca451af53ae405d7a5129898ad89",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.7",
+      "release_date": "2025-09-16",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.7/tor-browser-windows-i686-portable-14.5.7.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.7.exe",
+          "sha256": "ae2693693d3efe7847bfd11d5022ccca814a7819f1b3d1e7b7c0bc34ac878b92",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.7/tor-browser-windows-x86_64-portable-14.5.7.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.7.exe",
+          "sha256": "61cff349bbc25b2f022fd424999bd334b26eebf2246fe2ba95ebba42fc490b2e",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.6",
+      "release_date": "2025-08-19",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.6/tor-browser-windows-i686-portable-14.5.6.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.6.exe",
+          "sha256": "f240d6a74f7a53598650d8ec8e64605115f33aed7c4077479cf154fd14527e89",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.6/tor-browser-windows-x86_64-portable-14.5.6.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.6.exe",
+          "sha256": "05866e47786df83847a08358067ea43cf919a4fe7c14b85fc9715ccb459d5e7e",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.5",
+      "release_date": "2025-07-23",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.5/tor-browser-windows-i686-portable-14.5.5.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.5.exe",
+          "sha256": "8406960d2c6ebb3bb30d7143a24bac65c669e172f63137b669f228a30972e2ab",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.5/tor-browser-windows-x86_64-portable-14.5.5.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.5.exe",
+          "sha256": "6d38a13c6a5865b373ef1e1ffcd31b3f359abe896571d27fa666ce71c486a40d",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.4",
+      "release_date": "2025-06-24",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.4/tor-browser-windows-i686-portable-14.5.4.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.4.exe",
+          "sha256": "e650d551dcad284465664cc2e3846fdd2b5ce83aa077cebc044d82eac4e50a07",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.4/tor-browser-windows-x86_64-portable-14.5.4.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.4.exe",
+          "sha256": "5035adc961d7ebae32a175061d102686c00728c750824b3099601259cead8866",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.3",
+      "release_date": "2025-05-27",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.3/tor-browser-windows-i686-portable-14.5.3.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.3.exe",
+          "sha256": "1902cd3c6c1de7b32c9af2d2fbe52310edefad2d0881e854b0ac9b19400bfad3",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.3/tor-browser-windows-x86_64-portable-14.5.3.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.3.exe",
+          "sha256": "3b7e78a4ccc935cfe71a0e4d41cc297d48a44e722b4a46f73b5562aed9c1d2ea",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.2",
+      "release_date": "2025-05-18",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.2/tor-browser-windows-i686-portable-14.5.2.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.2.exe",
+          "sha256": "2d9831ce82fe00b7cb6cd7093162b884b874abfe812b56cb4c218c4de0d17bdf",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.2/tor-browser-windows-x86_64-portable-14.5.2.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.2.exe",
+          "sha256": "3d55deb5dc8f0dc7fb694608ea15d255078e1087174d49d9a8fff6dc3f16b7ec",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5.1",
+      "release_date": "2025-04-29",
+      "release_notes_url": "https://blog.torproject.org/category/releases/",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.1/tor-browser-windows-i686-portable-14.5.1.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.1.exe",
+          "sha256": "2e5b7775dfdb19574059fdb1778b8834166781364d555b3139ad1f1dbae2396a",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5.1/tor-browser-windows-x86_64-portable-14.5.1.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.1.exe",
+          "sha256": "f563f1d863b08dd0bfe0435049865a9f74ec2d090995d2a73b70161bb2f34f10",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.5",
+      "release_date": "2025-04-16",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5/tor-browser-windows-i686-portable-14.5.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-14.5.exe",
+          "sha256": "8f511cd4a32a01becbea3f216c17deb8c2d13ad89995d254505eb8da726db70d",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.5/tor-browser-windows-x86_64-portable-14.5.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.5.exe",
+          "sha256": "3a678091f74517da5d9accd391107ec3732a5707770a61e22c20c5c17e37d19a",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.9",
+      "release_date": "2025-04-01",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.9/tor-browser-windows-x86_64-portable-14.0.9.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.9.exe",
+          "sha256": "af243ca521ac0f02b21082dcbe1e6e87dc575797baf6e970530b6c0d1bfd5384",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.8",
+      "release_date": "2025-03-27",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.8/tor-browser-windows-x86_64-portable-14.0.8.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.8.exe",
+          "sha256": "ae202c167bda5afd8c47b5a027f04fbb6ef16dc41a47a372ff69fe872e7029a8",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.7",
+      "release_date": "2025-03-04",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.7/tor-browser-windows-x86_64-portable-14.0.7.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.7.exe",
+          "sha256": "a431eeb579236a04283b9f3730aab01ab2ffce21e1411e3959dc650318cf0e13",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.6",
+      "release_date": "2025-02-07",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.6/tor-browser-windows-x86_64-portable-14.0.6.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.6.exe",
+          "sha256": "8396d2cd3859189ac38629ac7d71128f6596b5cc71e089ce490f86f14b4ffb94",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.5",
+      "release_date": "2025-02-04",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.5/tor-browser-windows-x86_64-portable-14.0.5.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.5.exe",
+          "sha256": "c5bb78b482300188ab228ed36251ab1ef208cc48a0a50864f2db7454debfc04e",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.4",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.4/tor-browser-windows-x86_64-portable-14.0.4.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.4.exe",
+          "sha256": "095da0bb0c9db5cc23513a511e6f617fc5e278fe31bf48c164c31796f8c3890c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.3",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.3/tor-browser-windows-x86_64-portable-14.0.3.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.3.exe",
+          "sha256": "badf4f2e3cfe8af1c9ae2c6c44fab67c307a8f79fb47fb1ff0e13eb98e25783c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.2",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.2/tor-browser-windows-x86_64-portable-14.0.2.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.2.exe",
+          "sha256": "38ecf9627abb672cad5a7ace6e6c1986e486e132a31946d24199894914a54db4",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14.0.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0.1/tor-browser-windows-x86_64-portable-14.0.1.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.1.exe",
+          "sha256": "83e0cd7082e44c3b6e1b47813377366b69f12fd7145c7e1e88c5b1d3fac011c1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "14",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/14.0/tor-browser-windows-x86_64-portable-14.0.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-14.0.exe",
+          "sha256": "ea714e2502fca7568028baeaa59396df9eeb86d00def0ea4eeb1e8e6e08b8a76",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.5.7",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/13.5.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/13.5.7/tor-browser-windows-x86_64-portable-13.5.7.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-13.5.7.exe",
+          "sha256": "b62a289d756a77a7db1e5b818f9fdb094a0d7dcb19b0fdaf8e8b4350be0530d7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.5.6",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/13.5.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/13.5.6/tor-browser-windows-x86_64-portable-13.5.6.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-13.5.6.exe",
+          "sha256": "8934f473ed30fe96f262d924bea5782762c8580ec9e53a6a723e6ed6b3333555",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "13.5.4",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/13.5.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/13.5.4/tor-browser-windows-x86_64-portable-13.5.4.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-13.5.4.exe",
+          "sha256": "3135b59e5ee75fad01b85dab80c0c1ba0b25b86fa4b1d3aede1519afa0152eac",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "16.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://www.torproject.org/dist/torbrowser/16.0/tor-browser-macos-16.0.dmg",
+          "host": "www.torproject.org",
+          "filename": "tor-browser-macos-16.0.dmg",
+          "sha256": "b482caf66f2e2435b27c1714820991c3f5588653a5ca17f500c9cef99a7ba799"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Tor Browser.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.mozilla.tor browser.sfl*",
+            "~/Library/Application Support/TorBrowser-Data",
+            "~/Library/Preferences/org.mozilla.tor browser.plist",
+            "~/Library/Preferences/org.torproject.torbrowser.plist",
+            "~/Library/Saved Application State/org.torproject.torbrowser.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "manifests/t/TorProject/TorBrowser"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
+      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "path": "Casks/t/tor-browser.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/tor-browser.json"
+    }
+  ]
+}
