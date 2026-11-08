@@ -60,7 +60,11 @@ DirectoryIndex index.html
 RewriteRule (^|/)\.(?!well-known(/|$)) - [R=404,L]
 
 # Backup and scratch files an editor or a deploy can leave behind.
-RewriteRule (~|\.(bak|orig|old|swp|sql|log))$ - [R=404,L]
+RewriteRule (~|\.(bak|orig|old|swp|sql|log|ndjson|key|cnt))$ - [R=404,L]
+
+# Analytics: the shared PHP library is never called directly, and the fallback data folder (if the server could not use one above the web root) is never served.
+RewriteRule ^analytics-lib\.php$ - [R=404,L]
+RewriteRule ^_data(/|$) - [R=404,L]
 </IfModule>
 
 
@@ -70,3 +74,21 @@ RewriteRule (~|\.(bak|orig|old|swp|sql|log))$ - [R=404,L]
 # 403 is mapped to the same page, so a blocked file looks like a missing one.
 ErrorDocument 404 /404.html
 ErrorDocument 403 /404.html
+
+
+# ---------------------------------------------------------------------------------------------------------
+# 5. Analytics endpoints must never be cached (browser, CDN or proxy)
+# ---------------------------------------------------------------------------------------------------------
+# /collect.php receives the beacons (POST): never cached. /stats-data.php is the public JSON for /stats/: "private" keeps shared caches
+# such as Cloudflare from storing it, "max-age=60" lets the visitor's own browser reuse it for a minute.
+# Also add a Cloudflare Cache Rule that bypasses the cache for these two paths (see README).
+<IfModule mod_headers.c>
+<FilesMatch "^collect\.php$">
+Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, private"
+Header always unset Expires
+</FilesMatch>
+<FilesMatch "^stats-data\.php$">
+Header always set Cache-Control "private, max-age=60"
+Header always unset Expires
+</FilesMatch>
+</IfModule>

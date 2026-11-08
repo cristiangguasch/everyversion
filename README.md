@@ -50,3 +50,32 @@ Upload **all of `dist/`, including the hidden `dist/.htaccess`**. Many FTP and u
 What it does: sends every http, `www` and other-hostname request to `https://everyversion.net/` in a single 301; answers 404 (never a file list) for any folder without an `index.html` (today `/api/v1/`, `/brand/`, `/fonts/`, `/schema/`); hides dotfiles and backup files (`.DS_Store`, `.git`, `*.sql`, `*~`); and serves `404.html` for missing pages. It needs Apache 2.4 with `mod_rewrite` and `AllowOverride All` (or `FileInfo` and `Options`) for the site folder. If a host answers 500, remove the `Options -Indexes` line; the listing protection does not depend on it.
 
 Delete any `.DS_Store` files from `dist/` before uploading (`npm run check` warns about them). After a deploy, these should all be 404: `/api/v1/`, `/fonts/`, `/brand/`, `/schema/`, `/.DS_Store`. And `http://www.everyversion.net/` should answer one 301 to `https://everyversion.net/`.
+
+
+## Analytics (first-party, no cookies)
+
+Pageviews and clicks on the Download / Install / copy-command buttons are counted by our own code and stored as NDJSON files on the server. No database, no third parties, no cookies, no IP addresses stored. The totals are public at `/stats/`.
+
+```
+assets/t.js            browser beacon (sendBeacon), loaded on every page. Buttons carry data-t / data-slot / data-pl / data-ar / data-ty / data-h attributes (set in scripts/build.mjs)
+server/collect.php     receives the beacons, validates them, appends one JSON line to <data dir>/events-YYYY-MM-DD.ndjson
+server/stats-data.php  public aggregated JSON for the stats page (per-day rollups in <data dir>/rollup-YYYY-MM-DD.json)
+assets/stats.js        draws /stats/ from stats-data.php (plain SVG)
+```
+
+- **Needs PHP 8+ on the host.** `npm run build` copies the three PHP files and both scripts into `dist/`.
+- **Data folder:** `EVERYVERSION_DATA` if set, else `<parent of the web root>/everyversion-data` (recommended: not reachable from the web), else `<web root>/_data` (then it is protected by a deny-all `.htaccess`). It must be writable by PHP. Back it up; it is the only copy of the raw events.
+- **Visitors per day only:** a visitor is `sha256(today's random salt + IP + user agent)`. The salt file is deleted when the day changes, so hashes cannot be recomputed or followed across days. Raw events are deleted after 400 days (the rollups, which hold no hashes, stay).
+- **Country** comes from Cloudflare's `CF-IPCountry` header: in the Cloudflare dashboard, Network -> **IP Geolocation** must be ON. Without it every country shows as "Unknown".
+- Sends nothing when the browser has Do Not Track or Global Privacy Control on. Bots are ignored.
+
+### Keep Cloudflare from caching the endpoints
+
+`collect.php` answers `Cache-Control: no-store, no-cache, must-revalidate, max-age=0, private` and `/stats-data.php` answers `private, max-age=60`. Cloudflare does not cache `.php` or JSON by default, never caches POST, and respects `no-store`/`private`. To make sure it stays that way even if someone adds a "Cache Everything" rule later: Cloudflare dashboard -> **Caching -> Cache Rules -> Create rule**, name "Analytics never cached", When *URI Path* **is in** `/collect.php` `/stats-data.php`, Then **Bypass cache**, and place it above any other cache rule. Check with:
+
+```bash
+curl -sI "https://everyversion.net/stats-data.php?days=30" | grep -i -E "cache-control|cf-cache-status|age"
+curl -si -X POST https://everyversion.net/collect.php | grep -i -E "HTTP|cache-control|cf-cache-status|age"
+```
+
+`cf-cache-status` must be `DYNAMIC` or `BYPASS` (never `HIT`), and there must be no `age` header.

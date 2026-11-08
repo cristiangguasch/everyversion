@@ -13,6 +13,7 @@ import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } f
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { summarise } from './lib/summary.mjs';
+import { statsPage } from './lib/stats-page.mjs';
 import { CASK_REPO } from './lib/cask.mjs';
 import { aboutPage, apiPage, contactPage, legalHub, privacyPage, termsPage, cookiesPage, disclaimerPage, contentPage, securityPage, AUTHOR, AUTHOR_ID, PERSON } from './lib/pages.mjs';
 
@@ -36,6 +37,8 @@ try {
 const CAT_BY_SLUG = CATS ? Object.fromEntries(CATS.categories.map((c) => [c.slug, c])) : {};
 const catPath = (slug) => `/categories/${slug}/`;
 const ALT_LIMIT = 6; // most alternatives shown on an app page
+// Short content hash of a file in assets/, used as ?v= so a changed script is never served from the browser or CDN cache.
+const assetHash = (name) => createHash('sha256').update(readFileSync(join(ROOT, 'assets', name))).digest('hex').slice(0, 10);
 let SEARCH_V = ''; // set in main(): hash of search.js + the search index, so browsers refetch both when either changes (the server caches them for days)
 let HAS_LINUX = false; // set in main(): the header links to /linux/ only when at least one app has a Linux build
 let RECS_BY_SLUG = new Map(); // filled in main(); lets pages link to other apps
@@ -266,7 +269,8 @@ ${alternates}<meta property="og:type" content="website">
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>${CSS}</style>
 ${ld.map(jsonLd).join('\n')}
-${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}</head>
+${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<script src="/t.js?v=${assetHash('t.js')}" defer></script>
+</head>
 <body>
 <header class="site-header${isHome ? '' : ' sticky'}"><div class="wrap">
 <a class="brand" href="/" aria-label="Everyversion home">${LOGO}</a>
@@ -281,7 +285,7 @@ ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}</hea
 <main><div class="wrap">
 ${body}
 </div></main>
-<footer class="site-footer"><div class="wrap"><p>We host no installers, and we’re not affiliated with any software publisher.</p><nav aria-label="Legal"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
+<footer class="site-footer"><div class="wrap"><p>We host no installers, and we’re not affiliated with any software publisher.</p><nav aria-label="Legal"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/stats/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
 </body>
 </html>
 `;
@@ -347,7 +351,7 @@ function mergeVerification(recs) {
 
 // ------------------------------------------------------------------ app page
 
-function installerTable(installers, platform = 'windows') {
+function installerTable(installers, platform = 'windows', ver = '') {
   const mac = platform === 'macos';
   const rows = sortInstallers(installers)
     .map(
@@ -358,7 +362,7 @@ ${mac ? '' : `<td>${esc(SCOPE[i.scope] || '—')}${i.locale ? `<span class="host
 `}${mac ? `<td>${esc(i.min_os_version ? `macOS ${i.min_os_version}+` : '—')}</td>
 <td><span class="fn">${esc(i.filename)}</span>${i.version ? `<span class="host">version ${esc(i.version)}</span>` : ''}<span class="host">${esc(i.host)}</span></td>
 ` : ''}<td>${i.sha256 ? `<code class="hash">${esc(i.sha256)}</code>` : '<span class="host">Not provided</span>'}</td>
-<td><a class="btn" href="${esc(i.url)}" rel="noopener nofollow" aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a></td>
+<td><a class="btn" href="${esc(i.url)}" rel="noopener nofollow" data-t="download" data-slot="version" data-pl="${platform}" data-ar="${esc(i.architecture)}" data-ty="${esc(i.type)}" data-h="${esc(i.host)}"${ver ? ` data-v="${esc(ver)}"` : ''} aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a></td>
 </tr>`,
     )
     .join('\n');
@@ -577,12 +581,12 @@ function appPage(rec) {
   const KIND = { dmg: 'disk image', pkg: 'installer package', flatpak: 'Flatpak app', zip: 'archive', tar: 'archive', portable: 'portable build' };
   // Linux (Flathub): an "Install" dropdown that copies the install command, then the run command, instead of a file download.
   const flatpakMenu = (i, p) => {
-    if (!(p === 'linux' && rec.flathub && i.type === 'flatpak')) return `<a class="btn dl-btn" href="${esc(i.url)}" rel="noopener nofollow" aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a>`;
-    const opts = [['Copy install command', rec.flathub.install_command], ['Copy run command', rec.flathub.run_command]].filter(([, c]) => c);
+    if (!(p === 'linux' && rec.flathub && i.type === 'flatpak')) return `<a class="btn dl-btn" href="${esc(i.url)}" rel="noopener nofollow" data-t="download" data-slot="row" data-pl="${p}" data-ar="${esc(i.architecture)}" data-ty="${esc(i.type)}" data-h="${esc(i.host)}" aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a>`;
+    const opts = [['Copy install command', rec.flathub.install_command, 'copy-install'], ['Copy run command', rec.flathub.run_command, 'copy-run']].filter(([, c]) => c);
     return `<div class="dl-menu">
-<button type="button" class="btn dl-btn dl-install" aria-haspopup="menu" aria-expanded="false" aria-label="Install ${esc(rec.name)} with Flatpak: copy a command">Install</button>
+<button type="button" class="btn dl-btn dl-install" data-t="install" data-slot="install" data-pl="linux" data-ar="${esc(i.architecture)}" data-ty="${esc(i.type)}" data-h="${esc(i.host)}" aria-haspopup="menu" aria-expanded="false" aria-label="Install ${esc(rec.name)} with Flatpak: copy a command">Install</button>
 <div class="dl-pop" role="menu" hidden>
-${opts.map(([label, cmd]) => `<button type="button" role="menuitem" class="dl-opt" data-copy="${esc(cmd)}"><span class="lbl">${esc(label)}</span><code>${esc(cmd)}</code></button>`).join('\n')}
+${opts.map(([label, cmd, slot]) => `<button type="button" role="menuitem" class="dl-opt" data-t="copy" data-slot="${slot}" data-pl="linux" data-copy="${esc(cmd)}"><span class="lbl">${esc(label)}</span><code>${esc(cmd)}</code></button>`).join('\n')}
 </div>
 </div>`;
   };
@@ -617,7 +621,7 @@ ${installerRows(latestOf[p].installers, p)}`)
 ${plats
   .filter((p) => installCmd(rec, p))
   .map(
-    (p) => `<p class="pin">Install with ${p === 'windows' ? 'winget' : p === 'linux' ? 'Flatpak (Flathub)' : 'Homebrew'}: <code>${esc(installCmd(rec, p))}</code> <button type="button" class="copy" data-copy="${esc(installCmd(rec, p))}" aria-label="Copy ${esc(PLATFORM[p])} install command">Copy</button></p>`,
+    (p) => `<p class="pin">Install with ${p === 'windows' ? 'winget' : p === 'linux' ? 'Flatpak (Flathub)' : 'Homebrew'}: <code>${esc(installCmd(rec, p))}</code> <button type="button" class="copy" data-t="copy" data-slot="${p === 'windows' ? 'copy-winget' : p === 'linux' ? 'copy-flatpak' : 'copy-brew'}" data-pl="${p}" data-copy="${esc(installCmd(rec, p))}" aria-label="Copy ${esc(PLATFORM[p])} install command">Copy</button></p>`,
   )
   .join('\n')}
 ${plats.some((p) => latestOf[p].installers.some((i) => i.sha256)) ? `<p class="pin">Check a download: ${[...new Set(plats.filter((p) => latestOf[p].installers.some((i) => i.sha256)).map((p) => verifyCmd(p)))].map((c) => `<code>${esc(c)}</code>`).join(' or ')} and compare it with the SHA-256 above.</p>` : ''}
@@ -684,7 +688,7 @@ ${url ? `<p class="pin">${link(url, v.release_notes ? 'Read the full release not
     return `<details id="${p}-${esc(safeId(v.version))}"${idx === 0 && plats.length === 1 ? ' open' : ''}>
 <summary>${esc(v.version)}${idx === 0 ? ' <span class="badge free">latest</span>' : ''}${v.lts ? ' <span class="badge">LTS</span>' : ''} <span class="sub">· ${esc(sub)}</span> ${v.release_notes || v.release_notes_url ? '<span class="badge">notes</span>' : ''}</summary>
 <div class="body">
-${installerTable(v.installers, p)}
+${installerTable(v.installers, p, v.version)}
 ${pin}
 ${notesBlock(v)}
 ${v.manifest_dir ? `<p class="pin">Manifest: ${link(`${WINGET_REPO}/tree/master/${v.manifest_dir}`, v.manifest_dir)}</p>` : ''}
@@ -1042,7 +1046,7 @@ ${versionsHtml}
 
   const body = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(rec.name)}</nav>
-<article>
+<article data-slug="${esc(rec.slug)}" data-ver="${esc(latestOf[plats[0]].version)}">
 <div class="app-head">
 ${iconHtml}
 <div class="app-head-text">
@@ -1557,6 +1561,7 @@ function main() {
     cookiesPage(),
     disclaimerPage(),
     contentPage(),
+    statsPage({ statsV: assetHash('stats.js') }),
   ];
   const platformPages = ['windows', 'macos', 'linux'].filter((p) => recs.some((r) => r.platforms.includes(p))).map((p) => platformPage(p, recs));
   staticPages.push(...platformPages);
@@ -1571,6 +1576,10 @@ function main() {
   cpSync(join(ROOT, 'assets', 'htaccess'), join(DIST, '.htaccess')); // Apache rules: https + no www, no directory listings, hidden files
   write('search-index.json', JSON.stringify(searchIndexOf(recs)));
   cpSync(join(ROOT, 'assets', 'search.js'), join(DIST, 'search.js'));
+  // First-party analytics: the browser script, the stats page script, and the PHP that collects and aggregates (see server/).
+  cpSync(join(ROOT, 'assets', 't.js'), join(DIST, 't.js'));
+  cpSync(join(ROOT, 'assets', 'stats.js'), join(DIST, 'stats.js'));
+  for (const f of ['collect.php', 'stats-data.php', 'analytics-lib.php']) cpSync(join(ROOT, 'server', f), join(DIST, f));
   mkdirSync(join(DIST, 'fonts'), { recursive: true });
   cpSync(join(ROOT, 'assets', 'fonts', 'geist.woff2'), join(DIST, 'fonts', 'geist.woff2'));
   mkdirSync(join(DIST, 'brand'), { recursive: true });

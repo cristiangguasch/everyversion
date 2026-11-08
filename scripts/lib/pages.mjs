@@ -491,7 +491,7 @@ export function privacyPage() {
     LEGAL_DOCS[0],
     `
 <h2>The short version</h2>
-<p>You don’t need an account. We don’t sell your data, we don’t run ads or analytics, and we set no cookies. The only personal data we are likely to hold is what you choose to send us through the contact form, plus the technical logs any web host keeps.</p>
+<p>You don’t need an account. We don’t sell your data, we show no ads, we use no third-party analytics, and we set no cookies. We do count visits with our own small script, without storing your IP address (details below). The only personal data we are likely to hold is what you choose to send us through the contact form, plus the technical logs any web host keeps.</p>
 
 <h2>Who is responsible for your data</h2>
 <p>${AUTHOR}, ${ADDRESS}, runs Everyversion (everyversion.net) and decides how the data described here is used. To reach us about your data, use the <a href="${topicLink('privacy')}">contact form</a> and choose “Privacy question”.</p>
@@ -501,7 +501,8 @@ export function privacyPage() {
 <li><strong>Contact-form messages.</strong> Your name, email address, the topic you pick and your message. We use them to answer you and to keep a record of the request. The basis is your request (you chose to write to us) and our legitimate interest in running the site and handling correction and takedown requests properly.</li>
 <li><strong>Server logs.</strong> The company that hosts the site may record your IP address, the time, the page requested and your browser type. This is standard for any web host. It is used for security and reliability, on the basis of our legitimate interest in keeping the site working and safe. We don’t use these logs to identify or profile visitors.</li>
 <li><strong>A display preference on your own device.</strong> If you use the light/dark button, your choice is saved in your browser’s local storage. It stays on your device and is never sent to us. See the <a href="/legal/cookies/">Cookie Policy</a>.</li>
-<li><strong>Nothing else.</strong> There is no sign-up, no tracking pixel, no analytics service and no advertising network. The search box works inside your browser, so what you type is not sent to us.</li>
+<li><strong>Anonymous usage statistics.</strong> A small script of our own sends an event to our own server when a page is viewed and when you click a Download, Install or copy-command button. Each event records the page, which button, the app and platform, your country (taken from the network the request passes through), your browser, operating system and device type (kept as short labels, not the full browser string), your browser language, the website that linked to you, and the time. We do not store your IP address and we set no cookie. To count daily visitors we compute a one-way hash of your IP address and browser string with a random salt that is deleted at the end of each day, so the hash can neither be reversed nor followed from one day to the next. The raw events are deleted after 400 days. Totals, with nothing that identifies a visitor, are public on the <a href="/stats/">Stats</a> page. The script sends nothing if your browser sends Do Not Track or Global Privacy Control, and bots are left out. The basis is our legitimate interest in knowing which software people look for and how the site is used.</li>
+<li><strong>Nothing else.</strong> There is no sign-up, no tracking pixel, no third-party analytics service and no advertising network. The search box works inside your browser, so what you type is not sent to us.</li>
 </ul>
 <p>You are not required to give us any personal data to browse the site. The contact form needs a name and email address so we can reply.</p>
 
@@ -630,7 +631,7 @@ export function cookiesPage() {
     LEGAL_DOCS[2],
     `
 <h2>Do we use cookies?</h2>
-<p>No. This site sets no cookies of its own, and it loads no analytics, advertising or social-media scripts. That’s why you see no cookie banner.</p>
+<p>No. This site sets no cookies of its own, and it loads no third-party analytics, advertising or social-media scripts. We count visits with a small script of our own that stores nothing in your browser and sends events only to our own server (see the <a href="/legal/privacy/">Privacy Policy</a> and the public <a href="/stats/">Stats</a>). That’s why you see no cookie banner.</p>
 
 <h2>What about local storage?</h2>
 <p>One thing, and only if you use it: the light/dark button saves your choice (“light” or “dark”) in your browser’s local storage, so the site remembers it next time. It is not a cookie, it stays on your device, and it is never sent to us. You can clear it in your browser settings. The home-page search and the “Copy” buttons store nothing.</p>
@@ -640,7 +641,7 @@ export function cookiesPage() {
 
 <h2>If this changes</h2>
 <p>If we ever add anything that needs cookies, we’ll update this page first and ask for consent where the law requires it.</p>`,
-    'Everyversion sets no cookies and runs no analytics or advertising scripts.',
+    'Everyversion sets no cookies and runs no third-party analytics or advertising scripts.',
   );
 }
 
