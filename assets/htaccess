@@ -82,6 +82,13 @@ ErrorDocument 403 /404.html
 # /collect.php receives the beacons (POST): never cached. /stats-data.php is the public JSON for /stats/: "private" keeps shared caches
 # such as Cloudflare from storing it, "max-age=60" lets the visitor's own browser reuse it for a minute.
 # Also add a Cloudflare Cache Rule that bypasses the cache for these two paths (see README).
+# Some hosts add their own "Expires"/"max-age" to every JSON or PHP response (mod_expires), which ends up as a second, conflicting
+# Cache-Control header (for example max-age=172800 next to ours). Switch that off for these two files.
+<IfModule mod_expires.c>
+<FilesMatch "^(collect|stats-data)\.php$">
+ExpiresActive Off
+</FilesMatch>
+</IfModule>
 <IfModule mod_headers.c>
 <FilesMatch "^collect\.php$">
 Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, private"
