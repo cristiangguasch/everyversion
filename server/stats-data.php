@@ -1,5 +1,5 @@
 <?php
-// Public, aggregated statistics for the /stats/ page, built from the NDJSON files (through per-day rollups).
+// Public, aggregated statistics for the /statistics/ page, built from the NDJSON files (through per-day rollups).
 // Nothing in the output can identify a visitor: only counts per day, app, button, country, browser, OS and so on.
 //
 //   /stats-data.php?days=30     the last N days ending today (UTC); N is 1 to 730

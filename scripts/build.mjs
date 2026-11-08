@@ -285,7 +285,7 @@ ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<scri
 <main><div class="wrap">
 ${body}
 </div></main>
-<footer class="site-footer"><div class="wrap"><p>We host no installers, and we’re not affiliated with any software publisher.</p><nav aria-label="Legal"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/stats/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
+<footer class="site-footer"><div class="wrap"><p>We host no installers, and we’re not affiliated with any software publisher.</p><nav aria-label="Legal"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/statistics/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
 </body>
 </html>
 `;

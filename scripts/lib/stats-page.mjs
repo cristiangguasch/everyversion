@@ -1,4 +1,4 @@
-// The public /stats/ page: a static shell; assets/stats.js fills it from /stats-data.php.
+// The public /statistics/ page: a static shell; assets/stats.js fills it from /stats-data.php.
 export function statsPage({ statsV }) {
   const section = (id, title, note = '') => `<section class="st-card"><h2 id="h-${id}">${title}</h2>${note ? `<p class="muted">${note}</p>` : ''}<div id="${id}"></div></section>`;
   const body = `
@@ -48,7 +48,7 @@ ${section('l-langs', 'Browser languages')}
 <script src="/stats.js?v=${statsV}" defer></script>
 `;
   return {
-    path: '/stats/',
+    path: '/statistics/',
     title: 'Stats: pageviews, downloads and installs on Everyversion',
     description: 'Public usage statistics for Everyversion: pageviews, daily visitors, and clicks on Download and Install buttons. No cookies, no third parties.',
     body,

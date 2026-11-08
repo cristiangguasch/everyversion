@@ -1,4 +1,4 @@
-// /stats/: public usage statistics, drawn from /stats-data.php (which reads the NDJSON event files).
+// /statistics/: public usage statistics, drawn from /stats-data.php (which reads the NDJSON event files).
 // Plain SVG and HTML, no libraries. Visitors are counted per day only, so they are never added up across days.
 (() => {
   const root = document.getElementById('stats');

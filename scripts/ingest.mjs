@@ -31,7 +31,7 @@ const NEW_ONLY = args.includes('--new') || ONLY.length > 0; // only ingest confi
 const LIMIT = opt('limit', 100000);
 const MAX_VERSIONS = opt('max-versions', 50);
 
-const RESERVED = new Set(['index', 'api', 'assets', 'about', 'sitemap', 'robots', 'llms', 'search', 'changes', 'status', 'schema', '404', 'security', 'contact', 'legal', 'windows', 'mac', 'macos', 'linux', 'stats']);
+const RESERVED = new Set(['index', 'api', 'assets', 'about', 'sitemap', 'robots', 'llms', 'search', 'changes', 'status', 'schema', '404', 'security', 'contact', 'legal', 'windows', 'mac', 'macos', 'linux', 'stats', 'statistics']);
 
 const git = (...a) => execFileSync('git', ['-C', CACHE, ...a], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 

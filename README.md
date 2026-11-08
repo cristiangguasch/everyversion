@@ -54,13 +54,13 @@ Delete any `.DS_Store` files from `dist/` before uploading (`npm run check` warn
 
 ## Analytics (first-party, no cookies)
 
-Pageviews and clicks on the Download / Install / copy-command buttons are counted by our own code and stored as NDJSON files on the server. No database, no third parties, no cookies, no IP addresses stored. The totals are public at `/stats/`.
+Pageviews and clicks on the Download / Install / copy-command buttons are counted by our own code and stored as NDJSON files on the server. No database, no third parties, no cookies, no IP addresses stored. The totals are public at `/statistics/`.
 
 ```
 assets/t.js            browser beacon (sendBeacon), loaded on every page. Buttons carry data-t / data-slot / data-pl / data-ar / data-ty / data-h attributes (set in scripts/build.mjs)
 server/collect.php     receives the beacons, validates them, appends one JSON line to <data dir>/events-YYYY-MM-DD.ndjson
 server/stats-data.php  public aggregated JSON for the stats page (per-day rollups in <data dir>/rollup-YYYY-MM-DD.json)
-assets/stats.js        draws /stats/ from stats-data.php (plain SVG)
+assets/stats.js        draws /statistics/ from stats-data.php (plain SVG)
 ```
 
 - **Needs PHP 8+ on the host.** `npm run build` copies the three PHP files and both scripts into `dist/`.
@@ -79,3 +79,5 @@ curl -si -X POST https://everyversion.net/collect.php | grep -i -E "HTTP|cache-c
 ```
 
 `cf-cache-status` must be `DYNAMIC` or `BYPASS` (never `HIT`), and there must be no `age` header.
+
+**Why `/statistics/` and not `/stats/`:** the host reserves the `/stats` path for its own tooling (it answered 403 and 404 for anything under `/stats/` with Apache's default page), so the public page lives at `/statistics/`. The data endpoint `/stats-data.php` and the script `/stats.js` are not affected.
