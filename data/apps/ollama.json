@@ -28,7 +28,7 @@
     "publisher": "https://ollama.com/",
     "support": "https://github.com/ollama/ollama/issues",
     "bug_tracker": "https://github.com/ollama/ollama/issues",
-    "release_notes": "https://github.com/ollama/ollama/releases/tag/v0.40.14",
+    "release_notes": "https://github.com/ollama/ollama/releases/tag/v0.40.15",
     "documentation": [
       {
         "label": "Documentation",
@@ -47,15 +47,56 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "0.40.14",
-    "macos": "0.40.14"
+    "windows": "0.40.15",
+    "macos": "0.40.15"
   },
   "last_updated": "2026-11-03",
   "versions_total": {
-    "windows": 210,
+    "windows": 211,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "0.40.15",
+      "release_date": "2026-11-03",
+      "release_notes": "MiMo V2.6\nXiaomi MiMo's mimo-v2.6, a 9B model built for code and agent workflows, is now supported in Ollama.\nollama run mimo-v2.6\nAutoTrust decision models\nAutoTrust decision models read text and return choices, yes or no probabilities, and ratings for the questions you supply. The family includes 9b, 35b, and 27b-vl sizes — the 35b and 27b-vl sizes can also read images.\nollama run autotrust-jev \"A customer says their card was charged twice.\" --ask \"Is this a billing issue?\"\nNote: autotrust-jev is supported on Apple silicon in this release.\nWhat's Changed\n- ollama launch now supports Kimi Code CLI — the successor to kimi-cli — and offers to migrate existing kimi-cli setups\n- ollama launch now fills in Pi's model list automatically so models can be picked inside Pi, and Claude Desktop's model\n  picker shows Ollama's actual model names\n- Recurrent and vision GGUF models can now serve more than one request at a time\n- Qwen3 and Qwen3.5 models using long-context (YaRN) scaling\n- Running ollama with no arguments opens the welcome launcher\nFull Changelog: https://github.com/ollama/ollama/compare/v0.40.14...v0.40.15",
+      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.40.15",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/o/Ollama/Ollama/0.40.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.15/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "106ef3d2a02437810fba6f574914b1413c512ea84ddd4f184c8e7f434b6f5564",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.15/OllamaSetup.exe",
+          "host": "github.com",
+          "filename": "OllamaSetup.exe",
+          "sha256": "106ef3d2a02437810fba6f574914b1413c512ea84ddd4f184c8e7f434b6f5564",
+          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
+          "upgrade_behavior": "install",
+          "commands": [
+            "ollama"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "0.40.14",
@@ -1586,43 +1627,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "0.30.3",
-      "release_date": "2026-06-03",
-      "release_notes": "What's Changed\n- models: add support for gemma4-12b by @pdevine in https://github.com/ollama/ollama/pull/16457\nFull Changelog: https://github.com/ollama/ollama/compare/v0.30.2...v0.30.3",
-      "release_notes_url": "https://github.com/ollama/ollama/releases/tag/v0.30.3",
-      "manifest_version": "1.12.0",
-      "manifest_dir": "manifests/o/Ollama/Ollama/0.30.3",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "user",
-          "url": "https://github.com/ollama/ollama/releases/download/v0.30.3/OllamaSetup.exe",
-          "host": "github.com",
-          "filename": "OllamaSetup.exe",
-          "sha256": "7fcea0860acc51fafd57ef7c78b0e98a0c9f46ef76c1ff4b9144023c5bac9c83",
-          "product_code": "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1",
-          "upgrade_behavior": "install",
-          "commands": [
-            "ollama"
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "0.40.14",
+      "version": "0.40.15",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "zip",
-          "url": "https://github.com/ollama/ollama/releases/download/v0.40.14/Ollama-darwin.zip",
+          "url": "https://github.com/ollama/ollama/releases/download/v0.40.15/Ollama-darwin.zip",
           "host": "github.com",
           "filename": "Ollama-darwin.zip",
-          "sha256": "9047386fb6811f54fc98b12ce4fea42a6ee5ce9e1bbc0c8196499f347054bcb5",
+          "sha256": "de3298b9897828480c361c101e3efd2d3c499d08882c8ee972df524064abc3db",
           "min_os_version": "14"
         }
       ],
@@ -1667,16 +1682,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "manifests/o/Ollama/Ollama"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "082d423348d2945d751381f6a1d87145079de0fd",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "Casks/o/ollama-app.rb",
       "api_url": "https://formulae.brew.sh/api/cask/ollama-app.json"
     }

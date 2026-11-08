@@ -35,7 +35,7 @@
     "publisher": "https://kde.org/",
     "support": "https://community.kde.org/Kdenlive",
     "privacy": "https://kde.org/privacypolicy-apps/",
-    "release_notes": "https://kdenlive.org/news/releases/26.08.2/",
+    "release_notes": "https://kdenlive.org/news/releases/26.08.3/",
     "documentation": [
       {
         "label": "User Manual",
@@ -55,17 +55,64 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "26.08.2",
-    "macos": "26.08.2",
+    "windows": "26.08.3",
+    "macos": "26.08.3",
     "linux": "26.08.3"
   },
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-11-06",
   "versions_total": {
-    "windows": 49,
+    "windows": 50,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "26.08.3",
+      "release_date": "2026-11-06",
+      "release_notes": "The last maintenance release of the 26.08 series is out with the usual batch of stability fixes and workflow improvements. Project management is more robust, with improvements to recovering corrupted projects, autosave behavior, and handling of archived projects. Other highlights include fixes to several crashes and freezes, keyframe copying, custom effects and improved undo/redo performance.\nUnder the hood, we fixed compatibility with Qt 6.12 and added improvements to the regression test suite and packaging build-related fixes. This version also includes a fix on MacOS for a Qt related startup crash triggered by the latest MacOS updates.\nKdenlive needs your support\nOur small team has been working for years to build an intuitive open source video editor that does not track you, does not use your data, and respects your privacy. However, to ensure a proper development requires resources, so please consider a donation if you enjoy using Kdenlive - even small amounts can make a big difference.\nFull Changelog\n- Test restoration of the incoming XML data policy. Commit.\n- Fix non linear fades broken and crashing. Commit. Fixes bug #528138\n- Fix possible crash on non linear fades. Commit.\n- Fix copying keyframe. Commit. Fixes issue #2252\n- Fix low disk space warning for renders longer than 24 minutes. Commit.\n- Fix possible crash when cancelling a task that just finished. Commit.\n- Fix crash when pasting clips whose file cannot be loaded. Commit.\n- Fix recovery of corrupted project files. Commit.\n- Fix heart rate keyword in gpstext.xml. Commit.\n- Fix render rescale fields rounding values while typing. Commit. Fixes bug #527394\n- Fix rescale width being saved as default height in render dialog. Commit.\n- Drop cached menu shortcuts after change. Commit. Fixes bug #497906\n- Make splash screen size similar to before last change. Commit.\n- Fix splash screen size, and moving (Fixes #2247). Commit.\n- Mlt avfilter does not seem to support color keyframes. Commit.\n- Fix out-of-bounds write in the FFT of the audio scopes. Commit.\n- Keep the autosave file if saving the project failed. Commit.\n- Fix deletion of custom effects containing special characters. Commit.\n- Fix crash in RGB Parade and Waveform scopes when they are very small. Commit.\n- Fix GUI freeze when switching clips while the audio scopes refresh. Commit.\n- Fix render jobs staying \"running\" when their messages are split. Commit. See bug #520081\n- Fix quadratic cost of building undo/redo chains. Commit.\n- Fix crash in Waveform scope HUD at a certain narrow width. Commit.\n- Fix copyright header. Commit.\n- Fix crash when proxying with sub-binclips. Commit. See bug #526525\n- Fix custom effects lost from favorites when renamed. Commit. Fixes bug #526884\n- Don't uselessly rewrite archived project file is not necessary. Commit.\n- Fix thumbnail race condition at shutdown. Commit.\n- Some improvements/fixes/simplifications around grouping. Commit.\n- Fix possible crash when creating new project. Commit.\n- Don't try to create thumbnails when in tests / offline rendering. Commit.\n- Fix bugs/crashes due to inconsistent conventions in clip deletions. Commit.\n- Do not allow symlinks as archived projects. Commit.\n- Fix Qt 6.12 compilation. Commit.\n- Fix confusing-expression-statement qml error with Qt 6.12. Commit.\n- Add missing Kdenlive and FFmpeg versions for Debug Info. Commit. Fixes bug #523012\n- Fix intermittent test crash caused by concurrent MLT access. Commit.\n- Disable asan in fakeit (windows failure). Commit.\n- Do not allow symlinks as archived projects. Commit.",
+      "release_notes_url": "https://kdenlive.org/news/releases/26.08.3/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/k/KDE/Kdenlive/26.08.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.3.exe",
+          "sha256": "1f4027f287c3066887b1c112664b10c4e71a6772914fd5ea41074df429652186",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/CurrentUser"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/kdenlive/26.08/windows/kdenlive-26.08.3.exe",
+          "host": "download.kde.org",
+          "filename": "kdenlive-26.08.3.exe",
+          "sha256": "1f4027f287c3066887b1c112664b10c4e71a6772914fd5ea41074df429652186",
+          "product_code": "kdenlive",
+          "switches": {
+            "custom": "/AllUsers"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdenlive"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "26.08.2",
@@ -1923,26 +1970,26 @@
     },
     {
       "platform": "macos",
-      "version": "26.08.2",
+      "version": "26.08.3",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.2-x86_64.dmg",
+          "url": "https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.3-x86_64.dmg",
           "host": "cdn.download.kde.org",
-          "filename": "kdenlive-26.08.2-x86_64.dmg",
-          "sha256": "45e07f190581eeba8e87a12d2e879b3f754a83df19787dc9fdea389a51259b33",
+          "filename": "kdenlive-26.08.3-x86_64.dmg",
+          "sha256": "b684c02ab48923d6a3297f0b1f676fada53c66e04d933d5d924d350957c2b7fd",
           "min_os_version": "13"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.2-arm64.dmg",
+          "url": "https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.3-arm64.dmg",
           "host": "cdn.download.kde.org",
-          "filename": "kdenlive-26.08.2-arm64.dmg",
-          "sha256": "ffcbff6d6e6651fe7a7cd2b00cb7304c8ef049da8287c389dbda146d5e8928ac",
+          "filename": "kdenlive-26.08.3-arm64.dmg",
+          "sha256": "22b385f1e2e5bf45c5bb6954bd58a97db34cead219a9a9ae6faa499f0096d71e",
           "min_os_version": "13"
         }
       ],
@@ -2001,16 +2048,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "manifests/k/KDE/Kdenlive"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:54.374Z",
+      "commit": "082d423348d2945d751381f6a1d87145079de0fd",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "Casks/k/kdenlive.rb",
       "api_url": "https://formulae.brew.sh/api/cask/kdenlive.json"
     },

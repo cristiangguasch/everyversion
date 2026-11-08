@@ -29,7 +29,7 @@
     "support": "https://github.com/nextcloud/desktop/issues",
     "bug_tracker": "https://github.com/nextcloud/desktop/issues",
     "privacy": "https://nextcloud.com/privacy",
-    "release_notes": "https://github.com/nextcloud-releases/desktop/releases/tag/v35.0.2",
+    "release_notes": "https://github.com/nextcloud-releases/desktop/releases/tag/v35.0.3",
     "documentation": [
       {
         "label": "Nextcloud Desktop Client Manual",
@@ -49,15 +49,53 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "35.0.2",
-    "macos": "35.0.2"
+    "windows": "35.0.3",
+    "macos": "35.0.3"
   },
-  "last_updated": "2026-10-30",
+  "last_updated": "2026-11-04",
   "versions_total": {
-    "windows": 88,
+    "windows": 89,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "35.0.3",
+      "release_date": "2026-11-04",
+      "release_notes": "What's Changed\n- chore: update craft for stable-35.0 branch by @mgallien in nextcloud/desktop#11219\n- [stable-35.0] chore: Update brotli version in craftmaster by @backportbot[bot] in nextcloud/desktop#11225\n- Bugfix/update appimage docker image stable 35.0 by @mgallien in nextcloud/desktop#11222",
+      "release_notes_url": "https://github.com/nextcloud-releases/desktop/releases/tag/v35.0.3",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/35.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v35.0.3/Nextcloud-35.0.3-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-35.0.3-x64.msi",
+          "sha256": "09dbaecd4585078f33cbcd62482fc244d2146a92aeef2f3324a68478b12685d2",
+          "product_code": "{25082C92-61C9-471A-A9A7-F22A7108629C}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "35.0.3.20261104",
+              "product_code": "{25082C92-61C9-471A-A9A7-F22A7108629C}",
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "35.0.2",
@@ -1953,60 +1991,22 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "3.11.0",
-      "release_date": "2023-12-11",
-      "release_notes": "What's Changed\n- Allow deleting remotely deleted files locally in case of upload errors by @allexzander in nextcloud/desktop#6014\n- Bugfix/lock state spam by @allexzander in nextcloud/desktop#6022\n- Remove locketimeout condition. by @allexzander in nextcloud/desktop#6027\n- fixed detection of server version in cmd client similar to gui client (2nd try, signed off) by @errror in nextcloud/desktop#6023\n- Add compatibility with the new libcloudproviders integration by @tintou in nextcloud/desktop#6031\n- Fix macOS notification talk replies by avoiding early dealloc by @claucambra in nextcloud/desktop#6034\n- Store the new etag into local database when opening with auto-locking… by @allexzander in nextcloud/desktop#6038\n- Fix visual bug with folder size confirmation combo box in general settings by @claucambra in nextcloud/desktop#6035\n- Display correct conflict part in multiple conflicts resolution dialog. by @allexzander in nextcloud/desktop#6043\n- Rewrite share expiration date field's date handling, fixing issues by @claucambra in nextcloud/desktop#5961\n- Use a standardised locale to create log file filenames by @claucambra in nextcloud/desktop#6012\n- Bugfix/multiple accounts migration by @camilasan in nextcloud/desktop#6046\n- Remove unused shareuserline ui component by @claucambra in nextcloud/desktop#6042\n- once we call done on a sync file item, return is needed by @mgallien in nextcloud/desktop#6053\n- Bugfix/infinite sync by @allexzander in nextcloud/desktop#6056\n- do not check every 5 seconds files with infinite timeout (= 0) by @mgallien in nextcloud/desktop#6059\n- FileProvider: Add missing AccountState State case for notifying account state to extension by @claucambra in nextcloud/desktop#6006\n- Automatically update GitHub Actions by @DimitriPapadopoulos in nextcloud/desktop#5992\n- Fix folder wizard warning color for local path in dark mode by @claucambra in nextcloud/desktop#5968\n- Fix residual typos found by codespell by @DimitriPapadopoulos in nextcloud/desktop#5860\n- Fix new typos found by codespell by @DimitriPapadopoulos in nextcloud/desktop#6069\n- Add macOS CI (and fixes for newly-found FolderWatcher bugs) by @claucambra in nextcloud/desktop#5729\n- Remove dead OAuth code by @claucambra in nextcloud/desktop#6005\n- Open Nextcloud after installation on macOS by @claucambra in nextcloud/desktop#5991\n- Fix Chunk v2 upload headers by @claucambra in nextcloud/desktop#6084\n- Bugfix/activity list fixes by @allexzander in nextcloud/desktop#6064\n- Optimize CaseConflictRecords search in local DB during the sync. by @allexzander in nextcloud/desktop#6083\n- improve names of CI checks and do not run them on merges to master by @mgallien in nextcloud/desktop#6089\n- Bugfix/legacy migration by @camilasan in nextcloud/desktop#6072\n- Bump actions/github-script from 3 to 6 by @dependabot in nextcloud/desktop#6090\n- Prevent empty password being passed into share creation by @claucambra in nextcloud/desktop#6100\n- Unhide discovery logs for file deleted on the server and for discovered file by @allexzander in nextcloud/desktop#6112\n- Use material icon for folders. by @allexzander in nextcloud/desktop#6114\n- Fix chunk v2 destination header by @claucambra in nextcloud/desktop#6133\n- Bugfix/restore folders recursively by @mgallien in nextcloud/desktop#6134\n- Ci/clazy fixes by @mgallien in nextcloud/desktop#6135\n- Show more informative error message when VFS hydration fails.\n  Displaya popup and put an error into activity list.\n  More detailed logs. by @allexzander in nextcloud/desktop#6140\n- Improve Settings dialog design. by @allexzander in nextcloud/desktop#6150\n- Do not show failure popul for VFS when hydration finished with code 200 or 204. by @allexzander in nextcloud/desktop#6160\n- Upgrade to Mac OS 12.0.0. by @camilasan in nextcloud/desktop#6166\n- Bump actions/cache from 2 to 3 by @dependabot in nextcloud/desktop#6092\n- Bump peter-evans/create-or-update-comment from 3.0.1 to 3.0.2 by @dependabot in nextcloud/desktop#6091\n- Bump actions/stale from 3 to 8 by @dependabot in nextcloud/desktop#6093\n- Bump actions/checkout from 2 to 4 by @dependabot in nextcloud/desktop#6094\n- Build(deps): Bump actions/setup-python from 1 to 4 by @dependabot in nextcloud/desktop#6128\n- Build(deps): Bump cpp-linter/cpp-linter-action from 2.1.1 to 2.6.1 by @dependabot in nextcloud/desktop#6129\n- Enforce virtual file type when it is falsely marked as non-virtual.  Added more logs for scenarios when virtual placeholder gets marked as non-virtual. by @allexzander in nextcloud/desktop#6158\n- we require version 12.0+ for macOS by @mgallien in nextcloud/desktop#6174\n- Fix crash when clicking on import legacy account dialog 'Skip' button.  by @camilasan in nextcloud/desktop#6184\n- Fix crash.\n  Remove unnecessary dependency injection causing crash. by @allexzander in nextcloud/desktop#6178\n- Check path validity on Windows will validate NTFS permissions for network drives by @allexzander in nextcloud/desktop#6209\n- Bugfix/vfs toggle fix by @allexzander in nextcloud/desktop#6223\n- Fix.\n  Bulk upload.\n  Accumulate sent bytes.\n  Fix negative value in UI. by @allexzander in nextcloud/desktop#6227\n- Don't log notification successes as warnings by @strugee in nextcloud/desktop#6234\n- avoid restore algorithm by setting the data fingerprint from sync DB by @mgallien in nextcloud/desktop#6216\n- docs(troubleshooting): Add warning about sensitive data in logs by @joshtrichards in nextcloud/desktop#6237\n- Build(deps): Bump cpp-linter/cpp-linter-action from 2.6.1 to 2.7.1 by @dependabot in nextcloud/desktop#6233\n- Build(deps): Bump peter-evans/create-or-update-comment from 3.0.2 to 3.1.0 by @dependabot in nextcloud/desktop#6185\n- Update stale.yml: Unify \"needs info\" handling with other NC repos by @joshtrichards in nextcloud/desktop#6246\n- add a cmake flag to not build with Qt5 WebEngine by @mgallien in nextcloud/desktop#6257\n- Build(deps): Bump actions/github-script from 6 to 7 by @dependabot in nextcloud/desktop#6220\n- Change logging for sparkle update to qCInfo by @claucambra in nextcloud/desktop#6161\n- maintain lock state if unlock happens during sync by @mgallien in nextcloud/desktop#6236\n- [stable-3.11] avoid modifying a placeholder (virtual files) when not needed by @backportbot-nextcloud in nextcloud/desktop#6263\n- [stable-3.11] Fix build with latest NextcloudKit, caused by search for XCTest and friends by @backportbot-nextcloud in nextcloud/desktop#6265\n- [stable-3.11] Bug fixes for mac OS  by @backportbot-nextcloud in nextcloud/desktop#6281\n- [stable-3.11] Feature/client status reporting by @allexzander in nextcloud/desktop#6283\nNew Contributors\n- @errror made their first contribution in nextcloud/desktop#6023\n- @dependabot made their first contribution in nextcloud/desktop#6090\n- @joshtrichards made their first contribution in nextcloud/desktop#6237",
-      "release_notes_url": "https://github.com/nextcloud-releases/desktop/releases/tag/v3.11.0",
-      "manifest_version": "1.5.0",
-      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.11.0",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "wix",
-          "scope": "machine",
-          "locale": "en-US",
-          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.11.0/Nextcloud-3.11.0-x64.msi",
-          "host": "github.com",
-          "filename": "Nextcloud-3.11.0-x64.msi",
-          "sha256": "ec60c8fbf7c3baa11eb56257f19fa2b3d8d0e32398810e4eb47840adb61af580",
-          "product_code": "{9CBA9245-780A-4724-964C-141405B5F59D}",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "switches": {
-            "custom": "Reboot=ReallySuppress"
-          },
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "3.11.0.20231211",
-              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "35.0.2",
+      "version": "35.0.3",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "pkg",
-          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v35.0.2/Nextcloud-35.0.2.pkg",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v35.0.3/Nextcloud-35.0.3.pkg",
           "host": "github.com",
-          "filename": "Nextcloud-35.0.2.pkg",
-          "sha256": "4626c323cb1a31f322adcc0af092d4f753aef9b5c930c49728a9a0bdd5bec426"
+          "filename": "Nextcloud-35.0.3.pkg",
+          "sha256": "8d555eb26caf2868d815ad5ba336ac58619a0dad77c8c8a5bbff5412804710f8"
         }
       ],
       "cask": {
         "pkgs": [
-          "Nextcloud-35.0.2.pkg"
+          "Nextcloud-35.0.3.pkg"
         ],
         "binaries": [
           "nextcloudcmd"
@@ -2056,16 +2056,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
-      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "manifests/n/Nextcloud/NextcloudDesktop"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
-      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "commit": "082d423348d2945d751381f6a1d87145079de0fd",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "Casks/n/nextcloud.rb",
       "api_url": "https://formulae.brew.sh/api/cask/nextcloud.json"
     }

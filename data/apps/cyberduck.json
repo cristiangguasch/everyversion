@@ -46,15 +46,63 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "9.5.4.45528",
-    "macos": "9.5.4"
+    "windows": "9.6.0.46406",
+    "macos": "9.6.0"
   },
-  "last_updated": "2026-08-25",
+  "last_updated": "2026-11-05",
   "versions_total": {
-    "windows": 71,
+    "windows": 72,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "9.6.0.46406",
+      "release_date": "2026-11-05",
+      "release_notes": "- [Feature] Support ProxyCommand from ssh_config (SFTP) (#8688)\n- [Feature] Sign in with AWS Console browser sign-in (S3) (#18543)\n- [Feature] Support authentication with Microsoft Entra ID (Azure) (#17115)\n- [Feature] Support virtual folders for spaces (oCIS, OpenCloud) (#14166)\n- [Feature] Create buckets with ACLs disabled (S3, Google Storage) (#18526)\n- [Feature] Support copy with SSH File Transfer Protocol extension (SFTP) (#14377)\n- [Feature] Client-side checksum verification of uploads (S3, Backblaze B2, Dropbox, Google Drive, Google Storage, Box, OpenStack Swift) (#17352)\n- [Feature] Retry with exponential backoff when the server rejects the connection (FTP, WebDAV)\n- [Feature] Use regional endpoints for public URLs (S3) (#17301)\n- [Feature] Preserve modification date of downloaded folders (#10854)\n- [Feature] Remove deprecated Shared folder (OneDrive) (#17890)\n- [Bugfix] Switch default type for uploads to block blob (Azure) (#18386)\n- [Bugfix] Application hangs with large selection of files in browser (#18438)\n- [Bugfix] Overwriting files appends to existing file (SFTP) (#18335)\n- [Bugfix] Read timeout deleting many files with bulk delete (OpenStack Swift) (#18439)\n- [Bugfix] OAuth workflow never finishes with custom redirect URI (CLI; Dropbox, OneDrive, SharePoint) (#13587)\n- [Bugfix] Handle timeout during resumable file upload finalization (ownCloud)\n- [Bugfix] Error on startup after installing from website (CLI, Windows) (#18408)\n- [Bugfix] Support Pageant through OpenSSH agent named pipe configured in ssh_config, replacing the Pageant connector (SFTP, Windows) (#18479)\n- [Bugfix] Disable SSH agent with IdentityAgent none in ssh_config (SFTP)\n- [Bugfix] Resolve username from server after OAuth authorization (Nextcloud, ownCloud) (#18456)\n- [Bugfix] Verify server-side checksum after upload (iRODS) (#18457)\n- [Bugfix] Reuse TLS session for data connections with TLS 1.3 (FTP-SSL)\n- [Bugfix] Cannot navigate into folders in hierarchical namespace (Azure) (#18455)\n- [Bugfix] Network, SSL and token failures surface as \"Unknown application error\" (Azure) (#18559)\n- [Bugfix] Presigned URL signature excludes context path (S3) (#18494)\n- [Bugfix] Skip reading ACLs of objects in buckets with object ownership enforced (S3) (#18526)\n- [Bugfix] Select private key configured in bookmark in login prompt (#18516)\n- [Bugfix] Cannot unset previously saved password in bookmark (#18518)\n- [Bugfix] Offer RSA certificates with SHA-2 signature (SFTP) (#18478)\n- [Bugfix] Keeps opening re-authorization window after transfer (Google Drive) (#18420)\n- [Bugfix] Segment upload fails with 404 in Cryptomator vault (OpenStack Swift) (#18570)\n- [Bugfix] Files inside deleted directory are still listed until reloading contents (#17525)\n- [Bugfix] Reset cached proxy configuration on network address change (Windows)",
+      "release_notes_url": "https://cyberduck.io/changelog/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/i/Iterate/Cyberduck/9.6.0.46406",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://update.cyberduck.io/release/Cyberduck-Installer-9.6.0.46406.exe",
+          "host": "update.cyberduck.io",
+          "filename": "Cyberduck-Installer-9.6.0.46406.exe",
+          "sha256": "9a66f8fb400feaa5f7f390f9e4100e873f6be06cbf7c61f1651fca8b1f31c930",
+          "product_code": "{ED2D0E8F-199E-48EF-BD7F-07A11EE94EE8}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{69C1D059-4B45-4220-A82C-DAE80C9CD8E0}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://update.cyberduck.io/release/Cyberduck-Installer-9.6.0.46406.msi",
+          "host": "update.cyberduck.io",
+          "filename": "Cyberduck-Installer-9.6.0.46406.msi",
+          "sha256": "a59c54fb56957c2451222b0f6ba5584ba159a4c2c75cfe89633856a64ba15aac",
+          "product_code": "{FD1DF5E7-D4AF-472C-A50C-E4B26E69FA19}",
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{B9C33495-4B77-4863-9A40-4E767388647E}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "9.5.4.45528",
@@ -2024,37 +2072,18 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "8.2.1.36773",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/i/Iterate/Cyberduck/8.2.1.36773",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "burn",
-          "scope": "machine",
-          "url": "https://update.cyberduck.io/windows/Cyberduck-Installer-8.2.1.36773.exe",
-          "host": "update.cyberduck.io",
-          "filename": "Cyberduck-Installer-8.2.1.36773.exe",
-          "sha256": "8cf4d5fd1f2b48c40fcdf47c6572e4a4a634bb9d403d380f0c856e51fbfacc51",
-          "min_os_version": "10.0.0.0"
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "9.5.4",
-      "source_version": "9.5.4,45528",
+      "version": "9.6.0",
+      "source_version": "9.6.0,46406",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "zip",
-          "url": "https://update.cyberduck.io/Cyberduck-9.5.4.45528.zip",
+          "url": "https://update.cyberduck.io/Cyberduck-9.6.0.46406.zip",
           "host": "update.cyberduck.io",
-          "filename": "Cyberduck-9.5.4.45528.zip",
-          "sha256": "9398777ad01bfac7228db3990aed1c834437a599664e0f3e27a68feb53cbcebf"
+          "filename": "Cyberduck-9.6.0.46406.zip",
+          "sha256": "a9195fb3dc904265dbb1b238d707e3ac4ac8a1ed356b188464e8773aad3a8ca8"
         }
       ],
       "cask": {
@@ -2094,16 +2123,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "manifests/i/Iterate/Cyberduck"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "082d423348d2945d751381f6a1d87145079de0fd",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "Casks/c/cyberduck.rb",
       "api_url": "https://formulae.brew.sh/api/cask/cyberduck.json"
     }

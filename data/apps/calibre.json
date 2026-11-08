@@ -48,17 +48,90 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "9.17.0",
-    "macos": "9.17.0",
+    "windows": "9.18.0",
+    "macos": "9.18.0",
     "linux": "9.17.0"
   },
-  "last_updated": "2026-10-23",
+  "last_updated": "2026-11-06",
   "versions_total": {
-    "windows": 110,
+    "windows": 111,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "9.18.0",
+      "release_date": "2026-11-06",
+      "release_notes": "New features\n- Edit book: Add a tool to make books accessible and checks for accessibility problems\n  Tools->Accessibility in the editor allows setting the languages of the book and its HTML files, editing the alternative text of every image (including inline SVG images) in one place and editing the EPUB Accessibility metadata. Check book now reports images without alternative text, HTML files without a language, headings that skip levels, elements with an epub:type but no matching ARIA role and missing accessibility metadata, many of which can be fixed automatically.\n- Edit book: Show a preview of colors as an underline and allow Ctrl clicking on colors to change them using a color wheel\n- Content server: Act as a progress sync server for KOReader\n  In KOReader, set the custom sync server to http://server:port/kosync and log in with the username and password of a Content server user. Reading positions are shared across different copies and formats of the same book.\n- Content server: Serve OPDS 2.0 feeds, with support for streaming CBZ comics, honoring the manga reading direction and searching book contents using the full text index\n- calibredb: Add commands to manage notes, annotations, data files, Virtual libraries, the trash bin and to rename and remove items such as tags and series\n- Content server: Many accessibility improvements for keyboard and screen reader users\n- E-book viewer: Allow searching only the current chapter\n- Content server viewer: Offer to rate the book and remove it from downloaded books when reaching the end\n- Searching: Add lastmonth, thisyear, lastyear, monthsago and yearsago for dates\n- EPUB Output: Set the language of HTML files and use the book title and language in generated cover pages\n- Get books: Add the Standard Ebooks, DOAB and DOAJ stores\n- calibre-debug: Allow verifying exported calibre data without restoring it\n- Read aloud: Resume interrupted voice downloads and time out stalled ones\nBug fixes\n- PDF Input: Improve page number detection and handling of large images\n  Closes tickets: 2172155\n- PDF Output: Fail with an error instead of hanging forever if the render process crashes or stops responding\n  Closes tickets: 2172711\n- TXT Output: Fix block elements nested after inline text not starting on a new line\n  Closes tickets: 2172704\n- RTF Output: Various minor bug fixes and hardening when generating RTF headers\n- RTF Input: Handle non-BMP Unicode characters correctly\n- TXT Input: Use UTF-8 instead of ASCII when the detected encoding is ASCII\n- EPUB Input: Prefer EPUB 3 landmarks over the legacy guide\n- KF8 Input: Fix invalid CSS when rewriting internal links\n- DOCX Input: Fix index sub-entries being merged under the wrong entry and keep multiple references to the same index entry on one line\n- Fix errors when reading some damaged EPUB files\n- Fix a crash when converting very small PDF files\n- Fix date searches using dots, spaces or month names comparing only the year\n- Fix searching for a number without a field matching truncated values in ratings and integer columns\n- Fix an error on every search after the Quickview panel has been closed\n  Closes tickets: 2172163\n- Saved searches: Do not allow invalid characters in the name\n  Closes tickets: 2172160\n- Trash bin: Mark removed formats of deleted books as not restorable\n- Fix sorting of merged highlights by position in the book\n- Windows: Fix an error opening EPUB files for the first time when antivirus software locks files\n  Closes tickets: 2172181\n- Windows: Prevent camoufox from creating a private browsing shortcut in the start menu on every launch\n- Create your own Adventure: Fix world generation failing with Gemini\n  Closes tickets: 2172371\n- Content server: Enforce per library restrictions in more places, including notes\n- Content server: Fix repeated highlight note editing, bookmark renames not syncing and data file deletion status\n- Notes: Fix importing some base64 encoded images\n- Fix a startup error when two store plugins have the same name\n- Fix a rare error during shutdown because of the thumbnail cache\n- calibredb restore_database: Exit with non-zero status on failure\nImproved news sources\n- The Times and Sunday Times\n- Financial Times\n- The Boston Globe\n- Hacker News",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.18.0/calibre-64bit-9.18.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.18.0.msi",
+          "sha256": "05c0f2223866f8082e05b2d4bc9c57b31a833de8355a1191fd79c260c2636d38",
+          "product_code": "{AAADDC8F-B843-428C-8164-D05318F337C6}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "9.17.0",
@@ -3747,93 +3820,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "7.21.0",
-      "release_date": "2024-11-08",
-      "release_notes": "New features\n- Edit book: A new tool to create an audio overlay in EPUB files for all text using the Read aloud facility\n  This allows readers of the book to listen to it with sentence tracking, even if they do not have a functioning text-to-speech system in the reading software. You can even assign different voices to different parts of the text for a more immersive experience. The tool is available from the Tools menu in the book editor.\n- Dark mode: make scrollbar more visible with higher contrast and rounded corners\n- E-book viewer: In flow mode when scrolling across internal file boundaries using the mouse wheel/touchpad have a short half second pause to ease the transition. Can be controlled via the Scrolling section of the Viewer preferences.\n- ebook-meta.exe: Add an option to disallow rendered cover of first page for EPUB\n- Book details: Add an action to download the cover to the context menu when right clicking the cover\n  Closes tickets: 2082075\n- Read aloud: Add a restore defaults button to the configuration dialog\n  Closes tickets: 2086609\n- Auto adding: Allow excluding arbitrary file types not just known book file types\n  Closes tickets: 2086478\n- Edit metadata dialog: Add an action to open the book's folder to the context menu of the formats list\n  Closes tickets: 2083583\nBug fixes\n- Read aloud: Fix only first 32000 characters per chapter being read\n  Closes tickets: 2086571\n- Content server: Read aloud: Fix clicking on a word to skip reading aloud to that word causing word highlighting to stop working\n  Closes tickets: 2086661\n- Linux: Handle speech dispatcher with dummy output module and no voices more gracefully\n- When renaming authors fix empty author folder not being removed if it contained file explorer metadata but was otherwise empty\n- Edit metadata dialog: Fix keyboard shortcuts to edit prev/next raising an error when trying to go beyond the first/last book\n  Closes tickets: 2086193\n- Linux: ToC Editor: Fix a regression in 7.17 that broke using the Create new entry button\n  Closes tickets: 2085576\n- Content server: Fix changing the language of a book not working for non-English user interface language and for books that have no existing language\n  Closes tickets: 2085005\n- Linux: Read aloud with Piper: Fix audio not playing on some Linux systems\n- Notes browser: When searching books search over all currently selected categories not just the last selected one\nNew news sources\n- Unz Review and Sonar21 by unkn0wn\nImproved news sources\n- Substack\n- Live Mint\n- NYPost\n- Ars Technica\n- Indian Express\n- Reuters",
-      "release_notes_url": "https://calibre-ebook.com/whats-new",
-      "manifest_version": "1.6.0",
-      "manifest_dir": "manifests/c/calibre/calibre/7.21.0",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "wix",
-          "scope": "machine",
-          "url": "https://download.calibre-ebook.com/7.21.0/calibre-64bit-7.21.0.msi",
-          "host": "download.calibre-ebook.com",
-          "filename": "calibre-64bit-7.21.0.msi",
-          "sha256": "70666e905359c683e9eaf38477b13eed508d8981536f827eb992c736b6341973",
-          "product_code": "{B7EE05BC-C7DC-4E56-AB79-063A58E9127F}",
-          "switches": {
-            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "calibre"
-          ],
-          "file_extensions": [
-            "azw",
-            "azw1",
-            "azw3",
-            "book",
-            "cb7",
-            "cbc",
-            "cbr",
-            "cbz",
-            "chm",
-            "djv",
-            "djvu",
-            "doc",
-            "docm",
-            "docx",
-            "epub",
-            "fb2",
-            "ibook",
-            "ibooks",
-            "imp",
-            "lrf",
-            "lrx",
-            "markdown",
-            "md",
-            "mobi",
-            "odt",
-            "opf",
-            "pdb",
-            "pml",
-            "pobi",
-            "prc",
-            "ps",
-            "rtf",
-            "shtml",
-            "text",
-            "tpz",
-            "txt",
-            "xhtml",
-            "xps"
-          ],
-          "apps_and_features": [
-            {
-              "display_name": "calibre 64bit",
-              "product_code": "{B7EE05BC-C7DC-4E56-AB79-063A58E9127F}",
-              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "9.17.0",
+      "version": "9.18.0",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://download.calibre-ebook.com/9.17.0/calibre-9.17.0.dmg",
+          "url": "https://download.calibre-ebook.com/9.18.0/calibre-9.18.0.dmg",
           "host": "download.calibre-ebook.com",
-          "filename": "calibre-9.17.0.dmg",
-          "sha256": "fdab4bd1400996c381845b7a95026f96bd9f68bfec68cf3d49afd458b4717842"
+          "filename": "calibre-9.18.0.dmg",
+          "sha256": "b4b8000433b6e4d0fdfb3bd0283cd76b7525c65daf5af027ec4dc1e629ef3d0c"
         }
       ],
       "cask": {
@@ -3919,16 +3916,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "manifests/c/calibre/calibre"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "082d423348d2945d751381f6a1d87145079de0fd",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "Casks/c/calibre.rb",
       "api_url": "https://formulae.brew.sh/api/cask/calibre.json"
     },

@@ -32,7 +32,7 @@
     "support": "https://github.com/microsoft/PowerToys/issues",
     "bug_tracker": "https://github.com/microsoft/PowerToys/issues",
     "privacy": "https://privacy.microsoft.com/en-us/privacystatement",
-    "release_notes": "https://github.com/microsoft/PowerToys/releases/tag/v0.102.3001",
+    "release_notes": "https://github.com/microsoft/PowerToys/releases/tag/v0.102.3101",
     "documentation": [
       {
         "label": "Wiki",
@@ -52,13 +52,99 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "0.102.3001"
+    "windows": "0.102.3101"
   },
-  "last_updated": "2026-10-27",
+  "last_updated": "2026-11-06",
   "versions_total": {
-    "windows": 116
+    "windows": 117
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "0.102.3101",
+      "release_date": "2026-11-06",
+      "release_notes_url": "https://github.com/microsoft/PowerToys/releases/tag/v0.102.3101",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.102.3101",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.102.3101/PowerToysUserSetup-0.102.3101.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.102.3101.0-x64.exe",
+          "sha256": "4b4c49a31e8b7e6a36647ccd3033acb0ad56c306595a9409e59865c3c27d1cf2",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.102.3101/PowerToysSetup-0.102.3101.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.102.3101.0-x64.exe",
+          "sha256": "f1d24a49346167322eb64a2458bd82810519920d1da4c0aeb1788e54c345d142",
+          "min_os_version": "10.0.17134.0",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.102.3101/PowerToysUserSetup-0.102.3101.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.102.3101.0-arm64.exe",
+          "sha256": "e80d5e784173101bbb4bd95ede66cf1974c230ca81ebeb16feba25fdd5ffce87",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "PowerToys (Preview) ARM64"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.102.3101/PowerToysSetup-0.102.3101.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.102.3101.0-arm64.exe",
+          "sha256": "65663afb8fa77b4db257bc9494f66ac91a2b063ae0bfe2cd85e9de958c92ee8b",
+          "min_os_version": "10.0.17134.0",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "PowerToys (Preview) ARM64"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "0.102.3001",
@@ -3726,77 +3812,6 @@
           "upgrade_behavior": "install"
         }
       ]
-    },
-    {
-      "platform": "windows",
-      "version": "0.71.0",
-      "release_date": "2023-07-05",
-      "release_notes": "Highlights\n- Support previewing archive files with Peek.\n  Thanks @davidegiacometti!\n- Fixed PT Run crash caused by missing App.\n  Dark.png file.\n- Added setting to set Registry Preview as default app for opening .reg files.\n  Thanks @randyrants!\n- Modernized Settings app title bar and styling (Mica background material) to be inline with Windows 11 guidelines.\n  Thanks @niels9001!\nGeneral\n- Fixed infinite loop issue caused by global event not being reset. (This was a hotfix for 0.70)\n- Bump CommunityToolkit.\n  Mvvm package version to 8.2.0.\n  Thanks @davidegiacometti!\n- Fixed issue causing runner lag by moving check for updates and running bug report logic to the background thread.\n- Bump WinUIEx package version to 2.2.\n  Thanks @niels9001!\n- Fixed issue causing Settings app crash when launching a second app process.\n  Thanks @BLM16!\n- Fixed network errors when checking for updates on virtual machines.\n- Bump Microsoft.\n  CodeAnalysis.\n  NetAnalyzers package version to 7.0.3.\n  Thanks @davidegiacometti!\n- Bump Microsoft.\n  Windows.\n  Compatibility package version to 7.0.3.\n- Bump System.\n  Management package version to 7.0.2.\n- Fixed issue causing PowerToys to start with Below Normal priority on startup.\nColorPicker\n- Store color history in a separated file.\nFancyZones\n- Added feature to use middle click to toggle multiple zones spanning.\n  Thanks @BasitAli!\n- Fixed issue causing zoning not to happen until the cursor is moved.\n- Improved monitor identification logic to mitigate issues causing layout reset.\n- Fixed issue where default layout was applied instead of blank layout.\nFile Locksmith\n- Added setting to show only in extended context menu.\nFile Explorer add-ons\n- Developer files preview support for .vsconfig, .sln, .vcproj, .vbproj, .fsproj and .vcxproj files. (This was a hotfix for 0.70)\n- Developer files preview support .vbs, .inf, .gitconfig, .gitattributes and .editorconfig files. (This was a hotfix for 0.70) Thanks @Aaron-Junker!\n- Changed order of developer files preview context menu items.\n  Thanks @Aaron-Junker!\n- Developer files preview support for .gitignore files. (This was a hotfix for 0.70) Thanks @Aaron-Junker!\n- Fixed issue causing preview pane flickering on file selection and resizing.\n  Thanks @tanchekwei!\nHosts\n- Improved UX by adding keyboard shortcuts.\n  Thanks @davidegiacometti!\n- Added setting to select the file encoding.\n  Thanks @davidegiacometti!\n- Fixed parsing of commented lines with an address and host in the middle of the comment.\n  Thanks @davidegiacometti!\n- Fixed issue on adding first entry and improve empty hosts list UI.\n  Thanks @davidegiacometti!\n- Added logic to handle more than 9 hosts per entry (Windows limitation) by splitting them into separate entries.\n  Thanks @davidegiacometti!\nImageResizer\n- Added Enter key event handler when setting width/height of the new custom size.\nInstaller\n- Fixed PowerToys Plugin installation. (This was a hotfix for 0.70) Thanks @davidegiacometti!\n- Fixed issue causing missing Mouse Without Borders service after upgrade. (This was a hotfix for 0.70)\n- Removed unneeded PT Run registry entries.\nMouse Without Borders\n- Added Name2IP setting. (This was a hotfix for 0.70)\n- Fixed device layout issues. (This was a hotfix for 0.70)\n- Fixed hiding cursor at the top of the screen when \"Hide mouse at the screen edge\" is enabled. (This was a hotfix for 0.70)\n- Fixed issue that was preventing OS going to sleep mode. (This was a hotfix for 0.70)\n- Remove shortcut for deprecated VKMap functionality. (This was a hotfix for 0.70) Thanks @dtaylor84!\n- Make MWB work without service if service doesn't start properly. (This was a hotfix for 0.70)\n- Fixed focus issue causing \"Hide mouse at the screen edge\" not to work properly. (This was a hotfix for 0.70)\n- Fixed issue causing app to hijack shortcut keys if they are only partially matched.\nPeek\n- Consume Ctrl+Space shortcut only if Desktop or Shell are in the foreground. (This was a hotfix for 0.70)\n- Added feature to hide window with Esc key. (This was a hotfix for 0.70) Thanks @davidegiacometti!\n- Added a setting to always run not-elevated (enabled by default). (This was a hotfix for 0.70)\n- Support .vsconfig, .sln, .vcproj, .vbproj, .fsproj and .vcxproj files. (This was a hotfix for 0.70)\n- Fixed blinking issue while loading developer files. (This was a hotfix for 0.70)\n- Reset preview Source on Peek window close. (This was a hotfix for 0.70)\n- Center Peek window on File Explorer activated monitor. (This was a hotfix for 0.70) Thanks @SamChaps!\n- Fix previewing unsupported file types by using effective pixels. (This was a hotfix for 0.70) Thanks @SamChaps!\n- Support .vbs, .inf, .gitconfig, .gitattributes and .editorconfig files. (This was a hotfix for 0.70) Thanks @Aaron-Junker!\n- Fixed memory leak by clearing generated thumbnails. (This was a hotfix for 0.70)\n- Added setting to close on focus lost. (This was a hotfix for 0.70)\n- Fixed crash when triggering Peek with no files being selected. (This was a hotfix for 0.70)\n- Fixed setting Peek window as a foreground window. (This was a hotfix for 0.70)\n- Fixed race condition causing low quality preview to be displayed even if high quality preview is present. (This was a hotfix for 0.70)\n- Added support for .htm files.\n- Fixed issue where title bar button colors were not update on Windows theme change.\n- Added up/down arrow key item navigation.\n  Thanks @DanWiseProgramming!\n- Improved UX by defining minimum window size and adding tooltips for shown text.\n  Thanks @htcfreek!\n- Fixed crash on previewing internet shortcuts files.\n- Support previewing archive files.\n  Thanks @davidegiacometti!\nPowerToys Run\n- Fixed crash caused by non thread-safe Results update.\n- Fixed crash caused by missing App.\n  Dark.png\n- Code cleanup and fixed possible crash caused by missing VS Code instance in VS Code plugin.\n  Thanks @davidegiacometti!\n- Fix environment helper for nested environment variables.\n  Thanks @htcfreek!\nQuick Accent\n- Added multiplication and division signs.\n  Thanks @ailintom!\n- Added opening exclamation mark to Catalan and Spanish language.\n  Thanks @Aaron-Junker!\n- Added the section sign (\"§\", U+00A7).\n  Thanks @EikeJoo!\n- Added accent units and more additional signs.\n  Thanks @WilkoLu!\nRegistry Preview\n- Added setting to set the app as default app for opening .reg files.\n  Thanks @randyrants!\n- Merge settings to single folder.\n- Fixed issue of saving files without truncation.\n  Thanks @qwerty472123!\nText Extractor\n- Various improvements and fixes.\n  Thanks @TheJoeFin!\nSettings\n- Styling fixes for Peek and Mouse Without Borders pages. (This was a hotfix for 0.70) Thanks @niels9001!\n- Fixed Mouse Without Borders machine connection status styling. (This was a hotfix for 0.70)\n- Improved Mouse Without Border page Uninstall service UX when it is inaccessible. (This was a hotfix for 0.70)\n- Updated File Explorer module screenshots and instructions to reflect the Windows 11 File Explorer.\n  Thanks @infinitepower18!\n- Modernized the app title bar and styling (Mica background material) to be inline with Windows11 guidelines.\n  Thanks @niels9001!\n- Improved error handling on settings backup failure.\n- Added Reset button to shortcut control to reset activation shortcut to default value.\n  Thanks @Svenlaa!\n- Improved Exclude apps setting for all modules to also detect apps by title.\nDevelopment\n- Added Peek and Mouse Without Borders to GitHub templates. (This was a hotfix for 0.70)\n- Fixed the CI release pipelines winget package submission. (This was a hotfix for 0.70)\n- Fixed process report and termination lists for Peek and Mouse Without Borders. (This was a hotfix for 0.70)\n- Added Winget configuration file. (This was a hotfix for 0.70) Thanks @ryfu-msft!\n- Fixed tests localization issues.\n- Added Microsoft.\n  VisualStudio.\n  Component.\n  VC.ATL library to .vsconfig.\n- Onboarding to GitOps.\n  ResourceManagement.",
-      "release_notes_url": "https://github.com/microsoft/PowerToys/releases/tag/v0.71.0",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.71.0",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "burn",
-          "scope": "user",
-          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysUserSetup-0.71.0-x64.exe",
-          "host": "github.com",
-          "filename": "PowerToysUserSetup-0.71.0-x64.exe",
-          "sha256": "4c6ccb3055e3838da50ff529a670baad129570f4bfabf497b5d92259d3052794",
-          "switches": {
-            "silent": "/quiet /norestart",
-            "silent_with_progress": "/quiet /norestart"
-          },
-          "upgrade_behavior": "install"
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "burn",
-          "scope": "machine",
-          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysSetup-0.71.0-x64.exe",
-          "host": "github.com",
-          "filename": "PowerToysSetup-0.71.0-x64.exe",
-          "sha256": "44f092dfac002536a27abc701750d8c78ff30f8879768990bc4a0afd0d5119f1",
-          "switches": {
-            "silent": "/quiet /norestart",
-            "silent_with_progress": "/quiet /norestart"
-          },
-          "upgrade_behavior": "install"
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "burn",
-          "scope": "user",
-          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysUserSetup-0.71.0-arm64.exe",
-          "host": "github.com",
-          "filename": "PowerToysUserSetup-0.71.0-arm64.exe",
-          "sha256": "48633758dfbb99de34ba2d3e3f294a60ef7e01015296d29a884251068b6fe3f6",
-          "switches": {
-            "silent": "/quiet /norestart",
-            "silent_with_progress": "/quiet /norestart"
-          },
-          "upgrade_behavior": "install"
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "burn",
-          "scope": "machine",
-          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysSetup-0.71.0-arm64.exe",
-          "host": "github.com",
-          "filename": "PowerToysSetup-0.71.0-arm64.exe",
-          "sha256": "283a67539eda5d3ad88735c7b0150852ecb57d569bac80396f942c60d6acb33f",
-          "switches": {
-            "silent": "/quiet /norestart",
-            "silent_with_progress": "/quiet /norestart"
-          },
-          "upgrade_behavior": "install"
-        }
-      ]
     }
   ],
   "verification": {
@@ -3813,8 +3828,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
+      "retrieved_at": "2026-11-08T21:59:01.347Z",
       "path": "manifests/m/Microsoft/PowerToys"
     }
   ]
