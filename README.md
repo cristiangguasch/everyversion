@@ -43,6 +43,19 @@ Options: `--max-mb=N` (optional; leaves apps with a bigger installer unchecked, 
   ignored by the build and the app is re-verified on the next run.
 - Raw results live in `data/verification.json` and `data/virustotal.json`; trusted extra roots in `data/roots/`.
 
+## Feature notes (editorial)
+
+Some app pages carry hand-written notes inside the Description section: a one-line "Best for" under the description, then 5 to 8 bullets on what the app does and where it stops. The text lives in `config/features/<slug>.json` (one file per app) and is rendered on the page and in the `.md` twin by `scripts/lib/features.mjs`. Apps without a file show only the description.
+
+```
+{ "slug", "reviewed": "YYYY-MM-DD",
+  "best_for": "one line, written for the reader: their system, their job, their problem",
+  "points": [{ "title", "text" }],          5 to 8 bullets; titles are free, so the structure differs per app
+  "sources": [{ "label", "url" }] }          the official pages the text is based on (https only); not printed on the page
+```
+
+Rules: write in our own words, never copy sentences; say what the app does not do (plan limits, account needs, platform gaps, per-platform differences); include only what was confirmed on a page, and leave out anything unconfirmed. `sources` and `reviewed` are the audit trail: re-check a file when the app's plans or platforms change and update `reviewed`. `npm run validate` checks each file; `npm run check` checks the notes appear exactly for the apps with a file.
+
 ## Deploying (Apache)
 
 Upload **all of `dist/`, including the hidden `dist/.htaccess`**. Many FTP and upload tools skip hidden files by default; turn that off, or the rules below are not applied. The file is generated from `assets/htaccess` on every build.

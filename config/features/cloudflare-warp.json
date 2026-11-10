@@ -1,0 +1,49 @@
+{
+  "slug": "cloudflare-warp",
+  "reviewed": "2026-11-09",
+  "best_for": "IT admins rolling out through Intune, Jamf or JumpCloud who want staff traffic filtered and device health checked before access.",
+  "points": [
+    {
+      "title": "Mode decides what it does",
+      "text": "There are five modes: Traffic and DNS (the default), DNS only, Traffic only, Local proxy and Posture only. Full filtering needs the default mode; the others trade features for narrower scope."
+    },
+    {
+      "title": "Traffic only loses domain rules",
+      "text": "In Traffic only mode, domain-based split tunnels and Local Domain Fallback stop working, so internal domains that depend on them need another approach."
+    },
+    {
+      "title": "Local proxy has limits",
+      "text": "Local proxy mode needs MASQUE over HTTP/3, does not work with WireGuard, and times out requests after 10 seconds. It suits apps pointed at a local proxy, not whole-device protection."
+    },
+    {
+      "title": "Device health reporting",
+      "text": "Beyond tunnelling, it reports posture signals such as operating-system version, disk encryption and installed software, which administrators can require before granting access."
+    },
+    {
+      "title": "Windows requirements",
+      "text": "Windows 10 LTSC, Windows 11 and Windows 365 Cloud PCs on Windows 11 are supported, with .NET Framework 4.7.2 or later. This catalogue lists one machine-wide MSI-style installer for x64."
+    },
+    {
+      "title": "Two version styles for one build",
+      "text": "The Windows listing writes the current release as 26.8.2115.0 and the Mac cask as 2026.8.2115.0. They look like the same build written two ways, so compare the last three groups, not the whole string."
+    },
+    {
+      "title": "Beyond desktops",
+      "text": "Cloudflare's docs also describe Linux packages from its own repository and, on phones, a Cloudflare One Agent that replaces the old 1.1.1.1 app. This catalogue tracks only Windows and macOS."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Cloudflare One Client overview",
+      "url": "https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/"
+    },
+    {
+      "label": "Client modes",
+      "url": "https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/"
+    },
+    {
+      "label": "Download and OS requirements",
+      "url": "https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/download/"
+    }
+  ]
+}

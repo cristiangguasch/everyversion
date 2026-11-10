@@ -6,6 +6,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
 import { compareVersions } from './lib/version.mjs';
+import { loadFeatures, featureProblems } from './lib/features.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const schema = JSON.parse(readFileSync(join(ROOT, 'schema', 'app.schema.json'), 'utf8'));
@@ -77,8 +78,15 @@ for (const f of files) {
   for (const v of rec.versions) for (const i of v.installers) if (!/^https:\/\//.test(i.url)) fail(f, `non-https installer URL in ${v.version}`);
 }
 
+// Editorial features sections (config/features/<slug>.json): shape, sources and a known app for each file.
+const features = loadFeatures();
+for (const [slug, feat] of features) {
+  const rec = slugs.has(slug) ? JSON.parse(readFileSync(join(dir, `${slug}.json`), 'utf8')) : undefined;
+  for (const p of featureProblems(slug, feat, rec)) fail(`config/features/${slug}.json`, p);
+}
+
 if (bad) {
   console.error(`\n${bad} problem(s) in ${files.length} files`);
   process.exit(1);
 }
-console.log(`✓ ${files.length} records valid`);
+console.log(`✓ ${files.length} records valid${features.size ? `, ${features.size} features sections` : ''}`);

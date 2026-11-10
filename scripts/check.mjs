@@ -106,6 +106,21 @@ const strays = files.filter((f) => /(^|\/)\.DS_Store$/.test(f));
 if (strays.length) warn.push(`${strays.length} .DS_Store file(s) in dist/ (Finder droppings, hidden by .htaccess; delete before you upload): ${strays.slice(0, 3).map((f) => f.replace(DIST + '/', '')).join(', ')}`);
 
 // twins
+// features notes (inside Description): present exactly for the apps that have a content file, with 5-8 bullets and the Best for line
+const featureSlugs = existsSync(join(ROOT, 'config', 'features')) ? readdirSync(join(ROOT, 'config', 'features')).filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, '')) : [];
+for (const a of apps) {
+  const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
+  const overview = /<section id="overview"[\s\S]*?<\/section>/.exec(h)?.[0] || '';
+  const ul = /<ul class="feat">([\s\S]*?)<\/ul>/.exec(overview)?.[1];
+  if (featureSlugs.includes(a.slug)) {
+    if (!ul) { bad(a.slug, 'features file exists but Description has no feature bullets'); continue; }
+    const n = (ul.match(/<li>/g) || []).length;
+    if (n < 5 || n > 8) bad(a.slug, `feature list has ${n} bullets`);
+    if (!/Best for:/.test(overview)) bad(a.slug, 'Description is missing the "Best for" line');
+    if (!readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes('**Best for:**')) bad(a.slug, 'features missing from the .md twin');
+  } else if (ul) bad(a.slug, 'Description has feature bullets but no content file');
+  if (/id="features"|In the package data/.test(h)) bad(a.slug, 'old features section still on the page');
+}
 for (const a of apps) for (const ext of ['json', 'md']) if (!exists(`/${a.slug}/${a.slug}.${ext}`)) bad(a.slug, `missing .${ext} twin`);
 
 if (warn.length) console.warn(`warnings (${warn.length}):\n  ${warn.slice(0, 15).join('\n  ')}`);

@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { summarise } from './lib/summary.mjs';
 import { statsPage } from './lib/stats-page.mjs';
 import { CASK_REPO } from './lib/cask.mjs';
+import { loadFeatures, featuresHtml, featuresMd } from './lib/features.mjs';
 import { aboutPage, apiPage, contactPage, legalHub, privacyPage, termsPage, cookiesPage, disclaimerPage, contentPage, securityPage, AUTHOR, AUTHOR_ID, PERSON } from './lib/pages.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -42,6 +43,7 @@ const assetHash = (name) => createHash('sha256').update(readFileSync(join(ROOT, 
 let SEARCH_V = ''; // set in main(): hash of search.js + the search index, so browsers refetch both when either changes (the server caches them for days)
 let HAS_LINUX = false; // set in main(): the header links to /linux/ only when at least one app has a Linux build
 let RECS_BY_SLUG = new Map(); // filled in main(); lets pages link to other apps
+const FEATURES = loadFeatures(); // hand-written notes inside Description (config/features/<slug>.json), checked by scripts/validate.mjs
 const WINGET_REPO = 'https://github.com/microsoft/winget-pkgs';
 const PAGE_VERSIONS = 20; // versions rendered in HTML; the .json/.md twins carry everything we ingest
 
@@ -1023,7 +1025,7 @@ ${installerHtml}
 </section>`,
     rec.description || rec.summary ? `<section id="overview" aria-labelledby="h-overview">
 <h2 id="h-overview">Description</h2>
-${paragraphs(rec.description || rec.summary)}
+${paragraphs(rec.description || rec.summary)}${FEATURES.get(rec.slug) ? `\n${featuresHtml(FEATURES.get(rec.slug), { esc, code: withCode })}` : ''}
 </section>` : '',
     `<section id="details" aria-labelledby="h-details">
 <h2 id="h-details">${esc(rec.name)} at a glance</h2>
@@ -1105,6 +1107,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     ...rec.provenance.map((e) => `- Source (${OS_NAME[e.platform]}): ${sourceName(e)}${e.commit ? ` @ ${e.commit}` : ''} — ${sourceTree(e)}`),
     '',
     rec.description ? `## Description\n\n${rec.description}\n` : '',
+    FEATURES.get(rec.slug) ? featuresMd(FEATURES.get(rec.slug)) : '',
     ...plats.flatMap((p) => [
       `## ${OS_NAME[p]}`,
       '',
