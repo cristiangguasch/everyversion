@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "slug": "dolphin",
+  "name": "Dolphin",
+  "publisher": "Dolphin Team",
+  "author": "Dolphin Team",
+  "ids": {
+    "winget": "DolphinEmulator.Dolphin",
+    "moniker": "dolphin",
+    "homebrew_cask": "dolphin",
+    "flathub": "org.DolphinEmu.dolphin-emu"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Dolphin emulates the Nintendo GameCube and Nintendo Wii on your PC.",
+  "description": "Dolphin is an emulator for two recent Nintendo video game consoles: the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD (1080p) with several enhancements: compatibility with all PC controllers, turbo speed, networked multiplayer, and even more!",
+  "tags": [
+    "dolphin",
+    "emulation",
+    "emulator",
+    "game",
+    "gamecube",
+    "gaming",
+    "ngc",
+    "revolution",
+    "videogame",
+    "wii"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://dolphin-emu.org",
+    "support": "https://dolphin-emu.org/docs/faq/",
+    "privacy": "https://dolphin-emu.org/docs/privacy/"
+  },
+  "license": {
+    "name": "GPL-2.0-or-later/GPL-3.0-or-later",
+    "url": "https://github.com/dolphin-emu/dolphin/blob/master/COPYING",
+    "copyright": "Copyright (c) 2016 Dolphin Team"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "5.0",
+    "macos": "2609b",
+    "linux": "2609a"
+  },
+  "versions_total": {
+    "windows": 1,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "5.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/d/DolphinEmulator/Dolphin/5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://dl-mirror.dolphin-emu.org/5.0/dolphin-x64-5.0.exe",
+          "host": "dl-mirror.dolphin-emu.org",
+          "filename": "dolphin-x64-5.0.exe",
+          "sha256": "e1b3ae8fc890c6588e5656f77ef2747ae7ddfc90b6530b240c0c5b9d0ab3ce8c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "ciso",
+            "elf",
+            "gcm",
+            "gcz",
+            "gol",
+            "iso",
+            "wad",
+            "wbfs"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2609b",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://dl.dolphin-emu.org/releases/2609b/dolphin-2609b-universal.dmg",
+          "host": "dl.dolphin-emu.org",
+          "filename": "dolphin-2609b-universal.dmg",
+          "sha256": "d7a3464ae2b71106e9bce9f53dfdbf5a6a3df2637ee8f3f78234f77653eb0a64"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Dolphin.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "org.dolphin-emu.dolphin"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/Dolphin",
+            "~/Library/Preferences/org.dolphin-emu.dolphin.plist",
+            "~/Library/Saved Application State/org.dolphin-emu.dolphin.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "2609a",
+      "release_date": "2026-10-08",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.DolphinEmu.dolphin-emu.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.DolphinEmu.dolphin-emu.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.DolphinEmu.dolphin-emu.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.DolphinEmu.dolphin-emu.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "615b69b21b30191d28d575b8573292efbfcd10f6",
+      "retrieved_at": "2026-11-10T00:19:10.008Z",
+      "path": "manifests/d/DolphinEmulator/Dolphin"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "b8938744284baffb58afa1a4f652ab30ab24edb6",
+      "retrieved_at": "2026-11-10T00:19:10.008Z",
+      "path": "Casks/d/dolphin.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/dolphin.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.DolphinEmu.dolphin-emu",
+      "retrieved_at": "2026-11-10T00:19:11.094Z",
+      "path": "api/v2/appstream/org.DolphinEmu.dolphin-emu",
+      "api_url": "https://flathub.org/api/v2/appstream/org.DolphinEmu.dolphin-emu",
+      "content_sha256": "727217916172b1aa84a8078d42e76e8974936569df7211d8f3719238bb81fc9b"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.DolphinEmu.dolphin-emu",
+    "page_url": "https://flathub.org/apps/org.DolphinEmu.dolphin-emu",
+    "repo_url": "https://github.com/flathub/org.DolphinEmu.dolphin-emu",
+    "install_command": "flatpak install flathub org.DolphinEmu.dolphin-emu",
+    "run_command": "flatpak run org.DolphinEmu.dolphin-emu",
+    "verified": false,
+    "license": "GPL-2.0+",
+    "free_license": true,
+    "developer_name": "Dolphin Emulator Project",
+    "categories": [
+      "Game",
+      "Emulator"
+    ],
+    "download_size": 21914773,
+    "installed_size": 55292928,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

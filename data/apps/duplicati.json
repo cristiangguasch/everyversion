@@ -1,0 +1,1393 @@
+{
+  "schema_version": 2,
+  "slug": "duplicati",
+  "name": "Duplicati",
+  "publisher": "Duplicati Team",
+  "author": "Kenneth Skovhede",
+  "ids": {
+    "winget": "Duplicati.Duplicati",
+    "moniker": "duplicati",
+    "homebrew_cask": "duplicati"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Duplicati is a free, open source, backup client that securely stores encrypted, incremental, compressed backups on cloud storage services and remote file servers.",
+  "tags": [
+    "backup",
+    "crypted",
+    "data",
+    "duplicati",
+    "incremental"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.duplicati.com/",
+    "publisher": "https://www.duplicati.com/",
+    "support": "https://github.com/duplicati/duplicati/issues",
+    "bug_tracker": "https://github.com/duplicati/duplicati/issues",
+    "release_notes": "https://github.com/duplicati/duplicati/releases/tag/v2.4.1.0_stable_2026-10-29"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/duplicati/duplicati/blob/HEAD/LICENSE",
+    "spdx": "MIT"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.4.1.0",
+    "macos": "2.4.1.0"
+  },
+  "last_updated": "2026-10-29",
+  "versions_total": {
+    "windows": 13,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.4.1.0",
+      "release_date": "2026-10-29",
+      "release_notes": "About this release\nThis release builds on version 2.4.0.1 with a large number of bug fixes, and adds three new features: incremental (delta) backups of Microsoft 365 and Google Workspace, and restore tests that can run after backups and be switched on remotely from the console.\nThe local database format is updated by this release. See \"Downgrading\" below before going back to an earlier version.\n\nDelta walk for Microsoft 365 and Google Workspace\nMicrosoft 365 and Google Workspace backups no longer need to list every item on every run. The providers now store a delta token with each backup and use the Microsoft Graph and Google change APIs, so later backups list only what was created, changed, moved or removed since the previous backup and carry the rest forward from it.\nFor Microsoft 365 this covers mail folders, SharePoint and group document libraries. For Google Workspace it covers Gmail, Drive, Calendar and Contacts. Delta tracking is enabled by default. The first backup, the first backup after the local database is recreated, and the backup after one that was stopped still list everything in full.\nDelta tracking can be turned off per service with --office365-disable-mail-delta, --office365-disable-drive-delta, --google-disable-gmail-delta, --google-disable-drive-delta, --google-disable-calendar-delta and --google-disable-contacts-delta. If a document library reports more changes than --office365-drive-delta-max-items or --google-drive-delta-max-items, the library is listed in full instead.\nA backup that combines a Microsoft 365 or Google Workspace source with the USN change journal or --changed-files is now refused with an error, as the two mechanisms cannot be combined.\n\nRestore tests\nA new restore test operation restores a sample of a backup from the remote destination into a temporary folder and verifies it, so the backup is regularly proven to be restorable. It is available as the restore-test command in the command line and in ServerUtil, and through the server API.\nThe sample is chosen with --restore-test-mode: a number of random files, a percentage of the backup size, every file, or a rolling mode that prefers files that have not been verified recently. The test can be limited with --restore-test-max-download-size and --restore-test-max-runtime, can rebuild a temporary database from the destination with --restore-test-recreate-database, and can compare the restored files with the source files with --restore-test-compare-source.\nSet --perform-restore-test-after to run a restore test as the last step of a backup whenever the previous test is older than the given interval. When the machine is connected to the Duplicati console, the console can set this interval for its backups, so restore tests can be switched on remotely. A restore test after a backup does not change the result of the backup, but a failed test is reported with its own notification.\n\nImproved support for Sync jobs\nWith this version, Sync jobs now store their logs so the logs can be viewed after the job has completed. Several places where the Sync job was showing options that were only relevant to restores are now updated.\n\nOther new features\n- Backup versions can be given a label with the set-version-label command. The labels are also stored on the destination, so a database recreate keeps them.\n- Point-in-time access to a destination: with --remote-point-in-time, the S3 and Duplicati Storage destinations read the destination as it was at the given time, using bucket versioning. The destination is read-only in this mode.\n- Report modules can send reports for other operations than backups, chosen with --send-http-operations, --send-mail-operations, --send-xmpp-operations and --send-telegram-operations. Backup reports remain the default.\n- A restore on an existing backup can now carry additional advanced options.\n- The new --disable-secret-provider option disables the default secret provider, the configured secret provider, or both. --disable-default-secret-provider still works but is deprecated. The server now also reports which secret provider is active.\n- Duplicati Storage can be used as a secondary target, and supports object locking.\n- Uploads to Google Cloud Storage now carry a CRC32 checksum.\n- SMB servers that require SMB 3.1.1 can be used with --enable-smb311.\n- Neon Object Storage has been added to the list of S3 providers.\n\nChanged behavior\n- A backup that asks for object locks on a bucket or container that does not have locking enabled now completes with a warning that no locks were applied, instead of failing. This applies to S3, B2, Azure, Google Cloud Storage and Duplicati Storage.\n- Options in source and destination urls are now validated, so an option that no module supports is reported with a warning.\n- The Microsoft 365 site classifications \"Classic\" and \"Communication\" have been removed, as they never matched any site.\n- When a restore does not specify overwrite, restore permissions or skip metadata, the settings of the backup and the server defaults now apply instead of turning them off.\n\nDowngrading\nThis release updates the local database from version 19 to version 22 and the sync database to version 1. Version 2.4.0.1 cannot open the newer databases. To go back to 2.4.0.1, downgrade the databases with the DatabaseTool downgrade command first. Its default target versions now match 2.4.0.1, so no version options are needed.\n\nFixes\nAborting a backup no longer waits for a stuck source listing, file open, size or metadata read, and a stop or abort that arrives before the operation is ready is kept.\nRestores keep an appended file when restoring without --overwrite, do not read through a link when restoring a symbolic link to a file, keep the drive letter folder when restoring Windows paths in place, and stop when --restore-path has no value. A partial restore no longer warns about the folders it has to create. Repair keeps the time and order of the versions when it replaces missing dlist files, and a later database recreate keeps them too.\nOn Windows, a local folder destination whose url contains @ or carries options in its query string is now read correctly, and symbolic links created by WSL are backed up as links. Backups leave the write-ahead log files of their own database out.\nThe server and tray icon have fixes to notifications, task state, pause and resume events, preload settings, update checks, the login token cookie behind a reverse proxy, and the Agent. Control file restores are protected against path traversal, and the recovery tool and the Agent pre-shared key have been hardened.\nBackend fixes include Jottacloud timeouts and parallel downloads, Storj uploads, WebDAV listings on Windows and Linux, the S3 list API version option, HashiCorp Vault JSON secrets, GnuPG on slow systems, and the User-Agent header sent by WebDAV, pCloud and the updater.\nSQLite has been updated to 3.54.0, built for older Linux distributions, and StreamJsonRpc and MimeKit have been updated for security advisories.\n\nDetailed list of changes:\n- Delta walk for Microsoft 365\n- Add delta-tracking for Google Workspace\n- Add restore test command\n- Added support for server-side restore tests\n- Move restore-test API to v2\n- Allow \"Reason\" in test restore reports\n- Add labels to backup versions\n- Added point-in-time-restore support\n- Improve object lock support\n- Support locking with Duplicati storage\n- Support Duplicati Storage as secondary target\n- Add support for choosing report operations\n- Add support for advanced options in restore\n- Let configured defaults apply when restore options are not specified\n- Add secret-provider disable switches\n- Added support for reporting the current secret provider\n- Add CRC32 to uploads to GCS\n- Fixed a bug in GCS resume handling, where a 308 response was treated as a failure\n- Add an option to connect to SMB servers that require SMB 3.1.1\n- Add Neon Object Storage to the S3 provider list\n- Improve MS365 enumeration and warning noise\n- Fix MS365 group classifications\n- Better retry backoff for Google Workspace\n- Fix incorrect permission check for Google Workspace\n- Store BackendSourceProvider metadata\n- Fix BackendSourceProvider listing\n- Add logs to sync operation\n- Reduced logging for multi-destination\n- Stop waiting for a stuck source listing when the backup is aborted\n- Stop waiting for a stuck source file open when the backup is aborted\n- Stop waiting for a stuck size or metadata read when the backup is aborted\n- Keep a stop or abort that comes before the operation is ready\n- Wait a second before a backup that starts in the same second as the previous version\n- Keep the messages of the file count pass out of the backup log\n- Show the totals of the previous backup when the file scanner is disabled\n- Do not show a negative number of files to go in the old UI\n- Show 100% for an empty file in the old UI progress\n- Leave the write-ahead log files of the backup's own database out of it\n- Keep a source file that the USN journal reports as changed\n- Read symlinks made by WSL as symlinks on Windows\n- Read xattr values of followed symlinks from the target\n- Read owner and permissions of followed symlinks from the target\n- Fix corrupted target URL for local paths containing @\n- Keep the query string of Windows file urls\n- Keep an appended file when restoring without --overwrite\n- Do not read through a link when restoring a symbolic link to a file\n- Do not chmod the target when restoring symlink metadata\n- Keep the drive letter folder when restoring Windows paths in place\n- Stop a restore when --restore-path has no value\n- Do not warn about the folders a partial restore has to make\n- Report an empty file that cannot be created as not restored\n- Release the files waiting for a priority file that is given up\n- Skip restored file verification in a legacy dry run\n- Drop the entries below a root the old UI restore picker selects\n- Keep version order when repair replaces missing dlist files",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.4.1.0_stable_2026-10-29",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.4.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.1.0_stable_2026-10-29/duplicati-2.4.1.0_stable_2026-10-29-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.1.0_stable_2026-10-29-win-x86-gui.msi",
+          "sha256": "f1161a039ac11a8acfc563192a035115c0b3da71aad24e566ab00f33beaf5b18",
+          "product_code": "{0607FFA6-36DF-4699-8A3F-799E051CDA16}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{0607FFA6-36DF-4699-8A3F-799E051CDA16}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.1.0_stable_2026-10-29/duplicati-2.4.1.0_stable_2026-10-29-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.1.0_stable_2026-10-29-win-x64-gui.msi",
+          "sha256": "b5574d08baf9782f43b961741814a111c5dc3a19f4ebb3f49fb1556d0bae8a0d",
+          "product_code": "{D5DDC319-3EA8-4E30-A8F0-E642076E88DE}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{D5DDC319-3EA8-4E30-A8F0-E642076E88DE}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.1.0_stable_2026-10-29/duplicati-2.4.1.0_stable_2026-10-29-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.1.0_stable_2026-10-29-win-arm64-gui.msi",
+          "sha256": "c2349a538a6565d176e0a24e15bb3bcbfa66ce285a519a407eaf67c8fcb73484",
+          "product_code": "{BB0E0124-3675-4CF0-BA82-04E23C702B8D}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{BB0E0124-3675-4CF0-BA82-04E23C702B8D}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.0.1",
+      "release_date": "2026-10-07",
+      "release_notes": "About this release\nThis release patches version 2.4.0.0 with fixes for a number of issues that were discovered after the release.\nThe main focus of this release is stability, with many fixes to restore, abort handling and the new sync mode, along with security hardening of the server and remote control.\n\nUsability fixes\nThe search feature would allow you to select files, but would send incorrect paths to the restore flow.\nOn Windows, this would result in no files selected in the search view being restored.\n\nSecurity and Privacy\nThe login setup has been hardened against weak passwords, the remote control requests have been locked down and require per-message keys.\nThe remote control connection now works on NAS devices that use integrated authentication (Synology DSM).\nPath redaction in logs and reports has been improved, and secrets in lists now have an additional layer of protection.\nA new reduced reporting mode (--reduced-reporting) limits reports leaving the machine to log message ids, counters and dates, without message text, error messages or file names. The HTTP status report has a matching --http-report-status-reduced-reporting option. The setting can also be enforced from the console for users requiring it.\n\nRestore and Abort Fixes\nA restore now carries on with the next file when a single file fails, instead of stopping the whole restore. Several issues that could cause a restore to hang have been fixed, including releasing blocks for skipped files, releasing all restore processes when a volume cannot be produced, and releasing the restore stages on every exit path. A missing destination folder is now reported before the restore starts.\nAborting a backup or other operation no longer waits for a stuck source file read, a stuck backend call, or a block processor that has stopped. Aborting a repair while it reads the local database no longer discards the database.\n\nSync Mode Fixes\nThe sync mode introduced in 2.4.0.0 has received a number of fixes: folder sync on some destinations, zero-byte uploads to Google Drive and Google Cloud, case-insensitive remotes, duplicate remote listings, sync metadata and last-run handling, and lower memory use by not storing remote operations in memory. The synchronization tool now passes the correct arguments to its backends, ignores folder entries in listings, renames through the backend, and counts failed deletes and renames in its return code.\n\nStability and Performance\nThe wasted space calculation used for compacting has been improved, deleting filesets uses less memory, and SQLite memory usage has been further reduced.\nDatabase connections are now closed when opening or setting up a local database fails, and the server now takes the database lock in a few paths that previously skipped it.\nResuming after sleep no longer waits for the suspend handling to finish, and Windows is allowed to sleep again when an operation ends.\nTasks and HTTP status reports now report errors from operations that finished without throwing.\n\nBackend and Provider Fixes\n- Google Drive: keep every copy of a duplicated name, and report no quota for shared drives instead of the user's own quota.\n- Google Workspace: handle inactive accounts, emit a root folder, and fix the restore scope.\n- MS365: fix restore of large emails.\n- Drime: fix incomplete listings beyond the pagination limit.\n- S3: add RelAix to the list of providers.\n- SMB: improved error detection.\n- Duplicati backend: show error messages from the console.\n- An unknown destination quota is no longer treated as a full destination, and the manual quota is kept when the backend quota is disabled.\n\nWindows Installer and Shell Integration\nThe MSI now remembers the install location on upgrade, and the path browse button has been fixed.\nThe Windows shell overlay has been fixed. It requires the folder status service, which is disabled by default and can only be enabled from the commandline with --webservice-enable-folder-status-service=true.\n\nOther Changes\nThe command line tools have a number of fixes to listing and searching, such as listing the latest version when none is given, searching sub-folders, looking up file versions by full path, and handling folders given without a trailing separator. Purge and set-locks now stop when the given version or time matches no fileset, and a queued command keeps the versions it named when it was sent.\nThe old UI has fixes for editing local folder and S3 destinations, restore version grouping and selecting a restore root.\nThis release also adds an option to prevent the server from creating a new database (--webservice-dont-autocreate-database), support for runner identity and license usage collection, and fixes for packaging libc_wrapper.so and for running when the account has no home folder.\n\nDetailed list of changes:\n- Don't warn on report module errors\n- Fix remote access on NAS\n- Remember install location for MSI\n- Stop waiting for a stuck source file read when the backup is aborted\n- Answer a block's sender when the block processor stops\n- List the roots of a multi-drive backup without waiting\n- Let the queue runner be disposed before it is terminated\n- Release the blocks of a file the restore skips\n- Report a missing destination folder before a restore starts\n- Say which file is missing when the Windows modules cannot load\n- Close the connection when the setup of a backup or delete database fails\n- Try the next port when the system refuses the one the server binds\n- Resume after a sleep even if the suspend is still being handled\n- Fixed the path browse button in the MSI\n- Keep the local database when a repair is aborted while reading it\n- Report the errors of an operation that finished without throwing in the HTTP status report\n- Let Windows sleep again when an operation ends\n- Say that search looks at every version when none is given\n- Return the oldest live log entries after the one a client has seen\n- Group restore versions by calendar month in the old UI\n- Show the saved local folder when the old UI edits a backup\n- Let the old UI select a restore root before it is expanded\n- Keep the saved S3 client when the old UI opens a destination\n- Save a custom S3 storage class from the old UI\n- Expose stored config type in API\n- Avoid storing sync ops in memory\n- Fix upload zero-byte file to Google Cloud/Drive\n- Update Sync metadata handling\n- Report the errors of a task that finished without throwing\n- Carry on with the next file when one file fails to restore\n- Keep a queued command's --version on the versions it named when it was sent\n- Release the restore stage before a stopped one on every exit path\n- Keep a file source in the root listing when another source extends its name\n- Add support for reduced reporting\n- Change SMB error detection\n- Add RelAix to list of S3 providers\n- Close the connection when a local database fails to open\n- List a folder's contents when the folder is given without a trailing separator\n- Add support for per-message keys\n- Search the sub-folders of a folder given to the search command\n- List the latest fileset when no time or version is given to list-folder-contents\n- Release every restore process when a volume cannot be produced\n- Prevent wrong missing key warning\n- Stop waiting for a backend call when the operation is aborted\n- Return no fileset for an exact time that matches none\n- Report a queued task as waiting in the task queue listing\n- Improve waste space calculation\n- Look up file versions by their full path\n- Run a remote sync destination inline when its mode has no interval or count\n- Improve path redaction\n- Support console error messages\n- Fix a zero-progress report\n- Add support for collecting license usage\n- Fix issue with folder sync\n- Stop purge and set-locks when the given version or time matches no fileset\n- Harden remote control requests\n- Add login throttle\n- Fix incomplete Drime listings beyond the pagination limit\n- Report a finished task's outcome while it is still the current task\n- List a sync inventory folder as an indexed, case-sensitive range\n- Fix Google Workspace restore scope\n- Make Google Workspace emit a root folder\n- Fix Windows Shell Overlay\n- Remove unused browsertest\n- Handle Google Workspace inactive accounts\n- Honour case-insensitive-remote in the sync command\n- Additional memory optimization for SQLite\n- Reduce delete memory pressure\n- Add support for runner identity\n- Dispose the primary sync database when a sync run ends\n- Count failed deletes and renames in the synchronization tool's return code\n- Let the synchronization tool rename through the backend and compare through temporary files\n- Ignore the folder entries a remote listing reports\n- Pass the right arguments to the synchronization backends\n- Spell the sync-remote-state values the way the option accepts them\n- Fix packaging libc_wrapper.so\n- Say which side has duplicate remote files instead of crashing\n- Root the data folder when the account has no home folder\n- Take the database lock in the server paths that skipped it\n- Update MS365 permission doc\n- Improve libc_wrapper import name\n- Layered defense for secrets in lists\n- Do not read an unknown destination quota as a full destination\n- Add option to disable db autocreate\n- Fix MS365 large email restore\n- Keep the manual quota when the backend quota is disabled\n- Report no quota for a Google shared drive, instead of the user's own\n- Keep every copy of a duplicated Google Drive name, and list it once\n\nUpdates to ngclient\nUpdated ngclient from 0.0.234 to 0.0.238:\n- Changed the order for navigation on new backups: source before destination\n- Added support for purging files from the UI\n- Added support for checking permissions with MS365 and Google Workspace\n- Added a counter dialog for Google Workspace data\n- Added support for disabling chunking on S3 providers that do not support it\n- Added support for reduced reporting\n- Added RelAix to the known public hosts",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.4.0.1_stable_2026-10-07",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.4.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.0.1_stable_2026-10-07/duplicati-2.4.0.1_stable_2026-10-07-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.0.1_stable_2026-10-07-win-x86-gui.msi",
+          "sha256": "46fa6276aff7a8ddccf4903fa537f9dfa2bd6f60d137bc68c761fc7d5f473d93",
+          "product_code": "{F30C8B7E-E79D-48D5-80C1-6B0660D6F99D}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{F30C8B7E-E79D-48D5-80C1-6B0660D6F99D}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.0.1_stable_2026-10-07/duplicati-2.4.0.1_stable_2026-10-07-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.0.1_stable_2026-10-07-win-x64-gui.msi",
+          "sha256": "491b2cabef0106cb7964a7cd2ae54a43cb2f2573d0b84c4af00961d868e1b3b9",
+          "product_code": "{AD9E5442-3C86-4905-A7C4-D8CC9F9A0EEF}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{AD9E5442-3C86-4905-A7C4-D8CC9F9A0EEF}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.0.1_stable_2026-10-07/duplicati-2.4.0.1_stable_2026-10-07-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.0.1_stable_2026-10-07-win-arm64-gui.msi",
+          "sha256": "859683382dfc37a004d06769029079355899eae36fe3f29441e3d4fdc52fea73",
+          "product_code": "{402C3187-69F3-4DAD-92BD-B723EE9F3A00}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{402C3187-69F3-4DAD-92BD-B723EE9F3A00}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.0.0",
+      "release_date": "2026-09-03",
+      "release_notes": "This release is a stable release that supersedes the 2.3.0.4 stable release. It contains all changes from the 2.3.1.0 and 2.3.1.1 beta releases.\nBreaking change: Locked-down data folder permissions\nThis release hardens security around the data folder and is a breaking change for some setups.\nFor most users, this should not be a problem as the folders should already have the correct permissions.\nDuplicati now requires that the data folder has the exact expected permissions, or it will refuse to use it. Previously, Duplicati would silently lock down the folder if it was not already locked.\nTo opt out of the permission check, you need to either pass --allow-insecure-datafolder, set the environment variable DUPLICATI__ALLOW_INSECURE_DATAFOLDER=true, or place a file named insecure-permissions.txt in the installation folder.\nNote that the previous method of placing insecure-permissions.txt in the data folder is no longer supported.\nThis change also applies to preload.json, such that it will only be loaded if the folder is trusted, or one of the opt-out methods are activated. Additionally, the previous trusted paths /usr/local/share/Duplicati/preload.json and C:\\ProgramData\\Duplicati\\preload.json are no longer supported as they cannot be guaranteed to be locked down.\nA preload.json inside the data folder is still supported, provided the folder passes the permission check.\nThe ConfigureTool has a new secure-datafolder command that can be used to force the correct permissions on the data folder.\nFor most users this should not cause any problems, as Duplicati has been locking down the folder already, but if you rely on lax folder permissions the setup needs to change. Some Docker setups may not be able to set the permissions and will need to apply DUPLICATI__ALLOW_INSECURE_DATAFOLDER=true in the image to run without the protections.\n\nSync copy mode\nThis release adds an often requested feature that enables simple copying of files from source to destination.\nWhere the regular backups are deduplicated, compressed, encrypted and versioned, the new sync mode will instead simply copy from source to destination.\nThe copy is currently a one-way sync, where the source is replicated on the destination. Files can be deleted on the destination during sync (use --sync-then-delete), but destination folders will not be deleted.\nThe option --sync-remote-state is by default set to UseRemoteState which will list the destination and figure out what to upload. The setting UseLocalState uses a local database, similar to how backups work, to keep track of known remote files, and reduce the amount of remote listings done. Finally, the BlindlyUpload setting will just copy everything as-is to the remote.\nThe sync jobs support remote sources, snapshots, and multiple destinations. If snapshots are enabled, the copy is done from the snapshot, ensuring reliable reads.\nConfiguration of such a sync job is done the same way as with backup, but using a toggle option in the first step of the UI. Note that backup and sync jobs are not compatible as they use very different storage logic, so it is not possible to change the job mode after creating a job.\nCLI mode also supports sync.\n\nImproved Windows installer\nThis change brings a major update to the Windows installers, which now integrates the ability to run as a service, as well as generate and use TLS (https). The service feature has been present for a while in the WindowsService.exe tool and the TLS certificates were added as part of the Duplicati.CommandLine.ConfigureTool.exe. With this update these things are now integrated into the installer, and exposed as simple checkboxes to toggle the features. Installing the service from a regular user account, will also auto-generate a secure password and configure the TrayIcon to connect to the service (only for the current user).\nIf you have installed the service manually, do not activate the new checkbox as it only works if there is no pre-existing service. The installer-driven service does not support commandline arguments directly, but instead prefers preload.json files to configure it. The MSI supports the property INSTALL_PRELOAD=true which will cause it to pick up a preload.json file from the same folder the MSI is located in.\nThe Windows service is now also configured as delay-start service to avoid startup issues on boot.\n\nLive reporting module\nThis release adds a new live-reporting module that sends the current progress of backups to a user-specified URL. The intention is that this can be used for dashboards that want to show the current progress for backups. By default, the module is not configured and has no impact.\nThe module supports multiple activity targets and includes metadata in the activity report, as well as a console-provided activity URL.\n\nPAR2 parity / error-correction for remote volumes\nThis release adds a pluggable parity module that produces error-correction data for remote data volumes, so they can be repaired after bit-rot or corruption on the backend, thanks @JamBalaya56562.\nTo enable this, ensure that par2 is installed on the machine and set --parity-module=par2. Setting this will cause additional .par2 files to be uploaded.\n\nStore configuration with backup\nThis release revives the store-task-config option and makes it enabled by default for encrypted backups. The backup configuration is stored with the backup data, making it easier to restore a configuration later.\nFor unencrypted backups, no secrets are stored by default. The behavior can be customized with options to store none, self, or all configurations, with or without secrets. The UI has been updated to allow restoring from the destination config. If multiple configurations are found, the user can select one or more backup configurations to restore.\n\nMS365 subsites and shared mailboxes\nThis release improves the Microsoft 365 backup support with two additions.\nSupport for backing up SharePoint subsites has been added, making it possible to include sub-sites beneath a site collection in a backup.\nThe handling of shared mailboxes has also been improved, with better detection and enumeration of shared mailboxes within a tenant.\nThe license counting has been simplified. A Duplicati license is now required if an MS365 license is assigned, without needing per-user lookups. The same logic applies to both users and sites, and personal sites of users without a license are not counted. Filtering based on classification is still supported.\n\nFull disk backup support (Windows, Linux, MacOS)\nThis release extends the full disk backup feature to support Linux and MacOS, in addition to Windows.\nThe Linux support allows backup and restore of entire disks on Linux, including partition tables. The MacOS support adds basic backup and restore of entire disks, including partition tables.\nPartition-level backup and restore is now supported, making it possible to select individual partitions as backup sources, or restore a single partition from a full disk backup to a different partition.\nLike the Office 365 / Google Workspace backup features, this is a proprietary module (source available).\nFull disk backup requires administrative privileges to access the disk directly.\nFull disk restore requires administrative privileges and requires that the disk is unmounted and not write-protected.\n\nDesktop notifications on all platforms\nDesktop notifications are now supported on all platforms. Windows toast notifications have been implemented with click-to-open support, and native notification support has been added for macOS and Linux (via DBus), thanks @JamBalaya56562 for the Windows implementation.\n\nRestore reliability improvements\nSeveral issues with the restore process have been fixed. Restores now properly respond to stop/abort requests, file reads and writes can be interrupted, and a critical bug with wrong seek offsets for partial blocks has been fixed, which could cause restores to fail, thanks @JamBalaya56562.\nAn index has been added on the restore file table join columns for better restore performance, thanks @JamBalaya56562.\n\nMisconfigured filter detection\nA new warning system detects when filters are configured to unconditionally exclude everything. A post-backup check also warns if no files were examined during backup, which helps catch misconfigurations that would otherwise silently produce empty backups.\n\nNew backends\nAdded support for Drime Cloud as a new storage backend.\nAdded a new backend for the Spanish provider Movistar, thanks @redmars27. The backend is marked as \"untested\" as it can only be used (and tested) by Movistar customers.\n\nDeprecated backends\nThe previous \"SharePoint\" and \"OneDrive for Business\" backends have been marked as deprecated, as Microsoft shut down the API they were calling. The migration step is to use the \"SharePoint v2\" backend (renamed to just \"SharePoint\" in this version) which uses the Microsoft Graph API.\n\nDuplicati Storage\nThis release includes Duplicati Storage which is integrated with the Duplicati console. Once a machine is connected to the console it can use the account's storage allocations with zero configuration required.\n\nSharpAESCrypt v3\nUpdated the SharpAESCrypt encryption library to support \"AES Crypt Stream Format v3\", which has a number of improvements over the v2 format.\nFor this release, the default written format remains v2, but we encourage you to set the environment variable DUPLICATI__AES_VERSION=3 to test the new format.\nNote: if you set this version to 3, the new remote volumes cannot be read by Duplicati versions older than 2.3.0.101.\n\nSupport for MacOS ACLs\nThis release adds support for reading MacOS attributes and ACL strings during backup, and restoring them when permission restores are selected.\n\nSupport for Windows Alternate Data Streams",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.4.0.0_stable_2026-09-03",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.4.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.0.0_stable_2026-09-03/duplicati-2.4.0.0_stable_2026-09-03-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.0.0_stable_2026-09-03-win-x86-gui.msi",
+          "sha256": "79136b31d26aaa42bf5e5ea9af526fe19e7804dfcf5837d9ca045cd02adb3418",
+          "product_code": "{2E33D93C-01F0-4902-A663-8A8C0CFC3291}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{2E33D93C-01F0-4902-A663-8A8C0CFC3291}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.0.0_stable_2026-09-03/duplicati-2.4.0.0_stable_2026-09-03-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.0.0_stable_2026-09-03-win-x64-gui.msi",
+          "sha256": "f3ddd94fe4dad667d918a6b604c708fbf39a6b77ff9e9291fe8dcc69cc2493a7",
+          "product_code": "{C906DF0D-F891-4919-85C8-F53F7056EFCB}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{C906DF0D-F891-4919-85C8-F53F7056EFCB}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.4.0.0_stable_2026-09-03/duplicati-2.4.0.0_stable_2026-09-03-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.4.0.0_stable_2026-09-03-win-arm64-gui.msi",
+          "sha256": "e197648433556becb11c7c0716d85b5fb9c28b46e02c0efc2c7081c0e4e766a1",
+          "product_code": "{91FAC89E-E185-4E2A-B95F-5153491786FC}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{91FAC89E-E185-4E2A-B95F-5153491786FC}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0.4",
+      "release_date": "2026-07-09",
+      "release_notes": "About this release\nThis release patches version 2.3.0.3 with fixes for a number of issues that were discovered after the release.\nThe main focus of this release is stability and security hardening, along with a few backend and configuration improvements.\n\nSecurity and Privacy\nWe improved handling of filtered paths so that paths excluded by filters are no longer accessed, and sensitive paths are now filtered out of reported log data. For reports we now rely on the OS default certificate validator.\n\nStability Fixes\nWe fixed a memory leak that could occur when backing up the macOS Photos library, and fixed a startup race condition in the Agent that could cause instability on launch.\nWe also made the backup process more robust against metadata errors, preventing a crash that could otherwise abort the backup.\n\nBackend and Configuration Improvements\nThe Duplicati backend now has a configurable authentication timeout, and the HTTP message sending logic now retries transient failures correctly.\nWe also fixed the handling of MSSQL default instances, and corrected the option types for the S3 lock mode so the correct values are displayed.\n\nSecret Provider and Licensing\nIt is now possible to disable the default secret provider, and the secret provider loader has been improved together with the license checker for greater flexibility.\nThe libsecret integration was updated to work better with KDE, and we now prevent creating a useless encryption key in certain scenarios.\n\nOther Changes\nThis release adds server-side filter evaluation, fixes a few minor issues with remote sources, updates rclone in the Docker images, and corrects some incorrect help text.\n\nDetailed list of changes:\n- Allow disable default secret provider\n- Block path traversal in recovery tool\n- Add server-side filter eval\n- Improve license flexibility\n- Add an auth timeout to the Duplicati backend\n- Avoid crash on metadata error\n- Filter paths in reported log data\n- Don't access filtered path\n- Fixed retry of HTTP messages\n- Fix incorrect option types for lock mode\n- Fix MSSQL default instance handling\n- Update libsecret for KDE\n- Improve secret provider and license checker\n- Prevent creating a useless key\n- Fix incorrect help text\n- Fix Agent startup race\n- Fix MacOS Photos memory usage\n- Update rclone in Docker images\n- Fix minor issues with remote sources\n- Use default OS certificate validator\n\nUpdates to ngclient\n- Prevent frontend from requesting lock repair override\n- Added ability to browse for a destination path.\n- Added support for browsing MS365 and Google Workspace, so filters can be applied while content is visible.\n- Added support for server-side filters in treeview.\n- Showing shortcuts in pickers as we can now resolve them.\n- Added a debouncer to filter calls.\n- Added error indicator to tree view.\n- Clean up target disk layout.\n- Apply extended search only if we are restoring from a destination that needs it.\n- Include server-only options, if any.\n- Better Google Workspace error messages.\n- Fixes to allow listing full disks on Windows.\n- Fixed issue with evaluating globbing.",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.3.0.4_stable_2026-07-09",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.3.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.4_stable_2026-07-09/duplicati-2.3.0.4_stable_2026-07-09-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.4_stable_2026-07-09-win-x86-gui.msi",
+          "sha256": "2e2559756ef363b5b8f82ad06075bf07b2f9f63b003cd48620966ba6577cfd11",
+          "product_code": "{89EE04DB-41D6-43C9-BB43-7A460E3A5473}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{89EE04DB-41D6-43C9-BB43-7A460E3A5473}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.4_stable_2026-07-09/duplicati-2.3.0.4_stable_2026-07-09-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.4_stable_2026-07-09-win-x64-gui.msi",
+          "sha256": "e098b2e9cd6435d239b266cc1370f5f5df43490e215b8a1cc25b39a474befbd0",
+          "product_code": "{99268373-CE5E-4939-8F88-5F6F0EF587C9}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{99268373-CE5E-4939-8F88-5F6F0EF587C9}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.4_stable_2026-07-09/duplicati-2.3.0.4_stable_2026-07-09-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.4_stable_2026-07-09-win-arm64-gui.msi",
+          "sha256": "629d023fb76c0957915186a7b82c5f61ac0e283c4e9ef4b3cf7a60b39bd85975",
+          "product_code": "{17BD0C86-1D65-4B16-B62D-1810E0F2C6C9}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{17BD0C86-1D65-4B16-B62D-1810E0F2C6C9}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0.3",
+      "release_date": "2026-06-10",
+      "release_notes": "About this release\nThis release patches version 2.3.0.1 with fixes for a few issues that were discovered after the release.\nThis is the same as the 2.3.0.2 release but with a few additional fixes that were missed by the 2.3.0.2 release.\n\nReliability Fixes\nThis release optimizes the synthetic filelist creation process to improve performance significantly. Additionally, there are a few added failsafe checks to ensure syntehtic filelists are always valid.\nWe also fixed an issue with remote-file locking that could (ironically) cause database locking issues in some cases. And we fixed the S3 lock mode configuration to show the correct values.\n\nBackend Fixes and Improvements\nWe fixed an issue where the SMB backend could incorrectly treat files as folders giving warnings when attempting to enumerate them. We also fixed a timeout issue for OneDrive where slow transfers could trigger an unexpected timeout.\nThe OneDrive for Business and SharePoint backends have been deprecated in favor of the Microsoft Graph backend, as the older backends relied on an API that is no longer supported.\nWe also made the Duplicati storage backend publicly available, so you can now use Duplicati storage for your backups. Duplicati storage is integrated with the Duplicati Console, so there is zero storage configuration needed on the client.\n\nPlatform and Restore Improvements\nThis release also features a new option --exclude-non-local-files that can be used to exclude files that are stored in the cloud, such as OneDrive, Dropbox, etc.\nWe also fixed an issue causing warnings when doing backups of the MacOS Photos folder, and improved some error messages to include more guidance on how to resolve them.\n\nDetailed list of changes:\n- Renamed Office 365 branding to Microsoft 365\n- Optimized synthetic filelist creation to prevent dangling metadata entries\n- Improved Docker image build configuration\n- Persist the used compression module in backup metadata\n- Updated usage reporter integration\n- Improved websocket handling for remote management connections\n- Fixed Filen backend CI and authentication issues\n- Added failsafe checks for synthetic filelist metadata\n- Improved restore messages with additional result details\n- Deprecated older OneDrive and SharePoint backends\n- Fixed folders incorrectly showing as files in the filesystem API\n- Added defensive handling for macOS Photos library timestamps\n- Updated MEGA S4 endpoints for S3 backend\n- Improved snapshot error messages with permission guidance\n- Fixed timeout handling in OneDrive backend\n- Updated Duplicati backend with improved timeout options\n- Removed explicit defaults from new backup template\n- Cleaned up remote controller registration state handling\n- Fixed SMB backend issue where files could be treated as folders\n- Fixed remote file locking on Windows\n- Fixed S3 lock mode configuration\n- Added support for extended Win32 file attributes in backups\n- Update Avalonia to avoid DirectX dependency\n- Improved handling of expired links\n- Fix incorrect quota size reported\n- Fixed version based search for restored\n- Added guard when deleting old versions\n- Log 500 errors to system log or local local\n- Detect if locking is used when recreating database\n- Support the do-not-track environment variable\n- Guard against secret provider init failure\n\nUpdates to ngclient\n- Added toggle to show advanced option names instead of descriptions\n- Added confirmation popup before exporting configuration without encryption\n- Now showing remote lock results on log page\n- Fixed websocket not connecting on welcome page\n- Added a welcome page for simpler console connections\n- Removed attributes filter options on source page, in favor of using advanced options\n- Prevent iteration of non-folder paths\n- Enable selecting hidden items\n- Added path resolving on the \"dynamic paths\", such as \"My documents\"\n- Fixed compression option not being visible\n- Added support for showing backends as deprecated or untested\n- Fixed an issue where file size would not be shown in the file tree\n- Added an option to retry loading a backup list\n- Show \"last backup\" with the same date in both detail and grid view\n- Show actual scheduled time for backups\n- Fixed an issue with using stored destinations which would fail to create folders\n- Fixed an issue with importing backups where the schedule edits would be ignored\n- Fixed an issue where the date for a scheduled backup would be off-by-one when edited\n- Optimized query flow to use websockets instead of polling/fetching",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.3.0.3_stable_2026-06-10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.3.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.3_stable_2026-06-10/duplicati-2.3.0.3_stable_2026-06-10-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.3_stable_2026-06-10-win-x86-gui.msi",
+          "sha256": "6d404601a0b6ce6333a3c1f9e0d842ca3c6b0ccf241a6d5c620c97ff26121688",
+          "product_code": "{C10BF3BF-9A64-455C-9537-0DC55DDD5EED}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{C10BF3BF-9A64-455C-9537-0DC55DDD5EED}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.3_stable_2026-06-10/duplicati-2.3.0.3_stable_2026-06-10-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.3_stable_2026-06-10-win-x64-gui.msi",
+          "sha256": "0be12f9056e8c5fdd30e2bf71efeb5eb74a0bac03005b4ad7afa28bb51ca534b",
+          "product_code": "{062DD2DC-A24A-450F-A6A0-2AB9696D8429}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{062DD2DC-A24A-450F-A6A0-2AB9696D8429}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.3_stable_2026-06-10/duplicati-2.3.0.3_stable_2026-06-10-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.3_stable_2026-06-10-win-arm64-gui.msi",
+          "sha256": "20eb65c1aabfc7560a8f531b0eebd5ce7c8039e3f756ab23fc9d10cb8f52bbd6",
+          "product_code": "{1B95B2B1-0911-40D0-86E4-F408B5B016AD}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{1B95B2B1-0911-40D0-86E4-F408B5B016AD}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0.2",
+      "release_date": "2026-06-10",
+      "release_notes": "About this release\nThis release patches version 2.3.0.1 with fixes for a few issues that were discovered after the release.\n\nReliability Fixes\nThis release optimizes the synthetic filelist creation process to improve performance significantly. Additionally, there are a few added failsafe checks to ensure syntehtic filelists are always valid.\nWe also fixed an issue with remote-file locking that could (ironically) cause database locking issues in some cases. And we fixed the S3 lock mode configuration to show the correct values.\n\nBackend Fixes and Improvements\nWe fixed an issue where the SMB backend could incorrectly treat files as folders giving warnings when attempting to enumerate them. We also fixed a timeout issue for OneDrive where slow transfers could trigger an unexpected timeout.\nThe OneDrive for Business and SharePoint backends have been deprecated in favor of the Microsoft Graph backend, as the older backends relied on an API that is no longer supported.\nWe also made the Duplicati storage backend publicly available, so you can now use Duplicati storage for your backups. Duplicati storage is integrated with the Duplicati Console, so there is zero storage configuration needed on the client.\n\nPlatform and Restore Improvements\nThis release also features a new option --exclude-non-local-files that can be used to exclude files that are stored in the cloud, such as OneDrive, Dropbox, etc.\nWe also fixed an issue causing warnings when doing backups of the MacOS Photos folder, and improved some error messages to include more guidance on how to resolve them.\n\nDetailed list of changes:\n- Renamed Office 365 branding to Microsoft 365\n- Optimized synthetic filelist creation to prevent dangling metadata entries\n- Improved Docker image build configuration\n- Persist the used compression module in backup metadata\n- Updated usage reporter integration\n- Improved websocket handling for remote management connections\n- Fixed Filen backend CI and authentication issues\n- Added failsafe checks for synthetic filelist metadata\n- Improved restore messages with additional result details\n- Deprecated older OneDrive and SharePoint backends\n- Fixed folders incorrectly showing as files in the filesystem API\n- Added defensive handling for macOS Photos library timestamps\n- Updated MEGA S4 endpoints for S3 backend\n- Improved snapshot error messages with permission guidance\n- Fixed timeout handling in OneDrive backend\n- Updated Duplicati backend with improved timeout options\n- Removed explicit defaults from new backup template\n- Cleaned up remote controller registration state handling\n- Fixed SMB backend issue where files could be treated as folders\n- Fixed remote file locking on Windows\n- Fixed S3 lock mode configuration\n- Added support for extended Win32 file attributes in backups\n\nUpdates to ngclient\n- Added toggle to show advanced option names instead of descriptions\n- Added confirmation popup before exporting configuration without encryption\n- Now showing remote lock results on log page\n- Fixed websocket not connecting on welcome page\n- Added a welcome page for simpler console connections\n- Removed attributes filter options on source page, in favor of using advanced options\n- Prevent iteration of non-folder paths\n- Enable selecting hidden items\n- Added path resolving on the \"dynamic paths\", such as \"My documents\"\n- Fixed compression option not being visible\n- Added support for showing backends as deprecated or untested\n- Fixed an issue where file size would not be shown in the file tree\n- Added an option to retry loading a backup list\n- Show \"last backup\" with the same date in both detail and grid view\n- Show actual scheduled time for backups\n- Fixed an issue with using stored destinations which would fail to create folders\n- Fixed an issue with importing backups where the schedule edits would be ignored\n- Fixed an issue where the date for a scheduled backup would be off-by-one when edited\n- Optimized query flow to use websockets instead of polling/fetching",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.3.0.2_stable_2026-06-10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.3.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.2_stable_2026-06-10/duplicati-2.3.0.2_stable_2026-06-10-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.2_stable_2026-06-10-win-x86-gui.msi",
+          "sha256": "b2bd6e840e5bb7ec6875e8baf175190a57b6811e3a060c2184d443c7fc3b89c9",
+          "product_code": "{22E95074-F913-494B-9093-507B03A39334}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{22E95074-F913-494B-9093-507B03A39334}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.2_stable_2026-06-10/duplicati-2.3.0.2_stable_2026-06-10-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.2_stable_2026-06-10-win-x64-gui.msi",
+          "sha256": "f441125f1b03116c5f3212e9853d2607fce9643ac7b0c98582936cd20b186c6b",
+          "product_code": "{158211B6-5EE7-401D-8FAA-5AC08CB6F904}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{158211B6-5EE7-401D-8FAA-5AC08CB6F904}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.2_stable_2026-06-10/duplicati-2.3.0.2_stable_2026-06-10-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.2_stable_2026-06-10-win-arm64-gui.msi",
+          "sha256": "256de31c64a62177eaf09ac75a6e9c59d72f2b76c39937607e79cef2831f21f0",
+          "product_code": "{691E86BA-7CCC-432C-9774-1B229E10F795}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLLOCATION=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{691E86BA-7CCC-432C-9774-1B229E10F795}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0.1",
+      "release_date": "2026-04-24",
+      "release_notes": "About this release\nThis is the next stable release for Duplicati 2.3, building on the 2.2 release with new features and bug fixes.\nA big thanks to the supportive Duplicati user base who continues to contribute with fixes, issue reports and feature requests.\nIf you have already been using the beta release, this release is the same as v2.2.1.0, but includes a bugfix and two library updates.\nThis release patches version 2.3.0.0 with fixes for a few issues that were discovered after the release.\n\nDatabase Schema Update\nNote: This update changes the Server database schema to version 11. The database tool can perform downgrades if needed.\n\nMultiple Backup Destinations\nThis version adds support for configuring multiple destinations for a single backup job.\nThis allows you to backup to multiple locations simultaneously, such as a local drive and a cloud storage provider.\nWith multiple destinations, you can now configure a complete 3-2-1 backup strategy in a single job.\nAfter each completed backup, Duplicati will ensure that data is available on all destinations.\nA 3-2-1 backup strategy is where you have 3 copies of your data, 2 of which are on different media, and 1 of which is offsite/immutable.\n\nRemote Sources\nRemote sources are now easier to use with UI support and a prominent button on the source page.\nThis version also adds support for using Box, Dropbox, OneDrive, and Google Drive as remote sources.\n\nWindows Folder Status Indicator\nThanks to @AndyBodnar, this version adds a Windows shell extension that shows the backup status of folders with icon overlays.\nThe feature is disabled by default but can be enabled with the option --enable-folder-status-service on either Server or TrayIcon.\nOnce enabled, run the RegisterFolderStatusExtension.ps1 script to register the extension and see backup status in Windows Explorer.\n\nGoogle Workspace Backup\nThis version adds support for backing up Google Workspace, including Gmail, Google Drive, Contacts, Calendar, and Chat.\nThis is a proprietary module (source available) that requires a license to use in production.\nWithout a license, testing is possible with up to 5 users.\nTo prevent proprietary modules from loading, set the environment variable DUPLICATI_DISABLE_PROPRIETARY_MODULES=1 or delete files named Duplicati.Proprietary.* from your installation.\n\nOffice 365 Backup\nThis version adds support for backing up Office 365 tenants, including mailboxes, calendars, contacts, OneDrive, Planner, Tasks, Teams, Sites, and more.\nThis is a proprietary module (source available) that requires a license to use in production.\nWithout a license, testing is possible with up to 5 users + 5 sites + 5 groups.\n\nFull Disk Backup\nThis version adds simple support for backup and restore of entire disks, including the MBR/GPT partition table.\nIn this initial version, only Windows is supported, and the backup accesses the disk directly (no VSS).\nSupport for Linux and macOS, as well as VSS support for Windows, is planned for future releases.\nLike the Office 365 / Google Workspace features, this is a proprietary module (source available).\nFull disk backup requires administrative privileges to access the disk directly.\nFull disk restore requires administrative privileges and requires that the disk is unmounted and not write-protected.\n\nRemote File Locking\nThis release adds support for remote locking of files on supported storage providers (S3, Azure Blob Storage, Backblaze B2, iDrive e2, Google Cloud Storage).\nLocking protects backup files from being deleted or overwritten during a configurable retention period.\nTo use the feature, set the advanced option --remote-file-lock-duration (e.g., 30D for 30 days).\nEach backend supports governance (lock can be removed in admin console) or compliance (lock cannot be removed) modes.\n\nTemplating Engine for Reporting\nThanks to @AndyBodnar, it is now possible to use a Handlebars template to format the report output, which is especially useful for crafting custom email reports.\n\nSynology Native Package\nThe Synology native package has been re-developed to support Synology DSM 7.2 and above.\nThe package installs as any other Synology package and uses integrated DSM authentication.\n\nSoft Delete Support\nA new option --soft-delete-prefix enables the soft-delete feature.\nWhen enabled, files are renamed/moved instead of being deleted, allowing lifecycle management rules to handle actual deletion after a retention period.\n\nPlatform Updates\n- .NET 10: The application now runs on .NET 10 for improved performance\n- SQLite: Updated to use Microsoft.Data.Sqlite for better performance and async query support\n- VSS Provider: Default VSS provider on Windows is now Vanara (AlphaVSS is no longer maintained)\n\nDatabase Encryption Changes\nThis release adds a \"default secret provider\" for the current OS:\n- Windows: Windows Credential Manager\n- macOS: Keychain\n- Linux: libSecret (Gnome Keyring), or commandline pass if available\nIf no secret provider is configured, and a default secret provider is available, the database will be encrypted with a random password stored in the default secret provider.\nTo opt-out, use --disable-db-encryption when starting the Server/TrayIcon.\nIf database encryption is already configured, or no default secret provider is available, nothing will change.\n\nSimplified S3 Provider Configuration\nThe S3 provider configuration has been simplified by providing fewer options and only showing relevant endpoints.\nA whitelist of public S3 providers is included, and hostnames are shown in backup reports if in the whitelist.\n\nNew Languages\nAdded support for Hungarian, Czech, and Polish languages. Thanks to all translators!\n\nQuality of Life Improvements\n- The commandline-inside-the-UI feature now saves its state when navigating back\n- Added \"Edit as text\" option for source paths and filters\n- Linux AppImage builds are now available\n- Auto VSS on Windows when user has Administrator privileges (SeBackupPrivilege)\n- SSH-Agent support for SSH backend\n- Support for macOS Photos backup with --photos-handling option\n- New UI is more small-screen friendly\n\nNotable Bugfixes\n- Fixed issue with invariant formatting causing crashes during backup\n- Fixed dry-run to strictly not touch data\n- Fixed --changed-files option to not introduce extra dangling file entries\n- Fixed purge operation size calculation and added --reduced-purge-statistics option\n- Fixed index file corruption issue where index files could become incomplete over time\n- Fixed restore flow to reduce temporary space usage (configurable with --restore-volume-cache-hint)\n\nNew fixes in 2.3.0.1\n- Add Hetzner and DO regions to S3 provider dropdowns\n- Fixed an issue with dollar signs in filenames confusing filters\n- Improved disk usage/handling for new restore flow\n- Fixed progress when using multiple destinations\n- Fixed an auto-refresh loop, thanks @adnit\n- Fixed an issue with saving settings from the UI in specific scenarios\n- Updated MailKit and MimeKit\n- Improved configuration speed when connecting to the console\n- Fixed an issue where empty files could cause restored databases to be marked as inconsistent\n- Added resilience for faulty translations (fixes an issue with pt-BR locale)\n- Check quotas when storing at multiple destinations\n- Updated Avalonia and DBus to latest versions",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.3.0.1_stable_2026-04-24",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.3.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.1_stable_2026-04-24/duplicati-2.3.0.1_stable_2026-04-24-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.1_stable_2026-04-24-win-x86-gui.msi",
+          "sha256": "63a320b41a0514697eb80ad12da0b0a3db644e0adbfc1106a154a7670a5125c1",
+          "product_code": "{FF556D08-F8FB-4712-941C-BA145E88CBCF}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{FF556D08-F8FB-4712-941C-BA145E88CBCF}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.1_stable_2026-04-24/duplicati-2.3.0.1_stable_2026-04-24-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.1_stable_2026-04-24-win-x64-gui.msi",
+          "sha256": "17ff7b6c9110a81de6470cdb64bf22ddcebe1ca903c9022a60e5deeba4f541e2",
+          "product_code": "{BFABAD6B-09B6-43A8-BE01-68B2E62EE653}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{BFABAD6B-09B6-43A8-BE01-68B2E62EE653}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.1_stable_2026-04-24/duplicati-2.3.0.1_stable_2026-04-24-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.1_stable_2026-04-24-win-arm64-gui.msi",
+          "sha256": "92932869b8291e6e32c0c7ec4035811e7a9f172c82cdade3ff8e1142c8a376d8",
+          "product_code": "{2A9230C9-F5F5-4349-A2B5-EFA31E16B244}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{2A9230C9-F5F5-4349-A2B5-EFA31E16B244}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0.0",
+      "release_date": "2026-04-14",
+      "release_notes": "About this release\nThis is the next stable release for Duplicati 2.3, building on the 2.2 release with new features and bug fixes.\nA big thanks to the supportive Duplicati user base who continues to contribute with fixes, issue reports and feature requests.\nIf you have already been using the beta release, this release is the same as v2.2.1.0, but includes a bugfix and two library updates.\n\nDatabase Schema Update\nNote: This update changes the Server database schema to version 11. The database tool can perform downgrades if needed.\n\nMultiple Backup Destinations\nThis version adds support for configuring multiple destinations for a single backup job.\nThis allows you to backup to multiple locations simultaneously, such as a local drive and a cloud storage provider.\nWith multiple destinations, you can now configure a complete 3-2-1 backup strategy in a single job.\nAfter each completed backup, Duplicati will ensure that data is available on all destinations.\nA 3-2-1 backup strategy is where you have 3 copies of your data, 2 of which are on different media, and 1 of which is offsite/immutable.\n\nRemote Sources\nRemote sources are now easier to use with UI support and a prominent button on the source page.\nThis version also adds support for using Box, Dropbox, OneDrive, and Google Drive as remote sources.\n\nWindows Folder Status Indicator\nThanks to @AndyBodnar, this version adds a Windows shell extension that shows the backup status of folders with icon overlays.\nThe feature is disabled by default but can be enabled with the option --enable-folder-status-service on either Server or TrayIcon.\nOnce enabled, run the RegisterFolderStatusExtension.ps1 script to register the extension and see backup status in Windows Explorer.\n\nGoogle Workspace Backup\nThis version adds support for backing up Google Workspace, including Gmail, Google Drive, Contacts, Calendar, and Chat.\nThis is a proprietary module (source available) that requires a license to use in production.\nWithout a license, testing is possible with up to 5 users.\nTo prevent proprietary modules from loading, set the environment variable DUPLICATI_DISABLE_PROPRIETARY_MODULES=1 or delete files named Duplicati.Proprietary.* from your installation.\n\nOffice 365 Backup\nThis version adds support for backing up Office 365 tenants, including mailboxes, calendars, contacts, OneDrive, Planner, Tasks, Teams, Sites, and more.\nThis is a proprietary module (source available) that requires a license to use in production.\nWithout a license, testing is possible with up to 5 users + 5 sites + 5 groups.\n\nFull Disk Backup\nThis version adds simple support for backup and restore of entire disks, including the MBR/GPT partition table.\nIn this initial version, only Windows is supported, and the backup accesses the disk directly (no VSS).\nSupport for Linux and macOS, as well as VSS support for Windows, is planned for future releases.\nLike the Office 365 / Google Workspace features, this is a proprietary module (source available).\nFull disk backup requires administrative privileges to access the disk directly.\nFull disk restore requires administrative privileges and requires that the disk is unmounted and not write-protected.\n\nRemote File Locking\nThis release adds support for remote locking of files on supported storage providers (S3, Azure Blob Storage, Backblaze B2, iDrive e2, Google Cloud Storage).\nLocking protects backup files from being deleted or overwritten during a configurable retention period.\nTo use the feature, set the advanced option --remote-file-lock-duration (e.g., 30D for 30 days).\nEach backend supports governance (lock can be removed in admin console) or compliance (lock cannot be removed) modes.\n\nTemplating Engine for Reporting\nThanks to @AndyBodnar, it is now possible to use a Handlebars template to format the report output, which is especially useful for crafting custom email reports.\n\nSynology Native Package\nThe Synology native package has been re-developed to support Synology DSM 7.2 and above.\nThe package installs as any other Synology package and uses integrated DSM authentication.\n\nSoft Delete Support\nA new option --soft-delete-prefix enables the soft-delete feature.\nWhen enabled, files are renamed/moved instead of being deleted, allowing lifecycle management rules to handle actual deletion after a retention period.\n\nPlatform Updates\n- .NET 10: The application now runs on .NET 10 for improved performance\n- SQLite: Updated to use Microsoft.Data.Sqlite for better performance and async query support\n- VSS Provider: Default VSS provider on Windows is now Vanara (AlphaVSS is no longer maintained)\n\nDatabase Encryption Changes\nThis release adds a \"default secret provider\" for the current OS:\n- Windows: Windows Credential Manager\n- macOS: Keychain\n- Linux: libSecret (Gnome Keyring), or commandline pass if available\nIf no secret provider is configured, and a default secret provider is available, the database will be encrypted with a random password stored in the default secret provider.\nTo opt-out, use --disable-db-encryption when starting the Server/TrayIcon.\nIf database encryption is already configured, or no default secret provider is available, nothing will change.\n\nSimplified S3 Provider Configuration\nThe S3 provider configuration has been simplified by providing fewer options and only showing relevant endpoints.\nA whitelist of public S3 providers is included, and hostnames are shown in backup reports if in the whitelist.\n\nNew Languages\nAdded support for Hungarian, Czech, and Polish languages. Thanks to all translators!\n\nQuality of Life Improvements\n- The commandline-inside-the-UI feature now saves its state when navigating back\n- Added \"Edit as text\" option for source paths and filters\n- Linux AppImage builds are now available\n- Auto VSS on Windows when user has Administrator privileges (SeBackupPrivilege)\n- SSH-Agent support for SSH backend\n- Support for macOS Photos backup with --photos-handling option\n- New UI is more small-screen friendly\n\nNotable Bugfixes\n- Fixed issue with invariant formatting causing crashes during backup\n- Fixed dry-run to strictly not touch data\n- Fixed --changed-files option to not introduce extra dangling file entries\n- Fixed purge operation size calculation and added --reduced-purge-statistics option\n- Fixed index file corruption issue where index files could become incomplete over time\n- Fixed restore flow to reduce temporary space usage (configurable with --restore-volume-cache-hint)",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.3.0.0_stable_2026-04-14",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.3.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.0_stable_2026-04-14/duplicati-2.3.0.0_stable_2026-04-14-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.0_stable_2026-04-14-win-x86-gui.msi",
+          "sha256": "95814143448ec9b853d32b3788d9def8f7d832f7134d3f44de8c23f19c084a7a",
+          "product_code": "{BD0FA974-BEA3-4E9B-B9C3-A1C447D197A9}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{BD0FA974-BEA3-4E9B-B9C3-A1C447D197A9}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.0_stable_2026-04-14/duplicati-2.3.0.0_stable_2026-04-14-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.0_stable_2026-04-14-win-x64-gui.msi",
+          "sha256": "10c5c7ae056e0635712d51c5a9b6ce806b0be0c2493986a53b2b4dae57abac66",
+          "product_code": "{67B7D9FE-1F86-4D17-BA31-216FB006C6BA}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{67B7D9FE-1F86-4D17-BA31-216FB006C6BA}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.3.0.0_stable_2026-04-14/duplicati-2.3.0.0_stable_2026-04-14-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.3.0.0_stable_2026-04-14-win-arm64-gui.msi",
+          "sha256": "6fbeb7035838650acb3c83077a2a2a68a13f20155b7a142e0fe795047bccdbb8",
+          "product_code": "{B4944F07-C0F0-473D-B9BE-1775A80645AB}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{B4944F07-C0F0-473D-B9BE-1775A80645AB}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.2.0.3",
+      "release_date": "2026-01-06",
+      "release_notes": "This is a minor patch release to fix some issues uncovered with the latest stable release.\nThe primary change in this version is an update to the restore algorithm that now has a limit to the cache size so restores can be performed on systems with limited additional space.\nDetailed changes from 2.2.0.1 to 2.2.0.3\n- ServerUtil returns the backup status when waiting for completion, thanks @greyxr\n- Updated the Uplink.NET library to latest version (for Storj)\n- Disabled the built-in retry and timeout for Azure blob storage\n- Updated localizations\n- Added Rabata.io as an S3 provider\n- Added support for supplementary groups for service on Linux\n- Added support for limiting the restore process disk usage\n- Added support for reporting known cloud-hosts in backup reports\n- Updated SSH.NET to 2025.1.0\n- Fixed an issue with the startup delay on the server not being respected\n- Fixed a bug with timeout issues in AliyunOSS backend\n- Added support for changing the backup passphrase with the recovery tool, thanks @greyxr\n- Fixed Windows Eventlog option having the wrong type which could cause warning messages\n- Added a dialog to request the server password when running the TrayIcon without a hosted server\n- Added support for getting a stable authentication token for Filen when using MFA\n- Run VACUUM on the database if the password has changed to purge any sensitive data\n- Added hostnames for Internxt to S3\n- Updated remote management API\n- Added support for custom CSS and js files for ngclient\n- Improved proxy support with ngclient\n- Fixed an edge case with testing on an empty remote destination\n- Added Cloudflare R2 domains to list of public cloud providers\n- Removed AWS specific texts on S3 documentation\nChanges in user interface from 2.2.0.1 to 2.2.0.3\n- Updated to latest ShipUI\n- Preload modules for better desktop performance\n- Fixed some issues with localization not being applied\n- Updates to the options list\n- Updated localizations, thanks to all translators!\n- Fixed an issue with Rclone not maintaining letter-case for remote\n- Simplified the schedule setup page\n- Improved AuthID picking\n- Improved integration with console\n- Cleaned the sidebar slightly\n- Fixed an issue with styling in settings\n- Restore flow will now default to not overwrite existing files\n- Added both option name and short description to advanced options\n- Fixed not showing \"Verifying\" at the start of the backup operation\n- Handle global settings with and without -- prefix\n- Upgraded to Anguler 21\n- Fixed an issue with loading Chinese language\n- Added support for custom bucket validation rules on B2 buckets\n- Added support for hiding the console connection indicator\n- Merged settings for remote control on the settings page\n- Fixed an issue with some default empty url not working on the destination page\n- Fixed supporting Storj Access Grant & Storj API key\n- More accurate display of destination type on the overview page\n- Added custom UIs for supported S3 providers\n- Added improved field validation for providers\n- Updated the \"Direct restore\" flow to use the same destination picker as when setting up a backup\n- Added some functionality to swap UI and choose the default UI (ngax vs ngclient)\n- Fixed startup delay settings not being saved\n- Fixed an issue with the data not being selectable in a custom schedule\n- Fixed back button not working on Schedule page\n- Now pushing serversettings via websocket instead of polling\n- Added a button for getting API token for Filen.io when using MFA\n- Allow finding deprecated backends by typing their full protocol key",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.2.0.3_stable_2026-01-06",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.2.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.3_stable_2026-01-06/duplicati-2.2.0.3_stable_2026-01-06-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.3_stable_2026-01-06-win-x86-gui.msi",
+          "sha256": "d58fea6fa7fa3918e7421cb98eae2bdce5c99167a6f94ca90efc2c9a4fe0d43a",
+          "product_code": "{0D55FBDF-2035-44E2-BB3C-71E9A8DAD703}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{0D55FBDF-2035-44E2-BB3C-71E9A8DAD703}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.3_stable_2026-01-06/duplicati-2.2.0.3_stable_2026-01-06-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.3_stable_2026-01-06-win-x64-gui.msi",
+          "sha256": "3b7b7a9b930d74d3e735e67cea4032911b2d2dc10664f85862411d45390936ad",
+          "product_code": "{4A9F4D5E-D765-4044-9D6D-8068FEC24F24}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{4A9F4D5E-D765-4044-9D6D-8068FEC24F24}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.3_stable_2026-01-06/duplicati-2.2.0.3_stable_2026-01-06-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.3_stable_2026-01-06-win-arm64-gui.msi",
+          "sha256": "3dc8f8a0c39cfb8183b02e35a59075656b88bbc49b715b115a20c4f97aa41164",
+          "product_code": "{DBFED0B6-01F1-4501-A1DD-A6BC78E9FD79}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{DBFED0B6-01F1-4501-A1DD-A6BC78E9FD79}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.2.0.1",
+      "release_date": "2025-11-09",
+      "release_notes": "This is a minor patch release to fix some issues uncovered with the latest stable release.\nChanges from 2.2.0.0 to 2.2.0.1\n- Report remote filenames on failures\n- Fixed issues with timeouts on MSGraph-based backends (OneDrive and others)\n- Fixed base-href placement for better proxy support, thanks @peloyeje\n- Fixed an issue with not parsing enums with multiple values (aka flags)\n- Clear warnings for configuration issues, if the issues are resolved\n- Better detection of valid S3 hostnames\n- Showing assembly version in version number\n- Marked --send-mail-password as a password setting\n- Improved WebDAV parsing logic for more servers\n- Made pCloud options visible\n- Added option to disable remote control while being connected to console\n- Fixed a retry issue with sync-tool\nChanges in user interface from 2.2.0.0 to 2.2.0.1\n- Added support for picking power-mode provider\n- Fixed issues with filters\n- Fixed styling of some buttons\n- Fixed issue with \"Test connection\" not offering to fix know issues\n- Made the export tooltip optional\n- Fixed an issue with parsing the exclude attributes and file size\n- Improved some hint texts\n- Fixed support for showing durations that include days\n- The button to resume from paused state is now called \"Resume\"\n- Hide usage reporter options if this is disabled via environment variables\n- Show currently installed version on the settings page\n- Set user language on first load to avoid default English page\n- Added check when doing cross-OS restores\n- Prevent clicking on steps that cannot be clicked\n- Added password visibility toggle on main password\n- Added some improved views for emails and files\n- Fixed an issue with allowing uppercase and non-ASCII names in the folder path\n- Commandline UI now loads global settings\n- Very long error messages now introduce scrolling inside the popup\n- Show configured backups for restore first, then direct restore options\n- Added scrolling to source paths, which allows more than 25 sources to be added\n- Filejump is hidden as it is undergoing a migration\n- Sizes are now allowing bytes for precision\n- Incorrect volume size warning fixed\n- Added new console connect flow\nSummary of changes from 2.1 to 2.2\n- New user interface\n- New backends: pCloud, Filen and SMB\n- New faster restore flow, use --restore-legacy=true to fall back\n- Installer signing keys are from Duplicat Inc\n- Remote sources: S3, IDrive, SSH, and CIFS\n- AWS and Azure blob storage cold storage support\n- Database downgrade tool is included\n- Local database updated to version 17\n- Settings database updated to version 9\n- Improved throttle calculations\n- Removed Sia backend and marked Mega as unsupported\n- All backends now have individual timeout settings\n- Updated location default location for storage folder\n- Securing the permissions on the storage folder\n- New file and folder enumeration logic\n- Timeout logic on all backend operations\n- Improved database validation and repair logic\n- ServerUtil can output JSON for script integration\n- Improved support for having Duplicati behind a proxy\n- Updated throttle logic, all streams share the throttle\n- Improved repair logic\n- VSS is automatically on if running on Windows with sufficient privileges\n- Improved backend test function\n- Ability to suppress warnings\n- Support for remotely provided reporting url and remotely managed backup configs\n- Added support for Google IAM on Google Drive",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.2.0.1_stable_2025-11-09",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.2.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.1_stable_2025-11-09/duplicati-2.2.0.1_stable_2025-11-09-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.1_stable_2025-11-09-win-x86-gui.msi",
+          "sha256": "6c1f3c19a8976fb30b63a2f1955bac92925296ac709717633ae6ed9ff626abe6",
+          "product_code": "{9F5A7640-F2C9-4557-9241-BF51959D402A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{9F5A7640-F2C9-4557-9241-BF51959D402A}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.1_stable_2025-11-09/duplicati-2.2.0.1_stable_2025-11-09-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.1_stable_2025-11-09-win-x64-gui.msi",
+          "sha256": "e5ab2c8d16fb85c8fa74fff92ab01c6210d7c7cb553af6cfbd7919bc918fcb72",
+          "product_code": "{CEB105F8-C362-4BE5-8AD7-022493F8CF48}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{CEB105F8-C362-4BE5-8AD7-022493F8CF48}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.1_stable_2025-11-09/duplicati-2.2.0.1_stable_2025-11-09-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.1_stable_2025-11-09-win-arm64-gui.msi",
+          "sha256": "7b53cf208bc41c3183f743aba8a49af7c0cbd144535b9101a5c4666b688db197",
+          "product_code": "{C2AECC01-E47D-4A64-8A6C-F97995C46ED7}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{C2AECC01-E47D-4A64-8A6C-F97995C46ED7}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.2.0.0",
+      "release_date": "2025-10-23",
+      "release_notes": "About this release\nThis is the next stable release building on the 2.1 line and adds more features and stability fixes, and we are super excited to share this version!\nA big thanks to the supportive Duplicati user base who continues to contribute with fixes, issue reports and feature requests.\nThe most visual change for this version is the use of the new user interface, but there is also a massive list of fixes and improvements in this version. Below is a summary of some of the larger changes.\nIf you have already been using the beta release, this release is the same as v2.1.2.3.\nNew user interface\nThe new user interface is rewritten from scratch and has the same general structure as the previous one, but we made some things more user friendly and more visually appealing.\nShould you find a function that is lacking, we have included buttons to switch back-n-forth between the two user interfaces.\nNew backends\nWe added support for using the cloud services pCloud, Filen and Filejump.\nWe also added support for connections with SMB.\nThe new SMB backend can connect directly to a Windows share without needing to mount the folder or install SMB support, and it works on Windows, Linux and macOS.\nNew restore flow\nThe new restore flow is enabled by default and you should not notice anything other than faster restores!\nIn case there is an issue with this, it is possible to set the option --restore-legacy=true to fall back to the previous restore flow.\nNew signing keys\nThe packages are now signed by Duplicati Inc, and the Windows packages are signed with EV certificates.\nRemote source support\nWith this version it is now possible to make backups of local and some remote data.\nIn this version, S3, IDrive, SSH and CIFS sources are supported.\nThe UI does not yet support editing this nicely, but you can enter a path in the special format to \"mount\" the remote source.\nFor the commandline (and manual text entry in the UI) enter sources such as:\n// Linux/MacOS\n@/mnt/s3-data|s3://example?auth-username=...\n// Windows\n@X:\\server1|smb://server/share?auth-username=...\nThis will cause the backups to fetch data from the remote sources.\nWe will add an editor to the UI to allow browsing the remote sources, similar to the local files.\nArchive attributes support\nFor AWS S3 and Azure Blob Storage, Duplicati will now respect the archive attributes and not attempt to read and verify files that have been moved to cold storage.\nDatabase updates\nThis version updates the format of the local database to version 17.\nThis version updates the format of the settings database to v9.\nTo assist in downgrades there is now a bundled CommandLine.DatabaseTool.exe / duplicati-database-tool that can downgrade databases with minimal data loss.\nFor a downgrade from this version to 2.1.0.5 this will only drop a few indexes and not cause any data loss.\nBe sure to run the database tool before downgrading the install as the tool needs to be in the latest version.\nThrottle updated\nFor backups that throttle the transfer speeds, the new throttle logic uses a shared limit for the backup, where previous versions would apply the throttle for each individual stream.\nRemoved backends\nThe Sia backend has been removed due to an incompatible hardfork.\nThe Mega backend has been marked as unmaintained due to lack of a supported library.\nFor now, the Mega library still works, but you should migrate away from it. The new Mega S4 storage might be an option.\nUpdates to all backends\nAll backends are updated to handle timeouts in a granular manner.\nThis means the option --http-operations-timeout is no longer present, but instead there are now --read-write-timeout, --list-timeout, and -short-timeout. These have sensible defaults but are open for tweaking.\nThe option --allowed-ssl-versions is only present for the FTP backend, all other backends use the operating system to figure out what version to use.\nNew datafolder default location\nFor Duplicati running as a service there are now changes for the default folder location.\nIf you are not running Duplicati as a service/daemon, this change has no effect.\nWindows: Avoid storing data in C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Duplicati and prefer {CommonProgramData}\\Duplicati, usually resolving to C:\\ProgramData\\Duplicati.\nThis change is to counter an issue where Windows will wipe the C:\\Windows folder on major updates, and destroy the backup configuration in the process. If your service stores data under C:\\Windows you will see a warning in the user interface on startup.\nLinux: Avoid storing data in /Duplicati and prefer /var/lib/Duplicati.\nThis was caused by the update to .NET8 where the data folder was not resolved correctly and returned /, which is not the ideal place for storing data.\nIf you are using --server-datafolder or DUPLICATI_HOME, this has no effect on the database, but may cause your machineid and installid to change.\nThe machineid.txt and installid.txt would previously be stored in the local app data folder, even when using portable mode or choosing a specific data folder.\nThis has been fixed, so the files will now follow the database.\nIf you are using the Duplicati console or otherwise depend on these values, you need to move them into the folder where the database is stored.\nThis update also sets permissions on the data folder and the databases to prevent unauthorized access from local accounts.\nTo opt out of setting permissions on each startup, place a file named insecure-permissions.txt inside the data folder.\nOther large changes\n- New file and folder enumeration logic\n- Timeout logic on all backend operations\n- Improved database validation and repair logic\n- ServerUtil can output JSON for script integration\n- Improved support for having Duplicati behind a proxy\n- Updated throttle logic, all streams share the throttle\n- Improved repair logic\n- VSS is automatically on if running on Windows with sufficient privileges\n- Improved backend test function\n- Ability to suppress warnings\n- Support for remotely provided reporting url and remotely managed backup configs\n- Added support for Google IAM on Google Drive",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.2.0.0_stable_2025-10-23",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.0_stable_2025-10-23/duplicati-2.2.0.0_stable_2025-10-23-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.0_stable_2025-10-23-win-x86-gui.msi",
+          "sha256": "154de202a5766f7013a17f262e40d75dc0cae9360452ecf8e582c884bd2376bd",
+          "product_code": "{FE562FCE-DA8D-481E-A489-B9C50A4FE6B5}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{FE562FCE-DA8D-481E-A489-B9C50A4FE6B5}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.0_stable_2025-10-23/duplicati-2.2.0.0_stable_2025-10-23-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.0_stable_2025-10-23-win-x64-gui.msi",
+          "sha256": "b13a75680a39f0f5374a8a9edf0b93fc4211830f1b35e9027abe8f25cab0a3c0",
+          "product_code": "{BA193319-6752-4A6C-A093-BE1AAEC36909}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{BA193319-6752-4A6C-A093-BE1AAEC36909}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.2.0.0_stable_2025-10-23/duplicati-2.2.0.0_stable_2025-10-23-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.2.0.0_stable_2025-10-23-win-arm64-gui.msi",
+          "sha256": "47b22525b50f971d29fa703246f57937934c588331eae34e5b80aa322d812618",
+          "product_code": "{9CC611CA-1674-463A-B74C-2BB2D75D04EA}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{9CC611CA-1674-463A-B74C-2BB2D75D04EA}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.0.5",
+      "release_date": "2025-03-04",
+      "release_notes": "This is an update release to 2.1.0.4, fixing critical issues.\nThis update fixes a number of issues reported with 2.1.0.4, 2.1.0.3, and 2.1.0.1.\nIf you are running one of these versions, it is highly recommended that you upgrade as soon as possible.\nImportant changes from 2.0.8.1 or older:\n- Updated to .NET8 with OS specific builds\n- Using Kestrel as the API/UI server\n- Mandatory password and new authentication scheme for server\n- Settings database version updated to v8\n- Backup database updated to v13\n- Automatic updating not supported\nDetailed list of changes\n- Fixed issue where failed uploads would be ignored in certain cases\n- Increased default value for --read-write-timeout to 10 min to counter timeouts on large sets\n- Fixed a case where a leading slash would be removed from source url paths\n- Fixed fallback support for zip files with non-deflate compressed files\n- Fixed dark/light-mode icons on MacOS\n- Signing on MacOS is now done by Duplicati Inc\n- Signing on Windows is now done by Duplicati Inc, with an extended validation certificate",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.1.0.5_stable_2025-03-04",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.1.0.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.1.0.5_stable_2025-03-04/duplicati-2.1.0.5_stable_2025-03-04-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.1.0.5_stable_2025-03-04-win-x86-gui.msi",
+          "sha256": "00544f9f992111153031426bfe4145107e501db44436f68226949ae53b0bf1b6",
+          "product_code": "{6AF767F8-D7A1-45A8-A9E6-E9B1F62D8101}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{6AF767F8-D7A1-45A8-A9E6-E9B1F62D8101}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.1.0.5_stable_2025-03-04/duplicati-2.1.0.5_stable_2025-03-04-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.1.0.5_stable_2025-03-04-win-x64-gui.msi",
+          "sha256": "a0a0d25d6c7fe65c36a2bbb99f417e600cd67acdb216476b1ef90a45900d55d6",
+          "product_code": "{62DA97F5-339F-4EC7-B7B2-53EA4699A1E2}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{62DA97F5-339F-4EC7-B7B2-53EA4699A1E2}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.1.0.5_stable_2025-03-04/duplicati-2.1.0.5_stable_2025-03-04-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.1.0.5_stable_2025-03-04-win-arm64-gui.msi",
+          "sha256": "0400092973cf79cc1d9e1bca5e3637b23705140622f80ef3403f50f56037822a",
+          "product_code": "{5760861B-0D3F-4DC8-8393-B4575A1B3EFD}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{5760861B-0D3F-4DC8-8393-B4575A1B3EFD}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.0.4",
+      "release_date": "2025-01-31",
+      "release_notes": "This is the first stable release of the Duplicati 2.x codebase!\nThanks to the amazing Duplicati community who continue to contribute in force.\nImportant changes from 2.0.8.1\n  - Updated to .NET8 with OS specific builds\n  - Using Kestrel as the API/UI server\n  - Mandatory password and new authentication scheme for server\n  - Settings database version updated to v8\n  - Backup database updated to v13\n  - Automatic updating not supported\nThis update builds on beta 2.1.0.3 with only a minor tweak to WebDAV timeouts.\nHigh-level view of changes from beta 2.0.8.1\n  - Updated to .NET8 and Kestrel/ASP.NET Core\n  - Updated the authentication system\n  - Added support for encrypting database fields\n  - Fixed a number of stability issues\n  - Added support for remote control\n  - Added secret providers\n  - Updated blocksize to 1MiB by default\n  - Removed RC4 database encryption (auto-decrypt)\n  - Added read-write timeout to most backends",
+      "release_notes_url": "https://github.com/duplicati/duplicati/releases/tag/v2.1.0.4_stable_2025-01-31",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Duplicati/Duplicati/2.1.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.1.0.4_stable_2025-01-31/duplicati-2.1.0.4_stable_2025-01-31-win-x86-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.1.0.4_stable_2025-01-31-win-x86-gui.msi",
+          "sha256": "8104fa94d6a19ce91523ebfb517501d1acd0be4cd789483795ccfde68c75677d",
+          "product_code": "{7307F0EF-B145-4240-9817-062EDE9A2F7E}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{7307F0EF-B145-4240-9817-062EDE9A2F7E}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.1.0.4_stable_2025-01-31/duplicati-2.1.0.4_stable_2025-01-31-win-x64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.1.0.4_stable_2025-01-31-win-x64-gui.msi",
+          "sha256": "ddb848fef1cd3bdde309ce9513a38243febe714b60b8813121b278c72ed75276",
+          "product_code": "{AE164F78-C146-42C3-AB9A-82490F6E682F}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{AE164F78-C146-42C3-AB9A-82490F6E682F}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/duplicati/duplicati/releases/download/v2.1.0.4_stable_2025-01-31/duplicati-2.1.0.4_stable_2025-01-31-win-arm64-gui.msi",
+          "host": "github.com",
+          "filename": "duplicati-2.1.0.4_stable_2025-01-31-win-arm64-gui.msi",
+          "sha256": "1e18d92f3f28c5bc43ee07a66074ba0e730b7261e3463c2189ba7b5fef42ed3f",
+          "product_code": "{1F83CA6E-7BB0-4B3F-A1F9-C011FACBB48A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Duplicati",
+              "product_code": "{1F83CA6E-7BB0-4B3F-A1F9-C011FACBB48A}",
+              "upgrade_code": "{1C94BC5A-2BF2-4273-9D8F-2CB30E780D16}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.4.1.0",
+      "source_version": "2.4.1.0,2026-10-29",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://updates.duplicati.com/stable/duplicati-2.4.1.0_stable_2026-10-29-osx-x64-gui.dmg",
+          "host": "updates.duplicati.com",
+          "filename": "duplicati-2.4.1.0_stable_2026-10-29-osx-x64-gui.dmg",
+          "sha256": "2f87b8eeca3dce87badc85deccf516fd15be2bc072a6bd0526f47b390ad6d757",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://updates.duplicati.com/stable/duplicati-2.4.1.0_stable_2026-10-29-osx-arm64-gui.dmg",
+          "host": "updates.duplicati.com",
+          "filename": "duplicati-2.4.1.0_stable_2026-10-29-osx-arm64-gui.dmg",
+          "sha256": "5eff07e08bec56173cdfe129cdff5cd0eb7faad3b67d718c0b481d2a0143da2a",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Duplicati.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/.config/Duplicati",
+            "~/Library/Application Support/Duplicati",
+            "~/Library/Preferences/com.duplicati.app.plist"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "615b69b21b30191d28d575b8573292efbfcd10f6",
+      "retrieved_at": "2026-11-10T00:19:10.008Z",
+      "path": "manifests/d/Duplicati/Duplicati"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "b8938744284baffb58afa1a4f652ab30ab24edb6",
+      "retrieved_at": "2026-11-10T00:19:10.008Z",
+      "path": "Casks/d/duplicati.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/duplicati.json"
+    }
+  ]
+}

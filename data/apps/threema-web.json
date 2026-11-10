@@ -1,0 +1,150 @@
+{
+  "schema_version": 2,
+  "slug": "threema-web",
+  "name": "Threema Web",
+  "publisher": "Threema GmbH",
+  "author": "Threema GmbH",
+  "ids": {
+    "winget": "Threema.Threema",
+    "moniker": "threema",
+    "homebrew_cask": "threema"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Communicate with friends and family in complete confidentiality – no data snooping, no metadata collection, no compromises.",
+  "description": "Threema is the secure messaging app for individuals that consistently focuses on data protection and anonymity. Every message, call, and shared file is protected by proven open-source encryption technology. With Threema’s verification levels, you can see how trustworthy your contact is – so you know who you’re dealing with even without providing personal information.\n- Maximum control over your digital identity: you decide how much you want to disclose\n- Your conversations are guaranteed to be visible only to you and your contacts – never to us or third parties\n- No collection of user data, no ads\n- Anonymous use without providing a phone number or email address thanks to a randomly generated Threema ID",
+  "tags": [
+    "business",
+    "collaborate",
+    "collaboration",
+    "communicate",
+    "comunication",
+    "enterprise",
+    "office",
+    "team",
+    "working"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://threema.com/en/products/private",
+    "publisher": "https://threema.com/en",
+    "support": "https://threema.com/en/support",
+    "privacy": "https://threema.com/en/privacy-note",
+    "purchase": "https://threema.com/en/pricing",
+    "release_notes": "https://threema.com/en/changelog/desktop",
+    "documentation": [
+      {
+        "label": "Documents",
+        "url": "https://threema.com/en/resources/documents"
+      }
+    ]
+  },
+  "license": {
+    "name": "AGPL-3.0",
+    "url": "https://github.com/threema-ch/threema-web-electron/blob/HEAD/LICENSE.txt",
+    "spdx": "AGPL-3.0",
+    "copyright": "© Threema GmbH",
+    "copyright_url": "https://threema.com/en/impressum"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.2.50",
+    "macos": "1.2.50"
+  },
+  "versions_total": {
+    "windows": 1,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.2.50",
+      "release_notes_url": "https://threema.com/en/changelog/desktop",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/Threema/Threema/1.2.50",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://releases.threema.ch/web-electron/v1/release/Threema-Latest.exe",
+          "host": "releases.threema.ch",
+          "filename": "Threema-Latest.exe",
+          "sha256": "9d06c40c05522588325b16d19bfb8334e3afb833a13ed70e34fb64ea44affaee",
+          "product_code": "threema_web",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.2.50",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://releases.threema.ch/web-electron/v1/release/Threema-Latest.dmg",
+          "host": "releases.threema.ch",
+          "filename": "Threema-Latest.dmg",
+          "no_checksum": true
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Threema.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/threema-consumer-web",
+            "~/Library/Logs/threema-consumer-web",
+            "~/Library/Preferences/threema-consumer-web.plist",
+            "~/Library/Saved Application State/threema-consumer-web.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "615b69b21b30191d28d575b8573292efbfcd10f6",
+      "retrieved_at": "2026-11-10T00:37:08.543Z",
+      "path": "manifests/t/Threema/Threema"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "b8938744284baffb58afa1a4f652ab30ab24edb6",
+      "retrieved_at": "2026-11-10T00:19:10.008Z",
+      "path": "Casks/t/threema.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/threema.json"
+    }
+  ]
+}

@@ -1,0 +1,811 @@
+{
+  "schema_version": 2,
+  "slug": "localsend",
+  "name": "LocalSend",
+  "publisher": "Tien Do Nam",
+  "author": "Tien Do Nam",
+  "ids": {
+    "winget": "LocalSend.LocalSend",
+    "homebrew_cask": "localsend",
+    "flathub": "org.localsend.localsend_app"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Share files to nearby devices. Free, open source, cross-platform. An open source cross-platform alternative to AirDrop.",
+  "tags": [
+    "cross-platform",
+    "file-sharing",
+    "flutter",
+    "local",
+    "shareit",
+    "sharik",
+    "trebleshot",
+    "wifi"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://localsend.org/",
+    "publisher": "https://tienisto.com/",
+    "support": "https://localsend.org/",
+    "release_notes": "https://github.com/localsend/localsend/releases/tag/v1.18.2"
+  },
+  "license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/localsend/localsend/blob/HEAD/LICENSE",
+    "spdx": "Apache-2.0",
+    "copyright": "Copyright (c) 2022-2024 Tien Do Nam",
+    "copyright_url": "https://github.com/localsend/localsend/blob/main/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.18.2",
+    "macos": "1.18.2",
+    "linux": "1.18.2"
+  },
+  "last_updated": "2026-08-24",
+  "versions_total": {
+    "windows": 19,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.18.2",
+      "release_date": "2026-08-24",
+      "release_notes": "This release fixes compatibility issues with 1.17.0 and earlier.\n\nUnfortunately, the Windows EXE installer is not published yet (#3270).\n\n- feat: drag and drop files into the \"Receive via link\" browser page\n- feat(desktop): allow customizing the web share pages by placing HTML files in a web folder next to\n  the executable\n- feat(cli): add version info to the Windows executable\n- feat(linux): set actual version in the AppImage\n- security: do not follow HTTP redirects sent by peers\n- fix: restore compatibility with 1.17.0 and earlier versions on missing multicast networks\n- fix: devices running 1.17.0 and earlier could not add 1.18.0+ device as favorite\n- fix: ignore proxies, fixes \"TLS info not found\" when a system proxy (e.g. Shadowrocket) is enabled\n- fix: automatically restart the HTTP / multicast server when it dies or when the app resumes\n- fix: drag and drop with a mix of folders and files\n- fix: during transfer, add bottom padding when Advanced is open (@Chethan616)\n- fix: do not crash at startup when the executable path cannot be resolved (@Shlomo116)\n- fix(android): ignore unknown or invalid file modification times when reading files\n- i18n: add Armenian",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.18.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.18.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.18.2-windows-x86-64.exe",
+          "sha256": "122783e6abb4b0a1f1603d896f46a03aeda3004479ebd3175cab4ddac6b60919",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "switches": {
+            "upgrade": "/FORCECLOSEAPPLICATIONS",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.18.2-windows-x86-64.exe",
+          "sha256": "122783e6abb4b0a1f1603d896f46a03aeda3004479ebd3175cab4ddac6b60919",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "upgrade": "/FORCECLOSEAPPLICATIONS",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.0",
+      "release_date": "2025-02-20",
+      "release_notes": "Summary\nA small interim release before WebRTC is stable (#2204)\n- feat: add advanced setting to filter network interfaces (@Tienisto)\n- feat(mobile): swipe gesture to select multiple media files (@Tienisto)\n- feat(windows): when pasting an image, automatically convert it to PNG (@BrianMwit)\n- feat(android): add option to open gallery when image/video was automatically saved (@Tienisto)\n- fix: path traversal vulnerability when saving files (@Tienisto)\n- fix: black screen when tapping on \"Back\" twice in \"Share via link\" (@Tienisto)\n- fix(macos): window disappears on command key when minimize to tray is enabled (@Tienisto)\n- fix(windows): do not poll local IP resulting in unwanted location permissions (@Tienisto)\nFull Changelog",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.17.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.17.0-windows-x86-64.exe",
+          "sha256": "e554dcf9dc94dd842b54d464b559ac1d3631427bb02480c9a74785ec47ce639c",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.17.0-windows-x86-64.exe",
+          "sha256": "e554dcf9dc94dd842b54d464b559ac1d3631427bb02480c9a74785ec47ce639c",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.1",
+      "release_date": "2024-11-04",
+      "release_notes": "Summary\n- feat: show exact error message when using IP address dialog or favorite dialog (@Tienisto)\n- feat(desktop): highlight file when tapping \"Show in folder\" (@Tienisto)\n- fix(android): properly close app on back gesture (@Tienisto)\nFull Changelog",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.16.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.16.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.16.1/LocalSend-1.16.1-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.16.1-windows-x86-64.exe",
+          "sha256": "7c31cc7f1079644991e7d7982a36c6dc368f4005b16b3d98a0f02720b44ea1f0",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Tien Do Nam",
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.16.1/LocalSend-1.16.1-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.16.1-windows-x86-64.exe",
+          "sha256": "7c31cc7f1079644991e7d7982a36c6dc368f4005b16b3d98a0f02720b44ea1f0",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Tien Do Nam",
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.0",
+      "release_date": "2024-11-03",
+      "release_notes": "Windows 7 is no longer supported to keep up with the latest updates from Flutter.\nLocalSend now uses Rust as HTTP client (rhttp). This improves performance when the sending device is the bottleneck (e.g. Android to Windows). The receiver is still written in Dart. In the future, we might also rewrite it in Rust to achieve the best performance.Summary\n- feat: improve transfer speed if the sending device is the bottleneck by using Rust as HTTP client and multithreading (@Tienisto)\n- feat: add option to automatically receive files only from favorites (@Davte)\n- feat: only automatically finish when files are either successfully received or skipped (@Tienisto)\n- feat: improve various padding and spacing issues in RTL languages (@ShlomoCode)\n- feat: persist \"advanced settings\" toggle (@Nolle10)\n- feat: add alias-regeneration button and alias update dialog (@Nolle10)\n- feat(macos): drag-and-drop files and text into menu bar icon (@ShlomoCode)\n- feat(macos): drag-and-drop text into the app icon (@ShlomoCode)\n- feat(macos): include LocalSend as a share target in the share menu (@ShlomoCode)\n- feat(macos): starts hidden in menu bar instead of being minimized when autostart is enabled (@ShlomoCode)\n- feat(macos): show error and success state in the app icon (@ShlomoCode, @Tienisto)\n- feat(macos): also have autostart option in sandboxed version (App Store) (@ShlomoCode)\n- feat(macos): LocalSend installed via dmg installer is sandboxed (@Tienisto)\n- feat(android): enable clipboard button (@Seidko)\n- feat(ios): enable clipboard button (@AnessZurba)\n- fix(macos): reopen app from launchpad after minimizing to menu bar should make window visible (@ShlomoCode)\n- fix(macos): persist write access to download location after app restart (@ShlomoCode)\n- docs: @thatLeaflet, @GlgApr, @BigPebble123\n- i18n: add Malaysian (@Gloridust), Slovak (@dodog)\n- i18n: @Flitskikker, @tatsumain, @gdonisi, @UnifeGi, @Matthaiks, @graphemecluster, @dodog, @multipetros, @faea726, @sergd88, @Amereyeu, @vic-blt, @esaracho, @farshad991, @nidexingg, @LoboGuardian, @Neo1102, @gidano, @nebojsatomic, @BryanJames16, @ArthurLobopro, @ShlomoCode, @ilius, @sf0nt, @dz0ny, @LandOfDar, @protheeuz, @GlgApr, @manuelzzz, @louipa, @erelado, @Gloridust, @Olivetti, @Nolle10, @gavindang2911, @albanobattistella, @AmerDje, @plinkr, @ERy03, @gmourahub, @Scienticious, @LivioZ, @soya-daizu, @furkanipek, @Nixuge, @BigPebble123\nFull Changelog",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.16.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.16.0/LocalSend-1.16.0-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.16.0-windows-x86-64.exe",
+          "sha256": "c0ea378d050386dbd1bdb1becb2ca20112eb92ad9c30f54308af08f3098d44a4",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Tien Do Nam",
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.16.0/LocalSend-1.16.0-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.16.0-windows-x86-64.exe",
+          "sha256": "c0ea378d050386dbd1bdb1becb2ca20112eb92ad9c30f54308af08f3098d44a4",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Tien Do Nam",
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.4",
+      "release_date": "2024-08-20",
+      "release_notes": "Summary\n- feat: add button to retry a failed file transfer (@Tienisto)\n- feat: show tooltip on the \"Scan\" button (@Tienisto)\n- feat: treat any URI as link, so it becomes clickable on receiver (e.g. file://, obsidian://) (@Tienisto)\n- feat(mobile): adjust button width in send tab to indicate that it's scrollable (@Tienisto)\n- feat(windows): title bar color should match the system theme (@FutoTan)\n- fix: memory leak when sending files (regression in 1.15.0, 1.15.2 only fixed receiving files) (@Tienisto)\n- fix(windows): LocalSend window is invisible at app start (@Tienisto)\n- i18n: distinguish between \"Exit\" and \"Quit\" depending on the platform (@sergd88)\n- i18n: add Hindi (@rishi-singh26)\nFull Changelog",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.15.4",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.15.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.4/LocalSend-1.15.4-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.4-windows-x86-64.exe",
+          "sha256": "44d1b6899b1a143ef5d3801f83ac7602d3ec5298671ad38616aeb23ef916df9c",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.4/LocalSend-1.15.4-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.4-windows-x86-64.exe",
+          "sha256": "44d1b6899b1a143ef5d3801f83ac7602d3ec5298671ad38616aeb23ef916df9c",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.3",
+      "release_date": "2024-07-29",
+      "release_notes": "A small release that primarily fixes an important bug on Android.For Windows users (same as 1.15.0): To properly support autostart / start hidden, the msix installer has been removed. Please migrate to the EXE installer and uninstall the MSIX version.Summary\n- feat: reduce receive history length to 30 items to increase performance (@Tienisto)\n- feat: show error message when initialization fails for better debugging (@Tienisto)\n- fix(android): properly close app on back gesture (@Tienisto)\nFull Changelog",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.15.3",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.15.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.3/LocalSend-1.15.3-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.3-windows-x86-64.exe",
+          "sha256": "e6fe4e8a9104b134cf6797d5abf2bf55d0ea38a80cd651cd50ab009e9a67da7b",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.3/LocalSend-1.15.3-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.3-windows-x86-64.exe",
+          "sha256": "e6fe4e8a9104b134cf6797d5abf2bf55d0ea38a80cd651cd50ab009e9a67da7b",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.2",
+      "release_date": "2024-07-25",
+      "release_notes": "For Windows users (same as 1.15.0): To properly support autostart / start hidden, the msix installer has been removed. Please migrate to the EXE installer and uninstall the MSIX version.Summary\n- feat: extract network scanning to separate threads, scanning should not cause UI lags anymore (@Tienisto)\n- feat(windows): use bigger icon for the installer (@Tienisto)\n- fix: memory leak when receiving files, properly receive files that exceed available RAM (@Tienisto)\n- fix(android): save files outside of Download folder (@Tienisto)\n- fix(windows): use correct portable settings file when started via autostart (@Tienisto)\n- fix(windows): make installer work on arm64 (@Tienisto)\nFull Changelog",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.15.2",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.15.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.2/LocalSend-1.15.2-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.2-windows-x86-64.exe",
+          "sha256": "75ba5a6ea0b36c6e66d8f1d646a3dc2e8235ea7fe1007a0fe78f659fdc31318c",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.2/LocalSend-1.15.2-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.2-windows-x86-64.exe",
+          "sha256": "75ba5a6ea0b36c6e66d8f1d646a3dc2e8235ea7fe1007a0fe78f659fdc31318c",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.1",
+      "release_date": "2024-07-18",
+      "release_notes": "Summary\n- feat: support Internet Explorer 8 (IE8) in web share (@Tienisto)\n- feat: save auto accept state when switching encryption mode in web share (@Tienisto)\n- feat: switch to \"Send\" tab when pasting via keyboard shortcut (@Tienisto)\n- fix: count PIN tries correctly in web share (@Tienisto)\n- fix(android): crash when picking files or folders on Android TV (@Tienisto)\n- fix(windows): crash when sum of file sizes is greater than 2 GB (@Tienisto)\n- fix(windows): bundle required DLL files to avoid crash on app start (@Tienisto)\n- fix(macos): hide autostart option when installed via App Store because this switch is not working (@Tienisto)\n- i18n: @sergd88, @UnifeGi, @toopkungza",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.15.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.1/LocalSend-1.15.1-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.1-windows-x86-64.exe",
+          "sha256": "771651269f7d31520fb956ef2c0729eb2ff99395bba8353b786daf3d44936d21",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.15.1/LocalSend-1.15.1-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.15.1-windows-x86-64.exe",
+          "sha256": "771651269f7d31520fb956ef2c0729eb2ff99395bba8353b786daf3d44936d21",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.14.0",
+      "release_date": "2024-02-26",
+      "release_notes": "Summary\n- feat: add option to automatically accept requests when sharing via link (@MisterChangRay, @Tienisto)\n- feat: use fix button width for all buttons in the selection row (only noticeable in Russian) (@Tienisto)\n- fix: picking many files should not freeze the UI (@Tienisto)\n- fix: do not create a new session for the same IP when sharing via link (@MisterChangRay)\n- fix(android): save files to SD card on Android 10 or older (@Tienisto)\n- i18n: add Danish (@Limfjorden)\nContributions\n- fix(android): save files to SD card on Android 10 or lower (#1162) @Tienisto\n- refactor: use ip as request session (#1125) @MisterChangRay\n- anonymous Access (#1115) @MisterChangRay\n- feat: remove local network permission check on iOS (#1022) @Tienisto\n- feat: improve performance of horizontal preview list (#1019) @Tienisto\n- docs: @devcxl\n- i18n: @MisterChangRay, @mgmix, @soya-daizu, @Francesco146, @ShlomoCode, @multipetros, @gidano, @Neo1102, @sergd88, @Matthaiks, @wkk-dev, @nkh0472, @farshad991, @jermanuts, @mertssmnoglu, @Amereyeu, @gdonisi, @agil3st, @Limfjorden, @jan-vandenberg, @Radk6, @faea726",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.14.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.14.0/LocalSend-1.14.0-windows-x86-64.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.14.0-windows-x86-64.msix",
+          "sha256": "fe566398d0a4fc26d2dfa846fb40eadfd00569a6e73afbc1a8be0f982677a1b1",
+          "signature_sha256": "7ab321499f4a1286c575e8785bc419ae82e6cdd070dda40458f9a1713c147d72",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.13.1",
+      "release_date": "2023-12-08",
+      "release_notes": "Summary\n- feat: add a short delay when \"Auto Finish\" is enabled (#1008) (@Tienisto)\n- feat: automatically update the device name of favorite devices when they were unchanged by the user (#1009) (@Tienisto)\n- feat: expand file picker buttons if the button text is too long (#1010) (@Tienisto)\n- fix: various crash issues by downgrading Flutter from 3.16 to 3.13 (@Tienisto)\n- i18n: @BryanJames16, @nidexingg, @watchakorn-18k, @gidano, @Jesse205",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.13.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.13.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.13.1/LocalSend-1.13.1-windows-x86-64.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.13.1-windows-x86-64.msix",
+          "sha256": "f2d71b854a8cfd6c922145dfc19393fb15dfca2f1a54f4e8ca727d061ea4965e",
+          "signature_sha256": "57faeb3641bfa6b06da987be9d9842e80e6508397a6d0d090272cebd266991f1",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.12.0",
+      "release_date": "2023-10-26",
+      "release_notes": "Summary\n- feat: add favorites (@Tienisto)\n- feat: add OLED color mode (@Tienisto)\n- feat: show dialog before clearing history (@pantshaswat, @Tienisto)\n- feat: show clear button in apk picker search bar (@Tienisto)\n- feat: use better colors for the toggle switches in the settings (@gitstart)\n- feat: drastically improve GPU usage by optimizing the spin animation (@Tienisto)\n- feat(desktop): support pasting from clipboard (@gitstart, @Tienisto)\n- feat(linux): allow disabling client side decorations on Wayland (@I-Want-ToBelieve)\n- feat(android): use high framerate on devices that lock at 60 Hz like on some OnePlus phones (@Tienisto)\n- fix(desktop): fallback to \"$HOME/Downloads\" when default downloads folder is unavailable (@Sqbika)\n- i18n: add Vietnamese (@faea726), Thai (@watchakorn-18k), Basque (@xezpeleta)\nContributions\n- Update strings_he.i18n.json (#819) @ShlomoCode\n- Update zh-HK Translation (#816) @graphemecluster\n- Updated missing translations bn (#815) @RishiASheth\n- i18n: Vietnamese.\n  Add missing translations. (#814) @faea726\n- Update _missing_translations_zh_TW.json (#799) @Neo1102\n- i18n: Update Italian Translations (#804) @Francesco146\n- Update strings_zh-CN.i18n.json (#802) @nkh0472\n- Update text thai langauge (#803) @watchakorn-18k\n- Updated hungarian translation (#805) @gidano\n- i18n: Vietnamese.\n  Use more common grammar (#806) @faea726\n- Added missing fr_FR translations (#808) @Nixuge\n- Update README.md (#809) @kushal34712\n- updated czech translation (#813) @Amereyeu\n- i18n: update spanish translations (#800) @esaracho\n- i18n: update Japanese translations (#796) @soya-daizu\n- Update strings_iw.i18n.json (#794) @ShlomoCode\n- Update _missing_translations_nl.json (#793) @im-ichat\n- feat: paste image (#792) @Tienisto\n- i18n: Updated missing translations for Ukrainian and Russian languages (uk-UK; ru-Ru) (#791) @sergd88\n- ADD: Alert while deleting  history (#765) @pantshaswat\n- added missing translations for bn (#783) @RishiASheth\n- Added Thai langauge (#785) @watchakorn-18k\n- Update Czech translation (#784) @tomz00\n- add Vietnamese translator (#782) @faea726\n- fix typo (#778) @Rudra-Ji\n- docs: Corrected all the grammatical errors in README.md (#768) @alienishi\n- Add missing french translations (#777) @lchaumont\n- Distribution: Update .deb / Add .rpm scripts (#767) @TheGB0077\n- i18n: Add Vietnamese (#770) @faea726\n- strings_in.i18n.json minor changes (#773) @Rostislav12345\n- i18n: Add missing Italian translations (#775) @Francesco146\n- i18n: update to pt-BR locale (#766) @TheGB0077\n- Update strings_de.i18n.json (#762) @tomole444\n- Add missing translations for ko and ja (#757) @kimcore\n- Add missing translations for tr (#763) @cem256\n- docs: update README.md (#760) @eltociear\n- Updated _missing_translations_es_ES.json with brand new translations (#754) @kant\n- Update strings_es-ES.i18n.json (#753) @kant\n- Add basque (eu) language translation (#748) @xezpeleta\n- Hungarian translations extended. (#747) @zsoltika\n- i18n: Updated missing translations for Ukrainian and Russian languages (uk-UK; ru-Ru (#744) @sergd88\n- i18n: Update of the translation for the English language (#743) @sergd88\n- Update strings_zh-CN.i18n.json (#739) @nkh0472\n- docs: use ** instead of #### (#742) @Jesse205\n- Enable high framerate (#737) @Tienisto\n- i18n: Update translations for Ukrainian and Russian (uk-UK; ru-Ru) (#731) @sergd88\n- Favorites (#736) @Tienisto\n- i18n: Small correction of the translation for the Ukrainian language (uk-UK) (#726) @sergd88\n- Update strings_iw.i18n.json (#724) @ShlomoCode\n- Update _missing_translations_fa.json (#725) @farshad991\n- i18n: Update missing translation for Ukrainian and Russian language (uk-UK; ru-Ru) (#722) @sergd88\n- Update strings_zh-CN.i18n.json (#717) @nkh0472\n- Update make_config.yaml (#718) @gvenusleo\n- translation of _missing_translations_iw.json (#716) @ShlomoCode\n- fix: rail padding (#709) @Jesse205\n- Delete round icons on android (#707) @Jesse205\n- Update Translations (#701) @graphemecluster\n- The changes in translation are based on request #671 (#698) @sergd88\n- Update _unused_translations.json (#697) @nidexingg\n- Support file/image transfer by pasting files from the clipboard. (#674) @gitstart\n- Create _missing_translations_km.json (#689) @nidexingg\n- Create strings_km.i18n.json (#690) @nidexingg\n- feat: add OLED color mode (#681) @Tienisto\n- Update strings_iw.i18n.json (#678) @ShlomoCode\n- fix: Fallback to \"$HOME/Downloads\" when default downloads folder is unavailable (#680) @Sqbika\n- feat: drastically improve GPU usage by optimizing the spin animation (#679) @Tienisto\n- Add tray/menu bar (#676) @ColoursofOSINT\n- The color of the enabled button looks like disabled and the opposite of the disabled button (#673) @gitstart\n- fix: disable gtk client side decorations when the environment variable GTK_CSD exists and its value is 0 (#669) @I-Want-ToBelieve\n- fix: typo for android column in download options table (#661) @juaoose\n- i18n: Polishing translations for Ukrainian and Russian (#662) @sergd88",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.12.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.12.0/LocalSend-1.12.0-windows-x86-64.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.12.0-windows-x86-64.msix",
+          "sha256": "fad4cb58b54926e1fd499419a72a0e3b968ba400f29d8e4d49f694c3165b4da9",
+          "signature_sha256": "f1e02c066a0650e1fddf57e7e0d694ce6adb9397a9f4387ff6d8cfac40c4d4b2",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.1",
+      "release_date": "2023-09-04",
+      "release_notes": "Summary\n- feat: hide color setting when dynamic colors are not supported (#657) @Tienisto\n- feat(linux): use white icon for the linux tray (#658) @GaryElshaw, @Tienisto\n- fix: possible race condition leading to zero files (#659) @Tienisto\n- fix(android): navigation bar color on Android 9 and earlier (#656) @Tienisto\n- fix(linux): do not use zenity dependency anymore for file picker (#643) @Tienisto\n- i18n: Update strings_hu.i18n.json (#640) @gidano",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.11.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.11.1/LocalSend-1.11.1-windows-x86-64.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.11.1-windows-x86-64.msix",
+          "sha256": "a917384791e1bd17fbe33e0c54622cbb1a00501581a3d103fb8461ba36143c8d",
+          "signature_sha256": "ba5bd39a136a335c611381efbcd6daf2d80eb484efc7ebe2e78652462e3d14c9",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.0",
+      "release_date": "2023-08-28",
+      "release_notes": "Summary\n- feat: optionally enable HTTPS (encryption) when share via link (@Tienisto)\n- feat: use switches instead of dropdowns for settings (@forecaster-cyber)\n- feat: tapping on scan button clears found devices (@Tienisto)\n- feat: text message dialog is multiline only (@Tienisto)\n- feat: add option to disable animations (@Tienisto)\n- feat: add option to not save to history (@Tienisto)\n- feat: add option to customize device model (@Tienisto)\n- feat(desktop): bind \"ESC\" key to go to the previous page (@RiverTwilight, @Tienisto)\n- feat(android, ios): open link in new browser tab (@Tienisto)\n- feat(linux): enable autostart feature (@TheGB0077)\n- fix(android, ios): Save GIFs and image metadata (@natsuk4ze)\n- fix(android, ios): handle decline permission when picking files (@Tienisto)\n- fix(desktop): GPU usage when hidden to tray (@Tienisto)\nPRs\n- Customize device model (#639) @Tienisto\n- feat: tapping on sync button clears found devices (#635) @Tienisto\n- fix: handle permission error when picking files (#633) @Tienisto\n- feat: do not save to history option (#632) @Tienisto\n- feat: add disable animations setting (#631) @Tienisto\n- feat: text message dialog is multiline only (#630) @Tienisto\n- feat: optionally enable https when share via link (#629) @Tienisto\n- Fix GPU usage when minimized to tray (#626) @Tienisto\n- feat: apk picker list tile should have 3 rows (#628) @Tienisto\n- Migrate image_gallery_saver to gal (#625) @natsuk4ze\n- ci: change Winget Releaser job to ubuntu-latest (#621) @sitiom\n- Update strings_hu.i18n.json (#607) @gidano\n- deps: window_manager bump (#597) @TheGB0077\n- added catalan translation (#589) @sf0nt\n- Improve the Hebrew translation (#587) @ShlomoCode\n- Changed settings to use switch #556 (#565) @forecaster-cyber\n- Added missing tr_TR translations (#555) @hasankarli\n- feat: Enable autostart on Linux (#548) @TheGB0077\n- i18n: added pt-br strings (#545) @TheGB0077\n- Disable position persistence on Wayland (#546) @TheGB0077\n- feat: bind ESC globally (#543) @Tienisto\n- feat: use Escape key to quit about and changelog page (#542) @RiverTwilight\n- Update strings_zh-TW.i18n.json (#534) @Neo1102\n- feat: open link in new browser tab (#524) @Tienisto\n- updated czech language strings (#522) @Amereyeu\n- chore(deps): bump Mattraks/delete-workflow-runs from 2.0.3 to 2.0.4 (#519) @dependabot\n- Update _missing_translations_fa.json (#505) @farshad991\n- i18n: Update translations for Ukrainian, Russian and English language (#500) @sergd88",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.11.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.11.0/LocalSend-1.11.0-windows-x86-64.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.11.0-windows-x86-64.msix",
+          "sha256": "28ab35eac42e212e84a9cafae8819d15595c7747952a09ed2e32db67fff916ed",
+          "signature_sha256": "64ad41b5a81d664360559de29e197f2b6d38f6bd5ddba8d21a40c1089eb42a39",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.10.0",
+      "release_date": "2023-06-02",
+      "release_notes": "Summary\n- feat: dynamic colors (Material You) (@Tienisto)\n- feat(android): sharing APKs includes version in file name (@Tienisto)\n- feat(windows): restore Windows 7 support (@Tienisto)\n- feat(windows): use specialized fonts for Chinese, Japanese and Korean (@graphemecluster, @Tienisto)\n- fix: cancellation fixes during active file transfer (@SelaseKay)\n- fix(windows): possible settings corruption (@TheGB0077, @Tienisto)\n- fix(android): get downloads directory correctly (@Tienisto)\n- fix(ios): could not save HEIC files (@Tienisto)\nTranslators\n- Create strings_ur.i18n.json (#469) @Sobaaaan\n- Update zh-Hant_HK Translations (#453) @graphemecluster\n- Update strings_fa.i18n.json (#451) @farshad991\n- fix Russian (ru) translations (#449) @elfriob\n- Update strings_zh-Hans.i18n.json (#445) @nkh0472",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.10.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.10.0/LocalSend-1.10.0-windows-x86-64.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.10.0-windows-x86-64.msix",
+          "sha256": "d354d953b5c7d6516d23e1c2927cf02a3613803189ba63e7399ee8ac3eae2618",
+          "signature_sha256": "c09cf8c5e036a278f9dcb2d3cecffd031b39c6fb3dfb50215e5149e40e70fc80",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.1",
+      "release_date": "2023-05-06",
+      "release_notes": "- feat: add folder should include the folder itself\n- fix: handle file names with special characters in link share mode\n- fix(android): fix status bar icon color after picking a media file\n- fix(linux): add libayatana-appindicator3-1 to AppImage dependencies (by @TheGB0077)",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.9.1",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.9.1/LocalSend-1.9.1.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.9.1.msix",
+          "sha256": "15c003f9c195e8ae705be9cd5518d7692cbb95f86a10097a76b52aef8d9c0c7c",
+          "signature_sha256": "c03e6c6f7234d6b5e9a01e9f54a797249b21d5821520fd9a2e9edee3acb55c5c",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.0",
+      "release_date": "2023-04-23",
+      "release_notes": "- feat: directory share\n- feat: share via browser link (for non-LocalSend users)\n- feat: add \"delete from history\" button when file could not be opened (by @TheGB0077)\n- feat: close message request when copied / opened link\n- feat: slightly improve transfer speed\n- feat: implement LocalSend protocol v2 with v1 fallback\n- feat: scan (sync) button automatically scans all network interfaces when count < 3\n- feat(android, ios): add \"Save to gallery\" setting button in file receive options\n- feat(desktop): move troubleshoot out of navigation into send page\n- feat(desktop): save last window position (by @TheGB0077)\n- feat(android): enable edge-to-edge mode\n- feat(android): add monochrome app icons for Android 13 (by @h9419)\n- feat(android): set custom download path\n- feat(linux): enable system tray (by @TheGB0077)\n- fix: in multi-recipient mode, retrying causes a \"canceled by sender\" on the recipient device\n- fix: clear selection after finished message transfer\n- fix(ios): could not scan local network on iOS 14+ (by @TheGB0077)\n- fix(android, ios): fallback asset picker strings to English translation (by @TheGB0077)\n- fix(linux): header bar glitches\n- i18n: add fa",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.9.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.9.0/LocalSend-1.9.0.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.9.0.msix",
+          "sha256": "ba58290f44b276a2979d6f37d7929440cfc4b63e87c13613e5bc1d2a14503e14",
+          "signature_sha256": "728e177c478de579b3457a1c20e1da3a463889b59d37ba9c56e63fc2f84d44ee",
+          "min_os_version": "10.0.19041.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.0",
+      "release_date": "2023-03-10",
+      "release_notes": "- feat: add send modes (single recipient, multiple recipients)\n- feat: selection gets cleared after finish by default (part of send modes feature)\n- feat: share to multiple recipients in parallel\n- feat: add troubleshoot page\n- feat: add 2 buttons to receive history: open folder + delete history\n- feat: cleanup scan UI by hiding multiple network interfaces inside the scan button\n- feat: edit text message in selected files\n- feat: improve device discovery by answering with TCP instead of UDP\n- feat(ex. iOS): pressing destination directory in progress page will open the directory\n- feat(android): share apk and install apk\n- feat(android): Android TV support\n- feat(android): show loading indicator when picking (large) files\n- feat(windows): left click on tray icon opens app\n- feat(linux): add Control+Q shortcut to exit app\n- fix: handshake error in unencrypted mode\n- fix: also scan multicast when pressing on a subnet sync button\n- fix(android): missing app icon on Android 7\n- fix(android,ios): show error message when saving to gallery failed\n- i18n: add bn, nl, uk",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.8.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.8.0/LocalSend-1.8.0.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.8.0.msix",
+          "sha256": "f54fe503ce86695d4eb1930099132bf5fb4d0420d503041b687a936a09060ced",
+          "signature_sha256": "4d6095050e969ce89eeb2d5f67b80e01d9a8b13ce1d174c44e60bf86315c67d0",
+          "min_os_version": "10.0.17763.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.0",
+      "release_date": "2023-02-13",
+      "release_notes": "- feat: improve device discovery by enabling multicast\n- feat: received file history\n- feat: show recent IP addresses in manual IP input\n- feat: improve error handling and add possibility to show exact error message for debugging\n- feat: add unencrypted HTTP mode (for debugging)\n- feat: separate language settings page\n- feat: message input is horizontally scrollable when multiline is unselected\n- feat: open message normally in QuickSave mode (instead of saving it into a file)\n- feat(android): keep file name when saving to photos\n- feat(desktop): use bigger default window size if display is big enough\n- feat(windows): use \"Microsoft YaHei UI\" font in Windows which works better with Chinese characters\n- fix: cache cleanup on iOS\n- i18n: add ar, es-ES, fr-FR, hu, in, it, iw, ja, ko, ne, pl, pt-BR, ru, sv, tr, zh-Hant-HK, zh-Hant-TW (Thanks to all the contributors!)",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.7.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.7.0/LocalSend-1.7.0.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.7.0.msix",
+          "sha256": "5c072fd226fdc3dda2bf109cb4190fe6475cfcd7883aa27f098f687d70df471e",
+          "signature_sha256": "ab5f3dd9a4cc735ad5a614a5c3934c001997364817f25ab6e0acf05a48f1bde4",
+          "min_os_version": "10.0.17763.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.2",
+      "release_date": "2023-01-28",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.6.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.6.2/LocalSend-1.6.2.msix",
+          "host": "github.com",
+          "filename": "LocalSend-1.6.2.msix",
+          "sha256": "36abf8acf394ecd3db8fc53b7826c34d711310eb842c2b1969c1dffbf0bb37ee",
+          "signature_sha256": "58b8bccc302403a5047945757829b536fd8f85329508bea7625fff475bf06e7c",
+          "min_os_version": "10.0.17763.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.18.2",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2.dmg",
+          "host": "github.com",
+          "filename": "LocalSend-1.18.2.dmg",
+          "sha256": "126860d56f6f49b11845f601aac51de27a49b16d2b48102415da91e0e37e5155"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "LocalSend.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Scripts/org.localsend.localsendApp",
+            "~/Library/Application Scripts/org.localsend.localsendApp.ShareExtension",
+            "~/Library/Containers/org.localsend.localsendApp",
+            "~/Library/Containers/org.localsend.localsendApp.ShareExtension",
+            "~/Library/Preferences/org.localsend.localsendApp.plist",
+            "~/Library/Saved Application State/org.localsend.localsendApp.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "1.18.2",
+      "release_date": "2026-08-21",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.localsend.localsend_app.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.localsend.localsend_app.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.localsend.localsend_app.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.localsend.localsend_app.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "615b69b21b30191d28d575b8573292efbfcd10f6",
+      "retrieved_at": "2026-11-10T00:19:10.008Z",
+      "path": "manifests/l/LocalSend/LocalSend"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "b8938744284baffb58afa1a4f652ab30ab24edb6",
+      "retrieved_at": "2026-11-10T00:19:10.008Z",
+      "path": "Casks/l/localsend.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/localsend.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.localsend.localsend_app",
+      "retrieved_at": "2026-11-10T00:19:11.094Z",
+      "path": "api/v2/appstream/org.localsend.localsend_app",
+      "api_url": "https://flathub.org/api/v2/appstream/org.localsend.localsend_app",
+      "content_sha256": "80309a6ae6a867cf0d49faf7610d19a3a4874f9f605ccafd661411e629bda127"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.localsend.localsend_app",
+    "page_url": "https://flathub.org/apps/org.localsend.localsend_app",
+    "repo_url": "https://github.com/flathub/org.localsend.localsend_app",
+    "install_command": "flatpak install flathub org.localsend.localsend_app",
+    "run_command": "flatpak run org.localsend.localsend_app",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "localsend.org",
+      "verified_on": "2024-01-15"
+    },
+    "license": "Apache-2.0",
+    "free_license": true,
+    "developer_name": "Tien Do Nam",
+    "categories": [
+      "Utility"
+    ],
+    "download_size": 23123091,
+    "installed_size": 58199552,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}
