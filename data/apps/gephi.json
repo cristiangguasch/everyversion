@@ -1,0 +1,646 @@
+{
+  "schema_version": 2,
+  "slug": "gephi",
+  "name": "Gephi",
+  "publisher": "Gephi",
+  "author": "Gephi NGO",
+  "ids": {
+    "winget": "Gephi.Gephi",
+    "moniker": "gephi",
+    "homebrew_cask": "gephi",
+    "flathub": "org.gephi.Gephi"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "The Open Graph Viz Platform",
+  "description": "Gephi is a tool for data analysts and scientists keen to explore and understand graphs. Like Photoshop™ but for graph data, the user interacts with the representation, manipulate the structures, shapes and colors to reveal hidden patterns. The goal is to help data analysts to make hypothesis, intuitively discover patterns, isolate structure singularities or faults during data sourcing. It is a complementary tool to traditional statistics, as visual thinking with interactive interfaces is now recognized to facilitate reasoning. This is a software for Exploratory Data Analysis, a paradigm appeared in the Visual Analytics field of research.",
+  "tags": [
+    "draw",
+    "graph",
+    "graphics",
+    "visualization"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://gephi.org/",
+    "publisher": "https://gephi.org/",
+    "support": "https://gephi.org/users/support/",
+    "privacy": "https://gephi.org/legal/privacy/",
+    "release_notes": "https://github.com/gephi/gephi/releases/tag/v0.11.4",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/gephi/gephi/wiki"
+      },
+      {
+        "label": "Learn",
+        "url": "https://gephi.org/users/"
+      }
+    ]
+  },
+  "license": {
+    "name": "CDDL-1.0, GPL-3.0",
+    "url": "https://github.com/gephi/gephi/blob/HEAD/LICENSE.md",
+    "copyright": "© Gephi contributors, 2008-2026. All rights reserved.",
+    "copyright_url": "https://github.com/gephi/gephi/blob/master/LICENSE.md"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.11.4",
+    "macos": "0.11.4",
+    "linux": "0.10.1"
+  },
+  "last_updated": "2026-11-01",
+  "versions_total": {
+    "windows": 10,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.11.4",
+      "release_date": "2026-11-01",
+      "release_notes": "Follow-up release from v0.11.3 with bugfixes.\nWhat's Changed\nNew Features\n- Add Barabási–Albert scale-free graph generator #3353\nImproved Features\n- Report edges with empty source/target on GraphML/GEXF import #3332\n- Report line and column for invalid XML in GraphML import #3333\n- Show the edge Kind column when more than one edge type is registered #3340\nAccessibility Improvements\n- Improve keyboard and screen reader accessibility #3337\n- Add keyboard zoom, pan and center to the graph view #3338\n- Keep buttons keyboard reachable without taking focus on click #3339\n- Add perspective and panel shortcuts, View menu zoom and more accessible names #3343\nBugfixes\n- Calculation of Modularity never ends. #1630\n- Fix crash parsing import report entries containing embedded newlines and semicolons #3317\n- Fix NullPointerException in QueryNode.isSelected() when no workspace is selected #3318\n- Fix invalid GML property key handling #3319\n- Fix PNG export crash on oversized image dimensions (GEPHI-65R) #3320\n- Fix G2D preview render target rendering the wrong workspace #3321\n- Fix NullPointerException in regex-based attribute equal filter with empty pattern #3324\n- Fix NullPointerException in attributes panel when workspace is unselected #3325\n- Fix NPE in DataTableTopComponent when graph model is nulled during workspace unselect #3326\n- Fix StackOverflowError in strongly connected components on deep graphs #3327\n- Skip yFiles and graphml/port scoped keys in GraphML import #3331\n- Copy dynamic values when copying column or row data #3344\n- Do not reset the current selection when the project is disabled #3345\n- Copy dynamic values with AttributeUtils.copy in duplicate node, merge and multi-node edit #3346\n- Keep the viz engine rendering when an input listener fails #3350\n- Hold the graph read lock while preview builders read the nodes and edges #3354\n- Take the current filter result atomically before destroying it #3357\n- Fix the preview export failing when a node is added while the items are built #3359\n- Destroy the selection result replaced by a refresh #3360\n- Fix modularity community weights at the first level and with self-loops #3362\n- Release the graph held by the layouts at the end, and write the OpenOrd positions through its own nodes #3366\n- Only destroy the preview's own reduced view #3368\n- Destroy the views of failed and exported filter passes #3369\n- Destroy the views of the dynamic statistics and keep their base view #3371\n- Fetch the visible graph after taking its read lock where a view is used #3372\n- Get the visible graph after taking the read lock in layouts #3374\n- Compute Yifan Hu's Reset distance from the visible graph #3375\n- Skip the ForceAtlas2 pass when no node moves #3376\n- Open the try of the exporters right after taking the read lock #3377\n- Place the self-loop edge labels for the thickness the loop is drawn with #3378\n- Write the dynamic statistics series on the main graph #3379\n- Take the read lock before fetching the graph in the CSV and Pajek exporters #3380\n- Don't let a locked graph keep the previous workspace on the canvas #3388\n- Take the update check version from the branding module #3389\n- Don't freeze the UI when a filter is cleared while a statistic runs #3390\n- Keep the EDT off the graph lock in the Data Laboratory, Attributes, filter and Appearance panels #3391\nCode Improvements\n- Only prompt for new Gephi release on major/minor bump #3330\n- Scrub file paths from Sentry event messages #3328\n- Detect unclean exits and EDT hangs in Sentry #3329\n- Add integration tests driving Gephi through its controllers #3347\n- Let callers know when layouts and filters have finished #3348\n- Let monitors tell whether the viz engine still draws and gets world updates #3349\n- Add release tests running the built application #3351\n- Add a soak suite to the release tests #3356\n- Wait for Central publication before pushing the autoupdate site #3370\n- Return the workspace's own filter model from the filters test helpers #3373\n- Remove unused NBM installer settings from nbm-maven-plugin config #3383\n- Renew the macOS Developer ID certificate #3385\n- Keep Git Bash from rewriting GNUPGHOME in the release bundle step #3387\nAPI Changes\nLayout API\n- LayoutModel.isRunning() and LayoutController.canStop() now return true as soon as executeLayout() returns, until the layout finishes. Previously they could return false until the layout thread had started. The RUNNING event with a true value is now fired before the layout is submitted, so it always precedes the event with a false value.\nLongTask API\n- A task submitted to a background LongTaskExecutor now counts as running from execute() on: isRunning() returns true until the task completes, including while it waits for its thread to start, and cancel() reaches such a task.\nFilters API\n- Added isRunning() to FilterModel. Filtering and selection results are computed in the background, so it returns true from FilterController.filterVisible() or selectVisible(), a change of the current query's parameters or an automatic refresh, until the result is applied. A change event is fired when it goes back to false, so callers can wait for a filter's result.\nCore contributors\n@mbastian\nIf you're looking for digital signatures for the release binaries, you can directly find them on Maven Central",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.11.4",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.11.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.4/gephi-0.11.4-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.4-windows-x64.exe",
+          "sha256": "b9390960d137ece08bbe62ab7d85abaf7aa43d1e2a2b92f7c18987577b952162",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.4/gephi-0.11.4-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.4-windows-x64.exe",
+          "sha256": "b9390960d137ece08bbe62ab7d85abaf7aa43d1e2a2b92f7c18987577b952162",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.3",
+      "release_date": "2026-09-06",
+      "release_notes": "Follow-up release from 0.11.2 with bugfixes.\nWhat's Changed\nNew or Improved Features\n- Show statistics execution failures with a dialog, and recover #3265\n- Replace filter/stop button pair with a single toggle button #3304\n- Parallelize node/edge encoding, leading to significant performance gains when saving projects #291\nBugfixes\n- Filtering / dynamic graphs not working together #3025\n- Exception while using Search feature and apply to Filter #3037\n- Fails to start from snap on Ubuntu 24.04 #3219\n- Fix macOS freeze when opening the Overview tab #3226\n- Guard against a Swing NPE race when NEWT canvas focus closes an open popup menu #3230\n- Fix NPE from a listener-registration race in the Attributes panel #3232\n- Fix infinite logging recursion in Gephi's output handler #3233\n- Preserve and surface the real cause of import file-open failures #3234\n- Fix ForceAtlas2 producing NaN coordinates for nodes with zero net displacement #3235\n- Fix NPE when saving a project with an empty text-equals filter value #3236\n- Null-check graph model/edge before use in async pencil-tool click dispatch #3237\n- Fix potential NPE when saving a layout property with no PropertyEditor #3238\n- Always write project saves through a temp file to avoid empty .gephi files #3240\n- Save-As still leaves an empty .gephi file if interrupted (canExport pre-creates the destination) #3241\n- Don't pre-create the destination file on Save As #3242\n- Keep recoverable temp file on move failure; only set project file on save success #3243\n- Fix the colour picker crashing when a hex value is pasted into it #3247\n- Fix partition filters corrupting project files when the null bucket is selected #3248\n- Stop reporting handled NetBeans Platform diagnostics as crashes #3250\n- Never deliver project and workspace events on the EDT #3255\n- Fix remaining EDT violations in Timeline/DataLab/Preview panels #3256\n- Fix field-visibility races on the Project IO thread (Step 2) #3257\n- Fix constructor-ordering races in Appearance/Preview controllers (Step 3) #3258\n- Fix stale timeline bounds write from a superseded GraphObserverThread #3261\n- Fix NodesDragger ignoring fixed/settled nodes #3264\n- Fix StatisticsModelUI.getRunning comparing a Class to a Statistics instance #3267\n- Apply edges merge strategy to dynamic edge weight merges #3268\n- Fix crash when entering edit mode races with a queued empty selection update #3269\n- Fix GEXF export crash on invalid XML control characters #3270\n- Fix range filters crashing on load when persisted bound type differs from live type #3271\n- Fix Windows installer desktop icon crash on silent all-users installs #3272\n- Fix flaky IllegalThreadStateException from double-started FilterAutoRefreshor #3273\n- Fix generator cancellation and skip workspace creation on cancel #3281\n- Cancel running Statistics task when its workspace closes #3282\n- Honor Statistics cancellation across StatisticsPlugin algorithms #3283\n- Fix EDT-unsafe Swing update and lock contention in layout task completion #3284\n- Avoid EDT graphstore read-lock in EdgePencil workspace listener #3285\n- Fix graphstore read-lock leak in ContextPanel's timer task #3286\n- Fix lock contention between TableObserverExecutor.stop() and run() #3287\n- Fix graph write-lock contention in Data Laboratory on workspace switch #3288\n- Fix Error crash when import report panels are constructed on the EDT #3289\n- Fix graph and spatial-index read-lock leaks in GraphSelectionImpl/GraphIndexImpl #3297\n- Fix graph read-lock leaks in layout plugins and PartitionColorTransformerPanel #3298\n- Fix IllegalArgumentException crashing project load with legacy zero label scale #3300\n- Fix concurrency/locking bugs in the filter subsystem #3301\n- Fix radius mouse-selection tool broken by JOML 1.10.9 upgrade #3302\n- Fix filter toolbar stop button not resetting when toggling Filter/Select\n- Fix unquoted array string values truncated at parenthesis #293\n- Fix time index reference counts #288\n- Fix edge weight checkbox state bugs in Overview edge settings #3307\n- Fix statistics report showing wrong workspace's values after switching workspace #3308\n- Fix NPE and cross-workspace corruption when running the same statistic concurrently #3309\nCode Improvements\n- Make Import processor easier to test #2767\n- Add config-independent async takeScreenshot to ScreenshotController #3299\n- Make the acquisition of mvpFloat from matrix outside loop #3211\n- Engine/standalone module for quick viz engine testing #3213\n- Move all GL2xxx reference to GL3ES3 #3215\n- Add Windows and macOS to CI build matrix and fix cross-platform issues #3218\n- Improve AI readiness on the repository #3228\n- Add ARCHITECTURE.md, CONTRIBUTING.md, and AI agent tooling setup #3229\n- Stop reporting already-handled corrupt-project-file errors to Sentry #3231\n- Fix two races in LongTaskExecutor making AsynchronousTest flaky #3244\n- Lower default ZIP compression level for .gephi save files #3259\n- Fix remaining Step 4 hygiene items left behind by PR #3260\n- Add a fatalError hook to LongTaskListener #3262\n- Fix javadoc warnings surfaced in release CI build #3274\n- Fail fast on unsupported serialization format versions #290\n- Close graph-lock gaps in GraphModel.Serialization #289\n- Make graph attributes iteration order canonical #286\n- Harden serialization: fail on unknown tags, fix char encoding #284\n- Fix file descriptor leak when un-embedding statistics report images #3310\nAPI Changes\nStatistics API\n- Added a getValue(Statistics) default method to StatisticsUI, superseding the no-argument getValue() which is now deprecated. Implementations of StatisticsUI are singletons shared by every workspace, so a result computed from state stashed by setup(Statistics) is unsafe when the same statistics class runs concurrently in more than one workspace. The default implementation of getValue(Statistics) falls back to the deprecated getValue(), so existing implementations keep compiling and working unchanged until migrated.\nNew contributors\n- @addwes7 made their first contribution in #3218\n- @MattArtzAnthro made their first contribution in #3226\nCore contributors\n@totetmatt and @mbastian\nIf you're looking for digital signatures for the release binaries, you can directly find them on Maven Central",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.11.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.11.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.3/gephi-0.11.3-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.3-windows-x64.exe",
+          "sha256": "bf3f488ab9cdab57e2b9f7ab4f2b449b452391f29a9df4d7c7edea198fb323cf",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.3/gephi-0.11.3-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.3-windows-x64.exe",
+          "sha256": "bf3f488ab9cdab57e2b9f7ab4f2b449b452391f29a9df4d7c7edea198fb323cf",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.2",
+      "release_date": "2026-05-09",
+      "release_notes": "Follow-up release from 0.11.1 with bugfixes.\nWhat's Changed\nBugfixes\n- Replicable \"Accept exceeded fixed size\" error with active filter #3185\n- Fix cryptic ZipException when opening empty .gephi project file in https://github.com/gephi/gephi/pull/3188\n- Fix project load crash when .gephi file has missing or empty name attribute in https://github.com/gephi/gephi/pull/3189\n- Fix ArrayIndexOutOfBoundsException crashing project load when restoring filters in https://github.com/gephi/gephi/pull/3190\n- Fix IllegalArgumentException when opening a project with no associated file in https://github.com/gephi/gephi/pull/3191\n- Fix cryptic WstxEOFException when importing an empty GEXF file in https://github.com/gephi/gephi/pull/3192\n- Fix MissingResourceException on Turkish locale (dotless-i in bundle key lookup) in https://github.com/gephi/gephi/pull/3193\n- Fix IllegalArgumentException when saving project with null statistics chart image in https://github.com/gephi/gephi/pull/3194\n- Fix NPE in StatisticsControllerUIImpl.getUI when statistics is null in https://github.com/gephi/gephi/pull/3195\n- Fix project save failing on Windows when filename contains illegal characters in https://github.com/gephi/gephi/pull/3196\n- Fix NPE when FileUtil.toFileObject returns null in openFile in https://github.com/gephi/gephi/pull/3198\n- Fix NPE when tab action command is null in WorkspacePanel in https://github.com/gephi/gephi/pull/3199\n- Fix NPE in setEditMode when Attributes model is null in https://github.com/gephi/gephi/pull/3200\n- Fix ConcurrentModificationException in layout listener iteration in https://github.com/gephi/gephi/pull/3201\n- Coerce numeric types when loading saved layout properties in https://github.com/gephi/gephi/pull/3202\n- Fix EDT deadlock during PreviewUIController init in https://github.com/gephi/gephi/pull/3204\n- Fix IllegalArgumentException in Search/Replace when columns have been deleted in https://github.com/gephi/gephi/pull/3206\nNew or Improved Features\n- macOS DMG: customize installer window with background image and Applications shortcut #3187\n- Show error dialog when OpenGL is unsupported (GDI Generic / OpenGL < 2.0) in https://github.com/gephi/gephi/pull/3205\n- Add ImportException hierarchy for known import failures in https://github.com/gephi/gephi/pull/3197\nCode Improvements\n- Bump org.postgresql:postgresql from 42.7.7 to 42.7.11 in /modules/DBDrivers in the maven group across 1 directory by @dependabot[bot] in https://github.com/gephi/gephi/pull/3186\nAPI Changes\nImport API\n- Added a new ImportException base class for known, user-facing import failures, along with an EmptyFileException subclass. Empty files are now detected centrally in ImportController and raised as EmptyFileException with a localized message, so UIs can present a clean error instead of the default unexpected-exception treatment.\nCore contributors\n@mbastian\nIf you're looking for digital signatures for the release binaries, you can directly find them on Maven Central",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.11.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.11.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.2/gephi-0.11.2-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.2-windows-x64.exe",
+          "sha256": "d6fb32d8304f8a5c37e584fab2cb02699809904d621c5bb8f887ce09839d864a",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.2/gephi-0.11.2-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.2-windows-x64.exe",
+          "sha256": "d6fb32d8304f8a5c37e584fab2cb02699809904d621c5bb8f887ce09839d864a",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.1",
+      "release_date": "2026-05-03",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.11.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.1/gephi-0.11.1-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.1-windows-x64.exe",
+          "sha256": "98d7184242922e044eb12cbf7ff4ed3a9bbc2963aa59968ddea881ead462e15b",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.1/gephi-0.11.1-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.11.1-windows-x64.exe",
+          "sha256": "98d7184242922e044eb12cbf7ff4ed3a9bbc2963aa59968ddea881ead462e15b",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.1",
+      "release_date": "2023-01-17",
+      "release_notes": "Follow-up release from 0.10.0 with bugfixes.\nBugfixes\n- Problem when saving (0.10.0) #2731\n- Infinite loop when opening project #2730\nIf you're looking for digital signatures for the release binaries, you can directly find them on Maven Central",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.10.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.10.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.10.1/gephi-0.10.1-windows-x32.exe",
+          "host": "github.com",
+          "filename": "gephi-0.10.1-windows-x32.exe",
+          "sha256": "31998a8c5b84f0340afdf313f601edd1180ae550e306c1bd3c749b78d0cab316",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.10.1/gephi-0.10.1-windows-x32.exe",
+          "host": "github.com",
+          "filename": "gephi-0.10.1-windows-x32.exe",
+          "sha256": "31998a8c5b84f0340afdf313f601edd1180ae550e306c1bd3c749b78d0cab316",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.10.1/gephi-0.10.1-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.10.1-windows-x64.exe",
+          "sha256": "b3b45955ea58a22220b189897ebf667ccca26bed47a050cfeceb4c2f0f6e5344",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "elevation_requirement": "elevationRequired",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.10.1/gephi-0.10.1-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.10.1-windows-x64.exe",
+          "sha256": "b3b45955ea58a22220b189897ebf667ccca26bed47a050cfeceb4c2f0f6e5344",
+          "product_code": "{51722911-C391-4118-97BF-B50100D2AB15}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gdf",
+            "gephi",
+            "gexf",
+            "graphml",
+            "net"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.7",
+      "release_date": "2022-08-04",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.9.7",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.9.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.9.7/gephi-0.9.7-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.9.7-windows-x64.exe",
+          "sha256": "7390f8c5159c69a9ea0bd3e3c9e92c071ac62661470c8e3b79b4346ca53c792b",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.9.7/gephi-0.9.7-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.9.7-windows-x64.exe",
+          "sha256": "7390f8c5159c69a9ea0bd3e3c9e92c071ac62661470c8e3b79b4346ca53c792b",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.5",
+      "release_date": "2022-05-03",
+      "release_notes": "Bugfixes\n• Deleting nodes results in program freezing and not responding\n• Unable to set range for the Partition Count filter on Component ID\n• NullPointerException in Preview StringBuilder #2495\n• ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 11\n• NullPointerException in ImporterSpreadsheetCSV.autoDetectFieldDelimiter\n• ReportPanel: ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0\n• IllegalArgumentException: The object class does not match with the column type (java.lang.Integer)\n• Display exception thrown in import in a report\n\nMiscellaneous\n• Windows installation in non-administrative mode\n• Add Romanian as supported localization",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.9.5",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.9.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.9.5/gephi-0.9.5-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.9.5-windows-x64.exe",
+          "sha256": "c5a4709b167ae0e19b23175a5329d77bc78b0667379be028aeee888f2325498f",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.9.5/gephi-0.9.5-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.9.5-windows-x64.exe",
+          "sha256": "c5a4709b167ae0e19b23175a5329d77bc78b0667379be028aeee888f2325498f",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.4",
+      "release_date": "2022-04-17",
+      "release_notes": "Bugfixes\n• No file listed in the Open... dialog box, Mac OS Big Sur #2467\n• NullPointerException from TimelineControllerImpl.setInterval #2471\n• NullPointerException in ImportContainerImpl.isEdgeDirected #2472\n• NullPointerException in IndexImpl.values #2473\n• Appearance IllegalArgumentException: The view doesn't exist #2487\n• Visualization IllegalArgumentException: The view doesn't exist #2488\n• IllegalArgumentException: The column does not belong to the right column store #2489\n• Combining gexf files hangs in 093 #2476\n\nMiscellaneous\n• Icon for MacOS Big Sur/Monterey #2480",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.9.4",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.9.4/gephi-0.9.4-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.9.4-windows-x64.exe",
+          "sha256": "6132fc3d11378a164d78e72256978b7e422d0fdd3c206c9227d9dfcd1c26b0b1",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.3",
+      "release_notes": "New features\n• Added Statistical Inference community detection algorithm, a more advanced alternative to Modularity #2431\n• Windows and Linux versions now also embed JRE so that it isn't needed anymore to install Java separately #2336\n• FlatLaf look and feel is now used by default on all platforms #2415\n• Appearance attributes like colors used in partition are now saved in the project #1861\n• Last Export settings are now saved as Preferences so they persist between session #1790\n\nBugfixes\n• Improve UI to better suit HighDPI displays #2332\n• Graph Toolbar items overlap on smaller screen sizes #765\n• Some layouts act on settled nodes #2385\n• Ignoring GraphML desc standard tags #2030\n• java.util.MissingResourceException gephi version 0.9.2 #2063\n• NullpointerException on filtering datalab columns that have empty attribute values #2015\n• Leaving \"Create missing nodes\" unchecked does not have the desired effect #1878\n• 'Interval' not copied to new workspace #1988\n• CSV Edges file not importing because Gephi does not detect Source and Target columns #2178\n• ArrayIndexOutOfBoundsException on when deleting nodes #1623\n• No mode indicator in Appearance panel in Gephic Mac 0.9.2 #2098\n• Neighbors Network filter freezes with max depth #2099\n• Unable to import a large file #1841\n• Update crash reporter and make it GDPR compliant #2340\n• ClassCastException: org.gephi.graph.api.types.TimestampSet cannot be cast to org.gephi.graph.api.types.TimeMap #2297\n• Support INF, -INF in GEXF for double-type ±∞ values #2158\n• Node betweenness is negative for big graphs when normalized #2139\n• generatePalette is wrong #2112\n• Loading gexf file with 0-weighted edges crashes import #1945\n• Crash when exporting VNA graph file #1909\n• Import CSV error edges #1848\n• Import of graphml still confuses d3 and label fields #1840\n• Add support of Byte Order Mark to CSV parser #1815\n• CSV files are no longer imported correctly when double quotes inside strings are delimited with backslashes #1812\n• NullPointerException on EdgeTypeFilter #1811\n• GephiFormatException can cause ArrayIndexOutOfBoundsException: 0 #1810\n• Exception with no-merge strategy in some cases. Incompatible edge should not be created #1802\n• NullPointerException: The fileObject parameter cannot be null #1789\n• GephiFormatException: Gephi failed saving the project. #1788\n• Edge labels not retained on graphml export #1516\n• Unhide toggle global/local ranking button #2146\n• Unwanted and inconsistent behavior for \"node size\" #2224\n• Infinite repulsion in ForceAtlas with negative weights #1714\n• Citation for PageRank algorithm #1944\n• Dynamic attributes for dynamic network not properly merged with multiple files #1885\n• Add 'postProcess()' method to Preview's Renderer SPI #1490\n• Changes in labels not rendered in preview mode #1877\n• Sum edges merge strategy gives surprising results #2038\n• Use timezone in GEXF import, export and Create time interval in Data Laboratory #1864\n• Overview viewport too small #1518\n• Wrong edge coloring of selected nodes for directed graphs #2259\n• Modularity index groups are allways 0-index based. #1977\n• Workspace tabs panel is missing when opening project file #1827\n• Regression setting node color by partition #1838\n• Not all selected nodes/edges are moved/copied to new workspace #2088",
+      "release_notes_url": "https://github.com/gephi/gephi/releases/tag/v0.9.3",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.9.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.9.3/gephi-0.9.3-windows-x64.exe",
+          "host": "github.com",
+          "filename": "gephi-0.9.3-windows-x64.exe",
+          "sha256": "87e7077eeb283805157e6d826e1b84fed728a4b1431791860daedacadddf9d85",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.9.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/g/Gephi/Gephi/0.9.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.9.2/gephi-0.9.2-windows.exe",
+          "host": "github.com",
+          "filename": "gephi-0.9.2-windows.exe",
+          "sha256": "cc8dbf806baa157fd34876c940bead660c30d160d391c0189826b5fe270678fb",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "/verysilent",
+            "silent_with_progress": "/silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.11.4",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.4/gephi-0.11.4-macos-x64.dmg",
+          "host": "github.com",
+          "filename": "gephi-0.11.4-macos-x64.dmg",
+          "sha256": "8c7aa77b9814350d32813d41f76a71e9c4c2e0591437d8cab2a2c9e17b674d72"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/gephi/gephi/releases/download/v0.11.4/gephi-0.11.4-macos-aarch64.dmg",
+          "host": "github.com",
+          "filename": "gephi-0.11.4-macos-aarch64.dmg",
+          "sha256": "77400998065042d3cd25c7d5be6a69bdf0ad6ac7b61216186d342f0ffdc9e598"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Gephi.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/gephi",
+            "~/Library/Caches/gephi"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "0.10.1",
+      "release_date": "2023-01-17",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.gephi.Gephi.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.gephi.Gephi.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "c9b2acc529aa3c43ed1ba73865831e7d5c9a7f8c",
+      "retrieved_at": "2026-11-09T12:11:22.963Z",
+      "path": "manifests/g/Gephi/Gephi"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "a4fae11848a85972d56e0e298ba5509c7c769c04",
+      "retrieved_at": "2026-11-09T12:11:22.963Z",
+      "path": "Casks/g/gephi.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/gephi.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.gephi.Gephi",
+      "retrieved_at": "2026-11-09T12:11:24.213Z",
+      "path": "api/v2/appstream/org.gephi.Gephi",
+      "api_url": "https://flathub.org/api/v2/appstream/org.gephi.Gephi",
+      "content_sha256": "feebb37f011fede73188288aa3ec4735608b8104aff5d0d8e967482b0e29f660"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.gephi.Gephi",
+    "page_url": "https://flathub.org/apps/org.gephi.Gephi",
+    "repo_url": "https://github.com/flathub/org.gephi.Gephi",
+    "install_command": "flatpak install flathub org.gephi.Gephi",
+    "run_command": "flatpak run org.gephi.Gephi",
+    "verified": true,
+    "verification": {
+      "method": "dns",
+      "website": "gephi.org",
+      "verified_on": "2026-10-10"
+    },
+    "license": "GPL-3.0",
+    "free_license": true,
+    "developer_name": "Mathieu Bastian",
+    "categories": [
+      "Science"
+    ],
+    "download_size": 166035133,
+    "installed_size": 300097536,
+    "arches": [
+      "x64"
+    ]
+  }
+}
