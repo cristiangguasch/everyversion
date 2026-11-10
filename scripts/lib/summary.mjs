@@ -174,7 +174,8 @@ export function summariseCask(version) {
 
 // ---------------------------------------------------------------- archives from a publisher's own feed (custom sources)
 
-const ARCHIVE_TYPE = { tar: 'a compressed tar archive (.tgz)', zip: 'a ZIP archive' };
+const ARCHIVE_TYPE = { tar: 'a compressed tar archive (.tgz)', zip: 'a ZIP archive', dmg: 'a disk image (.dmg)', exe: 'a setup program (.exe)', swu: 'a firmware update package (.swu)' };
+const ARCHIVE_ARCH = { ...ARCH_LABEL, universal: 'both Apple silicon and Intel Macs' };
 
 export function summariseArchive(version) {
   const ins = version.installers || [];
@@ -185,9 +186,20 @@ export function summariseArchive(version) {
     if (!byType.has(i.type)) byType.set(i.type, new Set());
     byType.get(i.type).add(i.architecture);
   }
-  out.push(`Delivered as ${joinList([...byType].map(([t, a]) => `${ARCHIVE_TYPE[t] || `a "${t}" file`} for ${joinList(ARCH_ORDER.filter((x) => a.has(x)).map((x) => ARCH_LABEL[x]))}`))}.`);
-  out.push('These are archives you unpack yourself, not an installer program, so the download itself changes nothing on your computer until you extract and run what is inside.');
-  out.push('The publisher posts a SHA-256 file next to each download, and the checksum shown on this page is taken from it.');
+  const archOrder = ['universal', ...ARCH_ORDER];
+  out.push(`Delivered as ${joinList([...byType].map(([t, a]) => `${ARCHIVE_TYPE[t] || `a "${t}" file`} for ${joinList(archOrder.filter((x) => a.has(x)).map((x) => ARCHIVE_ARCH[x]))}`))}.`);
+  const has = (...t) => ins.some((i) => t.includes(i.type));
+  if (has('zip', 'tar')) out.push('Archives are unpacked by you, not run as an installer program, so the download itself changes nothing on your computer until you extract and run what is inside.');
+  if (has('dmg')) out.push('A disk image opens in Finder; the download itself changes nothing on your Mac until you open it and run what is inside.');
+  if (has('exe')) out.push('A setup program changes your computer when you run it, not when you download it.');
+  if (has('swu')) out.push('A firmware update package is installed on the device itself, not on your computer.');
+  // Where the checksum on this page comes from.
+  const withSha = ins.filter((i) => i.sha256);
+  const fromCask = withSha.filter((i) => i.checksum_source === 'Homebrew cask');
+  if (withSha.length === ins.length && !fromCask.length) out.push('The publisher posts a SHA-256 file next to each download, and the checksum shown on this page is taken from it.');
+  else if (withSha.length === ins.length) out.push('The publisher posts no checksum for these downloads; the SHA-256 shown on this page is the one a Homebrew cask pins for the file.');
+  else if (withSha.length) out.push('The publisher posts no checksum for these downloads. Where a SHA-256 is shown, it is the one a Homebrew cask pins; for the others we compute it from the file when we check it.');
+  else out.push('The publisher posts no checksum for these downloads. Where this page shows a SHA-256, we computed it from the file ourselves.');
   return out;
 }
 

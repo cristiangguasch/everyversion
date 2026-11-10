@@ -3,6 +3,7 @@
 //
 //   node scripts/custom.mjs                 check every enabled source and write/refresh data/apps/<slug>.json
 //   node scripts/custom.mjs --only=<id>     just that source
+//   node scripts/custom.mjs --full          do not reuse the existing record (an adapter that freezes old releases, like ableton, re-reads them all)
 //
 // Runs on every `npm run ingest` / `npm run daily`, next to the winget and Homebrew steps. Safe to re-run: a record and its
 // timestamps only change when the feed content changed. If a feed is unreachable the existing record is left untouched and
@@ -20,6 +21,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data', 'apps');
 const CACHE_DIR = join(ROOT, 'data', 'custom');
 const args = process.argv.slice(2);
+const FULL = args.includes('--full'); // ignore the existing record, so an adapter that freezes old releases re-reads all of them
 const ONLY = (args.find((a) => a.startsWith('--only=')) || '').slice(7).split(',').filter(Boolean);
 const PLATFORM_ORDER = ['windows', 'macos', 'linux'];
 const UA = { 'user-agent': 'everyversion.net-custom-sources' };
@@ -83,7 +85,7 @@ function buildRecord(src, out, prev, now) {
     release_series: out.release_series,
     verification: {
       level: 0,
-      label: 'Hashes taken from the SHA-256 files the publisher posts next to each download (.sha256sum). Not independently re-computed; signatures not checked.',
+      label: src.verification_label || 'Hashes taken from the SHA-256 files the publisher posts next to each download (.sha256sum). Not independently re-computed; signatures not checked.',
       checks: { hash_in_manifest: true, hash_recomputed: false, signature_checked: false },
     },
     provenance,
@@ -96,7 +98,9 @@ async function runSource(src) {
   const cacheFile = join(CACHE_DIR, `${src.id}.sha256.json`);
   const cache = existsSync(cacheFile) ? JSON.parse(readFileSync(cacheFile, 'utf8')) : {};
   const log = (m) => console.log(m);
-  const out = await mod.fetchSource(src, { getJson: (u) => get(u, 'json'), getText: (u) => get(u, 'text'), cache, log, today: new Date().toISOString().slice(0, 10) });
+  const recFile = join(DATA, `${src.slug}.json`);
+  const existingRecord = !FULL && existsSync(recFile) ? JSON.parse(readFileSync(recFile, 'utf8')) : null; // adapters may keep old entries as they are
+  const out = await mod.fetchSource(src, { getJson: (u) => get(u, 'json'), getText: (u) => get(u, 'text'), cache, log, today: new Date().toISOString().slice(0, 10), prev: existingRecord });
   if (!out.versions.length) throw new Error('the feeds produced no versions; leaving the existing record alone');
   writeFileSync(cacheFile, JSON.stringify(Object.fromEntries(Object.entries(cache).sort(([x], [y]) => x.localeCompare(y))), null, 1) + '\n');
 
