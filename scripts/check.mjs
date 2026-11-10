@@ -101,6 +101,12 @@ for (const l of locs) if (!exists(l)) bad('sitemap.xml', `missing page ${l}`);
 const ht = exists('/.htaccess') || existsSync(join(DIST, '.htaccess')) ? readFileSync(join(DIST, '.htaccess'), 'utf8') : null;
 if (!ht) bad('.htaccess', 'missing from dist/ (the build copies assets/htaccess)');
 else for (const [what, re] of [['https redirect', /RewriteCond %\{HTTPS\} !=on/], ['canonical host', /https:\/\/everyversion\.net\/\$1 \[R=301/], ['no listings', /Options -Indexes/], ['404 for folders without index.html', /REQUEST_FILENAME\}\/index\.html !-f/], ['hidden files', /well-known/]]) if (!re.test(ht)) bad('.htaccess', `missing rule: ${what}`);
+// Search engines must not read or index the .json / .md twins: robots.txt groups for the main crawlers, and a noindex header in .htaccess.
+const robots = existsSync(join(DIST, 'robots.txt')) ? readFileSync(join(DIST, 'robots.txt'), 'utf8') : '';
+const seGroup = /User-Agent: Googlebot\n[\s\S]*?\n\n/i.exec(robots)?.[0] || '';
+for (const [what, re] of [['Googlebot group', /Disallow: \/\*\.json\$/], ['Googlebot group (md)', /Disallow: \/\*\.md\$/], ['Bingbot in the same group', /User-Agent: Bingbot/i]]) if (!re.test(seGroup)) bad('robots.txt', `search-engine group lacks: ${what}`);
+if (!/User-Agent: \*\n[^\n]*\nAllow: \/\n/i.test(robots)) bad('robots.txt', 'the general group must still allow everything (AI agents read the twins)');
+if (ht && !/X-Robots-Tag "noindex/.test(ht)) bad('.htaccess', 'no X-Robots-Tag noindex for .json/.md');
 // Stray macOS Finder files would be served (they list file names). The .htaccess hides them, but they should not be deployed.
 const strays = files.filter((f) => /(^|\/)\.DS_Store$/.test(f));
 if (strays.length) warn.push(`${strays.length} .DS_Store file(s) in dist/ (Finder droppings, hidden by .htaccess; delete before you upload): ${strays.slice(0, 3).map((f) => f.replace(DIST + '/', '')).join(', ')}`);
@@ -118,6 +124,30 @@ for (const a of apps) {
   disabledButtons += (h.match(/class="btn[^"]*is-dead" disabled/g) || []).length;
 }
 if (deadLinks.size) console.log(`  ${deadLinks.size} dead download link(s) on record; ${disabledButtons} disabled button(s) on the pages`);
+
+// checksum mismatches: an app whose downloads do not match the published checksum is never rated Safe
+try {
+  const verif = JSON.parse(readFileSync(join(ROOT, 'data', 'verification.json'), 'utf8'));
+  for (const a of apps) {
+    const v = verif[a.slug];
+    if (!v?.installers?.some((i) => i.hash === 'MISMATCH')) continue;
+    const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
+    const badge = /<span class="pill (\w+)">[^<]*<\/svg>([^<]*)<\/span>/.exec(h.slice(h.indexOf('safe-badge')));
+    if (!badge) continue; // verification was stale and is ignored by the build
+    if (badge[1] === 'ok' || /^Safe/.test(badge[2])) bad(a.slug, `hash mismatch but the page rates it "${badge[2]}"`);
+  }
+} catch {}
+
+// disabled Homebrew casks: a warning in the Downloads card, no brew command, and the Download button is not switched off just because of it
+for (const a of apps) {
+  const rec = JSON.parse(readFileSync(join(ROOT, 'data', 'apps', `${a.slug}.json`), 'utf8'));
+  const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
+  const dl = /<section id="download"[\s\S]*?<\/section>/.exec(h)?.[0] || '';
+  if (rec.homebrew_cask_disabled) {
+    if (!/class="dl-warn"/.test(dl)) bad(a.slug, 'disabled Homebrew cask but no warning in Downloads');
+    if (/brew install --cask/.test(h)) bad(a.slug, 'page still shows a brew install command for a disabled cask');
+  } else if (/class="dl-warn"/.test(dl)) bad(a.slug, 'Homebrew warning on an app whose cask is not disabled');
+}
 
 // features notes (inside Description): present exactly for the apps that have a content file, with 5-8 bullets and the Best for line
 const featureSlugs = existsSync(join(ROOT, 'config', 'features')) ? readdirSync(join(ROOT, 'config', 'features')).filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, '')) : [];

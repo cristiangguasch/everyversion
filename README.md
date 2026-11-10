@@ -33,6 +33,70 @@ npm run daily -- --only=Joplin.Joplin                               # re-read ju
 npm run daily -- --refresh                                          # re-read every app from winget; changed apps are re-verified
 ```
 
+- **Ableton (custom source):** `ableton-live` and `ableton-push` are read from Ableton's release-notes pages and download server (`scripts/sources/ableton.mjs`). Each daily run re-reads only Live 12 (`active_majors` in `config/custom-sources.json`) and the Push release notes; Live 11 and 10 are kept from the record as they are. A new Live 12 release adds its entries, and verification then downloads and hashes the newest files (about 35 GB, one file at a time). `node scripts/custom.mjs --only=ableton-live --full` re-reads every version. The Push downloads are a fixed list in the config; update the URLs there when Ableton ships new firmware.
+- **Dead download links:** `scripts/linkcheck.mjs` (a step of `npm run daily`) requests every download URL the pages show and writes the results to `data/links.json`. A URL that answers HTTP 404 or 410 (also after a GET for one byte, since some hosts mishandle HEAD) gets a disabled Download button, a note on the page, and an UNAVAILABLE flag in the `.md` and `.json` twins; it is left out of the JSON-LD. A download that `verify.mjs` could not fetch because of a 404 is treated the same way. Timeouts, 403s and 429s are "unknown" and leave the button enabled. Each run re-checks the dead URLs, so a file that comes back is enabled again. `npm run linkcheck -- --refresh` re-checks everything (about 8,000 requests).
+
+Options: `--max-mb=N` (optional; leaves apps with a bigger installer unchecked, and there is no size limit by default), `--jobs=3`, `--no-verify`, `--no-vt`, `--no-icons`, `--no-links`, `--no-build`.
+
+- **Disabled Homebrew casks:** a cask that Homebrew has disabled (for example `fails_gatekeeper_check`, `unmaintained`, `discontinued`) is still matched and its macOS download is kept. The record gets `homebrew_cask_disabled` (reason, date), the Downloads card shows a one-sentence Homebrew warning with a link to the cask page, the `brew install` command is left out, and the Download button stays enabled (it goes to the publisher) unless the link check finds it dead (404). Deprecated casks that are not disabled are still skipped.
+- **Homebrew match:** a cask is matched automatically only when the name AND the website (or download source) agree. Anything less is
+  reported under "needs a look". `@beta` and `@insiders` casks are ignored.
+- **Safe to re-run:** every step skips what is already done; a failed step can simply be run again.
+- **VirusTotal** needs a free key in `.env` (`VT_API_KEY=...`, git-ignored). The free key allows about 4 lookups a minute.
+- **Verification is only valid for the exact installers it checked.** If winget moves an app to a new version, the old result is
+  ignored by the build and the app is re-verified on the next run.
+- Raw results live in `data/verification.json` and `data/virustotal.json`; trusted extra roots in `data/roots/`.
+
+## Feature notes (editorial)
+
+Some app pages carry hand-written notes inside the Description section: a one-line "Best for" under the description, then 5 to 8 bullets on what the app does and where it stops. The text lives in `config/features/<slug>.json` (one file per app) and is rendered on the page and in the `.md` twin by `scripts/lib/features.mjs`. Apps without a file show only the description.
+
+```
+{ "slug", "reviewed": "YYYY-MM-DD",
+  "best_for": "one line, written for the reader: their system, their job, their problem",
+  "points": [{ "title", "text" }],          5 to 8 bullets; titles are free, so the structure differs per app
+  "sources": [{ "label", "url" }] }          the official pages the text is based on (https only); not printed on the page
+```
+
+Rules: write in our own words, never copy sentences; say what the app does not do (plan limits, account needs, platform gaps, per-platform differences); include only what was confirmed on a page, and leave out anything unconfirmed. `sources` and `reviewed` are the audit trail: re-check a file when the app's plans or platforms change and update `reviewed`. `npm run validate` checks each file; `npm run check` checks the notes appear exactly for the apps with a file.
+
+## Search engines and the .json / .md twins
+
+The per-app `.json` and `.md` files, `/api/v1/*.json` and `/stats-data.php` are for AI agents and tools, not for search results. Two layers keep search engines away: `robots.txt` has a group for the main crawlers (Googlebot, Bingbot, Slurp, DuckDuckBot, Baiduspider, YandexBot, Applebot and others) that disallows `/*.json# Everyversion — MVP
+
+Static software-version resolver. Source: winget-pkgs only. 100 apps. No framework, no database.
+
+```
+config/apps.txt      the 100 winget IDs (+ curated pricing label, slug override)
+schema/app.schema.json   record schema (also published at /schema/app.schema.json)
+scripts/ingest.mjs   sparse clone of microsoft/winget-pkgs -> data/apps/<slug>.json
+scripts/validate.mjs schema + invariants
+scripts/build.mjs    data -> dist/ (plain HTML, JSON-LD, .json/.md twins, sitemap, llms.txt)
+scripts/check.mjs    JSON-LD, links, sitemap, title checks on dist/
+```
+
+```bash
+npm install
+npm run all      # ingest -> validate -> build -> check
+npm run serve    # http://localhost:4173
+```
+
+Rules the data follows: every field is copied from a manifest or derived by a fixed rule. Anything winget does not provide
+(file size, SHA-1, categories, translation link, signature status, pros/cons) is absent, not guessed.
+Page "free" wording appears only when pricing is derived from an open-source/freeware license or curated by hand.
+
+## Daily routine
+
+One command does everything for new apps: add to config, ingest from winget, match the Homebrew cask, download and
+verify installers (SHA-256 + code signatures), look the hashes up on VirusTotal, build the site, run the checks and print a report.
+
+```bash
+npm run add -- "Joplin.Joplin" "AnyDesk.AnyDesk free-to-download"   # add apps (winget IDs; optional pricing label), then run everything
+npm run daily                                                       # catch up on anything in config/apps.txt that is not done yet
+npm run daily -- --only=Joplin.Joplin                               # re-read just one app (e.g. after adding cask=<token> to its line)
+npm run daily -- --refresh                                          # re-read every app from winget; changed apps are re-verified
+```
+
 - **Dead download links:** `scripts/linkcheck.mjs` (a step of `npm run daily`) requests every download URL the pages show and writes the results to `data/links.json`. A URL that answers HTTP 404 or 410 (also after a GET for one byte, since some hosts mishandle HEAD) gets a disabled Download button, a note on the page, and an UNAVAILABLE flag in the `.md` and `.json` twins; it is left out of the JSON-LD. A download that `verify.mjs` could not fetch because of a 404 is treated the same way. Timeouts, 403s and 429s are "unknown" and leave the button enabled. Each run re-checks the dead URLs, so a file that comes back is enabled again. `npm run linkcheck -- --refresh` re-checks everything (about 8,000 requests).
 
 Options: `--max-mb=N` (optional; leaves apps with a bigger installer unchecked, and there is no size limit by default), `--jobs=3`, `--no-verify`, `--no-vt`, `--no-icons`, `--no-links`, `--no-build`.
@@ -57,6 +121,68 @@ Some app pages carry hand-written notes inside the Description section: a one-li
 ```
 
 Rules: write in our own words, never copy sentences; say what the app does not do (plan limits, account needs, platform gaps, per-platform differences); include only what was confirmed on a page, and leave out anything unconfirmed. `sources` and `reviewed` are the audit trail: re-check a file when the app's plans or platforms change and update `reviewed`. `npm run validate` checks each file; `npm run check` checks the notes appear exactly for the apps with a file.
+
+, `/*.md# Everyversion — MVP
+
+Static software-version resolver. Source: winget-pkgs only. 100 apps. No framework, no database.
+
+```
+config/apps.txt      the 100 winget IDs (+ curated pricing label, slug override)
+schema/app.schema.json   record schema (also published at /schema/app.schema.json)
+scripts/ingest.mjs   sparse clone of microsoft/winget-pkgs -> data/apps/<slug>.json
+scripts/validate.mjs schema + invariants
+scripts/build.mjs    data -> dist/ (plain HTML, JSON-LD, .json/.md twins, sitemap, llms.txt)
+scripts/check.mjs    JSON-LD, links, sitemap, title checks on dist/
+```
+
+```bash
+npm install
+npm run all      # ingest -> validate -> build -> check
+npm run serve    # http://localhost:4173
+```
+
+Rules the data follows: every field is copied from a manifest or derived by a fixed rule. Anything winget does not provide
+(file size, SHA-1, categories, translation link, signature status, pros/cons) is absent, not guessed.
+Page "free" wording appears only when pricing is derived from an open-source/freeware license or curated by hand.
+
+## Daily routine
+
+One command does everything for new apps: add to config, ingest from winget, match the Homebrew cask, download and
+verify installers (SHA-256 + code signatures), look the hashes up on VirusTotal, build the site, run the checks and print a report.
+
+```bash
+npm run add -- "Joplin.Joplin" "AnyDesk.AnyDesk free-to-download"   # add apps (winget IDs; optional pricing label), then run everything
+npm run daily                                                       # catch up on anything in config/apps.txt that is not done yet
+npm run daily -- --only=Joplin.Joplin                               # re-read just one app (e.g. after adding cask=<token> to its line)
+npm run daily -- --refresh                                          # re-read every app from winget; changed apps are re-verified
+```
+
+- **Dead download links:** `scripts/linkcheck.mjs` (a step of `npm run daily`) requests every download URL the pages show and writes the results to `data/links.json`. A URL that answers HTTP 404 or 410 (also after a GET for one byte, since some hosts mishandle HEAD) gets a disabled Download button, a note on the page, and an UNAVAILABLE flag in the `.md` and `.json` twins; it is left out of the JSON-LD. A download that `verify.mjs` could not fetch because of a 404 is treated the same way. Timeouts, 403s and 429s are "unknown" and leave the button enabled. Each run re-checks the dead URLs, so a file that comes back is enabled again. `npm run linkcheck -- --refresh` re-checks everything (about 8,000 requests).
+
+Options: `--max-mb=N` (optional; leaves apps with a bigger installer unchecked, and there is no size limit by default), `--jobs=3`, `--no-verify`, `--no-vt`, `--no-icons`, `--no-links`, `--no-build`.
+
+- **Homebrew match:** a cask is matched automatically only when the name AND the website (or download source) agree. Anything less is
+  reported under "needs a look". `@beta` and `@insiders` casks are ignored.
+- **Safe to re-run:** every step skips what is already done; a failed step can simply be run again.
+- **VirusTotal** needs a free key in `.env` (`VT_API_KEY=...`, git-ignored). The free key allows about 4 lookups a minute.
+- **Verification is only valid for the exact installers it checked.** If winget moves an app to a new version, the old result is
+  ignored by the build and the app is re-verified on the next run.
+- Raw results live in `data/verification.json` and `data/virustotal.json`; trusted extra roots in `data/roots/`.
+
+## Feature notes (editorial)
+
+Some app pages carry hand-written notes inside the Description section: a one-line "Best for" under the description, then 5 to 8 bullets on what the app does and where it stops. The text lives in `config/features/<slug>.json` (one file per app) and is rendered on the page and in the `.md` twin by `scripts/lib/features.mjs`. Apps without a file show only the description.
+
+```
+{ "slug", "reviewed": "YYYY-MM-DD",
+  "best_for": "one line, written for the reader: their system, their job, their problem",
+  "points": [{ "title", "text" }],          5 to 8 bullets; titles are free, so the structure differs per app
+  "sources": [{ "label", "url" }] }          the official pages the text is based on (https only); not printed on the page
+```
+
+Rules: write in our own words, never copy sentences; say what the app does not do (plan limits, account needs, platform gaps, per-platform differences); include only what was confirmed on a page, and leave out anything unconfirmed. `sources` and `reviewed` are the audit trail: re-check a file when the app's plans or platforms change and update `reviewed`. `npm run validate` checks each file; `npm run check` checks the notes appear exactly for the apps with a file.
+
+ and `/stats-data.php`, and `.htaccess` sends `X-Robots-Tag: noindex, nofollow, noarchive` for those files. Every other user agent (AI agents, scripts) still reads them freely; `llms.txt` points to them. A crawler that obeys robots.txt never fetches the files, so it never sees the header; the header only matters for crawlers that fetch them anyway.
 
 ## Deploying (Apache)
 

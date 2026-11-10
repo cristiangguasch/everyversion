@@ -14,7 +14,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { summarise } from './lib/summary.mjs';
 import { statsPage } from './lib/stats-page.mjs';
-import { CASK_REPO } from './lib/cask.mjs';
+import { CASK_REPO, caskDisabledSentence } from './lib/cask.mjs';
 import { loadFeatures, featuresHtml, featuresMd } from './lib/features.mjs';
 import { aboutPage, apiPage, contactPage, legalHub, privacyPage, termsPage, cookiesPage, disclaimerPage, contentPage, securityPage, AUTHOR, AUTHOR_ID, PERSON } from './lib/pages.mjs';
 
@@ -87,7 +87,7 @@ const platformList = (ps) => {
   const n = ps.map((p) => PLATFORM[p]);
   return n.length <= 2 ? n.join(' & ') : `${n.slice(0, -1).join(', ')} & ${n.at(-1)}`;
 };
-const FORMAT = { dmg: 'DMG', pkg: 'PKG', tar: 'TAR', unknown: 'Not stated', exe: 'EXE', nullsoft: 'NSIS', inno: 'Inno Setup', wix: 'MSI (WiX)', msi: 'MSI', burn: 'Burn', msix: 'MSIX', appx: 'APPX', zip: 'ZIP', portable: 'Portable', pwa: 'PWA', flatpak: 'Flatpak' };
+const FORMAT = { dmg: 'DMG', pkg: 'PKG', tar: 'TAR', unknown: 'Not stated', exe: 'EXE', nullsoft: 'NSIS', inno: 'Inno Setup', wix: 'MSI (WiX)', msi: 'MSI', burn: 'Burn', msix: 'MSIX', appx: 'APPX', zip: 'ZIP', portable: 'Portable', pwa: 'PWA', flatpak: 'Flatpak', swu: 'SWUpdate package' };
 const SCOPE = { user: 'Per user', machine: 'All users' };
 const ARCH_ORDER = ['universal', 'x64', 'arm64', 'x86', 'arm', 'neutral'];
 const ARCH = { x64: 'x64 (64-bit)', x86: 'x86 (32-bit)', arm64: 'ARM64', arm: 'ARM', neutral: 'Any' };
@@ -95,14 +95,18 @@ const PRICE_LABEL = {
   'open-source': 'Free and open source',
   freeware: 'Freeware',
   'free-to-download': 'Free to download (may offer paid tiers)',
+  paid: 'Paid (free trial available)',
   unknown: 'Not stated in winget-pkgs',
 };
-const isFree = (rec) => rec.pricing.status !== 'unknown';
+const isFree = (rec) => !['unknown', 'paid'].includes(rec.pricing.status);
 
+// Display order of the downloads of one version when a source offers several (Live editions first, then Push downloads).
+const VARIANT_ORDER = ['Live Suite', 'Live Standard', 'Live Intro', 'Live Lite', 'Push 3 update', 'Push 3 recovery image', 'Push USB audio driver', 'Push legacy audio driver', 'Push 3 GPL source code'];
 const sortInstallers = (list) =>
   [...list].sort(
     (a, b) =>
       ARCH_ORDER.indexOf(a.architecture) - ARCH_ORDER.indexOf(b.architecture) ||
+      (a.variant ? VARIANT_ORDER.indexOf(a.variant) : 0) - (b.variant ? VARIANT_ORDER.indexOf(b.variant) : 0) ||
       a.type.localeCompare(b.type) ||
       (a.scope || '').localeCompare(b.scope || '') ||
       (a.locale || '').localeCompare(b.locale || ''),
@@ -229,7 +233,7 @@ function familyOf(token) {
 function licenseType(rec) {
   const status = rec.pricing.status;
   if (status === 'unknown') return null;
-  if (status !== 'open-source') return { text: status === 'freeware' ? 'Proprietary · Freeware' : 'Proprietary', note: null };
+  if (status !== 'open-source') return { text: status === 'freeware' ? 'Proprietary · Freeware' : status === 'paid' ? 'Proprietary · Paid' : 'Proprietary', note: null };
   const toks = String(rec.license.spdx || rec.license.name).split(/\s+(?:AND|OR|or|and)\s+/);
   const fams = toks.map(familyOf);
   if (fams.every(Boolean) && new Set(fams).size === 1) return { text: `Open source · ${FAMILY[fams[0]][0]}`, note: FAMILY[fams[0]][1] };
@@ -332,6 +336,8 @@ const DEAD_LINKS = (() => {
   return out;
 })();
 const deadOf = (i) => DEAD_LINKS.get(i.url);
+// A hash we computed ourselves when the source lists none (scripts/verify.mjs, for the newest version).
+const ownSha = (slug, i) => (i.sha256 ? null : VERIF_FILES.get(slug)?.get(i.url)?.computed_sha256 || null);
 const deadDay = (d) => (d ? new Date(`${d}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }) : '');
 // A disabled stand-in for the Download button: the publisher's link answers 404/410, so there is nothing to download.
 const deadBtn = (i, cls) => {
@@ -385,17 +391,17 @@ function mergeVerification(recs) {
 
 // ------------------------------------------------------------------ app page
 
-function installerTable(installers, platform = 'windows', ver = '') {
+function installerTable(installers, platform = 'windows', ver = '', slug = '') {
   const mac = platform === 'macos';
   const rows = sortInstallers(installers)
     .map(
       (i) => `<tr>
-<td>${esc(archLabel(i))}</td>
+<td>${i.variant ? `${esc(i.variant)}<span class="host">${esc(archLabel(i))}</span>` : esc(archLabel(i))}</td>
 <td>${esc(fmtOf(i))}${i.nested_type ? `<span class="host">in ${esc(FORMAT[i.nested_type] || i.nested_type)}</span>` : ''}</td>
 ${mac ? '' : `<td>${esc(SCOPE[i.scope] || '—')}${i.locale ? `<span class="host">${esc(i.locale)}</span>` : ''}</td>
 `}${mac ? `<td>${esc(i.min_os_version ? `macOS ${i.min_os_version}+` : '—')}</td>
 <td><span class="fn">${esc(i.filename)}</span>${i.version ? `<span class="host">version ${esc(i.version)}</span>` : ''}<span class="host">${esc(i.host)}</span></td>
-` : ''}<td>${i.sha256 ? `<code class="hash">${esc(i.sha256)}</code>` : '<span class="host">Not provided</span>'}</td>
+` : ''}<td>${i.sha256 || ownSha(slug, i) ? `<code class="hash">${esc(i.sha256 || ownSha(slug, i))}</code>${i.sha256 ? '' : '<span class="host">Computed by us</span>'}` : '<span class="host">Not provided</span>'}</td>
 <td>${deadOf(i) ? `${deadBtn(i, 'btn')}<span class="host">Link returns ${deadOf(i).status}</span>` : `<a class="btn" href="${esc(i.url)}" rel="noopener nofollow" data-t="download" data-slot="version" data-pl="${platform}" data-ar="${esc(i.architecture)}" data-ty="${esc(i.type)}" data-h="${esc(i.host)}"${ver ? ` data-v="${esc(ver)}"` : ''} aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a>`}</td>
 </tr>`,
     )
@@ -443,7 +449,7 @@ const gridVersions = (r, plats) =>
 const MAC_ARCH = { universal: 'Universal (Apple silicon + Intel)', arm64: 'Apple silicon (ARM64)', x64: 'Intel (x64)' };
 const archLabel = (i) => (i.platform === 'macos' ? MAC_ARCH[i.architecture] || i.architecture : ARCH[i.architecture] || i.architecture);
 // Package-manager commands exist only where a package manager lists the app; custom-source downloads have none.
-const installCmd = (rec, p) => (p === 'windows' ? (rec.ids.winget ? `winget install --id ${rec.ids.winget} --exact` : null) : p === 'macos' ? (rec.ids.homebrew_cask ? `brew install --cask ${rec.ids.homebrew_cask}` : null) : p === 'linux' ? (rec.flathub ? rec.flathub.install_command : null) : null);
+const installCmd = (rec, p) => (p === 'windows' ? (rec.ids.winget ? `winget install --id ${rec.ids.winget} --exact` : null) : p === 'macos' ? (rec.ids.homebrew_cask && !rec.homebrew_cask_disabled ? `brew install --cask ${rec.ids.homebrew_cask}` : null) : p === 'linux' ? (rec.flathub ? rec.flathub.install_command : null) : null);
 const verifyCmd = (p) => (p === 'windows' ? 'Get-FileHash .\\<file> -Algorithm SHA256 (PowerShell)' : p === 'linux' ? 'sha256sum ~/Downloads/<file> (Terminal)' : 'shasum -a 256 ~/Downloads/<file> (Terminal)');
 
 function primary(list, platform) {
@@ -509,7 +515,7 @@ function appPage(rec) {
     operatingSystem: plats.map((p) => OS_NAME[p]).join(', '),
     inLanguage: 'en-US',
     publisher: { '@id': `${canonical}#publisher` },
-    ...(rec.pricing.status !== 'unknown' ? { offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', url: canonical, availability: 'https://schema.org/InStock' } } : {}),
+    ...(!['unknown', 'paid'].includes(rec.pricing.status) ? { offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', url: canonical, availability: 'https://schema.org/InStock' } } : {}),
     ...(rec.author && rec.author !== rec.publisher ? { author: { '@type': 'Organization', name: rec.author } } : {}),
     ...(rec.tags?.length ? { keywords: rec.tags.join(', ') } : {}),
     ...(rec.license.url ? { license: rec.license.url } : {}),
@@ -638,20 +644,24 @@ ${opts.map(([label, cmd, slot]) => `<button type="button" role="menuitem" class=
         ].filter(Boolean);
         return `<div class="dl-row">
 <div class="dl-main">
-<div class="dl-title">${esc(PLATFORM[p])} ${esc(archLabel(i))} ${esc(KIND[i.type] || 'installer')}</div>
+<div class="dl-title">${esc(PLATFORM[p])} ${i.variant ? `${esc(i.variant)}${i.architecture === 'neutral' ? '' : ` · ${esc(archLabel(i))}`}` : `${esc(archLabel(i))} ${esc(KIND[i.type] || 'installer')}`}</div>
 <div class="dl-sub">${esc(sub.join(' · '))}</div>
 ${deadOf(i) ? `<div class="dl-dead">The publisher’s link returns HTTP ${deadOf(i).status} (checked ${esc(deadDay(deadOf(i).checked))}), so the download is switched off.</div>` : ''}
-${i.sha256 ? `<details class="dl-hash"><summary>Show SHA-256</summary><div><code class="hash">${esc(i.sha256)}</code> <button type="button" class="copy" data-copy="${esc(i.sha256)}" aria-label="Copy SHA-256 of ${esc(i.filename)}">Copy</button></div></details>` : `<div class="dl-hash"><span class="host">${rec.flathub && p === 'linux' ? 'No file checksum: Flatpak checks the app against Flathub’s signed repository' : 'SHA-256 not provided by the publisher'}</span></div>`}
+${i.sha256 || ownSha(rec.slug, i) ? `<details class="dl-hash"><summary>Show SHA-256${i.sha256 ? '' : ' (computed by us)'}</summary><div><code class="hash">${esc(i.sha256 || ownSha(rec.slug, i))}</code> <button type="button" class="copy" data-copy="${esc(i.sha256 || ownSha(rec.slug, i))}" aria-label="Copy SHA-256 of ${esc(i.filename)}">Copy</button></div></details>` : `<div class="dl-hash"><span class="host">${rec.flathub && p === 'linux' ? 'No file checksum: Flatpak checks the app against Flathub’s signed repository' : 'SHA-256 not provided by the publisher'}</span></div>`}
 </div>
 ${flatpakMenu(i, p)}
 </div>`;
       })
       .join('\n');
   const allHosts = [...new Set(plats.flatMap((p) => latestOf[p].installers.map((i) => i.host)))];
+  // Homebrew disabled this app's cask: say why in one sentence. The Download button stays enabled (it goes to the publisher), so people can still choose to download it.
+  const caskWarn = rec.homebrew_cask_disabled
+    ? `<div class="dl-warn" role="note"><strong>Homebrew warning:</strong> ${withCode(caskDisabledSentence(rec.homebrew_cask_disabled.reason))} You can still download it below from the publisher, at your own judgement. <a href="https://formulae.brew.sh/cask/${esc(encodeURIComponent(rec.ids.homebrew_cask))}" rel="noopener">Homebrew’s cask page</a></div>\n`
+    : '';
   const downloadHtml = `<div class="dl-card">
 ${plats
   .map((p) => `<div class="dl-plat">${PLATFORM_ICON[p] || ''}<h3 id="${p}">${esc(PLATFORM[p])} <span class="sub">${esc(latestOf[p].version)}</span></h3></div>
-${installerRows(latestOf[p].installers, p)}`)
+${p === 'macos' && rec.homebrew_cask_disabled ? caskWarn : ''}${installerRows(latestOf[p].installers, p)}`)
   .join('\n')}
 <div class="dl-foot">
 <p>${plats.flatMap((p) => platformGuidance(p, latestOf[p].installers, customOf(p) ? 'custom' : p === 'macos' ? 'cask' : p === 'linux' && rec.flathub ? 'flathub' : 'winget')).map(esc).join(' ')}</p>
@@ -725,7 +735,7 @@ ${url ? `<p class="pin">${link(url, v.release_notes ? 'Read the full release not
     return `<details id="${p}-${esc(safeId(v.version))}"${idx === 0 && plats.length === 1 ? ' open' : ''}>
 <summary>${esc(v.version)}${idx === 0 ? ' <span class="badge free">latest</span>' : ''}${v.lts ? ' <span class="badge">LTS</span>' : ''} <span class="sub">· ${esc(sub)}</span> ${v.release_notes || v.release_notes_url ? '<span class="badge">notes</span>' : ''}</summary>
 <div class="body">
-${installerTable(v.installers, p, v.version)}
+${installerTable(v.installers, p, v.version, rec.slug)}
 ${pin}
 ${notesBlock(v)}
 ${v.manifest_dir ? `<p class="pin">Manifest: ${link(`${WINGET_REPO}/tree/master/${v.manifest_dir}`, v.manifest_dir)}</p>` : ''}
@@ -857,13 +867,18 @@ ${total > shown.length && (p === 'windows' || customOf(p)) ? `<p class="pin">${c
     none: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9.7 9.8a2.4 2.4 0 1 1 3.4 2.2c-.7.4-1.1.9-1.1 1.7M12 16.5v.5"/></svg>',
   };
   const flaggedWorst = scanned.length ? scanned.reduce((a, b) => (b.flagged > a.flagged ? b : a)) : null;
-  const safety = !worst
+  // A file whose re-computed SHA-256 does not match the published checksum is never rated better than Medium risk, whatever VirusTotal says.
+  const hashMis = rec.verification.summary?.hash || { mismatch: 0, total: 0 };
+  const safetyScan = !worst
     ? { cls: 'none', icon: ICON.none, label: 'Not scanned', cap: 'No VirusTotal result yet' }
     : ringClass === 'ok'
       ? { cls: 'ok', icon: ICON.safe, label: partial ? 'Safe so far' : 'Safe', cap: partial ? `${scanned.length} of ${secFiles.length} files scanned${maxFlagged === 1 ? ', 1 engine flagged' : ''}` : maxFlagged === 1 ? `1 of ${flaggedWorst.engines} engines flagged` : 'VirusTotal scan' }
       : ringClass === 'warn'
         ? { cls: 'warn', icon: ICON.medium, label: 'Medium risk', cap: `${flaggedWorst.flagged} of ${flaggedWorst.engines} engines flagged` }
         : { cls: 'bad', icon: ICON.high, label: 'High risk', cap: `${flaggedWorst.flagged} of ${flaggedWorst.engines} engines flagged` };
+  const safety = hashMis.mismatch && safetyScan.cls !== 'bad'
+    ? { cls: 'warn', icon: ICON.medium, label: 'Medium risk', cap: `${hashMis.mismatch} of ${hashMis.total} downloads do not match the published checksum` }
+    : safetyScan;
   const safeBadge = `<a class="safe-badge" href="#security" title="${esc(safety.cap)}" aria-label="Safety: ${esc(safety.label)}. ${esc(safety.cap)}. Jump to the security details"><span class="pill ${safety.cls}">${safety.icon}${esc(safety.label)}</span></a>`;
 
   // Flagged files: list each engine and its label exactly as VirusTotal reports it. We add no interpretation.
@@ -890,6 +905,7 @@ ${f.vt.detections.map((d) => `<tr><td>${esc(d.engine)}</td><td>${esc(d.category)
 ${worst ? `<div class="ring ${ringClass}" style="--p:${worst.score}" role="img" aria-label="Score ${worst.score} out of 100"><span><strong>${worst.score}</strong><small>/100</small></span></div>` : ''}
 <div>
 <p class="sec-result">Score result: <strong class="r-${ringClass}">${resultLabel}</strong></p>
+${hashMis.mismatch ? `<p class="sec-warn"><strong>Checksum mismatch:</strong> ${hashMis.mismatch} of ${hashMis.total} downloads we fetched do not match the checksum in the package catalog. The score above covers only VirusTotal’s scan, so we rate ${esc(rec.name)} no better than Medium risk until this is explained.</p>` : ''}
 ${worst
     ? `<p>${maxFlagged === 0
         ? `None of the ${worst.engines} security engines on VirusTotal flagged ${scanned.length === 1 ? 'the scanned file' : `any of the ${scanned.length} scanned files`}.`
@@ -959,6 +975,7 @@ ${verifyRows}
     if (partial) safeA.push(`Reports exist for ${scanned.length} of ${secFiles.length} files, so the rating does not cover the rest.`);
     if (rec.verification.level < 1) safeA.push(`These VirusTotal results are for the file hashes listed in the ${allCustom ? 'publisher’s checksum files' : 'package catalog'}. We have not downloaded the files ourselves.`);
   }
+  if (hashMis.mismatch) safeA.push(`Because ${hashMis.mismatch === 1 ? 'one download does' : `${hashMis.mismatch} downloads do`} not match the published checksum, we rate ${esc(rec.name)} no better than Medium risk until the difference is explained. The publisher may have replaced the file after the catalog entry was written.`);
   safeA.push(`Our rating: <strong>${esc(safety.label)}</strong>. No check is a guarantee. See the security details above and our Security and Trust Center.${site ? ` Publisher’s website: ${site}.` : ''}`);
 
   const mac = latestOf.macos;
@@ -974,8 +991,9 @@ ${verifyRows}
     'open-source': `No. ${nm} is free and open source (license: ${esc(rec.license.name)}).`,
     freeware: `No. ${nm} is freeware (license: ${esc(rec.license.name)}).`,
     'free-to-download': `It is free to download and use, but ${nm} may also offer paid plans or extra features (license: ${esc(rec.license.name)}).`,
+    paid: `${nm} is paid software (license: ${esc(rec.license.name)}). The publisher offers a free trial.`,
     unknown: `We could not tell from the package catalog whether ${nm} costs anything.`,
-  }[rec.pricing.status] + (['free-to-download', 'unknown'].includes(rec.pricing.status) ? (u.purchase ? ' For current pricing, see the publisher’s pricing page.' : site ? ` For current pricing, see ${site}.` : '') : '');
+  }[rec.pricing.status] + (['free-to-download', 'paid', 'unknown'].includes(rec.pricing.status) ? (u.purchase ? ' For current pricing, see the publisher’s pricing page.' : site ? ` For current pricing, see ${site}.` : '') : '');
 
   const verClause = (p) => {
     const all = versionsOf(rec, p);
@@ -1137,6 +1155,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     rec.ids.winget ? `- winget ID: ${rec.ids.winget}` : '',
     rec.ids.custom ? `- Source: ${rec.ids.custom} (publisher release feed)` : '',
     rec.ids.homebrew_cask ? `- Homebrew cask: ${rec.ids.homebrew_cask}` : '',
+    rec.homebrew_cask_disabled ? `- Homebrew cask status: DISABLED${rec.homebrew_cask_disabled.date ? ` on ${rec.homebrew_cask_disabled.date}` : ''} (${rec.homebrew_cask_disabled.reason}). ${caskDisabledSentence(rec.homebrew_cask_disabled.reason).replace(/\`/g, '')} The macOS download link still works.` : '',
     rec.flathub ? `- Flathub: ${rec.flathub.app_id} — ${rec.flathub.page_url} (app data from Flathub${rec.flathub.license ? `; license listed there: ${rec.flathub.license}` : ''})` : '',
     rec.flathub ? `- Flathub publisher verified: ${rec.flathub.verified ? 'yes' : 'no'}${rec.flathub.verified ? ` (${flathubVerifiedText(rec.flathub)})` : ` (${flathubUnverifiedText(rec.flathub)})`}` : '',
     `- Verification: level ${rec.verification.level} — ${rec.verification.label}${verified ? ` Checked by ${AUTHOR}.` : ''}`,
@@ -1155,7 +1174,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
       ...versionsOf(rec, p).flatMap((v) => [
         `#### ${v.version}${v.release_date ? ` — ${v.release_date}` : ''}`,
         '',
-        ...sortInstallers(v.installers).map((i) => `- ${i.architecture} ${i.type}${i.scope ? ` (${i.scope})` : ''}${i.version ? ` [version ${i.version}]` : ''}: ${i.filename}\n  - url: ${i.url}${deadOf(i) ? ` (UNAVAILABLE: HTTP ${deadOf(i).status} on ${deadOf(i).checked}; the download button is disabled)` : ''}\n  - sha256: ${i.sha256 || 'not provided by upstream'}`),
+        ...sortInstallers(v.installers).map((i) => `- ${i.variant ? `${i.variant}, ` : ''}${i.architecture} ${i.type}${i.scope ? ` (${i.scope})` : ''}${i.version ? ` [version ${i.version}]` : ''}: ${i.filename}\n  - url: ${i.url}${deadOf(i) ? ` (UNAVAILABLE: HTTP ${deadOf(i).status} on ${deadOf(i).checked}; the download button is disabled)` : ''}\n  - sha256: ${i.sha256 || (ownSha(rec.slug, i) ? `${ownSha(rec.slug, i)} (computed by us; the source lists none)` : 'not provided by upstream')}`),
         v.release_notes ? `Release notes: ${v.release_notes.replace(/\s+/g, ' ').trim()}` : v.release_notes_url ? `Release notes: ${v.release_notes_url}` : '',
         '',
         pinCmd(rec, v) && p === 'windows' ? `Pin: \`${pinCmd(rec, v)}\`` : installCmd(rec, p) ? `Install: \`${installCmd(rec, p)}\`` : '',
@@ -1664,6 +1683,27 @@ function main() {
 # RESERVATIONS OF RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN
 # UNION DIRECTIVE 2019/790 ON COPYRIGHT AND RELATED RIGHTS
 # IN THE DIGITAL SINGLE MARKET.
+
+# Search engines do not crawl the machine-readable twins (the .json and .md files). They are meant for AI agents and tools, which keep
+# full access below. A crawler follows only the most specific group that names it, so each group repeats the rules it needs.
+User-Agent: Googlebot
+User-Agent: Googlebot-News
+User-Agent: Googlebot-Image
+User-Agent: Bingbot
+User-Agent: Slurp
+User-Agent: DuckDuckBot
+User-Agent: Baiduspider
+User-Agent: YandexBot
+User-Agent: Applebot
+User-Agent: Qwantify
+User-Agent: SeznamBot
+User-Agent: Naverbot
+User-Agent: Yeti
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Allow: /
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /stats-data.php
 
 User-Agent: *
 Content-Signal: ai-train=yes, search=yes, ai-input=yes

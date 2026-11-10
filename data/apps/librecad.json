@@ -6,10 +6,12 @@
   "ids": {
     "winget": "LibreCAD.LibreCAD",
     "moniker": "librecad",
+    "homebrew_cask": "librecad",
     "flathub": "org.librecad.librecad"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "LibreCAD is a cross-platform 2D CAD program written in C++11 using the Qt framework. It can read DXF and DWG files and can write DXF, PDF and SVG files. The user interface is highly customizable, and has dozens of translations.",
@@ -37,11 +39,13 @@
   },
   "latest_versions": {
     "windows": "2.2.1.6",
+    "macos": "2.2.1.5",
     "linux": "2.2.1.6"
   },
   "last_updated": "2026-10-17",
   "versions_total": {
     "windows": 11,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -498,6 +502,42 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "2.2.1.5",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/LibreCAD/LibreCAD/releases/download/v2.2.1.5/LibreCAD-v2.2.1.5.dmg",
+          "host": "github.com",
+          "filename": "LibreCAD-v2.2.1.5.dmg",
+          "sha256": "34369e791af12e414d6e08c0954f679990706215a07b569a8eb7b9a6fa115f38"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/LibreCAD/LibreCAD/releases/download/v2.2.1.5/LibreCAD-v2.2.1.5-arm64.dmg",
+          "host": "github.com",
+          "filename": "LibreCAD-v2.2.1.5-arm64.dmg",
+          "sha256": "0c6ce2e25a027ff3e921b74101d1c4e167687d2386fe0798f2f4c37d12deb436"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "LibreCAD.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/LibreCAD",
+            "~/Library/Preferences/com.librecad.LibreCAD.plist",
+            "~/Library/Saved Application State/com.yourcompany.LibreCAD.savedstate"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "2.2.1.6",
       "release_date": "2026-10-17",
@@ -533,14 +573,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "7ba156ba3b98370906bafbaa35808b8d6cfe55f1",
-      "retrieved_at": "2026-11-05T12:08:19.012Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/l/LibreCAD/LibreCAD"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/l/librecad.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/librecad.json"
     },
     {
       "source": "flathub",

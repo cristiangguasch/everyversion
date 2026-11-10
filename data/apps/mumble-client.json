@@ -7,10 +7,12 @@
   "ids": {
     "winget": "Mumble.Mumble.Client",
     "moniker": "mumble-client",
+    "homebrew_cask": "mumble",
     "flathub": "info.mumble.Mumble"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "Low-latency and high quality voice chat primarily intended for use while gaming.",
@@ -46,11 +48,13 @@
   },
   "latest_versions": {
     "windows": "1.5.939",
+    "macos": "1.5.901",
     "linux": "1.5.939"
   },
   "last_updated": "2026-10-09",
   "versions_total": {
     "windows": 11,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -470,6 +474,35 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "1.5.901",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/mumble-voip/mumble/releases/download/v1.5.901/mumble_client-1.5.901.x64.dmg",
+          "host": "github.com",
+          "filename": "mumble_client-1.5.901.x64.dmg",
+          "sha256": "9618a7abf0da3743e1d8c13ddb45ea6524fcfff001e844d9bb95a86867aa6f47"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Mumble.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "/Library/ScriptingAdditions/MumbleOverlay.osax",
+            "~/Library/Application Support/Mumble",
+            "~/Library/Logs/Mumble.log",
+            "~/Library/Preferences/net.sourceforge.mumble.Mumble.plist",
+            "~/Library/Saved Application State/net.sourceforge.mumble.Mumble.savedState"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "1.5.939",
       "release_date": "2026-10-11",
@@ -504,14 +537,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "1464d41576767dbac3497f1cf70f79561fd0e7b6",
-      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/m/Mumble/Mumble/Client"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/m/mumble.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/mumble.json"
     },
     {
       "source": "flathub",

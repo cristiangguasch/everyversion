@@ -6,10 +6,12 @@
   "ids": {
     "winget": "OpenRCT2.OpenRCT2",
     "moniker": "openrct2",
+    "homebrew_cask": "openrct2",
     "flathub": "io.openrct2.OpenRCT2"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "Open source re-implementation of RollerCoaster Tycoon 2",
@@ -48,11 +50,13 @@
   },
   "latest_versions": {
     "windows": "0.5.7",
+    "macos": "0.5.7",
     "linux": "0.5.7"
   },
   "last_updated": "2026-11-01",
   "versions_total": {
     "windows": 44,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -2005,6 +2009,35 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "0.5.7",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "zip",
+          "url": "https://github.com/OpenRCT2/OpenRCT2/releases/download/v0.5.7/OpenRCT2-v0.5.7-macos-universal.zip",
+          "host": "github.com",
+          "filename": "OpenRCT2-v0.5.7-macos-universal.zip",
+          "sha256": "fd71e17c8ee5e8bd5887e2b1e269d7bdd0c7cee056997cdc6b55813ed395fed3"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "OpenRCT2.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/CrashReporter/OpenRCT2*",
+            "~/Library/Application Support/OpenRCT2",
+            "~/Library/Preferences/io.openrct2.OpenRCT2.plist",
+            "~/Library/Preferences/website.openrct2.OpenRCT2.plist",
+            "~/Library/Saved Application State/io.openrct2.OpenRCT2.savedState"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "0.5.7",
       "release_date": "2026-11-01",
@@ -2040,14 +2073,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "c9b2acc529aa3c43ed1ba73865831e7d5c9a7f8c",
-      "retrieved_at": "2026-11-09T12:11:22.963Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/o/OpenRCT2/OpenRCT2"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/o/openrct2.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/openrct2.json"
     },
     {
       "source": "flathub",

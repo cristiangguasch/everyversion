@@ -6,10 +6,12 @@
   "author": "Alacritty",
   "ids": {
     "winget": "Alacritty.Alacritty",
-    "moniker": "alacritty"
+    "moniker": "alacritty",
+    "homebrew_cask": "alacritty"
   },
   "platforms": [
-    "windows"
+    "windows",
+    "macos"
   ],
   "summary": "Alacritty is a free and open-source GPU accelerated terminal emulator focused on performance and simplicity.",
   "description": "Alacritty is a modern terminal emulator that comes with sensible defaults, but allows for extensive configuration.\nBy integrating with other applications, rather than reimplementing their functionality, it manages to provide a flexible set of features with high performance.\nThe supported platforms currently consist of BSD, Linux, macOS and Windows.",
@@ -42,11 +44,13 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "0.17.0"
+    "windows": "0.17.0",
+    "macos": "0.17.0"
   },
   "last_updated": "2026-04-06",
   "versions_total": {
-    "windows": 19
+    "windows": 19,
+    "macos": 1
   },
   "versions": [
     {
@@ -674,6 +678,36 @@
           "min_os_version": "10.0.0.0"
         }
       ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.17.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/alacritty/alacritty/releases/download/v0.17.0/Alacritty-v0.17.0.dmg",
+          "host": "github.com",
+          "filename": "Alacritty-v0.17.0.dmg",
+          "sha256": "ad8d7de35fb38e43184776cac6dfee05ca325caa0b6639a06a55e54e4b026620"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Alacritty.app"
+        ],
+        "binaries": [
+          "alacritty",
+          "alacritty-direct"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Preferences/org.alacritty.plist",
+            "~/Library/Saved Application State/org.alacritty.savedState"
+          ]
+        }
+      }
     }
   ],
   "verification": {
@@ -685,14 +719,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "0356288295f94d0c65ec0ecf8696c6d5c10b3dd4",
-      "retrieved_at": "2026-11-04T20:55:11.768Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/a/Alacritty/Alacritty"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/a/alacritty.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/alacritty.json"
     }
   ]
 }

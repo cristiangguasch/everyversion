@@ -1,0 +1,1645 @@
+{
+  "schema_version": 2,
+  "slug": "rancher-desktop",
+  "name": "Rancher Desktop",
+  "publisher": "SUSE",
+  "author": "rancher-sandbox",
+  "ids": {
+    "winget": "SUSE.RancherDesktop",
+    "moniker": "rancher-desktop",
+    "homebrew_cask": "rancher"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Kubernetes and container management to the desktop.",
+  "description": "Rancher Desktop is an open-source project to bring Kubernetes and container management to the desktop.\nWindows, macOS and Linux versions of Rancher Desktop are available for download, though do note that the Linux version is considered a tech preview.",
+  "tags": [
+    "k3s",
+    "nerdctl",
+    "rancher"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://rancherdesktop.io/",
+    "publisher": "https://github.com/rancher-sandbox/rancher-desktop",
+    "support": "https://github.com/rancher-sandbox/rancher-desktop/issues",
+    "bug_tracker": "https://github.com/rancher-sandbox/rancher-desktop/issues",
+    "release_notes": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.25.0",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/rancher-sandbox/rancher-desktop/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/rancher-sandbox/rancher-desktop/blob/HEAD/LICENSE",
+    "spdx": "Apache-2.0",
+    "copyright_url": "https://github.com/rancher-sandbox/rancher-desktop/blob/main/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.25.0",
+    "macos": "1.25.0"
+  },
+  "last_updated": "2026-11-05",
+  "versions_total": {
+    "windows": 47,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.25.0",
+      "release_date": "2026-11-05",
+      "release_notes": "This Rancher Desktop 1.25.0, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\n\n## Installers\n\n• [Windows](https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.25.0/Rancher.Desktop.Setup.1.25.0.msi)\n• [macOS x86_64](https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.25.0/Rancher.Desktop-1.25.0.x86_64.dmg)\n• [macOS aarch64](https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.25.0/Rancher.Desktop-1.25.0.aarch64.dmg)\n• [Linux install notes](https://docs.rancherdesktop.io/1.25/getting-started/installation#linux)\n\n## New Contributors\n\nThank you to our new contributors：@srtdog64, @PlayerNguyen, @Harshavardhan-28, and @Juhantam!\n\n## Release Notes for 1.25.0\n\n### What's New\n\n#### The interface speaks Vietnamese\n\nPick Vietnamese under Preferences > Application > General. It joins the eight languages that 1.24.0 added, and like them it is experimental, so feedback from native speakers is welcome. The app's usual font lacks most Vietnamese accented letters, so Vietnamese text uses a font installed on your system instead. Thanks to @PlayerNguyen! ([#11004](https://github.com/rancher-sandbox/rancher-desktop/pull/11004))\n\n#### Deleting containers and volumes asks first\n\nThe Delete action on the Containers and Volumes pages used to run the moment you clicked it; both pages now ask first, in a dialog that counts the containers or volumes and lists them by name. Cancel is the default button, so Esc and Enter both back out. ([#10957](https://github.com/rancher-sandbox/rancher-desktop/pull/10957))\n\n#### Tables show up to 1000 rows per page\n\nThe Containers and Volumes pages showed only 10 rows at a time. Forwarding and Diagnostics showed 100. They now show up to 1000. ([#10958](https://github.com/rancher-sandbox/rancher-desktop/pull/10958))\n\n#### `rdctl start --wait`\n\n`rdctl start` would return as soon as it has launched the app, so a script that runs `docker` or `kubectl` next could race the backend coming up. With the new `--wait` flag, `rdctl start` returns once the backend has started, and fails if the backend reports an error or `--wait-timeout` (10 minutes by default) runs out. By then the container engine is ready to use. When Rancher Desktop is already running, `--wait` has two problems, described under Known Issues. ([#6915](https://github.com/rancher-sandbox/rancher-desktop/issues/6915))\n\n#### macOS and Linux：new installs forward ports over gRPC\n\nNew installs, and installs after a factory reset, now forward published ports and the Docker socket through Lima's gRPC port forwarder instead of SSH. On macOS, the SSH forwarder can hold only about 1000 connections at once. Past that limit, 1.24.0 lost every published port and the Docker socket until Rancher Desktop restarted, while 1.25.0 keeps them working and refuses just the extra connections. The gRPC forwarder keeps those connections in Lima's host agent, where that limit does not apply. Existing installs keep their saved forwarder; to switch, run `rdctl set --experimental.virtual-machine.ssh-port-forwarder=false`. ([#11235](https://github.com/rancher-sandbox/rancher-desktop/pull/11235))\n\n### Bug Fixes\n\n#### Windows：Docker stopped answering soon after it started\n\nSince 1.23.0, a health check inside the WSL distribution failed on every run when using the moby engine. About a minute after each start, the failed check stopped the proxy that forwards Docker requests from Windows, and on some machines the proxy stayed down until Rancher Desktop restarted. Docker commands from Windows then failed with \"timed out dialing Hyper-V socket\", and `docker.log` could grow by a megabyte every few seconds. The health check passes again, and the proxy now restarts after it is stopped. ([#10739](https://github.com/rancher-sandbox/rancher-desktop/issues/10739))\n\n#### Windows：startup could hang at \"Waiting for Kubernetes API\"\n\nRancher Desktop could wait forever for a Kubernetes cluster that was already running, looking for the cluster at an address it worked out from WSL's network settings. That lookup failed for some of the network ranges WSL picks, and always under WSL's VirtioProxy networking mode. WSL picks a new range at each start, so the hang came and went. Rancher Desktop now checks the API at 127.0.0.1, the address Windows uses to reach it. A Kubernetes port other than 6443 also left the API unreachable from Windows; that works now too. ([#10657](https://github.com/rancher-sandbox/rancher-desktop/issues/10657))\n\n#### Windows：the guest agent log could fill the disk\n\n`rancher-desktop-guestagent.log` recorded debug messages even with debug mode off, so once containers were running it could grow until the disk was full. The guest agent now logs debug messages only when Enable debug mode is checked on the Troubleshooting page. ([#10737](https://github.com/rancher-sandbox/rancher-desktop/issues/10737))\n\n#### Windows：a `PORT` environment variable broke Docker\n\nIf the environment that started Rancher Desktop set a `PORT` variable, the process that forwards Docker requests from Windows took it as its own port, failed, and restarted every second, so Docker never worked from Windows. It ignores the variable now. ([#10946](https://github.com/rancher-sandbox/rancher-desktop/issues/10946))\n\n#### Windows：published UDP ports answered only on localhost\n\nWith a per-machine installation (the one available for all users), other machines could not reach a container's published UDP port. The installer's firewall exception for `host-switch.exe` allowed only TCP; it now allows UDP too. ([#10965](https://github.com/rancher-sandbox/rancher-desktop/pull/10965))\n\n#### Windows：`ping` in a container always got a reply\n\nOn Windows, Rancher Desktop's network stack answered every ping from a container itself, so `ping` reported replies even for addresses where no machine exists. Pings now go out to the real address, and a container sees only the replies that come back. ([#11127](https://github.com/rancher-sandbox/rancher-desktop/pull/11127))\n\n#### Windows：a `127.0.0.1` port could stop answering after its container restarted\n\nWith the moby engine, a container can publish more than one port on `127.0.0.1`. When such a container stopped, Rancher Desktop removed the forwarding rule for only one of those ports. If the container then started with a different IP address, connections to its other ports went to the old address and timed out until Rancher Desktop restarted. Rancher Desktop now removes the rules for all of them. ([#11138](https://github.com/rancher-sandbox/rancher-desktop/issues/11138))\n\n#### macOS：outbound connections failed for about a minute after each Kubernetes start\n\nWith the VZ virtual machine type (default) and Kubernetes enabled, Kubernetes tried at startup to reach the metrics server at the address that the server had in the previous boot. When the local network silently dropped those attempts, they filled all ten slots that the virtual machine's network stack has for connections in progress. Every new outbound TCP connection from the virtual machine then failed until the attempts timed out about a minute later, so an image pull in that minute failed with `dial tcp ...：i/o timeout`. The bundled Lima now allows 128 connections in progress and gives up on each after 30 seconds. ([#11136](https://github.com/rancher-sandbox/rancher-desktop/issues/11136))\n\n#### Startup errors showed a misleading message\n\nWhen the virtual machine failed to start on macOS or Linux, the error dialog could say \"Invalid state, no container engine client available\", and the real cause, such as a failed Kubernetes download, appeared only in the logs. A snapshot taken with `rdctl snapshot create` right after startup could trigger the same message on any platform. It could also make Rancher Desktop report a failed start, or quit when it was started with `--no-modal-dialogs`. The dialog now shows the real error, and a snapshot right after startup causes neither problem. ([#8525](https://github.com/rancher-sandbox/rancher-desktop/issues/8525), [#11264](https://github.com/rancher-sandbox/rancher-desktop/pull/11264))\n\n#### Docker logged \"dangling\" warnings every few seconds\n\nWith Kubernetes enabled and the moby engine using the containerd image store, every Kubernetes start reloaded the bundled images, and Docker kept a stale record of each one. `docker.log` then gained about six \"multiple images have the same target, but one of them is still dangling\" warnings every ten seconds. Rancher Desktop now loads only the images that are missing, for every k3s release published since late July 2025; older k3s versions still load everything. Docker cannot remove the records that earlier starts left behind, but a factory reset clears them. The underlying Docker bug is [moby/moby#53561](https://github.com/moby/moby/issues/53561). ([#10876](https://github.com/rancher-sandbox/rancher-desktop/issues/10876))\n\n#### Pods inherited the host's DNS search domains\n\nOn macOS and Linux, pods inherited the DNS search domains of the host's network, and they tried those domains before the name itself. Some search domains answer for names that they do not hold, through a public wildcard record or a router that answers for everything under its local domain. So such a search domain sent a pod's lookups of external names to the wrong address, and lookups of full `svc.cluster.local` names could fail. Pods no longer get the host's search domains, so they can't resolve short names through them either; a pod that needs one can set `dnsConfig.searches`. ([#2227](https://github.com/rancher-sandbox/rancher-desktop/issues/2227), [#6316](https://github.com/rancher-sandbox/rancher-desktop/issues/6316), [#8380](https://github.com/rancher-sandbox/rancher-desktop/issues/8380))\n\n#### Turning off Traefik could leave it running\n\nWhen you turned off Traefik, Rancher",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.25.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.25.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.25.0/Rancher.Desktop.Setup.1.25.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.25.0.msi",
+          "sha256": "8e8a703cafc101495bfc9aecc515a91f9c781e572c39d93698bfa96655ec21f8",
+          "product_code": "{B589FE33-2E5E-46F2-B559-EBC1727D8CB7}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{B589FE33-2E5E-46F2-B559-EBC1727D8CB7}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.24.0",
+      "release_date": "2026-06-29",
+      "release_notes": "This is the 1.23.1 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n• Windows\n• macOS x86_64\n• macOS aarch64\n• Linux install notes\nRancher Desktop 2.0 Alpha 1 is available\nThe first alpha of Rancher Desktop 2.0 is out：a ground-up rewrite that runs with or without the GUI and installs alongside Rancher Desktop without touching it. It is an early tech preview, not for production. For what it is and how to try it, see Welcome to Rancher Desktop 2.0 on our blog.\nNew Contributors\nThank you to our new contributors：@linghengqian, @endemics, @cm-iwata, @maximumschmidt, @immanuwell, @officialasishkumar, and @edwinbalani!\nRelease Notes for 1.23.1\nKubernetes portforwarding on macOS and Linux has been fixed\nIn the 1.23.0 release Kubernetes port were not being forwarded to the host. This has been fixed.\nRelease Notes for 1.23.0\nWhat's New\nDark mode preference\nRancher Desktop now lets you choose between dark, light, and system themes under Preferences > Behavior. Previous versions always followed the OS theme. (#5905)\nContainer dashboard improvements\nThanks to @endemics, the container detail page now includes a Shell tab that opens an interactive terminal session inside a running container. The session persists across tab switches, so you can check logs and return to your shell without losing context. (#9925)\n@endemics also added an Inspect tab that displays key container metadata pulled from docker inspect：name, image, IP address, creation date, and collapsible sections for mounts, environment variables, commands and arguments, capabilities, ports, and labels. (#9986)\nA Stats tab, also from @endemics, shows live CPU, memory, network, and disk I/O charts for a running container, plus a table of its processes. The refresh interval defaults to one second, with 5-second, 20-second, 30-second, and 1-minute options; collection stops when you leave the tab. (#9987)\nSeparately, @officialasishkumar added a Restart action to the Containers list for running containers, available for single containers or bulk selections. The table refreshes once the restart completes. (#10224)\nDynamic ports for the Cluster Dashboard\nThe Cluster Dashboard's API server used to bind to a fixed port (9443) and failed to start when another program already used it. It now picks an available port automatically at startup. (#1890)\nWindows：proxy bypass for domains and wildcards\nThe no-proxy list now supports domain names and wildcard patterns (e.g. *.example.com) in addition to IP addresses and CIDR subnets. (#9803)\nAI Workbench extension\nThe bundled Open WebUI extension has been renamed to AI Workbench and updated to version 0.2.0. AI Workbench provides a local web interface for interacting with large language models running in containers, letting you experiment with AI workloads directly from Rancher Desktop.\nInstalled extension details\nThanks to @officialasishkumar, the Installed extensions table now shows each extension's vendor, description, and a More information link, drawn from the metadata the extension already publishes. (#8698)\nImproved macOS disk image installer\nThanks to @maximumschmidt, the macOS disk image now guides installation：a lasso wraps the Rancher Desktop icon and points it toward the Applications folder, under a \"Drag to Applications to install\" instruction. The Finder volume title reads \"Install Rancher Desktop …\" so it names the action rather than the product. (#10194)\nBug Fixes\nmacOS and Linux：could fail to start after an unclean shutdown\nAfter an unclean shutdown, such as a host crash or force-quit, Rancher Desktop could refuse to start because a leftover virtual-machine process confused its startup checks. Rancher Desktop now clears the leftover process and starts normally. (#7760)\nWindows：startup could fail after many launches\nAfter Rancher Desktop had been started many times, it could stop starting altogether：each launch added a certificate to the VM's trust store — once that store filled past a fixed limit, certificate setup failed and blocked startup. Rancher Desktop now removes stale certificates before adding new ones. Thanks to @cm-iwata! (#9929)\nWindows：running other-architecture binaries could stop working\nStarting Rancher Desktop could disable support for running binaries built for other architectures (WSLInterop) — not only inside Rancher Desktop, but in your other WSL distributions too. Rancher Desktop now leaves those registrations alone. (#10049)\nWindows：host-network containers could shadow published ports\nA container run with --network=host and listening on 127.0.0.1 could hijack a port that another container had published with -p, or that a Kubernetes hostPort used — leaving the published port unreachable from Windows, or sending its traffic to the wrong container. Published ports and host-network ports no longer collide. (#10357)\nWindows：slow clients could get corrupted Docker API responses\nA program reading from the Docker API slowly could receive a corrupted response, because the proxy sometimes inserted stray bytes into the stream. The proxy no longer corrupts responses. Thanks to @linghengqian! (#9499)\nWindows：docker compose down --volumes ignored\ndocker compose down --volumes (and its -v shorthand) did not remove the named volumes. Both flags now work as expected. Thanks to @officialasishkumar! (#10096)\ndocker cp failed on a created-but-not-started container\ndocker cp failed when copying files to or from a container that had been created but not yet started. Copying now works for created containers as well. Thanks to @edwinbalani! (#1544, #9787)\nWindows：no-proxy list could not be edited\nThe no-proxy list could not be edited：adding an entry failed with an error and corrupted the saved setting. It now works correctly. (#9803)\nLinux：rdctl used the wrong configuration in the AppImage\nOn native Linux, the AppImage mistook itself for a WSL environment, so rdctl looked for its configuration in the wrong place and could not reach Rancher Desktop. rdctl now reads the correct configuration on Linux. Thanks to @linghengqian! (#9789)\nContainer logs showed errors with the dockerd engine\nWith the dockerd (moby) engine, the container log view showed spurious error messages mixed in with the logs. The logs now display cleanly. Thanks to @endemics! (#9934)\nCtrl+C didn't copy container logs\nIn the read-only container log view, Ctrl+C was intercepted as an interrupt instead of copying text. Ctrl+C now copies the selected text to the clipboard. (#9788)\nAuto-update could silently stop working\nTwo problems could leave Rancher Desktop quietly unable to find new versions：a single failed check disabled all later checks until the next restart, and a bad response from the update server was cached for about a day, so every check kept failing. Update checks now recover from both on their own. (#10019, #10359)\nSecurity\nUpdated containerd from 2.2.0 to 2.2.5, fixing five security advisories in its CRI plugin:\n• CVE-2026-50195 (critical)：a CRI checkpoint import could poison a node's local image cache under an attacker-chosen tag.\n• CVE-2026-53488 (critical)：a label in a pulled image could trigger command execution on the host.\n• CVE-2026-53492 (critical)：a CRI checkpoint restore could inject arbitrary CDI configuration into the restored container.\n• CVE-2026-53489 (high)：a symlink in a checkpoint image could expose arbitrary host files through kubectl logs.\n• CVE-2026-47262 (moderate)：a crafted image could exhaust memory and crash containerd.\nUpdates to Bundled Utilities (from Rancher Desktop 1.22.0)\n• docker 29.1.4 → 29.5.3\n• docker-compose 5.0.1 → 5.1.4\n• docker-buildx 0.30.1 → 0.34.1\n• docker-credential-helpers 0.9.5 → 0.9.8\n• helm 4.0.5 → 4.2.0\n• kuberlr 0.6.1 → 0.7.0\n• nerdctl 2.2.1 → 2.2.2\n• trivy 0.68.2 → 0.71.0\n• amazon-ecr-credential-helper 0.11.0 → 0.12.0\n• spin 3.5.1 → 4.0.0\n• spin-shim 0.22.0 → 0.24.0\nUnchanged:\n• spin-operator 0.6.1\nConnect with the developers\n• The issue queue\n• Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.22.0, can be found using GitHub compare and the details of the release can be found in the v1.23.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.23.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.24.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.24.0/Rancher.Desktop.Setup.1.24.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.24.0.msi",
+          "sha256": "5fc4e795a1c3bf72a2dac9144d55daab181f30d1a3049d96a4c025985769960b",
+          "product_code": "{B589FE33-2E5E-46F2-B559-EBC1727D8CB7}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{B589FE33-2E5E-46F2-B559-EBC1727D8CB7}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.23.1",
+      "release_date": "2026-06-29",
+      "release_notes": "This is the 1.23.1 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRancher Desktop 2.0 Alpha 1 is available\nThe first alpha of Rancher Desktop 2.0 is out: a ground-up rewrite that runs with or without the GUI and installs alongside Rancher Desktop without touching it. It is an early tech preview, not for production. For what it is and how to try it, see Welcome to Rancher Desktop 2.0 on our blog.\nNew Contributors\nThank you to our new contributors: @linghengqian, @endemics, @cm-iwata, @maximumschmidt, @immanuwell, @officialasishkumar, and @edwinbalani!\nRelease Notes for 1.23.1\nKubernetes portforwarding on macOS and Linux has been fixed\nIn the 1.23.0 release Kubernetes port were not being forwarded to the host. This has been fixed.\nRelease Notes for 1.23.0\nWhat's New\nDark mode preference\nRancher Desktop now lets you choose between dark, light, and system themes under Preferences > Behavior. Previous versions always followed the OS theme. (#5905)\nContainer dashboard improvements\nThanks to @endemics, the container detail page now includes a Shell tab that opens an interactive terminal session inside a running container. The session persists across tab switches, so you can check logs and return to your shell without losing context. (#9925)\n@endemics also added an Inspect tab that displays key container metadata pulled from docker inspect: name, image, IP address, creation date, and collapsible sections for mounts, environment variables, commands and arguments, capabilities, ports, and labels. (#9986)\nA Stats tab, also from @endemics, shows live CPU, memory, network, and disk I/O charts for a running container, plus a table of its processes. The refresh interval defaults to one second, with 5-second, 20-second, 30-second, and 1-minute options; collection stops when you leave the tab. (#9987)\nSeparately, @officialasishkumar added a Restart action to the Containers list for running containers, available for single containers or bulk selections. The table refreshes once the restart completes. (#10224)\nDynamic ports for the Cluster Dashboard\nThe Cluster Dashboard's API server used to bind to a fixed port (9443) and failed to start when another program already used it. It now picks an available port automatically at startup. (#1890)\nWindows: proxy bypass for domains and wildcards\nThe no-proxy list now supports domain names and wildcard patterns (e.g. *.example.com) in addition to IP addresses and CIDR subnets. (#9803)\nAI Workbench extension\nThe bundled Open WebUI extension has been renamed to AI Workbench and updated to version 0.2.0. AI Workbench provides a local web interface for interacting with large language models running in containers, letting you experiment with AI workloads directly from Rancher Desktop.\nInstalled extension details\nThanks to @officialasishkumar, the Installed extensions table now shows each extension's vendor, description, and a More information link, drawn from the metadata the extension already publishes. (#8698)\nImproved macOS disk image installer\nThanks to @maximumschmidt, the macOS disk image now guides installation: a lasso wraps the Rancher Desktop icon and points it toward the Applications folder, under a \"Drag to Applications to install\" instruction. The Finder volume title reads \"Install Rancher Desktop …\" so it names the action rather than the product. (#10194)\nBug Fixes\nmacOS and Linux: could fail to start after an unclean shutdown\nAfter an unclean shutdown, such as a host crash or force-quit, Rancher Desktop could refuse to start because a leftover virtual-machine process confused its startup checks. Rancher Desktop now clears the leftover process and starts normally. (#7760)\nWindows: startup could fail after many launches\nAfter Rancher Desktop had been started many times, it could stop starting altogether: each launch added a certificate to the VM's trust store — once that store filled past a fixed limit, certificate setup failed and blocked startup. Rancher Desktop now removes stale certificates before adding new ones. Thanks to @cm-iwata! (#9929)\nWindows: running other-architecture binaries could stop working\nStarting Rancher Desktop could disable support for running binaries built for other architectures (WSLInterop) — not only inside Rancher Desktop, but in your other WSL distributions too. Rancher Desktop now leaves those registrations alone. (#10049)\nWindows: host-network containers could shadow published ports\nA container run with --network=host and listening on 127.0.0.1 could hijack a port that another container had published with -p, or that a Kubernetes hostPort used — leaving the published port unreachable from Windows, or sending its traffic to the wrong container. Published ports and host-network ports no longer collide. (#10357)\nWindows: slow clients could get corrupted Docker API responses\nA program reading from the Docker API slowly could receive a corrupted response, because the proxy sometimes inserted stray bytes into the stream. The proxy no longer corrupts responses. Thanks to @linghengqian! (#9499)\nWindows: docker compose down --volumes ignored\ndocker compose down --volumes (and its -v shorthand) did not remove the named volumes. Both flags now work as expected. Thanks to @officialasishkumar! (#10096)\ndocker cp failed on a created-but-not-started container\ndocker cp failed when copying files to or from a container that had been created but not yet started. Copying now works for created containers as well. Thanks to @edwinbalani! (#1544, #9787)\nWindows: no-proxy list could not be edited\nThe no-proxy list could not be edited: adding an entry failed with an error and corrupted the saved setting. It now works correctly. (#9803)\nLinux: rdctl used the wrong configuration in the AppImage\nOn native Linux, the AppImage mistook itself for a WSL environment, so rdctl looked for its configuration in the wrong place and could not reach Rancher Desktop. rdctl now reads the correct configuration on Linux. Thanks to @linghengqian! (#9789)\nContainer logs showed errors with the dockerd engine\nWith the dockerd (moby) engine, the container log view showed spurious error messages mixed in with the logs. The logs now display cleanly. Thanks to @endemics! (#9934)\nCtrl+C didn't copy container logs\nIn the read-only container log view, Ctrl+C was intercepted as an interrupt instead of copying text. Ctrl+C now copies the selected text to the clipboard. (#9788)\nAuto-update could silently stop working\nTwo problems could leave Rancher Desktop quietly unable to find new versions: a single failed check disabled all later checks until the next restart, and a bad response from the update server was cached for about a day, so every check kept failing. Update checks now recover from both on their own. (#10019, #10359)\nSecurity\nUpdated containerd from 2.2.0 to 2.2.5, fixing five security advisories in its CRI plugin:\n- CVE-2026-50195 (critical): a CRI checkpoint import could poison a node's local image cache under an attacker-chosen tag.\n- CVE-2026-53488 (critical): a label in a pulled image could trigger command execution on the host.\n- CVE-2026-53492 (critical): a CRI checkpoint restore could inject arbitrary CDI configuration into the restored container.\n- CVE-2026-53489 (high): a symlink in a checkpoint image could expose arbitrary host files through kubectl logs.\n- CVE-2026-47262 (moderate): a crafted image could exhaust memory and crash containerd.\nUpdates to Bundled Utilities (from Rancher Desktop 1.22.0)\n- docker 29.1.4 → 29.5.3\n- docker-compose 5.0.1 → 5.1.4\n- docker-buildx 0.30.1 → 0.34.1\n- docker-credential-helpers 0.9.5 → 0.9.8\n- helm 4.0.5 → 4.2.0\n- kuberlr 0.6.1 → 0.7.0\n- nerdctl 2.2.1 → 2.2.2\n- trivy 0.68.2 → 0.71.0\n- amazon-ecr-credential-helper 0.11.0 → 0.12.0\n- spin 3.5.1 → 4.0.0\n- spin-shim 0.22.0 → 0.24.0\nUnchanged:\n- spin-operator 0.6.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.22.0, can be found using GitHub compare and the details of the release can be found in the v1.23.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.23.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.23.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.23.1/Rancher.Desktop.Setup.1.23.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.23.1.msi",
+          "sha256": "65c2daa6e7d6b5dbd172d51f9eb72d4a318869deb722a99decc82e87ae068102",
+          "product_code": "{B589FE33-2E5E-46F2-B559-EBC1727D8CB7}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{B589FE33-2E5E-46F2-B559-EBC1727D8CB7}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.23.0",
+      "release_date": "2026-06-23",
+      "release_notes": "This is the 1.23.0 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRancher Desktop 2.0 Alpha 1 is available\nThe first alpha of Rancher Desktop 2.0 is out: a ground-up rewrite that runs with or without the GUI and installs alongside Rancher Desktop without touching it. It is an early tech preview, not for production. For what it is and how to try it, see Welcome to Rancher Desktop 2.0 on our blog.\nNew Contributors\nThank you to our new contributors: @linghengqian, @endemics, @cm-iwata, @maximumschmidt, @immanuwell, @officialasishkumar, and @edwinbalani!\nRelease Notes for 1.23.0\nWhat's New\nDark mode preference\nRancher Desktop now lets you choose between dark, light, and system themes under Preferences > Behavior. Previous versions always followed the OS theme. (#5905)\nContainer dashboard improvements\nThanks to @endemics, the container detail page now includes a Shell tab that opens an interactive terminal session inside a running container. The session persists across tab switches, so you can check logs and return to your shell without losing context. (#9925)\n@endemics also added an Inspect tab that displays key container metadata pulled from docker inspect: name, image, IP address, creation date, and collapsible sections for mounts, environment variables, commands and arguments, capabilities, ports, and labels. (#9986)\nA Stats tab, also from @endemics, shows live CPU, memory, network, and disk I/O charts for a running container, plus a table of its processes. The refresh interval defaults to one second, with 5-second, 20-second, 30-second, and 1-minute options; collection stops when you leave the tab. (#9987)\nSeparately, @officialasishkumar added a Restart action to the Containers list for running containers, available for single containers or bulk selections. The table refreshes once the restart completes. (#10224)\nDynamic ports for the Cluster Dashboard\nThe Cluster Dashboard's API server used to bind to a fixed port (9443) and failed to start when another program already used it. It now picks an available port automatically at startup. (#1890)\nWindows: proxy bypass for domains and wildcards\nThe no-proxy list now supports domain names and wildcard patterns (e.g. *.example.com) in addition to IP addresses and CIDR subnets. (#9803)\nAI Workbench extension\nThe bundled Open WebUI extension has been renamed to AI Workbench and updated to version 0.2.0. AI Workbench provides a local web interface for interacting with large language models running in containers, letting you experiment with AI workloads directly from Rancher Desktop.\nInstalled extension details\nThanks to @officialasishkumar, the Installed extensions table now shows each extension's vendor, description, and a More information link, drawn from the metadata the extension already publishes. (#8698)\nImproved macOS disk image installer\nThanks to @maximumschmidt, the macOS disk image now guides installation: a lasso wraps the Rancher Desktop icon and points it toward the Applications folder, under a \"Drag to Applications to install\" instruction. The Finder volume title reads \"Install Rancher Desktop …\" so it names the action rather than the product. (#10194)\nBug Fixes\nmacOS and Linux: could fail to start after an unclean shutdown\nAfter an unclean shutdown, such as a host crash or force-quit, Rancher Desktop could refuse to start because a leftover virtual-machine process confused its startup checks. Rancher Desktop now clears the leftover process and starts normally. (#7760)\nWindows: startup could fail after many launches\nAfter Rancher Desktop had been started many times, it could stop starting altogether: each launch added a certificate to the VM's trust store — once that store filled past a fixed limit, certificate setup failed and blocked startup. Rancher Desktop now removes stale certificates before adding new ones. Thanks to @cm-iwata! (#9929)\nWindows: running other-architecture binaries could stop working\nStarting Rancher Desktop could disable support for running binaries built for other architectures (WSLInterop) — not only inside Rancher Desktop, but in your other WSL distributions too. Rancher Desktop now leaves those registrations alone. (#10049)\nWindows: host-network containers could shadow published ports\nA container run with --network=host and listening on 127.0.0.1 could hijack a port that another container had published with -p, or that a Kubernetes hostPort used — leaving the published port unreachable from Windows, or sending its traffic to the wrong container. Published ports and host-network ports no longer collide. (#10357)\nWindows: slow clients could get corrupted Docker API responses\nA program reading from the Docker API slowly could receive a corrupted response, because the proxy sometimes inserted stray bytes into the stream. The proxy no longer corrupts responses. Thanks to @linghengqian! (#9499)\nWindows: docker compose down --volumes ignored\ndocker compose down --volumes (and its -v shorthand) did not remove the named volumes. Both flags now work as expected. Thanks to @officialasishkumar! (#10096)\ndocker cp failed on a created-but-not-started container\ndocker cp failed when copying files to or from a container that had been created but not yet started. Copying now works for created containers as well. Thanks to @edwinbalani! (#1544, #9787)\nWindows: no-proxy list could not be edited\nThe no-proxy list could not be edited: adding an entry failed with an error and corrupted the saved setting. It now works correctly. (#9803)\nLinux: rdctl used the wrong configuration in the AppImage\nOn native Linux, the AppImage mistook itself for a WSL environment, so rdctl looked for its configuration in the wrong place and could not reach Rancher Desktop. rdctl now reads the correct configuration on Linux. Thanks to @linghengqian! (#9789)\nContainer logs showed errors with the dockerd engine\nWith the dockerd (moby) engine, the container log view showed spurious error messages mixed in with the logs. The logs now display cleanly. Thanks to @endemics! (#9934)\nCtrl+C didn't copy container logs\nIn the read-only container log view, Ctrl+C was intercepted as an interrupt instead of copying text. Ctrl+C now copies the selected text to the clipboard. (#9788)\nAuto-update could silently stop working\nTwo problems could leave Rancher Desktop quietly unable to find new versions: a single failed check disabled all later checks until the next restart, and a bad response from the update server was cached for about a day, so every check kept failing. Update checks now recover from both on their own. (#10019, #10359)\nSecurity\nUpdated containerd from 2.2.0 to 2.2.5, fixing five security advisories in its CRI plugin:\n- CVE-2026-50195 (critical): a CRI checkpoint import could poison a node's local image cache under an attacker-chosen tag.\n- CVE-2026-53488 (critical): a label in a pulled image could trigger command execution on the host.\n- CVE-2026-53492 (critical): a CRI checkpoint restore could inject arbitrary CDI configuration into the restored container.\n- CVE-2026-53489 (high): a symlink in a checkpoint image could expose arbitrary host files through kubectl logs.\n- CVE-2026-47262 (moderate): a crafted image could exhaust memory and crash containerd.\nUpdates to Bundled Utilities (from Rancher Desktop 1.22.0)\n- docker 29.1.4 → 29.5.3\n- docker-compose 5.0.1 → 5.1.4\n- docker-buildx 0.30.1 → 0.34.1\n- docker-credential-helpers 0.9.5 → 0.9.8\n- helm 4.0.5 → 4.2.0\n- kuberlr 0.6.1 → 0.7.0\n- nerdctl 2.2.1 → 2.2.2\n- trivy 0.68.2 → 0.71.0\n- amazon-ecr-credential-helper 0.11.0 → 0.12.0\n- spin 3.5.1 → 4.0.0\n- spin-shim 0.22.0 → 0.24.0\nUnchanged:\n- spin-operator 0.6.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.22.0, can be found using GitHub compare and the details of the release can be found in the v1.23.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.23.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.23.0/Rancher.Desktop.Setup.1.23.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.23.0.msi",
+          "sha256": "750d2e12666336e4abd875a2c9cb80d7471b907b139616400de2a5cfdf6cff35",
+          "product_code": "{A6EE1B0A-8AE1-416C-8836-CCCB1C5A30EC}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{A6EE1B0A-8AE1-416C-8836-CCCB1C5A30EC}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.22.3",
+      "release_date": "2026-05-13",
+      "release_notes": "This is the 1.22.3 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.22.3\nRancher Desktop 1.22.3 is a security-focused patch release. We strongly recommend upgrading.\nSecurity Fixes\nContainer escape mitigation (CVE-2026-31431, CVE-2026-43284, CVE-2026-43500)\nThree recent Linux kernel exploits — copy.fail (CVE-2026-31431) and the two dirtyfrag variants (CVE-2026-43284, CVE-2026-43500) — let unprivileged processes gain a page-cache write primitive and tamper with files outside their normal reach. Inside Rancher Desktop, that means an attacker with code execution in any container could escape that scope and modify the rest of the VM.\nEach exploit needs a specific Linux kernel module loaded. Rancher Desktop now removes those modules, so the exploits have nothing to hook into.\nModules removed:\n──────────┬──────────────────────────────────────────────────────────────────────────┬─────────────────────────────────────────\nModule    │Used for                                                                  │CVE it enables\n──────────┼──────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────\nesp4 /    │IPsec ESP (site-to-site VPN gateways, e.g. strongSwan, libreswan)         │CVE-2026-43284 (dirtyfrag, XFRM ESP)\nesp6      │                                                                          │\n──────────┼──────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────\nrxrpc     │RxRPC protocol, used almost exclusively by AFS / kAFS (Andrew File System)│CVE-2026-43500 (dirtyfrag, AF_RXRPC)\n──────────┼──────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────\nalgif_aead│Kernel AEAD crypto via AF_ALG sockets (offload to hardware accelerators)  │CVE-2026-31431 (copy.fail)\n──────────┴──────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────\nWhat this means for you: unless you run an IPsec VPN endpoint or an AFS client, the removal is invisible to you.\nOn macOS and Linux, the rebuilt Alpine VM image omits the modules. (#10220, #10248)\nOn Windows, WSL2 provides kernel modules through a single overlay shared by every WSL distro running on the host, which means:\n- When Rancher Desktop starts, it removes these modules for all running WSL distros, not just its own. Other distros will lose IPsec ESP, AFS, and AF_ALG until WSL itself restarts.\n- When WSL restarts (e.g. wsl --shutdown followed by launching any distro), the upstream WSL kernel restores the modules.\n- The next time Rancher Desktop starts, it removes them again.\nThis is an \"apply-on-start\" / \"forget-on-stop\" lifecycle: Rancher Desktop never persists changes to your WSL installation. (#10247)\nThe bundled Alpine VM image also picks up a newer kernel containing additional upstream security patches.\nBug Fixes\nBind mounts via the Docker --mount flag on Windows\nIn Rancher Desktop 1.22.2, docker run --mount type=bind,... on Windows could mount the wrong directory or fail to start the container. This release restores correct bind-mount behavior; the -v /path:/path shorthand stayed correct throughout. (#10252)\nRelease Notes for 1.22.2\nRancher Desktop 1.22.2 is a patch release fixing a critical bug on macOS (and maybe on Linux). It contains no further changes beyond the following 2 items:\nFixed data volume mount on macOS\nUnder certain conditions, the data volume failed to mount on macOS. In that case, all data was stored in a RAM disk, which is limited to the amount of memory allocated to the VM (usually 6GB). This resulted in early out-of-memory errors when building or pulling images.\nWhen Rancher Desktop was restarted, all data from the current session was lost because it was never written to disk. Theoretically, this could also have happened on Linux, but it has only been reported in macOS (#9754 and #10133)\nUpgrade trivy 0.68.2 → 0.70.0\nThis upgrade also includes an upgrade to trivy 0.70.0 because the 0.68.2 version is no longer available for download. There are no known issues with 0.68.2; it just is no longer accessible.\nRelease Notes for 1.22.1\nThe 1.22.1 release did not fix the bug it was supposed to fix and was replaced with Rancher Desktop 1.22.2.\nRelease Notes for 1.22.0\nWhat's New\nSelect moby storage driver\nVersion 1.21.0 switched to the containerd-snapshotter storage driver by default. On Windows, this happened unconditionally (even on upgrades), which made existing images inaccessible.\nUsers can now choose between the classic and containerd-snapshotter storage drivers via rdctl:\nrdctl set --container-engine.moby-storage-driver classic\nrdctl set --container-engine.moby-storage-driver snapshotter\nRancher Desktop automatically selects the driver based on where your existing images are stored. See Migrating Images for instructions on moving images between storage drivers. Windows users affected by the 1.21.0 issue can switch back to the classic driver to regain access to their images. (#9732)\nDocker 29 in the VM\nAlpine Linux has been updated to version 3.23, which includes Docker 29. This fixes issues with docker inspect returning incomplete image metadata. (#9671, #9739)\nKubernetes Dashboard improvements\nPod log streaming now works in the Dashboard. This was broken since version 1.6.0. (#3212)\nThe Dashboard button now waits until the Steve API server accepts connections before becoming active. Previously, clicking the button too quickly after Kubernetes started would show a spinner that never resolved. (#8217)\nThe non-functional \"Download KubeConfig\" and \"Kubectl Shell\" buttons have been removed from the cluster dashboard. (#2208, #8151, #8757)\nDocker Compose 5.0\nDocker Compose has been updated to version 5.0. Key changes include:\n- Compose can now be used as an SDK for third-party integrations\n- The internal builder has been removed; builds are delegated to Docker Bake\n- Hooks now run on restart\n- New --wait option for the start command\nHelm 4.0\nHelm has been updated to version 4.0. See the Helm 4.0 release notes for details on the changes.\nDiagnostics\nMoby image store check\nA new diagnostic reports when images exist in the inactive image store (classic vs. containerd-snapshotter), helping identify which images need migration. (#9733)\nWindows: wsl-vpnkit detection\nA new diagnostic warns when the wsl-vpnkit distribution is present, as it can cause networking issues with Rancher Desktop. (#9623)\nBug Fixes\nmacOS CA management with multiple keychains\nFixed a bug where certificates from multiple keychains were being written to the same file path, causing only the last keychain's certificates to be processed. (#9755)\nK3s version channel labels not updating\nFixed an issue where version channel labels (e.g, stable, latest, v1.xx) were not removed from old versions when they moved to newer versions, causing multiple patch versions to appear in the recommended list. (#9709)\nK3s image loading for older versions\nMade the --all-platforms flag optional when loading K3s images, so older K3s versions (before 1.31) load images correctly. (#9708, #9710)\nrdctl info works after upgrade\nFixed an issue where rdctl info failed with a BusyBox error for users who upgraded from version 1.19.3 or earlier, or restored an old snapshot. The 1.21.0 release notes mentioned a manual workaround; this is no longer needed. (#9546, #9554)\nContainers page error handling\nFixed an \"[object Object]\" error that appeared on the Containers page when the backend became temporarily unavailable. (#9545, #9661)\nConnectivity check uses HTTPS\nThe network connectivity diagnostic now uses an HTTPS HEAD request instead of HTTP GET, improving privacy by encrypting the request. (#9711)\nLinux packaging fixes\nFixed an issue where the Debian package did not set the suid bit on chrome-sandbox, causing the application to fail to start on Debian and Ubuntu systems.\nThe virtualization support check now works correctly on Linux arm64 systems.\nExtension fixes\nFixed several issues with Docker Desktop extensions:\n- Uninstall and upgrade buttons on the Installed tab now work correctly\n- Extension metadata and icons refresh properly after reinstalling an extension\n- Extensions without containers no longer cause errors during uninstall\n- The ddClient.extension object now includes the id and version fields as specified by the Docker Desktop Extension API\nUpdates to Bundled Utilities (from Rancher Desktop 1.21.0)\n- docker 29.0.2 → 29.1.4\n- docker-compose 2.40.3 → 5.0.1\n- docker-credential-helpers 0.9.4 → 0.9.5\n- helm 3.19.1 → 4.0.5\n- nerdctl 2.2.0 → 2.2.1\n- trivy 0.67.2 → 0.70.0\nUnchanged:\n- amazon-ecr-credential-helper 0.11.0\n- docker-buildx 0.30.1\n- kuberlr 0.6.1\n- spin 3.5.1\n- spin-shim 0.22.0\n- spin-operator 0.6.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.21.0, can be found using GitHub compare and the details of the release can be found in the v1.22.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.22.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.22.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.22.3/Rancher.Desktop.Setup.1.22.3.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.22.3.msi",
+          "sha256": "d0918c3e99d2918d84d739e47df12964b2d75ccdf3f9da769b6d4b47ede187cf",
+          "product_code": "{F559B82C-9629-4244-B217-DF1945D72170}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{F559B82C-9629-4244-B217-DF1945D72170}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.22.2",
+      "release_date": "2026-05-04",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.22.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.22.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.22.2/Rancher.Desktop.Setup.1.22.2.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.22.2.msi",
+          "sha256": "faa4505ddaf1e33416b5069de5197ef148cf2e6d53747973f5090c2625e16282",
+          "product_code": "{8F281BAA-AD4C-4B3C-8AFB-26494B448CD2}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{8F281BAA-AD4C-4B3C-8AFB-26494B448CD2}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.22.0",
+      "release_date": "2026-01-19",
+      "release_notes": "This is the 1.22.0 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.22.0\nWhat's New\nSelect moby storage driver\nVersion 1.21.0 switched to the containerd-snapshotter storage driver by default. On Windows, this happened unconditionally (even on upgrades), which made existing images inaccessible.\nUsers can now choose between the classic and containerd-snapshotter storage drivers via rdctl:\nrdctl set --experimental.container-engine.docker.storage-driver classic\nrdctl set --experimental.container-engine.docker.storage-driver containerd-snapshotter\nRancher Desktop automatically selects the driver based on where your existing images are stored. See Migrating Images for instructions on moving images between storage drivers. Windows users affected by the 1.21.0 issue can switch back to the classic driver to regain access to their images. (#9732)\nDocker 29 in the VM\nAlpine Linux has been updated to version 3.23, which includes Docker 29. This fixes issues with docker inspect returning incomplete image metadata. (#9671, #9739)\nKubernetes Dashboard improvements\nPod log streaming now works in the Dashboard. This was broken since version 1.6.0. (#3212)\nThe Dashboard button now waits until the Steve API server accepts connections before becoming active. Previously, clicking the button too quickly after Kubernetes started would show a spinner that never resolved. (#8217)\nThe non-functional \"Download KubeConfig\" and \"Kubectl Shell\" buttons have been removed from the cluster dashboard. (#2208, #8151, #8757)\nDocker Compose 5.0\nDocker Compose has been updated to version 5.0. Key changes include:\n- Compose can now be used as an SDK for third-party integrations\n- The internal builder has been removed; builds are delegated to Docker Bake\n- Hooks now run on restart\n- New --wait option for the start command\nHelm 4.0\nHelm has been updated to version 4.0. See the Helm 4.0 release notes for details on the changes.\nDiagnostics\nMoby image store check\nA new diagnostic reports when images exist in the inactive image store (classic vs. containerd-snapshotter), helping identify which images need migration. (#9733)\nWindows: wsl-vpnkit detection\nA new diagnostic warns when the wsl-vpnkit distribution is present, as it can cause networking issues with Rancher Desktop. (#9623)\nBug Fixes\nmacOS CA management with multiple keychains\nFixed a bug where certificates from multiple keychains were being written to the same file path, causing only the last keychain's certificates to be processed. (#9755)\nK3s version channel labels not updating\nFixed an issue where version channel labels (e.g, stable, latest, v1.xx) were not removed from old versions when they moved to newer versions, causing multiple patch versions to appear in the recommended list. (#9709)\nK3s image loading for older versions\nMade the --all-platforms flag optional when loading K3s images, so older K3s versions (before 1.31) load images correctly. (#9708, #9710)\nrdctl info works after upgrade\nFixed an issue where rdctl info failed with a BusyBox error for users who upgraded from version 1.19.3 or earlier, or restored an old snapshot. The 1.21.0 release notes mentioned a manual workaround; this is no longer needed. (#9546, #9554)\nContainers page error handling\nFixed an \"[object Object]\" error that appeared on the Containers page when the backend became temporarily unavailable. (#9545, #9661)\nConnectivity check uses HTTPS\nThe network connectivity diagnostic now uses an HTTPS HEAD request instead of HTTP GET, improving privacy by encrypting the request. (#9711)\nLinux packaging fixes\nFixed an issue where the Debian package did not set the suid bit on chrome-sandbox, causing the application to fail to start on Debian and Ubuntu systems.\nThe virtualization support check now works correctly on Linux arm64 systems.\nExtension fixes\nFixed several issues with Docker Desktop extensions:\n- Uninstall and upgrade buttons on the Installed tab now work correctly\n- Extension metadata and icons refresh properly after reinstalling an extension\n- Extensions without containers no longer cause errors during uninstall\n- The ddClient.extension object now includes the id and version fields as specified by the Docker Desktop Extension API\nUpdates to Bundled Utilities (from Rancher Desktop 1.21.0)\n- docker 29.0.2 → 29.1.4\n- docker-compose 2.40.3 → 5.0.1\n- docker-credential-helpers 0.9.4 → 0.9.5\n- helm 3.19.1 → 4.0.5\n- nerdctl 2.2.0 → 2.2.1\n- trivy 0.67.2 → 0.68.2\nUnchanged:\n- amazon-ecr-credential-helper 0.11.0\n- docker-buildx 0.30.1\n- kuberlr 0.6.1\n- spin 3.5.1\n- spin-shim 0.22.0\n- spin-operator 0.6.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.21.0, can be found using GitHub compare and the details of the release can be found in the v1.22.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.22.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.22.0/Rancher.Desktop.Setup.1.22.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.22.0.msi",
+          "sha256": "c12ad093e2f30d92ebabac7fe4630e496cbfb6cdde9de6f87e9800aed7b82306",
+          "product_code": "{97218EA8-7B57-41EB-A47B-C369CA4C998D}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{97218EA8-7B57-41EB-A47B-C369CA4C998D}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.21.0",
+      "release_date": "2025-11-26",
+      "release_notes": "This is the 1.21.0 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.21.0\nWhat's New\nrdctl info command\nrdctl has a new info command that lists the Rancher Desktop version and the IP address of the VM:\n❯ rdctl info\nVersion:   v1.21.0\nIPAddress: 192.168.205.2\nYou can query individual fields for use in scripts:\n❯ rdctl info --field ip-address\n192.168.205.2\nIncreasing disk size (Linux and macOS)\nRancher Desktop by default reserves 100GB of disk space for the VM (it is a sparse file, so only the portion in use actually takes up disk space on the host).\nIt is now possible to increase the maximum size of the VM disk using rdctl:\n❯ rdctl set --experimental.virtual-machine.disk-size 120G\nStatus: reconfiguring Rancher Desktop to apply changes (this may take a while).\nThis will restart Rancher Desktop, at which time the volume will expand to the larger size. Please note that it is not possible to reduce the maximum size. Unused space in the VM disk will be returned for host usage every time Rancher Desktop is restarted (via fstrim).\nThere is no GUI mechanism to change the maximum disk size.\nUpdate checker only checks once a day\nRancher Desktop will only check for updates once per day now instead of every hour. This interval is not configurable but the update checks can be disabled completely via both rdctl and the GUI.\nOnline checker frequency is configurable\nBy default, Rancher Desktop checks every 5 seconds to update the \"online\" indicator. It does this by checking for the right redirect response from http://docs.rancherdesktop.io (to https). This also detects when the computer is caught inside a captive portal, like airport or hotel wifi.\nYou can now change the frequency of this check to a longer value (in milliseconds) or disable it completely by setting it to 0:\n❯ rdctl set --diagnostics.connectivity.interval 0\nStatus: settings updated; no restart required.\nElectron will still perform its own online checks (which will also update the Rancher Desktop indicators) but those checks are somewhat unreliable.\nThere is no mechanism in the GUI to change this setting.\nContainer Info page with logs\n@tylercritchlow has moved the container logs to a container info page. You get to the info page either by clicking the container name or through the menu at the end of the line.\nmoby now uses containerd snapshotter by default\nOn new installations, or after a factory reset, Rancher Desktop will now use the containerd snapshotter for storing container images by default. This snapshotter provides additional functionality, such as storing/pushing/pulling multi-platform images. It is also needed for using Wasm containers with docker. This means Rancher Desktop will no longer switch between snapshotters when turning Wasm support on or off, so local images will remain visible to both configuration options.\nUpdated extensions\nThe \"SUSE Application Collection\" extension can now display the collection without having to log in first.\nBug fixes\nUDP port forwarding fixed on Linux and macOS\nIt was already working on Windows. Thanks to @toshs for finding and fixing the issue.\nShadows on macOS 26 Tahoe\nWindow shadows had a performance issue on macOS 26. This has been fixed by upgrading the Electron version.\nUpdates to Bundled Utilities (from Rancher Desktop 1.20.1, as of 1.21.0)\n- amazon-ecr-credential-helper 0.10.1 → 0.11.0\n- docker 28.3.3 → 29.0.2\n- docker-buildx 0.26.1 → 0.30.1\n- docker-compose 2.39.2 → 2.40.3\n- docker-credential-helpers 0.9.3 → 0.9.4\n- helm 3.18.6 → 3.19.1\n- kuberlr unchanged 0.6.1\n- moby/buildkit 0.21.1 → 0.25.2\n- nerdctl 2.1.3 → 2.2.0\n- spin 3.3.1 → 3.5.1\n- spin-shim 0.20.0 → 0.22.0\n- spin-operator unchanged 0.6.1\n- trivy 0.65.0 → 0.67.2\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.20.1, can be found using GitHub compare and the details of the release can be found in the v1.20.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.21.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.21.0/Rancher.Desktop.Setup.1.21.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.21.0.msi",
+          "sha256": "bd85ffe9afc7bef48b971ba573fc81e579a5adbd2cc7877b06ae95006cece15c",
+          "product_code": "{FAFD834A-C867-4158-A37E-A70E5D513445}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{FAFD834A-C867-4158-A37E-A70E5D513445}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.20.1",
+      "release_date": "2025-10-31",
+      "release_notes": "This is the 1.20.1 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.20.1\nThis release updates the bundled docker-compose from version 2.39.2 to 2.40.3 to address CVE-2025-62725.\nThere are no other changes in this patch release.\nNew Contributors\nThank you to our new contributors: @proski, @lavigneer, and @tylercritchlow!\nRelease Notes for 1.20.0\nWhat's New\nContainer Logs\nThanks to @tylercritchlow, the Containers dashboard can now display the container logs. The Logs command is accessible under the ⋮ menu on the right hand side, so it's a bit hidden. This will automatically scroll to the end of the log and it updates automatically as more logs come in.\nContainer Dashboard Improvements\n@tylercritchlow has also made changes to the Containers dashboard itself: it will now automatically update as containers are created, started, stopped or deleted. You no longer need to refresh manually.\nAs well, containers are now grouped together, either by Kubernetes pod, by docker-compose deployment or in the \"Standalone Containers\" group for everything else. Groups can individually be collapsed and expanded.\nNew Volumes page\nAnother new feature thanks to @tylercritchlow: On the Volumes page, you can see a list of all volumes managed by the container runtime and, if required, delete volumes.\nNew rdctl reset command\n@lavigneer has contributed the new rdctl reset command. It is a refinement of the rdctl factory-reset command, which is still supported, but now deprecated and hidden. It adds the ability to delete the Kubernetes version cache, which was previously only possible from within the GUI.\n─────────────────────┬───────────────────────────────────────────────────\nCommand              │Function\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --vm     │deletes VM and creates a new with the same settings\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --k8s    │deletes deployed Kubernetes workloads\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --cache  │deletes cached Kubernetes images\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --factory│deletes VM and shows first-start dialog again\n─────────────────────┴───────────────────────────────────────────────────\nAll options can be combined but some combinations are redundant:\n- --factory includes --vm and k8s (but not --cache)\n- --vm includes --k8s\nVZ emulation mode is now the default on macOS\nOn a fresh install, or after a factory reset, the default emulation mode on macOS is now VZ instead of QEMU.\nThe default mount type with VZ is now virtiofs, which is no longer considered \"experimental\".\nAdditional locations for system deployment profiles\nOn macOS, Rancher Desktop will check for system deployment profiles first in /Library/Managed Preferences. If no profile is found there, then it looks in the previous default location at /Library/Preferences. This allows deploying system profiles using MDM solutions.\nOn Linux, Rancher Desktop continues to look in /etc/rancher-desktop first. But if no profile is found there, it will now also check /usr/etc/rancher-desktop for a system profile before looking in the user profile location.\nAdditional Diagnostics\nWhen using the moby container engine, Rancher Desktop will now run diagnostics checks to verify that the current docker context is rancher-desktop and that DOCKER_HOST is not set.\nOn Windows, there is also a new diagnostic that will trigger when the WSL2 version is too old.\nUpdated extensions\nThe extension catalog now lists the latest releases of \"Epinio\", \"Open WebUI\" and the \"SUSE Application Collection\".\nThe \"Open WebUI\" extension no longer binds to a specific version, but will always attempt to fetch the latest release when it is being restarted.\nVue.JS has been upgraded from Vue2 → Vue3\nThe Vue JavaScript framework has been updated to the latest version, which required a rather large amount of internal changes. Ideally, this should not be user-visible. Please report any regressions to the GitHub issue tracker.\nBug fixes\nCode signing for spin has been fixed\nIn the previous releases, a bug in the code signed prevented spin from executing applications locally.\nUpdates to Bundled Utilities (from Rancher Desktop 1.19.3, as of 1.20.0)\n- amazon-ecr-credential-helper 0.9.1 → 0.10.1\n- docker 28.1.1 → 28.3.3\n- docker-buildx 0.25.0 → 0.26.1\n- docker-compose 2.37.1 → 2.39.2\n- docker-credential-helpers unchanged 0.9.3\n- helm 3.18.3 → 3.18.6\n- kuberlr 0.6.0 → 0.6.1\n- moby/buildkit unchanged 0.21.1\n- nerdctl 2.1.1 → 2.1.3\n- spin unchanged 3.3.1\n- spin-shim 0.19.0 → 0.20.0\n- spin-operator 0.5.0 → 0.6.1\n- trivy 0.62.1 → 0.65.0\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.19.3, can be found using GitHub compare and the details of the release can be found in the v1.20.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.20.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.20.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.20.1/Rancher.Desktop.Setup.1.20.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.20.1.msi",
+          "sha256": "12b7e23360957d41981cd54cee771c1268887647657664002029dddb71f45ef2",
+          "product_code": "{8CB9B87C-858A-4039-A300-5A8939CC10C7}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{8CB9B87C-858A-4039-A300-5A8939CC10C7}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.20.0",
+      "release_date": "2025-08-21",
+      "release_notes": "This is the 1.20.0 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nNew Contributors\nThank you to our new contributors: @proski, @lavigneer, and @tylercritchlow!\nRelease Notes for 1.20.0\nWhat's New\nContainer Logs\nThanks to @tylercritchlow, the Containers dashboard can now display the container logs. The Logs command is accessible under the ⋮ menu on the right hand side, so it's a bit hidden. This will automatically scroll to the end of the log and it updates automatically as more logs come in.\nContainer Dashboard Improvements\n@tylercritchlow has also made changes to the Containers dashboard itself: it will now automatically update as containers are created, started, stopped or deleted. You no longer need to refresh manually.\nAs well, containers are now grouped together, either by Kubernetes pod, by docker-compose deployment or in the \"Standalone Containers\" group for everything else. Groups can individually be collapsed and expanded.\nNew Volumes page\nAnother new feature thanks to @tylercritchlow: On the Volumes page, you can see a list of all volumes managed by the container runtime and, if required, delete volumes.\nNew rdctl reset command\n@lavigneer has contributed the new rdctl reset command. It is a refinement of the rdctl factory-reset command, which is still supported, but now deprecated and hidden. It adds the ability to delete the Kubernetes version cache, which was previously only possible from within the GUI.\n─────────────────────┬───────────────────────────────────────────────────\nCommand              │Function\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --vm     │deletes VM and creates a new with the same settings\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --k8s    │deletes deployed Kubernetes workloads\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --cache  │deletes cached Kubernetes images\n─────────────────────┼───────────────────────────────────────────────────\nrdctl reset --factory│deletes VM and shows first-start dialog again\n─────────────────────┴───────────────────────────────────────────────────\nAll options can be combined but some combinations are redundant:\n- --factory includes --vm and k8s (but not --cache)\n- --vm includes --k8s\nVZ emulation mode is now the default on macOS\nOn a fresh install, or after a factory reset, the default emulation mode on macOS is now VZ instead of QEMU.\nThe default mount type with VZ is now virtiofs, which is no longer considered \"experimental\".\nAdditional locations for system deployment profiles\nOn macOS, Rancher Desktop will check for system deployment profiles first in /Library/Managed Preferences. If no profile is found there, then it looks in the previous default location at /Library/Preferences. This allows deploying system profiles using MDM solutions.\nOn Linux, Rancher Desktop continues to look in /etc/rancher-desktop first. But if no profile is found there, it will now also check /usr/etc/rancher-desktop for a system profile before looking in the user profile location.\nAdditional Diagnostics\nWhen using the moby container engine, Rancher Desktop will now run diagnostics checks to verify that the current docker context is rancher-desktop and that DOCKER_HOST is not set.\nOn Windows, there is also a new diagnostic that will trigger when the WSL2 version is too old.\nUpdated extensions\nThe extension catalog now lists the latest releases of \"Epinio\", \"Open WebUI\" and the \"SUSE Application Collection\".\nThe \"Open WebUI\" extension no longer binds to a specific version, but will always attempt to fetch the latest release when it is being restarted.\nVue.JS has been upgraded from Vue2 → Vue3\nThe Vue JavaScript framework has been updated to the latest version, which required a rather large amount of internal changes. Ideally, this should not be user-visible. Please report any regressions to the GitHub issue tracker.\nBug fixes\nCode signing for spin has been fixed\nIn the previous releases, a bug in the code signed prevented spin from executing applications locally.\nUpdates to Bundled Utilities (from Rancher Desktop 1.19.3, as of 1.20.0)\n- amazon-ecr-credential-helper 0.9.1 → 0.10.1\n- docker 28.1.1 → 28.3.3\n- docker-buildx 0.25.0 → 0.26.1\n- docker-compose 2.37.1 → 2.39.2\n- docker-credential-helpers unchanged 0.9.3\n- helm 3.18.3 → 3.18.6\n- kuberlr 0.6.0 → 0.6.1\n- moby/buildkit unchanged 0.21.1\n- nerdctl 2.1.1 → 2.1.3\n- spin unchanged 3.3.1\n- spin-shim 0.19.0 → 0.20.0\n- spin-operator 0.5.0 → 0.6.1\n- trivy 0.62.1 → 0.65.0\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.19.3, can be found using GitHub compare and the details of the release can be found in the v1.20.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.20.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.20.0/Rancher.Desktop.Setup.1.20.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.20.0.msi",
+          "sha256": "1d299e97247bbed740698017a9146eec3f0cb5b42c9a57f0a4e7851076dd3493",
+          "product_code": "{10DF431F-A161-44A8-AB30-232B84D46A66}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{10DF431F-A161-44A8-AB30-232B84D46A66}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.19.3",
+      "release_date": "2025-06-20",
+      "release_notes": "This is the 1.19.3 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.19.3\nAppImage release works again\nAn update to one of our dependencies broke the AppImage releases. This has been fixed.\nUpgraded bundled utilities\nThe following utilities have been updated:\n- docker-buildx 0.24.0 → 0.25.0\n- helm 3.18.0 → 3.18.3\n- spin 3.3.0 → 3.3.1\nRelease Notes for 1.19.2\nImages built with OpenJDK 17 to 24 no longer crash (Linux and macOS)\nOpenJDK releases 17 to 24 cannot properly detect the cgroup version when running on a Linux kernel 6.12+. Rancher Desktop 1.19.2 downgrades the bundled Linux kernel to version 6.6; this allows more time for images to be rebuilt once the fixed OpenJDK 25 is released.\nVZ emulation with Rosetta works on earlier macOS releases than 15.5\nAs a side-effect of downgrading the kernel, VZ emulation with Rosetta will work again on older macOS releases.\nThe spin up command works again (macOS)\nIn Rancher Desktop 1.17.0, the spin binary was moved to a different location and no longer signed with the required entitlements on macOS, causing it to fail code compiled into executable memory. This has been fixed.\nUpgraded bundled utilities\nThe following utilities have been updated:\n- docker-compose 2.36.2 → 2.37.1\n- spin 3.2.0 → 3.3.0\nRelease Notes for 1.19.1\nVZ emulation with Rosetta requires macOS 15.5\nOlder Rosetta releases are incompatible with the latest Linux kernel releases (6.11 and later). Rancher Desktop 1.19 uses a Linux 6.12.28 kernel on Linux and macOS and requires the updated Rosetta version from macOS 15.5 or later. This is only a concern for running amd64 container images on Apple silicon machines.\nGnome Desktop compatibility\nThe 1.19.0 release did not run on Linux with Gnome Desktop. This has been fixed.\nSUSE Application Collection extension upgraded to 0.2.2.\nThe extension had a new release with a few bug fixes.\nRelease Notes for 1.19.0\nWhat's New\nExtension update mechanism\nThe \"Extensions\" menu item on the left will show a red bubble with a count of all installed extensions that have an update available from the built-in catalog. The cards for those extensions will have an \"Update\" button in addition to the \"Remove\" button.\nSUSE Application Collection extension\nSUSE Application Collection gives access to trusted, curated, and continuously updated applications. This extension helps you integrate the collection into your local development environment by managing authentication, making apps plug-and-play, and helping you stay up-to-date.\nEpinio extension is working again\nThanks to the team at Krumware for taking over maintenance of the Epinio extension! (#6580 and #7280)\nOpen WebUI extension has MCP support\nThis update adds a simple, secure MCP-to-OpenAPI proxy server running in a container. It provides access to tools using the Model Context Protocol from the LLM.\nIt comes pre-configured with a docker and a kubernetes MCP server implementation, allowing the model to talk to the local Moby engine or Kubernetes cluster.\nVZ emulation and Snapshots are no longer experimental\nThe --experimental.virtual-machine.type and --experimental.virtual-machine.use-rosetta options in rdctl are now just --virtual-machine.type and --virtual-machine.use-rosetta.\nBug fixes\nKubernetes reset no longer breaks on Windows\nWhen using Kubernetes 1.30.0 or later, a \"Kubernetes Reset\" would leave Rancher Desktop in a broken state until WSL2 was restarted (or the host rebooted) #8648.\nQEMU slow image pulling (on Linux and macOS) has been fixed\nThe root cause has been a delay in the DNS host resolver implementation (#4258).\nExtensions (on macOS) can now call bundled utilities\nExtensions were unable to use bundled utilities such as the credential helpers because Rancher Desktop is normally launched by the Finder and does not inherit the user's PATH setting. With this release, the directory with bundled utilities will be added explicitly when an extension invokes external programs (#8598).\ndocker build on Windows no longer fails intermittently with http2 errors\nThis was a regression in Rancher Desktop 1.18.* on Windows only due to a buffering issue in the proxy implementation (#8276).\nMany thanks to @bcxpro for analyzing the failure and providing a fix! (#8311)\nnerdctl on Windows can now use alternate filenames for Dockerfile\nThis was a bug in the argument translation layer in nerdctl-stub (#8190).\nUpdates to Bundled Utilities (as of Rancher Desktop 1.19.3)\n- amazon-eco-credential-helper unchanged 0.9.1\n- docker 27.5.1 → 28.1.1\n- docker-buildx 0.20.1 → 0.25.0\n- docker-compose 2.33.0 → 2.37.1\n- docker-credential-helpers 0.8.2 → 0.9.3\n- helm 3.17.1 → 3.18.3\n- kuberlr 0.5.2 → 0.6.0\n- moby/buildkit 0.19.0 → 0.21.1\n- nerdctl 2.0.3 → 2.1.1\n- spin 3.1.2 → 3.3.1\n- spin-shim 0.18.0 → 0.19.0\n- spinkube unchanged 0.4.0\n- trivy 0.59.1 → 0.62.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.18.0, can be found using GitHub compare and the details of the release can be found in the v1.19.0 and v1.19.2 milestones.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.19.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.19.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.19.3/Rancher.Desktop.Setup.1.19.3.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.19.3.msi",
+          "sha256": "842ed063862aebaa9e09cdb745d5557e9a6e8720f48ef200637a8e019f711180",
+          "product_code": "{82BBB77D-4913-4E88-AD9D-F5D2C3E3FB04}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{82BBB77D-4913-4E88-AD9D-F5D2C3E3FB04}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.19.2",
+      "release_date": "2025-06-16",
+      "release_notes": "This is the 1.19.2 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.19.2\nImages built with OpenJDK 17 to 24 no longer crash (Linux and macOS)\nOpenJDK releases 17 to 24 cannot properly detect the cgroup version when running on a Linux kernel 6.12+. Rancher Desktop 1.19.2 downgrades the bundled Linux kernel to version 6.6; this allows more time for images to be rebuilt once the fixed OpenJDK 25 is released.\nVZ emulation with Rosetta works on earlier macOS releases than 15.5\nAs a side-effect of downgrading the kernel, VZ emulation with Rosetta will work again on older macOS releases.\nThe spin up command works again (macOS)\nIn Rancher Desktop 1.17.0, the spin binary was moved to a different location and no longer signed with the required entitlements on macOS, causing it to fail code compiled into executable memory. This has been fixed.\nUpgraded bundled utilities\nThe following utilities have been updated:\n- docker-compose 2.36.2 → 2.37.1\n- spin 3.2.0 → 3.3.0\nRelease Notes for 1.19.1\nVZ emulation with Rosetta requires macOS 15.5\nOlder Rosetta releases are incompatible with the latest Linux kernel releases (6.11 and later). Rancher Desktop 1.19 uses a Linux 6.12.28 kernel on Linux and macOS and requires the updated Rosetta version from macOS 15.5 or later. This is only a concern for running amd64 container images on Apple silicon machines.\nGnome Desktop compatibility\nThe 1.19.0 release did not run on Linux with Gnome Desktop. This has been fixed.\nSUSE Application Collection extension upgraded to 0.2.2.\nThe extension had a new release with a few bug fixes.\nRelease Notes for 1.19.0\nWhat's New\nExtension update mechanism\nThe \"Extensions\" menu item on the left will show a red bubble with a count of all installed extensions that have an update available from the built-in catalog. The cards for those extensions will have an \"Update\" button in addition to the \"Remove\" button.\nSUSE Application Collection extension\nSUSE Application Collection gives access to trusted, curated, and continuously updated applications. This extension helps you integrate the collection into your local development environment by managing authentication, making apps plug-and-play, and helping you stay up-to-date.\nEpinio extension is working again\nThanks to the team at Krumware for taking over maintenance of the Epinio extension! (#6580 and #7280)\nOpen WebUI extension has MCP support\nThis update adds a simple, secure MCP-to-OpenAPI proxy server running in a container. It provides access to tools using the Model Context Protocol from the LLM.\nIt comes pre-configured with a docker and a kubernetes MCP server implementation, allowing the model to talk to the local Moby engine or Kubernetes cluster.\nVZ emulation and Snapshots are no longer experimental\nThe --experimental.virtual-machine.type and --experimental.virtual-machine.use-rosetta options in rdctl are now just --virtual-machine.type and --virtual-machine.use-rosetta.\nBug fixes\nKubernetes reset no longer breaks on Windows\nWhen using Kubernetes 1.30.0 or later, a \"Kubernetes Reset\" would leave Rancher Desktop in a broken state until WSL2 was restarted (or the host rebooted) #8648.\nQEMU slow image pulling (on Linux and macOS) has been fixed\nThe root cause has been a delay in the DNS host resolver implementation (#4258).\nExtensions (on macOS) can now call bundled utilities\nExtensions were unable to use bundled utilities such as the credential helpers because Rancher Desktop is normally launched by the Finder and does not inherit the user's PATH setting. With this release, the directory with bundled utilities will be added explicitly when an extension invokes external programs (#8598).\ndocker build on Windows no longer fails intermittently with http2 errors\nThis was a regression in Rancher Desktop 1.18.* on Windows only due to a buffering issue in the proxy implementation (#8276).\nMany thanks to @bcxpro for analyzing the failure and providing a fix! (#8311)\nnerdctl on Windows can now use alternate filenames for Dockerfile\nThis was a bug in the argument translation layer in nerdctl-stub (#8190).\nUpdates to Bundled Utilities\n- amazon-eco-credential-helper unchanged 0.9.1\n- docker 27.5.1 → 28.1.1\n- docker-buildx 0.20.1 → 0.24.0\n- docker-compose 2.33.0 → 2.37.1\n- docker-credential-helpers 0.8.2 → 0.9.3\n- helm 3.17.1 → 3.18.0\n- kuberlr 0.5.2 → 0.6.0\n- moby/buildkit 0.19.0 → 0.21.1\n- nerdctl 2.0.3 → 2.1.1\n- spin 3.1.2 → 3.3.0\n- spin-shim 0.18.0 → 0.19.0\n- spinkube unchanged 0.4.0\n- trivy 0.59.1 → 0.62.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.18.0, can be found using GitHub compare and the details of the release can be found in the v1.19.0 and v1.19.2 milestones.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.19.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.19.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.19.2/Rancher.Desktop.Setup.1.19.2.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.19.2.msi",
+          "sha256": "05092fa1f335c2c15140fd4680bd0a6919433157e6f5c5425f573753b5aa48f2",
+          "product_code": "{927B9F3C-7819-4671-9C46-BD46B98159CF}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{927B9F3C-7819-4671-9C46-BD46B98159CF}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.19.1",
+      "release_date": "2025-06-02",
+      "release_notes": "This is the 1.19.1 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.19.1\nGnome Desktop compatibility\nThe 1.19.0 release did not run on Linux with Gnome Desktop. This has been fixed.\nSUSE Application Collection extension upgraded to 0.2.2.\nThe extension had a new release with a few bug fixes.\nRelease Notes for 1.19.0\nWhat's New\nExtension update mechanism\nThe \"Extensions\" menu item on the left will show a red bubble with a count of all installed extensions that have an update available from the built-in catalog. The cards for those extensions will have an \"Update\" button in addition to the \"Remove\" button.\nSUSE Application Collection extension\nSUSE Application Collection gives access to trusted, curated, and continuously updated applications. This extension helps you integrate the collection into your local development environment by managing authentication, making apps plug-and-play, and helping you stay up-to-date.\nEpinio extension is working again\nThanks to the team at Krumware for taking over maintenance of the Epinio extension! (#6580 and #7280)\nOpen WebUI extension has MCP support\nThis update adds a simple, secure MCP-to-OpenAPI proxy server running in a container. It provides access to tools using the Model Context Protocol from the LLM.\nIt comes pre-configured with a docker and a kubernetes MCP server implementation, allowing the model to talk to the local Moby engine or Kubernetes cluster.\nVZ emulation and Snapshots are no longer experimental\nThe --experimental.virtual-machine.type and --experimental.virtual-machine.use-rosetta options in rdctl are now just --virtual-machine.type and --virtual-machine.use-rosetta.\nBug fixes\nKubernetes reset no longer breaks on Windows\nWhen using Kubernetes 1.30.0 or later, a \"Kubernetes Reset\" would leave Rancher Desktop in a broken state until WSL2 was restarted (or the host rebooted) #8648.\nQEMU slow image pulling (on Linux and macOS) has been fixed\nThe root cause has been a delay in the DNS host resolver implementation (#4258).\nExtensions (on macOS) can now call bundled utilities\nExtensions were unable to use bundled utilities such as the credential helpers because Rancher Desktop is normally launched by the Finder and does not inherit the user's PATH setting. With this release, the directory with bundled utilities will be added explicitly when an extension invokes external programs (#8598).\ndocker build on Windows no longer fails intermittently with http2 errors\nThis was a regression in Rancher Desktop 1.18.* on Windows only due to a buffering issue in the proxy implementation (#8276).\nMany thanks to @bcxpro for analyzing the failure and providing a fix! (#8311)\nnerdctl on Windows can now use alternate filenames for Dockerfile\nThis was a bug in the argument translation layer in nerdctl-stub (#8190).\nUpdates to Bundled Utilities\n- amazon-eco-credential-helper unchanged 0.9.1\n- docker 27.5.1 → 28.1.1\n- docker-buildx 0.20.1 → 0.24.0\n- docker-compose 2.33.0 → 2.36.2\n- docker-credential-helpers 0.8.2 → 0.9.3\n- helm 3.17.1 → 3.18.0\n- kuberlr 0.5.2 → 0.6.0\n- moby/buildkit 0.19.0 → 0.21.1\n- nerdctl 2.0.3 → 2.1.1\n- spin 3.1.2 → 3.2.0\n- spin-shim 0.18.0 → 0.19.0\n- spinkube unchanged 0.4.0\n- trivy 0.59.1 → 0.62.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.18.0, can be found using GitHub compare and the details of the release can be found in the v1.19.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.19.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.19.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.19.1/Rancher.Desktop.Setup.1.19.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.19.1.msi",
+          "sha256": "73c70bfad794b4bbd5a39d6c663c8e42692269477c8ba339e83471d1009f742e",
+          "product_code": "{BCD2F226-B11E-4DFF-B8E4-AF65F89C3297}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{BCD2F226-B11E-4DFF-B8E4-AF65F89C3297}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.19.0",
+      "release_date": "2025-05-27",
+      "release_notes": "This is the 1.19.0 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nRelease Notes for 1.19.0\nWhat's New\nExtension update mechanism\nThe \"Extensions\" menu item on the left will show a red bubble with a count of all installed extensions that have an update available from the built-in catalog. The cards for those extensions will have an \"Update\" button in addition to the \"Remove\" button.\nSUSE Application Collection extension\nSUSE Application Collection gives access to trusted, curated, and continuously updated applications. This extension helps you integrate the collection into your local development environment by managing authentication, making apps plug-and-play, and helping you stay up-to-date.\nEpinio extension is working again\nThanks to the team at Krumware for taking over maintenance of the Epinio extension! (#6580 and #7280)\nOpen WebUI extension has MCP support\nThis update adds a simple, secure MCP-to-OpenAPI proxy server running in a container. It provides access to tools using the Model Context Protocol from the LLM.\nIt comes pre-configured with a docker and a kubernetes MCP server implementation, allowing the model to talk to the local Moby engine or Kubernetes cluster.\nVZ emulation and Snapshots are no longer experimental\nThe --experimental.virtual-machine.type and --experimental.virtual-machine.use-rosetta options in rdctl are now just --virtual-machine.type and --virtual-machine.use-rosetta.\nBug fixes\nKubernetes reset no longer breaks on Windows\nWhen using Kubernetes 1.30.0 or later, a \"Kubernetes Reset\" would leave Rancher Desktop in a broken state until WSL2 was restarted (or the host rebooted) #8648.\nQEMU slow image pulling (on Linux and macOS) has been fixed\nThe root cause has been a delay in the DNS host resolver implementation (#4258).\nExtensions (on macOS) can now call bundled utilities\nExtensions were unable to use bundled utilities such as the credential helpers because Rancher Desktop is normally launched by the Finder and does not inherit the user's PATH setting. With this release, the directory with bundled utilities will be added explicitly when an extension invokes external programs (#8598).\ndocker build on Windows no longer fails intermittently with http2 errors\nThis was a regression in Rancher Desktop 1.18.* on Windows only due to a buffering issue in the proxy implementation (#8276).\nMany thanks to @bcxpro for analyzing the failure and providing a fix! (#8311)\nnerdctl on Windows can now use alternate filenames for Dockerfile\nThis was a bug in the argument translation layer in nerdctl-stub (#8190).\nUpdates to Bundled Utilities\n- amazon-eco-credential-helper unchanged 0.9.1\n- docker 27.5.1 → 28.1.1\n- docker-buildx 0.20.1 → 0.24.0\n- docker-compose 2.33.0 → 2.36.2\n- docker-credential-helpers 0.8.2 → 0.9.3\n- helm 3.17.1 → 3.18.0\n- kuberlr 0.5.2 → 0.6.0\n- moby/buildkit 0.19.0 → 0.21.1\n- nerdctl 2.0.3 → 2.1.1\n- spin 3.1.2 → 3.2.0\n- spin-shim 0.18.0 → 0.19.0\n- spinkube unchanged 0.4.0\n- trivy 0.59.1 → 0.62.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.18.0, can be found using GitHub compare and the details of the release can be found in the v1.19.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.19.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.19.0/Rancher.Desktop.Setup.1.19.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.19.0.msi",
+          "sha256": "db9bade778a8b5a5984ced0a09c1517cfa6dceb3c836c6e0e6a0d2463bd04c6e",
+          "product_code": "{AB682A51-AE3D-4596-BD1D-875C09FDA787}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{AB682A51-AE3D-4596-BD1D-875C09FDA787}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.18.2",
+      "release_date": "2025-03-06",
+      "release_notes": "This is the 1.18.2 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nWhat has changed in 1.18.2\nWindows regression with docker-proxy has been fixed\nRancher Desktop 1.18.0 includes a fix for docker run commands on Windows that unfortunately introduced a race condition that sometimes breaks the communication between the docker.exe command and the docker daemon, resulting in http2 errors (#8276). Thanks to @bcxpro for providing a fix (#8311)!\nOpen WebUI extension has been updated to fix Ollama installation on Linux and macOS\nIf Ollama is not already installed on the system, then the extension will download and install Ollama just inside the extension directory. This had been broken by a change to the upstream Linux and macOS release formats. It does not affect users that already have Ollama installed because in that case the extension will just use the installed version.\nThe version of Open WebUI has been updated to 0.5.20.\nPlease note: there was no public release of 1.18.1\nAn issue with the Open WebUI extension was found after the 1.18.1 tag was already created, so this version had to be skipped.\nRelease Notes for 1.18.0\nCluster dashboard has been updated from 2.7.0 to 2.11.0\nThe cluster dashboard has been reimplemented as a Rancher extension and is mostly in sync with the upstream version.\nThe dashboard now works correctly even when the KUBECONFIG environment variable points to multiple config files.\nNetwork fixes\nThe gvisor-tap-vsock dependency has been updated again, which has solved several networking regressions from Rancher Desktop 1.17.x (on all platforms).\nRancher Desktop is working properly again when behind a VPN. On macOS the VZ emulation mode works again even without a network connection.\nImage scanning now scans local images with containerd\nThis already worked before for moby.\nImage scanning results are displayed much faster once the vulnerability databases have been downloaded (for images with many vulnerabilities).\nThe Open WebUI extension has been updated\nIf you already have the extension installed, then you must uninstall it from the \"Installed\" tab of the \"Extensions\" page (the \"Remove\" button on the \"Catalog\" tab does not work correctly in this release).\nAfter you have uninstalled the current version, you can install the new version as usual from the \"Catalog\" tab.\ndocker run issues on Windows have been fixed\ndocker run on Windows would hang indefinitely when reading from STDIN (#2094) or would produce no output when running without the -i option (#3239). Many thanks to @bcxpro for investigating and fixing this issue!\nnerdctl on Windows picks up compose.yaml automatically\nThe nerdctl command on Windows used to run from a separate directory before and therefore did not locate default filenames like compose.yaml correctly. This has been fixed.\nRancher Desktop is now available as a separate RPM for Fedora\nDeprecations\nMSI installer no longer installs WSL2 on Windows\nWSL2 must be installed on the local system before Rancher Desktop can be installed.\nmacOS 12 Monterey and earlier are no longer supported\nRancher Desktop no longer works on Apple ARM computers running macOS 12 Monterey. It still works on Apple Intel computers, but is unsupported.\nUpdates to Bundled Utilities\n- amazon-eco-credential-helper 0.9.0 → 0.9.1\n- docker 27.4.1 → 27.5.1\n- docker-buildx 0.19.3 → 0.20.1\n- docker-compose 2.32.1 → 2.33.0\n- docker-credential-helpers unchanged 0.8.2\n- helm 3.16.4 → 3.17.1\n- kuberlr unchanged 0.5.2\n- moby/buildkit 0.18.1 → 0.19.0\n- nerdctl 2.0.2 → 2.0.3\n- spin 3.1.1 → 3.1.2\n- spin-shim 0.17.0 → 0.18.0\n- spinkube unchanged 0.4.0\n- trivy 0.58.1 → 0.59.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.17.0, can be found using GitHub compare and the details of the release can be found in the v1.18.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.18.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.18.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.18.2/Rancher.Desktop.Setup.1.18.2.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.18.2.msi",
+          "sha256": "f5824a37fbab9a46a4fc062e1f16dcf09cdc799d4dadf04088650309cca4adbf",
+          "product_code": "{D61843A5-C3D9-4A03-A46B-1B4B8814F2E8}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{D61843A5-C3D9-4A03-A46B-1B4B8814F2E8}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.18.0",
+      "release_date": "2025-02-19",
+      "release_notes": "This is the 1.18.0 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nNotable Changes and Bug Fixes\nCluster dashboard has been updated from 2.7.0 to 2.11.0\nThe cluster dashboard has been reimplemented as a Rancher extension and is mostly in sync with the upstream version.\nThe dashboard now works correctly even when the KUBECONFIG environment variable points to multiple config files.\nNetwork fixes\nThe gvisor-tap-vsock dependency has been updated again, which has solved several networking regressions from Rancher Desktop 1.17.x (on all platforms).\nRancher Desktop is working properly again when behind a VPN. On macOS the VZ emulation mode works again even without a network connection.\nImage scanning now scans local images with containerd\nThis already worked before for moby.\nImage scanning results are displayed much faster once the vulnerability databases have been downloaded (for images with many vulnerabilities).\nThe Open WebUI extension has been updated\nIf you already have the extension installed, then you must uninstall it from the \"Installed\" tab of the \"Extensions\" page (the \"Remove\" button on the \"Catalog\" tab does not work correctly in this release).\nAfter you have uninstalled the current version, you can install the new version as usual from the \"Catalog\" tab.\ndocker run issues on Windows have been fixed\ndocker run on Windows would hang indefinitely when reading from STDIN (#2094) or would produce no output when running without the -i option (#3239). Many thanks to @bcxpro for investigating and fixing this issue!\nnerdctl on Windows picks up compose.yaml automatically\nThe nerdctl command on Windows used to run from a separate directory before and therefore did not locate default filenames like compose.yaml correctly. This has been fixed.\nRancher Desktop is now available as a separate RPM for Fedora\nDeprecations\nMSI installer no longer installs WSL2 on Windows\nWSL2 must be installed on the local system before Rancher Desktop can be installed.\nmacOS 12 Monterey and earlier are no longer supported\nRancher Desktop no longer works on Apple ARM computers running macOS 12 Monterey. It still works on Apple Intel computers, but is unsupported.\nUpdates to Bundled Utilities\n- amazon-eco-credential-helper 0.9.0 → 0.9.1\n- docker 27.4.1 → 27.5.1\n- docker-buildx 0.19.3 → 0.20.1\n- docker-compose 2.32.1 → 2.33.0\n- docker-credential-helpers unchanged 0.8.2\n- helm 3.16.4 → 3.17.1\n- kuberlr unchanged 0.5.2\n- moby/buildkit 0.18.1 → 0.19.0\n- nerdctl 2.0.2 → 2.0.3\n- spin 3.1.1 → 3.1.2\n- spin-shim 0.17.0 → 0.18.0\n- spinkube unchanged 0.4.0\n- trivy 0.58.1 → 0.59.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.17.0, can be found using GitHub compare and the details of the release can be found in the v1.18.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.18.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.18.0/Rancher.Desktop.Setup.1.18.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.18.0.msi",
+          "sha256": "cb69891838bd3d853dfa0d3dca8824f7914d9dd09308204de0209ec326b399d5",
+          "product_code": "{AC03A56E-D374-4116-9B78-525349E76F6C}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{AC03A56E-D374-4116-9B78-525349E76F6C}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.1",
+      "release_date": "2025-01-21",
+      "release_notes": "This is the 1.17.1 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.\nInstallers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nWhat has changed in 1.17.1\nWindows installer no longer installs WSL2\nDue to Windows Subsystem for Linux installer changes, we no longer attempt to install WSL2 as part of our installer. Please install it separately following the Microsoft instructions before running the Rancher Desktop installer.\nFor administrative installs, please set the WSLINSTALLED property to 1 as before if suppressing the installer check is desired.\nWindows Networking fixes\nDowngraded gvisor-tap-vsock to v0.7.5 to resolve DNS failures observed in v0.8.1. This restores DNS resolution behind VPNs and fixes other name resolution issues.\nmacOS networking changes\nIt is now possible again to run Rancher Desktop while offline.\nDNS changes due to connecting or disconnecting from a VPN are propagated automatically and don't require an app restart.\nAppImage works again on Rocky 9 and others\nIn addition Ubuntu 24.04+ made some changes that make its default configuration incompatible with most AppImages containing Electron-based apps (they crash with a TRAP error). A workaround is to run the AppImage with the --no-sandbox --disable-gpu-sandbox options. Alternatively you can enable unprivileged user namespaces with\nsudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0\nUpdates to Bundled Utilities in 1.17.1\n- docker 27.4.1 → 27.5.0\n- docker-compose 2.32.1 → 2.32.4\n- helm 3.16.4 → 3.17.0\n- spin 3.1.1 → 3.1.2\n- spin-shim 0.17.0 → 0.18.0\n- trivy 0.58.1 → 0.58.2\nChangelog\nThe full version changelog, from v1.17.0, can be found using GitHub compare and the details of the release can be found in the v1.17.1 milestone.\nRelease notes for 1.17.0\nOpen WebUI extension\nRancher Desktop now includes the \"Open WebUI\" extension. If not already present, it will download and install Ollama on the host (to have access to the GPU) and it will also run Open WebUI and SearXNG in containers to make it easy to explore and experiment with different LLM models. Working with LLMs using Open WebUI has more information.\nRPM package works again on openSUSE\nopenSUSE made a change to QEMU that was incompatible with the RPM release of Rancher Desktop; the AppImage bundles its own copy of QEMU and was unaffected. Rancher Desktop 1.17.0 is compatible again with the version of QEMU used by the latest releases of openSUSE.\nQEMU and Apple M4\nApple's M4 CPU was not supported by QEMU in earlier releases of Rancher Desktop (VZ was unaffected). 1.17.0 ships with a version of QEMU that has been fixed to work with M4 CPUs.\nThe 1.15.0 release was supposed to be fully native for Apple Silicon, but it turned out that the applet to prompt for the sudo password was still Intel-only. Now Rosetta should really no longer be needed for Rancher Desktop.\nBundled k3s versions list\nRancher Desktop cannot start unless it has a list of available k3s versions. This has led to problems if the version list could not be determined at first start or after a factory reset. 1.17.0 bundles a k3s version list, which is up-to-date as of the release data of Rancher Desktop. As a result, the app will always have a list of available versions; it will only be potentially missing new versions released after 1.17.0 itself.\nNetworking improvements\nNetworking improvements have been made across all platforms, with updates to both upstream libraries and Rancher Desktop itself:\n- Enabled UDP Port Forwarding when a network tunnel is active (#6821).\n- Added support for the host network driver (--net=host) in both Docker and containerd engines (#7378).\n- Resolved Docker Compose network TCP (RST) issues (#7720).\n- Restored iptables scanning for Kubernetes ports in CNI-DN-* that were previously overlooked (#7722).\n- Addressed performance inefficiencies in the guestAgent process on Windows (#7763), (#7782), (#7825), (#7891), and (#7558).\nKnown Issues\nMSI installer does not install missing WSL on Windows 11 (#7975)\nThe Rancher Desktop install does not correctly process the latest output from the wsl --version command on Windows 11 and fails to install WSL2 if it is not already present. The workaround is to manually install WSL2 before installing Rancher Desktop.\nVZ emulation no longer works offline\nDue to a change in a networking dependency, it is no longer possible to run VMs using VZ emulation while offline. QEMU is unaffected. Stay with 1.16.0 if you require VZ mode to work while disconnected.\nspinkube operator has incompatible changes\nThe spinkube operator has been updated to version 0.4.0, which had incompatible API changes; it is likely that all applications using it need to be redeployed.\nDeprecations\nmacOS 12 Monterey and earlier are no longer supported\nApple usually only provides security updates for the last 3 major macOS releases. GitHub removes CI runners once the OS is no longer supported. Due to availability of hardware resources and software dependencies, we may be unable to create new Rancher Desktop releases compatible with older macOS versions.\nWhile Rancher Desktop 1.17.0 seems to work fine on macOS 12 Monterey, it should be considered unsupported.\nThe status of macOS 11 Big Sur is unknown, so auto-upgrade will not offer an upgrade to 1.17.0 on Big Sur or earlier.\nUpdates to Bundled Utilities\n- amazon-eco-credential-helper unchanged 0.9.0\n- docker 27.2.1 → 27.4.1\n- docker-buildx 0.17.1 → 0.19.3\n- docker-compose 2.29.5 → 2.32.1\n- docker-credential-helpers unchanged 0.8.2\n- helm 3.16.1 → 3.16.4\n- kuberlr unchanged 0.5.2\n- moby/buildkit 0.12.5 → 0.18.1\n- nerdctl 1.7.7 → 2.0.2\n- spin 2.7.0 → 3.1.1\n- spin-shim 0.15.1 → 0.17.0\n- spinkube 0.3.0 → 0.4.0\n- trivy 0.55.2 → 0.58.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.16.0, can be found using GitHub compare and the details of the release can be found in the v1.17.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.17.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.17.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.17.1/Rancher.Desktop.Setup.1.17.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.17.1.msi",
+          "sha256": "226c4607f3bc80400e63836d57503e7b525a4ff618aa50125aefe701eaa485c7",
+          "product_code": "{FAB9A728-7888-459C-A181-1CEC6C182808}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "WSLINSTALLED=1"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.WSL"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{FAB9A728-7888-459C-A181-1CEC6C182808}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.0",
+      "release_date": "2025-01-03",
+      "release_notes": "This is the 1.17.0 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nNotable Changes and Bug Fixes\nOpen WebUI extension\nRancher Desktop now includes the \"Open WebUI\" extension. If not already present, it will download and install Ollama on the host (to have access to the GPU) and it will also run Open WebUI and SearXNG in containers to make it easy to explore and experiment with different LLM models. Working with LLMs using Open WebUI has more information.RPM package works again on openSUSE\nopenSUSE made a change to QEMU that was incompatible with the RPM release of Rancher Desktop; the AppImage bundles its own copy of QEMU and was unaffected. Rancher Desktop 1.17.0 is compatible again with the version of QEMU used by the latest releases of openSUSE.QEMU and Apple M4\nApple's M4 CPU was not supported by QEMU in earlier releases of Rancher Desktop (VZ was unaffected). 1.17.0 ships with a version of QEMU that has been fixed to work with M4 CPUs.The 1.15.0 release was supposed to be fully native for Apple Silicon, but it turned out that the applet to prompt for the sudo password was still Intel-only. Now Rosetta should really no longer be needed for Rancher Desktop.Bundled k3s versions list\nRancher Desktop cannot start unless it has a list of available  k3s versions. This has led to problems if the version list could not be determined at first start or after a factory reset. 1.17.0 bundles a k3s version list, which is up-to-date as of the release data of Rancher Desktop. As a result, the app will always have a list of available versions; it will only be potentially missing new versions released after 1.17.0 itself.Networking improvements\nNetworking improvements have been made across all platforms, with updates to both upstream libraries and Rancher Desktop itself:\n- Enabled UDP Port Forwarding when a network tunnel is active (#6821).\n- Added support for the host network driver (--net=host) in both Docker and containerd engines (#7378).\n- Resolved Docker Compose network TCP (RST) issues (#7720).\n- Restored iptables scanning for Kubernetes ports in CNI-DN-* that were previously overlooked (#7722).\n- Addressed performance inefficiencies in the guestAgent process on Windows (#7763), (#7782), (#7825), (#7891), and (#7558).\nKnown Issues\nMSI installer does not install missing WSL on Windows 11 (#7975)\nThe Rancher Desktop install does not correctly process the latest output from the wsl --version command on Windows 11 and fails to install WSL2 if it is not already present. The workaround is to manually install WSL2 before installing Rancher Desktop.VZ emulation no longer works offline\nDue to a change in a networking dependency, it is no longer possible to run VMs using VZ emulation while offline. QEMU is unaffected. Stay with 1.16.0 if you require VZ mode to work while disconnected.spinkube operator has incompatible changes\nThe spinkube operator has been updated to version 0.4.0, which had incompatible API changes; it is likely that all applications using it need to be redeployed.Deprecations\nmacOS 12 Monterey and earlier are no longer supported\nApple usually only provides security updates for the last 3 major macOS releases. GitHub removes CI runners once the OS is no longer supported. Due to availability of hardware resources and software dependencies, we may be unable to create new Rancher Desktop releases compatible with older macOS versions.While Rancher Desktop 1.17.0 seems to work fine on macOS 12 Monterey, it should be considered unsupported.The status of macOS 11 Big Sur is unknown, so auto-upgrade will not offer an upgrade to 1.17.0 on Big Sur or earlier.Updates to Bundled Utilities\n- amazon-eco-credential-helper unchanged 0.9.0\n- docker 27.2.1 → 27.4.1\n- docker-buildx 0.17.1 → 0.19.3\n- docker-compose 2.29.5 → 2.32.1\n- docker-credential-helpers unchanged 0.8.2\n- helm 3.16.1 → 3.16.4\n- kuberlr unchanged 0.5.2\n- moby/buildkit 0.12.5 → 0.18.1\n- nerdctl 1.7.7 → 2.0.2\n- spin 2.7.0 → 3.1.1\n- spin-shim 0.15.1 → 0.17.0\n- spinkube 0.3.0 → 0.4.0\n- trivy 0.55.2 → 0.58.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.16.0, can be found using GitHub compare and the details of the release can be found in the v1.17.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.17.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.17.0/Rancher.Desktop.Setup.1.17.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.17.0.msi",
+          "sha256": "d8e7ef183d31856c8fdfd97f827a510a3a128e35aba26bbe7745d8ac3324ad8a",
+          "product_code": "{0B92065F-DCE0-4876-ACDA-071DFEF297B4}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Rancher Desktop",
+              "publisher": "SUSE",
+              "product_code": "{0B92065F-DCE0-4876-ACDA-071DFEF297B4}",
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.1",
+      "release_date": "2024-08-12",
+      "release_notes": "This is the 1.15.1 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nWhat has changed in 1.15.1\n- Windows only: Resolved a socket leak when using Kubernetes or other containers from WSL distributions, eventually causing connections to stop working after running out of file descriptors. (#7331)\n- macOS and Linux only: Resolved an issue where the inability to manage .bashrc/.zshrc/etc., broke the ability to automatically start Rancher Desktop when the user logs in. (#7337)\nRelease notes for 1.15.0\nNotable Features & Changes\nKubernetes versions before 1.21.0 are no longer supported\nIf you are on an earlier version, updating to Rancher Desktop 1.15.0 will automatically update you to Kubernetes 1.21.14. If you must continue to use an older version, you should stay on Rancher Desktop 1.14.2.kuberlr and kubectl are native binaries for macOS on Apple Silicon\nRosetta is no longer needed for Rancher Desktop.New networking tunnel stack is now the only option on Windows\nIt is no longer possible to select the legacy networking mode.On macOS the socket_vmnet has replaced vde_vmnet\nIt is a complete superset of the old functionality, and the old setting is no longer available.Important Bug Fixes\nShell profile settings are not accidentally deleted\nWhen Rancher Desktop started either after a fresh install, or after a factory reset, and the computer was without internet access, then there was a race condition that could result in the deletion of shell profiles (.bash_profile, .zshrc, etc) (#7154).This race condition has been fixed. However, the code has been updated to always keep a backup file around, just in case there is another undiscovered way to trigger a similar bug.A memory leak on Windows has been fixed that could lead to a frozen system\nThis issue in the tray menu updater was diagnosed and fixed by @mikeseese (#7238). Thank you for your help!Port forwarding bug with older Kubernetes versions on Windows has been fixed.\nFor Kubernetes 1.25 versions older than 1.25.3, 1.24 versions older than 1.24.7, or any version before 1.23.13 the port forwarding to the host was not working (#5341). This has been fixed.Known Issues\nContainer Dashboard\nThe dashboard does not update automatically when container states have changed or new containers are introduced (#5775).Extensions Install - Allowed Images\nWhen using the Allowed Images feature and also specifying extensions in a deployment profile, the extension images must be included in both lists (#4920).Deprecations\nmacOS 11 Big Sur and earlier are no longer officially supported\nApple usually only provides security updates for the last 3 major macOS releases. GitHub removes CI runners once the OS is no longer supported. Due to availability of hardware resources and software dependencies, we may be unable to create new Rancher Desktop releases compatible with older macOS versions in the future.We will try not to break Rancher Desktop on older macOS versions as long as reasonably possible, but those versions should be considered unsupported.Updates to Bundled Utilities\n- docker 26.1.0 → 27.1.1\n- docker-buildx 0.14.1 → 0.16.2\n- docker-compose 2.27.1 → 2.29.1\n- docker-credential-ecr-login unchanged 0.8.0\n- helm 3.15.1 → 3.15.3\n- moby/buildkit unchanged 0.12.5\n- nerdctl unchanged 1.7.6\n- spin: new 2.5.1\n- spin-shim: 0.14.1 → 0.15.1\n- spinkube: unchanged 0.2.0\n- trivy 0.51.4 → 0.53.0\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.14.2, can be found using GitHub compare and the details of the release can be found in the v1.15.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.15.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.15.1/Rancher.Desktop.Setup.1.15.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.15.1.msi",
+          "sha256": "acb29bb9fb14a8709d180c9c221d147751bcb32b804d108b1823a44e4f9843e3",
+          "product_code": "{4DCB8BB4-8605-4491-8F24-893C725717B0}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.14.2",
+      "release_date": "2024-06-14",
+      "release_notes": "This is the 1.14.2 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nWhat has changed in 1.14.2\nThis release is mostly identical to 1.14.1 with the single exception being the spin executable for macOS. Since it is being notarized, it had to be signed with the hardened runtime, which broke the functionality of running applications natively (not in a container or on Kubernetes) via spin up. In the 1.14.2 release, the macOS spin binaries are signed with the com.apple.security.cs.allow-unsigned-executable-memory entitlement to allow native code generation.We are not enabling auto-update for the 1.14.2 release because the percentage of affected users will be very small. You need to manually update if you are on macOS and want to run spin up.What has changed in 1.14.1\nCluster Explorer would no longer dynamically refresh in 1.14.0 because the web socket connection had been broken. This issue has been fixed (#6968).There are no other changes in 1.14.1.Full Changelog: The full version changelog, from v1.14.0, can be found using GitHub compare.Release Notes for 1.14.0\nNotable Features & Changes\nBundles the spin cli (experimental)\nRancher Desktop now includes the spin CLI to support building Wasm images.The js2wasm and kube plugins, as well as the default templates, are installed the first time the WebAssembly support option has been selected in the Container Engine settings.The plugins and templates are also installed into any distro for which WSL Integration has been enabled.Option to install the spinkube operator (experimental)\nRancher Desktop now has an option to install the spinkube operator in the Kubernetes settings to support running Spin applications on Kubernetes. It will install and configure cert-manager and the spin-operator into the cluster. This option requires that WebAssembly support is enabled.The tunnelling network on Windows supports WSL integration\nContainers and Kubernetes services can now be accessed from other WSL distributions, as long as WSL Integration is enabled for them.The tunnelling network implementation is now complete and has become the default setting in this release (for new installations or after a factory reset). Support for the legacy network is scheduled to be removed in the following release (1.15.0).The timezone inside the VM now matches the timezone on the host\nThis means CronJobs in Kubernetes can now be specified using localtime.Known Issues\nWindows Networking\nThere is a known issue with the new network not including all aliased domains (#5239).Container Dashboard\nThe dashboard does not update automatically when container states have changed or new containers are introduced (#5775).Extensions Install - Allowed Images\nWhen using the Allowed Images feature and also specifying extensions in a deployment profile, the extension images must be included in both lists (#4920).Deprecations\nThe legacy networking stack on Windows will be removed in 1.15.0\nThe tunnelling network on Windows has become the default in this release and should be a full superset of the legacy stack capabilities.We are planning to remove the legacy networking mode in 1.15.0.vde_vmnet will be removed in 1.15.0\nThe socket_vmnet daemon provides all the functionality required by Rancher Desktop and is actively maintained while vde_vmnet itself is deprecated.VZ emulation already uses socket_vmnet unconditionally because it never had support for vde_vmnet.The option will be removed and socket_vmnet will automatically be used when Administrative Access is enabled.Kubernetes versions before 1.21.0 will no longer be supported in 1.15.0\nKubernetes only maintains updates for the latest 3 minor releases (so right now only for 1.27.0 and up). Rancher Desktop tries to support a wider range of legacy versions, but sometimes it becomes necessary to remove support for older versions to keep the code maintainable while adding new features.We intend to remove support for Kubernetes versions before 1.21.0 in Rancher Desktop 1.15.0.macOS 11 Big Sur and earlier are no longer officially supported\nApple usually only provides security updates for the last 3 major macOS releases. GitHub removes CI runners once the OS is no longer supported. Due to availability of hardware resources and software dependencies, we may be unable to create new Rancher Desktop releases compatible with older macOS versions in the future.We will try not to break Rancher Desktop on older macOS versions as long as reasonably possible, but those versions should be considered unsupported.Updates to Bundled Utilities\n- docker 25.0.4 → 26.1.0\n- docker-buildx 0.13.0 → 0.14.1\n- docker-compose 2.24.7 → 2.27.1\n- docker-credential-ecr-login 0.7.1 → 0.8.0\n- helm 3.14.2 → 3.15.1\n- moby/buildkit unchanged 0.12.5\n- nerdctl 1.7.3 → 1.7.6\n- spin: new 2.5.1\n- spin-shim: 0.11.1 → 0.14.1\n- spinkube: new 0.2.0\n- trivy 0.49.1 → 0.51.4\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.13.1, can be found using GitHub compare and the details of the release can be found in the v1.14.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.14.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.14.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.14.2/Rancher.Desktop.Setup.1.14.2.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.14.2.msi",
+          "sha256": "01f52b7a1ebcddeda01b6979ce3505b895fdcde2c5b57f18e4f8c4a593618f3f",
+          "product_code": "{AAEAC824-ECB1-4B1A-89DE-221E3E04EE90}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.13.1",
+      "release_date": "2024-03-20",
+      "release_notes": "This is the 1.13.1 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nWhat has changed in 1.13.1\n- Windows only: The minimum WSL kernel requirement (5.15.0.0 or higher) introduced in the v1.13.0 release is no longer required; as a result, the Rancher Desktop installer no longer automatically upgrades WSL. (#6606, #6624)\nFull Changelog: The full version changelog, from v1.13.0, can be found using GitHub compare.Release Notes for 1.13.0\nNotable Features & Changes\nWebAssembly/Wasm support (experimental)\nRancher Desktop can now be configured to run WebAssembly applications in addition to Linux containers. It includes the Spin runtime, and additional wasm shims can be installed manually.WebAssembly is currently supported as a stand-alone container running on the moby engine, or in Kubernetes pods running with containerd.Turning on Wasm support with the moby engine will change the location where images are stored, so all previously downloaded or built images become inaccessible. You may want to run docker system prune --all to reclaim the space (if you don't plan on disabling Wasm support again).Wasm support will be locked and disabled if the machine has a locked profile installed that uses schema version 10 or earlier. You will need to use schema version 11 to unlock.Cluster Dashboard button\nRancher Desktop now displays a \"Cluster Dashboard\" button in the navigation bar on the left side of the window. This is purely for discovery, as many users have been unaware that this functionality exists; the button performs the same action as the \"Cluster Dashboard\" menu item in the notification icon context menu.The button is only displayed when Kubernetes is enabled.Important Bug Fixes\n~/.kube/config in WSL distros (Windows)\nRancher Desktop up to version 1.11 used a symlink from ~/.kube/config inside WSL distributions back to the Windows version of this config file (when WSL integration is enabled).In Rancher Desktop 1.12, this symlink had to be replaced by a separate config file inside WSL because Kubernetes would use a different IP address when using the tunneling network stack (it runs inside a separate network namespace). This meant that the user had to maintain multiple config files and the kube context inside a distro could be different from the Windows side.In this 1.13 release, we are running a tunnel to the WSL network namespace; this means Kubernetes is again reachable via 127.0.0.1 from both Windows and the WSL distros. The separate ~/.kube/config files inside the distros will be converted back into a symlink, but only if it contains no other information than the Rancher Desktop cluster itself. If there is additional configuration data, then the user will have to perform the data merging manually if they want to get back to using a symlink as well.Support for QEMU on M3 machines (macOS)\nQEMU for Apple Silicon machines has been updated to version 8.2.1 and now supports the M3 CPU architecture as well.Support for kind (macOS and Linux only)\nThis release supports kind on macOS and Linux as long as Kubernetes is either disabled or running Kubernetes 1.20.4 or higher (older Kubernetes versions require cgroups v1, which is incompatible with kind).Experimental virtiofs mount type could delete $HOME directory data (Linux only)\nThis serious bug has been fixed.Note that on Linux this setting requires the Rust implementation of virtiofsd to be installed on the host; otherwise it won't work.Experimental 9p mount type now works correctly for RPM and DEB installation (Linux only)\nIt is still not working in the AppImage install.Known Issues\nWindows Networking\nThere is a known issue with the new network not including all aliased domains (#5239).Container Dashboard\nThe dashboard does not update automatically when container states have changed or new containers are introduced (#5775).Extensions Install - Allowed Images\nWhen using the Allowed Images feature and also specifying extensions in a deployment profile, the extension images must be included in both lists (#4920).Updates to Bundled Utilities\n- docker 24.0.7 → 25.0.4\n- docker-buildx 0.12.0 → 0.13.0\n- docker-compose 2.23.3 → 2.24.7\n- docker-credential-ecr-login 0.8.0 → 0.8.1\n- helm 3.13.3 → 3.14.2\n- moby/buildkit 0.12.3 → 0.12.5\n- nerdctl 1.7.1 → 1.7.3\n- trivy 0.48.0 → 0.49.1\nBundled Wasm shims\nThe spin shim comes from the containerd-wasm-shims release 0.11.1.- Spin version 2.2.0\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.12.3, can be found using GitHub compare and the details of the release can be found in the v1.13.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.13.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.13.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.13.1/Rancher.Desktop.Setup.1.13.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.13.1.msi",
+          "sha256": "74096ae79a5e28549498b939b52dbb488427fd60272ced1ed98770834cbb56db",
+          "product_code": "{D10855AB-F477-4091-B6FC-B90893BB75D8}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.13.0",
+      "release_date": "2024-03-13",
+      "release_notes": "This is the 1.13 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to macOS, Windows, and Linux.Updated Windows Requirements\nThis release requires a newer WSL kernel release (5.15.0.0 or higher) than previous releases. You can check the currently installed version with this command:\n\nC:\\>wsl uname -r\n5.15.133.1-microsoft-standard-WSL2\n\nIf necessary, the installer will attempt to upgrade WSL via the Microsoft Store, but if that fails because the user doesn't have permissions, then the installation or upgrade of Rancher Desktop will fail so the user will have to upgrade WSL on their own.Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nNotable Features & Changes\nWebAssembly/Wasm support (experimental)\nRancher Desktop can now be configured to run WebAssembly applications in addition to Linux containers. It includes the Spin runtime, and additional wasm shims can be installed manually.WebAssembly is currently supported as a stand-alone container running on the moby engine, or in Kubernetes pods running with containerd.Turning on Wasm support with the moby engine will change the location where images are stored, so all previously downloaded or built images become inaccessible. You may want to run docker system prune --all to reclaim the space (if you don't plan on disabling Wasm support again).Wasm support will be locked and disabled if the machine has a locked profile installed that uses schema version 10 or earlier. You will need to use schema version 11 to unlock.Cluster Dashboard button\nRancher Desktop now displays a \"Cluster Dashboard\" button in the navigation bar on the left side of the window. This is purely for discovery, as many users have been unaware that this functionality exists; the button performs the same action as the \"Cluster Dashboard\" menu item in the notification icon context menu.The button is only displayed when Kubernetes is enabled.Important Bug Fixes\n~/.kube/config in WSL distros (Windows)\nRancher Desktop up to version 1.11 used a symlink from ~/.kube/config inside WSL distributions back to the Windows version of this config file (when WSL integration is enabled).In Rancher Desktop 1.12, this symlink had to be replaced by a separate config file inside WSL because Kubernetes would use a different IP address when using the tunneling network stack (it runs inside a separate network namespace). This meant that the user had to maintain multiple config files and the kube context inside a distro could be different from the Windows side.In this 1.13 release, we are running a tunnel to the WSL network namespace; this means Kubernetes is again reachable via 127.0.0.1 from both Windows and the WSL distros. The separate ~/.kube/config files inside the distros will be converted back into a symlink, but only if it contains no other information than the Rancher Desktop cluster itself. If there is additional configuration data, then the user will have to perform the data merging manually if they want to get back to using a symlink as well.Support for QEMU on M3 machines (macOS)\nQEMU for Apple Silicon machines has been updated to version 8.2.1 and now supports the M3 CPU architecture as well.Support for kind (macOS and Linux only)\nThis release supports kind on macOS and Linux as long as Kubernetes is either disabled or running Kubernetes 1.20.4 or higher (older Kubernetes versions require cgroups v1, which is incompatible with kind).Experimental virtiofs mount type could delete $HOME directory data (Linux only)\nThis serious bug has been fixed.Note that on Linux this setting requires the Rust implementation of virtiofsd to be installed on the host; otherwise it won't work.Experimental 9p mount type now works correctly for RPM and DEB installation (Linux only)\nIt is still not working in the AppImage install.Known Issues\nWindows Networking\nThere is a known issue with the new network not including all aliased domains (#5239).Container Dashboard\nThe dashboard does not update automatically when container states have changed or new containers are introduced (#5775).Extensions Install - Allowed Images\nWhen using the Allowed Images feature and also specifying extensions in a deployment profile, the extension images must be included in both lists (#4920).Updates to Bundled Utilities\n- docker 24.0.7 → 25.0.4\n- docker-buildx 0.12.0 → 0.13.0\n- docker-compose 2.23.3 → 2.24.7\n- docker-credential-ecr-login 0.8.0 → 0.8.1\n- helm 3.13.3 → 3.14.2\n- moby/buildkit 0.12.3 → 0.12.5\n- nerdctl 1.7.1 → 1.7.3\n- trivy 0.48.0 → 0.49.1\nBundled Wasm shims\nThe spin shim comes from the containerd-wasm-shims release 0.11.1.- Spin version 2.2.0\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.12.3, can be found using GitHub compare and the details of the release can be found in the v1.13.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.13.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.13.0/Rancher.Desktop.Setup.1.13.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.13.0.msi",
+          "sha256": "b0449190c77569759953e026a1630dcd49ab963e3f0e54d3f23d966402a3bb25",
+          "product_code": "{EF433AFE-7D62-4302-A57A-D02D1025558B}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.12.3",
+      "release_date": "2024-02-02",
+      "release_notes": "This is the 1.12.3 release of Rancher Desktop, an open source desktop application to bring Kubernetes and container management to Mac, Windows, and Linux.⚠️ Warning ⚠️\nDo NOT use the experimental virtiofs mount type (on Linux and macOS). We have experienced catastrophic data loss with this mount option on Linux (the $HOME directory on the host was wiped out), and have seen a single bug report on Lima claiming a similar experience on macOS. We are not aware of a direct incidence with Rancher Desktop on macOS, but Lima is the underlying technology managing the VM and volume mounts.Due to the catastrophic failure mode we urge everyone to NOT use this option.We will temporarily remove this setting in the 1.13.0 release until the issue is understood and fixed.Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nWhat has changed in 1.12.3\nThe 1.12.3 patch release updates runc to version 1.1.12, buildkitd to 0.12.5, and nerdctl to 1.7.3 to fix a number of CVEs:- CVE-2024-21626 Several container breakouts due to internally leaked fds (high)\n- CVE-2024-23650 Possible panic when incorrect parameters sent from frontend (moderate)\n- CVE-2024-23651 Possible race condition with accessing subpaths from cache mounts (high)\n- CVE-2024-23652 Possible host system access from mount stub cleaner (high)\n- CVE-2024-23653 Interactive containers API does not validate entitlements check (high)\nAll these CVEs can only be exploited if the user is using malicious input in the container build process or is running container images that have already been compromised.The following CVE is not fixed in this patch release because there is no upstream release for moby 23.* that includes the fix yet:- CVE-2024-24557 Classic builder cache poisoning (moderate)\nNote that Rancher Desktop is only affected by this CVE if the user explicitly opts out of Buildkit to use the legacy/classic builder (sets DOCKER_BUILDKIT=0). It does not apply to the default configuration.What has changed in 1.12.2\nThe 1.12.2 patch release fixes a single issue on macOS and Linux where the shell profile (e.g. ~/.bash_profile) could be deleted (#6281). This was due to a race condition, after either a fresh install or a factory-reset, which would display the first-run dialog. When this dialog was closed (accepted) quickly, the file could be overwritten with truncated content.There are no changes (except for the version number bump) on Windows.What has changed in 1.12.1\nThe 1.12.1 patch release fixes a single memory corruption issue on Windows for importing CA certificates (#6308). There are no changes (except for the version number bump) on macOS and Linux.Release notes for 1.12.0\nNotable Features & Changes\nWindows WSL Installation\nFor Windows users that have previously overridden the WSL installation check, please use WSLINSTALLED instead of WSLKERNELINSTALLED.Windows tunnelling networking mode is no longer experimental\nIt has feature parity with the legacy networking mode and will become the default setting for new installations (and factory reset) in the 1.13 release. We expect to remove the legacy networking support in 1.14.macOS builds for aarch64 are now native binaries\nThe VM code has always been platform-native, but the UI used to require Rosetta because it was still an x86_64 binary. Now everything except for kuberlr and the kubectl versions managed by it are aarch64 binaries. The problem with kuberlr and kubectl is that there are no native binaries available from upstream for older Kubernetes versions.macOS socket_vmnet networking is no longer experimental\nsocket_vmnet is a replacement for vde_vmnet, which is deprecated upstream. It was never supported in VZ emulation mode, so Rancher Desktop already uses socket_vmnet in VZ mode when admin access is enabled.socket_vmnet will become the default for QEMU as well in the 1.13 release; in 1.14, vde_vmnet will be removed.Deployment Profiles\nThis release now requires deployment profiles to have an explicit version field (which is 10, as of release 1.11.0).The version of rdctl that ships with this release will have the version field in any generated deployment files. However, this means that existing files will either need to be regenerated or manually edited in place.- For Linux, add \"version\": 10, at the very start of the JSON-formatted deployment file immediately after\nthe initial open brace {.\n- For macOS, add <key>Version</key><integer>10</integer> after the initial <dict> tag.\n- For Windows, add a DWORD value named version with value 10 (hexadecimal a) at the top level of each profile that needs updating.\nImportant Bug Fixes\nSnapshots\nImprovements and fixes regarding executing multiple application actions while a snapshot is undergoing a management activity (#5846, #5848, #5849, and #5854).Known Issues\nApple M3 CPUs\nApple M3 CPUs are not supported (yet) by QEMU. Please use VZ emulation instead (#5943).Snapshots\nThere is a known issue with the Snapshot Cancel operation in the UI. It is possible that the operation can no longer be cancelled when the button is pressed. In that case, the operation may succeed but the UI will still claim that it has been cancelled (#6159).Windows Networking\nThere is a known issue with the new network not including all aliased domains (#5239).Container Dashboard\nThere are known issues with the Container Dashboard when using the nerdctl container engine; one is that the \"Started\" field shows an inaccurate time for containers starting up. The dashboard also has an issue updating when container states have changed or new containers are introduced (#6191, #6189, #5877, and #5775).Provisioning Scripts - Windows\nThe location for provisioning scripts on Windows has changed from %AppData%\\rancher-desktop\\provisioning to %LocalAppData%\\rancher-desktop\\provisioning. The files are not automatically migrated when Rancher Desktop is updated, so they must be manually moved or copied to the new location.9p - Linux OS\nThere is a known issue with some Linux distributions and using the experimental mount type 9p (#4943).Extensions Install - Allowed Images\nWhen using the Allowed Images feature and also specifying extensions in a deployment profile, the extension images must be included in both lists (#4920).Updates to Bundled Utilities\n- helm 3.12.3 → 3.13.3\n- docker 24.0.6 → 24.0.7\n- docker-buildx 0.11.2 → 0.12.0\n- docker-compose 2.22.0 → 2.23.3\n- docker-credential-ecr-login 0.7.1 → 0.7.1\n- nerdctl 1.6.2 → 1.7.1\n- moby/buildkit 0.12.3 → 0.12.4\n- trivy 0.46.0 → 0.46.0\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel\nChangelog\nThe full version changelog, from v1.12.0, can be found using GitHub compare and the details of the release can be found in the v1.12.0 milestone.",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.12.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.12.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.12.3/Rancher.Desktop.Setup.1.12.3.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.12.3.msi",
+          "sha256": "5d91da8fb15e121a6fbbd286946d20dd839c47d61d53a5b158d5e513ff7bd49c",
+          "product_code": "{97CE64FF-9B61-4BDE-B836-E5A5F8965136}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.1",
+      "release_date": "2023-11-29",
+      "release_notes": "Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.11.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.11.1/Rancher.Desktop.Setup.1.11.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.11.1.msi",
+          "sha256": "d55261b5671579e0e3077674e04908610e74d9fb3db24670688ce7978abb5141",
+          "product_code": "{9CB25129-38F0-474A-BAFD-9718DCF6D4F1}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.0",
+      "release_date": "2023-10-31",
+      "release_notes": "Windows and macOS Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nBuildX Error\n- Fixes #5363 where newly created BuildX instances were failing with \"cgroup\" errors.\nWSL Updates\n- Fixes #4560 during startup for Rancher Desktop where the WSL integration was executing distributions not explicitly marked for integration and causing startup issues.\n- Fixes #5805 where WSL integrations could not be disabled from the UI.\n- Fixes #5551 where the WSL version was unable to be properly parsed causing application errors.\nLocked No-Proxy Field UI Update\n- Fixes #5468 where the No proxy hostname list was editable in the UI after being locked via deployment policy.\nVZ Emulation\n- Fixes #5542 where an incompatible mount type could be set for VZ emulation using the command line and rdctl.\nDeployment Profile - Windows\n- Fixes #5857 where deployment profiles created via rdctl with locked fields were not able to initialize the application.\nUpdates to Bundled Utilities\n- helm 3.12.3 → 3.13.1\n- docker 24.0.5 → 24.0.6\n- docker-buildx 0.11.2 → 0.12.0\n- docker-compose 2.20.3 → 2.22.0\n- docker-credential-ecr-login 0.7.1 → 0.7.1\n- nerdctl 1.5.0 → 1.6.2\n- moby/buildkit 0.11.6 → 0.12.3\n- trivy 0.44.1 → 0.46.0\nConnect With the Developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.11.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.11.0/Rancher.Desktop.Setup.1.11.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.11.0.msi",
+          "sha256": "53727042760bad86094a81acebbfa4aab8c7eb5a5bcb4b816f56a09cc1b233f9",
+          "product_code": "{E5AFBC00-DF8E-4274-BAF0-623C036FCAAC}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.10.0",
+      "release_date": "2023-09-12",
+      "release_notes": "Windows and macOS Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nDeployment Profile Updates\n- Rancher Desktop now supports generating Windows .reg or macOS .plist files using the rdctl create-profile [options] command.\n  Please see the command reference for documentation.\nMount Type virtiofs Available on Linux & macOS\n- Initially available for macOS, this release adds the virtiofs mount type for Linux environments as well.\n  This can be set as an option on the Virtual Machine | Volumes tab.\nWindows Proxy Update\n- The WSL noproxy list is now displayed in a text area from the preferences dialog via Preferences > WSL > Proxy.\nDesktop Extensions - Switching Container Engines\n- Fixes #4788 where Rancher Desktop will now silently remove incompatible extensions when switching container engines between the dockerd and containerd options.\nDeployment Profile Updates\n- Fixes #4952 where an incorrect Kubernetes version value in a deployment profile was not terminating the application.\n- Fixes #5047 with editable Kubernetes fields in locked deployment profiles.\nWindows Network Update\n- Fixes #5396 where port binding to localhost failed when using a moby backend engine and allows for exposed ports to be discoverable in the namespaced network.\nWindows Proxy Update\n- Fixes #5366 where users were unable to delete a host from the No proxy hostname list.\nAllowed Images List & rdctl create-profile --output=reg\n- There is a known  issue #5466 where an empty allowed images list is not being output while using the command rdctl create-profile --output=reg --from-settings.\nUpdates to Bundled Utilities\n- helm 3.12.0 → 3.12.3\n- docker 24.0.2 → 24.0.5\n- docker-buildx 0.10.5 → 0.11.2\n- docker-compose 2.18.0 → 2.20.3\n- docker-credential-ecr-login 0.7.1 → 0.7.1\n- nerdctl 1.4.0 → 1.5.0\n- moby/buildkit 0.12.0 → 0.11.6 (downgrade due to an issue with cgroups)\n- trivy 0.42.0 → 0.44.1\nConnect With the Developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.10.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.10.0/Rancher.Desktop.Setup.1.10.0.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.10.0.msi",
+          "sha256": "44d4a5b0c5770fcdf08c13254c5d44c1677ff82d62d70cbff7afccc463c2cbc9",
+          "product_code": "{701A8198-ACBB-4F38-9456-C92E58D32EAA}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.1",
+      "release_date": "2023-06-28",
+      "release_notes": "Windows and macOS Installers\n- Windows\n- macOS x86_64\n- macOS aarch64\n- Linux install notes\nNew networking stack on Windows\n- The new networking code would break when the user name contained a space.\n- Port forwarding did not work with the new networking code.\nUpdates to bundled utilities\n- helm 3.12.0 → 3.12.1\n- docker-buildx 0.10.5 → 0.11.0\n- docker-compose 2.18.1 → 2.19.0\n- trivy 0.42.0 → 0.42.1\nConnect with the developers\n- The issue queue\n- Rancher Users Slack in the #rancher-desktop channel",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.9.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.9.1/Rancher.Desktop.Setup.1.9.1.msi",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.9.1.msi",
+          "sha256": "5f7bc72fc159864b84464f6dc967be5c7379529b04c983a2d5e1f85b6ff3f358",
+          "product_code": "{A56C4D88-A561-4232-BDA3-A8265124064D}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{1F717D5A-A55B-5FE2-9103-C0D74F7FBDE3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.8.1/Rancher.Desktop.Setup.1.8.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.8.1.exe",
+          "sha256": "53e4712e417a37197637314944be27c944ee2b568e65f62f154c2543c6f82a97",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.7.0/Rancher.Desktop.Setup.1.7.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.7.0.exe",
+          "sha256": "fd4f0aa16a694b18581d5dbfa34a8c8fdaa0202abbc2c4da8a56bf4df2be95e3",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.2",
+      "release_date": "2022-11-03",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.6.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.6.2/Rancher.Desktop.Setup.1.6.2.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.6.2.exe",
+          "sha256": "cb2ca58823277f8d5ec54324a61e779e4060bc8b7b15a5a2c5aee302510750a2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.1",
+      "release_date": "2022-10-24",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.6.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.6.1/Rancher.Desktop.Setup.1.6.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.6.1.exe",
+          "sha256": "3ddb799d96d72ca8285d4d138a24288ab9ee80eebcb546abc1c8a76a3742eae7",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.0",
+      "release_date": "2022-10-06",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.6.0/Rancher.Desktop.Setup.1.6.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.6.0.exe",
+          "sha256": "7c10fa2dbfd9610ddaac205923e87c2ca3ba19c00f31c5907d653a199825cfc0",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.5.1",
+      "release_date": "2022-08-12",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.5.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.5.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.5.1/Rancher.Desktop.Setup.1.5.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.5.1.exe",
+          "sha256": "620e1fc8f671ef6d4a320010815195f2343fa84d51e28b7a1a0b9bd6fae00e4e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.5.0",
+      "release_date": "2022-07-28",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.5.0/Rancher.Desktop.Setup.1.5.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.5.0.exe",
+          "sha256": "c63edb28d68a96e1929625b16516c304c1b8acfe7380097e9a0cb5ef235b8ebf",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.4.1",
+      "release_date": "2022-06-08",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.4.1/Rancher.Desktop.Setup.1.4.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.4.1.exe",
+          "sha256": "39d79e4287998e483e387166b1447a7df78e441d6cb939166dcf9cd9436adc31",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.0",
+      "release_date": "2022-04-28",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.3.0/Rancher.Desktop.Setup.1.3.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.3.0.exe",
+          "sha256": "92108cbbd8c98f99b00a608d8f7d21e12faeca76f16890585ef212cc5bf1c779",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2.1",
+      "release_date": "2022-03-24",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.2.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.2.1/Rancher.Desktop.Setup.1.2.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.2.1.exe",
+          "sha256": "3711e91ae84140a429d012b3a9bba19e87fab3e1929eb4faca2620dc7ec11d71",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2.0",
+      "release_date": "2022-03-23",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.2.0/Rancher.Desktop.Setup.1.2.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.2.0.exe",
+          "sha256": "4d55156ea2c236dafc5dbcd0ea98b94e94f83c15a1fc6f0bc1f6c57affec99c8",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.1.1",
+      "release_date": "2022-03-04",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.1.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.1.1/Rancher.Desktop.Setup.1.1.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.1.1.exe",
+          "sha256": "dd3d52501963fd1757e8d0b972deda264afe38d8f0ef3383aaa5b1bd6b6c0747",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.1.0",
+      "release_date": "2022-03-02",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.1.0/Rancher.Desktop.Setup.1.1.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.1.0.exe",
+          "sha256": "82705955c98d0ab0aca480da40f01741f7eb28f1de088802f6451c2f4522e950",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.1",
+      "release_notes_url": "https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.0.1/Rancher.Desktop.Setup.1.0.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.0.1.exe",
+          "sha256": "bdfa295a59cd5c46eb93686e36bc8ad6e60f271ee4844624b12a35bdd3deb07f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/1.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.0.0/Rancher.Desktop.Setup.1.0.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.1.0.0.exe",
+          "sha256": "20bd85f4866ceb46bd674b8e72e76a3713c7c21606a4433a92c696b54412ea2d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/0.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v0.7.1/Rancher.Desktop.Setup.0.7.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.0.7.1.exe",
+          "sha256": "3b556668e378f692f73c664523c863cda2e97b7596d48dec8e91ccebe010094c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.7.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/0.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v0.7.0/Rancher.Desktop.Setup.0.7.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.0.7.0.exe",
+          "sha256": "b75930e5893c27f058901df077e2ee02280ee836425caa4eae645ce0cdf8b6ba",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/0.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v0.6.1/Rancher.Desktop.Setup.0.6.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.0.6.1.exe",
+          "sha256": "3436021f10ae3ac6833898ac09c907820cfad918bb65ed02e3c4f79744f2c9be"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/0.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v0.6.0/Rancher.Desktop.Setup.0.6.0.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.0.6.0.exe",
+          "sha256": "dd408f9543ac54f153cf7bfb326aa8bac69748b76e98f5b4dc78a80a102c2bc7"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SUSE/RancherDesktop/0.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v0.4.1/Rancher.Desktop.Setup.0.4.1.exe",
+          "host": "github.com",
+          "filename": "Rancher.Desktop.Setup.0.4.1.exe",
+          "sha256": "5d216529a41085595c91a4d1421e75c08136eec8fe0b4879b58727fa2f7098f5"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.25.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.25.0/Rancher.Desktop-1.25.0.x86_64.dmg",
+          "host": "github.com",
+          "filename": "Rancher.Desktop-1.25.0.x86_64.dmg",
+          "sha256": "859c6384ac33e8c1ddc0f37eb8e0ed26cdd977d6ac0a58b9235e7a2a4c33080b",
+          "min_os_version": "13"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/rancher-sandbox/rancher-desktop/releases/download/v1.25.0/Rancher.Desktop-1.25.0.aarch64.dmg",
+          "host": "github.com",
+          "filename": "Rancher.Desktop-1.25.0.aarch64.dmg",
+          "sha256": "17b93863838fc3860d4adb0fa58a76a283011c3ea8743205b306e23f5282c671",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Rancher Desktop.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "io.rancherdesktop.app"
+          ],
+          "remove": [
+            "/opt/rancher-desktop",
+            "/private/etc/sudoers.d/zzzzz-rancher-desktop-lima",
+            "/private/var/run/docker.sock",
+            "/private/var/run/rancher-desktop-*"
+          ],
+          "zap_paths": [
+            "~/.kuberlr",
+            "~/.rd",
+            "~/Library/Application Support/Caches/rancher-desktop-updater",
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/io.rancherdesktop.app.sfl*",
+            "~/Library/Application Support/Rancher Desktop",
+            "~/Library/Application Support/rancher-desktop",
+            "~/Library/Caches/io.rancherdesktop.app*",
+            "~/Library/Caches/rancher-desktop",
+            "~/Library/Logs/rancher-desktop",
+            "~/Library/Preferences/ByHost/io.rancherdesktop.app*",
+            "~/Library/Preferences/io.rancherdesktop.app.plist",
+            "~/Library/Preferences/rancher-desktop",
+            "~/Library/Saved Application State/io.rancherdesktop.app.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "bda67118653e14507f046cee950c5d782f46e585",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "manifests/s/SUSE/RancherDesktop"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "04018de6306a2214b0ec0c1602df674c751d15e8",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "Casks/r/rancher.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/rancher.json"
+    }
+  ]
+}

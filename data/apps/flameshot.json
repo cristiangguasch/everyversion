@@ -6,10 +6,12 @@
   "ids": {
     "winget": "Flameshot.Flameshot",
     "moniker": "flameshot",
+    "homebrew_cask": "flameshot",
     "flathub": "org.flameshot.Flameshot"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "Powerful yet simple to use screenshot software.",
@@ -38,11 +40,13 @@
   },
   "latest_versions": {
     "windows": "15.0.0",
+    "macos": "15.0.0",
     "linux": "15.0.0"
   },
   "last_updated": "2026-11-07",
   "versions_total": {
     "windows": 14,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -505,6 +509,48 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "15.0.0",
+      "source_version": "15.0.0,15.0.0,git0.f4f2e4e",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v15.0.0/Flameshot-15.0.0-macos-intel.dmg",
+          "host": "github.com",
+          "filename": "Flameshot-15.0.0-macos-intel.dmg",
+          "sha256": "bb3ba6c0f556c32051795d7007409e4d5ec2d810adb6c4e6e58498eeb1b51204",
+          "min_os_version": "15"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/flameshot-org/flameshot/releases/download/v15.0.0/Flameshot-15.0.0-macos-arm64.dmg",
+          "host": "github.com",
+          "filename": "Flameshot-15.0.0-macos-arm64.dmg",
+          "sha256": "ff2f63fb630992385a8738f45fb819051dd6a30ff87909a8e98bfbf21170df3d",
+          "min_os_version": "15"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Flameshot.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "org.flameshot.flameshot"
+          ],
+          "zap_paths": [
+            "~/.cache/flameshot",
+            "~/.config/flameshot",
+            "~/Library/Caches/flameshot"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "15.0.0",
       "release_date": "2026-11-01",
@@ -539,14 +585,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
-      "retrieved_at": "2026-11-08T21:59:01.347Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/f/Flameshot/Flameshot"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/f/flameshot.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/flameshot.json"
     },
     {
       "source": "flathub",

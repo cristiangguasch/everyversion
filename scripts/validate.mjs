@@ -49,12 +49,13 @@ for (const f of files) {
     if (!rec.platforms.includes(v.platform)) fail(f, `version ${v.version} on undeclared platform ${v.platform}`);
     for (const i of v.installers) {
       if (i.platform !== v.platform) fail(f, `installer platform mismatch in ${v.version}`);
-      if (i.platform === 'windows' && !i.sha256) fail(f, `windows installer without sha256 in ${v.version}`);
+      if (i.platform === 'windows' && !i.sha256 && !(i.no_checksum && rec.ids.custom)) fail(f, `windows installer without sha256 in ${v.version}`);
       // macOS (a cask with :no_check) and Linux from Flathub (a signed OSTree repo, no per-file hash) may declare no checksum; any other Linux build needs one.
       if (i.platform === 'macos' && !i.sha256 && !i.no_checksum) fail(f, `macos installer without sha256 or no_checksum in ${v.version}`);
       if (i.platform === 'linux' && !i.sha256 && !(i.no_checksum && rec.ids.flathub)) fail(f, `linux installer without sha256 in ${v.version}`);
     }
   }
+  if (rec.homebrew_cask_disabled && !rec.ids.homebrew_cask) fail(f, 'homebrew_cask_disabled without ids.homebrew_cask');
   // Apps from winget get macOS only through a matched Homebrew cask; custom-source apps carry their own macOS builds.
   if (rec.ids.winget && rec.platforms.includes('macos') !== Boolean(rec.ids.homebrew_cask)) fail(f, 'macos platform and ids.homebrew_cask disagree');
   // Flathub: the Linux platform, ids.flathub, the flathub block and the flathub provenance entry stand or fall together.

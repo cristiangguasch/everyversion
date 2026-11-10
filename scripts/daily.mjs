@@ -170,7 +170,9 @@ for (const [slug, rec] of fresh) {
   const found = hashes.map((h) => vt[h]).filter((x) => x?.found);
   const flagged = found.map((x) => (x.stats.malicious || 0) + (x.stats.suspicious || 0));
   const max = flagged.length ? Math.max(...flagged) : null;
-  const safety = max === null ? 'not scanned' : max <= 1 ? (found.length < hashes.length ? 'safe so far' : 'safe') : max <= 3 ? 'MEDIUM RISK' : 'HIGH RISK';
+  const mis = items.some((i) => i.hash === 'MISMATCH');
+  const safety0 = max === null ? 'not scanned' : max <= 1 ? (found.length < hashes.length ? 'safe so far' : 'safe') : max <= 3 ? 'MEDIUM RISK' : 'HIGH RISK';
+  const safety = mis && !/RISK/.test(safety0) ? 'MEDIUM RISK (hash mismatch)' : safety0;
   console.log(`  ${pad(rec.name, 28)} ${pad(rec.platforms.join('+'), 14)} ${pad(rec.ids.homebrew_cask || '-', 20)} ${pad(hash, 13)} ${pad(sig, 15)} ${found.length}/${hashes.length} scanned${max ? `, max ${max} flagged` : ''} → ${safety}`);
 }
 const problems = [];

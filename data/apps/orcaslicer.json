@@ -1,0 +1,669 @@
+{
+  "schema_version": 2,
+  "slug": "orcaslicer",
+  "name": "OrcaSlicer",
+  "publisher": "SoftFever",
+  "ids": {
+    "winget": "SoftFever.OrcaSlicer",
+    "homebrew_cask": "orcaslicer",
+    "flathub": "com.orcaslicer.OrcaSlicer"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "G-code generator for 3D printers (Bambu, Prusa, Voron, VzBot, RatRig, Creality, etc.)",
+  "tags": [
+    "3d",
+    "3d-printer",
+    "3d-printing",
+    "maker",
+    "model",
+    "slicer"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://orcaslicer.com/",
+    "publisher": "https://orcaslicer.com/",
+    "support": "https://github.com/OrcaSlicer/OrcaSlicer/issues",
+    "bug_tracker": "https://github.com/OrcaSlicer/OrcaSlicer/issues",
+    "release_notes": "https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/OrcaSlicer/OrcaSlicer/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "AGPL-3.0",
+    "url": "https://github.com/OrcaSlicer/OrcaSlicer/blob/HEAD/LICENSE.txt",
+    "spdx": "AGPL-3.0",
+    "copyright": "Copyright (C) 2022-2026 Li Jiang. All rights reserved."
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.5.0",
+    "macos": "2.5.0",
+    "linux": "2.5.0"
+  },
+  "last_updated": "2026-11-07",
+  "versions_total": {
+    "windows": 16,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.5.0",
+      "release_date": "2026-11-07",
+      "release_notes_url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.0",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.5.0/OrcaSlicer_Windows_Installer_V2.5.0_x64.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.5.0_x64.exe",
+          "sha256": "b0414963c9191fa7ea3d3fdbcd0cd0b49ffcbe57f4c567666635d996139f02e4",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.5.0/OrcaSlicer_Windows_Installer_V2.5.0_arm64.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.5.0_arm64.exe",
+          "sha256": "a233618ab386c99ca386ca968bae0b72ef48bbfd633d372e2839ed3845e6f088",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.2",
+      "release_date": "2026-07-07",
+      "release_notes": "What's Changed\nThis is the OrcaSlicer V2.4.2 release — a maintenance update on top of 2.4.1, focused on making profiles, cloud sync, and printer connectivity more dependable. Upgrading from an older version is smoother: presets that were built on a printer or filament that has since been renamed or removed now load correctly, so you should see far fewer \"missing preset\" warnings. Cloud sync gets several fixes too — filament settings you had turned off no longer switch themselves back on, sync messages now tell you exactly which preset is involved, and running two copies of OrcaSlicer signed into the same account no longer logs you out at random. Installing and updating the Bambu network plugin is reliable again, including when you switch versions on Windows. On top of that, this release fixes several crashes (rotating the prime tower, using the Measure tool, and running a Pressure Advance calibration), a couple of slicing and print-time-estimate problems, and Reload from Disk for STEP models after you reopen a project. New this time: a filename placeholder for the first object's name, clickable wiki links in the Preferences dialog, and add:north filament profiles.\nOrcaSlicer is also available on the Microsoft Store for Windows users here: Microsoft Store Link\nFor Linux users, it is available on Flathub: Flathub Link\n🌊 New Features & Improvements\n- {first_object_name} filename placeholder by @raistlin7447 in 14497\n  Adds a new {first_object_name} placeholder you can put in the output filename format — it fills in the name of the first printable object on the plate. In older versions the default {input_filename_base} would sometimes fall back to the first object's name; that was corrected earlier, but some people had relied on it to get the part name into their file names. This placeholder brings that option back, and it changes nothing unless you add it to your format. Closes #14493 and #14513.\n- Wiki links and a tidier Preferences dialog by @yw4z in 13857\n  The Preferences dialog now shows clickable \"Wiki\" links next to settings — the same as in the sidebar — so you can open the relevant documentation in one click. It's also reorganized so related options sit together (Draco export quality under Project, the shared-profiles notification under Preset, filament sync mode next to auto-sync), combo boxes now have tooltips, there's a new \"Experimental features\" section under Developer, and the network-plugin Reload button has moved here from the Developer tab.\n- Use number-or-percentage settings in custom G-code by @Noisyfox in 14526\n  Some settings can be entered either as a fixed number or as a percentage. Custom G-code can now read these values; before, referring to one of them returned nothing. Fixes #14522.\n- Name the preset in cloud-sync messages by @SoftFever in 14592\n  When cloud sync reports a conflict, asks you to confirm a force-push, or says a preset is too large to sync, the message now names the specific preset involved instead of leaving you to guess which one it means.\n🛠️ Bug Fixes\nProfiles & presets\n- Repair presets that pointed at renamed or deleted profiles by @SoftFever in 14595\n  Fixes user presets that were based on — or paired with — a printer or filament profile that has since been renamed or removed, which could leave the preset broken after an upgrade. OrcaSlicer's built-in profile checks now run for every brand by default, so these broken links are caught early.\n- Reconnect older presets to renamed profiles by @peachismomo and @SoftFever in 14507\n  Presets you created in older versions can now find their original profile even after it was renamed — this covers Ginger (rPLA/rPETG now map to PLA/PETG), Panchroma (PLA Stain → Satin), several Elegoo RAPID/PETG naming variants, and a few Bambu Lab presets. A new automated check also tests presets from past OrcaSlicer versions against the current profiles before each release, so this kind of upgrade problem is caught ahead of time. Together these address the missing-preset reports seen after upgrading past 2.4.1.\n- Keep filaments compatible with renamed printers by @peachismomo and @SoftFever in 14504\n  When a printer profile is renamed, filaments you had set up for its old name could suddenly look incompatible and drop off the list. OrcaSlicer now recognizes a printer's previous names, so those filaments stay compatible — and your saved files don't need to be edited.\n- Correct the type label in the preset bundle dialog by @peachismomo in 14481\n  In the preset bundle dialog, process presets were labeled with the type \"preset\"; they now correctly show \"process\".\nCloud sync & accounts\n- Keep disabled filament overrides off after cloud sync by @ExPikaPaka in 14550\n  A filament override you had switched off — for example Retract Before Wipe — could quietly turn itself back on (and reset to its default) after a cloud sync or a restart. Because of how the \"off\" state was stored, it was being left out of the synced profile and then filled back in with the default value. Disabled overrides are now always saved explicitly, so they stay off. Fixes #13943.\n- Fix version not updating correctly on Linux and macOS by @SoftFever in 14617\n  On Linux and macOS, the app version wasn't being refreshed properly after an update, so the cloud-sync \"profile sync change\" notification could keep appearing on every launch with the auto-sync checkbox greyed out and impossible to turn off. The version is now detected correctly on all platforms, so the sync notification behaves as it should. Fixes #14581.\n- Stop two open copies from logging each other out by @peachismomo in 14531\n  Running more than one copy of OrcaSlicer signed into the same account on one computer could log you out at random, because the copies could interfere with each other's login session. They now coordinate through your system's secure credential store and take turns renewing the session, so they no longer knock each other offline. (This covers copies on the same computer; using the same account on separate computers is unchanged.)\nNetworking plugin\n- Stop the repeated \"reinstall Bambu network plugin\" prompt by @Noisyfox in 14511\n  If you had used the older (\"legacy\") network plugin in the past, installing a newer version from the update prompt could leave OrcaSlicer unable to find the plugin on the next launch, so it kept asking you to reinstall it. That's fixed, so a plugin you install now stays installed. Fixes #14373 and #14441.\n- Fix \"plug-in file may be in use\" when switching plugin versions on Windows by @ExPikaPaka in 14528\n  On Windows, changing or reinstalling the Bambu network plugin while OrcaSlicer was running could fail with \"The plug-in file may be in use,\" leaving networking broken until you restarted. The installer now works around the file being in use, so the new plugin installs successfully without a restart. Reported in #14373.\nSlicing & G-code\n- Fix slicing failure when filament end G-code uses {layer_z} with a prime tower by @raistlin7447 in 14462\n  If your filament's end G-code used {layer_z} — for example, a Z-lift to clear the print — slicing could fail on multi-filament prints that use the prime tower, such as a print with a separate support filament. {layer_z} now has a value in that situation, so slicing completes and the command runs at each filament change as expected. Fixes #10119.\n- Fix an inaccurate print-time estimate by @SoftFever in 14573\n  Corrects a mistake in how the print time was calculated, so the estimated print time OrcaSlicer shows is more accurate. Supersedes #14525.\nCrashes\n- Fix crash when rotating the prime tower by @raistlin7447 in 14499\n  Selecting the prime tower and rotating it with PageUp/PageDown could crash OrcaSlicer. Rotating, scaling, and mirroring the prime tower are now handled safely. Fixes #14498.\n- Fix crash in the Measure tool by @raistlin7447 in 14538\n  Using the Measure tool could crash if you picked a straight edge first and then selected a second feature. That case is now handled, so measuring from a straight edge works. Fixes #14018.\n- Fix crash in Pressure Advance pattern calibration by @raistlin7447 in 14447\n  Running a Pressure Advance pattern calibration could crash OrcaSlicer if the first layer line width was set to 0 (which means \"use the default\"). A width of 0 now correctly falls back to the automatic default, so the calibration slices normally. Fixes #13188.\nModels & project\n- Fix Reload from Disk for STEP models after reopening a project by @SoftFever in 14591\n  After you saved a project and reopened it, Reload from Disk stopped working for models imported from STEP files — it failed with \"Error during reload,\" and kept asking you to locate the file if the STEP wasn't stored next to the project (a problem since 2.3.2). Reload now finds the file by name as well as by its saved path, so it can pick up the model next to the project (or the one you point it to) and update it in place. A new \"export full source paths\" option in Preferences helps when you keep the STEP file and the project in different folders. Fixes #12992.\n🖨️ Printer & Filament Profiles\n- add:north filaments — adds ready-made profiles for add:north filaments to the Orca Filament Library by @valerii-bokhan in 13366",
+      "release_notes_url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.4.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.4.2/OrcaSlicer_Windows_Installer_V2.4.2_x64.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.4.2_x64.exe",
+          "sha256": "f602f9d646f49bee387d8f342a0193a7ef20756eabb845e19795c5a62b90a58a",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.4.2/OrcaSlicer_Windows_Installer_V2.4.2_arm64.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.4.2_arm64.exe",
+          "sha256": "ce00548d9444eeada4e61f49f35e2984e493671aadd3d98a9ee94fe18977527d",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.1",
+      "release_date": "2026-06-28",
+      "release_notes_url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.4.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.4.1/OrcaSlicer_Windows_Installer_V2.4.1_arm64.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.4.1_arm64.exe",
+          "sha256": "0b688ba9be3e27f2cc690bd964c742a006c1cbe03d5dd6806ae914b3221eedba",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.4.1/OrcaSlicer_Windows_Installer_V2.4.1_x64.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.4.1_x64.exe",
+          "sha256": "c17734f4602d6931089a4c2a34ddf92ee6ed027917a4994dbf03a7803f67f82a",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.0",
+      "release_date": "2026-06-20",
+      "release_notes_url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.4.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.4.0/OrcaSlicer_Windows_Installer_V2.4.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.4.0.exe",
+          "sha256": "897e307c20c8524d58ef1a1d28e7786afea7fcdfcc8a75a306fa1e7e79d68e9f",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.2",
+      "release_date": "2026-03-23",
+      "release_notes_url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.3.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.3.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.2/OrcaSlicer_Windows_Installer_V2.3.2.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.3.2.exe",
+          "sha256": "6d85123ddf73d19ba430fc8a200c531e3982cb8197a0f8c3e1d79a3403f53ad1",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.1",
+      "release_date": "2025-10-05",
+      "release_notes": "This is the official release of OrcaSlicer 2.3.1.\nWe have fixed some bugs and made several improvements.\nNOTE I want to give a shout-out to Ian Bassi (@ianalexis). OrcaSlicer’s WIKI is now AWESOME thanks to his fantastic work.\nWhat's Changed\nBug fixes:\n- fix a regression bug that wrong printer model for Prusa MK3S and MINI in 2.3.1 beta by @SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/10821\n- Enhance GCode handling for Z-axis movements by @SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/10803\n- Fix a crash issue when importing a 3MF file saved from version 2.3.1-alpha as geometry only by @SoftFever\n- Disable smooth sprial in input_shaping calibrations by @ianalexis in https://github.com/SoftFever/OrcaSlicer/pull/10748\nProfiles and documents and miscellaneous:\n- Add support for OrcaSlicer 2.3.1-alpha infill rotation template warning by @SoftFever\n- Reflect swapped mouse buttons in Help → Keyboard Shortcuts by @kisslorand in https://github.com/SoftFever/OrcaSlicer/pull/10647\n- [Profile]parameters modified in printer file by @InnovatiQ-Additive in https://github.com/SoftFever/OrcaSlicer/pull/10394\n- Fix variable name comment and message by @coryrc in https://github.com/SoftFever/OrcaSlicer/pull/10302\n- Fixes 50 Compiler Warnings: Add SYSTEM toCMakeLists.txt by @rubienr in https://github.com/SoftFever/OrcaSlicer/pull/10653\n- Fixes 999 CMake Warnings by @rubienr in https://github.com/SoftFever/OrcaSlicer/pull/10729\n- Update TURKISH translations (V2.3.1-beta) by @GlauTechCo in https://github.com/SoftFever/OrcaSlicer/pull/10726\n- Update Anycubic Kobra 2 Neo machine profile fine tune end gcode by @frawg in https://github.com/SoftFever/OrcaSlicer/pull/10742\n- Shellcheck everything by @coryrc in https://github.com/SoftFever/OrcaSlicer/pull/10730\n- Add a once-daily Build All which skips caches by @coryrc in https://github.com/SoftFever/OrcaSlicer/pull/10731\n- Add Afinia 3d printer and update tree_support_tip_diameter option for Tiertime printers by @GuoGeTiertime in https://github.com/SoftFever/OrcaSlicer/pull/10705\n- [PROFILE]Add Sovol SV01 by @M4ketech in https://github.com/SoftFever/OrcaSlicer/pull/10723\n- [QOL] Remember slider position for single layer mode in preview by @yw4z in https://github.com/SoftFever/OrcaSlicer/pull/10758\n- Improve the pt-BR translation by @afmenez in https://github.com/SoftFever/OrcaSlicer/pull/10837\n- Fix grid lines origin for multiple plates by @yw4z in https://github.com/SoftFever/OrcaSlicer/pull/10724\n- Update Q2 print height by @HYzd766 in https://github.com/SoftFever/OrcaSlicer/pull/10843\n- Add Sovol SV08 MAX profiles from Sovol's repo by @arachnist in https://github.com/SoftFever/OrcaSlicer/pull/10768\n- Revamp OrcaSlicer updater by @SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/10884\n- Update DMG creation process in build workflow by @SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/10891\n- Update OrcaSlicer_tr.po by @whizosk in https://github.com/SoftFever/OrcaSlicer/pull/10856\n- Add a new printer Model with Flyingbear by @FlyingbearOfficial in https://github.com/SoftFever/OrcaSlicer/pull/10889\n- [PROFILE]add Rolohaun Delta Flyer Refit by @SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/10893\n- [PROFILE] fix for Ender 3 V3 KE by @maoravni in https://github.com/SoftFever/OrcaSlicer/pull/10860\n- update de for 2.3.1 after update locale by @hliebscher in https://github.com/SoftFever/OrcaSlicer/pull/10912\n- [Profiles] Fix bed_exclude_area excluding the whole bed on Anycubic Kobra 3 by @ErikGS in https://github.com/SoftFever/OrcaSlicer/pull/10914",
+      "release_notes_url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.3.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer_Windows_Installer_V2.3.1.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.3.1.exe",
+          "sha256": "9dab005cf75337a3a83a0b8385c6a0944232c04c6835266a717e1859eb5c61e9",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0",
+      "release_date": "2025-03-20",
+      "release_notes": "This is the official release of Orca Slicer v2.3.0, a stable version that we highly recommend for all users.\nNote: If you upgrade from OrcaSlicer 2.2 or an older version, there’s a chance that some of your previously custom filaments are now available to all your printers. However, if this isn’t what you want, you can set the filament’s dependency to restrict it to a specific printer. For custom filament settings created with 2.3, it will automatically set to be compatible with the current printer model only. In the following video, I demonstrate how to change my “Aliz PETG @Voron” filament, which is optimized for my Voron machine and won’t work with my other printers. I set its dependency to make it visible only to my Voron machine.\nhttps://github.com/user-attachments/assets/cf51f39d-c471-4848-bf24-797abbbb8cdf\nWhat's Changed\n- Backup User Profiles:When OrcaSlicer upgrades to a new version by @SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/8953\nhttps://github.com/user-attachments/assets/6cc86849-cf20-4f30-a9d4-a8b671516ebf\n- Allow generating brims for objects inside other object's hole by @Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/8914\n- Fix a bug that, in some instances, caused sending large print jobs to the Bambu machine to be slow by @3vi1 in https://github.com/SoftFever/OrcaSlicer/pull/8925\n- Fix crash when resetting filament presets by @Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/8911\n- Use .gcode.3mf as ext for gcode 3mf files by @SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/8928\n- Fix wrong first layer temperature when ooze prevention and print-by-obj are enabled by @Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/8927\n- Fix crash when support bottom interface layer is set to same as top by @Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/8955\n- Set Crosshatch as default infill pattern instead of grid by @bistory in https://github.com/SoftFever/OrcaSlicer/pull/8952\n- fix de after update locale by @hliebscher in https://github.com/SoftFever/OrcaSlicer/pull/8803\n- Fix Creality Hi extruder_clearance_height_to_lid by @bistory in https://github.com/SoftFever/OrcaSlicer/pull/8806\n- Improve the pt-BR translation of \"plate\" by @afmenez in https://github.com/SoftFever/OrcaSlicer/pull/8828\n- Add pause gcode command to Sovol SV08 & SV07 by @cochcoder in https://github.com/SoftFever/OrcaSlicer/pull/8840\n- Show Creality CR-6 Optimal processes by @cochcoder in https://github.com/SoftFever/OrcaSlicer/pull/8848\n- Update TURKISH translations (2.3.0-rc) by @GlauTechCo in https://github.com/SoftFever/OrcaSlicer/pull/8851\n- Adding more pt-BR translations by @afmenez in https://github.com/SoftFever/OrcaSlicer/pull/8871\n- Fix typo by @wrathernaut in https://github.com/SoftFever/OrcaSlicer/pull/8872\n- Change Elegoo Centauri Start GCode to Wait for bed temp by @thelegendtubaguy in https://github.com/SoftFever/OrcaSlicer/pull/8882\n- Traditional Chinese Localization Update in 2.3.0-rc by @shuwn in https://github.com/SoftFever/OrcaSlicer/pull/8883\n- Added TPU, ABS, and PETG Profiles for Co Print ChromaSet-2 by @coprint in https://github.com/SoftFever/OrcaSlicer/pull/8888\n- Update Catalan language for OrcaSlicer V2.3.0 Release Candidate by @davidjuanesb in https://github.com/SoftFever/OrcaSlicer/pull/8913\n- bugfix and updates in profiles for MK3.5 by @koppensb in https://github.com/SoftFever/OrcaSlicer/pull/8778\n- Add Lulzbot Taz 4, 5, Pro Dual, Pro S by @wrathernaut in https://github.com/SoftFever/OrcaSlicer/pull/8844\n- Fixes/Improvements for Creality profiles by @cochcoder in https://github.com/SoftFever/OrcaSlicer/pull/8850\n- Output x64 registers to windows crash report too by @Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/8951",
+      "release_notes_url": "https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v2.3.0/OrcaSlicer_Windows_Installer_V2.3.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.3.0.exe",
+          "sha256": "a53016bf09a9fdc5b15b5e46fa2cfb9909b38d06c524ed2567ff425f36e6dea4",
+          "product_code": "OrcaSlicer",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "orcaslicer"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.2.0",
+      "release_date": "2024-10-28",
+      "release_notes_url": "https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.2.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v2.2.0/OrcaSlicer_Windows_Installer_V2.2.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.2.0.exe",
+          "sha256": "0ea605c118b6af648c4b16fb1a7222ed9272f1eb83a7844116552a0fd05820a5",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.1",
+      "release_notes": "This is a hotfix for OrcaSlicer 2.1.0.\nIt fixes several bugs found in version 2.1.0, so updating is recommended.\nIt also includes some new profiles and translation updates.\n\nWhat's Changed\n\n  Bug fix\n    - Fixed a regression bug where small area flow compensation was not working in v2.1.0 https://github.com/SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/5844\n    - Fixed a bug where slicing results were sometimes incorrect for multiple material models on Mac machines. by https://github.com/SoftFever in https://github.com/SoftFever/OrcaSlicer/pull/5856\n    - Fixed a bug related to the mirror operation by https://github.com/Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/5827\n    - Fixed a regression bug that caused failures when uploading large gcode files to PrusaLink-connected printers by https://github.com/Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/5843\n  Printer profils\n    - Fix Qidi profile bugs by https://github.com/HYzd766 in https://github.com/SoftFever/OrcaSlicer/pull/5801\n    - Adding official profiles for Geeetech printers by https://github.com/whoseyoung in https://github.com/SoftFever/OrcaSlicer/pull/5790\n    - Resolves https://github.com/SoftFever/OrcaSlicer/pull/5808: Fix missing K1C processes by https://github.com/BruffyT in https://github.com/SoftFever/OrcaSlicer/pull/5815\n    - Add Flyingbear Ghost 6 profile by https://github.com/kybarg in https://github.com/SoftFever/OrcaSlicer/pull/5826\n    - Update Ender-3 V3 printer profiles by https://github.com/kybarg in https://github.com/SoftFever/OrcaSlicer/pull/5771\n\n  Translation updates\n    - Translate and fix spanish by https://github.com/tadeu2 in https://github.com/SoftFever/OrcaSlicer/pull/5833\n    - Update russian translations (2.1.0 Release) by https://github.com/AndylgTom in https://github.com/SoftFever/OrcaSlicer/pull/5800\n    - Update Korean Translation (v2.1.0) by https://github.com/ElectricalBoy in https://github.com/SoftFever/OrcaSlicer/pull/5804\n    - Update TURKISH translations by https://github.com/olcayoren in https://github.com/SoftFever/OrcaSlicer/pull/5831\n    - Added new strings for French by https://github.com/bistory in https://github.com/SoftFever/OrcaSlicer/pull/5870\n    - Typo fix by https://github.com/bistory in https://github.com/SoftFever/OrcaSlicer/pull/5871",
+      "release_notes_url": "https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.1.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v2.1.1/OrcaSlicer_Windows_Installer_V2.1.1.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.1.1.exe",
+          "sha256": "87b02ccfc5654cf995659ca5b11ca8bafe82992497c9359a7965ebc9fffa3814",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.0",
+      "release_notes": "This is the official release of OrcaSlicer V2.1.0\n\nThis update includes minor fixes and new translations.\nFor a detailed list of all the new features, please refer to the release notes for [v2.1.0](https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.1.0-beta) [Beta](https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.1.0-beta) and [V2.1.0 RC](https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.1.0-rc)\n\nWhat's Changed\n  - Improved fuzzy skin by @SeaRyanC in https://github.com/SoftFever/OrcaSlicer/pull/5682\n    The enhancements introduced in OrcaSlicer V2.1.0 RC were not properly highlighted earlier, so I'd like to reintroduce them now. Previously, the fuzzy skin displayed subtle patterns along the Z direction. With the latest improvements, the fuzziness has been made truly uniform and random.\n\n  - Tweak the UI of Web Link Association in Preferences by https://github.com/Ocraftyone in https://github.com/SoftFever/OrcaSlicer/pull/5791\n  - Added catalan language to resources\\web\\data\\text.js by https://github.com/davidjuanesb in https://github.com/SoftFever/OrcaSlicer/pull/5727\n  - add new german translations by https://github.com/hliebscher in https://github.com/SoftFever/OrcaSlicer/pull/5729\n  - New French translations for 2.1.0-rc by https://github.com/bistory in https://github.com/SoftFever/OrcaSlicer/pull/5734\n  - Update TURKISH translations by https://github.com/olcayoren in https://github.com/SoftFever/OrcaSlicer/pull/5735\n  - Minor improvements & fixes for Ender-3 V3 KE by https://github.com/cochcoder in https://github.com/SoftFever/OrcaSlicer/pull/5743\n  - update Polish translations ( 2.1.0-rc ) by https://github.com/KrisMorr in https://github.com/SoftFever/OrcaSlicer/pull/5753\n  - Fix Snapmaker profiles by https://github.com/macdylan in https://github.com/SoftFever/OrcaSlicer/pull/5763\n  - Update Korean (ko) Translation by https://github.com/ElectricalBoy in https://github.com/SoftFever/OrcaSlicer/pull/5764\n  - Spanish translation RC 2.1.0 by https://github.com/tadeu2 in https://github.com/SoftFever/OrcaSlicer/pull/5779\n  - Update Flyingbear profiles: fix startcode by https://github.com/FlyingbearOfficial in https://github.com/SoftFever/OrcaSlicer/pull/5784\n  - Update Infimech profiles: fix printstart gcode by https://github.com/InfimechOfficial in https://github.com/SoftFever/OrcaSlicer/pull/5787\n  - Various improvements to SimplyPrint integration by https://github.com/Noisyfox in https://github.com/SoftFever/OrcaSlicer/pull/4831\n  - Fix Spanish translation strings by https://github.com/tadeu2 in https://github.com/SoftFever/OrcaSlicer/pull/5792\n\n------\n\nSupport\n  I have been spending almost all my spare time maintaining this open source project.\n  If you appreciate my work, please consider buying me a coffee.\n  Your support is greatly appreciated! :)\n\n  https://ko-fi.com/G2G5IP3CP\n  Or\n  https://paypal.me/softfever3d",
+      "release_notes_url": "https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.1.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v2.1.0/OrcaSlicer_Windows_Installer_V2.1.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.1.0.exe",
+          "sha256": "1410707bf769dec62e09c3bce844e731c83b7fa0b5d603674f6cb59cc80db6b8",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.0",
+      "release_notes": "This is the OrcaSlicer V2.0.0 Official release.\n\nThis update introduces some enhancements and fixes several bugs.\n\nFor the complete list of new features introduced in Orca Slicer v2.0, please visit the OrcaSlicer V2.0.0 Beta Release Note and the OrcaSlicer V2.0.0 RC Release Note\n\nWhat's Changed\n  - Add overhang threshold for scarf joint seam by @SoftFever in #4725\n\n  This is the latest effort in the ongoing improvement of the scarf joint seam. This new feature introduces an overhang threshold for the scarf joint seam, allowing users to set a threshold for the overhang angle to prevent the application of the scarf joint seam. This improvement is based on the observation that the scarf joint seam, in general, doesn't play well with steep overhangs.\n\n  Meanwhile, the 'Scarf joint flow ratio' option has been moved to dev mode only, as its utility remains unclear based on testing results. Thanks to Adam (@psiberfunk) for the testing and feedback. You can enable dev mode to use this feature.\n\n  - Fix issue that print host and webui settings are not properly reset by @Noisyfox in #4734\n  - Fix 3rd party login issue on macOS by @Noisyfox in #4739\n  - gui: fix media eject on linux (#4700) by @buzzhuzz in #4701\n  - Fixes #2992 - emboss numbers for 290-305 by @jamincollins in #4742\n\nProfiles:\n  - Fix excessive maximum z accelleration for Artillery Sidewinder X1 by @cochcoder in #4733\n  - Add Ender-3 V3 SE .2, .6, .8 and fix small Ender-3 Pro bug by @cochcoder in #4653\n  - Add Creality CR-10 SE by @cochcoder in #4757\n  - Add Creality Ender-3 S1 Plus by @cochcoder in #4674\n  - Fix syntax errors in CR-10 SE G-Code by @cochcoder in #4769\n  - Various profile improvments by @cochcoder in #4775\n\nTranslations:\n  - Update list.txt for gettext+OrcaSlicer.pot+update_Polish translations by @KrisMorr in #4663\n  - Fixed and added new Italian translations by @frankieorabona in #4721\n  - Add new de translation for rc by @hliebscher in #4724\n  - Fixed errors on last pull request - Spanish Translation by @tadeu2 in #4730\n  - Substantial changes to the Italian language by @frankieorabona in #4753\n  - Fix utf8 string on physical printer dialog by @Noisyfox in #4765\n  - Fix single word Spanish by @tadeu2 in #4768\n  - Update German translation for scarf beta Feature by @hliebscher in #4770\n  - Update OrcaSlicer_tr.po - TURKISH translation update by @olcayoren in #4772\n  - Update Simplified Chinese translation by @SoftFever",
+      "release_notes_url": "https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.0.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v2.0.0/OrcaSlicer_Windows_Installer_V2.0.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_V2.0.0.exe",
+          "sha256": "58b400ec976d1e38f8876d75b6e7c6ac9945cb5f231705b71c96d10e474ad32c",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime",
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.1",
+      "release_date": "2024-02-17",
+      "release_notes": "This OrcaSlicer V1.9.1 Official ReleaseThis release primarily addresses a potential security vulnerability and includes several bug fixes.What's Changed\n- Security Enhancement: Orca Slicer has been updated to no longer include sensitive information, such as print_host and apikey, within the G-code files.\nPreviously, OrcaSlicer included OctoPrint/Moonraker connection details in the generated G-code. This posed a potential security risk if the files were shared online and the printer was internet-accessible. This update significantly reduces the risk of unauthorized access.\nIt's important to note that this issue primarily affected users whose printers were directly exposed to the internet. For those using LAN IP(e.g. 192.168.x.x IP address) or local names, the risk was minimal.\nNonetheless, if your printer is accessible online, we strongly advise updating your APIKEY in Moonraker or any similar service as an additional safety measure.\nWe extend our special thanks to Gina Häußge from OctoPrint for identifying and reporting this security issue.\nNOTE: Project files (.3mf) are not affected by this issue.\n- Enforce retraction before wipe (#3888) by @SoftFever\n- Improve PA pattern calibration: Fix retraction/accel/jerk issues #3314 #3851 by @igiannakas\n- Fix painting Gizmo rendering on AMD Vega GPUs (#3663) by @Noisyfox\nFix some rotation-related issues (#3890) by @Noisyfox",
+      "release_notes_url": "https://github.com/SoftFever/OrcaSlicer/releases/tag/v1.9.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/1.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v1.9.1/OrcaSlicer_Windows_Installer_1.9.1.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_1.9.1.exe",
+          "sha256": "4d156ad9e3410f39e86b446336cef50e200112b37f598ecba898d4163d3b8914",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/1.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v1.9.0/OrcaSlicer_Windows_Installer_1.9.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_1.9.0.exe",
+          "sha256": "746d1718bac395aa982c6b74722bc47418e2fdf67431acff2e2822c6cdf6ed1e",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/1.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v1.8.1/OrcaSlicer_Windows_Installer_1.8.1.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_1.8.1.exe",
+          "sha256": "fb7d498d41daa2e2ed1170c3c54f15bacb37d2a4c5b52562c95597b15c2f2fad",
+          "dependencies": {
+            "packages": [
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/1.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v1.8.0/OrcaSlicer_Windows_Installer_1.8.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_1.8.0.exe",
+          "sha256": "b6263d2ebd5441bd02990587148e4a65633ec26cd64bf252bc601dd3eeb707ab"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/s/SoftFever/OrcaSlicer/1.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/SoftFever/OrcaSlicer/releases/download/v1.7.0/OrcaSlicer_Windows_Installer_1.7.0.exe",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Windows_Installer_1.7.0.exe",
+          "sha256": "a02602c7ec222f77a548f802f1b6a89b27820bb3d5784fc2453683718a5cb9e3"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.5.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.5.0/OrcaSlicer_Mac_universal_V2.5.0.dmg",
+          "host": "github.com",
+          "filename": "OrcaSlicer_Mac_universal_V2.5.0.dmg",
+          "sha256": "061e0c6ff104c37655c83190725ac2420960f23c39b56aae9b546e6c542995d5"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "OrcaSlicer.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/OrcaSlicer",
+            "~/Library/Caches/com.softfever3d.orca-slicer",
+            "~/Library/HTTPStorages/com.softfever3d.orcaslicer.binarycookies",
+            "~/Library/Preferences/com.orcaslicer.OrcaSlicer.plist",
+            "~/Library/Preferences/com.softfever3d.orca-slicer.plist",
+            "~/Library/Saved Application State/com.softfever3d.orca-slicer.savedState",
+            "~/Library/WebKit/com.softfever3d.orca-slicer"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "2.5.0",
+      "release_date": "2026-11-07",
+      "release_notes_url": "https://www.orcaslicer.com/wiki/releases/release_2_5_0",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.orcaslicer.OrcaSlicer.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.orcaslicer.OrcaSlicer.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.orcaslicer.OrcaSlicer.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.orcaslicer.OrcaSlicer.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "bda67118653e14507f046cee950c5d782f46e585",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "manifests/s/SoftFever/OrcaSlicer"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "04018de6306a2214b0ec0c1602df674c751d15e8",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "Casks/o/orcaslicer.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/orcaslicer.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.orcaslicer.OrcaSlicer",
+      "retrieved_at": "2026-11-10T12:24:33.418Z",
+      "path": "api/v2/appstream/com.orcaslicer.OrcaSlicer",
+      "api_url": "https://flathub.org/api/v2/appstream/com.orcaslicer.OrcaSlicer",
+      "content_sha256": "dbba92de7be91902da136b56dba2547386cb3fb435cf218ad6fc3dd6e9c0048e"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.orcaslicer.OrcaSlicer",
+    "page_url": "https://flathub.org/apps/com.orcaslicer.OrcaSlicer",
+    "repo_url": "https://github.com/flathub/com.orcaslicer.OrcaSlicer",
+    "install_command": "flatpak install flathub com.orcaslicer.OrcaSlicer",
+    "run_command": "flatpak run com.orcaslicer.OrcaSlicer",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "orcaslicer.com",
+      "verified_on": "2026-03-31"
+    },
+    "license": "AGPL-3.0-only",
+    "free_license": true,
+    "developer_name": "SoftFever",
+    "categories": [
+      "Graphics",
+      "3DGraphics",
+      "Engineering"
+    ],
+    "download_size": 266390531,
+    "installed_size": 663878656,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

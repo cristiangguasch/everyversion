@@ -246,6 +246,7 @@ ${crumbs([null, 'Security and Trust Center'])}
 <li><strong>Red, Many detections.</strong> Four or more engines flagged a file. Do not run it before you read the report.</li>
 <li><strong>No ring, Not scanned yet.</strong> VirusTotal has no report for that hash, or we have not looked it up yet. We show no score.</li>
 </ul>
+<p><strong>Checksum mismatches.</strong> If a file we downloaded does not hash to the checksum published in the package catalog, the app is rated no better than “Medium risk” whatever its VirusTotal result, and the page says so. This usually means the publisher replaced the file after the catalog entry was written, but we cannot tell that from here.</p>
 <p>The label under the title on an app page follows the same colors: green is “Safe”, orange is “Medium risk”, red is “High risk”, and no scan is “Not scanned”. “Safe so far” means the files we could scan are clean but some files have no report yet.</p>
 <p>When an app has several installers, the ring shows the lowest score and the colour follows the most-flagged file. If VirusTotal has a report for only some of the files, the page says “Covers X of Y files” and the label becomes “No detections so far” instead of “Clean”. A partial result never speaks for the files it did not scan.</p>
 
@@ -386,7 +387,7 @@ ${API_EXAMPLES.map(example).join('\n')}
 <li><code>slug</code> is the app’s short name and its address: <code>/{slug}/</code>.</li>
 <li><code>platforms</code> is a list drawn from <code>windows</code>, <code>macos</code> and <code>linux</code>. <code>latest_versions</code> gives the newest version on each.</li>
 <li><code>last_updated</code> is the date of the newest release in our data (<code>YYYY-MM-DD</code>). Some apps have none, so check for it.</li>
-<li><code>pricing</code> is one of <code>open-source</code>, <code>freeware</code>, <code>free-to-download</code> or <code>unknown</code>. “Free to download” is a label we set by hand, and it can still mean paid tiers exist.</li>
+<li><code>pricing</code> is one of <code>open-source</code>, <code>freeware</code>, <code>free-to-download</code>, <code>paid</code> or <code>unknown</code>. “Free to download” is a label we set by hand, and it can still mean paid tiers exist; <code>paid</code> means the software needs a purchase after any free trial.</li>
 <li><code>versions_total</code> is how many versions the source has. We list up to 50 per platform. On the Mac side, most sources list only the current release.</li>
 <li><code>ids</code> holds the identifiers the app goes by in its source, such as its winget ID, Homebrew cask or Flathub app ID. Not every app has every one.</li>
 <li><code>category</code> is the slug of the app’s main category, as listed in <code>categories.json</code>.</li>

@@ -1,0 +1,1188 @@
+{
+  "schema_version": 2,
+  "slug": "pgadmin-4",
+  "name": "pgAdmin 4",
+  "publisher": "The pgAdmin Development Team",
+  "author": "The pgAdmin Development Team",
+  "ids": {
+    "winget": "PostgreSQL.pgAdmin",
+    "moniker": "pgadmin",
+    "homebrew_cask": "pgadmin4"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Open Source administration and development platform for PostgreSQL",
+  "description": "pgAdmin is designed to answer the needs of all users, from writing simple SQL queries to developing complex databases.\nThe graphical interface supports all PostgreSQL features and makes administration easy.\nThe application also includes a syntax highlighting SQL editor, a server-side code editor, an SQL/batch/shell job scheduling agent, support for the Slony-I replication engine and much more.\nServer connection may be made using TCP/IP or Unix Domain Sockets (on *nix platforms), and may be SSL encrypted for security.\nNo additional drivers are required to communicate with the database server.",
+  "tags": [
+    "pgsql",
+    "postgres",
+    "postgresql",
+    "sql"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.pgadmin.org/download/pgadmin-4-windows/",
+    "publisher": "https://www.pgadmin.org/",
+    "support": "https://www.pgadmin.org/support/",
+    "privacy": "https://www.pgadmin.org/privacy_policy/",
+    "release_notes": "https://www.pgadmin.org/docs/pgadmin4/9.19/release_notes_9_19.html",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://www.pgadmin.org/docs/"
+      },
+      {
+        "label": "FAQ",
+        "url": "https://www.pgadmin.org/faq/"
+      }
+    ]
+  },
+  "license": {
+    "name": "PostgreSQL",
+    "url": "https://www.pgadmin.org/licence/",
+    "spdx": "PostgreSQL",
+    "copyright": "Copyright © 1996-2026 The PostgreSQL Global Development Group",
+    "copyright_url": "https://www.postgresql.org/about/policies/trademarks/"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "9.19",
+    "macos": "9.19"
+  },
+  "last_updated": "2026-10-27",
+  "versions_total": {
+    "windows": 26,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "9.19",
+      "release_date": "2026-10-27",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.19. This release of pgAdmin 4 includes 136 bug fixes and new features, including fixes for 15 security vulnerabilities (CVE-2026-116238 through CVE-2026-116252). For more details please see the release notes.\npgAdmin is the leading open-source graphical management tool for PostgreSQL. For more information, please see the website.\nNotable changes in this release include:\nFeatures:\n- Add a Statistics node for creating and managing extended statistics.\n- Allow data to be edited through simple auto-updatable views in View/Edit Data.\n- Save Query Tool results as JSON or XML as well as CSV, with a selectable encoding, an optional byte order mark, and a 'copy with headers' option.\n- Add support for managing pg_timetable chains and tasks.\n- Replace free-text Password Exec Commands in server mode with an administrator-defined allowlist, SERVER_PASSEXEC_COMMANDS; the commands run without a shell and with a reduced environment. Configure SERVER_PASSEXEC_COMMANDS before the first start after upgrading.\n- Add pgEdge Starfleet to the Deploy Cloud Instance wizard, and allow the login page to be skipped when OAuth2 is the only authentication source.\nSecurity Fixes:\n- Fix OS command injection in the Import/Export Data tool, where a query-based export could smuggle a live TO PROGRAM clause past the \\copy parenthesis guard through a backslash in a double-quoted identifier and run an arbitrary command on the pgAdmin host; an incomplete fix for CVE-2026-17566 (CVE-2026-116241).\n- Fix LDAP and Kerberos authentication logging a user in to a different account that shared their username, including the initial administrator (CVE-2026-116239).\n- Fix bypasses of the failed-login limit and of pgAdmin's own login, password-change and password-reset checks, through Flask-Security's own views and through username case and second-source handling (CVE-2026-116238).\n- Fix connection file paths and parameter keys escaping the user's storage directory, which let a user connect with another user's credentials or key (CVE-2026-116249).\n- Stop libpq falling back to the pgAdmin service account's own password file and client certificate in server mode (CVE-2026-116247).\n- Restrict connection services in server mode to an administrator-defined allowlist, SERVER_MODE_ALLOWED_SERVICES (CVE-2026-116245).\n- Stop libpq using the pgAdmin service account's Kerberos credentials in server mode (CVE-2026-116244).\n- Stop SSH tunnels using the pgAdmin service account's own SSH identity in server mode (CVE-2026-116242).\n- Fix the utility binary-path guard accepting a path under SHARED_STORAGE, which let a user have pgAdmin execute a file they placed there (CVE-2026-116243).\n- Stop server passwords being left in pgAdmin's own process environment, where another user's session or utility could inherit them (CVE-2026-116246).\n- Fix any user able to register a server being able to share it with every other user in server mode (CVE-2026-116248).\n- Fix the File Manager and the storage-path tools acting on a different path from the one that was checked (CVE-2026-116240).\n- Fix time-of-check to time-of-use symlink, hard-link and FIFO races in the File Manager, Import/Export Servers, Backup, Restore and Import/Export Data file paths (CVE-2026-116250).\n- Fix a user's other sessions surviving a password change or administrator reset (CVE-2026-116251).\n- Fix connection redirection in the materialized view refresh, where a crafted database name was expanded by libpq into a full connection string (CVE-2026-116252).\nBugs/Housekeeping:\n- Fix numerous Schema Diff issues, including SERIAL/BIGSERIAL conversions, renamed function arguments, repeated column comments and identity options, and false differences caused by a dropped column in a referenced table.\n- Fix View/Edit Data not handling generated columns properly.\n- Fix the MAINTAIN privilege being silently dropped for views and materialised views on PostgreSQL 17 and later.\n- Fix Kerberos login failures returning a JSON 500 response, and first-time automatically created Kerberos logins being rejected.\n- Fix the Query Tool saving files that were loaded as latin-1 or another non-UTF-8 encoding back as UTF-8.\n- Fix the Linux packages shipping a stray copy of Python, which stopped the DEB package installing on Ubuntu 26.04.\nBuilds for Windows and macOS are available now, along with a Python Wheel, Docker Container, RPM, DEB Package, and source code tarball from the download area.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.19/release_notes_9_19.html",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.19",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.19/windows/pgadmin4-9.19-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.19-x64.exe",
+          "sha256": "8b1a1df434c53244ac1ec691f11a48350bbd3de4781d6661e1e1368d7eaf31fe",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.19/windows/pgadmin4-9.19-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.19-x64.exe",
+          "sha256": "8b1a1df434c53244ac1ec691f11a48350bbd3de4781d6661e1e1368d7eaf31fe",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.18",
+      "release_date": "2026-09-17",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.18. This release of pgAdmin 4 includes 29 bug fixes and new features, including fixes for four security vulnerabilities (CVE-2026-86861 through CVE-2026-86864). For more details, please see the release notes.\npgAdmin is the leading open-source graphical management tool for PostgreSQL. For more information, please see the website.\nNotable changes in this release include:\nFeatures:\n- Collapse and restore the Object Explorer by re-clicking the current workspace icon, in the manner of the VS Code side bar, remembering the choice across refreshes. A keyboard shortcut, Ctrl+Alt+B by default, does the same thing and can be changed through the new toggle_object_explorer preference.\n- Harden the default Content-Security-Policy so inline scripts run under a per-request nonce rather than a blanket 'unsafe-inline', and drop 'unsafe-eval'. style-src keeps 'unsafe-inline', because MUI and React inject runtime styles and inline style attributes that cannot carry a nonce, and development bundles have 'unsafe-eval' re-added automatically when DEBUG is set.\nSecurity Fixes:\n- Fix an authentication bypass in Webserver authentication mode, where get_user() fell back to reading the configured WEBSERVER_REMOTE_USER name from the inbound request headers when it was absent from the WSGI environment. Because a header is written by whoever sends the request, any client that could reach pgAdmin could assert any identity, including an administrator's, without presenting a credential. A header-asserted identity is now opt-in, restricted to a configured list of trusted proxies with an optional shared secret, and refused for accounts whose authentication source is not webserver (CVE-2026-86863).\n- Fix argument and connection-string injection in the Backup tool, where the client-supplied database name was appended to the pg_dump argument vector as a bare positional value. Because getopt_long permutes arguments, a value beginning with a dash supplied further options such as --file, overriding the storage-confined output path; and because libpq expands a database name containing an equals sign into a full connection string, the same field could redirect the connection, and the password exported in PGPASSWORD, to a host of the caller's choosing. The database name is now passed through the PGDATABASE environment variable, which libpq never expands (CVE-2026-86864).\n- Fix connection-string injection in the Restore and Maintenance tools, where the client-supplied database name was passed straight to --dbname and could likewise redirect the connection, and the exported password, to a server of the caller's choosing (CVE-2026-86862).\n- Fix a time-of-check to time-of-use flaw in the File Manager's save_file endpoint, which backs saving from the Query Tool and ERD: the requested path was validated with check_access_permission() and then opened with a plain open(), so a symbolic link planted in between was followed, writing outside the user's storage directory. This is the write sink that CVE-2026-7819's hardening of the separate upload path did not cover (CVE-2026-86861).\n- Refuse HTTP redirects on LLM API requests, rather than following a Location header on to a destination the ALLOWED_LLM_API_URLS check was never applied to. This is hardening rather than a fix for an exploitable flaw, since returning the redirect at all requires control of a host already on the allowlist.\n- Reject an empty or null Username when importing a non-shared server, which previously imported cleanly and left a server that libpq would silently authenticate as the OS account running pgAdmin rather than reject outright.\nBugs/Housekeeping:\n- Fix login being impossible against Flask-Security-Too 5.8.2, which corrected a long-standing inversion in UserMixin.is_locked() that pgAdmin's own is_locked() had been written against.\n- Fix inherited columns in the Table dialog being editable and deletable, and the Data type dropdown on the expanded Definition tab offering every type rather than honouring the allowed-type restriction applied inline.\n- Reinstate dependency ordering of the script Schema Diff generates, which had been lost since the React port left dependLevel unset.\n- Fix Schema Diff reporting false differences for SERIAL and BIGSERIAL columns, duplicating any column that also differs when recreating a foreign table, losing a foreign table column's collation, injecting whitespace into an applied function or procedure body, generating SQL that PostgreSQL rejects when a sequence's MINVALUE is raised above its current value, and reporting a comparison that fails part way through as a success.\n- Share concurrent identical GET requests behind getNodeAjaxOptions() so a wide table's Columns tab no longer fires one duplicate get_types request per column row.\n- Fix the argument grid on the Definition tab of a user-defined function or procedure refusing to delete, or add, a row in edit mode.\n- Omit the redundant TABLESPACE pg_default clause from generated index SQL, which was invalid on a partitioned table.\n- Fix a crash when a per-server Password Exec Command is used with a service-only (pg_service.conf) connection, which leaves host, port and username unset.\n- Accept SharedUsername when importing a shared server from a servers.json definition, instead of insisting on Username for every server.\n- Render the Validate binary path dialog as HTML, instead of showing the raw markup.\n- Remove a trailing quote from the Windows installer's ProductVersion, and fix the existingSecret path in the Helm deployment template.\n- Skip importing and initialising the Kerberos, LDAP, MFA, OAuth2 and Webserver authentication providers unless SERVER_MODE is set, leaving desktop mode with internal authentication alone.\n- Bump JavaScript and Python third-party dependencies, and update the message catalogs, including a fix for the Korean catalog that had not been recompiled since November 2025.\nBuilds for Windows and macOS are available now, along with a Python Wheel, Docker Container, RPM, DEB Package, and source code tarball from the download area.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.18/release_notes_9_18.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.18",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.18/windows/pgadmin4-9.18-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.18-x64.exe",
+          "sha256": "ca82b9a07007308a70a9af55192f5ca826c9ce839fe716cea465e2cfc4529245",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.18/windows/pgadmin4-9.18-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.18-x64.exe",
+          "sha256": "ca82b9a07007308a70a9af55192f5ca826c9ce839fe716cea465e2cfc4529245",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.17",
+      "release_date": "2026-07-31",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.17. This release of pgAdmin 4 includes 28 bug fixes and new features, including fixes for seven security vulnerabilities (CVE-2026-17346 through CVE-2026-17351, and CVE-2026-17566). For more details, please see the release notes.\npgAdmin is the leading open-source graphical management tool for PostgreSQL. For more information, please see the website.\nNotable changes in this release include:\nFeatures:\n- Include the authenticated user's identity in the HTTP access log.\n- Add an opt-in Gateway API HTTPRoute template to the Helm chart as an alternative to the existing Ingress.\n- Add a preference to cap the row count fetched by the plain \"View Data\" action, so it is usable on large tables without always doing a full SELECT *.\n- Add support for a custom XYZ tile provider (URL, name, CRS, attribution, max zoom) in the Geometry Viewer, alongside the existing built-in base layers.\nSecurity Fixes:\n- Fix a tool-permission bypass where a user denied the Query Tool, Grant Wizard, or Schema Diff permission could still drive that tool's backend routes and Socket.IO handlers directly, since the permission check was applied only to a single \"front door\" route per tool. Also fixes a non-owner triggering an adhoc connection against another user's shared server persisting a new server record still owned by that other user (CVE-2026-17350).\n- Fix OS command injection in the MASTER_PASSWORD_HOOK feature, where an externally-sourced username (e.g. via OAuth2/OIDC, Kerberos, or webserver authentication) containing shell metacharacters could execute arbitrary commands as the pgAdmin service account when the configured hook string uses %u (CVE-2026-17347).\n- Fix a lexer-differential bypass of the AI Assistant's read-only transaction guard, where sqlparse's string-literal lexing disagreed with PostgreSQL's own parser under standard_conforming_strings = on, letting a crafted multi-statement payload smuggle a COMMIT past the intended read-only wrapper; an incomplete fix for CVE-2026-12045 (CVE-2026-17351).\n- Fix SQL injection in the Index Statistics all-indexes listing and the Publications/Subscriptions Dependencies views, where an apostrophe in a table, index, publication, or subscription name broke out of an unescaped template interpolation; an incomplete fix for CVE-2026-12044 (CVE-2026-17346).\n- Fix several Constraints, Preferences, Debugger, and Schema Diff routes missing the @pga_login_required decorator, making them reachable without authentication in server mode; an incomplete fix for CVE-2026-12046 (CVE-2026-17348).\n- Fix an adhoc server connection cloning another user's stored database credentials (password, save password flag, tunnel password) alongside ownership, letting a non-owner who cloned another user's shared server connect using that user's saved database password (CVE-2026-17349).\n- Fix OS command injection in the Import/Export Data tool, where a query-based export could pass a crafted query string past the \\copy (...) parenthesis-balance guard by exploiting a backslash-escape mismatch with psql's default standard_conforming_strings = on behaviour, exposing a live TO PROGRAM clause for arbitrary command execution (CVE-2026-17566).\nBugs/Housekeeping:\n- Fix Schema Diff's \"Generate Script\" and the browser tree's CREATE Script view emitting wrong SQL for SERIAL/identity columns, by detecting column-owned sequences via pg_depend instead of guessing the sequence name.\n- Fix ALT+F5 (\"Execute query at cursor\") doing nothing when the cursor is on or near a statement that is not highlighted, in a Query Tool tab with multiple statements separated by blank lines.\n- Fix the object browser's extension UI breaking under PostgreSQL 19's extension catalog changes.\n- Detect a selected-but-unusable OS keyring and fall back gracefully instead of failing.\n- Warn when OAuth2 provider settings are misplaced at the top level of the config instead of under OAUTH2_CONFIG.\n- Honor the selected EOL sequence when copying query text to the clipboard.\n- Fix a Schema Diff result-status filter chip showing \"No difference found\" after being toggled off and back on, even when real differences exist.\n- Fix the Object Explorer briefly showing literal HTML markup instead of a greyed-out \"[Disconnecting...]\" label when disconnecting a server or database.\n- Centralize shared-server-group visibility and access-control logic, and adjust the ServerGroup-to-Server/SharedServer model relationships.\n- Fail the macOS appbundle build if any bundled library links outside the bundle, and scan all Mach-O binaries for bundle linkage.\n- Pin the sonarqube-scan-action GitHub workflow to a full commit SHA, and pin the Yarn version used by the build scripts to the packageManager field.\n- Bump JavaScript and Python third-party dependencies, including axios, webpack, react, electron, and certifi.\n- Update the Simplified Chinese (zh_Hans_CN) translation.\nBuilds for Windows and macOS are available now, along with a Python Wheel, Docker Container, RPM, DEB Package, and source code tarball from the download area.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.17/release_notes_9_17.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.17/windows/pgadmin4-9.17-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.17-x64.exe",
+          "sha256": "f152ab1666d4b4182f5e550d05840c7a05123c77fb992591086ab5e73758300f",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.17/windows/pgadmin4-9.17-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.17-x64.exe",
+          "sha256": "f152ab1666d4b4182f5e550d05840c7a05123c77fb992591086ab5e73758300f",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.16",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.16. This release of pgAdmin 4 includes 64 bug fixes and new features, including fixes for seven security vulnerabilities (CVE-2026-12044 through CVE-2026-12050). For more details, please see the release notes.\npgAdmin is the leading open-source graphical management tool for PostgreSQL. For more information, please see the website.\nNotable changes in this release include:\nFeatures:\n- Colorize panel and tab headers based on the connected server's colour, making it easier to identify which server a tab belongs to at a glance.\n- Add a \"Back to login\" link to the Forgot Password and Reset Password pages.\n- Add support for the TOAST tuple target storage parameter in the Materialized View dialog.\n- Make the init container security context in the Helm chart configurable via containerSecurityContext.\n- Add support for closing a tab with a middle-click on its title.\n- Allow the OAuth2 login button icon to use any Font Awesome style, not only brand icons.\nSecurity Fixes:\n- Fix SQL injection across sixteen dialog templates that rendered COMMENT ON ... IS '<description>'; switches affected templates to qtLiteral and rewrites stats calls to pass the relation OID via a ::oid::regclass cast (CVE-2026-12044).\n- Fix an AI Assistant read-only transaction bypass that allowed prompt-injected multi-statement payloads to commit out of the READ ONLY wrapper, chaining to RCE via COPY ... TO PROGRAM on a superuser connection (CVE-2026-12045).\n- Fix two SQL Editor endpoints missing the @pga_login_required decorator, making them reachable without authentication in server mode and exposing a pickle deserialization sink (CVE-2026-12046).\n- Fix HTML injection in the cloud deployment module (RDS, Azure, Google) where SDK exception text was forwarded to the browser unsanitised and rendered through html-react-parser (CVE-2026-12047).\n- Fix critical stored cross-site scripting where PostgreSQL server error text and Explain plan-node content passed through html-react-parser across notifier toasts, form errors, modal alerts, and the Explain visualiser; injected script could exfiltrate saved server credentials and issue SQL against every connected server (CVE-2026-12048).\n- Fix an open redirect in the multi-factor authentication flow via an unvalidated next parameter (CVE-2026-12049).\n- Fix SQL injection in the named restore point endpoint where the user-supplied restore point name was interpolated into SQL via str.format() instead of a bound parameter (CVE-2026-12050).\nBugs/Housekeeping:\n- Remove the administrator-role bypass from server-access helpers so the access-control checks added in 9.15 (CVE-2026-7813) are enforced uniformly.\n- Remove EDB BigAnimal cloud deployment support, which was deprecated in 9.15.\n- Preserve jsonb number representation in the JSON editor so trailing fractional zeros and large integers are no longer rewritten when saving unmodified rows.\n- Fix a View/Edit Data crash when the session contains a transaction object that is not filter-capable, which could prevent the desktop application from loading after an upgrade.\n- Rebase version-specific SQL templates so the default targets PostgreSQL 14, the oldest supported server version, dropping obsolete sub-14 template buckets.\n- Strip the foreign-architecture slice from the macOS bundle so single-arch builds no longer ship unused code.\n- Bump Electron to 42.3.3, cryptography to 49.0, and other Python and JavaScript dependencies.\n- Update the Italian translation.\nDeprecations:\n- pgAgent has been deprecated and will be discontinued. pgAgent will be removed from the website within one month, and support within pgAdmin will be removed approximately six months from now. Users are encouraged to migrate to an alternative job scheduling solution.\nBuilds for Windows and macOS are available now, along with a Python Wheel, Docker Container, RPM, DEB Package, and source code tarball from the download area.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.16/release_notes_9_16.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.16/windows/pgadmin4-9.16-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.16-x64.exe",
+          "sha256": "06a0e2f2586099e038d7dc34da20f94f86465696c0238e9c86032bc933d00067",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.16/windows/pgadmin4-9.16-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.16-x64.exe",
+          "sha256": "06a0e2f2586099e038d7dc34da20f94f86465696c0238e9c86032bc933d00067",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.15",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.15. This release of pgAdmin 4 includes 19 bug fixes and new features, including fixes for eight security vulnerabilities (CVE-2026-7813 through CVE-2026-7820). For more details, please see the release notes.\npgAdmin is the leading open-source graphical management tool for PostgreSQL. For more information, please see the website.\nNotable changes in this release include:\nFeatures:\n- Allow the Docker container image to run as a non-default user via the PUID and PGID environment variables.\nBugs/Housekeeping:\n- Fix cross-user data access and shared-server privilege escalation in server mode (CVE-2026-7813).\n- Tighten Shared Server feature parity, owner-only field handling, and write guards as a follow-up to the data-isolation hardening.\n- Fix stored cross-site scripting (XSS) via crafted PostgreSQL object names rendered in the Browser Tree and Explain Visualizer (CVE-2026-7814).\n- Fix SQL injection in the Maintenance tool option values (CVE-2026-7815).\n- Fix OS command injection in Import/Export query export (CVE-2026-7816).\n- Fix local-file inclusion and server-side request forgery in the LLM API configuration endpoints (CVE-2026-7817).\n- Fix unsafe deserialization in the session manager that could lead to remote code execution (CVE-2026-7818). This change also encrypts session files at rest using Fernet, restricts session-file and DATA_DIR permissions to 0o600, switches the session-digest default from SHA-1 to SHA-256, and drops several non-roundtrippable live objects from the session.\n- Fix symlink-based path traversal in the file manager (CVE-2026-7819).\n- Fix account-lockout bypass on Flask-Security's default /login view so the locked field is honored on every authentication path (CVE-2026-7820).\n- Use absolute paths for a2enmod and a2enconf in the Debian setup script so it works when /usr/sbin is not on PATH.\n- Bump Python and JavaScript runtime/development dependencies, and upgrade ESLint to v10.\n- Update the Czech, Italian, Russian, Spanish, and Swedish translations.\nDeprecations:\n- The BigAnimal cloud deployment integration is deprecated and will be removed in the next version of pgAdmin 4.\nBuilds for Windows and macOS are available now, along with a Python Wheel, Docker Container, RPM, DEB Package, and source code tarball from the tarball area.\n[Read News]",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.15/release_notes_9_15.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.15/windows/pgadmin4-9.15-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.15-x64.exe",
+          "sha256": "bbefd88e62ce9d8c51588e24bf7234c3002116925519cbb94de16c287657a0ca",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.15/windows/pgadmin4-9.15-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.15-x64.exe",
+          "sha256": "bbefd88e62ce9d8c51588e24bf7234c3002116925519cbb94de16c287657a0ca",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.14",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.14. This release of pgAdmin 4 includes 23 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Added support to download binary data from the result grid.\n- Added support for custom LLM provider URLs for OpenAI and Anthropic, allowing use of OpenAI-compatible providers such as LM Studio, EXO, and LiteLLM.\n- Fixed an issue where AI features (AI Assistant tab, AI Reports menus, and AI Preferences) were visible in the UI even when LLM_ENABLED is set to False.\n- Allow copying of text from the AI Assistant chat panel.\nBugs/Housekeeping:\n- Fixed an issue where selecting all in the Query Tool's Messages tab would select the entire page content.\n- Fixed an issue where OAuth2 authentication fails with 'object has no attribute' if OAUTH2_AUTO_CREATE_USER is False.\n- Ensure that the Geometry Viewer refreshes when re-running queries or switching geometry columns, preventing stale data from being displayed.\n- Fixed an issue where the default fillfactor value for B-tree indexes was incorrect.\n- Fixed an issue where AI Reports are grayed out after setting an API key by auto-selecting the default provider.\n- Fixed an issue where AI Assistant does not notify that No API Key or Provider is Set.\n- Fixed an issue where AI Reports fail with OpenAI models that do not support the temperature parameter.\n- Improve the AI Assistant user prompt to be more descriptive of the actual functionality.\n- Fix an issue where the AI Assistant was not retaining conversation context between messages, with chat history compaction to manage token budgets.\n- Support /v1/responses for OpenAI models.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.14/release_notes_9_14.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.14/windows/pgadmin4-9.14-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.14-x64.exe",
+          "sha256": "2b9fa4e4279965232156758aeaf12f05fd1de834146dcc397fb0d8db756ae949",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.14/windows/pgadmin4-9.14-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.14-x64.exe",
+          "sha256": "2b9fa4e4279965232156758aeaf12f05fd1de834146dcc397fb0d8db756ae949",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.13",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.13. This release of pgAdmin 4 includes 15 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Core LLM integration infrastructure, AI reports for security, schema, and performance, AI chat for the Query Tool, and AI Insights for EXPLAIN.\n- No FK are shown in diagrams created from existing tables in the ERD Tool.\n- Add support for 'ONLY' in the Index creation dialog.\n- Allow users to customize \"OF TYPE\" columns during table creation.\n- Allow \"drag-n-drop\" for only user chosen tables, and show relations between them.\n- Load predefined users from a JSON file through the command line.\nBugs/Housekeeping:\n- Fixed an issue where the 'Quote strings only' configuration was ignored when downloading the result set.\n- Fixed an issue where tools settings changed by the users were not restored on application relaunch.\n- Fixed an issue where modifying a shared server incorrectly updated the original server details.\n- Fixed an issue where a long name in ERD table node was not breaking into multiple lines.\n- Fixed an issue where column comments were not displayed in the SQL tab for materialised views.\n- Fix an issue where deployment of the helm chart was crashing with \"operation not permitted.\"\n- Fix translation compilation.\n- Fix broken checkbox selection in backup dialog's object tree.\n- Fixed an issue in file dialog where renaming was not working.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.13/release_notes_9_13.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.13/windows/pgadmin4-9.13-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.13-x64.exe",
+          "sha256": "1ee9f0963be95628fda855a99511519720f7e528914221d7cc27353e0a5fa33b",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.13/windows/pgadmin4-9.13-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.13-x64.exe",
+          "sha256": "1ee9f0963be95628fda855a99511519720f7e528914221d7cc27353e0a5fa33b",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.12",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.12. This release of pgAdmin 4 includes 3 new features and 21 bug fixes/housekeeping changes. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Add new options like INHERIT and SET to the Role's membership tab.\n- Add a new button in the query tool data output toolbar to get entire range of data.\n- Enhance OAUTH2 and OIDC authentication support with improved claims handling and configuration options.\nBugs/Housekeeping:\n- Mask the secret key for restrict option in the process watcher when restoring plain SQL file (CVE-2026-1707).\n- Fix Query Tool state restoration for new connections and queries.\n- Fix pg_restore logs to distinguish UI sync issues from actual failures.\n- Optimize checkbox selection logic in backup dialog objects tree.\n- Fixed an issue where double click to open a file in the file manager is not working.\n- Ensure saved shared server passwords are re-encrypted on password change.\n- Fixed an issue where the dashboard freezes on initial render when there is a high number of locks.\n- Fixed the SSL certificate issue while checking for the upgrade.\n- Fixed a sorting issue in the system stats memory usage table.\n- Disable Parameters and Membership fields when object is not new for Login and group roles.\n- Fixed an issue where the Query History panel would auto-scroll to the top and did not preserve the scroll bar position for the selected entry.\n- Fixed an issue where pgAdmin4 app on macOS cannot auto-update while running on a read-only volume even if present in the Applications folder.\n- Fixed an issue where connection parameters were using localized values instead of literal values, causing connection failures.\n- Ensure the container deployment supports boolean values in yaml format.\n- Fix pgAdmin fails when performing Backup/Restore on a PostgreSQL connection defined exclusively via pg_service.conf.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.12/release_notes_9_12.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.12/windows/pgadmin4-9.12-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.12-x64.exe",
+          "sha256": "0b62b11140dd958c377215245c13ebb629e2f287dab9241cace25074be5e5e02",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.12/windows/pgadmin4-9.12-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.12-x64.exe",
+          "sha256": "0b62b11140dd958c377215245c13ebb629e2f287dab9241cace25074be5e5e02",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.11",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.11. This release of pgAdmin 4 includes 16 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Add support of DEPENDS/NO DEPENDS ON EXTENSION for INDEX.\n- Add support of DEPENDS/NO DEPENDS ON EXTENSION for MATERIALIZED VIEW.\n- Add support for showing the column data type beside column name in the object explorer.\n- Added Ubuntu 25.10 and Fedora 43.\n- Add conditional TLS support for the Ingress in the Helm chart.\nBugs/Housekeeping:\n- Plain SQL restore runs with '\\restrict' option to prevent harmful psql meta-commands (CVE-2025-13780).\n- Fixed an issue on type casting of default string function/procedure arguments in debugger tool.\n- Fix pkg_resources deprecation warning by migrating Docker base image to python:3-alpine from alpine:latest.\n- Fixed an issue where EXPLAIN should run on query under cursor if no text is selected.\n- Fixed an issue where opening file in Query Tool does not retain file name in tab.\n- Fixed an issue where connection is failing via Query Tool/PSQL Tool workspaces.\n- Fixed an issue where copying highlighted text in the query tool data output cell editor would copy the complete string.\n- Fixed an issue where copying a single cell should not add quoting.\n- Fix the Helm chart server definition and change the app version.\n- Specify the correct hostname placeholder for the Password Exec command.\n- Ensure the proper handling of extra volume mount configurations in the Helm deployment template by correcting the configuration value references.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.11/release_notes_9_11.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.11/windows/pgadmin4-9.11-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.11-x64.exe",
+          "sha256": "9fde3c8afccee3c21803a41e1c38ceb7e64c0d9c7138c6a9f5b0825a163d6f7f",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.11/windows/pgadmin4-9.11-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.11-x64.exe",
+          "sha256": "9fde3c8afccee3c21803a41e1c38ceb7e64c0d9c7138c6a9f5b0825a163d6f7f",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.10",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.10. This release of pgAdmin 4 includes 5 new features and 12 bug fixes/housekeeping changes. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Added the ability to search for tables and automatically bring them into view in the ERD tool.\n- Add support of DEPENDS/NO DEPENDS ON EXTENSION for PROCEDURE.\n- Add support for setting image download resolution in the ERD tool.\n- Add support for displaying detailed Citus query plans instead of 'Custom Scan' placeholder.\n- Add support for formatting .pgerd ERD project file.\nBugs/Housekeeping:\n- Fixed an issue where data output column resize is not sticking in Safari.\n- Fixed an issue where Schema Diff does not ignore Tablespace for indexes.\n- Fixed an issue where the 2FA window redirected to the login page after session expiration.\n- Fixed an issue where the Select All option on the columns tab of import/export data was not working in languages other than English.\n- Fixed an issue where the Debian build process failed with a \"Sphinx module not found\" error when using a Python virtual environment.\n- Fixed an issue where the last used storage directory was reset to blank, leading to access denied errors during backup or restore operations.\n- Fixed an issue that prevented assigning multiple users to an RLS policy.\n- Fixed remote code execution vulnerability when restoring PLAIN-format SQL dumps in server mode (CVE-2025-12762).\n- Fixed Command injection vulnerability allowing arbitrary command execution on Windows (CVE-2025-12763).\n- Fixed LDAP authentication flow vulnerable to TLS certificate verification bypass (CVE-2025-12765).\n- Fixed LDAP injection vulnerability in LDAP authentication flow (CVE-2025-12764).\n- Migrate pgAdmin UI to use React 19.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.10/release_notes_9_10.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.10/windows/pgadmin4-9.10-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.10-x64.exe",
+          "sha256": "3ce0188926637ebb74056a8dbb8b871a5d336341f0de86daa56b2f09dcc3e8b9",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.10/windows/pgadmin4-9.10-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.10-x64.exe",
+          "sha256": "3ce0188926637ebb74056a8dbb8b871a5d336341f0de86daa56b2f09dcc3e8b9",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.9",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.9. This release of pgAdmin 4 includes 10 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Add support of DEPENDS/NO DEPENDS ON EXTENSION for ALTER FUNCTION.\n- Added \"MULTIRANGE_TYPE_NAME\" option while creating a Range Type.\n- Added \"SUBSCRIPT\" option while creating an External Type.\n- Added option to skip the password dialog when using an identity file.\n- Added 'failover' and 'two_phase' parameter support in CREATE/ALTER SUBSCRIPTION for PostgreSQL v17+.\n- Add support for initializing the pgAdmin4 Kubernetes Helm chart.\nBugs/Housekeeping:\n- Fixed an issue where the query tool displayed 'default' instead of 'null' for null text data in the data output.\n- Fixed an issue where the pgAdmin configuration database wasn't being created on a fresh install when an external database was used for the configuration.\n- Fixed an issue where shortcuts are not working as expected on multiple keyboard layouts.\n- Fixed an issue where saving the newly changed preferences was not reflecting on the preferences tab.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.9/release_notes_9_9.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.9/windows/pgadmin4-9.9-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.9-x64.exe",
+          "sha256": "b4a7ee807225ab73ce5ce4f0bda6597c35d69991fea07188af97c3983d4e2d43",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.9/windows/pgadmin4-9.9-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.9-x64.exe",
+          "sha256": "b4a7ee807225ab73ce5ce4f0bda6597c35d69991fea07188af97c3983d4e2d43",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.8",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.8. This release of pgAdmin 4 includes 10 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Add menu items for truncating foreign tables.\n- Added Debian Trixie as a supported platform for pgAdmin.\n- Allow user to configure security related gunicorn parameters.\n- Change the default pgAdmin theme to System.\nBugs/Housekeeping:\n- Fixed Cross-Origin Opener Policy (COOP) vulnerability in the OAuth 2.0 authentication flow (CVE-2025-9636).\n- Remove usage of BrowserFS as it is deprecated.\n- Pin Paramiko to version 3.5.1 to fix the DSSKey error introduced in the latest release.\n- Fixed an issue where pgAdmin config migration was failing while upgrading to v9.7.\n- Fixed an issue where editor shortcuts fail when using Option key combinations on macOS, due to macOS treating Option+Key as a different key input.\n- Fixed an issue where the pgAdmin configuration database wasn’t being created on a fresh install when an external database was used for the configuration.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.8/release_notes_9_8.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.8/windows/pgadmin4-9.8-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.8-x64.exe",
+          "sha256": "35b1154e2087b7c6ae28a2f95fb31816faaa2a28e769c9d2ccb48bb1928453ec",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.8/windows/pgadmin4-9.8-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.8-x64.exe",
+          "sha256": "35b1154e2087b7c6ae28a2f95fb31816faaa2a28e769c9d2ccb48bb1928453ec",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.7",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.7. This release of pgAdmin 4 includes 22 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Add support for automatic updates in the pgAdmin 4 Desktop application on macOS.\n- Added GENERIC_PLAN, MEMORY, and SERIALIZE options to EXPLAIN/EXPLAIN ANALYZE command.\n- Add support for changing the cursor blink rate within the editors.\n- Add support for server tag-based filtering in the Object Explorer.\n- Added support for builtin locale provider while creating Collation.\nBugs/Housekeeping:\n- Introduced an ‘Editor’ preferences category and migrated all editor related settings into it.\n- Fixed an issue where CPU usage was very high on Windows when opening the psql tool.\n- Fixed an issue where adding breakpoints caused errors, and stepping out of a nested function removed breakpoints from the parent function.\n- Fixed an issue where custom column widths in the result grid of Query Tool or View/Edit Data were reset after re-executing a query.\n- Fixed the issue where updating the name of a table column does not reflect in the corresponding primary key constraint.\n- Make Dashboard tables to be vertically resizable.\n- Fixed the incorrect behaviour of the option deduplicate items after creating the index.\n- Added PKEY index in the index statistics summary.\n- Fixed an issue where downloading images on the ERD tool was not working in desktop mode.\n- Ensure the scratch pad in the Query Tool is not restored after it is closed.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.7/release_notes_9_7.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.7/windows/pgadmin4-9.7-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.7-x64.exe",
+          "sha256": "025821fca449b511f84e595feb7b597331d7c903a2c891c194aa3f137938d475",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.7/windows/pgadmin4-9.7-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.7-x64.exe",
+          "sha256": "025821fca449b511f84e595feb7b597331d7c903a2c891c194aa3f137938d475",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.6",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.6. This release of pgAdmin 4 includes 4 new features and 7 bug fixes/housekeeping changes. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Ensure that keyboard shortcuts are displayed in tooltips, context menus, and the main menu.\n- Implemented a server-side cursor to enhance performance when retrieving large datasets.\n- Added support for setting a custom SESSION_DIGEST_METHOD in pgAdmin 4 to facilitate FIPS compliance.\n- Enable the PKCE workflow for OAuth 2 authentication.\nBugs/Housekeeping:\n- Fixed an issue where windows installer is not signing tmp files generated by InnoSetup.\n- Fixed an issue in the Search Objects tool where selecting a node occasionally selected an incorrect node.\n- Improved the application state restoration by leveraging rc-dock layout and ensure the order and layout of tabs is maintained on restore.\n- Fixed an issue where json editor in result grid was crashing if null value is set in the json editor.\n- Update zstd library link to 1.5.7 in Dockerfile.\n- Ensure that pgAdmin 4 is compatible with PG/EPAS v18.\n- Use 'Drop' instead of 'Delete' for object commands to make destructive actions more deliberate.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.6/release_notes_9_6.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.6/windows/pgadmin4-9.6-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.6-x64.exe",
+          "sha256": "eae7e014e2f65b89523d96579b307c7d119c8668b73ef45046739c0833cab44c",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.6/windows/pgadmin4-9.6-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.6-x64.exe",
+          "sha256": "eae7e014e2f65b89523d96579b307c7d119c8668b73ef45046739c0833cab44c",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.5",
+      "release_notes": "The pgAdmin Development Team is pleased to announce the release of pgAdmin 4 version 9.5. This release of pgAdmin 4 includes 18 bug fixes and new features. For more details, please see the release notes.\nNote:The publication of the Python package to PyPi has been delayed and will be completed as soon as possible.\nNotable changes in this release include:\nFeatures:\n- Add a new permission to allow disabling the \"Change Password\" feature for a pgAdmin role.\n- Added role-based restrictions for editing server connections.\n- Added support for customizing keyboard shortcuts in the Query Tool's Edit menu.\n- Add a search box to enable searching within the preferences tab.\n- Added support to preserve the workspace, query windows, and pgAdmin state during an abrupt shutdown or restart.\n- Open preferences in a new tab instead of a dialog for a better user experience.\n- Supports JSON logging for gunicorn process within Docker.\nBugs/Housekeeping:\n- Improved PL/pgSQL code folding and support nested blocks.\n- Add a flag to allow access to system Python packages on recent Linux distributions.\n- Fixed an issue where utilities such as pg_dump and pg_restore failed to log error messages when required dependency files were missing.\n- Fixed an issue where the Schema Diff Tool incorrectly reported differences due to variations in the order of the privileges.\n- Fixed an issue in SQL syntax highlighting where the same color was used for both variable names and datatypes.\n- Fixed an issue in the query tool where using multiple cursors to copy text resulted in only the first line being copied.\n- Fixed an issue where data export using a query opened the wrong dialog type.\n- Fixed an issue where data export using a query failed when the query contained a newline character.\n- Fixed a UI layout issue that occurred after upgrading from pgAdmin v9.2 when all tabs had been closed prior to the upgrade.\n- Fixed an issue where the Columns node was not visible under Catalog Objects.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.5/release_notes_9_5.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.5/windows/pgadmin4-9.5-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.5-x64.exe",
+          "sha256": "03f23d837d7f98a0169fcd170a960a7ed156f4cff9ed19a0d797d5340f380bce",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.5/windows/pgadmin4-9.5-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.5-x64.exe",
+          "sha256": "03f23d837d7f98a0169fcd170a960a7ed156f4cff9ed19a0d797d5340f380bce",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.4",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.4. This release of pgAdmin 4 includes 15 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Enabled large file downloads for desktop users within the query tool.\n- Add all missing options to the Import/Export Data functionality, and update the syntax of the COPY command to align with the latest standards.\n- Add support for exporting table data based on a custom query.\nBugs/Housekeeping:\n- Fixed an issue where the result grid slowed down when any column contained a large amount of data.\n- Fix the issue where an error is displayed when a table is dropped while a query is running.\n- Fixed an issue where the options key was not working as expected in the PSQL tool.\n- Fixed an issue where correct error message not displayed when sql statement contains Arabic letters.\n- Enhance contrast for selected and hovered items in the Object Explorer to improve visibility and accessibility.\n- Fixed an issue where the query tool returns \"cannot unpack non-iterable Response object\" when running any query with a database name change.\n- Handle result grid data changes in View/Edit Data mode by automatically reconnecting to the server if a disconnection occurs.\n- Implement API fetch error display for select dropdown.\n- Fixed an issue where light theme briefly appears when pgAdmin loads or tools open, even when a dark or system UI theme is preferred.\n- Fixed issues related to column range selection using shift + click.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.4/release_notes_9_4.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.4/windows/pgadmin4-9.4-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.4-x64.exe",
+          "sha256": "a74ed1dca474ce3e71180d5f017cb3fd8717fd9f8c121425121ce5cd6ffb1b77",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.4/windows/pgadmin4-9.4-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.4-x64.exe",
+          "sha256": "a74ed1dca474ce3e71180d5f017cb3fd8717fd9f8c121425121ce5cd6ffb1b77",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.3",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.3. This release of pgAdmin 4 includes 4 new features and 14 bug fixes/housekeeping changes. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Add support for type constructors for PostGIS spatial types.\n- Added ability to use SQL in the \"DB Restriction\" field.\n- Add support for custom roles and role permissions management in pgAdmin.\n- Added support for font ligatures.\nBugs/Housekeeping:\n- Add Cache-Control no-cache,no-store,must-revalidate header to dynamically generated utils.js file.\n- Fixed an issue where shift + click on rows/columns for range selection did not work in the query tool data output window.\n- Fixed an issue where the debugger hangs when stepping into nested function/procedure.\n- Ensure that graph data is updated even when the Dashboard tab is inactive.\n- Fixed an issue where Ctrl/Cmd+A in cell editor would select all rows.\n- Fixed an issue where drag and drop function with no parameters does not work.\n- Fixed an issue where changes to foreign key constraints were not detected in the schema diff.\n- Fixed an issue where the query tool went blank when converting history dates to the appropriate locale format.\n- Fixed an issue where the user management tab is not opening in the classic layout.\n- Allow OAuth 2 login using the username claim if the email is absent from the user profile.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.3/release_notes_9_3.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.3/windows/pgadmin4-9.3-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.3-x64.exe",
+          "sha256": "53ea30e9f23b4f954ab79f96a980e58e3c53822c2fa15ebc86c39d309e802770",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.3/windows/pgadmin4-9.3-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.3-x64.exe",
+          "sha256": "53ea30e9f23b4f954ab79f96a980e58e3c53822c2fa15ebc86c39d309e802770",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.2",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.2. This release of pgAdmin 4 includes 24 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Added an ability to configure the font family for SQL editors.\n- Added support to automatically open a file after it is downloaded in the desktop mode.\n- Added support for post-connection SQL execution, which will be run automatically on each connection made to any database of the server.\n- Add support for restoring plain SQL database dumps.\n- Added support for creating Directory nodes in EPAS.\n- Change icon buttons to show tooltips even when disabled.\n- Add an option to load/replace the servers.json file on each container startup.\n- Open user management in a separate tab instead of a dialog to enhance UI/UX.\nBugs/Housekeeping:\n- Fixed an XSS vulnerability issue in the Query Tool and View/Edit Data (CVE-2025-2946).\n- Fixed a remote code execution issue in the Query Tool and Cloud Deployment (CVE-2025-2945).\n- Ensure that modal dialogs are not triggered more than once to avoid duplicates.\n- Fixed an issue where pgAdmin should fallback to the main screen if the last opened screen is disconnected.\n- Fixed an issue where the PSQL terminal displays keyname for non-alphanumeric keys.\n- Change the stop/terminate icon at all the places for better UX.\n- Fixed an issue where the query tool data grid did not respect the default value for columns of domain type when the domain had a default value.\n- Ensure the newly added parameters in the server dialog are incorporated into the Import/Export Servers functionality.\n- Fixed an issue where the query tool is crashing on macOS 15.4 due to a locale issue.\n- Fixed an issue where the upgrade_check API returned an unexpected keyword argument 'cafile' due to changes in the urllib package supporting Python v3.13.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.2/release_notes_9_2.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.2/windows/pgadmin4-9.2-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.2-x64.exe",
+          "sha256": "50c5df2c90a4308cf54a756314fce31da5e4296ab7141cad52a03904095e7186",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.2/windows/pgadmin4-9.2-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.2-x64.exe",
+          "sha256": "50c5df2c90a4308cf54a756314fce31da5e4296ab7141cad52a03904095e7186",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "9.1",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 9.1. This release of pgAdmin 4 includes 14 bug fixes and new features. For more details, please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Added an option to open the file in a new tab within the query tool.\n- Add support for one-to-one relationship in the ERD tool.\n- Enable the ability to close the 'Welcome' tab in the Query Tool/PSQL Workspace.\nBugs/Housekeeping:\n- Added support for Python 3.13.\n- Fixed an issue where pgAdmin does not support pg_vector column length/precision.\n- Fixed an issue where pasting text containing JSON data into the query tool grid would result in incorrect parsing.\n- Fixed an issue where the query tool was not treating IDENTITY columns as columns with default values when inserting new rows.\n- Fixed an issue where the ERD tool failed to open a saved file containing parent-child relationships within the same table.\n- Fixed Docker image entrypoint.sh email validation.\n- Fixed an issue where the User Management and Change Password dialogs were hidden when selecting a menu while a workspace other than 'Default' was active.\n- Fixed an issue where the column order displayed was incorrect for exclusion constraints with multiple columns.\n- Fixed an issue where deleting rows in the query tool would delete all rows in the table when 'Select All Remaining Rows' was used.\n- Ensure the saved passwords are decrypted with the correct encryption key for external authentication in server mode.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/9.1/release_notes_9_1.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.1/windows/pgadmin4-9.1-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.1-x64.exe",
+          "sha256": "729c88032303f848cf8eecc673896c896904f138f13103a4b12b689d4369e181",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.1/windows/pgadmin4-9.1-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.1-x64.exe",
+          "sha256": "729c88032303f848cf8eecc673896c896904f138f13103a4b12b689d4369e181",
+          "product_code": "pgAdmin 4v9_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.14",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 8.14. This release of pgAdmin 4 includes 23 bug fixes and new features. For more details please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Added support for adding tags on a server node.\n- Allow setting NULL ordering for columns in view/edit data filter dialog.\n- Show auto-complete column names in filtered rows dialog of table and filter options of view/edit data tool.\n- Allow the use of a pgpass file in the pgAdmin container via Docker secrets.\n- Add support for passing connection details as placeholders in the passexec command.\n- Add support to deploy pgAdmin in a container with readOnlyRootFilesystem to true.\n- Added support for a builtin locale provider in the Database dialog.\nBugs/Housekeeping:\n- Fixed an issue where Ctrl/Cmd + A was not selecting all data in query tool data grid.\n- Fixed an issue where querying a foreign table gives the error 'ForeignTableCommand' object has no attribute 'auto_commit'.\n- Fixed an issue where pgAdmin crashes on accessing the dashboard state tab when database is super busy.\n- Fixed an issue where a column name change in the edit dialog of the table node does not show the updated column name.\n- Ensure the crypt key is retrieved correctly on backend server restart.\n- Fixed an issue in schema diff where an error message popup was showing some garbage without any info.\n- Add a user preference to enable/disable alternating row background colors in the data output of query tool.\n- Fixed an issue where doing Ctrl/Cmd+C on a selected text in a cell editor of data output in the query tool copied the complete text.\n- Fixed an issue where auto-width of wide columns in data output is incorrectly calculated.\n- Ensure correct custom SSL certificate passed in connection string.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/8.14/release_notes_8_14.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/8.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.14/windows/pgadmin4-8.14-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-8.14-x64.exe",
+          "sha256": "5f1bb9e6f382964acbb90156c2f38b7800b02d77cf6934f73b826240ed004110",
+          "product_code": "pgAdmin 4v8_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.14/windows/pgadmin4-8.14-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-8.14-x64.exe",
+          "sha256": "5f1bb9e6f382964acbb90156c2f38b7800b02d77cf6934f73b826240ed004110",
+          "product_code": "pgAdmin 4v8_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.11",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 8.11. This release of pgAdmin 4 includes 15 bug fixes and new features. For more details please see the release notes.\nNotable changes in this release include:\nFeatures:\n- Add a home button to the geometry viewer to set the original zoom level when the viewer is opened.\nBugs/Housekeeping:\n- Fixed an issue where refreshing the Schema Diff tool opened in a new tab caused an error.\n- Fix server heartbeat logging error after deleting the server.\n- Fixed an issue where the Generate Script ignored filter conditions when a parent node was selected.\n- Fixed an issue where delete object(shortcut key) affected both text and Object Explorer items.\n- Fix an issue where the ERD tool should be able to open saved pgerd file when using keyboard shortcuts.\n- Fixed an issue where the REVOKE statement in the create script was throwing an error if the role contained special characters.\n- Improve code highlighting in the query editor.\n- Fix an issue where the wheel package is not getting installed on the arm64-based macOS version < 14.\n- Fixed an issue where column resizing is not working in the search objects dialog\n- Fixed an issue where the value in the find box is not updating with selected text in the editor if the find is already open and re-triggered.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/8.11/release_notes_8_11.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/8.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.11/windows/pgadmin4-8.11-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-8.11-x64.exe",
+          "sha256": "217f4db69ca7c4d869bbbb120f583dded7fc0f0e7f43dbfb498fb7868891dcf8",
+          "product_code": "pgAdmin 4v8_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.11/windows/pgadmin4-8.11-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-8.11-x64.exe",
+          "sha256": "217f4db69ca7c4d869bbbb120f583dded7fc0f0e7f43dbfb498fb7868891dcf8",
+          "product_code": "pgAdmin 4v8_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "8.10",
+      "release_notes": "The pgAdmin Development Team is pleased to announce pgAdmin 4 version 8.10. This release of pgAdmin 4 includes 29 bug fixes and new features. For more details please see the release notes.\nNote: With this release, pgAdmin 4 has transitioned from NW.js to Electron\nNotable changes in this release include:\nFeatures:\n- Add support for Postgres Server Logs for Text, CSV, and JSON format in plain and tabular formats.\n- Add support for highlighting selection matches in the query editor.\n- Add a keyboard shortcut to close the active tab panel.\nBugs/Housekeeping:\n- Replace pgAdmin NW.js container with Electron container.\n- Ensure that pgAdmin 4 is compatible with PostgreSQL v17.\n- Fixed an issue where paste operation in query tool data grid should skip bytea columns and put the value as NULL instead.\n- Ensure pgAdmin never makes network requests to Google etc.\n- Fixed the permission denied issue for functions of the pgstattuple extension when accessing statistics with a non-admin user.\n- Updated entrypoint.sh to utilize the email-validator package for email validation.\n- Fixed an issue where users could not insert characters at the desired location, as it was added to the end of the line.\n- Fixed an issue where users could not autofill their saved passwords in the connect server dialog in the browser.\n- Fixed an issue where boolean values in node details of the graphical explain plan were not interpreted correctly.\n- Ensure that pgAdmin works when opened in an iframe.",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/8.10/release_notes_8_10.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/8.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.10/windows/pgadmin4-8.10-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-8.10-x64.exe",
+          "sha256": "ad581a8aaf33043ef0fc8ff11a8c90e6518421e6ca4fed0a3922361c513c217c",
+          "product_code": "pgAdmin 4v8_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.10/windows/pgadmin4-8.10-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-8.10-x64.exe",
+          "sha256": "ad581a8aaf33043ef0fc8ff11a8c90e6518421e6ca4fed0a3922361c513c217c",
+          "product_code": "pgAdmin 4v8_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.8",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/7.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v7.8/windows/pgadmin4-7.8-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-7.8-x64.exe",
+          "sha256": "995aac7d870b5e9de4f9a6f5d1fc336b5e3cb7d07381ef38126a7b12622cf5cd",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /SUPPRESSMSGBOXES"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v7.8/windows/pgadmin4-7.8-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-7.8-x64.exe",
+          "sha256": "995aac7d870b5e9de4f9a6f5d1fc336b5e3cb7d07381ef38126a7b12622cf5cd",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /SUPPRESSMSGBOXES"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.21",
+      "release_notes_url": "https://www.pgadmin.org/docs/pgadmin4/6.21/release_notes_6_21.html",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/6.21",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.21/windows/pgadmin4-6.21-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-6.21-x64.exe",
+          "sha256": "71d44eb4ac1710f6b8f78206e71279980e8afc7bdfadf202dc580da25d2de794",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "upgrade": "/NORESTART",
+            "custom": "/ALLUSERS /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.21/windows/pgadmin4-6.21-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-6.21-x64.exe",
+          "sha256": "71d44eb4ac1710f6b8f78206e71279980e8afc7bdfadf202dc580da25d2de794",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "upgrade": "/NORESTART",
+            "custom": "/CURRENTUSER /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.7",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/5.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v5.7/windows/pgadmin4-5.7-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-5.7-x64.exe",
+          "sha256": "edf0bab6031fc06d6b875cb1b76b06bb616d6431373726cc58775f769edb88b9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v5.7/windows/pgadmin4-5.7-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-5.7-x64.exe",
+          "sha256": "edf0bab6031fc06d6b875cb1b76b06bb616d6431373726cc58775f769edb88b9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.30",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/PostgreSQL/pgAdmin/4.30",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v4.30/windows/pgadmin4-4.30-x64.exe",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-4.30-x64.exe",
+          "sha256": "4248ffac1564685c7460fec88d5fa8e8473401e648b56b7bd293f654304fae77",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "9.19",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.19/macos/pgadmin4-9.19-x64.dmg",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.19-x64.dmg",
+          "sha256": "a3ef8cce61a1d00a3de5ea00fa75507832ccfebbaa4f5f5685355de0347a51d8"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.19/macos/pgadmin4-9.19-arm64.dmg",
+          "host": "ftp.postgresql.org",
+          "filename": "pgadmin4-9.19-arm64.dmg",
+          "sha256": "8827d9444752497602f15cb01bd4014378510a2fdd118902686da3f36713b8ed"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "pgAdmin 4.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "org.pgadmin.pgadmin4"
+          ],
+          "zap_paths": [
+            "~/.pgadmin",
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.pgadmin.pgadmin4.sfl*",
+            "~/Library/Application Support/pgAdmin 4",
+            "~/Library/Caches/pgAdmin 4",
+            "~/Library/Preferences/org.pgadmin.pgadmin4.plist",
+            "~/Library/Saved Application State/org.pgadmin.pgAdmin4.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "bda67118653e14507f046cee950c5d782f46e585",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "manifests/p/PostgreSQL/pgAdmin"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "04018de6306a2214b0ec0c1602df674c751d15e8",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "Casks/p/pgadmin4.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/pgadmin4.json"
+    }
+  ]
+}

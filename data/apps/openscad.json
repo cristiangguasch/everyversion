@@ -6,10 +6,12 @@
   "ids": {
     "winget": "OpenSCAD.OpenSCAD",
     "moniker": "openscad",
+    "homebrew_cask": "openscad",
     "flathub": "org.openscad.OpenSCAD"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "OpenSCAD is software for creating solid 3D CAD objects.",
@@ -35,10 +37,12 @@
   },
   "latest_versions": {
     "windows": "2021.01",
+    "macos": "2021.01",
     "linux": "2021.01"
   },
   "versions_total": {
     "windows": 2,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -79,6 +83,37 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "2021.01",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://files.openscad.org/OpenSCAD-2021.01.dmg",
+          "host": "files.openscad.org",
+          "filename": "OpenSCAD-2021.01.dmg",
+          "sha256": "4e4568e19992636ba497c04bc2238399c92314fcb7bf75dc3632aa623ca3635e"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "OpenSCAD-2021.01.app"
+        ],
+        "binaries": [
+          "OpenSCAD",
+          "openscad"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Caches/org.openscad.OpenSCAD",
+            "~/Library/Preferences/org.openscad.OpenSCAD.plist",
+            "~/Library/Saved Application State/org.openscad.OpenSCAD.savedState"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "2021.01",
       "release_date": "2021-01-31",
@@ -104,14 +139,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "7ba156ba3b98370906bafbaa35808b8d6cfe55f1",
-      "retrieved_at": "2026-11-05T12:08:19.012Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/o/OpenSCAD/OpenSCAD"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/o/openscad.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/openscad.json"
     },
     {
       "source": "flathub",

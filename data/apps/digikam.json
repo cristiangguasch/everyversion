@@ -7,10 +7,12 @@
   "ids": {
     "winget": "KDE.digiKam",
     "moniker": "digikam",
+    "homebrew_cask": "digikam",
     "flathub": "org.kde.digikam"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "Professional Photo Management with the Power of Open Source",
@@ -48,11 +50,13 @@
   },
   "latest_versions": {
     "windows": "9.1.0",
+    "macos": "9.1.0",
     "linux": "9.1.0"
   },
   "last_updated": "2026-06-07",
   "versions_total": {
     "windows": 18,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -491,6 +495,52 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "9.1.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "pkg",
+          "url": "https://download.kde.org/stable/digikam/9.1.0/digiKam-9.1.0-Qt5-MacOS-x86_64.pkg",
+          "host": "download.kde.org",
+          "filename": "digiKam-9.1.0-Qt5-MacOS-x86_64.pkg",
+          "sha256": "d5edf0f8e498dad0e6748c3bdc9a55433bf8b43601d8467704f47cc995b3f4a2"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "pkg",
+          "url": "https://download.kde.org/stable/digikam/9.1.0/digiKam-9.1.0-Qt6-MacOS-arm64.pkg",
+          "host": "download.kde.org",
+          "filename": "digiKam-9.1.0-Qt6-MacOS-arm64.pkg",
+          "sha256": "280fb7f8bd69f512946b1a5acc63a4f4fb66aed464afc2a03a3e4355150cc8ac"
+        }
+      ],
+      "cask": {
+        "pkgs": [
+          "digiKam-9.1.0-Qt6-MacOS-arm64.pkg"
+        ],
+        "cleanup": {
+          "pkgutil": [
+            "org.digiKam",
+            "org.kde.digikam"
+          ],
+          "remove": [
+            "/Applications/digiKam.org/digikam.app",
+            "/Applications/digiKam.org/showfoto.app"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/digikam",
+            "~/Library/Caches/digikam",
+            "~/Library/Preferences/digikam.plist",
+            "~/Library/Preferences/digikamrc",
+            "~/Library/Saved Application State/digikam.savedState"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "9.1.0",
       "release_date": "2026-06-07",
@@ -525,14 +575,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "ca3de5f957f41c0c1c818788b187c45357e50fba",
-      "retrieved_at": "2026-11-07T17:28:24.997Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/k/KDE/digiKam"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/d/digikam.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/digikam.json"
     },
     {
       "source": "flathub",

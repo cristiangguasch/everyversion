@@ -106,8 +106,8 @@ const IGNORED_KEYS = new Set(['app', 'pkg', 'binary', 'target', 'zap', 'uninstal
 
 /** Returns { version, installers[], summary, homepage, provenance } or { skip: reason }. */
 export function normaliseCask(cask, retrievedAt) {
-  if (cask.disabled) return { skip: 'disabled' };
-  if (cask.deprecated) return { skip: 'deprecated' };
+  // A disabled cask is kept: the download link still works, only `brew install` no longer does. The page warns about it (homebrew_cask_disabled).
+  if (cask.deprecated && !cask.disabled) return { skip: 'deprecated' };
 
   const artifacts = Array.isArray(cask.artifacts) ? cask.artifacts : [];
   const macos = cask.depends_on?.macos;
@@ -205,6 +205,7 @@ export function normaliseCask(cask, retrievedAt) {
     name: str(cask.name?.[0]),
     summary: str(cask.desc),
     homepage: str(cask.homepage),
+    ...(cask.disabled ? { disabled: { reason: str(cask.disable_reason) || 'unknown', ...(str(cask.disable_date) ? { date: str(cask.disable_date) } : {}) } } : {}),
     provenance: prune({
       source: 'homebrew-cask',
       platform: 'macos',
@@ -253,4 +254,20 @@ export function suggestCask(rec, casks) {
   if (both.length > 1) return { token: null, confidence: 'review', others: both.map((c) => c.token) };
   if (byName.length) return { token: null, confidence: 'review', others: byName.map((c) => c.token) };
   return { token: null, confidence: null, others: [] };
+}
+
+// One plain sentence for the user: why Homebrew disabled a cask (the reason string comes from the cask index).
+const DISABLED_WHY = {
+  fails_gatekeeper_check: 'Homebrew has disabled this cask because the app fails Apple’s Gatekeeper notarization check (it lacks an Apple-issued developer certificate), so `brew install` no longer works and macOS blocks the app when you try to open it.',
+  unmaintained: 'Homebrew has disabled this cask because the app is no longer maintained, so `brew install` no longer works.',
+  discontinued: 'Homebrew has disabled this cask because the publisher has discontinued the app, so `brew install` no longer works.',
+  no_longer_available: 'Homebrew has disabled this cask because the download is no longer available, so `brew install` no longer works.',
+  no_longer_meets_criteria: 'Homebrew has disabled this cask because the app no longer meets Homebrew’s requirements for casks, so `brew install` no longer works.',
+  moved_to_mas: 'Homebrew has disabled this cask because the app moved to the Mac App Store, so `brew install` no longer works.',
+  unreachable: 'Homebrew has disabled this cask because its download site could not be reached, so `brew install` no longer works.',
+};
+export function caskDisabledSentence(reason) {
+  if (DISABLED_WHY[reason]) return DISABLED_WHY[reason];
+  const r = String(reason || '').trim().replace(/[.\s]+$/, '');
+  return r && r !== 'unknown' ? `Homebrew has disabled this cask (reason given: ${r}), so \`brew install\` no longer works.` : 'Homebrew has disabled this cask, so `brew install` no longer works.';
 }

@@ -6,10 +6,12 @@
   "ids": {
     "winget": "darktable.darktable",
     "moniker": "darktable",
+    "homebrew_cask": "darktable",
     "flathub": "org.darktable.Darktable"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "Photography workflow application and raw developer",
@@ -54,11 +56,13 @@
   },
   "latest_versions": {
     "windows": "5.6.2",
+    "macos": "5.6.2",
     "linux": "5.6.2"
   },
   "last_updated": "2026-10-04",
   "versions_total": {
     "windows": 36,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -1625,6 +1629,38 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "5.6.2",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.2/darktable-5.6.2-arm64.dmg",
+          "host": "github.com",
+          "filename": "darktable-5.6.2-arm64.dmg",
+          "sha256": "6ff88e58a2a59cb07b0a1502fea7205e68cd783380a33a3ce7bda68ec29def0c",
+          "min_os_version": "14"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "darktable.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "org.darktable"
+          ],
+          "zap_paths": [
+            "~/.cache/darktable",
+            "~/.config/darktable",
+            "~/.local/share/darktable",
+            "~/Library/Saved Application State/org.darktable.savedState"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "5.6.2",
       "release_date": "2026-10-04",
@@ -1659,14 +1695,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
-      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/d/darktable/darktable"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/d/darktable.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/darktable.json"
     },
     {
       "source": "flathub",

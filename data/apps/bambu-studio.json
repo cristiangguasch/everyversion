@@ -1,0 +1,951 @@
+{
+  "schema_version": 2,
+  "slug": "bambu-studio",
+  "name": "Bambu Studio",
+  "publisher": "Bambulab",
+  "ids": {
+    "winget": "Bambulab.Bambustudio",
+    "homebrew_cask": "bambu-studio",
+    "flathub": "com.bambulab.BambuStudio"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Bambu Studio is a cutting-edge, feature-rich slicing software. It contains project-based workflows, systematically optimized slicing algorithms, and an easy-to-use graphic interface, bringing users an incredibly smooth printing experience.",
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/bambulab/BambuStudio",
+    "publisher": "https://github.com/bambulab",
+    "support": "https://github.com/bambulab/BambuStudio/issues",
+    "bug_tracker": "https://github.com/bambulab/BambuStudio/issues",
+    "release_notes": "https://github.com/bambulab/BambuStudio/releases/tag/v02.09.01.70",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/bambulab/BambuStudio/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "AGPL-3.0",
+    "url": "https://github.com/bambulab/BambuStudio/blob/HEAD/LICENSE",
+    "spdx": "AGPL-3.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "02.09.01.70",
+    "macos": "02.09.01.70",
+    "linux": "2.9.1 Public Release"
+  },
+  "last_updated": "2026-11-03",
+  "versions_total": {
+    "windows": 33,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "02.09.01.70",
+      "release_date": "2026-11-03",
+      "release_notes": "New Features\nMixed Nozzle Diameter Slicing and Printing\nThis is the most important update in this Bambu Studio release. Printing with multiple nozzle diameters is not a new topic. Previously, users could assign filament and nozzles by slicing line type such as wall, infill, and support, for example, by setting the filament for sparse infill, solid infill, and walls on the Process > Strength > Advanced page. What is different about this update is that Bambu Studio extends this capability into regions of the model: within a single model, users can assign nozzles of different diameters to local details and to the main body, and let each nozzle print at its own appropriate layer height. This means that, even within the same height range of a model, a small nozzle no longer has to increase its layer height to accommodate the main body, and a large nozzle no longer has to keep using thin layers for local details. A small nozzle can reproduce text and scales with a narrower line width and thinner layers; a large nozzle prints the main body with a wider line width and thicker layers. Detail is left to the areas that need it, and efficiency is left to the areas suited to fast printing. Thanks to this capability, with the Maker Watch (by DadaLand) printed on the H3C, the fine watch face, the watch case body, and the flexible TPU strap can be completed in a single print job, reducing the need for separate parts and post-print assembly. See the Wiki to learn how the feature works, when it applies, and its limitations. This capability was made possible by extensive refactoring of the slicing architecture, so all multi-nozzle models benefit. Mixed nozzle diameters involve multiple workstreams, including slicing, materials, presets, and AMS and nozzle-switching compatibility. This release supports the H3C first. Information about support for other models will be provided in official announcements. We thank users for their patience, and we welcome feedback from users and the community on slicing and printing results with real models, as well as updates and iterations based on the Bambu Studio open-source code.\n\nColor Mixing Updates and Improvements\n- Consolidated workflow: Color Split has been merged into the mixed-color page and renamed Color Matching. When adding a mixed-color filament, Manual Mixing and Color Matching are both available on the same page. Color Matching lets you pick a target color from the project filaments, automatically calculates a matching mixed-color result, and lets you adjust that result.\n- Easier to use: for the H3C 0.4 mm nozzle presets at 0.2 mm and 0.24 mm layer heights, the color mixing sublayer feature is enabled by default, with no manual setup required.\n- More flexible filament setup: mixed-color filaments no longer count toward the project limit of 32 filaments, and support has been added for Bambu PLA Palette, Bambu Lab's color mixing kit. Click \"Use Official Color Mixing Kit\" to automatically add the filaments in the kit.\n- Less repetitive setup: when adding a mixed-color filament manually, the previous color mixing parameters are reused, making duplication and fine-tuning easier.\n- Smoother texture model import: the import page is now a two-step flow with clearer guidance; color quantization performance has been improved; Bambu color mixing kits can now be bound directly; and the UI and visual layout have been refined.\n\nOptimized Top Surface Monotonic Line Infill Path to Reduce Travel Moves\nThis version optimizes the printing path for the top surface monotonic line infill pattern, reducing travel moves during printing and improving print efficiency. The improvement is more noticeable on models with more detailed and complex top surfaces.\n\nIllustrated Slicing Parameter Tips\nWhen users hover the mouse over a process parameter name, Bambu Studio will display the corresponding parameter tip. Parameter tips now support illustrated explanations, making it easier to understand what each setting means, how it works, and how it may affect the print result. This helps new users learn and adjust slicing parameters more easily. Note: This update mainly covers process parameters in Simple Mode. Tips for more advanced parameters will be added and improved in future releases.\n\nIndependently Set Initial Layer Wall and Infill Line Widths\nThis version adds a new Initial Layer Infill Line Width parameter. The original Initial Layer Line Width parameter now only applies to lines except the infill lines on the initial layer, including the initial-layer wall lines, allowing users to control the wall line width and infill line width of the initial layer separately. Users can moderately increase the initial-layer infill line width based on actual print results. For example, when using a 0.4 mm nozzle, setting the initial-layer infill line width to 0.55 mm can help improve initial-layer adhesion and reduce the chance of poor initial-layer printing. Note: It is not recommended to set the initial-layer wall line width too large, as this may increase the risk of losing fine details on the initial layer for certain models.\n\nAdd Filament Vendors / Brands from the Filament Manager Entry Page\nThis version improves the filament entry workflow in the Filament Manager. Users can now add custom filament vendors or brands directly from the entry page. When the corresponding filament parameter preset does not exist, users can create a custom filament directly in the Filament Manager without switching to the Prepare page, making the workflow more convenient and efficient.\n\nNew Archimedean Spiral Pattern for Ironing, Providing a More Uniform Surface Finish\nThis version adds a new Archimedean spiral pattern for ironing. The new pattern expands outward gradually from the center of the region, and the toolpath can be naturally interrupted by internal holes in the model. Compared with the standard concentric pattern, it helps reduce marks caused by the innermost toolpaths and produces a more uniform ironing result. Note: Ironing quality is affected by multiple factors, including flow rate, line spacing, top surface print speed, temperature, and the physical properties of the material. Users should tune the settings based on actual print results. The default parameters may not be suitable for all scenarios.\n\nNew Infill Pattern Parameter for the Sub-Top Surface\nThis version separates the sub-top surface from internal solid infill, allowing users to set its infill pattern independently. By default, the sub-top surface now uses monotonic infill instead of the rectilinear pattern previously used for internal solid infill. This helps reduce the visibility of extrusion marks from internal solid infill on the model’s top surface and improves the top surface appearance.\n\nImprovements\nNew Collapse Status Icon on the Prepare Page\nImproved the visibility of the collapse feature: a new collapse status icon on the prepare page makes panel collapsing easier to discover, and clicking a panel title now collapses or expands that panel. Collapsing the device and filament panels while adjusting parameters gives you more room for parameter editing.\n\nLiveview on the Device Page Now Zooms Around the Cursor Position\nZooming is now centered on the mouse position, making it easier to inspect.\n\nParameter Differences Are Now Shown When Syncing Printer Information\nWhen opening a 3MF file or syncing printer information, the parameter differences between the current 3MF and the connected printer are now displayed, making it easier to decide what to sync. If no exact nozzle match is available, you can select one manually from the drop-down list.\n\nAdded a TPU 75A Preset and Improved Support Printing Parameters and Behavior\n- Added a TPU 75A filament preset.\n- Optimized PVA retraction: instead of retracting 2 mm and then another 10 mm, PVA now retracts 12 mm in one continuous movement, so retraction is no longer interrupted and print quality is improved.\n- Optimized the printing temperature and cooling fan settings for Support for PLA/PETG, improving adhesion between this support material and PLA and reducing the risk of print failures caused by weak adhesion.\n\nModifier Alternating Layers and Conformal Fill\n- Alternating layers: a modifier can now apply for N layers, then skip M layers, and repeat. Adding a wall every other layer, for example, creates a regular texture on surfaces such as shoe uppers. With \"Ignore infill settings\" enabled, the modifier overrides only the wall count and leaves the region's infill unchanged.\n- Conformal fill: sparse infill follows each layer's contour and runs radially on curved surfaces such as shoe uppers, while top and bottom shells, solid infill, and bridging keep their original pattern. Available on process, object, part, and modifier.\n\nTree Support Tip Diameter Can Now Be Adjusted",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.09.01.70",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.09.01.70",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.09.01.70/Bambu_Studio_win-v02.09.01.70-20261103183404.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.09.01.70-20261103183404.exe",
+          "sha256": "63f0362a1a8af079f6bb07fd61a2f1d11911de40f68be4f71644aefb99327a80",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.09.01.70/Bambu_Studio_win-v02.09.01.70-20261103183404.zip",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.09.01.70-20261103183404.zip",
+          "sha256": "a4c0d5f94109cb2c2c07fb02ca1f740e96b586fbf3ae557a1647eeb5503a15b8",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.08.02.61",
+      "release_date": "2026-08-21",
+      "release_notes": "Bambu Studio 2.8.2.61 is a minor optimization update based on the previous version. It fixes several known issues and improves the experience of certain features.\nYou can download the Flathub version for Linux from Bambu Studio on Flathub\nThe Flathub version is maintained by @hadess , thanks to him for his outstanding work.\nBug Fixes\n1. Fixed an issue where some MakerLab generators were inaccessible. (Note: Relief Maker downloads may experience import delays; a fix will be deployed via a subsequent MakerLab backend update.)\n2. Fixed an issue where the login window did not appear when accessing MakerWorld while not signed in.\n3. Fixed an issue where, after clicking “Sync Printer Information” in older 3MF files, the number of extruders could still be displayed as 0, which could further lead to slicing errors.\n4. When adding or removing filaments from the filament list on the left side of the Prepare page, the list will now automatically scroll to the bottom. This helps prevent users from mistakenly thinking the operation did not take effect when the filament list is long.\n5. Fixed an occasional crash in LAN mode under unstable network conditions.\n6. Updated presets for X2D and H-series printers, fixing several abnormal parameter values to prevent issues when loading or using the presets.",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.08.02.61",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.08.02.61",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/Bambu_Studio_win-v02.08.02.61-20260820225108.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.08.02.61-20260820225108.exe",
+          "sha256": "8af94a386689f265d22fd420c6d9bc72d3da872cc2c28d025eef4dd6cd614823",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/Bambu_Studio_win-v02.08.02.61-20260820225108.zip",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.08.02.61-20260820225108.zip",
+          "sha256": "3faaa194a90a2e7defa39a6a63f5a654b8cdb762c6a98556cf771fba582229f5"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "V02.08.02.61",
+      "release_date": "2026-08-21",
+      "release_notes": "Bambu Studio 2.8.2.61 is a minor optimization update based on the previous version. It fixes several known issues and improves the experience of certain features.\nYou can download the Flathub version for Linux from Bambu Studio on Flathub\nThe Flathub version is maintained by @hadess , thanks to him for his outstanding work.\nBug Fixes\n1. Fixed an issue where some MakerLab generators were inaccessible. (Note: Relief Maker downloads may experience import delays; a fix will be deployed via a subsequent MakerLab backend update.)\n2. Fixed an issue where the login window did not appear when accessing MakerWorld while not signed in.\n3. Fixed an issue where, after clicking “Sync Printer Information” in older 3MF files, the number of extruders could still be displayed as 0, which could further lead to slicing errors.\n4. When adding or removing filaments from the filament list on the left side of the Prepare page, the list will now automatically scroll to the bottom. This helps prevent users from mistakenly thinking the operation did not take effect when the filament list is long.\n5. Fixed an occasional crash in LAN mode under unstable network conditions.\n6. Updated presets for X2D and H-series printers, fixing several abnormal parameter values to prevent issues when loading or using the presets.",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.08.02.61",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/V02.08.02.61",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/Bambu_Studio_win-v02.08.02.61-20260820225108.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.08.02.61-20260820225108.exe",
+          "sha256": "8af94a386689f265d22fd420c6d9bc72d3da872cc2c28d025eef4dd6cd614823",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "nested_type": "portable",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/Bambu_Studio_win-v02.08.02.61-20260820225108.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.08.02.61-20260820225108.exe",
+          "sha256": "8af94a386689f265d22fd420c6d9bc72d3da872cc2c28d025eef4dd6cd614823",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.08.02.60",
+      "release_date": "2026-08-14",
+      "release_notes": "Known Issue:\n1. The macOS 27 Beta network plugin can now be downloaded normally and supports cloud connections. However, users may be unable to connect to printers over LAN. This is because the current configuration may trigger a permission issue on macOS 27 Beta. We are working on this issue and will fix it in a future release, when the final release of macOS 27 is public.\n2. On macOS 27 Beta , after switching filament mapping in the send-to-print dialog, a white floating window may occasionally appear. Re-selecting the same filament slot resolves the issue.\n3. On macOS 27 Beta, Bambu Studio cannot exit full screen after the window is maximized. You can use the shortcut Command (⌘) + Control (^) + F to exit full screen as a workaround.\nThis Bambu Studio update brings several major new features and experience improvements, including pause point information on the print progress bar, model assembly guide creation, upgraded color prediction and color decompose capabilities, enhanced filament management on the Device page, E3D hotend support, and multiple improvements to slicing and device interaction.\nYou can download the Flathub version for Linux from Bambu Studio on Flathub\nThe Flathub version is maintained by @hadess ; thanks to him for his outstanding work.\nNew Features\n\nPause Point Information on the Print Progress Bar\nUsers can now view pause point information directly on the print progress bar, including the total number of pause points in the current print job, how many pause points have already been triggered, and the locations of upcoming pause points.\nWhen hovering the mouse over a pause point marker on the progress bar, users can also see the estimated time until the pause is triggered. This helps users prepare in advance for operations such as inserting parts, changing colors, or placing magnets.\nNotes:\n1. This feature requires printer firmware support. The minimum supported firmware version is 01.02.50.00（H2S）. Support for additional printers will be rolled out gradually through firmware updates.\n2. The print progress bar can display up to 5 upcoming pause points. As printing progresses, information for later pause points will be displayed progressively on the progress bar.\n\nImprovements\n\nPrint a Shorter Prime Tower to Save Filament When Color Changes Only Occur at Higher Layers\nAfter enabling Developer Mode, users can enable the “No sparse layers” option under Others > Prime Tower.\nWhen enabled, Bambu Studio will skip intermediate layers where no filament change is needed when generating the prime tower. The prime tower will only be generated near the height where filament changes occur, reducing material consumption. For print jobs where color changes only happen at higher layers, this feature can help save filament to a certain extent.\nNotes:\n1. This feature is still experimental. It also has certain requirements for the relative position between the prime tower and the model, and can only work properly when these requirements are met.\n2. Because the Z-axis movement is relatively slow, moving from the shorter prime tower back to the model after printing the tower may take a longer time. This may increase the risk of print defects such as oozing or stringing.\n\nFilament Manager Displays Filament Note Information\nThe Filament Manager can now display Note information in the filament list, making it easier to distinguish between multiple spools of the same filament type. #11354\nUsers can also search for filaments by their Note information in the search window. PR #11505. Thanks to @BenJule.\n\nImproved Floating Issues with Tree Supports\nFor organic tree supports, Bambu Studio now enables lightning infill reinforcement by default for internal cavities, reducing the risk of print failures caused by unsupported or floating support structures.\n\nPart-level Clone Added to the Right-click Menu\nUsers can now clone individual parts directly from the right-click menu, improving the efficiency of copying and editing multi-part models.\n\nImproved Print Time Estimation for A2L When Connected to Different AMS Types\nFor A2L printers connected to different types of AMS, Bambu Studio has optimized the print time estimation related to AMS filament changes, making the estimated print time closer to the actual print duration.\nUsers can also calibrate loading and unloading times based on their own PTFE tube length and AMS type.\n> ⚠️ Minimum supported firmware version: 01.01.01.00（A2L）\n\nA2L Displays First-layer Thermal Preconditioning Areas and Explains Their Impact on Print Time\nThe Bambu Lab A2L now holds the heatbed at its target temperature before automatic bed leveling, which helps ensure a consistent first layer. The extra wait time depends on where the model is placed on the build plate. This feature is currently supported on the A2L (see below for the minimum firmware version).\nBambu Studio now visualizes these Thermal Preconditioning areas so users can adjust model placement accordingly. Note that areas near the edge of the heatbed generally take longer to reach a stable temperature. The area prompts and warnings can be turned off in Preferences.\n> ⚠️ Minimum supported firmware version: 01.01.01.00（A2L）\n\nOther Improvements\n1.  The live camera view on the Device page now supports mouse wheel zooming. PR #11325. Thanks to @BenJule.\n    Note: Panning is not currently supported and will be optimized in a future version.\n2.  Optimized PET-CF material parameters to improve print quality in overhang scenarios.\n3.  Updated the recommended process parameters for using PVA to support PLA. The support bottom Z distance is now set to 0 to improve support stability.\n4.  When the cloud service is abnormal or the network is unstable, the software will automatically try switching to LAN mode to continue sending the print, improving device connection stability.\n5.  Optimized filament mapping logic on the print sending page to reduce mismatches between sliced filaments and the actual filament types loaded in the printer.\n6.  The Assembly Guide tool now supports Undo and Redo, improving fault tolerance and editing efficiency during assembly guide creation.\n7.  When using the Cut tool to cut a model and generate dovetail joints, the original painting information of the model will be preserved.\n8.  When multiple AMS slots contain filaments of the same type and color, the print sending page will prioritize matching the filament with the lower remaining amount. PR #11347. Thanks to @ojimpo.\n9.  Optimized slicing logic for multi-toolhead printers in filament-saving mode. When there is only one filament change, the slicing engine will try to group filaments according to the actual left/right filament arrangement, avoiding the need for users to rearrange filaments on the printer just to save a single filament change.\n10. Enhanced the stability and workflow safety of Helio simulation, reducing failures caused by unstable network conditions. PR #11793. Thanks to @HelioPri.\n11. The “Copy to Clipboard” function in the System Information dialog now includes more complete information, making it easier for users to provide software and system details when reporting issues and improving diagnostic efficiency. PR #11491. Thanks to @BenJule.\n\nBug Fixes\n1.  Fixed a crash that could occur when shutting down the application. (#11482 )\n2.  Fixed excessively long slice times on plates with many objects. (#11255)\n3.  Fixed an issue where the project profile name displayed incorrectly or failed to display. (#10769)\n4.  Fixed an issue where custom bed textures appeared black after loading. (#11314)\n5.  Fixed a crash that could occur during automatic flow dynamics calibration in certain cases. (#11416)\n6.  Fixed incorrect slicing colors bleeding into adjacent objects when importing standard multi-color 3MF files with single-color volumes. (#11348)\n7.  Fixed tree support roots being generated in mid-air instead of resting on the model or bed. (#11681)\n8.  Fixed floating tree support regions that had nothing underneath to support them. (#11681)\n9.  Fixed an intermittent blank screen when opening Filament Manager on Mac. (#11005)\n10. Fixed an issue where the Pressure Advance setting always showed Default. (#8196)\n11. Fixed an intermittent crash when saving that could leave the file unsaved. (#11715)\n12. Fixed a login loop when using a Google/Gmail account to download models. (#11095)\n13. Fixed MakerWorld logo and “open in browser” external links that failed to open. (#11579)\n14. Fixed legacy or custom filament profiles being blocked from slicing on high-flow and similar nozzles. (#11589)\n15. Fixed grammar and formatting issues in user-facing UI strings. (PR #11257)\n16. Fixed an issue where saved PA calibration profiles were not shown in the AMS materials dialog for the main extruder. (PR #10850)\n17. Fixed a misspelling in the Dutch translation of travel speed. (PR #11480)\n18. Fixed several English UI wording and punctuation issues. (PR #10814)\n19. Fixed missing Node.js dependency support that prevented building on Linux ARM64. (PR #10712)\n20. Fixed missing device name for SpaceMouse Wireless BT that prevented correct recognition. (PR #11755)\n21. Fixed Linux single-instance mode failing to pass files opened in a second instance to the running instance. (PR #11826)",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.08.02.60",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.08.02.60",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.60/Bambu_Studio_win-v02.08.02.60-20260814163036.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.08.02.60-20260814163036.exe",
+          "sha256": "cd2f8f2c789a22efee1300e993827cfdb047f27cfb0b8f5dd7395fbafadef4c7",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.60/Bambu_Studio_win-v02.08.02.60-20260814163036.zip",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.08.02.60-20260814163036.zip",
+          "sha256": "85844d64a927ab36e3fd9bbef16da22adde1d25b3dcba4e8f58cef89db0c1291"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.07.01.62",
+      "release_date": "2026-06-16",
+      "release_notes": "This version is based on the 2.7.1 Public Release and includes optimizations for Studio startup slowdown issues on certain MacOS versions. Affected MacOS users are encouraged to upgrade as soon as possible. This release also includes several other bug fixes.\nBug Fixes\n1. Fixed a potential startup slowdown issue on certain MacOS versions. Thanks to @BenJule for the contribution. An option to enable or disable Filament Management has been added in Preferences. On MacOS, this option is disabled by default.\n2. Fixed an issue where network plugin installation could fail for some MacOS users (excluding MacOS 27 and later versions).\n3. Fixed a path planning error that could occur in certain scenarios when using cross-Z-height coloring in mixed-color printing.\n4. Fixed a UI flickering issue with the X2D Filament Track Switch.\n5. Fixed an issue with the \"Connect Same Color\" feature in the Painting Tool.\n6. Fixed an issue where the Device page could crash or become unresponsive in certain scenarios.\n7. Fixed a crash that occurred when opening certain MakerWorld models. Special thanks to @BenJule once again.",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.07.01.62",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.07.01.62",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.07.01.62/Bambu_Studio_win-v02.07.01.62-20260616174358.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.07.01.62-20260616174358.exe",
+          "sha256": "699fda3727e8451b763fa00f37e3f8f5970d6d60f6e49e5f9a9a03170375e406",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.07.01.57",
+      "release_date": "2026-06-01",
+      "release_notes": "V2.7.1 Public Release is a new version based on 2.6.1 Public Beta and 2.7.0 Public Beta. Compared to V2.6.0 Public Release, this version adds support for the Bambu Lab A2L, introduces important new features such as Texture-to-Color Painting and the Filament Manager, along with various improvements and bug fixes.\nYou can download the Flathub version for Linux from Bambu Studio on Flathub\nThe Flathub version is maintained by @hadess ; thanks to him for his outstanding work.\n> ⚠️ Notice for V2.7.0 Public Beta Users: Due to the addition of new machine preset configurations and related placeholders in this release, slicing with V2.7.0 may result in errors in certain scenarios. Please upgrade to V2.7.1 Public Release as soon as possible to avoid these issues.\nFeatures\n\nGradient Color Curve Control for Multi-Color Printing\nGradient effects now support more flexible layer height control. A Color Curve Panel has been added for gradient colors, allowing users to freely add anchor points (left-click to add, right-click to remove) and drag the color curve to customize the blending ratio of two colors at different Z heights, enabling richer gradient effects.\n─────────────────────────\n\nLiveview Full-Screen Support\nLiveview now supports full-screen display and playback. Thanks to @bdpdx for the contribution, we optimized some frontend interaction features based on his work.\n> 💡 Tip: Press ESC to exit full-screen mode.\n\nAlternate Extra Wall\nWhen enabled, an extra wall is added to alternating layers while other layers retain the original wall count. This option is suitable for improving model structural strength without needing to add extra walls on every layer. Thanks to contributions from @igiannakas and @jomixlaf.\n> ⚠️ Note: This option is mutually exclusive with Spiral Vase Mode (or 0% infill).\n─────────────────────────\n\nImprovements\n\nTexture-to-Color Painting Feature Optimization\n- Multi-texture model processing optimization: Improved color sampling stability when importing multi-texture models, including fixes to UV mapping for multi-texture atlases, improved base color material processing logic, and optimized color clustering algorithm and smoothing control.\n- New mesh error detection and repair confirmation workflow: Automatically detects mesh errors when importing textured models, improves the built-in repair capability to ensure model watertightness, and can invoke the Windows mesh repair tool when necessary.\n- FBX file import support.\n\nFilament Manager Optimization\n- Supports multi-selection for batch adding filaments.\n- Added an overwrite confirmation prompt when the same spool of filament is added again (via RFID recognition).\n- Other interaction and UI detail optimizations.\n\nImproved PETG Prime Tower Stability with Filament Track Switch\nThis update improves the prime tower's stability during printing by disabling flat ironing (setting the ironing area to zero) while keeping line ironing, and by adding extra extrusion next to the prime tower.\n\nLAN Mode Auto-Saves Connection Information\nLAN connection information can now be saved locally, eliminating the need to re-bind LAN printers after restarting Studio. (#7891, #8270, #8409, #9042)\n\nOther Improvements\n1. Fixed GMP build issue with GCC15. Thanks to contributions from @hadess and @c2h5oh.\n2. Increased Worker thread stack size to 16MB to address crashes caused by Emboss text in certain scenarios. Thanks to @adele-with-a-b for the contribution.\n3. Added support for building with VS 2026 and CMake 4.2.\n4. Updated the display and interaction effects of filament controls in the assembly view.\n5. Changed the default Paint Fill mode to Edge Detection mode.\n\nBug Fixes\n1. To address potential collapse issues caused by chamfers introduced at the bottom of supports in certain scenarios, the bottom 2mm of supports now defaults to 2 walls (this behavior is disabled when 0 or single wall is specified). (#10542, #10775)\n2. Added a new \"Order-independent overlap carving\" option (disabled by default) to prevent the Object List sequence from affecting slice results of embedded models in certain scenarios.\n3. Fixed an issue where the collision detection algorithm in sequential printing did not correctly account for skirt spacing.\n4. Fixed several errors in sequential printing and some issues during plate size switching. (#8770)\n5. Fixed an issue where slicing was interrupted by empty or un-sliceable plates when slicing all plates. (#10296)\n6. Fixed abnormal display of model collision risk zones in sequential printing scenarios. (#10434)\n7. Fixed an issue where nozzle temperature was displayed incorrectly when importing filament presets in certain scenarios. (#10583)\n8. Fixed an issue where PA value requests failed in certain scenarios. (#10351)\n9. Fixed an issue where printing could not be initiated after slicing on the A1 mini in certain scenarios. (#10418)",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.07.01.57",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.07.01.57",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.07.01.57/Bambu_Studio_win-v02.07.01.57-20260601165745.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.07.01.57-20260601165745.exe",
+          "sha256": "2960254c538d71ca3f9deeb5982fa18b357998aaa69f697bf5b8d4e9f199c494",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.06.00.51",
+      "release_date": "2026-04-17",
+      "release_notes": "This release is a hotfix based on the V2.5.3 Public Release, primarily addressing an issue in which the P2S nozzle temperature would not cool down properly after printing. Since delivering this fix through a preset update could affect existing presets for some users on V2.5.0, it is instead released as V2.6.0 to minimize the impact on existing users.\nIf you are using a P2S and your current Studio version is V2.5.3, we recommend upgrading to this version as soon as possible to avoid this issue.\nYou can download the flathub version for linux from bambustudio on flathub\nThe Flathub version is maintained by @hadess and thanks to him for his outstanding work.\nStatement on the Color Mixing Feature\nAfter receiving feedback from the community, we re-examined the implementation and code paths of the current version. During development of this feature, we evaluated multiple color-mixing prediction approaches, including the RGB mixing approach and Full Spectrum’s prediction implementation. Under the validation conditions at the time, we chose the RGB mixing approach that is currently used in v2.5.3.\nDuring development, to facilitate side-by-side evaluation of different approaches, we retained implementation code under evaluation. However, we did not clearly indicate its runtime status in our previous notes. This omission caused confusion for users and the community, and we sincerely apologize.\nNext, we will do two things:\n1. Correct the relevant wording in this release and clearly state that the current code repository contains Full Spectrum color prediction code.\n2. Based on further validation and more real-world feedback, move forward with formally integrating Full Spectrum’s color prediction implementation.\n   We thank @justinh-rahb and @ratdoux for their contributions in this area, and we also appreciate the open-source community for identifying and monitoring this issue.\n\nBug Fixes\n1. Fixed an issue where an incorrect End G-code caused the P2S nozzle temperature to not cool down properly after printing.\n2. Fixed an issue where A1 sliced files could not start printing in some scenarios.\n3. Removed several unnecessary prompts.\n4. Fixed an issue where H2C slices always assigned to the left nozzle in filament-saving mode.",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.06.00.51",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.06.00.51",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.06.00.51/Bambu_Studio_win-v02.06.00.51-20260417160415.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.06.00.51-20260417160415.exe",
+          "sha256": "c56df1dc1ddf84fab7b34caee71eecfb9db96c6785bf467faced8006ce375600",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "publisher": "Bambulab",
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.05.03.61",
+      "release_date": "2026-04-14",
+      "release_notes": "V2.5.3 adds support for the Bambu Lab X2D, along with new features, improvements, and bug fixes. Please see the release logs of v2.5.1 Beta and v2.5.2 Beta for the complete list of changes with respect to v2.5.3.The full release notes of v2.5.3 can be found on the Bambu Lab Wiki under the Bambu Studio Changelog page.\nYou can download the flathub version for linux from bambustudio on flathub\nThe Flathub version is maintained by @hadess and thanks to him for his outstanding work.\nFeatures\n\nColor Mixing\nThe Color Mixing feature allows you to mix multiple filaments in the same print to create new colors by adjusting the ratio. To use it, click \"Add Mixed Filament\" at the bottom of the filament list to configure them in the pop-up dialog.\n- Supports mixing 2 or 3 filaments of the same type.\n- Mixing modes:\n  - Normal mode: Adjust the ratio of two or three colors using the color bar or color triangle in the ratio panel, or select directly from the recommended colors below. With the Bambu Lab CMYK filament kit, a wide range of colors can be achieved — for example, all the boats shown in the left image were printed using the CMYK filament kit on a single plate.\n  - Gradient mode: Create gradient color transitions between two colors for rich transitional effects, as shown in the right image.\n> ⚠ Note:\n> 1. This feature is only suitable for near-vertical walls. It is not recommended for sloped surfaces or top/bottom surface color layering.\n> 2. Single-nozzle printers are not recommended for this feature due to frequent color changes and increased filament consumption. A multi-nozzle printer is recommended for better results.\n> 3. With a 0.4mm nozzle, a base layer height of 0.12mm and a mixed layer height of 0.2mm are recommended for more uniform color mixing results. Avoid extreme layer height ratios, as excessively small layer heights may trigger melt fracture and degrade print quality.\n> 4. The color preview model for layered colors is not yet fully accurate. Users with high color requirements are advised to print a small test piece first and fine-tune the settings based on the observed results.\n─────────────────────────\n─────────────────────────\n────────────\n\nFilament Track Switch Support\nThe Filament Track Switch enables filament from the AMS to be fed into both the left and right nozzles of multi-extruder printers (H2C/X2D). Slicing allows a single filament to be printed using different nozzles in this mode, which effectively reduces unnecessary flushing and significantly improves multi-color printing efficiency.\n> ℹ️ Tip: The Filament Track Switch will only appear in printer presets and the Devices page after syncing a device with the Filament Track Switch installed via the Sync button. Smart assignment mode will also be enabled in slicing mode.\n> ⚠ Minimum supported firmware version: 01.02.00.00(H2C)、01.01.00.00(X2D)\n─────────────────────────\n──────────────────────────────────────\n─────────────────────────\n\nLinear Fan Speed Transition\nPart cooling fan and auxiliary fan speeds now support more precise layer-by-layer control. Fan speed transitions linearly from the configured value at the starting layer to the target speed. This helps improve cooling conditions near the first layer, reducing the risk of warping or first-layer failures caused by sudden temperature drops.\n─────────────────────────\n\n\"Enable Tower interface features\" available in Developer Mode for H2D/H2C/X2D\nWhen enabled, it applies dedicated temperature, pre-extrusion, and flushing parameters to the prime tower contact layer, improving print quality during multi-material transitions and significantly reducing the risk of prime tower collapse when printing with filaments of significantly different viscosities.\n────────────\n\nAssembly Overview Preview\nAdded an Assembly Overview preview feature that allows users to preview the overall assembly effect in real time after changing colors or painting. The preview angle can be adjusted using the viewpoint button in the View menu. This feature can be enabled or disabled in Preferences -> 3D Settings. View Bambu Wiki for more details.\n> ℹ️ Tip: For the best preview experience, it is recommended that 3MF creators import the complete assembled model file rather than individual separate parts.\n─────────────────────────\n\nReduced Risk of Collapse During Printing\nThis update introduces optimizations from both support and prime tower perspectives to reduce the risk of collapse during printing:\n- Wipe tower ironing is now enabled by default on P2S: In multi-material printing scenarios, this effectively improves adhesion between wipe tower layers, reducing the risk of wipe tower collapse.\n- A chamfer has been added to the base of tree supports (expanding outward from a height of 2mm), effectively reducing the risk of support collapse. The radius calculation logic for support node merging has also been optimized, improving the consistency and accuracy of support structures.\n─────────────────────────\n\nStatic Preview Frame on Liveview Connection or Switch\nWhen Liveview is not auto-playing in Cloud or LAN mode, the Devices page now displays a static preview frame of the current device.\n> ⚠ Minimum supported firmware version: 01.02.00.00（P2S)，01.01.00.00（X2D）\n────────────\n\nFuzzy Skin: Additional Noise Types and Generator Modes\nIn addition to the Classic mode, Fuzzy Skin now supports 4 new noise types:\n- Perlin\n- Billow\n- Ridged Multifractal\n- Voronoi\n  New generator modes have also been added:\n- Displacement: Creates texture by offsetting the nozzle left and right relative to the original path.\n- Extrusion: Pattern is formed by varying the amount of extruded plastic (nozzle path stays straight).\n- Combined: Displacement + Extrusion. Similar look to Displacement but fills gaps between perimeters.\n> ℹ️ Tip: Extrusion and Combined modes only take effect when using Arachne (variable line width) mode with \"Fuzzy skin thickness\" not exceeding actual line width.\nThanks to @Arachnid for the contribution.\n────────────\n\nAdded Ironing Fan Speed Control\nThe ironing fan speed can now be configured independently. When set to -1, this feature is disabled and the fan speed follows the top surface fan speed; when set to any other value, the specified speed will be used exclusively during the ironing phase. This helps reduce material heat creep at low print speeds, resulting in a smoother ironing surface. Thanks to @Noisyfox for the contribution.\n────────────\n\nImprovements\n\nAdded support for Purify Air at Print End and Foreign Object Detection Options for P2S\n────────────\n\nPrint-by-object optimization\n- Interaction improvement: After enabling print-by-object, the interface automatically displays the print sequence with a prompt in the lower-right corner. The print sequence labels can be manually hidden.\n- Each object now supports generating its own individual skirt. The skirt helps reduce first-layer extrusion artifacts after color changes, improving overall first-layer quality.\n> ⚠️ Note: When this feature is enabled, it is recommended to leave an additional Skirt Distance of clearance between objects beyond the collision detection safety boundary, in order to reduce the risk of collision during printing.\n─────────────────────────\n\nAdded cumulative print time display for H2C nozzle\nThe H2C nozzle info dialog allows users to monitor nozzle usage status.\n────────────\n\nH2C nozzle info dialog sync optimization\nAfter syncing with an H2C printer, the nozzle information sync dialog will no longer reappear when switching pages, devices, or returning to the Prepare page after restarting.\n\nExpanded “Reduce Infill Retraction” Modes\nA new Auto option has been added. By default, this feature is enabled for most filaments to reduce print time; for stickier filaments, now for PETG, it is disabled by default to reduce the risk of filament debris sticking to the nozzle and causing print defects. The behavior of Disabled and Enabled remains unchanged, meaning the feature is always enabled or always disabled, respectively.\n────────────\n\nOther Improvements\n1. Device-side curve planning enhancement sync optimization: After syncing with a printer that supports curve planning enhancement, Bambu Studio will automatically disable arc fitting to ensure this feature functions correctly.\n> ⚠ Minimum supported firmware version: 01.02.00.00 (H2C)\n2. Added a slicing tip for high-shrinkage filaments.\n────────────\n3. H2S/H2C/P2S now support remote drying and dry-while-printing for AMS 2 PRO and AMS HT from Studio's Devices page.\n> ⚠ Minimum supported firmware version: 01.01.40.00 (H2S), 01.02.00.00 (H2C), 01.02.00.00 (P2S)\n4. H2C left extruder now supports TPU printing (TPU 90A/95A/95A HF).\n> ⚠ Minimum supported firmware version: 01.02.00.00 (H2C)\n5. Added nozzle clumping detection and calibration for H2S.\n> ⚠ Minimum supported firmware version: 01.01.40.00 (H2S)\n6. All printer models now support aborting the filament load/unload process.\n> ⚠ Minimum supported firmware version: 01.01.40.00 (H2S), 01.02.00.00 (H2C), 01.01.50.40 (P2S), 01.09.01.00(P1S), 01.07.01.00(A1)\n\nBug fixes\n1. Fixed an issue where P2S liveview could drop frames in certain scenarios.\n2. Fixed an issue where the UI displayed abnormally across multiple monitors in certain scenarios. (#9627)\n3. Fixed an issue where speed parameters were not correctly updated to match the selected nozzle type after switching nozzle types and re-slicing on H2C. (#9807)\n4. Fixed an issue where enabling Fuzzy Skin painting and Avoid Crossing Walls simultaneously caused incorrect travel moves in certain scenarios. (#9837)\n5. Fixed an issue where the top surface flow ratio was incorrectly reset in certain scenarios. (#9563)\n6. Improved the logic for migrating process presets with the same nozzle type across different printer models. (#9105)\n\nKnown Issue",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.05.03.61",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.05.03.61",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.05.03.62/Bambu_Studio_win-v02.05.03.61-20260414213734.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win-v02.05.03.61-20260414213734.exe",
+          "sha256": "9fb80d2a9a3930a9218770d5e719b1360794d4b7270de39351a3a0fee2142e91",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "publisher": "Bambulab",
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.05.00.66",
+      "release_date": "2026-01-28",
+      "release_notes": "This is a hotfix version based on V2.5.0.64.\nYou can download the flathub version for linux from bambustudio on flathub\nThe Flathub version is maintained by @hadess and thanks to him for his outstanding work.\nBug fixed\n1. Fixed an issue where the prime tower toolpath could be incorrect when printing multiple on a non-first plate with H2D.\n2. Fixed an issue where the right extruder inner wall speed and infill speed were incorrectly configured in the H2D process presets.\n3. Fixed an issue where Go Live could not be enabled due to a plugin loading error.\n4. Fixed an issue where the height panel on the right could not be clicked when using Variable Layer Height.\n5. Fixed an issue where slicing could fail for some third-party filaments on X Series and P Series printers when using high-flow presets.",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.05.00.67",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.05.00.66",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.05.00.67/Bambu_Studio_win_public-v02.05.00.66-20260128215914.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.05.00.66-20260128215914.exe",
+          "sha256": "fab33011933f6807a7694c4edc0ddb84362d789b5e8974ea01042ed6eadbefb9",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "publisher": "Bambulab",
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.05.00.65",
+      "release_date": "2026-01-27",
+      "release_notes": "This is the official public release of Bambu Studio v2.5.0.\nYou can download the flathub version for linux from bambustudio on flathub\nThe Flathub version is maintained by @hadess and thanks to him for his outstanding work.\nFeatures\nRemote AMS drying support\nYou can now start AMS drying directly from Studio’s Device page for AMS 2 Pro and AMS HT.\n- Click the humidity button on the target AMS to open the control dialog to Start and Stop the drying feature.\n- You can now dry filament while printing, but the drying temperature will be lowered during printing.\n> ⚠ Minimum supported firmware version: 01.02.30.00（H2D）\n────────────┬────────────\nimage       │image\n────────────┴────────────\nOptimized prime tower strategy for PLA & PETG mixing print\nMixing PLA and PETG print is a common user scenario where one filament is used as support for the other one. We noticed that prime tower stability could be further improved under “low-adhesion” conditions. To address typical cases where bonding is difficult, we optimized the interface-layer temperature, extrusion, ironing, and flushing workflow:\n- Interface-layer temperature boost for better adhesion: Added a new parameter to increase the interface-layer temperature. -1 means boosting it to the material’s maximum printing temperature.\n- Extra pre-extrusion before printing the interface layer: Added new parameters for interface-layer pre-extrusion distance and length. Before printing the prime tower, the interface layer now performs a short pre-extrusion to build pressure and extend the extrusion path.\n- Improved ironing strategy: Ironing is no longer applied to the interface layer. Added a configurable ironing area parameter for non-interface layers to preserve better flow behavior (especially for PETG).\n- Reduced infill speed on the layer after the interface layer: By slowing down the infill of the next layer, the base becomes more stable, improving interface-layer adhesion.\n- Additional flushing for the interface layer: Added flushing actions for the interface layer. Studio will do nozzle wiping before flushing rather than after flushing, and print the prime tower directly, reducing extrusion volume fluctuations and improving layer height consistency. Added a new parameter for interface-layer flushing length.\n- Notch at the interface-layer starting point: Added a notch at the start of the interface layer to reduce extrusion pressure and prevent the nozzle from dragging due to an oversized blob.\n  With the above adjustments and validation tests, we confirmed this optimization effectively reduces prime tower collapse in scenarios such as PETG used as the support interface for PLA.\n> ⚠️ Note: The above parameters are only visible in Developer Mode.\n────────────\nimage\n────────────\n────────────┬────────────\nimage       │image\n────────────┴────────────\nIroning on the support interface\nIntroduce ironing capability for support interfaces. When printing without support materials, you can try this feature to achieve better support-surface quality. Thanks to @Noisyfox for the contribution.\n────────────┬────────────\nimage       │image\n────────────┴────────────\nNon-100% infill patterns for top/bottom surfaces\nTop and bottom surfaces now support non-100% infill patterns, enabling more visual styles and creative effects. Thanks to @Buildasaurus for the contribution.\n────────────\nimage\n────────────\nStandard 3MF color parsing support\nAdded support for importing standard 3MF files with color information. After import, the workflow is similar to multi-color OBJ: select the color data to map and apply colors.\n> ℹ️ Colored standard 3MF files are supported by tools such as Fusion 360/Meshmixer/OpenSCAD. Please refer to their documentation or the official 3MF standard site(https://3mf.io/) for details.\n> ⚠ Note: Currently, only face color and vertex color data are supported. For texture-colored 3MF files, only face data will be imported.\n────────────\nimage\n────────────\nMesh subdivision\nYou can now right-click a part and choose Subdivide Part to apply Loop subdivision with multiple iterations. This is useful for models with low original mesh resolution.\n> ⚠ Note:\n> 1. Only meshes without non-manifold edges are supported.\n> 2. Color attributes will be lost after subdivision. We recommend subdividing first, then painting and applying colors.\nScale to print volume\nRight-click a selected part to scale it up to the maximum size supported by the current print volume, while keeping axis proportions unchanged.\nAbort load/unload filament process\nStudio now supports stopping the filament Load / Unload operations.\n> ⚠ Note: Supported printers: A1/A1 mini/P1P/P1S. More models will be supported in future versions.\n────────────\nimage\n────────────\n2D Lattice infill\nAdded 2D Lattice infill, suitable for lightweight structures such as wings. It includes two angle parameters for adjusting infill direction. Thanks to @LoftedAero for the contribution.\n────────────\nimage\n────────────\nConsistent Surface & Short Travel Acceleration (Experimental)\nTo reduce common VFA artifacts, we introduced two options (visible only in Developer Mode):\n- Consistent Surface: When enabled, the speed planner prioritizes reducing speeds in regions like infill first, and only reduces outer wall speed when necessary. This improves surface consistency, especially for glossy or silk filaments.\n────────────\nimage\n────────────\n────────────┬────────────\nimage       │image\n────────────┴────────────\n- Short Travel Acceleration: Adjust this parameter to apply a gentler, lower acceleration for short-distance moves on the outer wall, helping reduce artifacts caused by short-travel acceleration/deceleration. The current short travel acceleration is implemented as a global parameter, with a default value set to 250 mm/s².\n────────────\nimage\n────────────\nThanks to @lorenzofanchi and PrusaSlicer for their contributions.\n> ⚠ Note: These options are currently only available in Developer Mode.\nImprovements\n1. Introduced support for TPU printing with the H2D left extruder.\n> ⚠️ Note:\n> - Minimum supported firmware version: 01.02.30.00 (H2D)\n> - The left extruder currently supports only TPU filaments with a hardness rating of 90A or higher\n2. Added tungsten carbide nozzles , with support for H2D/H2S/H2C/P2S.\n> ⚠️ Minimum Required Firmware Versions:\n> - P2S: 01.01.01.00\n> - H2D: 01.02.30.00\n> - H2S: 01.01.30.00\n> - H2C: 01.01.00.00\n3. Added support for TPU High-Flow nozzles (which will be available in the store soon). The process parameter “Top surface flow ratio” is now split into separate settings for the left and right extruders.\n────────────\nimage\n────────────\n> ⚠️ Note:\n> - Minimum Required Firmware Version: H2D: 01.02.30.00\n> - When importing older dual extruders' 3MF files in which “Top Surface Flow Ratio” was modified, the adjusted value will be migrated only to the left extruder. The parameter for the right extruder must be reconfigured manually.\n4. Improved mapping interaction when sending a print: To reduce mapping ambiguity for multi-extruder setups, Studio now displays all AMS information when sending a print, making the mapping logic clearer. More mapping rules can be found on Bambu Wiki.\n────────────\nimage\n────────────\n5. Optimized hardness-check logic when sending a print: When filament hardness exceeds nozzle hardness, Studio will no longer block printing immediately, and a clearer warning will be shown.\n────────────\nimage\n────────────\n6. Improved auto-arrange results.\n────────────┬────────────\nimage       │image\n────────────┴────────────\n7. Added shortcut Ctrl + L to toggle Overhang View.\n8. Added Back/Refresh/Open in browser buttons for embedded MakerWorld and MakerLab pages.\n────────────\nimage\n────────────\n9. Added Select All on timelapse and model pages for storage devices, enabling easier batch deletion.\n────────────\nimage\n────────────\n10. Timelapse Photography Kit can now be enabled when no storage is inserted.\n11. Optimized default display order for filament presets.\n12. Updated preview images for Engineering Plates on X1/P1/A1.\n13. Improved wording for the remaining print time display.\nBug Fixes\n1.  Fixed an issue where X1E did not support high-flow nozzles.(#8992)\n2.  Fixed an issue where ASA-Aero / PLA-Aero / TPU incorrectly triggered an E3D high-flow nozzle warning on H2D.(#9010)\n3.  Fixed an issue where the right nozzle calibration on H2C was unavailable in some languages. (#9121)\n4.  Fixed incorrect UI tooltip text for PETG cooling mode on P2S.(#9131)\n5.  Fixed an issue where the mouse could block some tooltips.(#8872)\n6.  Allowed smaller connector sizes in the Cut tool. (#8669)\n7.  Fixed some macOS build issues. Thanks to @johanohly for the contribution.\n8.  Fixed an issue where Studio could not be built on Ubuntu 25. Thanks to @dblueman for the contribution.\n9.  Fixed an issue with outer wall error in Precise Wall function when using non “Inner/Outer” order. Thanks to @michaelr0 for the contribution.\n10. Fixed an issue where adding a new printer failed on MacOS in LAN mode. Thanks to @raulp for the contribution.\n11. Fixed overscroll bounce-back issues on macOS in some scenarios. Thanks to @eldade for the contribution.\n12. Fixed typos in the GitHub repository. Thanks to @reedy for the contribution.\n13. Fixed slicing failures in some scenarios. (#9043)\n14. Fixed additional typos. (#9201)\n15. Fixed Helio optimization loading errors. Thanks to @vipulrajan for the contribution.\n16. Updated some translations for clarity. Thanks to @jli for the contribution.\n17. Fixed an issue on Linux when opening folders. Thanks to @fcrozat for the contribution.\n18. Thanks to @jomixlaf for multiple contributions, including:\n- Added Expand all / Collapse all button for single-plate options with right-click in object list.\n- Improved multi-select behavior in dropdown menus.\n- Added Reload from disk for multi-select.\n- Set 0 as the shortcut key for filament slot 10.",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.05.00.65",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.05.00.65",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.05.00.65/Bambu_Studio_win_public-v02.05.00.64-20260127141326.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.05.00.64-20260127141326.exe",
+          "sha256": "5912561d567d0a61e2b1c6d7fb36cc96ada3a6e68c1244fe0ae67da895117439",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "publisher": "Bambulab",
+              "display_version": "02.05.00.64",
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.05.00.64",
+      "release_date": "2026-01-27",
+      "release_notes": "Features\nRemote AMS drying support\nYou can now start AMS drying directly from Studio’s Device page for AMS 2 Pro and AMS HT.\n- Click the humidity button on the target AMS to open the control dialog to Start and Stop the drying feature.\n- You can now dry filament while printing, but the drying temperature will be lowered during printing.\n> ⚠ Minimum supported firmware version: 01.02.30.00（H2D）\n────────────┬────────────\nimage       │image\n────────────┴────────────\nOptimized prime tower strategy for PLA & PETG mixing print\nMixing PLA and PETG print is a common user scenario where one filament is used as support for the other one. We noticed that prime tower stability could be further improved under “low-adhesion” conditions. To address typical cases where bonding is difficult, we optimized the interface-layer temperature, extrusion, ironing, and flushing workflow:\n- Interface-layer temperature boost for better adhesion: Added a new parameter to increase the interface-layer temperature. -1 means boosting it to the material’s maximum printing temperature.\n- Extra pre-extrusion before printing the interface layer: Added new parameters for interface-layer pre-extrusion distance and length. Before printing the prime tower, the interface layer now performs a short pre-extrusion to build pressure and extend the extrusion path.\n- Improved ironing strategy: Ironing is no longer applied to the interface layer. Added a configurable ironing area parameter for non-interface layers to preserve better flow behavior (especially for PETG).\n- Reduced infill speed on the layer after the interface layer: By slowing down the infill of the next layer, the base becomes more stable, improving interface-layer adhesion.\n- Additional flushing for the interface layer: Added flushing actions for the interface layer. Studio will do nozzle wiping before flushing rather than after flushing, and print the prime tower directly, reducing extrusion volume fluctuations and improving layer height consistency. Added a new parameter for interface-layer flushing length.\n- Notch at the interface-layer starting point: Added a notch at the start of the interface layer to reduce extrusion pressure and prevent the nozzle from dragging due to an oversized blob.\n  With the above adjustments and validation tests, we confirmed this optimization effectively reduces prime tower collapse in scenarios such as PETG used as the support interface for PLA.\n> ⚠️ Note: The above parameters are only visible in Developer Mode.\n────────────\nimage\n────────────\n────────────┬────────────\nimage       │image\n────────────┴────────────\nIroning on the support interface\nIntroduce ironing capability for support interfaces. When printing without support materials, you can try this feature to achieve better support-surface quality. Thanks to @Noisyfox for the contribution.\n────────────┬────────────\nimage       │image\n────────────┴────────────\nNon-100% infill patterns for top/bottom surfaces\nTop and bottom surfaces now support non-100% infill patterns, enabling more visual styles and creative effects. Thanks to @Buildasaurus for the contribution.\n────────────\nimage\n────────────\nStandard 3MF color parsing support\nAdded support for importing standard 3MF files with color information. After import, the workflow is similar to multi-color OBJ: select the color data to map and apply colors.\n> ℹ️ Colored standard 3MF files are supported by tools such as Fusion 360/Meshmixer/OpenSCAD. Please refer to their documentation or the official 3MF standard site(https://3mf.io/) for details.\n> ⚠ Note: Currently, only face color and vertex color data are supported. For texture-colored 3MF files, only face data will be imported.\n────────────\nimage\n────────────\nMesh subdivision\nYou can now right-click a part and choose Subdivide Part to apply Loop subdivision with multiple iterations. This is useful for models with low original mesh resolution.\n> ⚠ Note:\n> 1. Only meshes without non-manifold edges are supported.\n> 2. Color attributes will be lost after subdivision. We recommend subdividing first, then painting and applying colors.\nScale to print volume\nRight-click a selected part to scale it up to the maximum size supported by the current print volume, while keeping axis proportions unchanged.\nAbort load/unload filament process\nStudio now supports stopping the filament Load / Unload operations.\n> ⚠ Note: Supported printers: A1/A1 mini/P1P/P1S. More models will be supported in future versions.\n────────────\nimage\n────────────\n2D Lattice infill\nAdded 2D Lattice infill, suitable for lightweight structures such as wings. It includes two angle parameters for adjusting infill direction. Thanks to @LoftedAero for the contribution.\n────────────\nimage\n────────────\nConsistent Surface & Short Travel Acceleration (Experimental)\nTo reduce common VFA artifacts, we introduced two options (visible only in Developer Mode):\n- Consistent Surface: When enabled, the speed planner prioritizes reducing speeds in regions like infill first, and only reduces outer wall speed when necessary. This improves surface consistency, especially for glossy or silk filaments.\n────────────\nimage\n────────────\n────────────┬────────────\nimage       │image\n────────────┴────────────\n- Short Travel Acceleration: Adjust this parameter to apply a gentler, lower acceleration for short-distance moves on the outer wall, helping reduce artifacts caused by short-travel acceleration/deceleration. The current short travel acceleration is implemented as a global parameter, with a default value set to 250 mm/s².\n────────────\nimage\n────────────\nThanks to @lorenzofanchi and PrusaSlicer for their contributions.\n> ⚠ Note: These options are currently only available in Developer Mode.\nImprovements\n1. Introduced support for TPU printing with the H2D left extruder.\n> ⚠️ Note:\n> - Minimum supported firmware version: 01.02.30.00 (H2D)\n> - The left extruder currently supports only TPU filaments with a hardness rating of 90A or higher\n2. Added tungsten carbide nozzles , with support for H2D/H2S/H2C/P2S.\n> ⚠️ Minimum Required Firmware Versions:\n> - P2S: 01.01.01.00\n> - H2D: 01.02.30.00\n> - H2S: 01.01.30.00\n> - H2C: 01.01.00.00\n3. Added support for TPU High-Flow nozzles (which will be available in the store soon). The process parameter “Top surface flow ratio” is now split into separate settings for the left and right extruders.\n────────────\nimage\n────────────\n> ⚠️ Note:\n> - Minimum Required Firmware Version: H2D: 01.02.30.00\n> - When importing older dual extruders' 3MF files in which “Top Surface Flow Ratio” was modified, the adjusted value will be migrated only to the left extruder. The parameter for the right extruder must be reconfigured manually.\n4. Improved mapping interaction when sending a print: To reduce mapping ambiguity for multi-extruder setups, Studio now displays all AMS information when sending a print, making the mapping logic clearer. More mapping rules can be found on Bambu Wiki.\n────────────\nimage\n────────────\n5. Optimized hardness-check logic when sending a print: When filament hardness exceeds nozzle hardness, Studio will no longer block printing immediately, and a clearer warning will be shown.\n────────────\nimage\n────────────\n6. Improved auto-arrange results.\n────────────┬────────────\nimage       │image\n────────────┴────────────\n7. Added shortcut Ctrl + L to toggle Overhang View.\n8. Added Back/Refresh/Open in browser buttons for embedded MakerWorld and MakerLab pages.\n────────────\nimage\n────────────\n9. Added Select All on timelapse and model pages for storage devices, enabling easier batch deletion.\n────────────\nimage\n────────────\n10. Timelapse Photography Kit can now be enabled when no storage is inserted.\n11. Optimized default display order for filament presets.\n12. Updated preview images for Engineering Plates on X1/P1/A1.\n13. Improved wording for the remaining print time display.\nBug Fixes\n1.  Fixed an issue where X1E did not support high-flow nozzles.(#8992)\n2.  Fixed an issue where ASA-Aero / PLA-Aero / TPU incorrectly triggered an E3D high-flow nozzle warning on H2D.(#9010)\n3.  Fixed an issue where the right nozzle calibration on H2C was unavailable in some languages. (#9121)\n4.  Fixed incorrect UI tooltip text for PETG cooling mode on P2S.(#9131)\n5.  Fixed an issue where the mouse could block some tooltips.(#8872)\n6.  Allowed smaller connector sizes in the Cut tool. (#8669)\n7.  Fixed some macOS build issues. Thanks to @johanohly for the contribution.\n8.  Fixed an issue where Studio could not be built on Ubuntu 25. Thanks to @dblueman for the contribution.\n9.  Fixed an issue with outer wall error in Precise Wall function when using non “Inner/Outer” order. Thanks to @michaelr0 for the contribution.\n10. Fixed an issue where adding a new printer failed on MacOS in LAN mode. Thanks to @raulp for the contribution.\n11. Fixed overscroll bounce-back issues on macOS in some scenarios. Thanks to @eldade for the contribution.\n12. Fixed typos in the GitHub repository. Thanks to @reedy for the contribution.\n13. Fixed slicing failures in some scenarios. (#9043)\n14. Fixed additional typos. (#9201)\n15. Fixed Helio optimization loading errors. Thanks to @vipulrajan for the contribution.\n16. Updated some translations for clarity. Thanks to @jli for the contribution.\n17. Fixed an issue on Linux when opening folders. Thanks to @fcrozat for the contribution.\n18. Thanks to @jomixlaf for multiple contributions, including:\n- Added Expand all / Collapse all button for single-plate options with right-click in object list.\n- Improved multi-select behavior in dropdown menus.\n- Added Reload from disk for multi-select.\n- Set 0 as the shortcut key for filament slot 10.\n19. Fixed copyright year error in macOS build packages. Thanks to @JohnSmithCYM for the contribution. (#8849)\n20. Fixed video playback issues on Linux. Thanks to @hadess for the contribution.\n21. Fixed more typos. Thanks to @luzpaz for the contribution.",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.05.00.64",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.05.00.64",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.05.00.64/Bambu_Studio_win_public-v02.05.00.64-20260127141326.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.05.00.64-20260127141326.exe",
+          "sha256": "5912561d567d0a61e2b1c6d7fb36cc96ada3a6e68c1244fe0ae67da895117439",
+          "product_code": "Bambu Studio",
+          "apps_and_features": [
+            {
+              "publisher": "Bambulab",
+              "product_code": "Bambu Studio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.04.00.70",
+      "release_date": "2025-11-18",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.04.00.70",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.04.00.70",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.04.00.70/Bambu_Studio_win_public-v02.04.00.70-20251118194119.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.04.00.70-20251118194119.exe",
+          "sha256": "359d5d763121a5a0d287ef87d59d26aac5a0b7eb828a6fc5d87b276ec956fb85"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.03.01.51",
+      "release_date": "2025-10-30",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.03.01.51",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.03.01.51",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.03.01.51/Bambu_Studio_win_public-v02.03.01.51-20251029114602.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.03.01.51-20251029114602.exe",
+          "sha256": "1162f3a0e235b6b68d8993d431af810b4f5a35d085707aa8b4c4ef27826311f1"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.03.00.70",
+      "release_date": "2025-10-14",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.03.00.70",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.03.00.70/Bambu_Studio_win_public-v02.03.00.70-20251014214058.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.03.00.70-20251014214058.exe",
+          "sha256": "0b0e6092f25f0d875e554d0657d9a1b5c753ec53b3063dca71b9d192669fc3ee"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.02.02.56",
+      "release_date": "2025-09-15",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.02.02.56",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.02.02.56",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.02.02.56/Bambu_Studio_win_public-v02.02.02.56-20250915154409.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.02.02.56-20250915154409.exe",
+          "sha256": "23c297f7b4a96af43369c0c790c54cb4bb8b059a433f69b62dd39020352b267d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.02.01.60",
+      "release_date": "2025-08-28",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.02.01.60",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.02.01.60",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.02.01.60/Bambu_Studio_public-v02.02.01.60-20250828183151.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_public-v02.02.01.60-20250828183151.exe",
+          "sha256": "4d092c47879660fa186a0152ebc30426e7b162be244774f8b8f9e4c8292fc2a3"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.02.01.58",
+      "release_date": "2025-08-26",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.02.01.58",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.02.01.58",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.02.01.58/Bambu_Studio_win_public-v02.02.01.58-20250826220055.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.02.01.58-20250826220055.exe",
+          "sha256": "6ead163d79eb181bdf58d6d99835b61d67be5507bf97de5bf582c70d97f1317d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.02.00.85",
+      "release_date": "2025-08-12",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.02.00.85",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.02.00.85",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.02.00.85/Bambu_Studio_win_public-v02.02.00.85-20250812192329.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.02.00.85-20250812192329.exe",
+          "sha256": "487152f98ac96beef78622b45f73f88bd1dbb13068b2a114209ed5cc35fbee18"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.01.01.52",
+      "release_date": "2025-06-16",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.01.01.52",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.01.01.52",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.01.01.52/Bambu_Studio_win_public-v02.01.01.52-20250616155614.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.01.01.52-20250616155614.exe",
+          "sha256": "30788cbc9a2196c9d9da07e6900f9abaf0abf98b2ee2d78255220e81c22fb0b4"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.01.00.59",
+      "release_date": "2025-06-03",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.01.00.59",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.01.00.59",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.01.00.59/Bambu_Studio_win_public-v02.01.00.59-20250530092153.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.01.00.59-20250530092153.exe",
+          "sha256": "9de056c3de4e2b17a4d23ef554aa1c53859332dccf78a54ff41cefa1a9e17529"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "V02.00.03.54",
+      "release_date": "2025-04-24",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/V02.00.03.54",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/V02.00.03.54",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/V02.00.03.54/Bambu_Studio_win_public-v02.00.03.54-20250424182834.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.00.03.54-20250424182834.exe",
+          "sha256": "2f2bc654c07553b2e1157cfc7f61a87c87fce5d534a0c4ec94cb9eb1b65d8d19"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.00.02.57",
+      "release_date": "2025-04-15",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.00.02.57",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.00.02.57",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.00.02.57/Bambu_Studio_win_public-v02.00.02.57-20250415200919.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.00.02.57-20250415200919.exe",
+          "sha256": "47b3c925da8178b557803b3fc42d4c5bb473e916027df5117849e6f1c3d4ef5c"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.00.01.50",
+      "release_date": "2025-03-28",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.00.01.50",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.00.01.50",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.00.01.50/Bambu_Studio_win_public-v02.00.01.50-20250328181949.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.00.01.50-20250328181949.exe",
+          "sha256": "cae9c8e788e968df1d849d79017e9bd4971801d7826db2e09972a3859b573e61"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "02.00.00.95",
+      "release_date": "2025-03-25",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.00.00.95",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/02.00.00.95",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.00.00.95/Bambu_Studio_win_public-v02.00.00.95-20250325211800.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.00.00.95-20250325211800.exe",
+          "sha256": "fd177a6017964ec9a308cb075147256a1d66fc03ebcffe74e26074b733e2f9b4"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.0",
+      "release_date": "2025-03-25",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v02.00.00.95",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.00.00.95/Bambu_Studio_win_public-v02.00.00.95-20250325211800.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v02.00.00.95-20250325211800.exe",
+          "sha256": "fd177a6017964ec9a308cb075147256a1d66fc03ebcffe74e26074b733e2f9b4"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "01.10.02.76",
+      "release_date": "2025-02-25",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v01.10.02.76",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/01.10.02.76",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.10.02.76/Bambu_Studio_win_public-v01.10.02.76-20250225202310.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.10.02.76-20250225202310.exe",
+          "sha256": "b26ae1c644e8974b7d87b6d5ba40b1010200c2d4b894f4e074a88bf833e25ad3"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "01.10.01.50",
+      "release_date": "2024-11-15",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v01.10.01.50",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/01.10.01.50",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.10.01.50/Bambu_Studio_win_public-v01.10.01.50-20241115162711.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.10.01.50-20241115162711.exe",
+          "sha256": "3888d1e6a0e0644b555b4dca8b4e1e3291d3d542d8c0c7faeb395c8a84d022d7"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "01.10.00.89",
+      "release_date": "2024-11-12",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v01.10.00.89",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/01.10.00.89",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.10.00.89/Bambu_Studio_win_public-v01.10.00.89-20241112123329.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.10.00.89-20241112123329.exe",
+          "sha256": "79f82e3a71839183f4e79eaf6dde4453e3068132427338f1299668838748d3ee"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "01.09.07.52",
+      "release_date": "2024-09-20",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v01.09.07.52",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/01.09.07.52",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.09.07.52/Bambu_Studio_win_public-v01.09.07.52-20240920143753.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.09.07.52-20240920143753.exe",
+          "sha256": "d758647fe5fc12461a8ddf0448de8978a7126539c416041be22f5318879c32cf"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "01.09.05.51",
+      "release_date": "2024-08-28",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v01.09.05.51",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/01.09.05.51",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.09.05.51/Bambu_Studio_win_public-v01.09.05.51-20240828205639.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.09.05.51-20240828205639.exe",
+          "sha256": "8bf9443c5826f411884e108284995f20e35dfd9e238ae36eb0dcf7a510eaf52d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "01.09.01.67",
+      "release_date": "2024-05-13",
+      "release_notes": "This is the public official release of Bambu Studio v1.9\nPlease see the release logs of 1.9Public Beta, 1.9 Public Beta 2 ,1.9 Public Beta 3 and1.9 Public Beta 4 for the complete list of changes with respect to 1.8.4The full release notes of 1.9.1 can also be found here: https://wiki.bambulab.com/en/software/bambu-studio/release/release-note-1-9-1improvement\nSome translations improvement, Ukrainian by @iZonex, Turkish by @fatih5228, French by @grandsirefrBugfix\n- Fixed the bug that changing filament with height range modifier does not work on assemblies. #3876\n- Fixed the bug that the models containing certain height range cause the software to crash when slicing. #3917\n- Fixed some model files that failed to be sent in LAN mode with a prompt error of -4020\n#3575\n- Some fix in GCodeConflictChecker, by @flickerfree\n- Some building issue for linux, by @queengooborg\n- Fixed some logic error in PLA jamming gcode for P1S by @afriede\n- Fixed by building issue under Flathub, by @hadess\nknown issues\n- Bambu Studio crash at the open stage on some macos computer (\nthis is caused by an old configuration file in $HOME/Library/Application\\ Support/BambuStudio/ota\nplease delete this directory and re-launch Bambu Studio again",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/releases/tag/v01.09.01.66",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/01.09.01.67",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.09.01.66/Bambu_Studio_win_public-v01.09.01.67-20240516173854.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.09.01.67-20240516173854.exe",
+          "sha256": "a1fa7c37328d3a92c297ae92de9665033419d3646fee15817a738b75b91a18f2"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "01.08.04.51",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/01.08.04.51",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.08.04.51/Bambu_Studio_win_public-v01.08.04.51-20240117164301.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.08.04.51-20240117164301.exe",
+          "sha256": "f911e04176476439bf4f10b4a476627bb3e401025b225eefcb529d8a7d25f5e6"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.7.89",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/b/Bambulab/Bambustudio/1.7.7.89",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v01.07.07.89/Bambu_Studio_win_public-v01.07.07.89-20231013104019.exe",
+          "host": "github.com",
+          "filename": "Bambu_Studio_win_public-v01.07.07.89-20231013104019.exe",
+          "sha256": "c047275b4d833a558d6a20bf6e8042dafc0a0c13ec642675a73d7ff4e37649cc"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "02.09.01.70",
+      "source_version": "02.09.01.70,20261103183404",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/bambulab/BambuStudio/releases/download/v02.09.01.70/Bambu_Studio_mac-v02.09.01.70-20261103183404.dmg",
+          "host": "github.com",
+          "filename": "Bambu_Studio_mac-v02.09.01.70-20261103183404.dmg",
+          "sha256": "e4f42ac1542cb107cb21cbf98717de7b17e735bdb46fd2a18249e30929e3310d"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "BambuStudio.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "/Library/Logs/DiagnosticsReports/BambuStudio*",
+            "~/Library/Application Support/BambuStudio",
+            "~/Library/Caches/com.bambulab.bambu-studio",
+            "~/Library/HTTPStorages/com.bambulab.bambu-studio.binarycookies",
+            "~/Library/Preferences/com.bambulab.bambu-studio.plist",
+            "~/Library/Saved Application State/com.bambulab.bambu-studio.savedState",
+            "~/Library/WebKit/com.bambulab.bambu-studio"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "2.9.1 Public Release",
+      "release_date": "2026-11-03",
+      "release_notes_url": "https://github.com/bambulab/BambuStudio/tree/v02.09.01.70",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.bambulab.BambuStudio.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.bambulab.BambuStudio.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.bambulab.BambuStudio.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.bambulab.BambuStudio.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "bda67118653e14507f046cee950c5d782f46e585",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "manifests/b/Bambulab/Bambustudio"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "04018de6306a2214b0ec0c1602df674c751d15e8",
+      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "path": "Casks/b/bambu-studio.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/bambu-studio.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.bambulab.BambuStudio",
+      "retrieved_at": "2026-11-10T12:24:33.418Z",
+      "path": "api/v2/appstream/com.bambulab.BambuStudio",
+      "api_url": "https://flathub.org/api/v2/appstream/com.bambulab.BambuStudio",
+      "content_sha256": "e7f5ff29b2a2e78dd8023806bb7a15eafbc5965eda504b978cfb6291033064b6"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.bambulab.BambuStudio",
+    "page_url": "https://flathub.org/apps/com.bambulab.BambuStudio",
+    "repo_url": "https://github.com/flathub/com.bambulab.BambuStudio",
+    "install_command": "flatpak install flathub com.bambulab.BambuStudio",
+    "run_command": "flatpak run com.bambulab.BambuStudio",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "bambulab.com",
+      "verified_on": "2024-10-11"
+    },
+    "license": "AGPL-3.0-only",
+    "free_license": true,
+    "developer_name": "Bambu Lab",
+    "categories": [
+      "Graphics",
+      "3DGraphics",
+      "Engineering"
+    ],
+    "download_size": 446906039,
+    "installed_size": 1059096576,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

@@ -195,6 +195,7 @@
             "open-source",
             "freeware",
             "free-to-download",
+            "paid",
             "unknown"
           ]
         },
@@ -353,6 +354,22 @@
           "type": "string"
         },
         "linux": {
+          "type": "string"
+        }
+      }
+    },
+    "homebrew_cask_disabled": {
+      "type": "object",
+      "description": "Present when Homebrew has disabled the matched cask (the download link still works; brew install does not). reason is Homebrew's disable_reason, date its disable_date.",
+      "required": [
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "date": {
           "type": "string"
         }
       }
@@ -850,6 +867,14 @@
         "version": {
           "type": "string",
           "description": "Set only when this installer is on a different version than the entry's headline version (e.g. Intel builds that lag Apple-silicon builds)."
+        },
+        "variant": {
+          "type": "string",
+          "description": "Which of several downloads of the same version and platform this is, for sources that offer more than one (for example the Live edition \"Live Suite\", or \"Push 3 update\"). Shown in the download row."
+        },
+        "checksum_source": {
+          "type": "string",
+          "description": "Where sha256 comes from when it is not the publisher (for custom sources), for example \"Homebrew cask\". Absent means the publisher posts it."
         }
       }
     }

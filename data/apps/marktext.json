@@ -7,10 +7,12 @@
   "ids": {
     "winget": "MarkText.MarkText",
     "moniker": "marktext",
+    "homebrew_cask": "mark-text",
     "flathub": "com.github.marktext.marktext"
   },
   "platforms": [
     "windows",
+    "macos",
     "linux"
   ],
   "summary": "A simple and elegant Markdown editor focused on speed and usability.",
@@ -44,11 +46,13 @@
   },
   "latest_versions": {
     "windows": "0.23.0",
+    "macos": "0.23.0",
     "linux": "0.23.0"
   },
   "last_updated": "2026-10-21",
   "versions_total": {
     "windows": 11,
+    "macos": 1,
     "linux": 1
   },
   "versions": [
@@ -994,6 +998,46 @@
       ]
     },
     {
+      "platform": "macos",
+      "version": "0.23.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/marktext/marktext/releases/download/v0.23.0/marktext-mac-x64-0.23.0.dmg",
+          "host": "github.com",
+          "filename": "marktext-mac-x64-0.23.0.dmg",
+          "sha256": "2f78980ea1c2fb7deea56a1fd61e97031457443be52631c09a1611cff5f71108",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/marktext/marktext/releases/download/v0.23.0/marktext-mac-arm64-0.23.0.dmg",
+          "host": "github.com",
+          "filename": "marktext-mac-arm64-0.23.0.dmg",
+          "sha256": "d7e9ef4fc7c7f353003fc3f34d3a56514a8b05e19298a74ed6ce13c26fe2679f",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "MarkText.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/marktext",
+            "~/Library/Logs/marktext",
+            "~/Library/Preferences/com.github.marktext.marktext.plist",
+            "~/Library/Saved Application State/com.github.marktext.marktext.savedState"
+          ]
+        }
+      }
+    },
+    {
       "platform": "linux",
       "version": "0.23.0",
       "release_date": "2026-10-21",
@@ -1020,14 +1064,27 @@
       "signature_checked": false
     }
   },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
   "provenance": [
     {
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "7a9b34a267ed1ac18e4d30d41bd8308c72ad8e9e",
-      "retrieved_at": "2026-11-06T12:14:36.662Z",
+      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
       "path": "manifests/m/MarkText/MarkText"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/m/mark-text.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/mark-text.json"
     },
     {
       "source": "flathub",

@@ -414,6 +414,10 @@ async function main() {
       } else {
         rec.platforms = ['windows', 'macos'];
         rec.ids = { ...rec.ids, homebrew_cask: caskToken };
+        if (norm.disabled) {
+          rec.homebrew_cask_disabled = norm.disabled;
+          caskNotes.push(`${caskToken} (${rec.slug}): cask is disabled in Homebrew (${norm.disabled.reason}); kept, with a warning on the page`);
+        }
         if (autoMatched) autoCask.push({ id, token: autoMatched });
         rec.latest_versions.macos = norm.version.version;
         rec.versions_total.macos = 1;
