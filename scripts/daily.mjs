@@ -12,11 +12,12 @@
 //   3. validate the data
 //   3b. icons   winget manifest icon, else Flathub icon, else the app icon from the Homebrew cask download, else a generic GitHub mark for GitHub projects, else none
 //   4. verify   download installers, re-compute SHA-256, check signatures (apps with no or stale results)
+//   4b. link check: new download URLs, plus every URL that was dead last time (404/410 -> the build disables that button)
 //   5. VirusTotal lookup by hash (hashes not stored yet; needs VT_API_KEY or .env)
 //   6. build the site and run the checks
 //   7. print a report of the new apps
 //
-// Options: --refresh  --max-mb=N (optional: leave apps with a bigger installer unchecked; there is no limit by default)  --jobs=3  --no-verify  --no-vt  --no-icons  --no-build
+// Options: --refresh  --max-mb=N (optional: leave apps with a bigger installer unchecked; there is no limit by default)  --jobs=3  --no-verify  --no-vt  --no-icons  --no-links  --no-build
 
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, appendFileSync, writeFileSync } from 'node:fs';
@@ -123,6 +124,12 @@ if (!flags['no-verify']) {
   step(`Verify installers (${needs.length} app${needs.length === 1 ? '' : 's'}: ${needs.slice(0, 12).join(', ')}${needs.length > 12 ? ', …' : ''})`);
   if (needs.length) run('verify.mjs', [...needs, ...(MAX_MB ? [`--max-mb=${MAX_MB}`] : []), `--jobs=${JOBS}`]);
   else console.log('  nothing to verify');
+}
+
+// ---- 4b. link check: download URLs that answer 404/410 get their button disabled by the build (data/links.json)
+if (!flags['no-links']) {
+  step('Link check (download buttons)');
+  run('linkcheck.mjs', [], { allowFail: true });
 }
 
 // ---- 5. VirusTotal

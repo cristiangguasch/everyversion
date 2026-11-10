@@ -48,7 +48,7 @@ for (const f of htmlFiles) {
       if (main.offers && pricing.get(rel.split('/')[0]) === 'unknown') bad(rel, 'offers price 0 on an app with unknown pricing');
       if (!main.hasPart.length) bad(rel, 'no platform parts');
       for (const part of main.hasPart) {
-        for (const k of ['name', 'operatingSystem', 'softwareVersion', 'downloadUrl']) if (!part[k]) bad(rel, `platform part missing ${k}`);
+        for (const k of ['name', 'operatingSystem', 'softwareVersion', 'downloadUrl']) if (!part[k] && !(k === 'downloadUrl' && html.includes('is-dead'))) bad(rel, `platform part missing ${k}`); // a platform whose every download link is dead has no downloadUrl
         for (const m of part.associatedMedia || []) if (!/^[0-9a-f]{64}$/.test(m.sha256)) bad(rel, 'bad sha256 in JSON-LD');
       }
     }
@@ -106,6 +106,19 @@ const strays = files.filter((f) => /(^|\/)\.DS_Store$/.test(f));
 if (strays.length) warn.push(`${strays.length} .DS_Store file(s) in dist/ (Finder droppings, hidden by .htaccess; delete before you upload): ${strays.slice(0, 3).map((f) => f.replace(DIST + '/', '')).join(', ')}`);
 
 // twins
+// dead download links (data/links.json: HTTP 404/410): no enabled Download button may point at one
+const deadLinks = new Set();
+try {
+  for (const [u, v] of Object.entries(JSON.parse(readFileSync(join(ROOT, 'data', 'links.json'), 'utf8')))) if (/^(404|410):/.test(v)) deadLinks.add(u);
+} catch {}
+let disabledButtons = 0;
+for (const a of apps) {
+  const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
+  for (const m of h.matchAll(/<a class="btn[^"]*" href="([^"]+)"/g)) if (deadLinks.has(m[1].replace(/&amp;/g, '&'))) bad(a.slug, `enabled Download button for a dead link: ${m[1]}`);
+  disabledButtons += (h.match(/class="btn[^"]*is-dead" disabled/g) || []).length;
+}
+if (deadLinks.size) console.log(`  ${deadLinks.size} dead download link(s) on record; ${disabledButtons} disabled button(s) on the pages`);
+
 // features notes (inside Description): present exactly for the apps that have a content file, with 5-8 bullets and the Best for line
 const featureSlugs = existsSync(join(ROOT, 'config', 'features')) ? readdirSync(join(ROOT, 'config', 'features')).filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, '')) : [];
 for (const a of apps) {

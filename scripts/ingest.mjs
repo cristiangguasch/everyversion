@@ -44,10 +44,12 @@ function readConfig() {
     if (!line) continue;
     const [id, ...rest] = line.split(/\s+/);
     const slugTok = rest.find((t) => t.startsWith('slug='));
+    const nameTok = rest.find((t) => t.startsWith('name='));
     out.push({
       id,
-      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('cask=') && !t.startsWith('flathub=')) || null,
+      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('name=') && !t.startsWith('cask=') && !t.startsWith('flathub=')) || null,
       slugOverride: slugTok ? slugTok.slice(5) : null,
+      nameOverride: nameTok ? nameTok.slice(5).replace(/_/g, ' ') : null, // name=Threema_Web -> "Threema Web"
       cask: (rest.find((t) => t.startsWith('cask=')) || '').slice(5) || null,
     });
   }
@@ -232,7 +234,7 @@ function readVersion(id, appDir, dirName) {
   };
 }
 
-function readApp(id, curatedPricing, slugFor, slugOverride) {
+function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride) {
   const appDir = join(CACHE, manifestDir(id));
   if (!existsSync(appDir)) return { missing: true };
 
@@ -268,7 +270,7 @@ function readApp(id, curatedPricing, slugFor, slugOverride) {
   const rec = {
     schema_version: 2,
     slug: slugOverride || slugFor(id, name, publisher),
-    name,
+    name: nameOverride || name,
     publisher,
     author: str(L.Author),
     ids: clean({ winget: id, moniker: str(L.Moniker) }),
@@ -375,9 +377,9 @@ async function main() {
   let unchanged = 0;
 
   for (const { id, slugOverride } of allConfig) if (slugOverride) taken.set(slugOverride, id);
-  for (const { id, curatedPricing, slugOverride, cask: caskConfigured } of config) {
+  for (const { id, curatedPricing, slugOverride, nameOverride, cask: caskConfigured } of config) {
     if (kept.size >= LIMIT) break;
-    const res = readApp(id, curatedPricing, slugFor, slugOverride);
+    const res = readApp(id, curatedPricing, slugFor, slugOverride, nameOverride);
     if (res.missing) {
       missing.push(id);
       continue;

@@ -33,7 +33,9 @@ npm run daily -- --only=Joplin.Joplin                               # re-read ju
 npm run daily -- --refresh                                          # re-read every app from winget; changed apps are re-verified
 ```
 
-Options: `--max-mb=N` (optional; leaves apps with a bigger installer unchecked, and there is no size limit by default), `--jobs=3`, `--no-verify`, `--no-vt`, `--no-icons`, `--no-build`.
+- **Dead download links:** `scripts/linkcheck.mjs` (a step of `npm run daily`) requests every download URL the pages show and writes the results to `data/links.json`. A URL that answers HTTP 404 or 410 (also after a GET for one byte, since some hosts mishandle HEAD) gets a disabled Download button, a note on the page, and an UNAVAILABLE flag in the `.md` and `.json` twins; it is left out of the JSON-LD. A download that `verify.mjs` could not fetch because of a 404 is treated the same way. Timeouts, 403s and 429s are "unknown" and leave the button enabled. Each run re-checks the dead URLs, so a file that comes back is enabled again. `npm run linkcheck -- --refresh` re-checks everything (about 8,000 requests).
+
+Options: `--max-mb=N` (optional; leaves apps with a bigger installer unchecked, and there is no size limit by default), `--jobs=3`, `--no-verify`, `--no-vt`, `--no-icons`, `--no-links`, `--no-build`.
 
 - **Homebrew match:** a cask is matched automatically only when the name AND the website (or download source) agree. Anything less is
   reported under "needs a look". `@beta` and `@insiders` casks are ignored.

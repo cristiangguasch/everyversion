@@ -308,6 +308,38 @@ const vtUrl = (sha) => `https://www.virustotal.com/gui/file/${sha}`;
 // Per-installer results of our own checks, by app slug then download URL (filled by mergeVerification).
 const VERIF_FILES = new Map();
 
+// Download URLs known to be gone (HTTP 404/410): from scripts/linkcheck.mjs (data/links.json) and from installer downloads that
+// scripts/verify.mjs could not fetch because of a 404. The buttons for these URLs are disabled (see deadBtn). A URL that the
+// link check now sees as alive is never treated as dead, so a file that comes back is enabled again.
+const DEAD_LINKS = (() => {
+  const out = new Map();
+  const alive = new Set();
+  try {
+    for (const [u, v] of Object.entries(JSON.parse(readFileSync(join(ROOT, 'data', 'links.json'), 'utf8')))) {
+      const [st, day] = String(v).split(':');
+      if (st === '404' || st === '410') out.set(u, { status: Number(st), checked: day });
+      else if (Number(st) >= 200 && Number(st) < 400) alive.add(u);
+    }
+  } catch {}
+  try {
+    for (const r of Object.values(JSON.parse(readFileSync(join(ROOT, 'data', 'verification.json'), 'utf8')))) {
+      for (const i of [...(r.installers || []), ...(r.installers_attempted || [])]) {
+        const m = /returned error: (404|410)\b/.exec(i.error || '');
+        if (m && !alive.has(i.url) && !out.has(i.url)) out.set(i.url, { status: Number(m[1]), checked: r.checked_at });
+      }
+    }
+  } catch {}
+  return out;
+})();
+const deadOf = (i) => DEAD_LINKS.get(i.url);
+const deadDay = (d) => (d ? new Date(`${d}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }) : '');
+// A disabled stand-in for the Download button: the publisher's link answers 404/410, so there is nothing to download.
+const deadBtn = (i, cls) => {
+  const d = deadOf(i);
+  // The wrapper takes the hover, focus and tap (a disabled button receives none of them) and shows the tooltip from data-tip.
+  return `<span class="dead-tip" tabindex="0" data-tip="Download Unavailable"><button type="button" class="${cls} is-dead" disabled aria-disabled="true" aria-label="Download ${esc(i.filename)}: unavailable, the link returns HTTP ${d.status}">Download</button></span>`;
+};
+
 // ------------------------------------------------------------------ verification (level 1)
 
 // data/verification.json is written by scripts/verify.mjs. Apps without an entry stay at level 0 and show no name.
@@ -364,7 +396,7 @@ ${mac ? '' : `<td>${esc(SCOPE[i.scope] || '—')}${i.locale ? `<span class="host
 `}${mac ? `<td>${esc(i.min_os_version ? `macOS ${i.min_os_version}+` : '—')}</td>
 <td><span class="fn">${esc(i.filename)}</span>${i.version ? `<span class="host">version ${esc(i.version)}</span>` : ''}<span class="host">${esc(i.host)}</span></td>
 ` : ''}<td>${i.sha256 ? `<code class="hash">${esc(i.sha256)}</code>` : '<span class="host">Not provided</span>'}</td>
-<td><a class="btn" href="${esc(i.url)}" rel="noopener nofollow" data-t="download" data-slot="version" data-pl="${platform}" data-ar="${esc(i.architecture)}" data-ty="${esc(i.type)}" data-h="${esc(i.host)}"${ver ? ` data-v="${esc(ver)}"` : ''} aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a></td>
+<td>${deadOf(i) ? `${deadBtn(i, 'btn')}<span class="host">Link returns ${deadOf(i).status}</span>` : `<a class="btn" href="${esc(i.url)}" rel="noopener nofollow" data-t="download" data-slot="version" data-pl="${platform}" data-ar="${esc(i.architecture)}" data-ty="${esc(i.type)}" data-h="${esc(i.host)}"${ver ? ` data-v="${esc(ver)}"` : ''} aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a>`}</td>
 </tr>`,
     )
     .join('\n');
@@ -448,7 +480,8 @@ function appPage(rec) {
   const verified = !!(rec.verification.checks?.hash_recomputed || rec.verification.checks?.signature_checked);
   const partNodes = plats.map((p) => {
     const lv = latestOf[p];
-    const prim = primary(lv.installers, p);
+    const live = lv.installers.filter((i) => !deadOf(i));
+    const prim = live.length ? primary(live, p) : null;
     const arches = [...new Set(lv.installers.map((i) => i.architecture))].filter((a) => !['neutral', 'universal'].includes(a));
     const minOs = [...new Set(lv.installers.map((i) => i.min_os_version).filter(Boolean))];
     return {
@@ -457,12 +490,12 @@ function appPage(rec) {
       name: rec.name,
       operatingSystem: OS_NAME[p],
       softwareVersion: lv.version,
-      downloadUrl: prim.url,
+      ...(prim ? { downloadUrl: prim.url } : {}),
       ...(p === 'windows' && rec.last_updated ? { dateModified: rec.last_updated } : {}),
       ...(minOs.length === 1 ? { softwareRequirements: `${OS_NAME[p]} ${minOs[0]} or later` } : {}),
       ...(arches.length ? { processorRequirements: arches.join(', ') } : {}),
       associatedMedia: sortInstallers(lv.installers)
-        .filter((i) => i.sha256)
+        .filter((i) => i.sha256 && !deadOf(i))
         .map((i) => ({ '@type': 'MediaObject', name: i.filename, contentUrl: i.url, sha256: i.sha256 })),
     };
   });
@@ -583,6 +616,7 @@ function appPage(rec) {
   const KIND = { dmg: 'disk image', pkg: 'installer package', flatpak: 'Flatpak app', zip: 'archive', tar: 'archive', portable: 'portable build' };
   // Linux (Flathub): an "Install" dropdown that copies the install command, then the run command, instead of a file download.
   const flatpakMenu = (i, p) => {
+    if (!(p === 'linux' && rec.flathub && i.type === 'flatpak') && deadOf(i)) return deadBtn(i, 'btn dl-btn');
     if (!(p === 'linux' && rec.flathub && i.type === 'flatpak')) return `<a class="btn dl-btn" href="${esc(i.url)}" rel="noopener nofollow" data-t="download" data-slot="row" data-pl="${p}" data-ar="${esc(i.architecture)}" data-ty="${esc(i.type)}" data-h="${esc(i.host)}" aria-label="Download ${esc(i.filename)} from ${esc(i.host)}">Download</a>`;
     const opts = [['Copy install command', rec.flathub.install_command, 'copy-install'], ['Copy run command', rec.flathub.run_command, 'copy-run']].filter(([, c]) => c);
     return `<div class="dl-menu">
@@ -606,6 +640,7 @@ ${opts.map(([label, cmd, slot]) => `<button type="button" role="menuitem" class=
 <div class="dl-main">
 <div class="dl-title">${esc(PLATFORM[p])} ${esc(archLabel(i))} ${esc(KIND[i.type] || 'installer')}</div>
 <div class="dl-sub">${esc(sub.join(' · '))}</div>
+${deadOf(i) ? `<div class="dl-dead">The publisher’s link returns HTTP ${deadOf(i).status} (checked ${esc(deadDay(deadOf(i).checked))}), so the download is switched off.</div>` : ''}
 ${i.sha256 ? `<details class="dl-hash"><summary>Show SHA-256</summary><div><code class="hash">${esc(i.sha256)}</code> <button type="button" class="copy" data-copy="${esc(i.sha256)}" aria-label="Copy SHA-256 of ${esc(i.filename)}">Copy</button></div></details>` : `<div class="dl-hash"><span class="host">${rec.flathub && p === 'linux' ? 'No file checksum: Flatpak checks the app against Flathub’s signed repository' : 'SHA-256 not provided by the publisher'}</span></div>`}
 </div>
 ${flatpakMenu(i, p)}
@@ -1082,7 +1117,8 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     alternates: `<link rel="alternate" type="application/json" href="/${rec.slug}/${rec.slug}.json">\n<link rel="alternate" type="text/markdown" href="/${rec.slug}/${rec.slug}.md">\n`,
   });
 
-  const twin = { ...rec, derived: { canonical_url: canonical, title, h1, installer_summary: summaries } };
+  const unavailable = rec.versions.flatMap((v) => v.installers.filter((i) => deadOf(i)).map((i) => ({ platform: v.platform, version: v.version, filename: i.filename, url: i.url, http_status: deadOf(i).status, checked: deadOf(i).checked })));
+  const twin = { ...rec, derived: { canonical_url: canonical, title, h1, installer_summary: summaries, ...(unavailable.length ? { unavailable_downloads: unavailable } : {}) } };
 
   const md = [
     `# ${h1}`,
@@ -1119,7 +1155,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
       ...versionsOf(rec, p).flatMap((v) => [
         `#### ${v.version}${v.release_date ? ` — ${v.release_date}` : ''}`,
         '',
-        ...sortInstallers(v.installers).map((i) => `- ${i.architecture} ${i.type}${i.scope ? ` (${i.scope})` : ''}${i.version ? ` [version ${i.version}]` : ''}: ${i.filename}\n  - url: ${i.url}\n  - sha256: ${i.sha256 || 'not provided by upstream'}`),
+        ...sortInstallers(v.installers).map((i) => `- ${i.architecture} ${i.type}${i.scope ? ` (${i.scope})` : ''}${i.version ? ` [version ${i.version}]` : ''}: ${i.filename}\n  - url: ${i.url}${deadOf(i) ? ` (UNAVAILABLE: HTTP ${deadOf(i).status} on ${deadOf(i).checked}; the download button is disabled)` : ''}\n  - sha256: ${i.sha256 || 'not provided by upstream'}`),
         v.release_notes ? `Release notes: ${v.release_notes.replace(/\s+/g, ' ').trim()}` : v.release_notes_url ? `Release notes: ${v.release_notes_url}` : '',
         '',
         pinCmd(rec, v) && p === 'windows' ? `Pin: \`${pinCmd(rec, v)}\`` : installCmd(rec, p) ? `Install: \`${installCmd(rec, p)}\`` : '',
