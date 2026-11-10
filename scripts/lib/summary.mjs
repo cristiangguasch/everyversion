@@ -174,7 +174,7 @@ export function summariseCask(version) {
 
 // ---------------------------------------------------------------- archives from a publisher's own feed (custom sources)
 
-const ARCHIVE_TYPE = { tar: 'a compressed tar archive (.tgz)', zip: 'a ZIP archive', dmg: 'a disk image (.dmg)', exe: 'a setup program (.exe)', swu: 'a firmware update package (.swu)' };
+const ARCHIVE_TYPE = { tar: 'a compressed tar archive (.tgz)', zip: 'a ZIP archive', dmg: 'a disk image (.dmg)', exe: 'a setup program (.exe)', swu: 'a firmware update package (.swu)', sit: 'a StuffIt archive (.sit)', hqx: 'a BinHex archive (.hqx)' };
 const ARCHIVE_ARCH = { ...ARCH_LABEL, universal: 'both Apple silicon and Intel Macs' };
 
 export function summariseArchive(version) {
@@ -192,6 +192,7 @@ export function summariseArchive(version) {
   if (has('zip', 'tar')) out.push('Archives are unpacked by you, not run as an installer program, so the download itself changes nothing on your computer until you extract and run what is inside.');
   if (has('dmg')) out.push('A disk image opens in Finder; the download itself changes nothing on your Mac until you open it and run what is inside.');
   if (has('exe')) out.push('A setup program changes your computer when you run it, not when you download it.');
+  if (has('sit', 'hqx')) out.push('StuffIt and BinHex files are classic Mac OS archives: they need an old Mac or a tool that can open them.');
   if (has('swu')) out.push('A firmware update package is installed on the device itself, not on your computer.');
   // Where the checksum on this page comes from.
   const withSha = ins.filter((i) => i.sha256);

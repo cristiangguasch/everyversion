@@ -74,6 +74,7 @@ function buildRecord(src, out, prev, now) {
     summary: a.summary,
     description: a.description,
     tags: a.tags,
+    series_label: a.series_label,
     locale: 'en-US',
     urls: a.urls,
     license: a.license,

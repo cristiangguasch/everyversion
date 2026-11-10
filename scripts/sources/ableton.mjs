@@ -13,7 +13,10 @@
 // Ableton publishes no checksum for them. The Mac files that a Homebrew cask pins keep that SHA-256; everything else is marked
 // no_checksum (the verification step computes hashes for the newest version, and says "computed by us").
 //
-// Ongoing checks (config active_majors): only Live 12 is re-read on each run, so new Live 12 releases are picked up and Live 11 and 10, which
+// Live 9 and older come from a table in the config (`legacy`), taken from Ableton's download archive: that page lists one entry per series
+// (for example 9.7.7, 9.6.2, 8.4.2, 7.0.18) and its Download buttons carry the file names, which this table records.
+//
+// Ongoing checks (config active_from, 12): only Live 12 and newer are re-read on each run, so new Live 12 releases (and a Live 13) are picked up and Live 11 and older, which
 // never change, are kept from the record. Push is checked in full each run; it is a single page and five downloads.
 //
 // Push: the downloads are a fixed list from the config (Push 3 firmware and recovery image, Windows audio drivers, GPL source).
@@ -137,15 +140,27 @@ function uploadDates(releases, candidates, cache) {
 // ------------------------------------------------------------------------------------------------ Live
 async function fetchLive(cfg, ctx) {
   const { getJson, getText, cache, log, today } = ctx;
-  // Daily runs only look at the active Live majors (config active_majors, for example [12]). Older versions never change, so the entries
+  // Daily runs only look at Live 12 and newer (config active_from). Older versions never change, so the entries
   // already in the record are kept exactly as they are: no release-notes pages, cask lookups or download checks for them.
   // A first run (no record yet) or `node scripts/custom.mjs --full` reads everything.
-  const active = (cfg.active_majors || []).map(String);
+  const from = Number(cfg.active_from ?? 12); // Live 12 and every newer major is re-read on each run
   const major = (v) => v.split('.')[0];
-  const frozen = active.length && ctx.prev ? ctx.prev.versions.filter((v) => !active.includes(major(v.version))) : [];
-  const pages = frozen.length ? cfg.feeds.notes.filter((p) => active.some((m) => p.includes(`/live-${m}/`))) : cfg.feeds.notes;
+  const frozen = ctx.prev ? ctx.prev.versions.filter((v) => Number(major(v.version)) < from) : [];
+  const pageMajor = (p) => Number(/\/live-(\d+)\/?$/.exec(p)?.[1] || 0);
+  const pages = frozen.length ? cfg.feeds.notes.filter((p) => pageMajor(p) >= from) : [...cfg.feeds.notes];
+  // A new major (Live 13, ...) gets its own release-notes page: look for the next two after the newest one we know.
+  const top = Math.max(...cfg.feeds.notes.map(pageMajor));
+  const newer = [];
+  for (let n = top + 1; n <= top + 2; n++) {
+    const page = cfg.feeds.notes[0].replace(/live-\d+\/?$/, `live-${n}/`);
+    try {
+      if (parseLiveNotes(await getText(page), page).length) newer.push(page);
+    } catch {} // 404: not published yet
+  }
+  pages.push(...newer);
+  if (newer.length) log(`  new release-notes page(s) found: ${newer.join(', ')}`);
   const tokens = frozen.length ? cfg.casks.filter((t) => !t.includes('@')) : cfg.casks; // the unversioned casks are the current major's
-  if (frozen.length) log(`  keeping ${frozen.length} earlier entries as they are (Live ${[...new Set(frozen.map((v) => major(v.version)))].join(', ')}); checking Live ${active.join(', ')} only`);
+  if (frozen.length) log(`  keeping ${frozen.length} earlier entries as they are (Live ${[...new Set(frozen.map((v) => major(v.version)))].join(', ')}); checking Live ${from} and newer only`);
   const byVersion = new Map();
   for (const page of pages) {
     for (const n of parseLiveNotes(await getText(page), page)) if (!byVersion.has(n.version)) byVersion.set(n.version, n);
@@ -165,7 +180,8 @@ async function fetchLive(cfg, ctx) {
     }
   }
 
-  const slug = { Suite: 'suite', Standard: 'standard', Intro: 'intro', Lite: 'lite' };
+  const slug = { Suite: 'suite', Standard: 'standard', Intro: 'intro', Lite: 'lite', Trial: 'trial' };
+  const variantOf = (ed) => (ed === 'Trial' ? 'Free Trial' : `Live ${ed}`);
   const candidates = [];
   const releasedOn = new Map();
   for (const r of releases) {
@@ -173,9 +189,15 @@ async function fetchLive(cfg, ctx) {
     for (const ed of cfg.editions) {
       const base = `${cfg.download_base}/${r.version}/ableton_live_${slug[ed]}_${r.version}`;
       candidates.push({ r, ed, platform: 'windows', arch: 'x64', type: 'zip', url: `${base}_64.zip` });
-      candidates.push(major >= 11
-        ? { r, ed, platform: 'macos', arch: 'universal', type: 'dmg', url: `${base}_universal.dmg` }
-        : { r, ed, platform: 'macos', arch: 'x64', type: 'dmg', url: `${base}_64.dmg` });
+      // Mac: Live 12 is universal; Live 11 has universal and Intel-only builds from 11.1 and a plain 64-bit build in 11.0; Live 10 is 64-bit.
+      // Every pattern is checked against the server, so only files that exist are listed.
+      if (major >= 11) {
+        candidates.push({ r, ed, platform: 'macos', arch: 'universal', type: 'dmg', url: `${base}_universal.dmg` });
+        if (major === 11) {
+          candidates.push({ r, ed, platform: 'macos', arch: 'x64', type: 'dmg', url: `${base}_intel.dmg` });
+          candidates.push({ r, ed, platform: 'macos', arch: 'x64', type: 'dmg', url: `${base}_64.dmg` });
+        }
+      } else candidates.push({ r, ed, platform: 'macos', arch: 'x64', type: 'dmg', url: `${base}_64.dmg` });
     }
   }
   for (const c of candidates) releasedOn.set(c.url, c.r.date);
@@ -197,12 +219,12 @@ async function fetchLive(cfg, ctx) {
           const ci = caskInstaller.get(c.url);
           const sha = cache[c.url];
           return {
-            platform, architecture: c.arch, type: c.type, variant: `Live ${c.ed}`, url: c.url, host: new URL(c.url).hostname, filename: c.url.split('/').pop(),
+            platform, architecture: c.arch, type: c.type, variant: variantOf(c.ed), url: c.url, host: new URL(c.url).hostname, filename: c.url.split('/').pop(),
             ...(sha ? { sha256: sha, ...(ci ? { checksum_source: 'Homebrew cask' } : {}) } : { no_checksum: true }),
             ...(ci?.min_os_version ? { min_os_version: ci.min_os_version } : {}),
           };
         })
-        .sort((a, b) => cfg.editions.indexOf(a.variant.slice(5)) - cfg.editions.indexOf(b.variant.slice(5)) || ARCH_ORDER.indexOf(a.architecture) - ARCH_ORDER.indexOf(b.architecture));
+        .sort((a, b) => cfg.editions.map(variantOf).indexOf(a.variant) - cfg.editions.map(variantOf).indexOf(b.variant) || ARCH_ORDER.indexOf(a.architecture) - ARCH_ORDER.indexOf(b.architecture));
       if (!installers.length) continue;
       totals[platform]++;
       versions.push({
@@ -217,6 +239,23 @@ async function fetchLive(cfg, ctx) {
     }
   }
   if (!versions.some((v) => v.version === newest)) log(`  note: the newest release (${newest}) has no downloads yet`);
+  // Live 9 and older (config `legacy`): the versions on Ableton's download archive, with explicit file names. They have no release notes
+  // page and no dates, and they are read only when the earlier entries are not being reused (first run or --full).
+  if (!frozen.length && cfg.legacy?.length) {
+    const files = cfg.legacy.flatMap((e) => e.files.map((f) => ({ e, f, url: `${cfg.download_base}/${e.version}/${f.file}` })));
+    const found = await existing(files.map((x) => x.url), cache, log, today, new Map());
+    for (const e of cfg.legacy) {
+      for (const platform of ['windows', 'macos']) {
+        const installers = files
+          .filter((x) => x.e === e && x.f.platform === platform && found.get(x.url) === true)
+          .map(({ f, url }) => ({ platform, architecture: f.arch, type: f.type, variant: f.variant, url, host: new URL(url).hostname, filename: f.file, no_checksum: true }));
+        if (!installers.length) continue;
+        totals[platform]++;
+        versions.push({ platform, version: e.version, series: major(e.version), installers });
+      }
+    }
+    versions.sort((a, b) => ['windows', 'macos'].indexOf(a.platform) - ['windows', 'macos'].indexOf(b.platform) || compareVersions(b.version, a.version));
+  }
   // Put the kept entries back, newest first within each platform.
   if (frozen.length) {
     versions.push(...frozen);

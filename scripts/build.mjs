@@ -87,7 +87,7 @@ const platformList = (ps) => {
   const n = ps.map((p) => PLATFORM[p]);
   return n.length <= 2 ? n.join(' & ') : `${n.slice(0, -1).join(', ')} & ${n.at(-1)}`;
 };
-const FORMAT = { dmg: 'DMG', pkg: 'PKG', tar: 'TAR', unknown: 'Not stated', exe: 'EXE', nullsoft: 'NSIS', inno: 'Inno Setup', wix: 'MSI (WiX)', msi: 'MSI', burn: 'Burn', msix: 'MSIX', appx: 'APPX', zip: 'ZIP', portable: 'Portable', pwa: 'PWA', flatpak: 'Flatpak', swu: 'SWUpdate package' };
+const FORMAT = { dmg: 'DMG', pkg: 'PKG', tar: 'TAR', unknown: 'Not stated', exe: 'EXE', nullsoft: 'NSIS', inno: 'Inno Setup', wix: 'MSI (WiX)', msi: 'MSI', burn: 'Burn', msix: 'MSIX', appx: 'APPX', zip: 'ZIP', portable: 'Portable', pwa: 'PWA', flatpak: 'Flatpak', swu: 'SWUpdate package', sit: 'StuffIt archive (.sit)', hqx: 'BinHex archive (.hqx)' };
 const SCOPE = { user: 'Per user', machine: 'All users' };
 const ARCH_ORDER = ['universal', 'x64', 'arm64', 'x86', 'arm', 'neutral'];
 const ARCH = { x64: 'x64 (64-bit)', x86: 'x86 (32-bit)', arm64: 'ARM64', arm: 'ARM', neutral: 'Any' };
@@ -101,7 +101,7 @@ const PRICE_LABEL = {
 const isFree = (rec) => !['unknown', 'paid'].includes(rec.pricing.status);
 
 // Display order of the downloads of one version when a source offers several (Live editions first, then Push downloads).
-const VARIANT_ORDER = ['Live Suite', 'Live Standard', 'Live Intro', 'Live Lite', 'Push 3 update', 'Push 3 recovery image', 'Push USB audio driver', 'Push legacy audio driver', 'Push 3 GPL source code'];
+const VARIANT_ORDER = ['Live Suite', 'Live Standard', 'Live Intro', 'Live Lite', 'Free Trial', 'Live', 'Live LE', 'Push 3 update', 'Push 3 recovery image', 'Push USB audio driver', 'Push legacy audio driver', 'Push 3 GPL source code'];
 const sortInstallers = (list) =>
   [...list].sort(
     (a, b) =>
@@ -746,9 +746,24 @@ ${v.manifest_dir ? `<p class="pin">Manifest: ${link(`${WINGET_REPO}/tree/master/
   const versionsHtml = plats
     .map((p) => {
       const all = versionsOf(rec, p);
-      const shown = all.slice(0, PAGE_VERSIONS);
       const total = rec.versions_total[p];
       const e = provOf(rec, p);
+      // Apps with series_label (Ableton Live): every version, grouped by series, the newest series open.
+      const groups = rec.series_label ? [...new Set(all.map((v) => v.series).filter(Boolean))] : [];
+      if (groups.length > 1) {
+        return `<h3 id="${p}-versions">${esc(PLATFORM[p])} versions</h3>
+<p>${all.length} versions listed, grouped by ${esc(rec.series_label)} version. Open a version for its downloads and checksums.</p>
+${groups
+  .map((g, gi) => {
+    const vs = all.filter((v) => v.series === g);
+    return `<details class="vgroup"${gi === 0 ? ' open' : ''}>
+<summary>${esc(rec.series_label)} ${esc(g)} <span class="sub">${vs.length === 1 ? esc(vs[0].version) : `${vs.length} versions · ${esc(vs[0].version)} to ${esc(vs.at(-1).version)}`}</span></summary>
+${vs.map((v) => versionBlock(p, v, all.indexOf(v))).join('\n')}
+</details>`;
+  })
+  .join('\n')}`;
+      }
+      const shown = all.slice(0, PAGE_VERSIONS);
       const note =
         p === 'linux' && rec.flathub
           ? `Flathub lists only the current release, and Flatpak installs the newest build; earlier versions cannot be chosen from the listing.`
@@ -780,7 +795,7 @@ ${total > shown.length && (p === 'windows' || customOf(p)) ? `<p class="pin">${c
       const e = provOf(rec, p);
       if (isCustom(e)) {
         return `<tr><th scope="row">${esc(PLATFORM[p])}: source</th><td>${link(e.repo, e.path)}${e.api_url ? ` and ${link(e.api_url, new URL(e.api_url).pathname.split('/').pop())}` : ''} (the publisher’s release feeds)</td></tr>
-<tr><th scope="row">${esc(PLATFORM[p])}: SHA-256 from the publisher</th><td>${esc(hashState(p))} (the .sha256sum file next to each download)</td></tr>
+<tr><th scope="row">${esc(PLATFORM[p])}: SHA-256 from the publisher</th><td>${esc(hashState(p))}${latestOf[p].installers.some((i) => i.sha256 && !i.checksum_source) ? ' (the .sha256sum file next to each download)' : latestOf[p].installers.some((i) => i.checksum_source) ? ' (hashes pinned by a Homebrew cask, not posted by the publisher)' : ''}</td></tr>
 <tr><th scope="row">${esc(PLATFORM[p])}: feed content</th><td><code>${esc(e.content_sha256.slice(0, 12))}</code> · retrieved ${esc(e.retrieved_at.slice(0, 10))}</td></tr>`;
       }
       if (isFlathub(e)) {

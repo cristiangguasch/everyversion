@@ -119,7 +119,17 @@ async function verifyApp(rec) {
     }
   }
   const items = [];
+  // A download we already checked (same URL, same expected hash, checked in the last 90 days, hash computed) is not downloaded again,
+  // so adding one new file to an app does not mean re-downloading the others. `--recheck` forces a full re-download.
+  const earlier = results[rec.slug];
+  const fresh = earlier?.installers && !('recheck' in OPT) && (Date.parse(today) - Date.parse(earlier.checked_at)) / 86400000 <= 90;
   for (const { p, v, i } of targets) {
+    const old = fresh && earlier.installers.find((x) => x.url === i.url && x.platform === p && x.computed_sha256 && x.hash !== 'MISMATCH' && (x.expected_sha256 || null) === (i.sha256 || null));
+    if (old) {
+      console.log(`${rec.name} ${p} ${i.filename} ... reused earlier check (${old.hash} / ${old.signature.status})`);
+      items.push(old);
+      continue;
+    }
     const file = join(WORK, `${rec.slug}-${p}-${i.filename.replace(/[^\w.-]/g, '_')}`);
     const item = { platform: p, version: v.version, filename: i.filename, url: i.url, expected_sha256: i.sha256 || null };
     try {
