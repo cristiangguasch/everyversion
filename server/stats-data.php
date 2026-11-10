@@ -28,7 +28,7 @@ try {
     exit;
 }
 
-// Merge the per-day maps into totals. Visitors are counted per day, so they are reported per day only (never summed across days).
+// Merge the per-day maps into totals. Visitors are counted per day, so the server reports them per day only; the page adds the daily counts for its Visitors tile (they are not de-duplicated across days).
 $sumPairs = static function (string $key) use ($series): array {
     $out = [];
     foreach ($series as $d) {

@@ -1,5 +1,5 @@
 // /statistics/: public usage statistics, drawn from /stats-data.php (which reads the NDJSON event files).
-// Plain SVG and HTML, no libraries. Visitors are counted per day only, so they are never added up across days.
+// Plain SVG and HTML, no libraries. Visitors are counted per day only: the Visitors tile adds up the daily counts, so a person who returns on another day is counted again.
 (() => {
   const root = document.getElementById('stats');
   if (!root) return;
@@ -173,14 +173,14 @@
     const s = cur.series;
     const pv = sum(s, 'pv');
     const dl = sum(s, 'dl');
-    const uv = Math.round(sum(s, 'uv') / s.length);
+    const uv = sum(s, 'uv'); // each day's visitors added up: someone who comes on two days counts on both
     const prevLabel = days === 7 ? 'the previous 7 days' : `the previous ${days} days`;
     const pPv = prevSeries ? sum(prevSeries, 'pv') : 0;
     const pDl = prevSeries ? sum(prevSeries, 'dl') : 0;
-    const pUv = prevSeries ? Math.round(sum(prevSeries, 'uv') / prevSeries.length) : 0;
+    const pUv = prevSeries ? sum(prevSeries, 'uv') : 0;
     $('tiles').innerHTML = [
       ['Pageviews', compact(pv), delta(pv, pPv, prevLabel)],
-      ['Visitors per day', compact(uv), delta(uv, pUv, prevLabel) + '<span class="dl-none"> (daily average)</span>'],
+      ['Visitors', compact(uv), delta(uv, pUv, prevLabel) + '<span class="dl-none"> (each day counted on its own)</span>'],
       ['Downloads and installs', compact(dl), delta(dl, pDl, prevLabel)],
       ['Download rate', pv ? (dl / pv * 100).toFixed(1) + '%' : '–', '<span class="dl-none">clicks per 100 pageviews</span>'],
     ].map(([l, v, d]) => `<div class="tile"><div class="tl">${l}</div><div class="tv">${v}</div><div class="td">${d}</div></div>`).join('');
