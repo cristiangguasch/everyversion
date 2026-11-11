@@ -1,0 +1,1494 @@
+{
+  "schema_version": 2,
+  "slug": "spotube",
+  "name": "Spotube",
+  "publisher": "Team Spotube",
+  "author": "Team Spotube",
+  "ids": {
+    "winget": "KRTirtho.Spotube",
+    "moniker": "spotube",
+    "flathub": "com.github.KRTirtho.Spotube"
+  },
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "summary": "Open source, plugin powered music streaming client",
+  "description": "A cross-platform, extensible, open source music streaming platform. Bring your own music\nmetadata, playlists and audio sources with plugins made by the community or by yourself.",
+  "tags": [
+    "audio",
+    "music",
+    "music-player",
+    "streaming",
+    "lyrics",
+    "plugins"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://spotube.cc",
+    "publisher": "https://github.com/team-spotube",
+    "support": "https://github.com/team-spotube/spotube/issues",
+    "bug_tracker": "https://github.com/team-spotube/spotube/issues",
+    "privacy": "https://spotube.cc/p/privacy",
+    "release_notes": "https://github.com/team-spotube/spotube/releases/tag/v6.0.0"
+  },
+  "license": {
+    "name": "AGPL-3.0-or-later",
+    "url": "https://github.com/team-spotube/spotube/blob/master/LICENSE",
+    "spdx": "AGPL-3.0-or-later",
+    "copyright": "Copyright (c) 2022-2026 Kingkor Roy Tirtho and Spotube Contributors",
+    "copyright_url": "https://github.com/KRTirtho/spotube/blob/master/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "6.0.0",
+    "linux": "v5.1.2"
+  },
+  "last_updated": "2026-11-09",
+  "versions_total": {
+    "windows": 34,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "6.0.0",
+      "release_date": "2026-11-09",
+      "release_notes": "Features\n- jam: Replace MQTT with a Durable Object room server and synced playback\n- jam: Harden the room server, add device bans and friendly names\n- ios: Play audio with VLCKit instead of AVPlayer\n- ios: Drop AVPlayer-era streaming format restrictions\n- Add iOS background playback support (#3170)\n- update: Compare app releases with full SemVer\n- plugins: Redesign the plugin manager\n- plugins: Limit WebView cookie and script access to declared domains\n- plugins: Download the public suffix list daily instead of bundling it\n- plugins: Enhance built-in plugin handling and add removal option for user-installed plugins\n\nBug Fixes\n- android: Use desugar_jdk_libs_nio so URLEncoder.encode(String, Charset) is backported on API < 33\n- flatpak: Grant the Wayland socket so the webview doesn't render black\n- jam: Keep guests on the host's recording across song changes\n- desktop: Stop non-composable string lookups from querying the system theme\n- Stop memory blow-ups and crashes with large lists and local media\n- ios: Use MobileVLCKit from CocoaPods instead of a git Swift package\n- Crash at startup from a Koin cycle in DeviceAudioPlayerQueue\n- Update default Jam server URL to new endpoint\n- linux: Bundle libselinux in the AppImage\n- artist: Play the tapped top track instead of the first one\n- welcome: Keep step tabs and pages readable on narrow windows\n- plugins: Keep public suffix list updates off the startup and call paths",
+      "release_notes_url": "https://github.com/team-spotube/spotube/releases/tag/v6.0.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/6.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/team-spotube/spotube/releases/download/v6.0.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "d7e073ead0707fcdfcc50074e88721b7df38dc10248eadafc346867e156c6e8d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.2",
+      "release_date": "2026-06-05",
+      "release_notes": "Bug Fixes\n- newpipe: Fallback to muxed streams if no audio stream is available\n- Dismiss search dropdown and keyboard on submission\n- Custom image helper null exception",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v5.1.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/5.1.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v5.1.2/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "e5641f3841ec724fcb5e00a22d980f410ee507fdd00669b86db0c29f9b741162",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Spotube version 5.1.2+45",
+              "display_version": "5.1.2+45",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v5.1.2/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "e5641f3841ec724fcb5e00a22d980f410ee507fdd00669b86db0c29f9b741162",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Spotube version 5.1.2+45",
+              "display_version": "5.1.2+45",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.1",
+      "release_date": "2026-02-24",
+      "release_notes": "v5.1.1\nBug Fixes\n- Upgrade NewPipeExtractor to latest version fixing playback issue\n- Lyrics not working\nWhat's Changed\n- chore: replace windows app icon by a higher resolution by @TobseF in #2838\nNew Contributors\n- @TobseF made their first contribution in #2838\nFull Changelog: v5.1.0...v5.1.1",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v5.1.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/5.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v5.1.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "c3bb86e92316a399b1763f6bc5f414a1f0be54882a5b7524d8ee341790e45632",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "5.1.1+44",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v5.1.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "c3bb86e92316a399b1763f6bc5f414a1f0be54882a5b7524d8ee341790e45632",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "5.1.1+44",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.0",
+      "release_date": "2025-03-07",
+      "release_notes": "Highlights:\n- Revamped UI from Material V3 to Shadcn design system\n  - More intuitive user interface\n  - Performant, responsive and adaptive design\n  - Better visuals, feedbacks and OLED friendly (pure black) color palette\n- Alternative YouTube engine support\n  - yt-dlp for desktop platforms\n  - NewPipe for Android\n- Android: Home screen widget support\n- Fixed music skipping, buffering or not playing at all\n- Custom editable Piped and Invidious instance support\nBug Fixes\n- SafeArea for global bottom items not working\n- SafeArea not working for bottom floating widgets\n- youtube video unplayable issue and use more ytClients\n- ios: downloads not working due to permission errors (#2180)\n- remove automaticallyImplyLeading from root tabs\n- android: back button not working and safe area issues\n- duplicates in recent section\n- youtube source taking too long to buffer\n- youtube tracks keeps skipping despite being matched correctly\n- follow artist not working #2057\n- youtube_explode_dart failing for many videos due to youtube ios client visitor data change\n- piped api not working\nFeatures\n- android: home widget support (#2148)\n- rewrite entire app in shadcn-ui replacing material eww\n- grid/list customizable playbutton view\n- flag to hide spotify generated images with patterns\n- show placeholder images where there is no item or on empty page\n- pause playback when no internet connection\n- implement yt-dlp for desktop and NewPipeExtractor for Android (#2316)\n- custom piped & invidious instance support\nWhat's Changed\n- fix(ios): downloads not working due to permission errors by @malikmiran in #2180\nNew Contributors\n- @malikmiran made their first contribution in #2180\nFull Changelog: v3.9.0...v4.0.0",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v4.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/4.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v4.0.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "8834763b3687cee813434b17e29379490725caa20e259ceb1d842cb007dbfaf7",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "4.0.0+39",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v4.0.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "8834763b3687cee813434b17e29379490725caa20e259ceb1d842cb007dbfaf7",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "4.0.0+39",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.0",
+      "release_date": "2024-12-08",
+      "release_notes": "Highlights\n- New Invidious source addition\n- Track caching with export support\nBug Fixes\n- UI glitch when loading more user artists and albums\n- selecting an Alternative Track Source removes the current song from the queue #2039\n- mobile: ensure audio session is activated when playback is resumed after interruption #2092\nFeatures\n- add invidious audio source and fix auto skipping tracks (#2005)\n- track caching and cached track export support (#2117)\nFull Changelog: https://github.com/KRTirtho/spotube/compare/v3.8.3...v3.9.0",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.9.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.9.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "08ea6f3989fe21726e0e3d11b3a90a8d690861fb48481129b984037f9e1733c8",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.9.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "08ea6f3989fe21726e0e3d11b3a90a8d690861fb48481129b984037f9e1733c8",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.3",
+      "release_date": "2024-10-09",
+      "release_notes": "Bug Fixes\n- update youtube_explode_dart to 2.2.3 to fix no playback (#1980)\nFeatures\n- macos: enable same window webview support\nWhat's Changed\n- Update youtube_explode_dart to 2.2.3 by @XaviFortes in #1980\nNew Contributors\n- @XaviFortes made their first contribution in #1980\nFull Changelog: https://github.com/KRTirtho/spotube/compare/v3.8.2...v3.8.3",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.8.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.8.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.3/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "83b725990b0ceff7efc962a77a407e2abb69fa308746d1cb6ef9d7d0b782909d",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "3.8.3+36",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.3/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "83b725990b0ceff7efc962a77a407e2abb69fa308746d1cb6ef9d7d0b782909d",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "3.8.3+36",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.2",
+      "release_date": "2024-09-30",
+      "release_notes": "Highlight\n- Fixed no playback from the app due to recent change in YouTube API\nWhat's Changed\n- Update youtube_explode_dart dependency version (fixes endless loading issue) by @sunryze-git in #1925\nNew Contributors\n- @sunryze-git made their first contribution in #1925\nFull Changelog: https://github.com/KRTirtho/spotube/compare/v3.8.1...v3.8.2",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.8.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.8.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.2/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "78735b361af55967013d58310d42df631fb3c1707e94e8111cf124fbdebbce4a",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "3.8.2+35",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.2/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "78735b361af55967013d58310d42df631fb3c1707e94e8111cf124fbdebbce4a",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "3.8.2+35",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.1",
+      "release_date": "2024-09-15",
+      "release_notes": "Highlights\n- Lyrics support for anonymous users\n- Login error in Getting started page fixed\n- Android: Queue doesn't persist after quitting & restarting the app\n- Touch support for desktop\n- Error dialog if webview is not found on login\nBug Fixes\n- translations: correct some basque incorrect translations (#1815)\n- lyrics: LRCLIB lyrics should be usable without logging in #1803\n- playlist displaying descriptions unescaped html #1784\n- android: pressing back while the player is open doesn't take to previous page\n- handle dublicated items in playback queue correctly #1852\n- desktop: scrollbar overlapping with more options of tracks and playlists\n- discord: stop discord rpc from try update presence when not connected\n- stats: minutes page shows plays and streams page shows minutes which should be the opposite #1880\n- android: clears queue upon swiping away notification\n- player: shuffle button state resets after closing page #1657\n- getting started page login page exception #1800\n- mobile: queue doesn't persist\n- local tracks takes time to load\n- start radio not working #1629\nFeatures\n- desktop: show error dialog if webview is not found on login #1871\n- manually detect and define touch behavior #1763\nWhat's Changed\n- webview user agent typo by @sonu36437 in #1807\n- Update winget-releaser to latest by @vedantmgoyal9 in #1840\n- correct some basque strings by @josuigoa in #1815\n- docs: add small logo image in inno setup installer by @fuegans4213 in #1795\nNew Contributors\n- @sonu36437 made their first contribution in #1807\n- @fuegans4213 made their first contribution in #1795\nFull Changelog: https://github.com/KRTirtho/spotube/compare/v3.8.0...v3.8.1",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.8.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "70d1136d1838748d86c7e2dfabc4c071662c3542eef5f75ffe65c771ce6f87d4",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "3.8.1+34",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "70d1136d1838748d86c7e2dfabc4c071662c3542eef5f75ffe65c771ce6f87d4",
+          "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "display_version": "3.8.1+34",
+              "product_code": "80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.0",
+      "release_date": "2024-08-11",
+      "release_notes": "Highlights\n- Webview based login on Desktop (special thanks to @SantiiRepair)\n- Discord RPC support for MacOS and Linux arm64\n- Fixed Linux tray icon not visible\nFeatures\n- translations: make state page's hard coded strings translatable (#1719)\n- discord: add listening activity type\n- discord: album art, playing time and play pause support (#1765)\n- linux: Use XDG_STATE_HOME to storage logs (#1675)\n- discord rpc for macOS, windows-arm64 and linux-arm64 (#1713)\n- desktop: implement webview based login\n- stats: add lazy loading support\nBug Fixes\n- translations: fix Russian translations (#1696)\n- ios: permission exception\n- linux: tray icon wrong name for flatpak\n- windows: app crashes when no internet\n- windows: local tracks plays but disabled playback controls\n- go to track album shows up for local tracks\n- local track metadata timeout\n- windows: window stretching #1553\n- android: app getting killed from background\n- linux: OS Media control not working for Flatpak #1627\n- incorrect datatype used for MPRIS position property #1521\n- Too many artists for a track causing overflows\n- playlist share button does not work #1639\n- unescape html escape values #1300\n- lyrics page doesn't scroll to top after song ends #885\n- changed source doesn't get saved and uses the wrong once again\n- null exception in album page navigated from /home\n- popup menu item opacity\n- linux: change app id in flatpak environment\nOutside Contributions\n- feat(linux): Use XDG_STATE_HOME to storage logs by @arenekosreal in #1675\n- Improve Discord RPC by @nexpid in #1765\n- fix(l10n): fix russian tranlsations by @marat2509 in #1696\n- Make some hard coded strings translatable by @josuigoa in #1719\nNew Contributors\n- @arenekosreal made their first contribution in #1675\n- @nexpid made their first contribution in #1765\n- @marat2509 made their first contribution in #1696",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.8.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "35eeb12db27efd5d1edc6d05fd8ff84f9583827115a095ca575c78307b31e3d5",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.8.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "35eeb12db27efd5d1edc6d05fd8ff84f9583827115a095ca575c78307b31e3d5",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.1",
+      "release_date": "2024-06-06",
+      "release_notes": "Highlights\n- App crashing in Linux fixed\n- Windows distorted window on startup fix\nBug Fixes\n- alternative sources not showing up for SongLink matched results (37d002d)\n- android: Media Controls not working above Android 14 #1561 (3394c1b)\n- browse anonymously button takes to wrong route (73c5b30)\n- desktop: titlebar drag to move not working (5f280a1)\n- desktop: window is not centered (47f98b9)\n- ios: download not working #1575 (6591ec0)\n- linux: application window not visible after launch (8fc44ed)\n- local track not showing up in queue (d82261c)\n- use weak match for Jiosaavn fallback to improve matching (6cb2986)\n- windows: media controls not showing up #1542 (d7d864f)\n- windows: revert Flutter version to 3.19.6 to avoid distortion #1553 (982cf0b)\nWhat's Changed\n- fix(updater): dead link by @GhoulBoii in #1408\n- fix: windows SSL Certificate error breaking login #905 by @KRTirtho in #1474\n- refactor: Dart based Github Workflow CLI by @KRTirtho in #1490\n- added Basque translation by @josuigoa in #1493\n- Add georgian language by @osopromadze in #1450\n- Added Finnish translations by @ctih1 in #1449\n- Add Indonesia translation by @yusriltakeuchi in #1426\n- Improve tr locales by @mikropsoft in #1419\n- Add volume level tooltip to volume_slider by @iAkashPattnaik in #1445\n- Feature: Local music library by @bleonard252 in #1479\n- feat: personalized stats based on local music history by @KRTirtho in #1522\nNew Contributors\n- @GhoulBoii made their first contribution in #1408\n- @josuigoa made their first contribution in #1493\n- @osopromadze made their first contribution in #1450\n- @ctih1 made their first contribution in #1449\n- @yusriltakeuchi made their first contribution in #1426\n- @iAkashPattnaik made their first contribution in #1445\n- @bleonard252 made their first contribution in #1479",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.7.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.7.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "8e064b8cd910bc554cfac28568c9b71abc07f405f71b91ff5cbd8b6488e617f5",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.7.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "8e064b8cd910bc554cfac28568c9b71abc07f405f71b91ff5cbd8b6488e617f5",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.0",
+      "release_date": "2024-06-03",
+      "release_notes": "Highlights\n- Local Library folder support\n- Personalized Stats based on local playback\n- Improved playback experience\nFeatures\n- local library folder cards (fc5bfa0)\n- Local music library (#1479) (22caa81)\n- personalized stats based on local music history (#1522) (82307bc)\n- play initially available tracks of playlist/album immediately and fetch rest in background #670 (02acbd9)\n- player: add volume slider floating label showing percentage (#1445) (8fad225), closes #1310 #1311 #1082 #1171 #1082 #1082\n- translations: add Basque translation (#1493) (dbc1c45)\n- translations: add Finnish translations (#1449) (edc997e), closes #1310 #1311 #1082 #1171 #1082 #1082\n- translations: add georgian language (#1450) (1e7f0e1)\n- translations: add Indonesian translation (#1426) (0280654), closes #1310 #1311 #1082 #1171 #1082 #1082\n- translations: Improve tr locales (#1419) (bf45681), closes #1310 #1311 #1082 #1171 #1082 #1082\n- upgrade to Flutter 3.22.0 (71341ec)\nBug Fixes\n- fallback to LRCLIB when lyrics line less than 6 lines #1461 (9aea354)\n- linux: tray icon not showing #541 (7ac7917)\n- local track not showing up in queue (d82261c)\n- macos: Logs directory not created by default #1353 (4ca8939)\n- playback: skipping tracks with unplayable sources instead of falling back #1492 (c607a33)\n- search: load more button not working #1417 (7e07c2e)\n- some text are garbled in different parts of the app #1463 #1505 (d2683c5)\n- spotify friends and user profile icon (mobile) showing when not authenticated #1410 (9bccbc9)\n- updater: dead link (#1408) (6907f9c), closes #1310 #1311 #1082 #1171 #1082 #1082\n- windows SSL Certificate error breaking login #905 (#1474) (937a706), closes #1468\n- windows: installer tries to install in current directory (c3c9fc5)",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.7.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.7.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "735ba457ddbf9b55b35199bc9a7e394001e775d324ec804e21d799436a76636a",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.7.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "735ba457ddbf9b55b35199bc9a7e394001e775d324ec804e21d799436a76636a",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.0",
+      "release_date": "2024-04-15",
+      "release_notes": "Highlights\n- Spotify Connect support a.k.a LAN Control\n- Alternative LRCLIB lyrics provider\n- Caching improvment making experience smoother\nFeatures\n- add Spotify homepage personalized recommendations (#1402) (9e25c74)\n- add user profile page (39e97ee)\n- android: Filter Device To Force High Frame Rate (#880) (6e41b10)\n- improved caching based on riverpod (#1343) (6673e5a)\n- LAN connect a.k.a control remote Spotube playback and local output device selection (#1355) (68374ef)\n- lyrics: add LRCLIB lyrics provider as fallback (5afe823)\n- search history support #1236 (82b1cfa)\n- translations: Add Czech translation (#1401) (5a6b800)\n- translations: add Thai Language (#1319) (b70f250), closes #1310 #1311\nBug Fixes\n- instance of Artist bug #1362 (c8dd802)\n- playback: sponsor block skips and stutters in same position (0d080b7)\nWhat's Changed\n- Fix broken link in README.md by @MerkomassDev in #1311\n- feat : added Thai Language by @watchakorn-18k in #1319\n- Update app_tr.arb by @mikropsoft in #1307\n- Updating Readme according to #1082 by @ksaadDE in #1171\n- Android: Filter Device To Force High Frame Rate by @brianabdl in #880\n- Add Czech translation by @Tutislav in #1401\nNew Contributors\n- @watchakorn-18k made their first contribution in #1319\n- @mikropsoft made their first contribution in #1307\n- @ksaadDE made their first contribution in #1171\n- @brianabdl made their first contribution in #880\n- @Tutislav made their first contribution in #1401",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.6.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "9047acdfc2a5d172780acdbf0a52bf9bc4fc88deab0cdef08ada7b83d5871508",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.6.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "9047acdfc2a5d172780acdbf0a52bf9bc4fc88deab0cdef08ada7b83d5871508",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.0+29",
+      "release_date": "2024-03-08",
+      "release_notes": "Highlights\n- Endless playback support\n- Getting started page addition\n- iOS background play support\n- songlink.com based track matching for YouTube\n- Automatic installation of vcredist if not installed support in Windows installer\n- Fix android audio distortion issue when screen is off\nFeatures\n- add endless playback support #285 (9dfd49c)\n- add getting started page (96a2a1f)\n- Add iOS background play support (#1166) (095587e)\n- add songlink based track matching for youtube and open song link button (9095a8c)\n- playlist: show confirmation before deleting user playlist #1222 (9f92440)\n- Sort by Duration (#1238) (6f8271f)\n- start radio support (4defeef)\n- translations: add Korean translation (#1275) (fdea930)\n- translations: Added Vietnamese (#1135) (019ba86)\n- windows: Install Visual C++ 2015-2022 Redistributable if missing when installing (ba69496)\nBug Fixes\n- album images are small in certain places (ca76a39)\n- album, artist page not loading #1282 (a9a1d4c)\n- android: audio issue when screen is off and broadcast audio session id (#1221 & #1247) (17105a6), closes KRTirtho/spotube#571\n- android: only ask battery optimization once #1252 (e516afb)\n- android: pressing back button in any other tab other than home exits the app (c3289a0)\n- android: system back button in player page exits the app (3294f65)\n- cleanTitle removing feat and ft from words instead of whole words (8612345)\n- friends list not scrollable with mouse drag (ab08c82)\n- no draggable scrollbar in playlist/album page #1158 (6f71e52)\n- non-banger songs breaking the queue if sources not found (90f7c53)\n- track loading when not found in Youtube (e964f61)\n- translations: Update app_nl.arb (#1168) (8167963)\nNew Contributors\n- @VishwasSaini25 made their first contribution in #1203\n- @Stephan-P made their first contribution in #1168\n- @Kuyumee made their first contribution in #1238\n- @olivier2 made their first contribution in #1208\n- @doannc2212 made their first contribution in #1135\n- @sappho192 made their first contribution in #1275\nFull Changelog:",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.5.0+29",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.5.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "859b6b2a84de0430c2b8fcaceb415bbdeccaee96ae0a9e714e8883c430b697c4",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.5.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "859b6b2a84de0430c2b8fcaceb415bbdeccaee96ae0a9e714e8883c430b697c4",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.1+28",
+      "release_date": "2024-01-27",
+      "release_notes": "Features\n- add create playlist button in add playlist dialog (2168a64)\n- add spotify friends activity (#1130) (7983932)\n- deep-link: add track opening page (988a975)\n- haptic feedback on long press and reordering actions (6242200)\n- improve youtube/piped matching by suffixing \"- Topic\" (8184555)\n- translations: add Nepali (नेपाली) translations (#1111) (c3ebf56), closes #1074 #1100\nBug Fixes\n- alternative searched sources doesn't play #1059 (a8e9b82)\n- alternative source doesn't persist on next restart #840 (62fde50)\n- android: download failing for permission issues #1015 (5509cae)\n- artist page error #1018 (8cd650b)\n- audio resumes after a phone call even if it was paused before  #926 (fd1899f)\n- better error message for failing to find lyrics #1085 (e58e18d)\n- Black window flash when starting the app (#1003) (02e44fc)\n- linux: crash after login (0dfd401)\n- macos: backbutton and window button overlap and unused empty space on home (b9417ca)\n- macos: download folder unchangeable (9d74cf5)\n- macos: Respect Minimize to tray option (#1001) (69559ba)\n- macos: system tray shows name and sidebar weird gap #1083 (27057ea)\n- releases section is empty when user doesn't follow any artists #1104 (682e88e)\n- search page vertical scrollbar moves on horizontal scroll #1017 (c203ac6)\n- songs doesn't play when sources with preferred audio codec is empty (#976) (ba4e11a)\n- track index not showing after 200 (a752cf4)\n- track pad horizontal scrolling not working (59e0e6b)\nNew Contributors\n- @franchioping made their first contribution in #977\n- @powenn made their first contribution in #971\n- @taha-ghadirian made their first contribution in #1074\n- @m-Jawa-d made their first contribution in #1100\n- @iamnabink made their first contribution in #1111",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.4.1+28",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.4.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "a7187071afb3c5ca1ffe3a194de121f5a117dd4900e69484b7c9c6a5ddb5d015",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.4.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "a7187071afb3c5ca1ffe3a194de121f5a117dd4900e69484b7c9c6a5ddb5d015",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.0",
+      "release_date": "2023-12-30",
+      "release_notes": "Highlights\n- Open Spotify™ links (playlist/artist/album) in Spotube (Deep Link support)\n- Improved Loading animaions\n- Improved Genre view\n- New Italian and Dutch translations\n- Fixed No song metadata for downloaded audio track\n- Fixed wrong artist name was being sent for LastFM™\nFeatures\n- Add Go to Album option in track option #917 (b0beeca)\n- translations: add Italian language translations (#818) (e4eb0e2), closes #676 #676\n- compact genre view in home page (82ed5e9)\n- Deep link support (#950) (4050f55)\n- improve loading animations (b92583d)\n- toggle for discord rpc (24a2294)\n- translations: add Dutch Language (#969) (3ad7ba6)\nBug Fixes\n- add safe area in home (9ee6067)\n- amoled mode and color scheme can't be changed (840e014)\n- doesn't minimize to tray when system title bar close button is used #866 (bb8f250)\n- genre border issues (2fb16e6)\n- Incorrect \"Artist\" label/heading on Search Results Page #920 (f86d544)\n- metadata not getting added for YouTube tracks #916 and Wrong duration of downloaded tracks  #912 (a7b9398)\n- Playlist refresh not working #915 (5f1df5a)\n- track view header title overflow and player view drag glitch (b04d884)\n- wrong artist name sent while scrobbling #958 (dcbe729)\nNew Contributors\n- @ashirbadsahu made their first contribution in #923\n- @Ultra980 made their first contribution in #933\n- @energywave made their first contribution in #818\n- @Go-rom made their first contribution in #944\n- @SecularSteve made their first contribution in #969",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.4.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "f2a3040472af4d133a5941dfa5b8bbeabee374e0cf8f4972fe7d775aa8f9a1ad",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.4.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "f2a3040472af4d133a5941dfa5b8bbeabee374e0cf8f4972fe7d775aa8f9a1ad",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.0",
+      "release_date": "2023-11-27",
+      "release_notes": "Highlights\n- Added JioSaavn as audio source\n- Added pagination in playlist and album page\n- New Turkish translations\n- \"Add to Playlist\" not working\n- Invalid download location and folder permission errors\n- Last track of queue keeps repeating\n- Scrobbling not working for first track or single track\n- Shuffle doesn't move active track to top\n- Windows media control not working\nFeatures\n- Add JioSaavn as audio source (#881) (14069cd)\n- android: better quick scroll/drag to scroll implementation (2e2c44f)\n- artist: modularize page and add wikipedia section (2a69886)\n- discord RPC integration #98 (88b8785)\n- mini_player: show/hide lyrics #851 (dcbb156)\n- paginated playlist and album page (28a5d6b)\n- translations: add Turkish translations (0c22469)\nBug Fixes\n- \"Add () to Playlist\" option not showing in favorited playlists #904 (96021e1)\n- 0:00 media duration in queue after application restart  #782 (83c0b49)\n- Add to Playlist Dialog memory leak #817 (fed36ec)\n- album_card: show loading state during adding track to queue/play (5633367)\n- alternative track source safearea overflow #876 (7b72a90)\n- android invalid download location Download not starting or not explaining error #720 (d056dbf)\n- changed settings are not persisting after force stop #821 (e29a38d)\n- check for unsynced lyrics and error handling for timed lyrics query (1d77556)\n- genres: lag while scrolling (dc980b0)\n- infinite list disappearing for a moment everytime new  page is fetched (1334a62)\n- last track of queue keeps repeating #718 (58e5698)\n- Navigating to settings, redirects to home page #812 (da04f06)\n- new releases section flickering on scroll glitch (ee94b7c)\n- playbutton_card: annoying animation (574406d)\n- scrobbling not working for first track or single track (0a6b54d)\n- settings page scrollbar position (ee82290)\n- shuffle doesn't move active track to top (4956bf3)\n- spotube doesn't exit properly, hangs in infinite loop #768 (353ca79)\n- trim login field padding (286ef83)\n- use CustomScrollView for personalized page (7d05c40)\n- user_playlists layout, track tile index, (487c2ed)\n- windows: media control not working #641 (7818574)\nWhat's Changed\n- Updated README.md file - Debian installation by @aminsaedi in #847\n- feat: Add JioSaavn as audio source by @KRTirtho in #881\nNew Contributors\n- @aminsaedi made their first contribution in #847",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.3.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "7aef912e5344a909589a6c13a80917fae8e150a3e7cc02edf68204196b03be90",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.3.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "7aef912e5344a909589a6c13a80917fae8e150a3e7cc02edf68204196b03be90",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.0",
+      "release_date": "2023-10-16",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.2.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "64f220bd88c343ce038d1c2d27278e0bd56cd1183f6ed0c6e6a54b17f86d98c2",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.2.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "64f220bd88c343ce038d1c2d27278e0bd56cd1183f6ed0c6e6a54b17f86d98c2",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.2",
+      "release_date": "2023-09-15",
+      "release_notes": "Features\n- player_queue: filtering track support (d4f99ec)\n- right click to open track option (1540999)\n- search loading animation (b9d5c70)\n- show loading indicator on play track (d12ea48)\nBug Fixes\n- add missing dependency in debian package (#704) (c987ea7)\n- hour not showing for tracks longer than 60 minutes (#648) (de335f4)\n- liked tracks card play not working (d3e1cef)\n- limit cover image upload to allowed 256kb size (1c50612)\n- playlist grey page (#707) (0df8d9c)\n- rewind breaks track progress bar (#695) (e321743)\n- Windows memory leak due refetchOnStale user-liked-tracks (#705) (142dc49)\nWhat's Changed\n- fix: add missing dependency in debian package by @Razuuu in #704\n- fix: Windows memory leak due refetchOnStale user-liked-tracks by @KRTirtho in #705\n- Fix playlist grey page by @victj99 in #707\n- Playlist info editing by @KRTirtho in #708\n- Add my name to contributors and minor formatting fix by @meenbeese in #713\n- cd: Armbuild Circleci project setup by @KRTirtho in #723\nNew Contributors\n- @Razuuu made their first contribution in #704\n- @victj99 made their first contribution in #707",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.1.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.1.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.1.2/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "34dc9e86162200fd1a2aa689cef99390a717bbc050fb299d64dbb4bd12680c28",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.1.2/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "34dc9e86162200fd1a2aa689cef99390a717bbc050fb299d64dbb4bd12680c28",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.1",
+      "release_date": "2023-08-28",
+      "release_notes": "Features\n- ability to toggle system title bar & custom title bar (#185) (8d46029)\n- jump to specific time on lyric click (#590) (a14fb9e)\n- paginated user albums (d239d64)\n- translations: add Russian translation (#661) (e9a0911), closes #625\n- translations: added Portuguese (Brazil) translation (#634) (76f30a0)\nBug Fixes\n- always fetching SponsorBlock if no segments found & download failing (6ced0a0)\n- debian bookworm invalid dependencies (633415d)\n- disable android auto for playstore version :\"( (0f0d240)\n- infinite route push glitch (e90eceb)\n- jump to track going to wrong track (190df17)\n- last track of queue never plays & repeat playlist never works (c3c09f5)\n- lyrics page text contrast (179d536)\n- replace connectivity_plus with internet_connection_checker (f23e871)\n- sanitize song title for file name (#644) (1a7ea0c)\n- sorting by date crashes app (#551) (48e90a4)\n- window size remains same after exiting mini player (#618) (fb36003)\nWhat's Changed\n- feat: Enhance mobile responsiveness by @ElonMusk2002 in #647\n- added Portuguese (Brazil) translation by @Lobooooooo14 in #634\n- Readability changes in README.md by @MerkomassDev in #625\n- Russian translation added by @firapinch in #661\nNew Contributors\n- @ElonMusk2002 made their first contribution in #647\n- @Lobooooooo14 made their first contribution in #634\n- @MerkomassDev made their first contribution in #625\n- @firapinch made their first contribution in #661",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.1.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.1.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "e923d470db907165ab73fc7f42345203186a13cc9f04be2c2b6f5a0ea00666e5",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.1.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "e923d470db907165ab73fc7f42345203186a13cc9f04be2c2b6f5a0ea00666e5",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.0",
+      "release_date": "2023-08-18",
+      "release_notes": "Features\n- add android auto media session control support (0f5748a)\n- better track matching on youtube API (904a0d3)\n- blazingly™ fast download manager (#619) (38dc4be)\n- paginated user playlists (e7c6813)\n- show error dialog on piped API 500 error (c69f81e)\n- translation: add catalan translations (#621) (c94e5ba)\n- translations: add polish translation (#631) (f90e9be)\n- web compatibility (cf7b849)\nBug Fixes\n- always showing play in playlist/album views (8521cc5)\n- android: android 13 local tracks not showing up (e3f4344)\n- default to youtube API by default (5a8a1e4)\n- generate playlist page max width (4adf695)\n- tracks doesn't change when ended (aa4ac86)\n- windows media controls not working (ae5edd1)\nWhat's Changed\n- Better download manager by @KRTirtho in #619\n- translate to catalan by @sf0nt in #621\n- Polish translation by @TexturedPolak in #631\nNew Contributors\n- @sf0nt made their first contribution in #621\n- @TexturedPolak made their first contribution in #631",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.1.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "c151a6150cae5471b28f45e48b19d1b620cd307ce55148e424beb83df22c74ac",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.1.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "c151a6150cae5471b28f45e48b19d1b620cd307ce55148e424beb83df22c74ac",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.1",
+      "release_date": "2023-08-04",
+      "release_notes": "Features\n- Force High Refresh Rate on some Android devices (#607) (6dff099)\n- translations: add spanish translations (#585) (042d7a4)\n- translations: add Simplified Chinese translation. (#556) (26dbd52)\nBug Fixes\n- alternative track source textfield safe area (b8c6d7e)\n- avoid sponsor block for first few seconds to not break the stream (d8cf2ae)\n- cache segments casting error (dfd60bd)\n- duration is always zero in PlayerView (4885dca)\n- flags not showing up and html in descriptions (5a563ef)\n- linux: crash when no secret service provider found (#608) (888a4b1)\n- login dialog stays after login, mention sp_gaid in tutorial (b492840)\n- album_sync: negative index exception in update palette (#561) (0089d47)\n- remove adaptive widgets (#520) (e4cbdd3)\n- shuffle not working (#562) (dc76634)\n- track not skipping to next even when source is available (0b7affd)\nWhat's Changed\n- Fix a dash by @RaptaG in #544\n- Improve install.sh by @RaptaG in #521\n- Get Dependabot to target the dev branch by @RaptaG in #555\n- Privacy policy changes by @owencz1998 in #560\n- #537 fix negative index bug by @KRTirtho in #561\n- #540 shuffle not working by @KRTirtho in #562\n- V3 playstore patch by @KRTirtho in #567\n- Add Simplified Chinese translation. by @iceyear in #556\n- Use official Play Store badge from Google by @meenbeese in #570\n- Fix player position performance issue by @karniv00l in #606\n- Create a translation to spanish by @soudabot in #585\n- Force High Refresh Rate on some Android devices by @karniv00l in #607\n- fix(linux): crash on no secret service by @KRTirtho in #608\n- Update to v3.0.1 by @KRTirtho in #612\nNew Contributors\n- @owencz1998 made their first contribution in #560\n- @iceyear made their first contribution in #556\n- @soudabot made their first contribution in #585",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.0.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "30e7e465d50de6d57272b3eccbdc5ffce3ef68765d625bae130db424164196b2",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.0.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "30e7e465d50de6d57272b3eccbdc5ffce3ef68765d625bae130db424164196b2",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.0",
+      "release_date": "2023-07-02",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v3.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/3.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.0.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "f64a30eb2631993a2db54a43d60f49d6c012bfa959c6bffeec3b3a45509aa9f9",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v3.0.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "f64a30eb2631993a2db54a43d60f49d6c012bfa959c6bffeec3b3a45509aa9f9",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.1",
+      "release_date": "2023-04-10",
+      "release_notes": "Bug Fixes\n- fallback for lyrics when anonymous (f160ec7)\n- android: audio notification stuck in play state (448c9b3)\n- macos: crashing on startup (c46b428)\n- spotify query hooks overriding default query params (ec9a02e)\n Contributions\n- Update README.md by @RustyApple in #427\n- Update README.md by @meenbeese in #434\n- Improve the issue templates by @RaptaG in #435\n- docs: fix typo in README by @RaptaG in #449\n- Remove Play Store disclaimer by @RaptaG in #455\n New Contributors\n- @RustyApple made their first contribution in #427\n- @meenbeese made their first contribution in #434",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v2.7.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.7.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "c12c3f0b363f29a9a25a33ce782bddea72abbcc7ef6f95c2e54e4b4cbfe7b8e6",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.7.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "c12c3f0b363f29a9a25a33ce782bddea72abbcc7ef6f95c2e54e4b4cbfe7b8e6",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.0",
+      "release_date": "2022-12-09",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v2.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.6.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "10a6f35257ebde6dcd9054cca1a9afe75c352c675a579728f3334606c97d56c7",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.6.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "10a6f35257ebde6dcd9054cca1a9afe75c352c675a579728f3334606c97d56c7",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.0",
+      "release_date": "2022-10-13",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v2.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.5.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "5c2c533f23dab640d2aae16573092f2adf033daeaa85a7adefeaa8195354aa8d",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.5.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "5c2c533f23dab640d2aae16573092f2adf033daeaa85a7adefeaa8195354aa8d",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.4.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "725175916d4cf4a291ab219d1e5682b7e5a49d83293ae598cb91d5fee5ba9565",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.4.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "725175916d4cf4a291ab219d1e5682b7e5a49d83293ae598cb91d5fee5ba9565",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.4.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "d74725cb4b3de0dc95609dcf4114934c905080236a7f1a5a9798e45625ef47f2",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.4.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "d74725cb4b3de0dc95609dcf4114934c905080236a7f1a5a9798e45625ef47f2",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.3.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "49b637ccac5f091a6c5f4825a37727a9387c152a947fd7c351cb0520ddb34201",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.3.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "49b637ccac5f091a6c5f4825a37727a9387c152a947fd7c351cb0520ddb34201",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.2.0",
+      "release_notes": "New\n  Update checker\n  Share options for playlists & track\n  Android Skip to Next/Previous track from notification/lockscreen\n  Custom Accent Color Scheme support (Dark + Light)\n  Custom Background Color Scheme support (Dark + Light)\n  User customizable Audio Quality Option\n  User customizable Track Matching Algorithm Option\n  Material 3 Design Language and Flutter 3.0\n  Caching in Playlists, Album, Search, Playlist Categories, Artist Profile & Lyrics\n\nImproved\n  Authentication is now persistent (no more re-login)\n  Settings Page. Shows application details in About Dialog\n  Playlist Create Dialog Scrollable\n\nBug fixes\n  private playlists of current user aren't shown fix (#92)\n  refresh token error causing re-login (culprit: internal lib spotify-dart)\n  Typo in Login instructions URL",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v2.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.2.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "d2ec2b37cfed3f6683fb27ffbe3e84f63085836a6e18da6d85e21397540d38b9",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.2.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "d2ec2b37cfed3f6683fb27ffbe3e84f63085836a6e18da6d85e21397540d38b9",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.0",
+      "release_date": "2022-05-13",
+      "release_notes": "New 🎉\n  🔥Synced Lyrics (with fallback genius lyrics)🔥\n  Playlist create/delete\n  Add/Remove tracks to own playlists\n  Custom YouTube track search term template\n  Downloading lyrics along with a track (can be toggled)\n  Customize Marketplace location\n\nImproved 📈\n  Spotify track to youtube track algorithm\n  Genius lyrics matching algorithm\n  Download track. Checks if already exists & replaces on user command\n  Wide screen responsiveness & adaptation\n  Bigger Title display (replaced word-break with Marquee Text for better visibility)\n\nBug fixes 🐛\n  Sequential playlist playback not working with latest webkit2gtk\n  Theme modification state doesn't persist\n  Wrong URI path for \"Login with Spotify\" tutorial\n  Card shadow showing in the background of TitleBar & Searchbar",
+      "release_notes_url": "https://github.com/KRTirtho/spotube/releases/tag/v2.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.1.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "7f93b3d5c60feef0717aa7a98db8425046e2ffba8efa33e25abbf2a4097c429a",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.1.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "7f93b3d5c60feef0717aa7a98db8425046e2ffba8efa33e25abbf2a4097c429a",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.0.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "0b60f232a8c17686b7751a36787c9490b35ff6f3139955c72a11c8db19317a91",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v2.0.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "0b60f232a8c17686b7751a36787c9490b35ff6f3139955c72a11c8db19317a91",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/1.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v1.2.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "02c032e1a2b8f60969b7a65c6a5e21df2bf5834cc8d8062cf56a2c8245a2a90e",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v1.2.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "02c032e1a2b8f60969b7a65c6a5e21df2bf5834cc8d8062cf56a2c8245a2a90e",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.1.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/1.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v1.1.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "144fb4170b424ae9ecee8941354244cb9744c0913fdc69f730a8b5e40e56753d",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v1.1.0/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "144fb4170b424ae9ecee8941354244cb9744c0913fdc69f730a8b5e40e56753d",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/k/KRTirtho/Spotube/1.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v1.0.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "85820a7169a2c265648d66d8950377c4c8fe11f677d2fe2b03db5c2815bfeb6d",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/KRTirtho/spotube/releases/download/v1.0.1/Spotube-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "Spotube-windows-x86_64-setup.exe",
+          "sha256": "85820a7169a2c265648d66d8950377c4c8fe11f677d2fe2b03db5c2815bfeb6d",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "version": "v5.1.2",
+      "release_date": "2026-06-05",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.github.KRTirtho.Spotube.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.github.KRTirtho.Spotube.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.github.KRTirtho.Spotube.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.github.KRTirtho.Spotube.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "4fb5e09afe5262757b4b07ad5dd795814872e2e3",
+      "retrieved_at": "2026-11-11T13:29:00.282Z",
+      "path": "manifests/k/KRTirtho/Spotube"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.github.KRTirtho.Spotube",
+      "retrieved_at": "2026-11-11T13:29:04.150Z",
+      "path": "api/v2/appstream/com.github.KRTirtho.Spotube",
+      "api_url": "https://flathub.org/api/v2/appstream/com.github.KRTirtho.Spotube",
+      "content_sha256": "b468eb2a3c1cf0e5b17f6b3583840ab0f7598b6f38692829f4775fd169492964"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.github.KRTirtho.Spotube",
+    "page_url": "https://flathub.org/apps/com.github.KRTirtho.Spotube",
+    "repo_url": "https://github.com/flathub/com.github.KRTirtho.Spotube",
+    "install_command": "flatpak install flathub com.github.KRTirtho.Spotube",
+    "run_command": "flatpak run com.github.KRTirtho.Spotube",
+    "verified": true,
+    "verification": {
+      "method": "login_provider",
+      "login_provider": "github",
+      "login_name": "KRTirtho",
+      "login_is_organization": true,
+      "verified_on": "2023-02-19"
+    },
+    "license": "BSD-4-Clause",
+    "free_license": true,
+    "developer_name": "Kingkor Roy Tirtho",
+    "categories": [
+      "Audio",
+      "Music",
+      "Player",
+      "AudioVideo"
+    ],
+    "download_size": 86938178,
+    "installed_size": 203417600,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

@@ -1,0 +1,557 @@
+{
+  "schema_version": 2,
+  "slug": "chatterino",
+  "name": "Chatterino",
+  "publisher": "Chatterino Team",
+  "author": "fourtf, pajlada, and contributors",
+  "ids": {
+    "winget": "ChatterinoTeam.Chatterino",
+    "moniker": "chatterino",
+    "homebrew_cask": "chatterino",
+    "flathub": "com.chatterino.chatterino"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Chat client for https://twitch.tv",
+  "tags": [
+    "twitch"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/Chatterino/chatterino2",
+    "publisher": "https://chatterino.com/",
+    "support": "https://github.com/Chatterino/chatterino2/issues",
+    "bug_tracker": "https://github.com/Chatterino/chatterino2/issues",
+    "release_notes": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.6"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/Chatterino/chatterino2/blob/HEAD/LICENSE",
+    "spdx": "MIT"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.5.6",
+    "macos": "2.5.6",
+    "linux": "2.5.5"
+  },
+  "last_updated": "2026-10-04",
+  "versions_total": {
+    "windows": 7,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.5.6",
+      "release_date": "2026-10-04",
+      "release_notes": "This is a Windows & macOS only bugfix release, fixing an issue where many Twitch emotes fail to load.",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.6",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/c/ChatterinoTeam/Chatterino/2.5.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.6/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "4fcf2c429ef015a92ab7e2fae3e6b19d2fb914918bd21370b5db64fc8a0d62dc",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.6/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "4fcf2c429ef015a92ab7e2fae3e6b19d2fb914918bd21370b5db64fc8a0d62dc",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.5",
+      "release_date": "2026-03-22",
+      "release_notes": "This is the full release of v2.5.5.\nThe full changelog can be found at https://chatterino.com/changelog#2.5.5\nCommit list\nWhat's Changed\n- chore: make sanitizers opt in by @pajlada in #6493\n- fix: use qsizetype zerovalue instead of 0LL by @pajlada in #6483\n- fix: usercard resizing improperly without recent messages by @teknsl in #6496\n- ci: fix WinGet release workflow by @pajlada in #6497\n- doc: fix release docs by @pajlada in #6498\n- dev: find boost's CMake Config file instead of module by @pajlada in #6499\n- chore(deps): bump actions/github-script from 7 to 8 by @dependabot[bot] in #6443\n- chore(deps): bump actions/setup-python from 5 to 6 by @dependabot[bot] in #6442\n- chore(deps): bump ncipollo/release-action from 1.18.0 to 1.20.0 by @dependabot[bot] in #6438\n- chore(deps): bump codecov/codecov-action from 5.5.0 to 5.5.1 by @dependabot[bot] in #6444\n- chore(deps): bump hendrikmuhs/ccache-action from 1.2.18 to 1.2.19 by @dependabot[bot] in #6460\n- fix: remove QTextCodec include by @pajlada in #6487\n- deps: update libcommuni and required packages by @Nerixyz in #6500\n- feat: add setting for character limit of truncated deleted messages by @jacob-thompson in #6491\n- fix: expose home page of badges (if available) by @Nerixyz in #6437\n- chore(deps): bump lib/expected-lite from e45e8d5 to a0c4e02 by @dependabot[bot] in #6478\n- dev: correct handling of eventsubs without any account by @teknsl in #6503\n- Refactor font update logic in SplitInput by @Obertura777 in #6473\n- Add obertura777 to contributor list by @Obertura777 in #6505\n- refactor: merge emote element flags by @Nerixyz in #6511\n- Add support for plugin links by @Mm2PL in #6386\n- chore: remove unused Emojis::initialize by @Nerixyz in #6517\n- ci(freebsd): skip imageformats install by @pajlada in #6518\n- refactor: turn Emotes into EmoteController by @Nerixyz in #6516\n- Enable browser integration settings on all platforms by @crazysmc in #6509\n- fix: compilation error with Clang 21 by @Nerixyz in #6519\n- fix: set Qt definitions PUBLIC in chatterino-lib/-version by @Nerixyz in #6520\n- chore(deps): bump lib/qtkeychain from d972099 to 7668a63 by @dependabot[bot] in #6512\n- fix: add explanation for the logging feature under moderation by @Nikk0o in #6514\n- fix: warnings when compiling with Qt 6.10 by @Nerixyz in #6422\n- dev: disable AppImage builds by @pajlada in #6504\n- refactor: move LuaLS meta to a subdirectory by @Nerixyz in #6530\n- fix: overflow when computing scrollbar rect by @Nerixyz in #6547\n- fix: my changelog entries by @Nerixyz in #6550\n- update miniaudio to v0.11.23 by @pajlada in #6477\n- fix: prevent edit hotkey dialog opening as normal window by @jupjohn in #6540\n- dev: fix Arch Linux deps by @pajlada in #6553\n- fix: do forceLayoutChannelViews on font change by @teknsl in #6536\n- fix: set parent for settings dialog from account switcher by @Nerixyz in #6543\n- Plugin links pt 2: Link::InsertText by @Mm2PL in #6527\n- fix: Get rid of warnings on clang-cl by @Nerixyz in #6528\n- fix: Access correct channel in search popup by @Nerixyz in #6539\n- feat: menu action to sort tabs alphabetically by @teknsl in #6551\n- docs: replace debian bookworm deps with trixie by @teknsl in #6557\n- fix: set windows.h definitions on WIN32 instead of MSVC by @Nerixyz in #6534\n- refactor: consolidate font picking into one dialog by @teknsl in #6531\n- chore(deps): bump actions/upload-artifact from 4 to 5 by @dependabot[bot] in #6556\n- chore(deps): bump actions/download-artifact from 5 to 6 by @dependabot[bot] in #6555\n- refactor(splits): Store container nodes as shared pointers by @Nerixyz in #6435\n- fix(websockets): add query to URL by @Nerixyz in #6141\n- cmake: use FetchContent for some dependencies by @pajlada in #6560\n- chore: add mocks as header set if supported by @Nerixyz in #6561\n- fix(plugins): Log potential errors in HTTP request callbacks by @Nerixyz in #6452\n- fix: set stroke color when drawing restore button by @Nerixyz in #6565\n- docs: create serialize/signals/settings tag on release by @pajlada in #6566\n- cmake: rename RapidJSON declaration to rjlib by @pajlada in #6567\n- fix: disable package registry export by @Nerixyz in #6569\n- chore(deps): bump cmake/sanitizers-cmake from 0573e2e to bcb1fc6 by @dependabot[bot] in #6564\n- refactor(liveupdates): use WebSocketPool over websocketpp by @Nerixyz in #6308\n- fix(wayland): use system move by @Nerixyz in #6573\n- fix: certify & serialize licenses by @pajlada in #6575\n- fix: add Unicode license by @pajlada in #6579\n- fix: middle-clicking username in local channels by @Julia-Roman in #6577\n- feat: add setting to show title in live message by @Julia-Roman in #6572\n- Add Supa as a contributor by @Julia-Roman in #6580\n- feat: seperate watchstreak highlights from sub highlights by @devPoland in #6571\n- fix: remove dead code from watch streak highlight seperation by @devPoland in #6581\n- add devPoland as contributor by @devPoland in #6582\n- fix(test): Set settings directory in Paths by @Nerixyz in #6584\n- Add solomoncyj to contributors.txt by @solomoncyj in #6585\n- test(plugins): check unwinding and version by @Nerixyz in #6586\n- feat(plugins): add JSON parsing/serialization by @Nerixyz in #6420\n- feat: add poll and prediction commands for broadcasters by @iProdigy in #6583\n- feat: add ability to limit message snapshot size by @Nerixyz in #6602\n- Fix crash in notifyTwitchChannelOffline when snapshot is empty by @vxtk in #6604\n- refactor: remove LimitedQueueSnapshot by @Nerixyz in #6606\n- chore(deps): bump hendrikmuhs/ccache-action from 1.2.19 to 1.2.20 by @dependabot[bot] in #6603\n- chore(deps): bump actions/checkout from 5 to 6 by @dependabot[bot] in #6593\n- chore(deps): bump ZedThree/clang-tidy-review from 0.21.0 to 0.22.2 by @dependabot[bot] in #6601\n- refactor: simplify uses of getMessageSnapshot by @Nerixyz in #6607\n- chore: disable llvm-prefer-static-over-anonymous-namespace by @Nerixyz in #6610\n- feat: add options to close multiple visible tabs in context menu by @otaviobia in #6515\n- feat: add /endpoll and /cancelpoll commands for broadcasters by @iProdigy in #6605\n- chore(deps): bump lib/expected-lite from 6656728 to 3583e95 by @dependabot[bot] in #6590\n- refactor: split some highlight structs away from HighlightController by @pajlada in #6613\n- set desktop-entry hint with libnotify by @teknsl in #6615\n- ci: bump freebsd builder to 14.3 by @pajlada in #6621\n- feat(plugins): minimal account API by @Nerixyz in #6554\n- fix: wording of \"close visible tabs to X\" for vertical tabs by @jupjohn in #6619\n- ci: add clazy by @Nerixyz in #6623\n- chore(deps): bump lib/expected-lite from 588f772 to 83de1a2 by @dependabot[bot] in #6614\n- Add categories to emoji viewer by @treejadey in #6598\n- feat: add /lockprediction and /cancelprediction commands for broadcasters by @iProdigy in #6612\n- ci: drop Qt 6.4.3 support by @pajlada in #6628\n- ci: run custom clang-tidy module by @pajlada in #6626\n- ci: drop Ubuntu 20.04 support by @pajlada in #6630\n- feat: show BTTV Pro badges by @Nerixyz in #6625\n- feat(plugins): allow message introspection by @Nerixyz in #6353\n- fix(websocket): try connecting to all hosts by @pajlada in #6631\n- Add lead moderator role detection by @Juliapixel in #6642\n- chore: update global badges by @jupjohn in #6643\n- Add Juliapixel as contributor by @Juliapixel in #6644\n- fix: save settings less often by @pajlada in #6620\n- chore(eventsub): reformat session.cpp by @Nerixyz in #6646\n- chore(deps): bump lib/twitch-eventsub-ws/lib/date from a5db3ae to b2e917c by @dependabot[bot] in #6634\n- chore(deps): bump actions/cache from 4 to 5 by @dependabot[bot] in #6648\n- fix(SplitInput): reuse of layout creator by @pajlada in #6654\n- ci: format ./twitch-eventsub-ws by @pajlada in #6647\n- feat: add broadcaster-only /completeprediction command by @iProdigy in #6632\n- fix: disable check-clang-tidy nounset check by @pajlada in #6658\n- refactor: move Twitch PubSub to use liveupdates by @Nerixyz in #6638\n- chore(deps): bump actions/download-artifact from 6 to 7 by @dependabot[bot] in #6657\n- chore(deps): bump actions/upload-artifact from 5 to 6 by @dependabot[bot] in #6656\n- feat: class lead mod badge as channel authority by @jupjohn in #6665\n- bump clang-tidy-review version by @pajlada in #6666\n- chore(deps): bump codecov/codecov-action from 5.5.1 to 5.5.2 by @dependabot[bot] in #6639\n- chore: add reuse licence checking by @pajlada in #6659\n- fix(plugins): add ifdef around accounts API and ci check by @Nerixyz in #6675\n- chore(deps): bump actions/checkout from 4 to 6 by @dependabot[bot] in #6671\n- chore(deps): bump dawidd6/action-download-artifact from 11 to 12 by @dependabot[bot] in #6679\n- fix: get full snapshot for message timeouts by @Nerixyz in #6683\n- feat: add markdown support for user notes by @jacob-thompson in #6490\n- feat: add duration and title options to clip command by @iProdigy in #6669\n- feat(plugins): add debug.traceback by @Nerixyz in #6652\n- fix(macOS): command + delete by @jacob-thompson in #6676\n- chore(deps): bump lib/serialize from f4a7dbf to cab49a0 by @dependabot[bot] in #6672\n- chore(deps): bump lib/qtkeychain from 7668a63 to f73a341 by @dependabot[bot] in #6673\n- chore(deps): bump lib/expected-lite from 83de1a2 to df58147 by @dependabot[bot] in #6689\n- refactor: remove use of raw nonstd:: by @pajlada in #6690\n- chore: simplify USE_ALTERNATE_LINKER code by @pajlada in #6692\n- chore: enable C++23 and prefer std::expected by @pajlada in #6693\n- chore: don't list date/expected_lite in about page if unused by @pajlada in #6694\n- chore: run clang-tidy --fix to fix explicit-this by @pajlada in #6696\n- fix: qt 6.7 build on macOS by @pajlada in #6697\n- fix(eventsub): add timeout to close operation by @Nerixyz in #6645\n- fix: more carefully use app in NetworkPrivate/NetworkTask by @pajlada in #6698\n- chore: explicitly mark licenses for script files part 1 by @pajlada in #6699\n- chore: remove scripts/windows-fix-directory-case-sensitivity.sh by @pajlada in #6700",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/c/ChatterinoTeam/Chatterino/2.5.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.5/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "8063084f2d4f8265acc7720274324f66067fcb935a5eb0540b8b0a524d8d9a55",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Chatterino 2.5.5",
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.5/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "8063084f2d4f8265acc7720274324f66067fcb935a5eb0540b8b0a524d8d9a55",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Chatterino 2.5.5",
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.4",
+      "release_date": "2025-09-21",
+      "release_notes": "This is the full release of v2.5.4.\nThe full changelog can be found at https://chatterino.com/changelog#2.5.4\nCommit list\n- chore(conan): don't create CMakeUserPresets.json by @Nerixyz in #6117\n- Fix: Don't create native messaging manifest file if browser directory doesn't exist by @4rneee in #6116\n- fix(cmake): use --force-openssl on Qt 6.8+ by @Nerixyz in #6129\n- fix: make reply-cancel button less coarse-grained by @leungbk in #6106\n- make paused chat indicator more apparent by @jacob-thompson in #6123\n- fix: receive bttv live updates again by @iProdigy in #6132\n- fix cmd+backspace behavior in main chat dialog input by @jacob-thompson in #6111\n- Fixes #3545 Allow disabling fading recent messages by @fourtf in #6121\n- fix: allow scrolling by inputs in settings by @Nerixyz in #6128\n- fix: missing space char in settings by @mastondzn in #6134\n- feat(plugins): add c2.WebSocket by @Nerixyz in #6076\n- fix: complete Twitch commands with slash by @Nerixyz in #6143\n- Only draw outline for overlay when hovered over by @teknsl in #6140\n- Add cached emotes fallback for failed provider fetches by @occluder in #6125\n- fix: don't clear message when closing reply by @pajlada in #6145\n- Add occluder to contributors list by @occluder in #6149\n- refactor: split by @pajlada in #6148\n- fix: add more image sizes to shared chat badge by @Nerixyz in #6146\n- Feat: (Linux) Themes allow transparency on chat windows background by @apa420 in #6137\n- Feature/user notes Fixes #2413 by @fourtf in #6122\n- fix: split drag & drop on KDE Plasma by @pajlada in #6147\n- feat: make filters searchable with Settings dialog search by @apa420 in #5890\n- chore(deps): bump ZedThree/clang-tidy-review from 0.20.1 to 0.21.0 by @dependabot[bot] in #6142\n- chore(deps): bump lib/expected-lite from 54ca18b to 194b3f6 by @dependabot[bot] in #6089\n- chore(deps): bump lib/twitch-eventsub-ws/lib/date from d18e8b1 to a45ea7c by @dependabot[bot] in #6112\n- fix: don't include .inc in outputs by @Nerixyz in #6154\n- fix: handle aboutToQuit() by @Nerixyz in #6159\n- refactor: trim down PubSub implementation by @Nerixyz in #6158\n- fix: use qlogging in eventsub lib (through a hoop) by @pajlada in #6161\n- feat(6156): disable tab renaming on double-click via setting by @jupjohn in #6163\n- chore(deps): bump lib/settings from c141a40 to 104e1c8 by @dependabot[bot] in #6150\n- chore(deps): bump lib/qtkeychain from ad7344c to 35c4f40 by @dependabot[bot] in #6135\n- chore(deps): bump codecov/codecov-action from 5.4.0 to 5.4.2 by @dependabot[bot] in #6152\n- feat: update emojis to Unicode 16.0 by @Nerixyz in #6155\n- fix: emote popup logging messages to \"Other\" directory by @pajlada in #6165\n- chore(deps): bump DoozyX/clang-format-lint-action from 0.18 to 0.20 by @dependabot[bot] in #6151\n- chore: re-export Qt's string literals by @Nerixyz in #6175\n- chore: bump deprecated cutoff to Qt 6.4.3 by @Nerixyz in #6169\n- dep: update googletest to v1.17.0 by @pajlada in #6180\n- fix: don't include blocked users in join/part messages by @pajlada in #6181\n- refactor(TwitchAccount): mostly include cleanup by @pajlada in #6182\n- feat: add tooltip for rename on double-click setting by @jupjohn in #6184\n- chore(deps): bump hendrikmuhs/ccache-action from 1.2.16 to 1.2.18 by @dependabot[bot] in #6179\n- chore(deps): bump jurplel/install-qt-action from 4.1.1 to 4.2.1 by @dependabot[bot] in #6170\n- chore: bump settings version by @pajlada in #6185\n- Do not hide WebSocket API when missing permission by @Mm2PL in #6186\n- feat: run-and-kill script by @pajlada in #6188\n- refactor(WindowManager): remove some getApp uses by @pajlada in #6194\n- Add hotkey action for opening account switcher by @teknsl in #6192\n- fix(plugins): TSTL HTTPRequest.create generation by @2547techno in #6190\n- feat(uploader): extend JSON selectors by @Nerixyz in #6193\n- refactor: fix some spelling mistakes by @pajlada in #6196\n- fix: crash that could occur when force-closing 7tv/bttv live updates by @pajlada in #6197\n- refactor: move event api initializations to TwitchIrcServer by @pajlada in #6198\n- feat: make Nicknames searchable with settings dialog search bar by @apa420 in #5886\n- docs: update natvis repo by @Nerixyz in #6202\n- use QMetaObject::invokeMethod to post to thread by @pajlada in #6203\n- fix: send weak ptr to session's checkKeepalive timer by @pajlada in #6204\n- chore(deps): bump lib/WinToast from 1c841d3 to 11e76e5 by @dependabot[bot] in #6090\n- chore(deps): bump codecov/codecov-action from 5.4.2 to 5.4.3 by @dependabot[bot] in #6211\n- chore: remove bad event api init comments by @pajlada in #6212\n- fix: don't construct images after we're quitting by @pajlada in #6213\n- attempt to fix crashes on exit by @pajlada in #6187\n- refactor(notebook): merge top/bottom and left/right layout by @Nerixyz in #6215\n- refactor: use std::_Exit in rungui instead of _exit by @pajlada in #6218\n- refactor: move TimeoutStackStyle to its own file by @pajlada in #6216\n- refactor: move Notebook enums to their own file by @pajlada in #6220\n- refactor: remove Application.hpp dependency in Plugin.hpp by @pajlada in #6219\n- Forward declare some things to speed up compile by @Mm2PL in #6162\n- Fix plugin docs: HTTPRequest enum by @ynot01 in #6225\n- Add ynot01 to contributors list by @ynot01 in #6226\n- fix: crash on older versions of Qt by @pajlada in #6229\n- refactor: floatify messages by @Nerixyz in #6231\n- fix(plugins): TSTL static method generation by @2547techno in #6223\n- refactor: buttons by @Nerixyz in #6102\n- fix: don't indent inner namespaces by @pajlada in #6235\n- chore: require clang-format 19 by @Nerixyz in #6236\n- fix(once-flag): make flag atomic by @Nerixyz in #6237\n- chore: update .git-blame-ignore-revs by @pajlada in #6239\n- feat: add support for automatic streamer mode check from flatpak by @ilya-zlobintsev in #6250\n- chore(deps): bump lib/twitch-eventsub-ws/lib/date from a45ea7c to 6d7739e by @dependabot[bot] in #6252\n- fix: use integers for message layout bounds by @Nerixyz in #6254\n- fix(button): use DPR for cached pixmap scale by @Nerixyz in #6255\n- chore(deps): bump dawidd6/action-download-artifact from 9 to 10 by @dependabot[bot] in #6246\n- chore(deps): bump lib/qtkeychain from 35c4f40 to d972099 by @dependabot[bot] in #6247\n- chore(deps): bump lib/expected-lite from 194b3f6 to f17940f by @dependabot[bot] in #6251\n- chore(deps): bump lib/settings from 0a47aa7 to 9b5c05e by @dependabot[bot] in #6222\n- feat: implement display name specializations for enums by @pajlada in #6238\n- Move EventSub Python test to a separate GitHub Actions workflow by @iZarrios in #6260\n- refactor: Make Account & Settings buttons SVGs by @pajlada in #6267\n- fix(clang-tidy): modernize-type-traits by @pajlada in #6269\n- fix(clang-tidy): modernize-use-std-numbers by @pajlada in #6270\n- feat: setting to change emote/badge thumbnail size by @4rneee in #6126\n- fix: stop click when dragging over notebook buttons by @Nerixyz in #6266\n- fix context menu extra option to reply to invalid messages by @hemirt in #6119\n- fix: ensure twitchchannel dtor doesn't do stuff if we're quitting by @pajlada in #6271\n- fix: don't post contents of unknown commands to chat by @pajlada in #6272\n- fix(clang-tidy): modernize-raw-string-literal by @pajlada in #6274\n- fix(clang-tidy): performance-for-range-copy by @pajlada in #6275\n- fix: explicitly queue forced layouts by @Nerixyz in #6278\n- Remove duplication of openssl by @SimplyCrow in #6280\n- feat: optionally parallelize clang-format-all.sh by @pajlada in #6281\n- chore: slight restructuring of check-clang-tidy.sh by @pajlada in #6282\n- fix: update lineedit if setting changed externally by @pajlada in #6286\n- chore(deps): bump dawidd6/action-download-artifact from 10 to 11 by @dependabot[bot] in #6276\n- chore(deps): bump jurplel/install-qt-action from 4.2.1 to 4.3.0 by @dependabot[bot] in #6261\n- refactor: remove now-unused SettingPage::createLineEdit by @pajlada in #6290\n- fix: don't try to save emote popup bounds when we're quitting by @pajlada in #6292\n- fix: SettingWidget::dropdown not working well on enums with value gaps by @pajlada in #6293\n- refactor: use SettingWidget::dropdown for emoji style by @pajlada in #6300\n- fix: middle & right click buttons not working on Button class by @pajlada in #6302\n- Add svg recreation of logo to resources by @treejadey in #6296\n- feat: add SettingWidget::dropdown support for int style enums by @pajlada in #6303\n- refactor: remove unused ignoredPhraseReplace setting by @pajlada in #6304\n- feat: add REPL for plugins by @Nerixyz in #6120\n- fix: don't autocomplete commands mid-sentence by @pajlada in #6273\n- feat(SvgButton): Allow custom color by @pajlada in #6268\n- refactor: remove GeneralPageView.addCheckbox by @pajlada in #6305\n- refactor: remove GeneralPageView.addIntInput by @pajlada in #6306\n- fix(OnceFlag): add isSet and check before waiting by @Nerixyz in #6316\n- fix(plugins): check websocket callbacks before calling by @Nerixyz in #6314\n- chore(deps): bump ncipollo/release-action from 1.16.0 to 1.18.0 by @dependabot[bot] in #6309\n- chore(deps): bump lib/twitch-eventsub-ws/lib/date from 6d7739e to 229c687 by @dependabot[bot] in #6310\n- feat(WebSocket): add open event by @Nerixyz in #6315\n- Fix eventsub message delete disable by @Mm2PL in #6233\n- chore(deps): bump lib/expected-lite from f17940f to e45e8d5 by @dependabot[bot] in #6298\n- chore: factor out AUMID creation by @Nerixyz in #6321\n- fix: correctly override user color in sub gifts by @pajlada in #6322\n- fix: correctly color usernames in most other notice scenarios by @pajlada in #6323\n- fix: elide user notes by @pajlada in #6318\n- some more small settingwidget refactors by @pajlada in #6317\n- fix: relayout notebook if any custom buttons change by @pajlada in #6328\n- Enhancement: add image uploader settings import/export functionality by @knobby-tires in #6284\n- Add knobby-tires to contributors list by @knobby-tires in #6329\n- fix: allow messages of just dots by @Nerixyz in #6330",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/ChatterinoTeam/Chatterino/2.5.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.4/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "a55c9732f9f3654b00b761b83f65af8d4613709d318bd0a8c6d1a1283db1f8f8",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.4/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "a55c9732f9f3654b00b761b83f65af8d4613709d318bd0a8c6d1a1283db1f8f8",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.3",
+      "release_date": "2025-03-23",
+      "release_notes": "This is the full release of v2.5.3.\nThe changelog can be found at https://chatterino.com/changelog#2.5.3\nCommit list\n- Fix: Take Lua HTTP callbacks as sol::main_protected_function by @Mm2PL in #5800\n- chore: bump winget-releaser action by @pajlada in #5793\n- build(conan): 👷 update version and dependencies by @Nerixyz in #5776\n- Update release docs by @pajlada in #5809\n- consolidate firefox incognitobrowser logic (and deprecate opera/launcher) by @teknsl in #5805\n- Remove iexplore, because it is EOL by @Wissididom in #5810\n- fix: update winget repo url by @pajlada in #5813\n- fix: winget url fix by @pajlada in #5814\n- chore(deps): bump codecov/codecov-action from 5.0.7 to 5.1.2 by @dependabot in #5772\n- fix: missing word wrap in update popup by @8thony in #5811\n- fix: don't block with update prompt on macos/linux by @pajlada in #5818\n- feat: stack /clear messages by @Nerixyz in #5806\n- fix: set initial size of widgets by @Nerixyz in #5794\n- fix: use non-capturing group for highlight boundaries by @Nerixyz in #5784\n- fix: only use window scale in children by @Nerixyz in #5833\n- fix: support boost 1.87 by @pajlada in #5832\n- chore(ci): build & test macos with Boost 1.87 by @pajlada in #5835\n- fix: use serverReceivedTime over parseTime for stacking by @Nerixyz in #5824\n- fix: only remove logging channels if we added them by @Nerixyz in #5828\n- Update chatterino.d.ts to match plugin-meta.lua by @Mm2PL in #5792\n- chore(deps): bump lib/settings from 9e9c2f6 to 6c95e5d by @dependabot in #5779\n- chore(tests): print more errors when snapshot tests fail by @pajlada in #5839\n- chore(tests): don't use variants 😠 by @pajlada in #5840\n- chore(deps): bump lib/expected-lite from 5b5caad to 6ea9ca0 by @dependabot in #5829\n- chore(deps): bump ncipollo/release-action from 1.14.0 to 1.15.0 by @dependabot in #5822\n- chore(deps): bump hendrikmuhs/ccache-action from 1.2.14 to 1.2.16 by @dependabot in #5821\n- Fixed a potential way to escape the Lua Plugin sandbox by @Mm2PL in #5846\n- refactor: merge adjecent words into one TextElement by @Nerixyz in #5847\n- chore(deps): bump codecov/codecov-action from 5.1.2 to 5.2.0 by @dependabot in #5849\n- chore(deps): bump dawidd6/action-download-artifact from 6 to 8 by @dependabot in #5848\n- chore(deps): bump lib/settings from 6c95e5d to 6f0328b by @dependabot in #5851\n- chore(deps): bump codecov/codecov-action from 5.2.0 to 5.3.0 by @dependabot in #5852\n- feat: prefer visible/selected channels when joining by @Nerixyz in #5850\n- fix: visually hide deleted messages immediately by @Nerixyz in #5844\n- fix: more force relayout on timeout/clear/delete by @pajlada in #5854\n- fix: properly stack/merge PubSub & IRC timeouts again by @pajlada in #5855\n- fix: Allow announcements to show up in /mentions by @M4tthewDE in #5857\n- chore(deps): bump lib/settings from 6f0328b to d1a2e48 by @dependabot in #5859\n- fix: make suspicious treatment updates searchable by @iProdigy in #5865\n- docs: update linux & test docs by @pajlada in #5864\n- fix: use upstream qtkeychain (for real this time) by @Nerixyz in #5871\n- fix(hotkeys): remove (self-)buddy from argumentsDescription by @Nerixyz in #5869\n- chore(deps): bump lib/WinToast from a78ce46 to f693b8e by @dependabot in #5823\n- chore(deps): bump lib/expected-lite from 6ea9ca0 to 54ca18b by @dependabot in #5866\n- feat(filters): filter by author user ID by @apa420 in #5862\n- fix: don't show reply button on inline whispers or announcements by @M4tthewDE in #5863\n- chore(deps): bump lib/WinToast from f693b8e to 637229e by @dependabot in #5876\n- chore(ci): bump twitch pubsub server version to v1.0.8 by @pajlada in #5877\n- chore(deps): bump codecov/codecov-action from 5.3.0 to 5.3.1 by @dependabot in #5860\n- feat: improve create clip error messaging by @pajlada in #5879\n- Disable QT keywords to avoid clashes with other libraries. by @camporter in #5882\n- deps: update libcommuni by @Nerixyz in #5883\n- feat: add initial experimental Twitch Eventsub support by @pajlada in #5837\n- nit: fix some eventsub mini things by @pajlada in #5895\n- fix: force quit miniaudio thread after 1s by @pajlada in #5896\n- chore(pubsub): remove unused whisper code 👷🏻‍♀️ by @pajlada in #5898\n- refactor(eventsub): generate entire files by @Nerixyz in #5897\n- refactor(eventsub): Allow for skipping generation of json implementations by @pajlada in #5904\n- doc(ci): explain ubuntu docker image stuff by @pajlada in #5905\n- refactor(eventsub): remove empty line start of implementation by @pajlada in #5910\n- refactor(eventsub): enforce static error categories by @Nerixyz in #5903\n- fix: address clang-tidy warnings by @Nerixyz in #5915\n- refactor(eventsub): use snake_case transform by default by @pajlada in #5916\n- chore(eventsub): run pytest in ci by @pajlada in #5920\n- refactor(eventsub): use variants for sum types by @Nerixyz in #5930\n- chore: disable Qt5 builds in CI by @pajlada in #5933\n- chore(ci): bump macos runners from 13 to 14 by @pajlada in #5934\n- feat: add Linux support for Live Notifications toasts w/ libnotify by @camporter in #5881\n- fix(eventsub): don't require pip if venv works by @Nerixyz in #5935\n- fix(cmake): generate resources in build directory by @Nerixyz in #5940\n- Delete unused .docker directory by @Wissididom in #5906\n- deps: bump googletest to v1.16.0 by @Nerixyz in #5942\n- feat(eventsub): Add support for channel.moderate Warn by @pajlada in #5932\n- refactor(notifications): remove platform specifier by @apa420 in #5914\n- feat(eventsub): properly unsubscribe once no more handles are interested by @pajlada in #5943\n- fix: show rewards early, replace later by @Nerixyz in #5948\n- fix: reuse one channel for emote search by @Nerixyz in #5946\n- chore(ci): bump freebsd image from 14.0 to 14.2 by @pajlada in #5949\n- fix: receive redemptions despite pubsub shutdown by @iProdigy in #5947\n- fix github action status badge by @T0biii in #5950\n- chore(deps): bump lib/WinToast from 637229e to 79756c6 by @dependabot in #5951\n- feat(eventsub): add basic parse tests and benchmark by @Nerixyz in #5952\n- refactor(eventsub): more references, less const by @Nerixyz in #5953\n- feat: delete messages from context menu by @Nerixyz in #5956\n- fix: use WEBP images for BTTV emotes by @Nerixyz in #5957\n- fix: update the input style sheet when scaling by @Nerixyz in #5960\n- fix: opening a usercard from /live no longer makes failing ivr API call by @kyleScarmack in #5959\n- fix: ensure settings save after reauthenticating by @brockgilman in #5958\n- feat: add snapshot tests for eventsub messages by @Nerixyz in #5965\n- chore(ci): try to include twitch-eventsub-ws in coverage by @pajlada in #5969\n- feat(eventsub): use custom String type by @Nerixyz in #5968\n- chore(tests): try to generate coverage better by @pajlada in #5972\n- fix(eventsub/string): minor cleanups by @Nerixyz in #5973\n- Use prebuilt httpbox binaries for ubuntu by @Wissididom in #5970\n- feat(notifications): show user avatar when sending live notification on Linux by @4rneee in #5971\n- chore(eventsub): add operator== and indicator for shared chat by @Nerixyz in #5974\n- chore(eventsub): simplify building for system messages by @Nerixyz in #5980\n- fix: typo in color input selector. changed from red to blue by @Zakary2841 in #5982\n- feat(eventsub): implement clearchat by @Nerixyz in #5981\n- Added Zakary2841 to the contributors list by @Zakary2841 in #5984\n- chore(deps): bump lib/WinToast from 79756c6 to 1c841d3 by @dependabot in #5987\n- chore(deps): bump ncipollo/release-action from 1.15.0 to 1.16.0 by @dependabot in #5986\n- chore(deps): bump lib/miniaudio from 4a5b74b to 350784a by @dependabot in #5989\n- feat(eventsub): implement (shared-chat-)ban by @Nerixyz in #5985\n- feat(eventsub): implement unban by @Nerixyz in #5990\n- feat(eventsub): implement mode changes by @Nerixyz in #5992\n- feat(eventsub): implement (shared chat) delete by @pajlada in #5993\n- feat(eventsub): use special flag and timestamps from metadata by @Nerixyz in #5996\n- Chatterino warning fixes by @TheComputerGuy96 in #5998\n- feat(eventsub): implement (shared-chat) timeout by @Nerixyz in #5995\n- feat(eventsub): implement AutoMod term actions by @Nerixyz in #6000\n- feat(eventsub): implement (un)mod by @Nerixyz in #6001\n- feat(eventsub): Add support for /(un)raid by @pajlada in #6002\n- feat(eventsub): add automod.message.* and channel.suspicious_user.* by @Nerixyz in #6003\n- feat(eventsub): implement automod message hold by @Nerixyz in #6005\n- chore(deps): bump dawidd6/action-download-artifact from 8 to 9 by @dependabot in #6004\n- chore(deps): bump codecov/codecov-action from 5.3.1 to 5.4.0 by @dependabot in #5999\n- feat(eventsub): implement suspicious user message by @Nerixyz in #6007\n- feat(eventsub): implement automod message update by @Nerixyz in #6010\n- fix: don't save commands on exit by @pajlada in #6011\n- feat(eventsub): implement channel.chat.user_message_(hold/update) by @pajlada in #6008\n- feat(eventsub): implement suspicious user update by @Nerixyz in #6012\n- feat(eventsub): implement timeout stacking by @Nerixyz in #6013\n- feat(eventsub): don't listen to PubSub if EventSub is on by @Nerixyz in #6015\n- feat(overlay): inherit zoom and add zoom factor by @Nerixyz in #6016\n- feat(notifications): linux notification actions by @4rneee in #5976\n- fix(eventsub): connection race by @pajlada in #6017\n- reduce pubsub/liveupdates pubsub clients \"wait for clean exit\" time from 1s to 100ms by @pajlada in #6019\n- fix: try to avoid crash on image load when app is exiting by @pajlada in #6018\n- chore: remove dead code and get rid of MSVC warnings by @Nerixyz in #6024\n- refactor: use some more SettingWidget & restyle external tools page by @pajlada in #6023\n- feat: setHighlightSounds & openSubscriptionPage split hotkeys by @brian6932 in #5856\n- feat: Search KeyboardSettingsPage [1/9] by @apa420 in #5884\n- deps: update crash handler by @Nerixyz in #6026\n- fix(eventsub): infer AsISO8601 for chrono time point by @Nerixyz in #6027",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/ChatterinoTeam/Chatterino/2.5.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.3/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "b7b0ab0d931676daa3b213a21245baf80518e17f5302a48f19dc83ab607fa385",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.3/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "b7b0ab0d931676daa3b213a21245baf80518e17f5302a48f19dc83ab607fa385",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.2",
+      "release_date": "2025-01-05",
+      "release_notes": "This is the full release of v2.5.2.\nThe changelog can be found at https://chatterino.com/changelog#2.5.2\n- ci: add workflow for WinGet by @Nerixyz in #5365\n- docs: fix typo by @fossdd in #5368\n- chore(deps): bump hendrikmuhs/ccache-action from 1.2.12 to 1.2.13 by @dependabot in #5370\n- build: add doxygen target by @pajlada in #5377\n- tests: better test initializing allowing for better printing by @pajlada in #5379\n- fix: prefer reporting error over status for 200 OK by @Nerixyz in #5378\n- chore(deps): bump lib/settings from 70fbc72 to 03e8af1 by @dependabot in #5382\n- Release plugins alpha by @Mm2PL in #5288\n- Add custom image functionality for inline mod buttons. by @Mm2PL in #5369\n- fix: Missing includes when building with USE_PRECOMPILED_HEADERS=OFF by @brian6932 in #5389\n- refactor: cleanup and document Scrollbar by @Nerixyz in #5334\n- Use Qt's High-DPI scaling on Windows by @Nerixyz in #4868\n- fix: update color of usernames & boldness of usernames on the fly by @pajlada in #5300\n- fix: don't use DPI aware functions on Qt 5 (Windows 7/8) by @Nerixyz in #5391\n- revert: use max(minimum, min(bottom, value)) over clamp(..) by @Nerixyz in #5393\n- Added flags.action filter variable by @Mm2PL in #5397\n- fix: don't attempt to scale windows opted out of scaling by @Nerixyz in #5400\n- chore(deps): bump ZedThree/clang-tidy-review from 0.18.0 to 0.19.0 by @dependabot in #5394\n- fix: get rid of duplicate scale events by @Nerixyz in #5404\n- fix: usercard jumping when loading data by @Nerixyz in #5406\n- chore(deps): bump jurplel/install-qt-action from 3.3.0 to 4.0.0 by @dependabot in #5408\n- fix(luals-meta): generate globals in c2 and echo @lua commands by @Nerixyz in #5385\n- chore: remove unused timegates by @Nerixyz in #5361\n- fix: use irc-unknown when irc server couldn't be loaded by @pajlada in #5419\n- Add feature to duplicate tabs by @KleberPF in #5277\n- Update Windows Qt6 version from 6.5.0 to 6.7.1 by @pajlada in #5420\n- chore: update vcpkg baseline (Qt 6.7.0) by @kornes in #5422\n- chore(deps): bump lib/settings from 03e8af1 to 80b8cb6 by @dependabot in #5427\n- Fix: tabs move animation for duplicated tabs by @kornes in #5426\n- feat(emote-popup): save size of popup by @Nerixyz in #5415\n- Fixed restricted users' usernames not being clickable by @pajlada in #5405\n- chore: refactor TwitchIrcServer by @pajlada in #5421\n- refactor: load images in workers and push immediately by @Nerixyz in #5431\n- fix: global emotes not loading by @pajlada in #5435\n- feat: notify mods when users are warned by @iProdigy in #5441\n- force install newer version of the windows CRT in the windows test runner by @pajlada in #5448\n- Improved error messaging for Update Channel API by @JakeRYW in #5429\n- chore(deps): bump dawidd6/action-download-artifact from 3 to 6 by @dependabot in #5454\n- fix: Add brave & google-chrome-stable to incognito browser list by @Niller2005 in #5452\n- fix: handle older VC redist versions by @Nerixyz in #5447\n- Clean up QtCreator's package manager setup by @hemirt in #5305\n- fix: ignore late pings by @Nerixyz in #5457\n- feat: allow timeout-related commands to be used in multiple channels by @pajlada in #5402\n- Show line indicator instead of rectangle while dragging in tables by @Nerixyz in #5256\n- fix: git permission errors in Ubuntu builds by @pajlada in #5458\n- chore: unsingletonize UserDataController by @pajlada in #5459\n- make TwitchPubSubClient.DisconnectedAfter1s test less flaky by @pajlada in #5461\n- chore: unsingletonize Resources/Resources2 by @pajlada in #5460\n- chore: unsingletonize SoundController by @pajlada in #5462\n- Add niller2005 to contributors list by @Niller2005 in #5464\n- fix: check state when completing commands by @Nerixyz in #5401\n- chore: post some ssl info on startup by @pajlada in #5475\n- Introduce HTTP API for plugins by @Mm2PL in #5383\n- feat: add /warn command by @iProdigy in #5474\n- feat: notate power-up automatic reward redemptions by @iProdigy in #5471\n- refactor: cleanup browser extension by @Nerixyz in #5465\n- chore(deps): bump lib/expected-lite from 3634b0a to 182165b by @dependabot in #5469\n- chore(deps): bump lib/settings from 80b8cb6 to f3e9161 by @dependabot in #5468\n- Adding JakeRYW to contributor list by @JakeRYW in #5481\n- chore: change pajlada's profile picture to v2 by @pajlada in #5482\n- fix(windows): wait for Qt before getting bounds by @Nerixyz in #5478\n- chore: remove old Qt 5.12 code, update docs and FreeBSD runner by @Nerixyz in #5396\n- dev: remove macos artifact from nightly release by @pajlada in #5483\n- Add Network to plugin info schema by @2547techno in #5492\n- fix plugin http types & docs by @2547techno in #5494\n- Enable antialiasing for reply button by @dnsge in #5491\n- chore: Update settings library to v0.2.0 by @pajlada in #5496\n- fix: use selected window for /clearmessages by @Nerixyz in #5489\n- refactor: add Channel::addSystemMessage function by @pajlada in #5500\n- show running qt version if it differs from compiled version by @Nerixyz in #5501\n- Support more firefox variants for incognito link opening by @teknsl in #5503\n- Fixed splits staying paused after unfocusing Chatterino in certain configurations by @Mm2PL in #5504\n- Add extra context to messages that are added to channels, allowing the logging controller to take more responsibility in what messages to log by @pajlada in #5499\n- feat: strip prefixes and suffixes in links by @Nerixyz in #5486\n- Added option to log streams by their ID, allowing for easier \"per-stream\" log analyzing by @pajlada in #5507\n- Display message being replied to above input box by @dnsge in #4350\n- chore: make FlagsEnum constexpr by @Nerixyz in #5510\n- chore: mini refactorings and dead code removal by @Nerixyz in #5512\n- fix: disallow more characters in links by @Nerixyz in #5509\n- feat: add option to suppress live notifications on startup by @Nerixyz in #5388\n- fix: restore input layout (almost) by @Nerixyz in #5519\n- ci: collect code coverage by @Nerixyz in #5516\n- chore: remove Singleton & replace getIApp with getApp by @pajlada in #5514\n- fix: count parentheses in links by @Nerixyz in #5515\n- chore(deps): bump lib/expected-lite from 182165b to 5d3c8d3 by @dependabot in #5484\n- chore(deps): bump lib/WinToast from 821c481 to a78ce46 by @dependabot in #5331\n- chore: improve link parser and its tests a bit by @Nerixyz in #5522\n- chore: cleanup, document, and test some RTL code by @Nerixyz in #5473\n- Handle panning touch gestures by @camporter in #5524\n- fix: sort elements after RTL reordering by @Nerixyz in #5525\n- fix: replace defines with constexpr/const and use more absolute paths for includes by @Nerixyz in #5527\n- chore: silence some deprecation warnings in Qt 6.8 by @Nerixyz in #5529\n- refactor: move seventv/bttv event apis to application by @pajlada in #5532\n- refactor: move \"delete old update files\" logic to Updates by @pajlada in #5535\n- chore(deps): bump DoozyX/clang-format-lint-action from 0.17 to 0.18 by @dependabot in #5536\n- chore(deps): bump hendrikmuhs/ccache-action from 1.2.13 to 1.2.14 by @dependabot in #5533\n- chore(deps): bump lib/expected-lite from 5d3c8d3 to f339d2f by @dependabot in #5534\n- fix: cleanly exit on shutdown by @pajlada in #5537\n- refactor: rename miniaudio thread by @pajlada in #5538\n- chore: rename threads on Windows too by @Nerixyz in #5539\n- fix: only use IApplication::instance instead of Application::instance by @pajlada in #5540\n- fix: only attempt to rename threads on Qt6 versions by @pajlada in #5544\n- fix: parenting logic, fixing some windows & tooltips misbehaving by @pajlada in #5541\n- feat: add FlagsEnum::isEmpty for checking if a FlagsEnum is empty by @pajlada in #5550\n- refactor: Move MessageFlag(s) to its own file by @pajlada in #5549\n- Remove experimental IRC support by @pajlada in #5547\n- ci: show recent changes in nightly release by @Nerixyz in #5553\n- ci: use Python 3.12 for parsing dates by @Nerixyz in #5554\n- fix: typo in SignalVector::operator[] member access by @pastalian in #5556\n- fix: tristate toggle logic for tab visibilty by @pajlada in #5530\n- refactor: make a single MessageBuilder by @pajlada in #5548\n- fix: ensure liveupdate pubsubs exit by @pajlada in #5557\n- fix: Fixed account switch not being saved if no other settings were changed by @pajlada in #5558\n- fix: benchmarks segfaulting by @pajlada in #5559\n- refactor: some more Application refactors by @pajlada in #5551\n- fix: remove deprecated Application::getTwitchAbstract by @pajlada in #5560\n- refactor: some Application & style things by @pajlada in #5561\n- Build for Ubuntu 24.04 by @Wissididom in #5562\n- Update filenames for Ubuntu to Qt 6.7.2 by @Wissididom in #5568\n- fix(streamer-mode): destroy timer on correct thread by @Nerixyz in #5571\n- Update Qt for Ubuntu and Mac Tests by @Wissididom in #5572\n- fix: orphan FramelessDraggables too by @Nerixyz in #5576\n- feat: indicate which mods start and cancel raids by @iProdigy in #5563\n- fix: some tooltips not being readable by @pajlada in #5578\n- refactor: load Twitch emotes from Helix by @Nerixyz in #5239\n- feat(emote-popup): automatically reload Twitch emotes by @Nerixyz in #5580\n- fix: don't add sets without emotes when searching by @Nerixyz in #5582\n- feat: add setting for showing pronouns in user info popup by @franzitrone in #5442\n- chore: clean up some of the pronoun implementation by @pajlada in #5583\n- fix: only clear reply target when inline replying by @Nerixyz in #5586\n- chore: cleanup some parts of qmagicenum by @Nerixyz in #5587\n- fix: close logging-channels when closing channels by @Nerixyz in #5592\n- chore: allow unreleased-lines to be reused on other files by @Nerixyz in #5593\n- chore: ensure statics are only present once in the final app by @Nerixyz in #5588\n- ci: set test cmake build job count to logical processor count by @jupjohn in #5595\n- fix: typo in user highlights page by @pajlada in #5602\n- fix: properly display global badges for anon users by @Nerixyz in #5599\n- feat: include more data when copying messages as JSON by @Nerixyz in #5600",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/c/ChatterinoTeam/Chatterino/2.5.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.2/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "935146d04cf4cb4694d131b3c05c01e7b5bf0532fff979272c48af4d03d5f544",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Chatterino Team",
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.2/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "935146d04cf4cb4694d131b3c05c01e7b5bf0532fff979272c48af4d03d5f544",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Chatterino Team",
+              "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.1",
+      "release_date": "2024-04-28",
+      "release_notes": "What's Changed\n- Bugfix: Fixed links without a protocol not being clickable. (#5345)\nFull Changelog: https://github.com/Chatterino/chatterino2/compare/v2.5.0...v2.5.1",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/ChatterinoTeam/Chatterino/2.5.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.1/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "f85fc6fc5721a2f489f4f932d785fe64e6ce0b2e71079e95dedeffb2c0bf5f0a",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.5.1/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "f85fc6fc5721a2f489f4f932d785fe64e6ce0b2e71079e95dedeffb2c0bf5f0a",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.6",
+      "release_date": "2023-09-30",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.4.6",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/ChatterinoTeam/Chatterino/2.4.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.4.6/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "066712a08126243402cc707565accfeacc26bb32d8ac75367e99a4ae1aec2f6f",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/Chatterino/chatterino2/releases/download/v2.4.6/Chatterino.Installer.exe",
+          "host": "github.com",
+          "filename": "Chatterino.Installer.exe",
+          "sha256": "066712a08126243402cc707565accfeacc26bb32d8ac75367e99a4ae1aec2f6f",
+          "product_code": "{F5FE6614-04D4-4D32-8600-0ABA0AC113A4}_is1",
+          "switches": {
+            "silent": "/VERYSILENT",
+            "silent_with_progress": "/SILENT",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.5.6",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://chatterino.fra1.digitaloceanspaces.com/bin/2.5.6/Chatterino.dmg",
+          "host": "chatterino.fra1.digitaloceanspaces.com",
+          "filename": "Chatterino.dmg",
+          "sha256": "38c14d1023f57716e30f09e0c28f931eb80404b21fe7ff7736136b63893653b5",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "chatterino.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/chatterino"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "2.5.5",
+      "release_date": "2026-03-22",
+      "release_notes_url": "https://github.com/Chatterino/chatterino2/releases/tag/v2.5.5",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.chatterino.chatterino.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.chatterino.chatterino.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.chatterino.chatterino.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.chatterino.chatterino.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "4fb5e09afe5262757b4b07ad5dd795814872e2e3",
+      "retrieved_at": "2026-11-11T13:29:00.282Z",
+      "path": "manifests/c/ChatterinoTeam/Chatterino"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "6b8a59b4e9b927ca54d3b921b1c8949106a3eb44",
+      "retrieved_at": "2026-11-11T13:29:00.282Z",
+      "path": "Casks/c/chatterino.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/chatterino.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.chatterino.chatterino",
+      "retrieved_at": "2026-11-11T13:29:04.150Z",
+      "path": "api/v2/appstream/com.chatterino.chatterino",
+      "api_url": "https://flathub.org/api/v2/appstream/com.chatterino.chatterino",
+      "content_sha256": "3448326639f12c544720b3cf38fe1c1ebda81a71bb128a10f14945de066fa028"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.chatterino.chatterino",
+    "page_url": "https://flathub.org/apps/com.chatterino.chatterino",
+    "repo_url": "https://github.com/flathub/com.chatterino.chatterino",
+    "install_command": "flatpak install flathub com.chatterino.chatterino",
+    "run_command": "flatpak run com.chatterino.chatterino",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "chatterino.com",
+      "verified_on": "2023-03-12"
+    },
+    "license": "MIT",
+    "free_license": true,
+    "developer_name": "Chatterino Developers",
+    "categories": [
+      "Network",
+      "InstantMessaging"
+    ],
+    "download_size": 8478024,
+    "installed_size": 19567104,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

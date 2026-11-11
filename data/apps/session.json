@@ -1,0 +1,2389 @@
+{
+  "schema_version": 2,
+  "slug": "session",
+  "name": "Session",
+  "publisher": "Oxen Labs",
+  "author": "Session Technology Foundation",
+  "ids": {
+    "winget": "Session.Session",
+    "moniker": "session",
+    "homebrew_cask": "session",
+    "flathub": "network.loki.Session"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Onion routing based messenger",
+  "description": "Session is an end-to-end encrypted messenger that minimises sensitive metadata, designed and built for people who want absolute privacy and freedom from any form of surveillance.",
+  "tags": [
+    "chat",
+    "collaborate",
+    "collaboration",
+    "encrypt",
+    "encryption",
+    "im",
+    "instant-messaging",
+    "message",
+    "privacy",
+    "secure",
+    "security",
+    "send",
+    "talk"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://getsession.org/",
+    "publisher": "https://session.foundation/",
+    "support": "https://github.com/session-foundation/session-desktop/issues",
+    "bug_tracker": "https://github.com/session-foundation/session-desktop/issues",
+    "privacy": "https://getsession.org/privacy-policy",
+    "release_notes": "https://github.com/session-foundation/session-desktop/releases/tag/v1.18.3",
+    "documentation": [
+      {
+        "label": "FAQ",
+        "url": "https://getsession.org/faq"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/session-foundation/session-desktop/blob/HEAD/LICENSE",
+    "spdx": "GPL-3.0",
+    "copyright": "Copyright 2011 Whisper Systems\nCopyright 2013-2017 Open Whisper Systems\nCopyright 2019-2024 The Oxen Project\nCopyright 2024-2026 Session Technology Foundation",
+    "copyright_url": "https://github.com/oxen-io/session-desktop#license"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.18.3",
+    "macos": "1.18.3",
+    "linux": "1.18.3"
+  },
+  "last_updated": "2026-10-26",
+  "versions_total": {
+    "windows": 63,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.18.3",
+      "release_date": "2026-10-26",
+      "release_notes": "Release Overview\n- Patch release with two bug fixes and dependency updates\nOther Changes\n- Update libsession-util-nodejs to v0.7.5 https://github.com/session-foundation/session-desktop/pull/2036\n- Build with Node 24.22.1 for the October 2026 security release https://github.com/session-foundation/session-desktop/pull/2035\n- Stop pnpm install recursing after a build https://github.com/session-foundation/session-desktop/pull/2037\nBug Fixes\n- Save attachments from the media gallery and file list https://github.com/session-foundation/session-desktop/pull/2030\n- Keep an emptied last line in the message input instead of deleting it https://github.com/session-foundation/session-desktop/pull/2041",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.18.3",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/s/Session/Session/1.18.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.3/session-desktop-win-x64-1.18.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.3.exe",
+          "sha256": "479f2a990a8e53f24d1cdb7b9055ea89ad0c94be4d62bef7710ce196444dc8d9",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.3/session-desktop-win-x64-1.18.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.3.exe",
+          "sha256": "479f2a990a8e53f24d1cdb7b9055ea89ad0c94be4d62bef7710ce196444dc8d9",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.18.2",
+      "release_date": "2026-10-13",
+      "release_notes": "Release Overview\n- Show a placeholder for messages this version can't process, and retain them https://github.com/session-foundation/session-desktop/pull/2025\n- Default to stream encryption and write the stream fragment bare https://github.com/session-foundation/session-desktop/pull/1992\nOther Changes\n- Update Windows build info https://github.com/session-foundation/session-desktop/pull/1946\nBug Fixes\n- Avoid jumping back after sending https://github.com/session-foundation/session-desktop/pull/1961\n- Keep draft reply quotes per conversation https://github.com/session-foundation/session-desktop/pull/1959\n- Focus composition input when typing https://github.com/session-foundation/session-desktop/pull/1956\n- Allow same-name staged attachments https://github.com/session-foundation/session-desktop/pull/1950\n- Support pinch-to-zoom and drag-to-pan in lightbox https://github.com/session-foundation/session-desktop/pull/1957\n- Reduce update file server polling https://github.com/session-foundation/session-desktop/pull/1960\n- Preserve unread state for remote deletions https://github.com/session-foundation/session-desktop/pull/1968\n- Build errors with latest libsession-util-nodejs https://github.com/session-foundation/session-desktop/pull/1969\n- Keep Home and End within message input https://github.com/session-foundation/session-desktop/pull/1987\n- Popover position on open is measured after open https://github.com/session-foundation/session-desktop/pull/2008\n- Make sure only one create/restore is in flight https://github.com/session-foundation/session-desktop/pull/2011\n- Renew config message TTLs at most once an hour per swarm https://github.com/session-foundation/session-desktop/pull/2017\n- Preserve colon suffixes after consecutive dots in URLs https://github.com/session-foundation/session-desktop/pull/2020\n- Remember lightbox video volume https://github.com/session-foundation/session-desktop/pull/2012\n- Erase group entries a config merge recreated after another device erased them https://github.com/session-foundation/session-desktop/pull/2027\n- Keep a hidden conversation hidden when our own message syncs into it https://github.com/session-foundation/session-desktop/pull/2000\n- Stop an in-flight poll undoing a cursor reset https://github.com/session-foundation/session-desktop/pull/2016\n- Make the collapsed message bubble and its Read More button addressable https://github.com/session-foundation/session-desktop/pull/1999\n- Stop the sending device counting its own message twice https://github.com/session-foundation/session-desktop/pull/1998\n- Fix system-specific build issues https://github.com/session-foundation/session-desktop/pull/1982",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.18.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.18.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.2/session-desktop-win-x64-1.18.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.2.exe",
+          "sha256": "152b7bd7898d86ed3d7e92fceb53ad5b1f09447e19213b9b2dba4786cec880e2",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.2/session-desktop-win-x64-1.18.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.2.exe",
+          "sha256": "152b7bd7898d86ed3d7e92fceb53ad5b1f09447e19213b9b2dba4786cec880e2",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.18.1",
+      "release_date": "2026-07-10",
+      "release_notes": "Release Overview\n- Changed the Final Appeal CTA to just be a Donate Appeal",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.18.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.18.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.1/session-desktop-win-x64-1.18.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.1.exe",
+          "sha256": "41833b4f71a115e2fed43ca27222b57d31cef96616292db48b9382b97350601f",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.1/session-desktop-win-x64-1.18.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.1.exe",
+          "sha256": "41833b4f71a115e2fed43ca27222b57d31cef96616292db48b9382b97350601f",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.18.0",
+      "release_date": "2026-04-09",
+      "release_notes": "Release Overview\n- Updated Donate CTA #1942",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.18.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.0/session-desktop-win-x64-1.18.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.0.exe",
+          "sha256": "161d59cac19f2ada46817e9ae1593fc29475e961e5165475fa4bf01d7a0fb784",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.0/session-desktop-win-x64-1.18.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.18.0.exe",
+          "sha256": "161d59cac19f2ada46817e9ae1593fc29475e961e5165475fa4bf01d7a0fb784",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.17",
+      "release_date": "2026-03-31",
+      "release_notes": "Release Overview\n- The About window now follows the app theme #1925\nBug Fixes\n- Performance improvements when a search input is focused #1929\n- Fixed reactions in Note to Self not appearing locally #1930\n- Ensured attachments cannot be added via paste when disallowed #1931",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.17",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.17",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.17/session-desktop-win-x64-1.17.17.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.17.exe",
+          "sha256": "ddb18c497585da9957b40bd55c3895966038366cf3283fa17d0623098e1f3ff4",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.17/session-desktop-win-x64-1.17.17.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.17.exe",
+          "sha256": "ddb18c497585da9957b40bd55c3895966038366cf3283fa17d0623098e1f3ff4",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.16",
+      "release_date": "2026-03-26",
+      "release_notes": "Release Overview\n- Session won't trim spaces from password inputs anymore #1906\n- Emojis now use the Noto Color Emoji font on all platforms #1921\nOther Changes\n- Saving a file no longer creates a temporary file #1922\n- A new \"Show Reactions\" option is now available in the message context menu #1909\nBug Fixes\n- Make sure we cannot invite ourselves to a group #1905\n- Opening a conversation from the list of contacts resets the left pane state #1911\n- Fixed a crash happening on \"Clear All\" reacts #1912\n- Prevent some groups from receiving the same message multiple times #1914 #1908\n- Fixed a bug where a contact reacting to their own message would trigger a notification #1916\n- Allow deleting groups that we cannot leave #1917\n- Always show the status of the last outgoing read message #1920",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.16",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.16/session-desktop-win-x64-1.17.16.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.16.exe",
+          "sha256": "f0a5696e76a77c4308d75abd3ed6cfcc38d8bf1ceec4d0578519d7ae3234c8b6",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.16/session-desktop-win-x64-1.17.16.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.16.exe",
+          "sha256": "f0a5696e76a77c4308d75abd3ed6cfcc38d8bf1ceec4d0578519d7ae3234c8b6",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.15",
+      "release_date": "2026-03-19",
+      "release_notes": "Release Overview\n- Added a new Donation appeal CTA #1898\nOther Changes\n- Added right-click option to copy URLs from messages #1890\n- Attach a mix of videos and images in the same message #1891",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.15",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.15/session-desktop-win-x64-1.17.15.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.15.exe",
+          "sha256": "8a1aceb76f90280a988909e3763b4e462fd6bb24f926b8db3d04d809a0b34516",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.15/session-desktop-win-x64-1.17.15.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.15.exe",
+          "sha256": "8a1aceb76f90280a988909e3763b4e462fd6bb24f926b8db3d04d809a0b34516",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.14",
+      "release_date": "2026-03-13",
+      "release_notes": "Bug Fixes\n- Fixed a crash on Windows on system resume #1891",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.14",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.14/session-desktop-win-x64-1.17.14.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.14.exe",
+          "sha256": "c0813d4e31804c7c1f55307b5fe14b8b8cad19efe9ccbc61f81aac389e8b0e8a",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.14/session-desktop-win-x64-1.17.14.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.14.exe",
+          "sha256": "c0813d4e31804c7c1f55307b5fe14b8b8cad19efe9ccbc61f81aac389e8b0e8a",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.13",
+      "release_date": "2026-03-12",
+      "release_notes": "Release Overview\n- Standardize message deletion logic #1886\nOther Changes\n- Allow saving a QR code on right click #1876\nBug Fixes\n- Fixed a bug preventing community invitations from syncing to other devices #1875\n- Fixed image pasting logic after a voice message was recorded #1880\n- Prevent system idle, but not system sleep, on Linux #1881\n- Various Keyboard shortcuts fixes #1879",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.13",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.13/session-desktop-win-x64-1.17.13.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.13.exe",
+          "sha256": "4a9226f9d70e9ff20a7dcaaed74321fe6b090b962b7f0b4fe105106eda741469",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.13/session-desktop-win-x64-1.17.13.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.13.exe",
+          "sha256": "4a9226f9d70e9ff20a7dcaaed74321fe6b090b962b7f0b4fe105106eda741469",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.12",
+      "release_date": "2026-02-24",
+      "release_notes": "Bug Fixes\n- Fix image processing with sharp for Linux and Mac users #1860",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.12/session-desktop-win-x64-1.17.12.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.12.exe",
+          "sha256": "ff3bf8207ef822c15a4ee9e5d63ec41ffae37847170fdc6d3a5cc6dbb21428de",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.12/session-desktop-win-x64-1.17.12.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.12.exe",
+          "sha256": "ff3bf8207ef822c15a4ee9e5d63ec41ffae37847170fdc6d3a5cc6dbb21428de",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.11",
+      "release_date": "2026-02-23",
+      "release_notes": "Bug Fixes\n- Fix the position of the emoji picker when shown from a message #1855",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.11/session-desktop-win-x64-1.17.11.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.11.exe",
+          "sha256": "dcc6a2aff5b6cb77eb618948e311e7cb6016dd1f5492b69bfe930c8a5d8b1a93",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.11/session-desktop-win-x64-1.17.11.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.11.exe",
+          "sha256": "dcc6a2aff5b6cb77eb618948e311e7cb6016dd1f5492b69bfe930c8a5d8b1a93",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.10",
+      "release_date": "2026-02-19",
+      "release_notes": "Bug Fixes\n- Fixed Session Desktop v1.17.9 not starting for macOS users",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.10/session-desktop-win-x64-1.17.10.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.10.exe",
+          "sha256": "f2dbe4adb65d5641d67b230bf7c46557a8e16cd714b4190b111ca404bbefa744",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.10/session-desktop-win-x64-1.17.10.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.10.exe",
+          "sha256": "f2dbe4adb65d5641d67b230bf7c46557a8e16cd714b4190b111ca404bbefa744",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.9",
+      "release_date": "2026-02-19",
+      "release_notes": "Release Overview\n- Speed up message search #1781\n- Allow leaving a group that has multiple admins #1812\nOther Changes\n- Various performance and stability improvements\nBug Fixes\n- Highlight the referenced message when clicking a quote, even if it has no attachments\n- Fix reply failures for messages with attachments pending download #1822\n- Ensure Note to Self always appears in search results #1821",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.9/session-desktop-win-x64-1.17.9.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.9.exe",
+          "sha256": "b3de5449ef37a7fcefe5d9baa77b89acd81128cc433c1d54189b752e196eb853",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.9/session-desktop-win-x64-1.17.9.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.9.exe",
+          "sha256": "b3de5449ef37a7fcefe5d9baa77b89acd81128cc433c1d54189b752e196eb853",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.8",
+      "release_date": "2026-02-01",
+      "release_notes": "Release Overview\n- Upgraded to Node 24 and Electron 40 for improved performance, security, and modern platform compatibility #1774\nOther Changes\n- Fixed donation modal appearing indefinitely #1782\n- Improved connection reliability by automatically using embedded service node list when seed nodes are unreachable #1776\nBug Fixes\n- Fixed right panel unexpectedly opening when pressing Tab key #1794\n- Improved emoji insertion behavior in the message composition box #1793\n- Fixed drag & drop overlay appearing incorrectly when dragging links #1800\n- Fixed layout shift when reactions are displayed on messages #1801\n- Fixed crash that occurred when accepting incoming calls #1799",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.8/session-desktop-win-x64-1.17.8.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.8.exe",
+          "sha256": "569e10bc2c9f0f597c7fb8aaea533874fb2558d8c85dbe75a72373056f843d11",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.8/session-desktop-win-x64-1.17.8.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.8.exe",
+          "sha256": "569e10bc2c9f0f597c7fb8aaea533874fb2558d8c85dbe75a72373056f843d11",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.7",
+      "release_date": "2026-01-23",
+      "release_notes": "Release Overview\n- Added a banner to warn users who installed Session via the deb.oxen.io APT repo that they will need to manually update their APT repo configuration by February 1, 2026 to continue receiving Session Desktop updates.",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.7/session-desktop-win-x64-1.17.7.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.7.exe",
+          "sha256": "9bc23da28ad055b0435a527f43c46927aea8dcf758c0ea2eaf19710c04680600",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.7/session-desktop-win-x64-1.17.7.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.7.exe",
+          "sha256": "9bc23da28ad055b0435a527f43c46927aea8dcf758c0ea2eaf19710c04680600",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.6",
+      "release_date": "2026-01-07",
+      "release_notes": "Release Overview\n- Improved app start duration for large databases #1750\n- Improved responsiveness of the Create Group Contacts list #1744\n- Improved performance when switching conversations\nBug Fixes\n- Fixed a crash when opening the list of users who reacted to a message #1760",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.6/session-desktop-win-x64-1.17.6.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.6.exe",
+          "sha256": "4650a49b32f895a9b57fec6771fdfae7b4eb6dcc8832ec5aea0b6bf968608534",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.6/session-desktop-win-x64-1.17.6.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.6.exe",
+          "sha256": "4650a49b32f895a9b57fec6771fdfae7b4eb6dcc8832ec5aea0b6bf968608534",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.5",
+      "release_date": "2025-12-17",
+      "release_notes": "Release Overview\n- Fixed image processing crashes affecting users having an old CPU https://github.com/session-foundation/session-desktop/pull/1739",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.5/session-desktop-win-x64-1.17.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.5.exe",
+          "sha256": "fd10297660890c80a3676301b649f30d2d1ec6912ee4738c60a4187c161f2f79",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.5/session-desktop-win-x64-1.17.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.5.exe",
+          "sha256": "fd10297660890c80a3676301b649f30d2d1ec6912ee4738c60a4187c161f2f79",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.4",
+      "release_date": "2025-12-10",
+      "release_notes": "Release Overview\n- Fixed image processing crashes affecting users on modern Linux distributions #1730",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.4",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.4/session-desktop-win-x64-1.17.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.4.exe",
+          "sha256": "f68ec2817db1d7f6715effb9578908becbfd409538c4fec536b541259e630dc4",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.4/session-desktop-win-x64-1.17.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.4.exe",
+          "sha256": "f68ec2817db1d7f6715effb9578908becbfd409538c4fec536b541259e630dc4",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.3",
+      "release_date": "2025-11-27",
+      "release_notes": "Release Overview\n- Added a new donation popup to help support Session's development and infrastructure #1710\nOther Changes\n- Modal dialogs now fully support RTL languages #1659\n- Faster account recovery from seed #1709 #1708\n- Updates laying the groundwork for Session Pro features #1716 #1710\nBug Fixes\n- Resolved a race condition that could prevent the application from closing properly #1674\n- Fixed a bug where a service node could be selected twice on the same path #1673",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.3/session-desktop-win-x64-1.17.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.3.exe",
+          "sha256": "3574235f6aa6235793a8f6fe4ccbf1b291bd7a9fa23a2e431cff373608d4447c",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.3/session-desktop-win-x64-1.17.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.3.exe",
+          "sha256": "3574235f6aa6235793a8f6fe4ccbf1b291bd7a9fa23a2e431cff373608d4447c",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.2",
+      "release_date": "2025-11-02",
+      "release_notes": "Release Overview\n- Offer to disable the power-saver prevention for linux #1638\n- Prepare file server changes involved with new deterministic encryption of files\n- Allow to copy selected text on \"Copy\" context menu #1654\nBug Fixes\n- Fixed an issue with communities blinded message requests #1639",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.2/session-desktop-win-x64-1.17.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.2.exe",
+          "sha256": "8350c2dd5b686626a1371e68809e6e4f9dfc99b8e708ae8eecd73badf49fc4c7",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.2/session-desktop-win-x64-1.17.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.2.exe",
+          "sha256": "8350c2dd5b686626a1371e68809e6e4f9dfc99b8e708ae8eecd73badf49fc4c7",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.1",
+      "release_date": "2025-10-03",
+      "release_notes": "Bug Fixes\n- Resolved a bug in 1.17.0 that prevented Linux user accounts from being found",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.1/session-desktop-win-x64-1.17.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.1.exe",
+          "sha256": "391cadbe1ea9eb2ea7d4d4485a024fad67c88d3eface68a7b11f3dcc42caa8fc",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.1/session-desktop-win-x64-1.17.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.1.exe",
+          "sha256": "391cadbe1ea9eb2ea7d4d4485a024fad67c88d3eface68a7b11f3dcc42caa8fc",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.0",
+      "release_date": "2025-10-02",
+      "release_notes": "Release Overview\n- User settings have been relocated to a new dialog interface, bringing the desktop experience closer to our mobile design https://github.com/session-foundation/session-desktop/pull/1539\nOther Changes\n- Improved Windows installer and OS min version enforcement by @Aerilym https://github.com/session-foundation/session-desktop/pull/1561\n- Allow pasting while on the new conversation page by @Aerilym https://github.com/session-foundation/session-desktop/pull/1591\n- Show last message's author in leftpane for groups https://github.com/session-foundation/session-desktop/pull/1577\n- Toggle app visibility with a single click from the tray icon by @Aerilym https://github.com/session-foundation/session-desktop/pull/1590\nBug Fixes\n- Make sure we restore pending jobs if not processed https://github.com/session-foundation/session-desktop/pull/1582\n- Fetch display name from whole swarm on recovery password login https://github.com/session-foundation/session-desktop/pull/1603\n- Fixed a bug where pending attachment downloads would never load https://github.com/session-foundation/session-desktop/pull/1615",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.17.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.0/session-desktop-win-x64-1.17.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.0.exe",
+          "sha256": "40a3e0c64c4e4dda841e78cee7656851990b17e9d39afd8f4674796590bdc183",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.17.0/session-desktop-win-x64-1.17.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.17.0.exe",
+          "sha256": "40a3e0c64c4e4dda841e78cee7656851990b17e9d39afd8f4674796590bdc183",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.10",
+      "release_date": "2025-09-19",
+      "release_notes": "Release Overview\n- Add ability to save crash dumps locally when a crash is detected https://github.com/session-foundation/session-desktop/pull/1594\n- Show an error on start when the platform cannot process images https://github.com/session-foundation/session-desktop/pull/1599",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.10",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.10/session-desktop-win-x64-1.16.10.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.10.exe",
+          "sha256": "024bf1dce440305935fff7a55e27a5b8972e4f4b9f19bdf070f67a36694a282a",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.10/session-desktop-win-x64-1.16.10.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.10.exe",
+          "sha256": "024bf1dce440305935fff7a55e27a5b8972e4f4b9f19bdf070f67a36694a282a",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.9",
+      "release_date": "2025-09-19",
+      "release_notes": "Release Overview\n- Add ability to save crash dumps locally when a crash is detected #1594\n- Show an error on start when the platform cannot process images #1599",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.9",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.9/session-desktop-win-x64-1.16.9.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.9.exe",
+          "sha256": "87be92acc88ec4797850734e22f0640cfee732838620ac8f3979ac45f66eddb8",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.9/session-desktop-win-x64-1.16.9.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.9.exe",
+          "sha256": "87be92acc88ec4797850734e22f0640cfee732838620ac8f3979ac45f66eddb8",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.8",
+      "release_date": "2025-09-09",
+      "release_notes": "Bug Fixes\n- Fixed a bug where pressing the Home/End keys in the composition box also scrolled the message list (#1589)",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.8",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.8/session-desktop-win-x64-1.16.8.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.8.exe",
+          "sha256": "e8705f43e912f73101c49fd50c9e4a6d9c64e9cd5eb122bf02b60a01c38fec92",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.8/session-desktop-win-x64-1.16.8.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.8.exe",
+          "sha256": "e8705f43e912f73101c49fd50c9e4a6d9c64e9cd5eb122bf02b60a01c38fec92",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.7",
+      "release_date": "2025-09-05",
+      "release_notes": "Bug Fixes\n- Fixed a bug preventing some postponed tasks to not be retried on restart #1582",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.7",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.7/session-desktop-win-x64-1.16.7.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.7.exe",
+          "sha256": "77becfcdc9744e278f5c62c461f660464bf0397d2b793b8f2cf83fc2e409219c",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.7/session-desktop-win-x64-1.16.7.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.7.exe",
+          "sha256": "77becfcdc9744e278f5c62c461f660464bf0397d2b793b8f2cf83fc2e409219c",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.6",
+      "release_date": "2025-08-14",
+      "release_notes": "Release Overview\n- Use the sharp library to process avatars and images #1524\nBug Fixes\n- Fixed a bug preventing play buttons to remove staged attachments #1527\n- Fixed a bug where attachments sent from iOS would not be downloaded #1529",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.6",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.6/session-desktop-win-x64-1.16.6.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.6.exe",
+          "sha256": "6462ba69a2a3d2fd6be503342002219d9c0c8d85f28be5ca346cb2b3dd2b589c",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.6/session-desktop-win-x64-1.16.6.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.6.exe",
+          "sha256": "6462ba69a2a3d2fd6be503342002219d9c0c8d85f28be5ca346cb2b3dd2b589c",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.5",
+      "release_date": "2025-07-22",
+      "release_notes": "Bug Fixes\n- Fixed a bug with IME input on windows #1519",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.5/session-desktop-win-x64-1.16.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.5.exe",
+          "sha256": "58ec9eaeef014fa207a5929dfeca7be7a4aea90b7a8941765ebea97f8a53e8ce",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.5/session-desktop-win-x64-1.16.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.5.exe",
+          "sha256": "58ec9eaeef014fa207a5929dfeca7be7a4aea90b7a8941765ebea97f8a53e8ce",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.4",
+      "release_date": "2025-07-18",
+      "release_notes": "Release Overview\n- Rewrote the composition box and mention selection (#1453)\n- Added expandable “Read more” message bubbles (#1469)\n- Standardized modals across the app (#1483, #1497)\n- Replaced icons with their Lucide equivalents where possible (#1463)\n- Reduced zoom step size for more accurate zooming (#1473)\nBug Fixes\n- Fixed user mentions in communities and reactions (#1468)\n- Fixed a bug preventing moderators from using their permissions (#1485)\n- Deleting a contact now creates a message request for new messages (#1479)\n- Disabled seeking when right-clicking the audio progress bar (#1471)\n- Minor styling fixes (#1494, #1514)",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.4",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.4/session-desktop-win-x64-1.16.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.4.exe",
+          "sha256": "71e0292a1d3479b317ae5559410b1af5a48a644f8a78b69b1e41a920094fb9cf",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.4/session-desktop-win-x64-1.16.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.4.exe",
+          "sha256": "71e0292a1d3479b317ae5559410b1af5a48a644f8a78b69b1e41a920094fb9cf",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.3",
+      "release_date": "2025-07-04",
+      "release_notes": "Release Overview\n- Add a new Conversation Settings Dialog https://github.com/session-foundation/session-desktop/pull/1419\nBug Fixes\n- Show the outgoing message request content in the side bar by @Aerilym https://github.com/session-foundation/session-desktop/pull/1460\n- Allow showing the message info panel for incoming message requests by @Aerilym https://github.com/session-foundation/session-desktop/pull/1465\n- Fix audio messages shows time left while playing by @yougotwill https://github.com/session-foundation/session-desktop/pull/1426",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.3/session-desktop-win-x64-1.16.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.3.exe",
+          "sha256": "b761f3bfc75ec3e6aefd63ddbc9ce7707ec4244162913a597a0170cbc4c01da4",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.3/session-desktop-win-x64-1.16.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.3.exe",
+          "sha256": "b761f3bfc75ec3e6aefd63ddbc9ce7707ec4244162913a597a0170cbc4c01da4",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.2",
+      "release_date": "2025-06-05",
+      "release_notes": "Release Overview\n- Added a new Session Network modal to the settings screen\nOther Changes\n- Added a donation button to support the Session Technology Foundation (STF)",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.2/session-desktop-win-x64-1.16.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.2.exe",
+          "sha256": "00d2ebc25f7bd49c5a170975b7c2d75042c4d9cabded3eb9e45e7534e3df262f",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.2/session-desktop-win-x64-1.16.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.2.exe",
+          "sha256": "00d2ebc25f7bd49c5a170975b7c2d75042c4d9cabded3eb9e45e7534e3df262f",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.1",
+      "release_date": "2025-05-23",
+      "release_notes": "Bug Fixes\n- Hotfix for onion path building https://github.com/session-foundation/session-desktop/pull/1430 by @yougotwill",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.1/session-desktop-win-x64-1.16.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.1.exe",
+          "sha256": "2c5007079cb30bc5cb4edcb1408fcd905dbad515e7b652f8861da11187bb5d7e",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.1/session-desktop-win-x64-1.16.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.1.exe",
+          "sha256": "2c5007079cb30bc5cb4edcb1408fcd905dbad515e7b652f8861da11187bb5d7e",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.16.0",
+      "release_date": "2025-05-07",
+      "release_notes": "Release Overview\n- Add macOS arm64 support #96 @yougotwill\n- Add support for alpha release channel #95 @yougotwill\n- Add multi-part config message support #1406\n- Add support of lucide icons #1395 @yougotwill\nBug Fixes\n- Prevent app suspension when in background #1394",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.16.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/Session/Session/1.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.0/session-desktop-win-x64-1.16.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.0.exe",
+          "sha256": "e9a1f18b40d0f76fd79138073d59c0f2da977dbb021b3390e8cbd943a9ab2e9f",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.16.0/session-desktop-win-x64-1.16.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.16.0.exe",
+          "sha256": "e9a1f18b40d0f76fd79138073d59c0f2da977dbb021b3390e8cbd943a9ab2e9f",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.2",
+      "release_date": "2025-03-27",
+      "release_notes": "Bug Fixes\n- Fixed the linux AppImage updater (#1367 )",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.15.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.15.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.15.2/session-desktop-win-x64-1.15.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.15.2.exe",
+          "sha256": "31d6fb2fcf1d67ce0f9d9bfa083a7e6d2437d42b4407a1830f4ed5d88e150f34",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.15.2/session-desktop-win-x64-1.15.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.15.2.exe",
+          "sha256": "31d6fb2fcf1d67ce0f9d9bfa083a7e6d2437d42b4407a1830f4ed5d88e150f34",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.1",
+      "release_date": "2025-03-25",
+      "release_notes": "Release Overview\n- Allow right-click actions when searching (#99)\n- Remove unnecessary auth headers when fetching default rooms (#100)\n- Improve performance when many groups are present (#1339)\nBug Fixes\n- Trim special whitespace characters when setting a display name (#68)\n- Prevent splash screen from displaying during migration of existing users (#107)\n- Ensure HTML is not rendered as part of group names (#108)\n- Fix unsending messages from desktop to Android to work as expected (#109)",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.15.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.15.1/session-desktop-win-x64-1.15.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.15.1.exe",
+          "sha256": "d6dbfc8a8d4d34ddb131aa18227517940c52a98596e69cfcf27f4a256754ced3",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.15.1/session-desktop-win-x64-1.15.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.15.1.exe",
+          "sha256": "d6dbfc8a8d4d34ddb131aa18227517940c52a98596e69cfcf27f4a256754ced3",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.15.0",
+      "release_date": "2025-03-11",
+      "release_notes": "Release overview\nThis update includes a major overhaul to group chats, making them more reliable and setting the stage for new features in the future. Group admins will need to recreate their group chats once the new Groups v2 architecture is enabled on 19th March at 22:00 UTC, and old groups will become read-only on 2nd April at 22:00 UTC. Learn more here: https://getsession.org/groups\nGroups v2 includes:\n- More reliable messaging – Enjoy a smoother and more consistent group chat experience.\n- Improved syncing – Group-wide settings, like disappearing messages, now sync more reliably across all members' devices.\n- Easier group management – Resend group invitations and manage members with greater ease.\n- Simpler group creation – Creating a new group is now more seamless, reducing issues like duplicate groups.\nOther changes\n- allow to mention ourselves anywhere in https://github.com/session-foundation/session-desktop/pull/47 https://github.com/session-foundation/session-desktop/pull/53\n- add punycode support for emoji ons by @Aerilym in https://github.com/session-foundation/session-desktop/pull/62\n- Various strings and styling issues fixed by @burtonemily in https://github.com/session-foundation/session-desktop/pull/37 https://github.com/session-foundation/session-desktop/pull/63\n- various avatar related fixes in https://github.com/session-foundation/session-desktop/pull/79 https://github.com/session-foundation/session-desktop/pull/78 https://github.com/session-foundation/session-desktop/pull/26\n- various documentation updates @yougotwill in https://github.com/session-foundation/session-desktop/pull/81 https://github.com/session-foundation/session-desktop/pull/57 https://github.com/session-foundation/session-desktop/pull/43 https://github.com/session-foundation/session-desktop/pull/18\nBug fixes\n- fixed a crash happening when showing the documents tab in https://github.com/session-foundation/session-desktop/pull/16\n- issue with setting display name fixed by @yougotwill in https://github.com/session-foundation/session-desktop/pull/61 https://github.com/session-foundation/session-desktop/pull/32",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.15.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.15.0/session-desktop-win-x64-1.15.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.15.0.exe",
+          "sha256": "43cf1fd45866a3f7370b8068221eba50f56a38ac434771abaab259cf5b729573",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.15.0/session-desktop-win-x64-1.15.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.15.0.exe",
+          "sha256": "43cf1fd45866a3f7370b8068221eba50f56a38ac434771abaab259cf5b729573",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.14.5",
+      "release_date": "2024-12-20",
+      "release_notes": "Bug Fixes\n- Showing the document media tab does not crash the app anymore #16",
+      "release_notes_url": "https://github.com/session-foundation/session-desktop/releases/tag/v1.14.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.14.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.14.5/session-desktop-win-x64-1.14.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.14.5.exe",
+          "sha256": "5690f49e83c539d816c30cf48e870c8b52d1985802e7b7b7d3e088f998e16b72",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.14.5/session-desktop-win-x64-1.14.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.14.5.exe",
+          "sha256": "5690f49e83c539d816c30cf48e870c8b52d1985802e7b7b7d3e088f998e16b72",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.14.3",
+      "release_date": "2024-12-10",
+      "release_notes": "Session\nSession uses the Session encryption protocol and the Oxen blockchain’s decentralised Service Node network to provide anonymous, end-to-end encrypted messaging without relying on central servers.\nRelease Overview\n- Added a notification dot for unread messages on the app icon #3216 @burtonemily\nBug Fixes\n- Calling a user does no longer send multiple message request response messages #3254\nSupported Platforms\nSession requires Windows 10 or later, macOS Monterey (12) or later, or a Linux distribution with glibc 2.28 or later like Debian 10 or Ubuntu 20.04.\nSignature of release files\n-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA512\nSigned SHA256 hashes of release files. These are signed using Jason's GPG\nkey available at:\n - the oxen-io/oxen-core repository, at /utils/gpg_keys/Jason.asc\n - OpenPGP key servers (Jason Rhinelander <jason@session.foundation>, A88D4262)\n - https://imaginary.ca/public.gpg\n - https://github.com/jagerman.gpg\n27271233343315ce5a98c540acc96277077acbfae8584f671b1922561b2bd34c  latest-linux.yml\n732be054c123678d8e2993fd2e86bd2ec7c77d5167b7477fc6330920dda37e2a  latest-mac.yml\n8d97c0ab169c4cbb7f5d81ad3360467c2670a379d9ac8fe1e34fed9fa86fc9dc  latest.yml\na7a6a9ec9f81b92888747b3abe2628000ec90910208dc50e481fde7875752dab  session-desktop-linux-amd64-1.14.3.deb\n343eddc25a093e3c28b2006d2920b44139e759e7b5862a0dc415f6f2731aff6c  session-desktop-linux-x64-1.14.3.freebsd\nfc0335ec2621a80175d358bf0005de109e603977e368e2ba601e1287eef7d231  session-desktop-linux-x86_64-1.14.3.AppImage\nfbd97fac958cf09eef72d9ef7aa8c19c5ea0fa4e119c25355b5ea0ca4e8fe9ea  session-desktop-linux-x86_64-1.14.3.rpm\n66b8d5c77efb04a381520d3c7f7ec24a70f5ae803ddc76031519ed6d2f3132f8  session-desktop-mac-x64-1.14.3.dmg\ne568ea60e2261316ff9087e4da9cf37960791a12727f67ffb69076002d5afbfb  session-desktop-mac-x64-1.14.3.dmg.blockmap\n840bcec0fd13c5ad895fccbdb586834eb876ece1501d007f75cb6d5684e3ea40  session-desktop-mac-x64-1.14.3.zip\nc60bd72d0f92f4be135db6ca1ef4545b5b2ea80042dd6e06698c226edd9079ad  session-desktop-mac-x64-1.14.3.zip.blockmap\n596e3776e80d5e87fe7a8ba150718d2469160fc51e095fa72e12f4257e95e46a  session-desktop-win-x64-1.14.3.exe\n2518f51f8447e6d09ec0c886e4dcb77a193f237d23c6ce31c44d65b46b59dc79  session-desktop-win-x64-1.14.3.exe.blockmap\n-----BEGIN PGP SIGNATURE-----\niQIzBAEBCgAdFiEEZjYdjjyW5Bxty3BRxJks56iNQmIFAmdaY3EACgkQxJks56iN\nQmIc1A//cZB7/D+HkSRBLZBS36RwFeNBhRsdoyURLLWImRB4QpRklz1xEI3AiBQ7\nWebpC373TrPR+i/FG+n+xhSayGOo7iu99SkOn6WtbagVNF4JaBVRXEe44Cz3LRU9\nl+OrU7ZxDbDMquM9Dscjek9RhMUFHcNc1weQIsSH8XdM5CdObsyBcDC36O/SPPkx\nYSdOWblcUSGY+oYLvoLJIzxi7ZQllsx6TFdRVe6EMabAZL+VPqsn5fxRjg1hxitw\nz80Uh3Nw/STlkFM77mRiTdyQFeCgmWdpeIG9AvP3GFV5OgfljQGfunl9yPdU1jNu\n7w21DrmV0K764wIHyVjXDLwpeE0CqmVX5T1qrsyRAApvDTfi1iLzkw8hGY/WxOf0\nqi73TPnDKWkMfumgDrQN8eSangh9WcpnRnEEzVr75dC+P4PWI0teUfBO9L0AfXmd\ndi+hiuHVYzj2IKHTVaOGmXqWZaWYg/pL3I6l8NdZDXCKzCdfsY9j0c0IF+UBXQeY\n4Gy+jiH1eD2BX7IHSP9JFotNxvN6x+Xql5AmEvx2IROW7g8tA8JHiTnEbL6x9/22\nXW1utjyLSzREGOJov7LJnaBjaNCEd1bczlXLLP7fdnZzcdWuKPNIMZhCJLDC1N8M\nRPM/L8gv8rxdl3Py5zjNw2SRJGLhOU5BtPPTzU7yeI+O48Kxt5Q=\n=sfRH\n-----END PGP SIGNATURE-----",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.14.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.14.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.14.3/session-desktop-win-x64-1.14.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.14.3.exe",
+          "sha256": "596e3776e80d5e87fe7a8ba150718d2469160fc51e095fa72e12f4257e95e46a",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Session 1.14.3",
+              "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.14.3/session-desktop-win-x64-1.14.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.14.3.exe",
+          "sha256": "596e3776e80d5e87fe7a8ba150718d2469160fc51e095fa72e12f4257e95e46a",
+          "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Session 1.14.3",
+              "product_code": "f1339da8-b3f2-5116-b780-aafa611bc7f7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.12.2",
+      "release_date": "2024-04-12",
+      "release_notes": "Session\nSession uses the Session encryption protocol and the Oxen blockchain’s decentralised Service Node network to provide anonymous, end-to-end encrypted messaging without relying on central servers.Bug fixes\n- Fix a crash when opening emoji reactions modal #3074\n- Ask the user for a display name if we can't find a valid display name in their config message #3075\nSignatures\n\n\n-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA256\n\nThe following hashes have been signed for verification using keejef's GPG keys\nlocated in the oxen core repository at \n\nSHA256 Hashes\n\nlatest-linux.yml 03886b011b0fcd84e22f3cb841d5e9a6364522adf355d3f462cd4be3c1b0d09a\nlatest-mac.yml bac1c4decce76be2a481e6ff857c7a62ec4fc578cb0aa0b6afe02266c21478fb\nlatest.yml 1521a9603a1de2ff258fb40f33c0422f5ba35f9ff5c05c4514f772943de53fae\nsession-desktop-linux-amd64-1.12.2.deb 1b6a73178c7e12011a8f5b07d1b35ca1579defcfbf880fe96656ba8082c7db8f\nsession-desktop-linux-x64-1.12.2.freebsd 28216661efb512a2aae615e515d95282fde700b82819540e9ad89c316756f136\nsession-desktop-linux-x86_64-1.12.2.AppImage 6b6cc91639fa5534b16858654eb3fe57c8cd293f45e2a53115e10153c1392bb7\nsession-desktop-linux-x86_64-1.12.2.rpm 3e99701df9d42a82af2fa57d411f4ee3af5d11d38c11647a499dd3410a103061\nsession-desktop-mac-x64-1.12.2.dmg b3548c37962ee18a74a23b6349428c1ec92b0576596b5438b5e59ae08e20f27e\nsession-desktop-mac-x64-1.12.2.dmg.blockmap 74dd1a49ec35e290d27787d72c9f559fb8d5cc7222c0241c79220a2d22d0bd8d\nsession-desktop-mac-x64-1.12.2.zip bf039d00d349e5b6a17e5caf3aaa5d7549df83cbd3fff3e6571d09d1673cbc3a\nsession-desktop-mac-x64-1.12.2.zip.blockmap 92dad0457c3d7bfde8aef4ed31ed9c70231214046954c68be745160099391562\nsession-desktop-win-x64-1.12.2.exe f83b3ef8febfc4ec00a106086c153d740aae4111baeaf0a31dbae491f208633c\nsession-desktop-win-x64-1.12.2.exe.blockmap 6f7447253ab61dd3da877dcd93e0b0681bb3fbf0edb94c4edefbfcf0595b2392\n-----BEGIN PGP SIGNATURE-----\n\niIIEARYIACoWIQT8KCHeNb2DnpPTrnZQ94kLze2QqwUCZhinOwwca2VlQG94ZW4u\naW8ACgkQUPeJC83tkKsdxgD8DrwZIJrj3Sz/ljH+JPXmovcTYa/F6IcB096y1hhl\nXVUA+wWwPcL2xpPuZt364yqLlC5V/YJSJxk6IhYyQAuTeoYE\n=IMwH\n-----END PGP SIGNATURE-----\n\nSupported Platforms\nSession requires Windows 10 or later, macOS Catalina (10.15) or later, or a linux distribution with glibc 2.29 or later like Debian 10 or Ubuntu 20.04.",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.12.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.12.2/session-desktop-win-x64-1.12.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.12.2.exe",
+          "sha256": "f83b3ef8febfc4ec00a106086c153d740aae4111baeaf0a31dbae491f208633c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.12.2/session-desktop-win-x64-1.12.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.12.2.exe",
+          "sha256": "f83b3ef8febfc4ec00a106086c153d740aae4111baeaf0a31dbae491f208633c",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.12.1",
+      "release_date": "2024-04-08",
+      "release_notes": "Session\nSession uses the Session encryption protocol and the Oxen blockchain’s decentralised Service Node network to provide anonymous, end-to-end encrypted messaging without relying on central servers.Release notes approved:Release Overview\n- Improve country accuracy in node path dialog #2969 @KeeJef\n- Add unread message count on scroll-to-now button #2996 @KeeJef\n- Remove password-protection from settings (except Recovery Phrase) #3059\n- Add keyboard shortcuts to modals #2977 @KeeJef\n- Allow deleting outgoing messages in Communities #3061\nBug fixes\n- Fix unread message theming and alignment #2988 @KeeJef\n- Render mentions in private chats #3038 @Aerilym\n- Prevent recovery phrase from appearing briefly when displaying dialog #3033 @Aerilym\n- Fix bug with long list member list selections #3036 @Aerilym\n- Fix bug with incoming quotes incorrectly displaying \"Original message not found\" #3037\n- Make whole attachment area clickable for generic attachments #2992 @KeeJef\n- Fix images over-compressing before sending #2887\n- Enforce Group names to be less than 30 characters #3060\n- Allow notifications for legacy Groups #3066\n- Various UI fixes #3055 #3034\nSignatures\n\n\n-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA256\n\nThe following hashes have been signed for verification using keejef's GPG keys\nlocated in the oxen core repository at \n\nSHA256 Hashes\n\nlatest-linux.yml f8d4bcdaf922b9e5e54b028ef9563b92386043fe9fc7fce5d9e356683c10c57e\nlatest-mac.yml 04388481162d54aaac6880d1e2c358947d339dc4a94221bad4ebf885edab71b7\nlatest.yml 8cc829fd2d38aa17cffb00d69ac4b83177a77cef3445dfea3271e68909526032\nsession-desktop-linux-amd64-1.12.1.deb b3c24738095ab413d171820fb6cb28a5fd470979c41eb4c2ad9420d9dc8e7362\nsession-desktop-linux-x64-1.12.1.freebsd 25e7564740cd9ca332cf60a920c77b7e128468a49c53de8d3a252fc151d27c75\nsession-desktop-linux-x86_64-1.12.1.AppImage f4403ba6c4863308d676898f6826928f727df018bbc31c06fb88ba09ab8206e2\nsession-desktop-linux-x86_64-1.12.1.rpm e80b37f4b38af035f44663a7c0e78b6caebff731060d3586b5a0552eba5103e5\nsession-desktop-mac-x64-1.12.1.dmg 6526a732f79d77720bc3af8957d2a5fbfec93afdc8723ee571157c537d20167b\nsession-desktop-mac-x64-1.12.1.dmg.blockmap 24f363ab9e7b4aef9c38103975645893b5471aee0e8a2349b0dad9f19e7781fe\nsession-desktop-mac-x64-1.12.1.zip bd7124115b283bdf5ba37391ab4263ba58dcae320220e0e856d661927b827c28\nsession-desktop-mac-x64-1.12.1.zip.blockmap 69b22d39f6546582590efc8120351bcef75d0a56e2a26938b0bff283769a99c1\nsession-desktop-win-x64-1.12.1.exe 66ae884af356917c184ccab675b8b8e4ae8b35d6a9b7183ebc191e9814fd4273\nsession-desktop-win-x64-1.12.1.exe.blockmap 5f515515553faff6f17f4aa00c5467ae95bb6faf60cf442e09406e5a4f67bdc0\n-----BEGIN PGP SIGNATURE-----\n\niIIEARYIACoWIQT8KCHeNb2DnpPTrnZQ94kLze2QqwUCZhN5mQwca2VlQG94ZW4u\naW8ACgkQUPeJC83tkKuljwEAv2epqedBQuNR0N/x6MfnsVspXBa+CsF6x7R2V02Q\nifYBAPMZmE5Q5wGTSkLeFAUCU8Bt+MHPrCUXJorWsBJ3mnkK\n=rNzI\n-----END PGP SIGNATURE-----\n\nSupported Platforms\nSession requires Windows 10 or later, macOS Catalina (10.15) or later, or a linux distribution with glibc 2.29 or later like Debian 10 or Ubuntu 20.04.",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.12.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.12.1/session-desktop-win-x64-1.12.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.12.1.exe",
+          "sha256": "66ae884af356917c184ccab675b8b8e4ae8b35d6a9b7183ebc191e9814fd4273",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.12.1/session-desktop-win-x64-1.12.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.12.1.exe",
+          "sha256": "66ae884af356917c184ccab675b8b8e4ae8b35d6a9b7183ebc191e9814fd4273",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.12.0",
+      "release_date": "2024-02-28",
+      "release_notes": "Session\nSession uses the Session encryption protocol and the Oxen blockchain’s decentralised Service Node network to provide anonymous, end-to-end encrypted messaging without relying on central servers.Release Overview\n- Disappearing Messages now has two modes, Disappear after Send and Disappear After Read #3016\n- When Disappear after Send is selected, messages will disappear from sender, recipient and network simultaneously a set time after they have been sent, regardless of whether the recipient has received or read the message.\n- When Disappear after Read is selected, messages will disappear for the sender and the sender’s swarm a set time after they have been sent, and for the recipient and the recipient’s swarm a set time after they have been read. Messages which haven’t been read\t after 14 days will disappear for the recipient and their swarm.\n- Both options will be available in 1-1 chats, but only Disappear after Send will be available in Groups. Neither will be available in Communities.\n- This release includes the new version of Disappearing Messages, however the feature won't be enabled until March 13th 10am AEDT, this will give users time to update their clients to be able to interpret the new type of messages\n- Moved the Message Info in the right panel #3021 #3024\nSignatures\n\n\n-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA256\n\nThe following hashes have been signed for verification using keejef's GPG keys\nlocated in the oxen core repository at \n\nSHA256 Hashes\n\nlatest-linux.yml c2db51a948fb7db6fc2bac2f5aab1a966a2aec670f780fefd1e3ff05c4d951b5\nlatest-mac.yml 98c2f607ffc8a3a5976d443a7eed1c26c325d37e3ecebba77b1cfaa118c05f47\nlatest.yml a5ffbcffb6d76ee56eef488c0626156e3518091388c0f6b9959b7980703317db\nsession-desktop-linux-amd64-1.12.0.deb 98825369bff16194c63990b3089cd10c75a81d21748207935f4fee67d5ba611c\nsession-desktop-linux-x64-1.12.0.freebsd c9f8b693734bfb2921a08b55cc9c47a48d0b17ee6686c99ef9747ff34979de8c\nsession-desktop-linux-x86_64-1.12.0.AppImage f4e177d69778b2d0492be9e41dab6c8d594dc345a745b6373e61acb77b5fbc90\nsession-desktop-linux-x86_64-1.12.0.rpm 5ee9d97f52d069dd09c4093769e2197c4175ed1c8affb2c3602bd3ae712e21de\nsession-desktop-mac-x64-1.12.0.dmg 180ce32aae9c846e0550e8ecaea25642d8f909c9cb467724633992d7252b41b7\nsession-desktop-mac-x64-1.12.0.dmg.blockmap 8c71054b8ef16175c31de7802a7925410e4594973ee6c0f0837e1c650f7c2864\nsession-desktop-mac-x64-1.12.0.zip 8323f11aea5f87d26097b0332a7deceb0e6d8c87e959d68875f043d3a74e5a65\nsession-desktop-mac-x64-1.12.0.zip.blockmap 6999defb5200fc22488e1ec84aed4ca577c2ddcdc2d9afcf0f21dcb97d85ac72\nsession-desktop-win-x64-1.12.0.exe 46637ed547d11c3d05ebd609cda06a8d635f77ab9ef886ad5d1fcd1aed34b581\nsession-desktop-win-x64-1.12.0.exe.blockmap f7212f5cf3c68683f71721d9a99ccc42805bf6fca470b2aa2dc2912adab309eb\n-----BEGIN PGP SIGNATURE-----\n\niIIEARYIACoWIQT8KCHeNb2DnpPTrnZQ94kLze2QqwUCZd6ptQwca2VlQG94ZW4u\naW8ACgkQUPeJC83tkKtsdAD/UmX/k1JvhugXuGPrkWY78/ymg/iVEAyaPXjuJr4y\nHfgBAKTrRfkbo3pWfaXH+0tzs/vKtuSLWCQllo4IxmUMD0UG\n=0vl2\n-----END PGP SIGNATURE-----\n\nSupported Platforms\nSession requires Windows 10 or later, macOS Catalina (10.15) or later, or a linux distribution with glibc 2.29 or later like Debian 10 or Ubuntu 20.04.",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.12.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.12.0/session-desktop-win-x64-1.12.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.12.0.exe",
+          "sha256": "46637ed547d11c3d05ebd609cda06a8d635f77ab9ef886ad5d1fcd1aed34b581",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.12.0/session-desktop-win-x64-1.12.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.12.0.exe",
+          "sha256": "46637ed547d11c3d05ebd609cda06a8d635f77ab9ef886ad5d1fcd1aed34b581",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.5",
+      "release_date": "2023-12-10",
+      "release_notes": "Release Overview\n- Added a setting for \"Enter\" key to send or add a new line #1486 @KeeJef\n- Added a setting to make Session follow the system theme settings #2957 @KeeJef\nBug fixes\n- Darkened the overlay on attachments for light themes #2952 @KeeJef\n- Add \"Saved Messages\" alias to find the \"Note to Self\" conversation #2960 @KeeJef\n- Use the index of the attachment in a message as part of the \"Save As\" filename #2917 @RubenGarcia\n- Fixed calls: removed broken TURN servers #2993",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.11.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.11.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.5/session-desktop-win-x64-1.11.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.5.exe",
+          "sha256": "582f4ca5c3763267d877ee4a11a4b8bb210bc147dfe88315377bbf2d15ca74e5",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.5/session-desktop-win-x64-1.11.5.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.5.exe",
+          "sha256": "582f4ca5c3763267d877ee4a11a4b8bb210bc147dfe88315377bbf2d15ca74e5",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.4",
+      "release_date": "2023-10-15",
+      "release_notes": "Release Overview\n- Updated electron to v25.8.4 #2941\n- Update macOS icon to match new guidelines #2939\nBug Fixes\n- Do not crash on incorrect conversation ID on startup #2932",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.11.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.11.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.4/session-desktop-win-x64-1.11.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.4.exe",
+          "sha256": "c4e103db946fc3bb0bacf5fe2476542e3f031f8bc1b008c20c984f7a7777dd5e",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.4/session-desktop-win-x64-1.11.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.4.exe",
+          "sha256": "c4e103db946fc3bb0bacf5fe2476542e3f031f8bc1b008c20c984f7a7777dd5e",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.3",
+      "release_date": "2023-09-14",
+      "release_notes": "Bug Fixes\n- Update to electron 25.8.1 #2901",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.11.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.11.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.3/session-desktop-win-x64-1.11.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.3.exe",
+          "sha256": "781eb89f519ccc09ac63e0b86868b84a3721fdb255acc08501cc02d1877616af",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.3/session-desktop-win-x64-1.11.3.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.3.exe",
+          "sha256": "781eb89f519ccc09ac63e0b86868b84a3721fdb255acc08501cc02d1877616af",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.2",
+      "release_date": "2023-09-07",
+      "release_notes": "Bug Fixes\n- Fixed a bug which occasionally caused synced messages and emoji reacts not to appear #2901\n- Fixed the \"Download Attachment \" menu item on messages with multiple attachments #2903",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.11.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.11.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.2/session-desktop-win-x64-1.11.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.2.exe",
+          "sha256": "91c04267a9b0011d4bf02290236b551e3d9354acd3a5821bd15397f0d3923823",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.2/session-desktop-win-x64-1.11.2.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.2.exe",
+          "sha256": "91c04267a9b0011d4bf02290236b551e3d9354acd3a5821bd15397f0d3923823",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.1",
+      "release_date": "2023-08-29",
+      "release_notes": "Release Overview\n- Allow users to disable incoming message requests in communities #2854\n- Add support for RTL languages in the composition box #2867\n- Allow profile pictures to be removed #2869\n- Add download link in the readme #2838 @bemusementpark\nBug Fixes\n- Add ellipsis when the author name is too long for quotes #2819\n- Improve the readability when using a Cyrillic font #2856\n- Fix typos across the app #2816 #2864 @mdPlusPlus",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.11.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.1/session-desktop-win-x64-1.11.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.1.exe",
+          "sha256": "120667bd4bc919bdb7614bb7583519a4b356455974ebb25bb91cf1104d4f23e7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.1/session-desktop-win-x64-1.11.1.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-x64-1.11.1.exe",
+          "sha256": "120667bd4bc919bdb7614bb7583519a4b356455974ebb25bb91cf1104d4f23e7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.11.0",
+      "release_date": "2023-07-17",
+      "release_notes": "Release Overview\n- Reworked how device-to-device syncing works #2779 #2793 #2810\n- Add support for conversation read state syncing between devices #2779\n- Optimised loading quotes by using a bulk database lookup of their sources.\n  This includes better messaging if the source is not found. #2757 #2817\nBug Fixes\n- Fixed bugs when sending and receiving quotes and matched designs with mobile platforms #2757\n- Fixed message padding issues #2818\n- Fixed message selection shadow #2807",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.11.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.0/session-desktop-win-1.11.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.11.0.exe",
+          "sha256": "3124dfda91aed552280ec372053683fc3628fbf72754b2e5edd7670d74406828",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.11.0/session-desktop-win-1.11.0.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.11.0.exe",
+          "sha256": "3124dfda91aed552280ec372053683fc3628fbf72754b2e5edd7670d74406828",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.10.8",
+      "release_date": "2023-04-05",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.10.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.10.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.10.8/session-desktop-win-1.10.8.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.10.8.exe",
+          "sha256": "2ff7c2668677177ef7d0bdd5a658f6f71dd6df3b5bd7824d41b3ddbf3d24058f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.10.8/session-desktop-win-1.10.8.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.10.8.exe",
+          "sha256": "2ff7c2668677177ef7d0bdd5a658f6f71dd6df3b5bd7824d41b3ddbf3d24058f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.10.7",
+      "release_date": "2023-02-09",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.10.7",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.10.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.10.7/session-desktop-win-1.10.7.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.10.7.exe",
+          "sha256": "01c7ab392cf8122a2914ee9681b07050e31d8b947cc1719ad19e9867c8f8933a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.10.7/session-desktop-win-1.10.7.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.10.7.exe",
+          "sha256": "01c7ab392cf8122a2914ee9681b07050e31d8b947cc1719ad19e9867c8f8933a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.10.4",
+      "release_date": "2022-11-07",
+      "release_notes_url": "https://github.com/oxen-io/session-desktop/releases/tag/v1.10.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/Session/Session/1.10.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.10.4/session-desktop-win-1.10.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.10.4.exe",
+          "sha256": "28b3a54ba56eaf6c0ab6c7b6eaf5657c37b9bdfcb19dcebe235d009519049d61",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/oxen-io/session-desktop/releases/download/v1.10.4/session-desktop-win-1.10.4.exe",
+          "host": "github.com",
+          "filename": "session-desktop-win-1.10.4.exe",
+          "sha256": "28b3a54ba56eaf6c0ab6c7b6eaf5657c37b9bdfcb19dcebe235d009519049d61",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.18.3",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.3/session-desktop-mac-x64-1.18.3.dmg",
+          "host": "github.com",
+          "filename": "session-desktop-mac-x64-1.18.3.dmg",
+          "sha256": "ebd08b724254de42f8f4d2090b87dfe691db402aa234ba0bffe2898995483cb2",
+          "min_os_version": "13"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/session-foundation/session-desktop/releases/download/v1.18.3/session-desktop-mac-arm64-1.18.3.dmg",
+          "host": "github.com",
+          "filename": "session-desktop-mac-arm64-1.18.3.dmg",
+          "sha256": "bc3f81ce0062a0577bc9b59ed3fb47262a801e6ff455c73b5f5d8582d56cb5dc",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Session.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.loki-project.messenger-desktop.sfl*",
+            "~/Library/Application Support/Session",
+            "~/Library/Caches/Session",
+            "~/Library/Preferences/com.loki-project.messenger-desktop.plist",
+            "~/Library/Saved Application State/com.loki-project.messenger-desktop.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "1.18.3",
+      "release_date": "2026-10-26",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/network.loki.Session.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "network.loki.Session.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "4fb5e09afe5262757b4b07ad5dd795814872e2e3",
+      "retrieved_at": "2026-11-11T13:29:00.282Z",
+      "path": "manifests/s/Session/Session"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "6b8a59b4e9b927ca54d3b921b1c8949106a3eb44",
+      "retrieved_at": "2026-11-11T13:29:00.282Z",
+      "path": "Casks/s/session.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/session.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/network.loki.Session",
+      "retrieved_at": "2026-11-11T13:29:04.150Z",
+      "path": "api/v2/appstream/network.loki.Session",
+      "api_url": "https://flathub.org/api/v2/appstream/network.loki.Session",
+      "content_sha256": "2b0a9be2259629e623a7a0f501c4b0148dabe680349a1662409819ae8f99eb55"
+    }
+  ],
+  "flathub": {
+    "app_id": "network.loki.Session",
+    "page_url": "https://flathub.org/apps/network.loki.Session",
+    "repo_url": "https://github.com/flathub/network.loki.Session",
+    "install_command": "flatpak install flathub network.loki.Session",
+    "run_command": "flatpak run network.loki.Session",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "loki.network",
+      "verified_on": "2024-02-16"
+    },
+    "license": "GPL-3.0",
+    "free_license": true,
+    "developer_name": "Session Technology Foundation",
+    "categories": [
+      "Network",
+      "InstantMessaging",
+      "Chat"
+    ],
+    "download_size": 176698864,
+    "installed_size": 495933440,
+    "arches": [
+      "x64"
+    ]
+  }
+}

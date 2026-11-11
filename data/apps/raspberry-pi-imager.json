@@ -1,0 +1,859 @@
+{
+  "schema_version": 2,
+  "slug": "raspberry-pi-imager",
+  "name": "Raspberry Pi Imager",
+  "publisher": "Raspberry Pi Ltd",
+  "author": "Raspberry Pi Ltd",
+  "ids": {
+    "winget": "RaspberryPiFoundation.RaspberryPiImager",
+    "moniker": "rpi-imager",
+    "homebrew_cask": "raspberry-pi-imager",
+    "flathub": "org.raspberrypi.rpi-imager"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Raspberry Pi Imager is the quick and easy way to install Raspberry Pi OS and other operating systems to a microSD card, ready to use with your Raspberry Pi.",
+  "description": "Raspberry Pi Imager is the quick and easy way to install Raspberry Pi OS and other operating systems to a microSD card, ready to use with your Raspberry Pi.\n\nDownload and install Raspberry Pi Imager on a computer with an SD card reader. Insert the microSD card you’ll use with your Raspberry Pi into the reader and run Raspberry Pi Imager.",
+  "tags": [
+    "flash",
+    "imager",
+    "raspberrypi",
+    "sd"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/raspberrypi/rpi-imager/",
+    "publisher": "https://github.com/raspberrypi",
+    "support": "https://github.com/raspberrypi/rpi-imager/issues",
+    "bug_tracker": "https://github.com/raspberrypi/rpi-imager/issues",
+    "release_notes": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.8",
+    "documentation": [
+      {
+        "label": "Raspberry Pi Documentation",
+        "url": "https://www.raspberrypi.com/documentation/"
+      }
+    ]
+  },
+  "license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/raspberrypi/rpi-imager/blob/HEAD/license.txt",
+    "spdx": "Apache-2.0",
+    "copyright": "Copyright (C) 2026 Raspberry Pi Ltd",
+    "copyright_url": "https://github.com/raspberrypi/rpi-imager/blob/qml/license.txt"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.0.8",
+    "macos": "2.0.12",
+    "linux": "2.0.12"
+  },
+  "last_updated": "2026-04-08",
+  "versions_total": {
+    "windows": 26,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.0.8",
+      "release_date": "2026-04-08",
+      "release_notes": "What's changed\n- Fastboot:\n  - Enumerate storage devices\n  - Add mount, unmount, and custom gadget support\n  - Rename stage to download\n  - Retry on transient USB errors\n- OS Customisation:\n  - Don't set any groups, leave it to the OS\n  - Use explicit runcmds for passwordless sudo\n  - Require active locale selection; no pre-filled defaults\n- UI:\n  - Refresh clipboard status as text fields show\n- SSH:\n  - Add state machine for handling PuTTY's multiline SSH keys\n- Linux:\n  - Explicitly exclude libsystemd\n- Write Operations:\n  - Increase watchdog stall timeout to 180s to match the async write timeout\n  - Exclude final data sync from write watchdog to avoid false stalls on slow\n    cards\n- i18n: Updated French, Slovak translation dictionaries\n- Documentation:\n  - Add a screenshot of the interface\nPRs\n- Screenshot by @nafanz in https://github.com/raspberrypi/rpi-imager/pull/1559\n- Improve french translation by @martignoni in https://github.com/raspberrypi/rpi-imager/pull/1560\n- Added a state machine for handling PuTTY's multiline SSH keys by @bjepson in https://github.com/raspberrypi/rpi-imager/pull/1574\n- 2.0.8: Bugfixes, fastboot improvements by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1582\n- Update Slovak translation. by @jose1711 in https://github.com/raspberrypi/rpi-imager/pull/1571\n- 2.0.8: GH templates, changelog by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1583\n- fix(stall): Relax thresholds, don't count final sync as stallable. by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1584\nNew Contributors\n- @bjepson made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1574\nFull Changelog: https://github.com/raspberrypi/rpi-imager/compare/v2.0.7...v2.0.8",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.8/imager-v2.0.8.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.8.exe",
+          "sha256": "3a2eddf6598a6f1570ce683a76b2bfbe0e4b9ebfb24cde91ac0005140675cbf7",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.7",
+      "release_date": "2026-03-26",
+      "release_notes": "What's Changed\n- chore(release): v2.0.6 by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1477\n- feat(installer): Add windows installer dark mode support in rpi-imager.iss.in by @rc-chuah in https://github.com/raspberrypi/rpi-imager/pull/1480\n- fix(main): Add warning for log paths that are too long by @Ferdinaelectro1 in https://github.com/raspberrypi/rpi-imager/pull/1481\n- Add pt-br translation by @eduardoaddad in https://github.com/raspberrypi/rpi-imager/pull/1490\n- Update Turkish translations by @Sype0 in https://github.com/raspberrypi/rpi-imager/pull/1488\n- Added documentation clarifying the interaction between old versions of Imager and new versions of RPi OS by @lurch in https://github.com/raspberrypi/rpi-imager/pull/1497\n- Fix malformed rpi-imager_pt-BR.ts by @lurch in https://github.com/raspberrypi/rpi-imager/pull/1499\n- Move the development instructions to a separate CONTRIBUTING.md file by @lurch in https://github.com/raspberrypi/rpi-imager/pull/1508\n- QML: fix property name mismatch in ImFileDialog by @wallentx in https://github.com/raspberrypi/rpi-imager/pull/1505\n- 2.0.7: Remove legacy mountutils/drivelist, bugfixes by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1513\n- fix(debian): Add missing GUI library dependencies by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1517\n- 2.0.7: Improved combobox search, HK & Macau added, don't store experimental options by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1525\n- 2.0.7: Remove BLKDISCARD, gzip progress bars by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1528\n- Add \"Clear saved customisation\" button to App Options by @4RH1T3CT0R7 in https://github.com/raspberrypi/rpi-imager/pull/1501\n- fix(cloud-init): Make instance-id durable across reboots by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1529\n- fix(capital-cities): Update capital city entries and handling for Hong Kong by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1531\n- fix(ImFileDialog): allow typing/pasting full file paths in open mode by @4RH1T3CT0R7 in https://github.com/raspberrypi/rpi-imager/pull/1530\n- fix(ImComboBox): use PlatformHelper for scroll direction in closed ComboBox by @4RH1T3CT0R7 in https://github.com/raspberrypi/rpi-imager/pull/1534\n- Fix compile erorr in platformquirks_linux.cpp by @lurch in https://github.com/raspberrypi/rpi-imager/pull/1537\n- fix(beep): bundle fallback chime for Linux distros without freedesktop sounds by @4RH1T3CT0R7 in https://github.com/raspberrypi/rpi-imager/pull/1535\n- fix(polkit): use /etc/polkit-1/actions for policy on immutable distros by @4RH1T3CT0R7 in https://github.com/raspberrypi/rpi-imager/pull/1536\n- fix(wifi): prevent stale WiFi settings from being applied after Skip by @4RH1T3CT0R7 in https://github.com/raspberrypi/rpi-imager/pull/1540\n- 2.0.7 rollup 2: Fastboot, rpiboot, compute modules, text scaling, proxy support by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1548\n- fix(i18n): add missing French translations for saved customisation settings by @Ferdinaelectro1 in https://github.com/raspberrypi/rpi-imager/pull/1555\n- chore(.gitignore) : add .idea to .gitignore by @Ferdinaelectro1 in https://github.com/raspberrypi/rpi-imager/pull/1552\n- i18n: complete zh-CN translation by @ykla in https://github.com/raspberrypi/rpi-imager/pull/1554\nNew Contributors\n- @rc-chuah made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1480\n- @Ferdinaelectro1 made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1481\n- @eduardoaddad made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1490\n- @Sype0 made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1488\n- @wallentx made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1505\n- @4RH1T3CT0R7 made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1501\nFull Changelog: https://github.com/raspberrypi/rpi-imager/compare/v2.0.6...v2.0.7",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.7/imager-v2.0.7.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.7.exe",
+          "sha256": "a1bb2b60fca9cf5f71f4f034e28b9812ad873e70ca5155eeb0f0df7b3bb179c4",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.6",
+      "release_date": "2026-01-22",
+      "release_notes": "What's Changed\n- Update de translations by @rejas in https://github.com/raspberrypi/rpi-imager/pull/1468\n- refactor(ImButton): Update implicit width calculation for better cont… by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1473\nFull Changelog: https://github.com/raspberrypi/rpi-imager/compare/v2.0.5...v2.0.6",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.6/imager-v2.0.6.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.6.exe",
+          "sha256": "0f41e44b42e9c114a486398b894a86a3a5fbe09f3d56f9320110078612ecb3ed",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.5",
+      "release_date": "2026-01-20",
+      "release_notes": "What's Changed\n- all platforms: CLI option added to help on GUI builds\n- macOS:\n  - Add dark mode and Liquid Glass icon support with pre-compiled assets\n  - Add icon compilation script for regenerating icon assets\n- UI:\n  - Enhance update popup with version tracking functionality\n  - Improve BaseDialog minimum height for better usability\n  - Use indeterminate progressbar for local gzip files without size info\n  - Fixup updatePopupRequested trigger\n- Local JSON Helper:\n  - Add device capabilities support\n  - Add OS capabilities support\nPRs\n- Add capabilities to create_local_json by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1458\n- v2.0.5: Update dialog fixed, macOS icon variants fixed by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1465\nFull Changelog: https://github.com/raspberrypi/rpi-imager/compare/v2.0.4...v2.0.5",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.5/imager-v2.0.5.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.5.exe",
+          "sha256": "1fc1ca5cff1b45daeb2197cb7a6c6d8788a846f8329a8a14bdf29f24e31d6769",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.4",
+      "release_date": "2026-01-16",
+      "release_notes": "What's new\n- Write Robustness:\n  - Introduce WriteProgressWatchdog to monitor write progress and detect stalls\n  - Implement recovery strategies for async I/O including queue depth reduction\n    and sync fallback mechanisms\n  - Standardize timeout handling for pending writes across all platforms\n  - Add 5-minute emergency timeout as fallback for stalled operations\n- Performance:\n  - Enhance recovery event handling and monitoring diagnostics\n  - Capture SHA256 hash values in performance profiles for verification diagnostics\n- Image Handling:\n  - Add support for parsing .gz files to extract uncompressed size information\n  - Improve handling for files larger than 4GB\n- Disk Formatting:\n  - Fix FAT32 formatting for large drives (>8GB)\n  - Improve root directory handling based on sectors per cluster\n- Bug Fixes:\n  - Fix external tools (runuser, xdg-open) failing in AppImage due to\n    LD_LIBRARY_PATH conflicts causing PAM module loading errors\n  - Improve thread safety for download cancellation\n  - Enhance error handling for timeout conditions\n  - Use Pathlib to generate file:// URIs in local JSON helper script\n  - Use XDG-compliant canberra-gtk-play and PipeWire for audio notifications\n    on Linux, fixing beep on Raspberry Pi OS which no longer ships PulseAudio control by default\n- Accessibility:\n  - Bypass confirmation dialog timer when screen reader is active\n- Build:\n  - Refactor Qt build scripts for improved POSIX compliance and consistency\n  - Add macOS-specific optimizations for universal builds\nPRs\n- Use Pathlib to generate file:// URIs, instead of creating them manually by @lurch in https://github.com/raspberrypi/rpi-imager/pull/1423\n- fix(DiskFormatter): Large drive handling (>8GB) by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1451\n- feat(ImageWriter): Add support for parsing .gz files for size informa… by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1452\n- fix(asyncio): Fix behaviour with misbehaving storage devices by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1453\n- chore(release): v2.0.4 by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1454\n- Update rpi-imager_ca.ts by @xeanhort in https://github.com/raspberrypi/rpi-imager/pull/1424\n- v2.0.4: Capture Sha256 verification hashes in performance profiles by @tdewey-rpi in https://github.com/raspberrypi/rpi-imager/pull/1456\n- update korean translate by @RuffaloLavoisier in https://github.com/raspberrypi/rpi-imager/pull/1430\nNew Contributors\n- @xeanhort made their first contribution in https://github.com/raspberrypi/rpi-imager/pull/1424\nFull Changelog: https://github.com/raspberrypi/rpi-imager/compare/v2.0.3...v2.0.4",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.4/imager-v2.0.4.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.4.exe",
+          "sha256": "110f1c8a4387157cb5b68f42c692807b659fc2d32b3dfea2f9d0bca340f51785",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.3",
+      "release_date": "2025-12-22",
+      "release_notes": "✨ Features\nPerformance\n- Implement bottleneck detection and real-time progress updates showing network, decompression, or write-bound status\n- Add detailed write timing breakdown for hypothesis testing and performance analysis\n- Skip periodic sync when direct I/O is enabled to improve throughput\n- Enhance async I/O support and configuration options across all platforms\nNetworking\n- Implement comprehensive network monitoring across all platforms to detect connectivity changes and automatically retry OS list fetching\n- Add automatic fallback and retry logic when network connection is restored\n- Introduce CurlFetcher and CurlNetworkConfig for improved network operations with better error handling\n- Add CA certificate bundle detection for AppImage compatibility on Linux distributions with non-standard CA paths\n- Enable file:// protocol support in curl configuration for local repository testing\nCustom Repositories\n- Add rpi-imager:// URI scheme for deep-linking to custom OS repositories (e.g., rpi-imager://open?repo=https://example.com/repo.json)\n- Register .rpi-imager-manifest file type association on macOS (UTI), Windows (registry), and Linux (MIME)\n- Show custom repository host in window title bar with punycode encoding to prevent IDN homograph attacks\n- Add confirmation dialog with security delay for remote repository URLs\nDrive Handling\n- Detect and handle counterfeit storage devices that may hang during I/O operations\n- Add timeout mechanism for critical operations like BLKDISCARD and writing to the end of the device\n- Add debug option to skip end-of-device operations for users with problematic cards\n- Add support for NVMe over Fabrics (BusTypeNvmeof) bus type on Windows\n- Enhance storage bus type recognition and device classification\n- Improve drive filtering and system identification logic on Linux\nUser Interface\n- Add sticky language preference that remembers user selection across sessions\n- Enhance title display with offline status indication in the main window\n- Improve text wrapping and marquee scrolling throughout the UI\n- Make DebugOptionsDialog height responsive to window size\nCustomisation\n- Enhance WiFi configuration for open networks using key_mgmt=NONE\n- Refine cloud-init user data and network configuration generation\n- Add initFormat parameter to CLI setImageCustomisation call\nWindows\n- Enhance uninstallation to clean up old installation directories and registry entries left by previous installers\n- Improve user prompts during install/uninstall for detecting previous installations\nCLI\n- Add note about using the --repo flag to load local os_list_local.json files\n- Fix error message displayed when CLI build is run without sudo\n- Use ANSI escape sequences for _clearLine for better terminal compatibility\n🐛 Bug Fixes\n- Fix language selection on Desktop not persisting correctly\n- Fix button layout for permission warning dialog\n- Fix async write IDs overlapping with cancellation markers\n- Fix async cache hash not resetting on open, ensuring fresh computation\n- Fix unmounting logic and error handling during write operations\n- Fix hardware and software capability checks for case insensitivity\n- Fix display of customRepoHost in repository dialogs\n- Fix translation of permissions-message dialog (strings were being translated too early)\n- Fix macOS build configuration\n🌍 Internationalisation\n- Updated Spanish translation\n- Updated Czech translation\n- Updated French translation (multiple updates)\n- Updated Russian translation\n- Updated Portuguese translation\n- Add new translations and error messages for multiple languages\n📦 Dependencies\n- Update bundled library versions\n- Update timezone data version\n- Update capital cities database",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.3",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/imager-v2.0.3.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.3.exe",
+          "sha256": "c49c9bb46bc27536bf3174d92c32718eab697ff076761be5382154f412568d74",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.2",
+      "release_date": "2025-12-10",
+      "release_notes": "✨ Features\nPerformance\n- Add direct I/O bypass for Linux (O_DIRECT), macOS (F_NOCACHE), and Windows (FILE_FLAG_NO_BUFFERING) to reduce memory pressure during writes\n- Add zero-copy ring buffer for data transfer between download and write threads, reducing CPU overhead\n- Add asynchronous cache file writer to overlap download and disk I/O operations\n- Dynamically adjust write queue depth based on available system memory, tuned for more aggressive performance\n- Add sequential read hints (FADV_SEQUENTIAL, F_RDAHEAD) during verification for better prefetching\n- Track detailed performance metrics for network, decompression, and write phases\n- Use Windows IOCTLs (IOCTL_DISK_DELETE_DRIVE_LAYOUT) for faster disk preparation instead of diskpart\n- Add performance data analysis tool for debugging slow writes (Press CTRL + SHIFT + P, save the JSON, attach to a new Issue).\nDrive Handling\n- Switch drive polling from fixed 1-second interval to adaptive mode (fast during selection, paused during writes)\n- Fix NVMe namespace detection on Linux to correctly identify NVMe drives by parsing /sys/class/nvme/\n- Suppress Windows \"Insert a disk\" error dialog when accessing empty removable drives\n- Fix macOS APFS volume handling to correctly identify child partitions\n- Allow virtual disks to be treated as 'system' drives on Windows & Linux (macOS was supported from 2.0.0)\nUser Interface\n- Add password field component with show/hide toggle button\n- Add type-to-search in combo boxes with backspace support to delete characters\n- Add Enter key to open combo box dropdown when focused\n- Show device and OS names with tooltips when text is truncated\n- Restructure countdown timer before write confirmation dialog can be accepted\n- Fix bottom padding in write confirmation dialog\n- Reintroduce multiple SSH key support\nAccessibility\n- Add proper focus order and keyboard navigation for screen readers across all dialogs\n- Move accessibility description properties to centralized form label component\nmacOS\n- Add file type filter popup to native save dialogs (matching Finder behavior)\n- Request location permission asynchronously to avoid blocking the UI when detecting WiFi networks\n- Add dark mode, tinted and clear Liquid Glass icon variants using Icon Composer for proper menu bar appearance\nLinux\n- Fix X11 authorization when running AppImage as root via xhost and proper XAUTHORITY handling\n- Install scalable SVG icon instead of fixed-size PNG for better HiDPI support\nWindows\n- Migrate file dialogs from legacy GetOpenFileName API to modern IFileDialog COM interface\n- Fix file dialog filter string requiring double-null termination\n- Fix scroll direction on ImComboBox\nCustomization\n- Allow SSH public key authentication without requiring a username/password to be set\n- Fix missing user creation block when not enabling SSH\nNetworking\n- Add automatic fallback from HTTP/2 to HTTP/1.1 after repeated failures\n- Log HTTP protocol version used on successful downloads\n- Skip error dialogs when user cancels download mid-transfer\n- Properly close file handles when operations are cancelled\nOther\n- Add file logging support (--log-file command line argument)\n- Re-use ring buffer memory for SHA256 verification instead of allocating new buffers\n- Validate init_format field in OS list JSON and log warnings for invalid entries\n- Extract clean version string (X.Y.Z) for telemetry instead of full build string\n- Add privilege escalation support for elevatable application bundles\n🐛 Bug Fixes\n- Fix SSH key file dialog filter on Windows (was passing list instead of string)\n- Fix Italian translation inconsistencies\n- Fix icon installation path for Linux desktop integration\n- Fix cloud-init user-data generation for Pi Connect configuration\n- Remove O_SYNC flag from file operations (was causing unnecessary performance penalty)\n🌍 Internationalization\n- Add Romanian translation\n- Add Italian translation\n- Add Czech translation\n- Updated Russian translation\n- Updated French translation\n- Update translations for new MacFile and NativeFileDialog strings\n- Add en-US translation\n🎨 Icons\n- New Windows and Linux application icons\n- macOS icon with light/dark mode variants\n- Add scripts to regenerate platform icons from source SVG\nWhat's Changed\n- 2.0.2: Refinement by @tdewey-rpi in #1314\n- Romanian translation added by @valimaties in #1350\n- Update Portuguese translation by @hugok79 in #1353\n- Translate strings into French by @martignoni in #1323\n- Czech translation added by @walken11 in #1375\nNew Contributors\n- @valimaties made their first contribution in #1350\n- @walken11 made their first contribution in #1375\nFull Changelog: v2.0.1...v2.0.2",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.2/imager-v2.0.2.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.2.exe",
+          "sha256": "8486a3515814f7b52d2625cf8443d5ede955d5ac38a7acc64185dab248d1ee71",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.0",
+      "release_date": "2025-11-24",
+      "release_notes": "Headline\nWhat if we just changed...everything*?\nhttps://www.raspberrypi.com/news/a-new-raspberry-pi-imager/\n*(311 changed files with 79,315 additions and 17,156 deletions, to be more accurate)\nWhat's Changed\n- New UI\n- New installer for Windows\n- New back-end writing algorithms\n- New download algorithms\n- Accessbility annotations throughout\n- Raspberry Pi Connect integration\n- Keyboard navigation\n- Enhanced guardrails\n- New CLI-only package\n- So, so much more.\nNew Contributors\n- @paulober made their first contribution in #1181\n- @mhalano made their first contribution in #1204\n- @Omikorin made their first contribution in #1218\nFull Changelog: v1.9.6...v2.0.0",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.0/imager-v2.0.0.exe",
+          "host": "github.com",
+          "filename": "imager-v2.0.0.exe",
+          "sha256": "a4f32e3a83c075ec61be6a44237e7abaaf52c6f4e1534174e14473c1458136c8",
+          "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{46C75BF3-E267-4834-AE1D-BEB77E05BFA1}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.6",
+      "release_date": "2025-07-21",
+      "release_notes": "- README: Fix script name typo by @ahresse in #1114\n- Updated Russian translations by @nafanz in #1118\n- Italian language update by @bovirus in #1112\n- 1.9.6: Fix roll-up by @tdewey-rpi in #1113\n- Update ssh validation message to match regex by @tdewey-rpi in #1121\n- Update error in README.md by @itsMattShull in #1119\n- lupdate: Update translation reference strings by @tdewey-rpi in #1127\n- README fix by @lurch in #1122\n- Update second bad SSH key helper string by @tdewey-rpi in #1128\n- Added Russian translation for new lines by @nafanz in #1120\n- Update Simplified Chinese translation by @ykla in #1102\n- WiFi country code validation by @tdewey-rpi in #1129\n- Italian language update by @bovirus in #1124\n- Update French translation by @martignoni in #1126\n- Update Bengali and Irish translations: remove outdated error messages… by @tdewey-rpi in #1130\n- meta: v1.9.6 by @tdewey-rpi in #1131",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.6",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.9.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.9.6/imager-1.9.6.exe",
+          "host": "github.com",
+          "filename": "imager-1.9.6.exe",
+          "sha256": "2c77d0c513dd51e67ae7c362a581f72373a9e4ab22a31344123b1f3de56f748d",
+          "product_code": "{6D809377-6AF0-444B-8957-A3773F02200E}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{6D809377-6AF0-444B-8957-A3773F02200E}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.5",
+      "release_date": "2025-07-11",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.9.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.9.5/imager-1.9.5.exe",
+          "host": "github.com",
+          "filename": "imager-1.9.5.exe",
+          "sha256": "b3440b19bf7d86ca0f723132efee89c38659fd760951e95d584ba748be9e1259",
+          "product_code": "{6D809377-6AF0-444B-8957-A3773F02200E}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{6D809377-6AF0-444B-8957-A3773F02200E}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.4",
+      "release_date": "2025-06-04",
+      "release_notes": "Headlines\nThe first 'official' 1.9.x series release, with a range of UI improvements, new translations, and bugfixes.\nSystem Requirements\n- Windows 10 x86_64 or later\n- macOS 11 (Apple Silicon or Intel) or later\n- ~Ubuntu 22.04 x86_64 or later\n- ~Debian Bookworm aarch64 or later\nWhat's Changed\n- Update the issue templates for the latest release by @christian-heusel in #923\n- Correcting a few minor errors in zh-CN (Simplified Chinese) translation by @ykla in #922\n- Update german translation by @rejas in #921\n- Update Catalan and Spanish translations by @JofreFaraudo in #891\n- Update Slovak translation. by @jose1711 in #882\n- Add syntax highlighting to readme by @ZevEisenberg in #925\n- Added Hebrew translation by @yarons in #928\n- Roll-up: v1.9.1 by @tdewey-rpi in #931\n- Explicitly add '--tree' to the lsblk to remove partitions from top level output by @alkersan in #936\n- CMake: Display v1.9.1 by @tdewey-rpi in #939\n- v1.9.2 by @tdewey-rpi in #940\n- feat(installer): add quiet uninstall for windows by @Rotzbua in #953\n- Added Portuguese translation by @hugok79 in #948\n- OS Customisation: Regex to match ssh public keys by @tdewey-rpi in #959\n- deps: libarchive 3.7.{4->7} by @tdewey-rpi in #962\n- deps: zlib: Remove preconfigured header by @tdewey-rpi in #963\n- deps: cURL 8.{8->11}.0 by @tdewey-rpi in #964\n- cmake: Build Windows binary unsigned by default by @tdewey-rpi in #971\n- Make 'gigabytes' translatable by @tdewey-rpi in #970\n- Filter system drives by user choice by @tdewey-rpi in #969\n- AppImage: Disable Wayland support by @tdewey-rpi in #975\n- embedded: Use blconfig alias to find bootloader config by @tdewey-rpi in #976\n- Fix bug related to incorrect saving of long file names in Windows by @mgordel in #989\n- fix: typo in Github issue template by @Rotzbua in #987\n- Revert unnecessary changes to calculating the sizes of longFilename by @mgordel in #992\n- Update and improve zh-TW Traditional Chinese locale by @PeterDaveHello in #1000\n- Add new translation for korean by @RuffaloLavoisier in #1014\n- v1.9.3: aarch64 release by @tdewey-rpi in #1018\n- Windows: Switch to Inno Setup for installer\n- Windows: Add signing for binaries, installer, and uninstaller\n- Windows: Add administrator privileges and NSIS removal support\n- macOS: Fix .app naming in .dmg packages\n- macOS: Improve build reliability and programmatic copyright handling\n- Linux: Hide system drives in destination popup\n- all: Fix OptionsPopup not handling 'Esc' key\n- all: Internal refactoring and QML code improvements\n- all: Add support for more archive formats via libarchive\n- all: Performance improvements in download/extract operations\n- qml: Split main UI into multiple component files\n- qml: Add Style singleton and ImCloseButton component\n- qml: Make options popup modal and improve accessibility\n- qml: Fix various QML linting warnings and unqualified accesses\n- i18n: Updated Italian translation\n- i18n: Added Georgian translation\n- i18n: Make 'Recommended' OS string translatable\n- packaging: Add custom AppImage build script with Qt detection\n- packaging: Add custom Qt build script with unprivileged mode\n- packaging: Include custom Qt 6.9.0\n- packaging: Migrate dependencies to FetchContent system\n- dependencies: Update to libarchive 3.8.0\n- dependencies: Update to cURL 8.13.0\n- dependencies: Update to nghttp2 1.65.0\n- dependencies: Update to zstd 1.5.7\n- dependencies: Update to xz/liblzma 5.8.1\n- dependencies: Update to zlib 1.4.1.1\n- cmake: Version requirement bumped to 3.22\n- cmake: Various build system improvements and hardening\n- build: Updated README with new build instructions\n- OS customisation: Remove 'Show password' checkbox\nNew Contributors\n- @christian-heusel made their first contribution in #923\n- @ZevEisenberg made their first contribution in #925\n- @yarons made their first contribution in #928\n- @Rotzbua made their first contribution in #953\n- @hugok79 made their first contribution in #948\n- @mgordel made their first contribution in #989\n- @NorwayFun made their first contribution in #999\n- @marlop352 made their first contribution in #1024\n- @Secretowo made their first contribution in #1035\n- @sohnemann made their first contribution in #1030\nFull Changelog: v1.9.0...v1.9.4",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "locale": "en-US",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.9.4/imager-1.9.4.exe",
+          "host": "github.com",
+          "filename": "imager-1.9.4.exe",
+          "sha256": "3d750fe364b10ed2d5299f1f4d6c12ebacf3b56c6d7177c8e5801b0825c4556d",
+          "product_code": "{6D809377-6AF0-444B-8957-A3773F02200E}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "file_extensions": [
+            "img"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{6D809377-6AF0-444B-8957-A3773F02200E}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.9.0",
+      "release_date": "2024-09-11",
+      "release_notes": "Headlines:\n- Imager now uses Qt 6.7.2, providing a lightly refreshed UI throughout on all platforms.\n- Releases are now signed with the new Raspberry Pi Ltd signing key\n- Linux builds are supplied as AppImages\n- Dependencies are now intentionally included in this repo - providing a more uniform experience across platforms\n\nSystem Requirements:\n- Windows 10 x86_64 or later\n- macOS 11 (Apple Silicon or Intel) or later\n- ~Ubuntu 22.04 x86_64 or later\n- ~Debian Bookworm aarch64 or later\nAs ever, feedback is encouraged, and issues welcome.\n\nWhat's Changed:\n- appstream metainfo: Fix appstream-builder generation by @joebonrichie in #792\n- Add a message when there are no storage devices. Fixes #798 by @jedahan in #801\n- Update Italian language by @bovirus in #802\n- imagewriter: Use QCoreApplication::translate by @tdewey-rpi in #805\n- Update Italian language by @bovirus in #806\n- Exposing 'DRIVELIST_FILTER_SYSTEM_DRIVES' as a cmake variable by @MrSmoer in #816\n- OS Customisation: Validate usernames by @tdewey-rpi in #819\n- Update issue creation templates by @tdewey-rpi in #823\n- Update French translation by @martignoni in #833\n- cli: Add disable-eject by @tdewey-rpi in #860\n- Corrected the spelling for Kyiv by @diminDDL in #871\n- Fix timeout on systems with large numbers of loops by @waveform80 in #872\n- localectl doesn't work on modern Debian/Ubuntu by @waveform80 in #867\n- Update zh-CN (Simplified Chinese) translation by @ykla in #879\n- BCM2712d0 support by @tdewey-rpi in #884\n- Fix GPT signature test by @jadonk in #895\n- Linux/OSX: Fix reversed fsync check by @ali1234 in #903\n- v1.9.0: Roll-up by @tdewey-rpi in #920\n\nNew Contributors:\n- @joebonrichie made their first contribution in #792\n- @jedahan made their first contribution in #801\n- @MrSmoer made their first contribution in #816\n- @diminDDL made their first contribution in #871\n- @ykla made their first contribution in #879\n- @jadonk made their first contribution in #895\n- @ali1234 made their first contribution in #903\n\nFull Changelog: https://github.com/raspberrypi/rpi-imager/compare/v1.8.5...v1.9.0",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.9.0/imager-1.9.0.exe",
+          "host": "github.com",
+          "filename": "imager-1.9.0.exe",
+          "sha256": "6ecf51f11c6190bd49e95351e8a658f38959ed4bc72b47684a5f1b1a2784ab03",
+          "product_code": "Raspberry Pi Imager",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.5",
+      "release_date": "2024-01-21",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.8.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.8.5/imager-1.8.5.exe",
+          "host": "github.com",
+          "filename": "imager-1.8.5.exe",
+          "sha256": "659c54979fa4c75840e4ee9b17393be08dd86c5e7c726493b7eb58a8623bb6a7",
+          "product_code": "Raspberry Pi Imager",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.4",
+      "release_date": "2023-12-22",
+      "release_notes": "- OS customisation: Fixed first character being dropped when replacing existing password\n- OS customisation: Impose character limits on usernames & hostnames\n- i18n: Added Polish translation\n- i18n: Updated Catalan, Japanese translations\n- cli: Fixed local file passing via --repo\n- Windows 7\n- Mac OS X 10.15\n- Ubuntu 22.04",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.8.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.8.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.8.4/imager-1.8.4.exe",
+          "host": "github.com",
+          "filename": "imager-1.8.4.exe",
+          "sha256": "4228546baa7d0e1a240e84b97ce7e428e5eb2783449788d3571be8d8e3f3886b",
+          "product_code": "Raspberry Pi Imager",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.3",
+      "release_date": "2023-11-16",
+      "release_notes": "- Home: Device filtering reworked to download OS list eagerly\n- OS List: Fixed 'Recommended' tag annotation\n- i18n: Added zh-TW Traditional Chinese translation\n- i18n: Updated Korean, German, Ukranian, translations\n- build: Linux: Fix libdrm dependency requirement on non-embedded\n- Common: Disable QML caching entirely\n- OS customisation: Allow use if only cloudinit payload available\n- OS customisation: Allow empty PSK for 'Open' WiFi networks.\n- OS List: Use ImageList v4 URL\n- Windows 7\n- Mac OS X 10.15\n- Ubuntu 22.04",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.8.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.8.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.8.3/imager-1.8.3.exe",
+          "host": "github.com",
+          "filename": "imager-1.8.3.exe",
+          "sha256": "ab1638727335cf9373ad6faa30c40b39963ccc98e3e61556999ff2b0fd8f9909",
+          "product_code": "Raspberry Pi Imager",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.8.1",
+      "release_date": "2023-10-19",
+      "release_notes": "- Advanced options: Rename to OS customization\n- OS customization: change to tabbed UI\n- OS customization: make SSH public key field a textarea\n- OS customization: add convenience button to run ssh-keygen\n- OS customization: Enforce choice as part of write flow\n- OS customization: Fixes for state consistency across UI\n- Home: Add mechanism for selecting Raspberry Pi device\n- Shared: Multiple keyboard focus fixes\n- i18n: Adds Spanish/Ukrainian translations\n- i18n: Updates French, Catalan, Italian, German, Spanish, Russian,\n- i18n: Use en_US as reference string, and make en_GB a translation\n- Linux: Workaround for ArchLinux's lsblk labeling internal SD card readers\n- Allow drag-dropping image files to Imager.\n- Local .xz files: parse uncompressed size for better progress reports.\n- Windows: fix .zst support",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.8.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.8.1/imager-1.8.1.exe",
+          "host": "github.com",
+          "filename": "imager-1.8.1.exe",
+          "sha256": "529902c74c3c7fb63f5da648077cfa4031b7f3b9a56b1bdd58e4e54c7973b86a",
+          "product_code": "Raspberry Pi Imager",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.5",
+      "release_date": "2023-05-22",
+      "release_notes": "- Windows: fix handling .zip files.\n- Windows: allow Imager to start on Windows server editions that do not have \"Wireless LAN service\" role installed and are missing wlanapi.dll",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.7.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.7.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.7.5/imager-1.7.5.exe",
+          "host": "github.com",
+          "filename": "imager-1.7.5.exe",
+          "sha256": "a529ee3d9d1c1dc2e02a27fc9208507316af4f61e4b7900b3b61e66e0d86468b",
+          "product_code": "Raspberry Pi Imager",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.4.1",
+      "release_date": "2023-05-19",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.7.4.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.7.4.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.7.4.1/imager-1.7.4.1.exe",
+          "host": "github.com",
+          "filename": "imager-1.7.4.1.exe",
+          "sha256": "68379302434516bdac450da4861a18a9f9d70600d814dc3aa3e71fe49f79932a",
+          "product_code": "Raspberry Pi Imager",
+          "min_os_version": "10.0.0.0",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.4",
+      "release_date": "2023-03-01",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.7.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.7.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.7.4/imager-1.7.4.exe",
+          "host": "github.com",
+          "filename": "imager-1.7.4.exe",
+          "sha256": "44e6f70412f0430a372c04d3bd60162d175600ab4da38da8efe20d9be3f37fac",
+          "product_code": "Raspberry Pi Imager",
+          "min_os_version": "10.0.0.0",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.7.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://downloads.raspberrypi.org/imager/imager_1.7.3.exe",
+          "host": "downloads.raspberrypi.org",
+          "filename": "imager_1.7.3.exe",
+          "sha256": "88db6e02dbca0bf49e859b89656c9d35c48653c31ca4492dadf7836149f2d854",
+          "min_os_version": "10.0.0.0",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.2",
+      "release_date": "2022-03-29",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.7.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.7.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.7.2/imager-1.7.2.exe",
+          "host": "github.com",
+          "filename": "imager-1.7.2.exe",
+          "sha256": "c6a8948ceab92e1befbd1ffadbe93757d815b2741d1b661c8a41498746045166",
+          "min_os_version": "10.0.0.0",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.1",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v1.7.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.7.1/imager-1.7.1.exe",
+          "host": "github.com",
+          "filename": "imager-1.7.1.exe",
+          "sha256": "04c2bcd64ef5ad6c31ee47bed7d6c60c3694ea5d40f7f05dd190b93d9c57743d",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://downloads.raspberrypi.org/imager/imager_1.6.2.exe",
+          "host": "downloads.raspberrypi.org",
+          "filename": "imager_1.6.2.exe",
+          "sha256": "6e40d3b5c001c16f20729c6a8c97a61e113686f57898be23591f3f5805b51b28",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.6/imager-1.6.exe",
+          "host": "github.com",
+          "filename": "imager-1.6.exe",
+          "sha256": "0bb3f42f8a5fd5837f072f96705b0dbc5c88d904df5547c40cac7a4d87fe0153",
+          "min_os_version": "10.0.0.0",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://downloads.raspberrypi.org/imager/imager_1.5.exe",
+          "host": "downloads.raspberrypi.org",
+          "filename": "imager_1.5.exe",
+          "sha256": "9c62170a4180d64dfffc6f2af4bc5f3dc04cafd99c2511ed3af38dad9e2173e2",
+          "min_os_version": "10.0.0.0",
+          "file_extensions": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/RaspberryPiFoundation/RaspberryPiImager/1.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v1.2/imager.exe",
+          "host": "github.com",
+          "filename": "imager.exe",
+          "sha256": "f2252626d43e1b6340e6d05354d73dbee4f9e859179a4c4c5e584a965ad04c14",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.0.12",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.12/rpi-imager-v2.0.12.dmg",
+          "host": "github.com",
+          "filename": "rpi-imager-v2.0.12.dmg",
+          "sha256": "15b1a94c712c0032750855653c2bf129dceb401329fbce0a83d7cf05dc58a421",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Raspberry Pi Imager.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Caches/Raspberry Pi",
+            "~/Library/Preferences/com.raspberrypi.Raspberry Pi Imager.plist",
+            "~/Library/Saved Application State/com.raspberrypi.imagingutility.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "2.0.12",
+      "release_date": "2026-10-08",
+      "release_notes_url": "https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.12",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.raspberrypi.rpi-imager.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.raspberrypi.rpi-imager.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.raspberrypi.rpi-imager.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.raspberrypi.rpi-imager.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "4fb5e09afe5262757b4b07ad5dd795814872e2e3",
+      "retrieved_at": "2026-11-11T13:29:00.282Z",
+      "path": "manifests/r/RaspberryPiFoundation/RaspberryPiImager"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "6b8a59b4e9b927ca54d3b921b1c8949106a3eb44",
+      "retrieved_at": "2026-11-11T13:29:00.282Z",
+      "path": "Casks/r/raspberry-pi-imager.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/raspberry-pi-imager.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.raspberrypi.rpi-imager",
+      "retrieved_at": "2026-11-11T13:29:04.150Z",
+      "path": "api/v2/appstream/org.raspberrypi.rpi-imager",
+      "api_url": "https://flathub.org/api/v2/appstream/org.raspberrypi.rpi-imager",
+      "content_sha256": "a8e60f77a5a0dc6d1a3222a7087948ed854eb4b81fe7aefc63de56647973e353"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.raspberrypi.rpi-imager",
+    "page_url": "https://flathub.org/apps/org.raspberrypi.rpi-imager",
+    "repo_url": "https://github.com/flathub/org.raspberrypi.rpi-imager",
+    "install_command": "flatpak install flathub org.raspberrypi.rpi-imager",
+    "run_command": "flatpak run org.raspberrypi.rpi-imager",
+    "verified": false,
+    "license": "Apache-2.0",
+    "free_license": true,
+    "developer_name": "Raspberry Pi Ltd",
+    "categories": [
+      "Utility"
+    ],
+    "download_size": 3684945,
+    "installed_size": 8689152,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}
