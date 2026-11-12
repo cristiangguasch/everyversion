@@ -1,0 +1,1385 @@
+{
+  "schema_version": 2,
+  "slug": "pdfsam-basic",
+  "name": "PDFsam Basic",
+  "publisher": "Sober Lemur S.r.l.",
+  "author": "Sober Lemur S.r.l.",
+  "ids": {
+    "winget": "PDFsam.PDFsam",
+    "moniker": "pdfsam",
+    "homebrew_cask": "pdfsam-basic"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "A free, open source, multi-platform software designed to split, merge, extract pages, mix and rotate PDF files.",
+  "tags": [
+    "pdf"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://pdfsam.org/pdfsam-basic/",
+    "publisher": "https://soberlemur.com/",
+    "support": "https://github.com/torakiki/pdfsam/issues",
+    "bug_tracker": "https://github.com/torakiki/pdfsam/issues",
+    "privacy": "https://pdfsam.org/privacy-policy/",
+    "release_notes": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.10",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://pdfsam.org/documentation/#basic-documentation"
+      },
+      {
+        "label": "Wiki",
+        "url": "https://github.com/torakiki/pdfsam/wiki"
+      },
+      {
+        "label": "FAQ",
+        "url": "https://pdfsam.org/faq/#faq-pdfsam-basic"
+      }
+    ]
+  },
+  "license": {
+    "name": "AGPL-3.0",
+    "url": "https://github.com/torakiki/pdfsam/blob/HEAD/LICENSE",
+    "spdx": "AGPL-3.0",
+    "copyright": "Copyright by Sober Lemur S.r.l.",
+    "copyright_url": "https://raw.githubusercontent.com/torakiki/pdfsam/master/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "6.0.10.0",
+    "macos": "6.0.10"
+  },
+  "last_updated": "2026-11-04",
+  "versions_total": {
+    "windows": 41,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "6.0.10.0",
+      "release_date": "2026-11-04",
+      "release_notes": "- Fixed reordering files with drag and drop in the selection table, broken by the JavaFX 25.0.5 update\n- Dragging files to reorder them now shows how many files are being moved\n- Updated translations",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.10",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.10/pdfsam-basic-6.0.10-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.10-windows-x64.msi",
+          "sha256": "b61bc499398d892a3c849fc17e65797aeadb7615e1c624ebca663ad307e413e8",
+          "product_code": "{631CF1A4-B3E2-4B0D-A072-2630D790AD63}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.9.0",
+      "release_date": "2026-10-30",
+      "release_notes": "- JDK 25.0.5.0.3 with the fix for CVE-2026-114820\n- JavaFX 25.0.5\n- Sejda 6.0.0.M8\n- SAMBox 4.0.0.M9\n- Updated dependencies\n- Closed #663: lists of PDF files are now read using the system charset before falling back to ISO-8859-1, so file names with non-Latin characters load correctly\n- Fixed split outputs that could lose changes, like unused fonts removed by compression, when pages share objects in the same object stream\n- Fixed document metadata being lost when loading encrypted PDFs with compressed metadata\n- Fixed corrupted content when decoding ASCII85 and ASCIIHex encoded streams\n- Fixed content that was ignored after stray ), ] or > characters in a page content stream\n- A CropBox with zero or negative width or height now falls back to the MediaBox, as other PDF readers do\n- Removed the spurious Missing 'endobj' token and Xref stream ended prematurely warnings on valid documents",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.9",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.9/pdfsam-basic-6.0.9-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.9-windows-x64.msi",
+          "sha256": "9c3434bbc538345ce6f569d9d518c0187f35042b5bbb667bccf780829e86e1b7",
+          "product_code": "{7FDD01AF-7164-47F0-8D57-334C4AF36789}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.6.0",
+      "release_date": "2026-10-02",
+      "release_notes": "- Sejda 6.0.0.M7\n- Updated translations and added Armenian\n- Updated dependencies\n- Added support for reading Brotli compressed streams\n- Fixed sambox#253: error processing documents with malformed XMP metadata\n- Fixed sejda#515: Split by bookmarks: control characters in bookmark titles no longer end up in generated file names\n- Fixed sejda#265: Extract: [BASENAME] can now be used alone as output prefix\n- Fixed dialogs not following the application window when moved to a second monitor",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.6/pdfsam-basic-6.0.6-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.6-windows-x64.msi",
+          "sha256": "210996db06d202a30ac23e23ed3efdf9c3396894481abfbc97bc26945a6c6346",
+          "product_code": "{3712C9D8-9FE8-4DDA-B75C-E0214767B60B}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.5.0",
+      "release_date": "2026-08-05",
+      "release_notes": "- JDK 25.0.4\n- JavaFX 25.0.4\n- Fixed #856 to improve readability\n- Refactored logging system\n- Updated translations\n- Fixed an issue with the compression policy UNCOMPRESSED",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.5/pdfsam-basic-6.0.5-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.5-windows-x64.msi",
+          "sha256": "956c37e2bbb1ac8af73f6aa2bc1dc651d457274221522e27e512d725b703f002",
+          "product_code": "{2A60BAB7-12DE-424E-8B9F-655C5A43C08B}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.4.0",
+      "release_date": "2026-07-10",
+      "release_notes": "- Fixed #855 where the application was trying to load an empty workspace file path at startup",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.4/pdfsam-basic-6.0.4-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.4-windows-x64.msi",
+          "sha256": "eba4b434c3732f103ec7cbfd731a33a502c6ca5c35a9ee200fe1b3abe0d39242",
+          "product_code": "{15382653-3199-4593-8CF3-7EDF438B9842}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{15382653-3199-4593-8CF3-7EDF438B9842}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.3.0",
+      "release_date": "2026-07-10",
+      "release_notes": "- Allow opening a workspace by drag-and-dropping onto the app icon\n- Fixed #845: clear enqueued load-workspace events for the tool selected via Open With dialog, so it opens and loads input files (other tools still load workspace data as usual)\n- Fixed #844: clearer description for the smart output checkbox\n- Don't maximize the app window on first startup (or after settings are cleared)\n- Force JavaFX to load the correct DLLs even when another JDK with JavaFX DLLs is on the PATH\n- Upgraded Sejda; removed prefix-based methods for adding menu items\n- Upgraded translations",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.3/pdfsam-basic-6.0.3-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.3-windows-x64.msi",
+          "sha256": "01401f5756c3f65bbd782993a1ba86651b62664a9e253cc8299085a40d57d237",
+          "product_code": "{F80139C0-C5A9-4E31-9B29-7D34098655F9}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F80139C0-C5A9-4E31-9B29-7D34098655F9}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.1.0",
+      "release_date": "2026-05-01",
+      "release_notes": "- Stricter security when parsing the Sejda configuration XML file.\n- Dependencies bumps\n- Overcomes the xref stream parsing 2 GB limitation\n- Stricter validation throughout xref-stream parsing to prevent OOM and related issues.\n- Added validation on predictor parameters to avoid overflow.\n- Bug fix (#248): page deletion no longer fails when the /Kids attribute is missing.",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.1/pdfsam-basic-6.0.1-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.1-windows-x64.msi",
+          "sha256": "03ff98e2a920e55543bf8957523f57ee8aaaffa220364df8f0480d299c07de60",
+          "product_code": "{7A37E220-993A-43FB-88F0-F3AE66F11E2A}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{7A37E220-993A-43FB-88F0-F3AE66F11E2A}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.0.0",
+      "release_date": "2026-03-30",
+      "release_notes": "- Compression: output compression is now a three-value option (Compress / Neutral / Uncompress) instead of a simple on/off toggle.\n- Drag & drop folder to output field: dropping a folder onto the PDF output field automatically suggests an output file path inside that folder.\n- Better handling of problematic PDFs: improved robustness when reading files with malformed annotations, invalid color spaces, broken font dictionaries, malformed metadata and invalid CropBox\n- PDF 2.0 support: UTF-8 encoded strings introduced in PDF 2.0 are now correctly read and written.\n- Merge fixes: fixed incorrect font size rescaling in Table of Contents merges, improved handling of empty ToC entries and fixed a hang when processing PDFs with certain bookmark\n  structures.\n- Accessibility improvements: added accessible text, help text and proper label-to-field associations throughout the UI.",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.0/pdfsam-basic-6.0.0-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.0-windows-x64.msi",
+          "sha256": "33d51701c9b6c5654e6619bd5ff9a08368a530c678a058d111f6e630ec1f84de",
+          "product_code": "{D2EFF9D1-8B51-4D94-9A46-1166A7097864}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{D2EFF9D1-8B51-4D94-9A46-1166A7097864}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.4.5.0",
+      "release_date": "2026-01-27",
+      "release_notes": "- Upgraded bundled JDK to 21.0.10\n- Upgraded Sejda SDK\n- Updated translations and added Lao",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.4.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.4.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.4.5/pdfsam-basic-5.4.5-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-5.4.5-windows-x64.msi",
+          "sha256": "f3215eaad4b22ac8e0b75f098cd4061e5997d32b73f7fdb4cdff1801bd7b8bd7",
+          "product_code": "{6C7205C6-99AD-41D4-B732-77BD05EC6FD0}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{6C7205C6-99AD-41D4-B732-77BD05EC6FD0}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.4.1.0",
+      "release_date": "2025-10-23",
+      "release_notes": "- Upgraded bundled JDK to 21.0.9\n- Upgraded Sejda SDK\n- Updated translations\n- Alternate Mix: added a menu entry to set pace for every row\n- Fixed an issue with the page range editable column that, once in Edit mode, would let the user move the cursor with the arrow keys\n- Merge: Add Footer and Generate ToC options now work with file names including Chinese, Japanese and Korean chars",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.4.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.4.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.4.1/pdfsam-basic-5.4.1-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-5.4.1-windows-x64.msi",
+          "sha256": "cd7498d83be2517689a57c9f29fa89ea226f3404c7900baeffd221a6c9f95ee7",
+          "product_code": "{799D8453-5ABE-4672-AF1E-766D47ECCE3B}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{799D8453-5ABE-4672-AF1E-766D47ECCE3B}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.4.0.0",
+      "release_date": "2025-09-24",
+      "release_notes": "- Upgraded dependencies\n- Updated translations\n- Allow to change the app's font\n- Fix incorrect pages count for ranges with an invalid start\n- Improved home page layout\n- Fix CSV parsing with ending quotes\n- Fix and improve workspace handling",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.4.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.4.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.4.0/pdfsam-basic-5.4.0-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-5.4.0-windows-x64.msi",
+          "sha256": "32bddcbaa8a1c53566851ef9394f465a5e9ec165ef314acdbd466db5dee508c1",
+          "product_code": "{04E23E35-ED51-430E-B248-3350AAD7A7AD}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{04E23E35-ED51-430E-B248-3350AAD7A7AD}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.3.2.0",
+      "release_date": "2025-07-24",
+      "release_notes": "- Upgraded JDK to latest 21 LTS\n- Upgraded Sejda SDK\n- Upgraded dependencies\n- Updated translations\n- Allow setting a bigger font size\n- Included JDK locales so that the combo in the settings panel shows localized locale names",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.3.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.3.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.3.2/pdfsam-basic-5.3.2-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-5.3.2-windows-x64.msi",
+          "sha256": "c892345fbf7b1ad7574dbcda8ee1b1502f9442337edaccf3f72347b347bd0023",
+          "product_code": "{A601498D-0069-4776-83B3-AF15DCAC2D89}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{A601498D-0069-4776-83B3-AF15DCAC2D89}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.3.1.0",
+      "release_date": "2025-04-18",
+      "release_notes": "- Upgraded JDK to latest 21 LTS\n- Upgraded Sejda SDK\n- Updated translations\n- Fixed a confirmation dialog size on Linux\n- Use Platform preferences to detect light and dark theme",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.3.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.3.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.3.1/pdfsam-basic-5.3.1-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-5.3.1-windows-x64.msi",
+          "sha256": "4aa929831e3e1e07a5351b5a912df393379e78a46f7a2c1f73db1245e542368a",
+          "product_code": "{03DBC7EB-B2C3-4F15-B7B6-C13EFE3C38EB}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{03DBC7EB-B2C3-4F15-B7B6-C13EFE3C38EB}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.3.0.0",
+      "release_date": "2025-01-23",
+      "release_notes": "- Upgraded JDK to latest 21 LTS\n- Upgraded Sejda SDK\n- Updated translations\n- Added MacOS Arm architecture bundle",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.3.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.3.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.3.0/pdfsam-basic-5.3.0-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-5.3.0-windows-x64.msi",
+          "sha256": "c8a4734e9562d99f31ecddf434029527ff3b944c98fb845445b48dad9a39d64f",
+          "product_code": "{209E1DFF-36EA-4EC7-8969-DD0BFE30294E}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{209E1DFF-36EA-4EC7-8969-DD0BFE30294E}",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.9",
+      "release_date": "2024-10-28",
+      "release_notes": "- JDK 21.0.5\n- Sejda 5.1.4\n- Added a PDF_VERSION property to the MSI installer to set the default value of PDF version combo in the settings panel\n- Added a org.pdfsam.default.pdf.version system property to set the the default value of PDF version combo in the settings panel\n- Duplicate context menu can now duplicate up, down, to the top and to the bottom\n- Updated translations\n- Updated dependencies",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.2.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.2.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.2.9/pdfsam-5.2.9.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.2.9.msi",
+          "sha256": "6c783236d1fb0acd9167dce637837c1ccf9b7b3a52bd5ccb03553273e0d6d3cb",
+          "product_code": "{A53AE816-622C-4141-98A7-C25C56AA1606}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.8",
+      "release_date": "2024-08-23",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.2.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.2.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.2.8/pdfsam-5.2.8.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.2.8.msi",
+          "sha256": "2a4aca2e9c41bfe05141cf9bba5ed9564d7ba4d5fdaa4253e673a7ab2aaf2e6c",
+          "product_code": "{7121D317-2581-42EA-9639-217351A97C93}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.6",
+      "release_date": "2024-08-23",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.2.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.2.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.2.6/pdfsam-5.2.6.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.2.6.msi",
+          "sha256": "cd60fdcd71cac34819a7944210c702b1eac2ff090d4023baf87abe0542ed68bd",
+          "product_code": "{C7A75AEB-BBF1-4100-88E8-8A49F19A38FC}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.4",
+      "release_date": "2024-07-29",
+      "release_notes": "- JDK 21.0.4\n- JavaFX 21.0.4\n- Sejda 5.0.20\n- Updated translations\n- Updated dependencies",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.2.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.2.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.2.4/pdfsam-5.2.4.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.2.4.msi",
+          "sha256": "aad2645bbd235391bdf7fdc98647b773965a9a17fa97304aea21ecd5e7b1289e",
+          "product_code": "{F65FEC6C-9B9C-465E-853B-C89FC49E9FFC}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.3",
+      "release_date": "2024-04-29",
+      "release_notes": "- JDK 21.0.3\n- JavaFX 21.0.3\n- Sejda 5.0.15\n- Updated translations\n- Updated dependencies\n- Merge tool default AcroForm policy set to Merge and rename\n- Removed RxJava dependency",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.2.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.2.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.2.3/pdfsam-5.2.3.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.2.3.msi",
+          "sha256": "62e082cc9bd2ead4a17b88145de489ba37a410c880c2be368f17316a2cd37cd2",
+          "product_code": "{11BAA7C0-2F00-41CD-8D47-BE7F808BED2E}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.2",
+      "release_date": "2024-02-10",
+      "release_notes": "- JDK 21.0.2\n- JavaFX 21.0.2\n- Sejda 5.0.13\n- Updated translations\n- Updated dependencies\n- Fixed #569: dragging to the edge of the selection table automatically scrolls\n- Fixed #507: added the ability to drop files between rows  of the selection table",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.2.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.2.2/pdfsam-5.2.2.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.2.2.msi",
+          "sha256": "c6ebdc38668e6e919d389cdfca29e7691ea66d8cd0781e5e67c1e09029c8704b",
+          "product_code": "{63B0F5C4-3DCC-4A9E-BD4C-9F1713D11835}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.0.0",
+      "release_date": "2023-11-06",
+      "release_notes": "- JDK 21.0.1\n- JavaFX 21.0.1\n- Sejda 5.0.11\n- Updated translations\n- Fixed #516 a sorting issue with some special characters in some locale\n- Fixed #532 default working directory to have precedence if set and to be used in case of relative output paths\n- Closed #538 to add a default prefix value that can be set via sys prop and MSI property\n- Closed #555 to add a default PDF version that can be set via sys prop\n- Fixed #561 so clickable links works on Linux\n- Fixed an issue with the MSI installer that was re-adding configuration lines in case of repair, change etc",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.2.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.2.0/pdfsam-5.2.0.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.2.0.msi",
+          "sha256": "5cb49899b91b0bd0718f1e40de1ee86234cd0aec55e7bd7541700a8c1c881337",
+          "product_code": "{47165D11-BD5A-400E-81CA-2CDF947C2270}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Sober Lemur S.r.l.",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.3.0",
+      "release_date": "2023-08-03",
+      "release_notes": "- JDK 20.0.2\n- JavaFX 20.0.2\n- Sejda 5.0.6\n- Updated translations",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.1.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.1.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.1.3/pdfsam-5.1.3.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.1.3.msi",
+          "sha256": "2d3d4297de0deb5c95a8be8eeab5aae3ed581e49561a5f8593d9ec4bf8f76eaa",
+          "product_code": "{6CC93D0A-AE26-4E1C-ABD5-DDC7B8F11B9A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/qn SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/qb SKIPTHANKSPAGE=Yes"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.2.0",
+      "release_date": "2023-04-26",
+      "release_notes": "- JDK 20.0.1\n- JavaFX 20.0.1\n- Sejda 5.0.0.\n  M10\n- Updated translations",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.1.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.1.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.1.2/pdfsam-5.1.2.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.1.2.msi",
+          "sha256": "8cbb535cf6955aa0070303c51c7019b97cccbdb798e1af55e044005ce7cdbf53",
+          "product_code": "{337435D9-A24E-4655-90A6-4DD51FFFBB59}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "Sober Lemur S.r.l.",
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.1.0",
+      "release_date": "2023-03-23",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.1.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.1.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.1.1/pdfsam-5.1.1.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.1.1.msi",
+          "sha256": "e26539fa992d513ae8cfe72e4b57326ffbbd70f3821d6afd2d6033837efd7482",
+          "product_code": "{7DD8F919-2C28-40AB-BEFA-2E433DBE3E78}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.3.0",
+      "release_date": "2023-02-11",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.0.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.0.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.0.3/pdfsam-5.0.3.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.0.3.msi",
+          "sha256": "3a11b5a622b52b4be8c48cdcca63eb64fec94a944b75ae9aad4b9f279e2fa84c",
+          "product_code": "{EE8AE69C-A8AF-4119-BB37-1631D3301E93}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.2.0",
+      "release_date": "2023-02-01",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v5.0.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/5.0.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v5.0.2/pdfsam-5.0.2.msi",
+          "host": "github.com",
+          "filename": "pdfsam-5.0.2.msi",
+          "sha256": "06faec50ff4230c417e9f4b62c7b1b97a01ab451403e4c9709af0012e2ec1c6b",
+          "product_code": "{315C2CC4-4036-45AA-9D6B-010A3219EEC8}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.4.0",
+      "release_date": "2022-10-20",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v4.3.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.3.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.3.4/pdfsam-4.3.4.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.3.4.msi",
+          "sha256": "43754eeb8acb4f7f5a89d42406cc0d89bff2ddd4ef9fead146e7b2abac77469f",
+          "product_code": "{EE3D8914-D05B-4028-A943-E89890D19FC0}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.3",
+      "release_date": "2022-07-27",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v4.3.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.3.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.3.3/pdfsam-4.3.3.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.3.3.msi",
+          "sha256": "fe5c2957e29f70ae5918df2071ab610ccfa9351d0bfcce7960cdebbaed24f096",
+          "product_code": "{24493C22-01EA-4E07-AB21-84910EB826B0}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.2.0",
+      "release_date": "2022-07-12",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v4.3.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.3.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.3.2/pdfsam-4.3.2.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.3.2.msi",
+          "sha256": "a8beb290536e8085b74d64ed786f189ffc6c770170ea631876488080ecbf4db1",
+          "product_code": "{17FD49A2-01B9-48F7-A3A3-7D96EA664178}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.1.0",
+      "release_date": "2022-06-25",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v4.3.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.3.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.3.1/pdfsam-4.3.1.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.3.1.msi",
+          "sha256": "b9935a66de0a52956a91486b2b07db153aa35b400414678627e415e77b6a1cb8",
+          "product_code": "{03E1236C-0343-4596-819C-53344E08C728}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.12.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.12/pdfsam-4.2.12.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.12.msi",
+          "sha256": "9b4b855b724b804efe558101b9a559fdf1aaf74c7d2199c04596463d7acbceab",
+          "product_code": "{A5A6FD77-E3CB-4566-B18D-D0FEB11924ED}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.10/pdfsam-4.2.10.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.10.msi",
+          "sha256": "989aba97ab55fc6558064556bc29ac8f3d5eef9925aba663e9d69248b08e7447",
+          "product_code": "{941D04DA-189C-4FDB-B125-D18946DB362C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.9/pdfsam-4.2.9.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.9.msi",
+          "sha256": "b099fc354d6e4b6bafa92ab30c251a30dad445130b446b07aa9cd4908dc6692b",
+          "product_code": "{06C071AD-846F-4E21-A938-63DA54A45EB3}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.8/pdfsam-4.2.8.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.8.msi",
+          "sha256": "314a837adc1d0909663948f96e1e5fbf06126fc8e18b5f471b252ca6dbc1b108",
+          "product_code": "{65F60B30-D7F4-42F6-8704-611FC8AB7A61}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.7.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.7/pdfsam-4.2.7.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.7.msi",
+          "sha256": "6bf746ed9a1bfd5fa7768090a1453deb524b973b9281d1a7f8343a7184236d15",
+          "product_code": "{BEF44F2E-322A-4B7B-8B15-16E31B602E6C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.6.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.6/pdfsam-4.2.6.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.6.msi",
+          "sha256": "d333ff88c9139232ce83b277caa35e528fccbc2d196d55e603a5b02de26407fc",
+          "product_code": "{4307C5BE-ED8C-4204-97B8-DEDFD42986C7}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.5/pdfsam-4.2.5.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.5.msi",
+          "sha256": "0754e23b433a0441d8d20348b9b34ad6ae1261a86159d1ebdad4cb6adf48a234",
+          "product_code": "{FDF8C6E1-FB2E-4B05-A9BD-D8EF067DF4A1}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "/q",
+            "silent_with_progress": "/qb"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.3/pdfsam-4.2.3.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.3.msi",
+          "sha256": "b56ec2231bee641e34378f1e9def462ebf9aac27cacd93e16207dec54a032e4b",
+          "product_code": "{8C2E3504-869B-4494-BF71-63903A1801DE}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.2.2/pdfsam-4.2.2.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.2.2.msi",
+          "sha256": "c7ba5b61dcad5260c79ecad4fdd3917f83135236fc82f1bc4e65c334f3a161fb",
+          "product_code": "{7784962D-70CC-4C26-B020-FF05D4280846}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.1.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.1.4/pdfsam-4.1.4.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.1.4.msi",
+          "sha256": "8fb5f22885bafeded489a57e278f6cea77a96aa36529cc4f9b3da84479215852",
+          "product_code": "{7F18B231-F783-4FBB-9AA7-C40C6A48907C}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/4.1.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v4.1.3/pdfsam-4.1.3.msi",
+          "host": "github.com",
+          "filename": "pdfsam-4.1.3.msi",
+          "sha256": "f6ca9bba8f41f317ace6d8af4c34bb623d8d3be05e5de49022a6d9ddfe0598a3",
+          "product_code": "{95CCCE5E-8DC8-4A8C-87EE-5FF1821C737B}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "6.0.10",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.10/pdfsam-basic-6.0.10-macos-x64.dmg",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.10-macos-x64.dmg",
+          "sha256": "5c9a68009b0faab5dc79b031134529897d897cd48dbd69155a8f131f461328bc"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.10/pdfsam-basic-6.0.10-macos-arm64.dmg",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.10-macos-arm64.dmg",
+          "sha256": "8fec99e79f4650a6112bd756403ff6d875b46963b99c5bcb7b422c39310405a9"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "PDFsam Basic.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Preferences/org.pdfsam.modules.plist",
+            "~/Library/Preferences/org.pdfsam.stage.plist",
+            "~/Library/Preferences/org.pdfsam.user.plist",
+            "~/Library/Saved Application State/org.pdfsam.basic.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "df9cc21aefcf4a27b44221672e02d53b50c7bd81",
+      "retrieved_at": "2026-11-12T13:54:44.292Z",
+      "path": "manifests/p/PDFsam/PDFsam"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "13c9a1d8f5010cb9c9191d729e13c645c8afb45f",
+      "retrieved_at": "2026-11-12T13:54:44.292Z",
+      "path": "Casks/p/pdfsam-basic.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/pdfsam-basic.json"
+    }
+  ]
+}
