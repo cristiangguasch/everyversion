@@ -33,7 +33,7 @@
     "publisher": "https://www.mozilla.org/",
     "support": "https://support.mozilla.org/",
     "privacy": "https://www.mozilla.org/privacy/firefox/",
-    "release_notes": "https://www.firefox.com/en-US/firefox/159.0/releasenotes/"
+    "release_notes": "https://www.firefox.com/en-US/firefox/160.0/releasenotes/"
   },
   "license": {
     "name": "MPL-2.0",
@@ -47,17 +47,237 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "159.0",
-    "macos": "159.0.1",
+    "windows": "160.0",
+    "macos": "160.0",
     "linux": "160.0"
   },
-  "last_updated": "2026-10-27",
+  "last_updated": "2026-11-10",
   "versions_total": {
-    "windows": 183,
+    "windows": 185,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "160.0",
+      "release_date": "2026-11-10",
+      "release_notes": "Version 160.0, first offered to Release channel users on November 10, 2026\n\nNew\n- The Picture-in-Picture player now has a playback speed setting, with options ranging from 0.25x to 2.0x speed. The setting appears only when the player window is medium-sized or larger.\n\n- Mini Window moves a tab or a selected part of a page into an always-on-top window while browsing. We’d appreciate feedback on Mozilla Connect as we develop and improve this early version of the feature.\n\n- History entries can now be dragged from the sidebar to the tab strip to open them in new tabs.\n- The address bar context menu now shows \"Paste and Search\" instead of \"Paste and Go\" when the copied text is a search term rather than a web address.\n- Pages saved as PDF now make mathematical content (MathML) accessible to assistive technology such as screen readers.\n- Websites that repeatedly ask to handle email (mailto:) and other links can now be blocked with a new “Never allow” button, and blocked sites can be managed in Settings.\n- Firefox now plays Matroska (MKV) files with FLAC, MP3, or PCM audio.\n- WebGL content on macOS is now rendered using Apple's Metal graphics API, which can improve performance on some sites.\n- In Smart Window, Organize Tabs is now available in French. Firefox can suggest groups of related open tabs and name each group in French.\n  This feature is part of a progressive roll out.\n  What is a progressive roll out?\n  Certain new Firefox features are released gradually. This means some users will see the feature before everyone does. This approach helps to get early feedback to catch bugs and improve behavior quickly, meaning more Firefox users overall have a better experience.\n\nFixed\n- Fixed the first character typed into the address bar or search bar sometimes being lost when typing quickly right after clicking into it.\n- Increased the contrast between the domain name and the rest of the address in the address bar, making it easier to see which website is open.\n- Fixed Firefox freezing for several seconds when signing in to intranet sites that use NTLM or Kerberos (Negotiate) authentication.\n- Fixed double-tapping or long-pressing a word to select it, and tapping to place the cursor, not working near the cursor in text fields.\n- Fixed links opened in the background from other apps on macOS, such as RSS readers, bringing Firefox to the foreground.\n- Fixed downloaded files on macOS sometimes opening in the wrong application instead of the default one set in Finder.\n- Fixed simultaneous downloads on macOS never finishing when Firefox is set to ask where to save files. Only the first file showed a save dialog.\n- Restored meaningful filenames and the usual save workflow for PDFs opened in Preview from the macOS print dialog.\n- Various security fixes.\n\nEnterprise\n- For Firefox Enterprise updates and fixes, see the Firefox Enterprise Release Notes. For policy changes, see the Firefox admin docs changelog.\n\nDeveloper\n\nWeb Platform\n- The SpeechRecognition interface of the Web Speech API is now supported, providing on-device, real-time speech-to-text in 40 languages.\n- Firefox now supports the legacy ::-webkit-input-placeholder pseudo-element as an alias of ::placeholder, to improve compatibility with websites that use it to style placeholder text.\n\nCommunity Contributions\n- With the release of Firefox 160, we are pleased to welcome the developers who contributed their first code change to Firefox in this release, 22 of whom were brand new volunteers! Please join us in thanking each of these diligent and enthusiastic individuals, and take a look at their contributions:\n  - Ahmed ElGendy: 1327787, 2076777, 2076779\n  - Airat Makhmutov: 1321685\n  - Anton Bershanskyi: 2080310\n  - Austin Privatt: 2062135\n  - David Tamas: 1583480\n  - Davis Zeller-Pies: 2080307\n  - Felix Strüwe: 2081010\n  - Jack Boykin: 2083549\n  - James Bohan: 2071321\n  - kiasalehzadeh: 2077681\n  - Masanari Mizuno [:mznms]: 1662461\n  - Michał Fox: 1996443\n  - Mirko Kerezovic: 1297305, 2002578, 2078165, 2078343\n  - Mohd Kamran Tahir: 2078679, 2078719\n  - mozbugzilla.mushily885: 2082173\n  - python273 [:python273]: 1613369\n  - Rich Waters: 2052604\n  - Roberto Vidal [:_rvidal]: 1918990\n  - Seungmin Kim: 2083702\n  - Tin La: 2071323, 2071324\n  - Willem Kaufmann: 2079806\n  - Yohei Yamasaki: 2079286",
+      "release_notes_url": "https://www.firefox.com/en-US/firefox/160.0/releasenotes/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/m/Mozilla/Firefox/160.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/160.0/win32/en-US/Firefox%20Setup%20160.0.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Firefox Setup 160.0.exe",
+          "sha256": "c73132278e5fc8b47224b443557ac3b4b2aa6c092b981fb4321c2df5cc956800",
+          "product_code": "Mozilla Firefox",
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto"
+          ],
+          "file_extensions": [
+            "avif",
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/160.0/win64/en-US/Firefox%20Setup%20160.0.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Firefox Setup 160.0.exe",
+          "sha256": "8732312ee2d7960c6ea830a4e0d3c0ff5fe0b10856dab44e2c432fcdeb63ff63",
+          "product_code": "Mozilla Firefox",
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto"
+          ],
+          "file_extensions": [
+            "avif",
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/160.0/win64-aarch64/en-US/Firefox%20Setup%20160.0.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Firefox Setup 160.0.exe",
+          "sha256": "c650ff01102df067c5921d8f3657a3998626553b3c6144d1488f541f17d20c6d",
+          "product_code": "Mozilla Firefox",
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto"
+          ],
+          "file_extensions": [
+            "avif",
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "159.0.1",
+      "release_date": "2026-11-03",
+      "release_notes": "Version 159.0.1, first offered to Release channel users on November 3, 2026\n\nFixed\n- Fixed the dot that marks a tab needing attention being hard to see with some themes, depending on the system accent color. (Bug 2086347)\n- Fixed a command prompt window briefly appearing on Windows when Firefox restarts to apply an update. (Bug 2081809)\n- Fixed passkey sign-in failing on websites that share passkeys across related sites, such as Facebook and Instagram. (Bug 2085450)\n- Fixed crashes on Windows that could occur with some antivirus or other security software installed, in some cases also leaving WebGL disabled. (Bug 2083648)\n- Fixed red and blue colors appearing swapped on some websites that use WebGL on Linux, including video call background effects. (Bug 2087301)\n- Updated time zone data to reflect Cuba's decision not to end daylight saving time on November 1, 2026. (Bug 2086609)\n- Fixed text in some Settings descriptions, such as security warnings, breaking in the middle of words. (Bug 2086282)\n- Security fix.\n- Reference link to 159.0 release notes.",
+      "release_notes_url": "https://www.firefox.com/en-US/firefox/159.0.1/releasenotes/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/m/Mozilla/Firefox/159.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/159.0.1/win32/en-US/Firefox%20Setup%20159.0.1.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Firefox Setup 159.0.1.exe",
+          "sha256": "782633008ae6810823f2db29b1ffb925154dad123806ca709b355e3f63a51371",
+          "product_code": "Mozilla Firefox",
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto"
+          ],
+          "file_extensions": [
+            "avif",
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/159.0.1/win64/en-US/Firefox%20Setup%20159.0.1.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Firefox Setup 159.0.1.exe",
+          "sha256": "729af643b8e0a3809d6153a57a448cb96a01e6fa5e2e7ff782152ede6202eadd",
+          "product_code": "Mozilla Firefox",
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto"
+          ],
+          "file_extensions": [
+            "avif",
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/159.0.1/win64-aarch64/en-US/Firefox%20Setup%20159.0.1.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Firefox Setup 159.0.1.exe",
+          "sha256": "c4e5f2440df619b968aadb87db4f6948fcda23e24d8f6c211070bd7fbfe2c2b2",
+          "product_code": "Mozilla Firefox",
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto"
+          ],
+          "file_extensions": [
+            "avif",
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "159.0",
@@ -5336,237 +5556,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "143.0.3",
-      "release_date": "2025-09-30",
-      "release_notes": "Fixed\n- Adjusted the timing of the new drag-to-pin interaction cue for better reliability. (Bug 1989344)\n- Fixed an issue that prevented some extensions from updating via the Add-ons Manager. (Bug 1984724)\n- Fixed a regression that prevented Firefox View sections from collapsing/expanding as expected. (Bug 1989200)\n- Addressed a WebExtensions storage issue that could cause Firefox to crash on startup with certain extensions installed. (Bug 1989840)\n- Fixed an issue where opening an add-on's \"Extension settings\" from the post-install prompt could break the Customize tab and some keyboard shortcuts until restart. (Bug 1983869)\n- Reduced long delays when loading certain websites while connected to networks that block UDP connections. (Bug 1980812)\n- Various stability and security fixes.\n- Reference link to 143.0.1 release notes.",
-      "release_notes_url": "https://www.mozilla.org/firefox/143.0.3/releasenotes/",
-      "manifest_version": "1.10.0",
-      "manifest_dir": "manifests/m/Mozilla/Firefox/143.0.3",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/143.0.3/win32/en-US/Firefox%20Setup%20143.0.3.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Firefox Setup 143.0.3.exe",
-          "sha256": "2d8f40dbeeca099cd3c46ac2d965aeff21e1c3a3fbae35266f62b226b2207630",
-          "product_code": "Mozilla Firefox 143.0.3 (x86 en-US)",
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "http",
-            "https",
-            "mailto"
-          ],
-          "file_extensions": [
-            "avif",
-            "htm",
-            "html",
-            "pdf",
-            "shtml",
-            "svg",
-            "webp",
-            "xht",
-            "xhtml"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/143.0.3/win64/en-US/Firefox%20Setup%20143.0.3.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Firefox Setup 143.0.3.exe",
-          "sha256": "259ce75b11d9e3d9d846d1b08181dcc2298757cbc13bcf63fe6f17dd0773150b",
-          "product_code": "Mozilla Firefox 143.0.3 (x64 en-US)",
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "http",
-            "https",
-            "mailto"
-          ],
-          "file_extensions": [
-            "avif",
-            "htm",
-            "html",
-            "pdf",
-            "shtml",
-            "svg",
-            "webp",
-            "xht",
-            "xhtml"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/143.0.3/win64-aarch64/en-US/Firefox%20Setup%20143.0.3.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Firefox Setup 143.0.3.exe",
-          "sha256": "17d34fe13a1668feef724fa7d00b17c6b2e22eb9ef80b0cbd767c640cc5aa295",
-          "product_code": "Mozilla Firefox 143.0.3 (arm64 en-US)",
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "http",
-            "https",
-            "mailto"
-          ],
-          "file_extensions": [
-            "avif",
-            "htm",
-            "html",
-            "pdf",
-            "shtml",
-            "svg",
-            "webp",
-            "xht",
-            "xhtml"
-          ]
-        }
-      ]
-    },
-    {
-      "platform": "windows",
-      "version": "143.0.1",
-      "release_date": "2025-09-19",
-      "release_notes": "Fixed\n- Fixed a tab crash experienced by some users caused by DLL injection. (Bug 1872261)\n- Reference link to 143.0 release notes.",
-      "release_notes_url": "https://www.mozilla.org/firefox/143.0.1/releasenotes/",
-      "manifest_version": "1.10.0",
-      "manifest_dir": "manifests/m/Mozilla/Firefox/143.0.1",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/143.0.1/win32/en-US/Firefox%20Setup%20143.0.1.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Firefox Setup 143.0.1.exe",
-          "sha256": "e188624b78ff5ea0f09e522d5c077cd43f4ebd811ad793e8be2c6ffd80b3a052",
-          "product_code": "Mozilla Firefox 143.0.1 (x86 en-US)",
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "http",
-            "https",
-            "mailto"
-          ],
-          "file_extensions": [
-            "avif",
-            "htm",
-            "html",
-            "pdf",
-            "shtml",
-            "svg",
-            "webp",
-            "xht",
-            "xhtml"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/143.0.1/win64/en-US/Firefox%20Setup%20143.0.1.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Firefox Setup 143.0.1.exe",
-          "sha256": "c41b5dd261f0f4d31d21b7034f481e490b87d0c72ee99755c5caa9d88db48881",
-          "product_code": "Mozilla Firefox 143.0.1 (x64 en-US)",
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "http",
-            "https",
-            "mailto"
-          ],
-          "file_extensions": [
-            "avif",
-            "htm",
-            "html",
-            "pdf",
-            "shtml",
-            "svg",
-            "webp",
-            "xht",
-            "xhtml"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/143.0.1/win64-aarch64/en-US/Firefox%20Setup%20143.0.1.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Firefox Setup 143.0.1.exe",
-          "sha256": "8938dbdb97a21a1f6571ba19d5fbee348429e99a0a26f9403f0f012927c1718c",
-          "product_code": "Mozilla Firefox 143.0.1 (arm64 en-US)",
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "http",
-            "https",
-            "mailto"
-          ],
-          "file_extensions": [
-            "avif",
-            "htm",
-            "html",
-            "pdf",
-            "shtml",
-            "svg",
-            "webp",
-            "xht",
-            "xhtml"
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "159.0.1",
+      "version": "160.0",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/159.0.1/mac/en-US/Firefox%20159.0.1.dmg",
+          "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/160.0/mac/en-US/Firefox%20160.0.dmg",
           "host": "download-installer.cdn.mozilla.net",
-          "filename": "Firefox 159.0.1.dmg",
-          "sha256": "0c214da4439c1eb4cea28a3c141ff112d511aa32c67f9d12e91116569c8d8dda"
+          "filename": "Firefox 160.0.dmg",
+          "sha256": "b270ccc60eb899bd0277bd078d7bd8690f5c4fc3e44b4fa9ee78ed2a3e89f0ca"
         }
       ],
       "cask": {
@@ -5639,16 +5639,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "manifests/m/Mozilla/Firefox"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "011c91bc5ede5c6aeb118fc34d57d2a4717d4b6e",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "Casks/f/firefox.rb",
       "api_url": "https://formulae.brew.sh/api/cask/firefox.json"
     },

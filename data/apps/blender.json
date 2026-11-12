@@ -50,17 +50,74 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "5.2.3",
-    "macos": "5.2.3",
+    "windows": "5.3.0",
+    "macos": "5.3.0",
     "linux": "5.2"
   },
-  "last_updated": "2026-10-22",
+  "last_updated": "2026-11-10",
   "versions_total": {
-    "windows": 55,
+    "windows": 56,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "5.3.0",
+      "release_date": "2026-11-10",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/b/BlenderFoundation/Blender/5.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.blender.org/release/Blender5.3/blender-5.3.0-windows-x64.msi",
+          "host": "download.blender.org",
+          "filename": "blender-5.3.0-windows-x64.msi",
+          "sha256": "3ff4ec8a488be1148aa2bdb2cb229be21b8050e75931da617934cac254dd726c",
+          "product_code": "{BCCBDF6A-9448-4838-944B-2CB9539D572E}",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "blend"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{F26FE7C6-0B11-50DD-AAAF-2DC493706BDE}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.blender.org/release/Blender5.3/blender-5.3.0-windows-arm64.msi",
+          "host": "download.blender.org",
+          "filename": "blender-5.3.0-windows-arm64.msi",
+          "sha256": "82bf9c0057e288c44d066c201abe2ea1278d1ebe5df6cfd54571fca14dba27de",
+          "product_code": "{F5B3BBF0-D695-4F32-BA3C-5FB1772FFD40}",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "install_location": "INSTALL_ROOT=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "blend"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{F26FE7C6-0B11-50DD-AAAF-2DC493706BDE}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "5.2.3",
@@ -1933,50 +1990,29 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "2.90.1",
-      "manifest_version": "1.1.0",
-      "manifest_dir": "manifests/b/BlenderFoundation/Blender/2.90.1",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "wix",
-          "url": "https://download.blender.org/release/Blender2.90/blender-2.90.1-windows64.msi",
-          "host": "download.blender.org",
-          "filename": "blender-2.90.1-windows64.msi",
-          "sha256": "4d8b11b47f231c619ad2831be140525c408cbdb9c04dccf4f05440f35f1fee1a",
-          "product_code": "{A0C803A1-310C-4EFF-B881-CA10CF7CD6A7}",
-          "min_os_version": "10.0.0.0",
-          "switches": {
-            "silent": "/quiet /norestart",
-            "silent_with_progress": "/passive /norestart"
-          }
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "5.2.3",
+      "version": "5.3.0",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://download.blender.org/release/Blender4.5/blender-4.5.15-macos-x64.dmg",
+          "url": "https://download.blender.org/release/Blender4.5/blender-4.5.16-macos-x64.dmg",
           "host": "download.blender.org",
-          "filename": "blender-4.5.15-macos-x64.dmg",
-          "sha256": "3801a97619292a012ede0e855ee705ae872a680474845297b777254f7f21ed78",
-          "version": "4.5.15"
+          "filename": "blender-4.5.16-macos-x64.dmg",
+          "sha256": "009e437b33e5e131340b8d91eb9005d69ef6f1c67eff1402953a7d40cf94638f",
+          "min_os_version": "13",
+          "version": "4.5.16"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://download.blender.org/release/Blender5.2/blender-5.2.3-macos-arm64.dmg",
+          "url": "https://download.blender.org/release/Blender5.3/blender-5.3.0-macos-arm64.dmg",
           "host": "download.blender.org",
-          "filename": "blender-5.2.3-macos-arm64.dmg",
-          "sha256": "acc05374485a272342d4b323c15ac01953e7f697da2f1bad8af9c3bf087267a4"
+          "filename": "blender-5.3.0-macos-arm64.dmg",
+          "sha256": "2d802b54766741e612cead50b03ebbc8eb64dadc71eda932573d256b8a784720",
+          "min_os_version": "13"
         }
       ],
       "cask": {
@@ -2023,16 +2059,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "5bbd72adb7e89b812610acb59dd094203012c7d7",
-      "retrieved_at": "2026-11-04T01:11:44.292Z",
+      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "manifests/b/BlenderFoundation/Blender"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:09:25.127Z",
+      "commit": "011c91bc5ede5c6aeb118fc34d57d2a4717d4b6e",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "Casks/b/blender.rb",
       "api_url": "https://formulae.brew.sh/api/cask/blender.json"
     },

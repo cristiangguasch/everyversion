@@ -27,7 +27,7 @@
     "publisher": "https://www.mozilla.org/",
     "support": "https://support.mozilla.org/",
     "privacy": "https://www.mozilla.org/privacy/thunderbird/",
-    "release_notes": "https://www.thunderbird.net/thunderbird/159.0/releasenotes/"
+    "release_notes": "https://www.thunderbird.net/thunderbird/160.0/releasenotes/"
   },
   "license": {
     "name": "MPL-2.0",
@@ -40,17 +40,92 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "159.0",
-    "macos": "159.0",
+    "windows": "160.0",
+    "macos": "160.0",
     "linux": "160.0"
   },
-  "last_updated": "2026-10-27",
+  "last_updated": "2026-11-10",
   "versions_total": {
-    "windows": 138,
+    "windows": 139,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "160.0",
+      "release_date": "2026-11-10",
+      "release_notes": "What’s New\nnew\nCtrl+A selects all filters in the Message Filters dialog\nWhat’s Changed\nchanged\nOAuth sign-in windows now explain when blocked cookies may prevent sign-in\nchanged\nOffice 365 account setup no longer automatically offers EWS configuration\nWhat’s Fixed\nfixed\nThe macOS Dock badge could omit unread counts with multiple accounts\nfixed\nOpening a window could cause Thunderbird to crash\nfixed\nUndo remained disabled after deleting messages, preventing their restoration\nfixed\nPOP3 and news messages with LF line endings could be parsed incorrectly\nfixed\nThe option to create a mailing list was missing from File > New\nfixed\nRestoring toolbar defaults unexpectedly closed the customization dialog\nfixed\nThunderbird did not warn before repairing folders with offline message storage\nfixed\nDragging multiple selected folders moved only one folder\nfixed\nRenaming or moving folders could remove them from saved searches\nfixed\nReplies to saved messages could be blocked despite a valid Reply-To address\nfixed\nThe spelling dictionary menu was empty in the Subject field\nfixed\nTabbing from Subject field focused the header divider instead of message body\nfixed\nEdit as New Message did not work for some news messages\nfixed\nAddress book setup returned to mail setup when no mail account existed\nfixed\nExchange autodiscovery failed when redirected to another email address\nfixed\nEmpty message filter conditions could cause incorrect matches\nfixed\nAddress book filter conditions failed to match messages with missing addresses\nfixed\nAddress book website fields incorrectly prefixed non-HTTP links with HTTPS\nfixed\nSome CardDAV contacts with multiline street addresses appeared empty\nfixed\nCardDAV contacts were saved in a format unsupported by some servers\nfixed\nPhotos saved in vCard 3.0 contacts could fail to appear in other clients\nfixed\nWindows system tray icon failed to update when new mail arrived\nfixed\nProcessing some sender addresses could freeze new mail notifications\nfixed\nIMAP retention settings could delete newer messages instead of older ones\nfixed\nMessage database updates could cause Thunderbird to crash\nfixed\nIMAP namespace root folders could be missing or have incorrect permissions\nfixed\nGraph account setup failed for tenants without a SharePoint license\nfixed\nVarious News Reader improvements\nfixed\nIMAP folders could disappear after restart on servers using compression\nfixed\nVarious Feed Reader improvements\nfixed\nDelete Event remained enabled for read-only calendars in the Today Pane\nfixed\nAttendance options were missing for some recurring event series\nfixed\nThe task list stopped updating after toolbar customization\nfixed\nCalDAV reminders could not be dismissed or snoozed\nfixed\nSome webcal calendar subscriptions were incorrectly blocked\nfixed\nInvalid ICS calendar files could be overwritten when events were changed\nfixed\nVisual and UX improvements\nfixed\nSecurity fixes",
+      "release_notes_url": "https://www.thunderbird.net/thunderbird/160.0/releasenotes/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/m/Mozilla/Thunderbird/160.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/160.0/win32/en-US/Thunderbird%20Setup%20160.0.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Thunderbird Setup 160.0.exe",
+          "sha256": "c85c8d61c0df48992790d207f35eb695a865b1935878d89be989c16dba5a2f68",
+          "product_code": "Mozilla Thunderbird 160.0 (x86 en-US)",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mailto",
+            "mid",
+            "webcal",
+            "webcals"
+          ],
+          "file_extensions": [
+            "eml",
+            "ics",
+            "wdseml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/160.0/win64/en-US/Thunderbird%20Setup%20160.0.exe",
+          "host": "download-installer.cdn.mozilla.net",
+          "filename": "Thunderbird Setup 160.0.exe",
+          "sha256": "27c75ecb78609505b1c89e139fa172b634c74eb1b5e823c49aefee15286111a0",
+          "product_code": "Mozilla Thunderbird 160.0 (x64 en-US)",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "/S /PreventRebootRequired=true",
+            "silent_with_progress": "/S /PreventRebootRequired=true",
+            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mailto",
+            "mid",
+            "webcal",
+            "webcals"
+          ],
+          "file_extensions": [
+            "eml",
+            "ics",
+            "wdseml"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "159.0",
@@ -3724,92 +3799,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "136.0.1",
-      "release_date": "2025-03-18",
-      "release_notes": "What’s Fixed\nfixed\nThunderbird could crash during shutdown if a search was still active\nfixed\nFailed news message send could close the compose window unexpectedly",
-      "release_notes_url": "https://www.thunderbird.net/thunderbird/136.0.1/releasenotes/",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/m/Mozilla/Thunderbird/136.0.1",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/136.0.1/win32/en-US/Thunderbird%20Setup%20136.0.1.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Thunderbird Setup 136.0.1.exe",
-          "sha256": "156a18f0aa2b470aa8ba66c492a7ba3f9dfc3c6812e2d4cc4a106156d5e9d6a7",
-          "product_code": "Mozilla Thunderbird 136.0.1 (x86 en-US)",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "mailto",
-            "mid",
-            "webcal",
-            "webcals"
-          ],
-          "file_extensions": [
-            "eml",
-            "ics",
-            "wdseml"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "url": "https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/136.0.1/win64/en-US/Thunderbird%20Setup%20136.0.1.exe",
-          "host": "download-installer.cdn.mozilla.net",
-          "filename": "Thunderbird Setup 136.0.1.exe",
-          "sha256": "f82b7d23867aa82760b999e0f09a16cc4a25bf31217e3d2ef8ba6dfbf5e3044c",
-          "product_code": "Mozilla Thunderbird 136.0.1 (x64 en-US)",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "silent": "/S /PreventRebootRequired=true",
-            "silent_with_progress": "/S /PreventRebootRequired=true",
-            "install_location": "/InstallDirectoryPath=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "mailto",
-            "mid",
-            "webcal",
-            "webcals"
-          ],
-          "file_extensions": [
-            "eml",
-            "ics",
-            "wdseml"
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "159.0",
+      "version": "160.0",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/159.0/mac/en-US/Thunderbird%20159.0.dmg",
+          "url": "https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/160.0/mac/en-US/Thunderbird%20160.0.dmg",
           "host": "download-installer.cdn.mozilla.net",
-          "filename": "Thunderbird 159.0.dmg",
-          "sha256": "b3cf8931c832ba69ba632675e1663bbc0bced77e61f2bf9424cc06a9170f3427"
+          "filename": "Thunderbird 160.0.dmg",
+          "sha256": "9741099ff0653382a3661bfb9fc9f588557e9a839dabda83b627a846fe85b215"
         }
       ],
       "cask": {
@@ -3866,16 +3866,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "manifests/m/Mozilla/Thunderbird"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "011c91bc5ede5c6aeb118fc34d57d2a4717d4b6e",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "Casks/t/thunderbird.rb",
       "api_url": "https://formulae.brew.sh/api/cask/thunderbird.json"
     },

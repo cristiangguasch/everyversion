@@ -34,7 +34,7 @@
     "homepage": "https://www.torproject.org/",
     "publisher": "https://www.torproject.org/",
     "support": "https://support.torproject.org/",
-    "release_notes": "https://blog.torproject.org/new-release-tor-browser-160",
+    "release_notes": "https://blog.torproject.org/new-release-tor-browser-1601",
     "documentation": [
       {
         "label": "Glossary",
@@ -56,15 +56,70 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "16.0",
-    "macos": "16.0"
+    "windows": "16.0.1",
+    "macos": "16.0.1"
   },
-  "last_updated": "2026-10-29",
+  "last_updated": "2026-11-10",
   "versions_total": {
-    "windows": 75,
+    "windows": 76,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "16.0.1",
+      "release_date": "2026-11-10",
+      "release_notes": "The full changelog since Tor Browser 16.0 is:\n\n- All Platforms\n  - Updated Tor to 0.4.9.16\n  - Updated NoScript to 13.6.38.1984\n  - Updated zlib to 1.4\n  - Bug tor-browser#45439: Rebase Tor Browser onto 153.7.0esr\n  - Bug tor-browser#45442: Backport Security Fixes from Firefox 160\n- Windows + macOS + Linux\n  - Updated Firefox to 153.7.0esr\n- Android\n  - Updated GeckoView to 153.7.0esr\n- Build System\n  - Android\n    - Bug tor-browser-build#41814: Use new apksigner from build-tools_r37_linux.zip in signing script\n    - Bug tor-browser-build#41912: Add --preserve-alignment true to apksigner sign calls",
+      "release_notes_url": "https://blog.torproject.org/new-release-tor-browser-1601",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/t/TorProject/TorBrowser/16.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/16.0.1/tor-browser-windows-i686-portable-16.0.1.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-i686-portable-16.0.1.exe",
+          "sha256": "42e027b6ee7bc86b964118312e71a5046b4b83d3dd07a2554b739553db137425",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/16.0.1/tor-browser-windows-x86_64-portable-16.0.1.exe",
+          "host": "archive.torproject.org",
+          "filename": "tor-browser-windows-x86_64-portable-16.0.1.exe",
+          "sha256": "fbef840ba111409213dec2291e3594a43b82525545cdef0490a5750f24f5f232",
+          "install_modes": [
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https"
+          ],
+          "file_extensions": [
+            "htm",
+            "html"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "16.0",
@@ -2506,49 +2561,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "13.5.4",
-      "manifest_version": "1.6.0",
-      "manifest_dir": "manifests/t/TorProject/TorBrowser/13.5.4",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://archive.torproject.org/tor-package-archive/torbrowser/13.5.4/tor-browser-windows-x86_64-portable-13.5.4.exe",
-          "host": "archive.torproject.org",
-          "filename": "tor-browser-windows-x86_64-portable-13.5.4.exe",
-          "sha256": "3135b59e5ee75fad01b85dab80c0c1ba0b25b86fa4b1d3aede1519afa0152eac",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "upgrade_behavior": "install",
-          "protocols": [
-            "http",
-            "https"
-          ],
-          "file_extensions": [
-            "htm",
-            "html"
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "16.0",
+      "version": "16.0.1",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://www.torproject.org/dist/torbrowser/16.0/tor-browser-macos-16.0.dmg",
+          "url": "https://www.torproject.org/dist/torbrowser/16.0.1/tor-browser-macos-16.0.1.dmg",
           "host": "www.torproject.org",
-          "filename": "tor-browser-macos-16.0.dmg",
-          "sha256": "b482caf66f2e2435b27c1714820991c3f5588653a5ca17f500c9cef99a7ba799"
+          "filename": "tor-browser-macos-16.0.1.dmg",
+          "sha256": "f7c1f995969e6588a770d2096591ac397cd2cbb8a85b8c0c30ec206290ec2b90"
         }
       ],
       "cask": {
@@ -2582,16 +2605,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "manifests/t/TorProject/TorBrowser"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "011c91bc5ede5c6aeb118fc34d57d2a4717d4b6e",
+      "retrieved_at": "2026-11-12T15:43:16.804Z",
       "path": "Casks/t/tor-browser.rb",
       "api_url": "https://formulae.brew.sh/api/cask/tor-browser.json"
     }
