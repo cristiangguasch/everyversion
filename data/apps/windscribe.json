@@ -1,0 +1,1364 @@
+{
+  "schema_version": 2,
+  "slug": "windscribe",
+  "name": "Windscribe",
+  "publisher": "Windscribe Limited",
+  "author": "Windscribe Limited",
+  "ids": {
+    "winget": "Windscribe.Windscribe",
+    "homebrew_cask": "windscribe"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Windscribe encrypts your browsing activity, blocks ads, and unblocks entertainment content",
+  "tags": [
+    "network",
+    "privacy",
+    "proxy",
+    "security",
+    "vpn"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://windscribe.com/",
+    "publisher": "https://windscribe.com/",
+    "support": "https://windscribe.com/knowledge-base/",
+    "privacy": "https://windscribe.com/privacy/",
+    "purchase": "https://windscribe.com/upgrade",
+    "release_notes": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.25.8"
+  },
+  "license": {
+    "name": "GPL-2.0",
+    "url": "https://github.com/Windscribe/Desktop-App/blob/HEAD/LICENSE",
+    "spdx": "GPL-2.0",
+    "copyright": "© 2026 Windscribe Limited",
+    "copyright_url": "https://windscribe.com/terms/"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.25.8",
+    "macos": "2.24.12"
+  },
+  "last_updated": "2026-11-10",
+  "versions_total": {
+    "windows": 27,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.25.8",
+      "release_date": "2026-11-10",
+      "release_notes": "Added\n- Optional detailed app and helper debug tracing on Windows to help pinpoint launch and connection delays.\nImproved\n- App hardening from the OpenAI Daybreak Blue and Anthropic Defense Access audit.\n  - Security of WireGuard config handling on Windows.\n  - Security of the Windows installer and uninstaller.\n  - Security of in-app update staging on Windows.\n  - Security of the OpenVPN DNS scripts on macOS and Linux.\n  - Security of in-app update staging and installation on Linux.\n- Security by running the OpenVPN daemon unelevated on Windows.\n- Security of the OpenVPN daemon on macOS and Linux.\n- Security by redacting VPN server credentials in debug logs.\n- Split tunneling app selection duplicate detection on Windows and macOS.\n- Hosts file handling for IKEv2 connections, so the app now retries when another program has the file locked on Windows.\n- App only allows one running instance per machine. If another signed-in user is already running it, the app now explains why.\n- Implementation of post-connect tunnel validation and connected IP state.\n- Window installer to use libarchive rather than bundled 7z executable for extraction.\n- App removes servers from the locations list with the force_disconnect flag set.\n- Windows installer to return specific Windows error codes when a failure occurs.\n- Split tunneling compatibility with other WFP redirectors to address potential system crashes on Windows.\n- macOS Service-account creation and validation, including handling user ID conflicts and reporting creation failures.\n- Custom Connected DNS to support scheme-prefixed DoT endpoints, including an explicit default port.\n- Custom Connected DNS handling to avoid starting ctrld for a plain-IP upstream when Split DNS has no domains configured.\n- windscribe-cli help to use a conventional layout with an aligned command list and per-command help, and made command output consistent.\n- windscribe-cli help and documentation to explain how to turn on AmneziaWG with Protocol Tweaks. The app now logs a warning when the configured AmneziaWG preset is not available and it falls back to another preset.\n- windscribe-cli locations commands to list locations in the terminal instead of opening the locations list in the app.\n- windscribe-cli commands to report the app's actual result instead of only confirming the request was sent.\n- windscribe-cli error messages for connection and update failures, so they describe the actual problem instead of showing a numeric error code.\nFixed\n- Local privilege escalation vulnerability involving custom OpenVPN config parsing on Linux.\n- OpenVPN-based protocols failing to connect on PCs where Windows cannot rename network adapters with netsh.\n- OpenVPN connections failing on some Windows 11 insider builds because the app could not detect the management port.\n- Potential app crash when connecting with a custom OpenVPN config on macOS.\n- Custom Connected DNS failing after connection or location changes while the app showed Connected on Linux.\n- Anti-censorship check not detecting a Chinese system language.\n- App rewriting its whole settings file about once a minute while connected, even when nothing changed.\n- Windows installer displaying error dialogs when -silent is specified on the command-line.\n- ctrld being restarted before its previous instance had exited on macOS.\n- ctrld daemon may fail to launch when Connected DNS preference is Control D on Windows.\n- Windows tapctl.exe utility to always match OpenVPN version.\n- Auto-Connect not triggering when a Hyper-V virtual adapter is the active network interface on Windows.\n- AmneziaWG connections never completing when the config contains large I1-I5 packets on Windows.\n- IKEv2 connections repeatedly showing a false \"Read-Only File\" hosts file prompt on Windows.\n- Split tunneled traffic being blocked by the firewall on a secondary network interface on macOS.\n- Split tunneled IPs going out through the primary interface instead of their original interface on Linux.\n- A potential split tunneling extension crash caused by unsynchronized connection-table updates on macOS.\n- Proxy Gateway retaining silent, unauthenticated connections without connection limits or a handshake timeout. Reported by Souparna Majumder.\n- Network name and per-network settings remaining stale after waking on a different network through the same adapter on Windows.\n- Installer starting the previous uninstaller before the helper service has finished stopping on Windows.\n- Potential IKEv2 reconnect loop when asynchronous RAS disconnect notification fails to register with Windows.\n- Menu bar icon not opening the app while another application is full screen on macOS.\n- CLI-only Linux app ignoring the Launch on Startup preference when disabled.\n- MTU detection and hotspot adapter detection failing with non-English system locales on Linux.\n- systemd-resolved detection for additional resolv.conf symlink targets and stub-resolver configurations.\n- Intentional ctrld shutdowns being logged as crashes.\n- CLI from the GUI package fails on a headless environment with a no-display error.\n- Split Tunneling Apps list accepting duplicate entries for manually added apps. Existing duplicates are now removed on load.\n- MAC Spoofing turning off and its interface resetting to \"No Interface\" after suspend/resume or a NetworkManager restart on Linux.\n- windscribe-cli login waiting forever when the login was abandoned, for example by closing the CAPTCHA, or when an email address was entered as the username.\n- windscribe-cli help --help and version --help not showing help, and version accepting unexpected arguments.\n- windscribe-cli logs send command reporting success before the upload finished, which hid upload failures.\n- windscribe-cli log output appears in stdout on macOS and Linux.\n- Declining the permission prompt during an in-app update showing an \"Auto-Update Failed\" error. The update window now returns to its prompt so the update can be started again.\n- A missing space between the two sentences of the Decoy Traffic description in Preferences > Connection.\n- Excluded apps' traffic, including IPv6 on dual-stack networks, going through the tunnel in Exclusive split tunneling mode on Windows.\n- App not stopping an unresponsive WireGuard process after a disconnect timeout on macOS and Linux.\nUpdated\n- The embedded API certificate bundle so it no longer trusts the compromised eMudhra intermediate certificates.\n- Qt to 6.12.0.\n- AmneziaWG to 3.1.20260814 (Windows) and 3.1.20260828 (macOS/Linux).\n- ctrld to 1.5.9.\n- cURL to 8.23.0.\n- OpenSSL to 4.0.3.\n- OpenVPN to 2.7.7.\n- OpenVPN DCO driver to 2.8.7 on Windows.\n- Third-party components from vcpkg to the latest versions for stability and security.\n- Minimum macOS version to 14.4.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.25.8",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.25.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.25.8/Windscribe_2.25.8_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.25.8_amd64.exe",
+          "sha256": "4326759d453e321cca38aa16aadbddbafa9e18215c29936f7d3ce8d6ae84debc",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.25.8/Windscribe_2.25.8_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.25.8_arm64.exe",
+          "sha256": "45def6dd2fef4ed9fdeadbf4d00988d501fb3a1a904288838d48b513950f7ed9",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.24.13",
+      "release_date": "2026-09-08",
+      "release_notes": "Fixed\n- Fixed app crashes on startup when the user profile path contains non-ASCII characters.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.24.13",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.24.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.24.13/Windscribe_2.24.13_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.24.13_amd64.exe",
+          "sha256": "821ff217d87b4acbd71408303d9a5bc35abfefdada6761f7fd2944a92d5609d2",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.24.13/Windscribe_2.24.13_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.24.13_arm64.exe",
+          "sha256": "1013e6b459d9f3f98d01bf62ed4f9463e3b7fd04448875210b56bacba4e3e53e",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.24.12",
+      "release_date": "2026-09-02",
+      "release_notes": "Added\n- Custom SNI support for stunnel/wstunnel anti-censorship connections.\n- Cross-platform diagnostics for API connectivity login failures so logs can better distinguish DNS, routing, proxy, IPv4/IPv6, and local security-policy failures.\n- A SECURITY.md document.\nImproved\n- The Windows IKEv2 connector. A complete rewrite of the code to improve connection setup speed and connection robustness.\n- Anti-censorship startup and failover by supporting parallel backup domain testing in wsnet.\n- Firewall behavior consistency across platforms and firewall modes.\n- Always On/Always On+ firewall handling with Allow LAN Traffic by disabling risky LAN allowance on mode enable and warning when LAN traffic is explicitly re-enabled.\n- Hardening for elevated executables using Windows process mitigation APIs where applicable.\n- Windows compiler and linker security hardening, including Control Flow Guard and related mitigation settings.\n- Windows build targeting to Windows 10 2004 so newer Windows APIs can be used without changing the minimum install version.\n- macOS installer/update code paths and installer flow.\n- Split tunneling error handling so startup failures can show the usual Split Tunneling failed alert on macOS.\n- CLI-only behavior by automatically watching config file changes instead of requiring windscribe-cli preferences reload.\n- Custom SNI handling by keeping Custom SNI Domain visible/editable independently of the Protocol Tweaks mode, while still applying it only to Stealth/stunnel and WSTunnel connections.\n- wsnet/desktop hardening by validating values received from wsnet and applying wsnet security-audit fixes for URL construction, TLS/network handling, logging, parsing, and failover robustness.\n- DNS leak firewall setup by de-duplicating DNS server entries before adding Windows firewall filters on Windows.\n- Split tunneling so non-tunneled apps can preserve native ISP IPv6 on dual-stack networks while tunneled apps remain leak-protected on Linux.\n- Installer and uninstaller logging on Windows.\n- The ConnectionManager sub-system.\n- WireGuard stale-handshake detection.\n- Connection failed messaging when IKEv2 (RAS) services are unavailable.\n- API retry access to use bounded per-resource exponential back-off, starting at 1 second and doubling to a 5-minute cap with jitter.\n- Belarusian translations in the GUI, installer and CLI from GitHub user dubovy-achvelak.\n- Dependency build integrity by pinning or verifying wstunnel and AmneziaWG prebuilt source dependencies.\n- Logging when modifications to the Windows hosts file fail during IKEv2 connect/disconnect.\n- Networking-service handling so installers avoid force-enabling NetworkManager/systemd-resolved and nmcli-dependent features degrade gracefully when unavailable on Linux.\n- Linux firewall/routing fwmark handling by centralizing fwmark use and avoiding incorrect WireGuard mark behavior.\n- Linux firewall implementation by replacing iptables shell calls with libnftables.\n- Linux split tunneling so non-tunneled apps can preserve ISP IPv6 on native dual-stack networks while tunneled apps remain leak-protected.\n- Objective-C memory management consistency by enabling ARC uniformly across the project.\nFixed\n- Local privilege escalation vulnerability caused by a race condition in the staged macOS updater bundle.\n- Local privilege escalation vulnerability caused by a replaceable installer archive on macOS.\n- Local privilege escalation vulnerability caused by inherited SUID/SGID bits in staged updater bundle on macOS.\n- Local privilege escalation vulnerability caused by SGID helper descriptor reuse and OpenVPN custom config parser differences on Linux.\n- Local privilege escalation vulnerability caused by OpenVPN inline-parser differences and root-execution-capable directives in custom OpenVPN configs.\n- Local privilege escalation vulnerability caused by an embedded NULL in a custom config coercing OpenVPN to load a malicious plug-in.\n- Local privilege escalation vulnerability caused by handling of OpenVPN's dhcp-option parameter in custom configs on macOS and Linux.\n- Local privilege escalation vulnerability caused by cgroups-down script on Linux.\n- File disclosure vulnerability in the Windows helper.\n- Security audit findings covering macOS signature validation, Windows WireGuard config permissions, local IPC robustness, AmneziaWG input validation, and sensitive logging paths.\n- Insecure OpenVPN management interface behavior that could allow local management-port hijacking, spoofed VPN state, or credential capture.\n- WireGuard connection mode unavailable when Always On+ firewall mode is enabled and cached WireGuard connection information is available.\n- c-ares Windows DNS server detection regression that could leave only 127.0.0.1:53 and cause DNS resolution failures.\n- The Windscribe service getting stuck in the stop pending state when a stop is requested while the desktop app is running on Windows.\n- A possible crash when enabling Secure Hotspot after connecting the VPN on Windows.\n- A rare crash when launching at startup before macOS screen information is available.\n- Linux firewall block rule ordering so Windscribe's kill-switch block path takes precedence over UFW/third-party allow rules.\n- Allow LAN traffic not applying correctly to IPv6 LAN and multicast traffic while connected on Windows.\n- Allow LAN traffic IPv6 behavior on macOS so ULA and multicast traffic are blocked on the VPN interface while remaining reachable on the physical LAN.\n- Missing warning when split tunneling is enabled while the macOS split tunneling extension has been manually disabled.\n- Inclusive split tunneling with WireGuard on Windows tunneling non-included traffic through the VPN.\n- Inclusive split tunneling on Windows blocking native ISP IPv6 for non-included apps on dual-stack networks.\n- HTTP Proxy settings rejecting valid high port numbers in the 63536-65535 range.\n- Always On+ firewall mode skipping WireGuard when a valid cached WireGuard config is available.\n- Always On+ unsecured-network handling disconnecting during WireGuard-to-OpenVPN fallback when no cached WireGuard config is available.\n- Split tunneling extension lifecycle bugs and improved cleanup on macOS.\n- Connected DNS split-DNS reachability to internal RFC1918 DNS servers while the VPN is active.\n- Cached WireGuard config is not cleared when its keys are invalidated.\n- WireGuard may fail to connect if IPv6 is disabled in the Linux kernel.\n- OpenVPN adapter creation failure insufficiently reported to the user on Windows.\n- First click on Rotate IP may not rotate IP.\n- Line-wrapped resolvectl output omits resolvers from DNS leak protection on Linux.\n- App startup/shutdown delay when IKEv2 (RAS) services are unavailable on Windows.\n- macOS app may hang indefinitely on launch due to delays while constructing the Split Tunneling application picker.\n- CLI-only app is missing a dependency for libbrotli.\n- App skips symlinks and some common app folders when constructing the Split Tunneling application picker on macOS.\n- Failed captcha treated as something to failover on and retry.\n- Network name does not refresh after waking on a different network on Windows.\n- App may get stuck on the logging in screen.\n- Hashed-login failures caused by user accidentally including leading/trailing whitespace in their input.\n- Static IP OpenVPN/TCP connections prompting for credentials instead of supplying stored Static IP credentials internally.\n- Remembered credentials for external .ovpn custom configs not being persisted immediately across restart/reboot.\n- Account tab Add Email text may overlap when account has no email and language is non-English.\n- Polish free-data counter text overlapping the upgrade CTA and locations-list chevron.\n- Help/About->Jobs link referencing stale URL.\n- openSUSE Tumbleweed RPM install failure related to the libcap-progs dependency path.\n- openSUSE Tumbleweed SSL/API validation failures caused by missing Debian-style CA bundle path.\n- openSUSE packaging missing libdbus-1-3.\nUpdated\n- cURL 8.21, c-ares 1.34.7, OpenVPN 2.7.5, and OpenSSL 4.0.1.\n- WireGuard for Windows to 1.1.\n- wireguard-go 0.0.20250522 for macOS and Linux.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.24.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.24.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.24.12/Windscribe_2.24.12_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.24.12_amd64.exe",
+          "sha256": "f2258515892aaad39f31b33a65b9d1edb0dc173979a6d43ef5b02079e60e7d07",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.24.12/Windscribe_2.24.12_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.24.12_arm64.exe",
+          "sha256": "3786441280d2531be0af3f1b93932d5a80679f3cb7de9eb7b5906d517557a65e",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.23.12",
+      "release_date": "2026-07-09",
+      "release_notes": "Fixed\n- WireGuard connection may hang/timeout due to phantom ROOT/WireGuard device nodes created by the Windows feature update process.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.23.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.23.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.23.12/Windscribe_2.23.12_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.23.12_amd64.exe",
+          "sha256": "014aae3fddb8cfb858ff3e147d844e791621a61039a0d6aa9ea23db07fdaba3f",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.23.12/Windscribe_2.23.12_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.23.12_arm64.exe",
+          "sha256": "1f65f11a5e8dc0ec74d5e70f3d68b1bfcc82c5adddae4eb59edae94e1f31454c",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.23.11",
+      "release_date": "2026-07-06",
+      "release_notes": "Added\n- Package signing and update authenticity hardening for supported Linux packages.\nImproved\n- App hardening from the Fable 5 audit, including WireGuard key validation, Control D API key log redaction, IPC exposure hardening, safer logging, installer argument redaction, and package/dependency handling fixes.\n- Windows helper IPC parameter validation to reduce local IPC attack surface.\n- Linux helper IPC/API hardening after EGL gid-check bypass review.\n- Windows IKEv2 connector stability to mitigate possible crashes.\n- macOS builds against Xcode 26.5 and enabled ARC for client-common Objective-C++ code.\n- Proxy Gateway privacy by no longer logging blocked destinations for HTTP and SOCKS gateway requests.\n- IP Stack preference wording to clarify it applies to WireGuard only.\n- Preferences title casing consistency.\n- Sign Up screen helper text styling under the Password and Email fields.\n- JSON/INI import consistency for proxy sharing and MAC spoofing settings.\n- Debug logs by removing false positives that could mislead automated log analysis on Windows.\n- Russian and Ukrainian translations in the desktop app, installer, and CLI from GitHub user WkdXeqtr.\n- Belarusian translations in the desktop app, installer, and CLI from GitHub user dubovy-achvelak.\nFixed\n- DLL planting vulnerability in the Windows bootstrapper and uninstaller.\n- Windows installer/updater staging TOCTOU allowing the privileged helper to copy from a different source path than the one it validated.\n- Local privilege escalation security vulnerability from app retaining SETGID capability after group switch on Linux.\n- Possible local privilege escalation chain involving external-link opening and OpenVPN directive validation bypass.\n- OpenVPN custom config filtering to handle embedded NULL/control characters consistently and reject unsafe directives.\n- OpenVPN custom config parsing to prevent commented-out route-nopull / route-noexec text from disabling automatic firewall handling.\n- Malformed OpenVPN inline tags bypassing custom config directive filtering.\n- AmneziaWG custom WireGuard I-values allowing newline/config injection in imported custom configs.\n- Custom OpenVPN device names that could bypass Linux DNS leak protection by using wildcard-style interface names.\n- Split tunneling service startup failures not showing the expected user-facing warning prompt on Windows.\n- A crash when clicking the menu bar icon on affected macOS 27 beta builds.\n- DNS leak protection allowing pre-VPN OS DNS resolvers when DNS traffic egressed over the VPN interface on Linux.\n- Always On+ firewall feature eventually showing the Ignore SSL errors prompt during blocked or delayed connectivity.\n- Launch on startup mechanism may fail to apply during a reboot.\n- Control D via API Key connections failing when an IPv6 bootstrap IP from Custom DNS was retained without native IPv6.\n- Ignore SSL Errors runtime bypass handling to reset wsnet failovers before retrying failed requests.\n- IP pinning fallback when an Advanced Parameters remote IP does not match the selected location.\n- Memory leak when handling CLI IPC commands.\n- Windows installer progress handling near completion when uninstalling previous components and launching the app.\n- Periodic reconnects on Windows IKEv2 connections caused by transient OS status checks.\n- Logout/session deletion leaving the Windscribe IKEv2 VPN profile in macOS System Settings.\n- Linux address selection so IPv6-capable VPN connections do not incorrectly prefer IPv4 via Windscribe gai.conf handling.\n- deb/rpm packages installing scripts or helper files with world-writable permissions.\n- Data-remaining counter showing 0 bytes after an expired/blocked account state and newly logged into account has remaining data.\n- Networks marked Unsecured being treated as Secured on launch, which could incorrectly trigger auto-connect.\n- Imported dashed MAC spoof values showing incorrectly and reporting MAC spoofing failure even though the spoof was applied.\n- IKEv2 inclusive split tunneling leaving a low-metric default tunnel route active, causing non-included traffic to route through the VPN on Windows.\n- Linux IPv6 split-tunnel routes being added without the required interface name.\n- Linux IPv6 DNS leak protection missing ip6tables rules for IPv6 DNS resolvers.\n- Linux split-tunneling process monitor skipping proc events after the first netlink read.\n- Linux split-tunneling setup failures being reported as successful.\n- Persistent Ignore SSL Errors preference behavior so TLS validation bypass is runtime-only and does not survive app restart.\n- Connected DNS Custom 0.0.0.0 breaking local ctrld resolver behavior while connected.\n- Split tunneling disabled message handling on macOS.\nUpdated\n- Updated wsnet to 1.5.20.\nRemoved\n- The Contact Humans preference from the help UI.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.23.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.23.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.23.11/Windscribe_2.23.11_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.23.11_amd64.exe",
+          "sha256": "3430c28f606591b8f13c9d4d1a960b844ae217b0b6c5ebeb50bd764a3e88a33b",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.23.11/Windscribe_2.23.11_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.23.11_arm64.exe",
+          "sha256": "065544d2f821aa5730db43fbdc3a71b01b18a41872bf038af6977a82ea5c7c5c",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.22.10",
+      "release_date": "2026-05-22",
+      "release_notes": "Added\n- A 'ports' command to the CLI.\n- Belarusian (Taraškievica) localization. Community contribution by dubovy-achvelak.\n- Support for the new server list v2 API.\nImproved\n- Filtering of potentially malicious directives in OpenVPN custom configs to prevent a local privilege escalation.\n- \"No P2P\" icon to display per-city (datacenter) instead of per-country in the locations list.\n- BFE service status detection on Windows when SCM access is restricted from unelevated processes.\n- WireGuard PersistentKeepalive to use a value of 25 on all platforms.\n- HTTP ping to use IP address rather than hostname.\n- Field validation for custom WireGuard config import.\n- Non-critical scriptlet commands on Linux to be optional to prevent failures when reinstalling or upgrading.\nFixed\n- Application blocked by TLS fingerprinting in Russia.\n- AmneziaWG custom configs with valid H1-H4 ranges rejected by the security validator.\n- Possible local privilege escalation in the helper due to insufficient parameter validation before executing shell commands on macOS and Linux. We thank Johan Wahyudi for responsibly disclosing this issue.\n- IPC frame bounds checking to reject malformed or oversized messages.\n- Security vulnerability in ctrld command argument processing on macOS and Linux.\n- WireGuard custom config IP/CIDR validation to prevent command injection via crafted .conf files on Linux.\n- Command injection in CLI update handler on Linux.\n- Possible local privilege escalation and TOCTOU exploits in the macOS helper and installer.\n- Possible local privilege escalation and TOCTOU exploits in the Linux helper.\n- Potential privilege escalation during app update process on Linux.\n- WireGuard service may start then terminate immediately in a loop after wake from sleep on Windows.\n- Possible app crash when initiating an IKEv2 connection on Windows.\n- Potential deadlock at app start.\n- Factory reset does not fully reset preferences on macOS.\n- Call continuity doesn't work with firewall enabled on macOS.\n- OpenVPN TCP fails to connect when LAN proxy feature is enabled on macOS.\n- Multicast traffic not working on split tunneled apps on macOS.\n- Server sub-menus for the locations list in the OS tray menu should have a delay before being displayed.\n- Protocol indicates \"WireGuard\" while disconnected and selected location is an OpenVPN custom config.\n- WireGuard key limit dialog overlaps notification banners on app launch.\n- Standard/hashed login text overlaps when language set to Belarusian.\n- wsnet receiving system language rather than user's preferred language.\n- News feed title is clipped and entry height miscalculated when entry is expanded.\n- Location list hover states broken after clicking main window.\n- Third-party custom config may no longer pass tunnel test.\n- Dropdown menus in Preferences scrolling to the wrong position.\n- El Salvador flag icon.\n- App does not consistently connect to the specific server that has the user's pinned IP.\n- Purchased ALC locations cannot be selected.\n- Unnecessary VPN reconnection when switching between WiFi access points on the same network on macOS and Linux.\n- An app crash when on macOS when all app sessions are cleared via the website account page.\n- A potential crash while reinstalling the app on macOS.\n- A crash when interacting with credential fields on macOS.\n- P2P indicators not shown for premium locations.\n- Cannot connect to purchased individual locations because the UI shows them as premium-only.\n- Cannot connect with custom configs requiring credentials.\n- Bridge API session tokens not being cleared during logout and persistent settings cleanup.\n- Potential use-after-free crash when API handles outlive global wsnet teardown.\n- Advanced parameters not parsed after being written on Linux.\n- WireGuard reconnect fails after plan downgrade until app restart.\n- Protocol Tweaks toggle not enabling during fresh install on a Russian network.\n- Location nickname may be corrupted when best location changes.\n- Incorrect knowledge base URL in Help window.\n- Change protocol screen maximizes vertically after moving it.\n- Linux CLI does not log the user out when all active sessions are deleted from the account.\n- DNS manager may misdetect as resolvconf on Ubuntu when it should be NetworkManager.\n- Linux Dockerfile build tool downloads not hash verified.\nUpdated\n- Qt 6.11.0.\n- cURL 8.18.0.\n- OpenSSL 3.6.1.\n- OpenVPN DCO driver 2.8.2.\n- ctrld to 1.5.0.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.22.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.22.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.22.10/Windscribe_2.22.10_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.22.10_amd64.exe",
+          "sha256": "b2020c969fb90ba978584f81b75969891b4e8d83783c74bd02a18f6351cdd516",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.22.10/Windscribe_2.22.10_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.22.10_arm64.exe",
+          "sha256": "1bf905691190a246ece6b7a6814dfeb71c3bf6383c9640a9036103d151c57263",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.22.9",
+      "release_date": "2026-05-19",
+      "release_notes": "Added\n- A 'ports' command to the CLI.\n- Belarusian (Taraškievica) localization. Community contribution by dubovy-achvelak.\n- Support for the new server list v2 API.\nImproved\n- Filtering of potentially malicious directives in OpenVPN custom configs to prevent a local privilege escalation.\n- \"No P2P\" icon to display per-city (datacenter) instead of per-country in the locations list.\n- BFE service status detection on Windows when SCM access is restricted from unelevated processes.\n- WireGuard PersistentKeepalive to use a value of 25 on all platforms.\n- HTTP ping to use IP address rather than hostname.\n- Field validation for custom WireGuard config import.\n- Non-critical scriptlet commands on Linux to be optional to prevent failures when reinstalling or upgrading.\nFixed\n- Possible local privilege escalation in the helper due to insufficient parameter validation before executing shell commands on macOS and Linux. We thank Johan Wahyudi for responsibly disclosing this issue.\n- IPC frame bounds checking to reject malformed or oversized messages.\n- Security vulnerability in ctrld command argument processing on macOS and Linux.\n- WireGuard custom config IP/CIDR validation to prevent command injection via crafted .conf files on Linux.\n- Command injection in CLI update handler on Linux.\n- Possible local privilege escalation and TOCTOU exploits in the macOS helper and installer.\n- Possible local privilege escalation and TOCTOU exploits in the Linux helper.\n- Potential privilege escalation during app update process on Linux.\n- WireGuard service may start then terminate immediately in a loop after wake from sleep on Windows.\n- Possible app crash when initiating an IKEv2 connection on Windows.\n- Potential deadlock at app start.\n- Factory reset does not fully reset preferences on macOS.\n- Call continuity doesn't work with firewall enabled on macOS.\n- OpenVPN TCP fails to connect when LAN proxy feature is enabled on macOS.\n- Multicast traffic not working on split tunneled apps on macOS.\n- Server sub-menus for the locations list in the OS tray menu should have a delay before being displayed.\n- Protocol indicates \"WireGuard\" while disconnected and selected location is an OpenVPN custom config.\n- WireGuard key limit dialog overlaps notification banners on app launch.\n- Standard/hashed login text overlaps when language set to Belarusian.\n- wsnet receiving system language rather than user's preferred language.\n- News feed title is clipped and entry height miscalculated when entry is expanded.\n- Location list hover states broken after clicking main window.\n- Third-party custom config may no longer pass tunnel test.\n- Dropdown menus in Preferences scrolling to the wrong position.\n- El Salvador flag icon.\n- App does not consistently connect to the specific server that has the user's pinned IP.\n- Purchased ALC locations cannot be selected.\n- Unnecessary VPN reconnection when switching between WiFi access points on the same network on macOS and Linux.\n- An app crash when on macOS when all app sessions are cleared via the website account page.\n- A potential crash while reinstalling the app on macOS.\n- A crash when interacting with credential fields on macOS.\n- P2P indicators not shown for premium locations.\n- Cannot connect to purchased individual locations because the UI shows them as premium-only.\n- Cannot connect with custom configs requiring credentials.\n- Bridge API session tokens not being cleared during logout and persistent settings cleanup.\n- Potential use-after-free crash when API handles outlive global wsnet teardown.\n- Advanced parameters not parsed after being written on Linux.\n- WireGuard reconnect fails after plan downgrade until app restart.\n- Protocol Tweaks toggle not enabling during fresh install on a Russian network.\n- Location nickname may be corrupted when best location changes.\n- Incorrect knowledge base URL in Help window.\n- Change protocol screen maximizes vertically after moving it.\n- Linux CLI does not log the user out when all active sessions are deleted from the account.\n- DNS manager may misdetect as resolvconf on Ubuntu when it should be NetworkManager.\n- Linux Dockerfile build tool downloads not hash verified.\nUpdated\n- Qt 6.11.0.\n- cURL 8.18.0.\n- OpenSSL 3.6.1.\n- OpenVPN DCO driver 2.8.2.\n- ctrld to 1.5.0.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.22.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.22.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.22.9/Windscribe_2.22.9_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.22.9_amd64.exe",
+          "sha256": "51adad2fed021c1c820e3cb6e3b8f0ae0c7a4240077be8e1b904e91ae4c919df",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.22.9/Windscribe_2.22.9_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.22.9_arm64.exe",
+          "sha256": "d2a5075262624391844c947de5243d85cbf0d6f7689a346dcbd7907d2e029011",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.21.7",
+      "release_date": "2026-03-30",
+      "release_notes": "Added\n- AmneziaWG advanced anti-censorship support.\n- In-app user registration functionality.\n- Sound preview for sound notifications in preferences.\n- Favourite locations to preferences import/export.\nImproved\n- Adapter network identification state detection (identified, identifying, unidentified) on Windows.\n- App (helper) to support running on Windows Server 2019/2022 without requiring the Wireless LAN Service to be installed.\n- Network options description and added help link.\n- Additional Slovak translations from GitHub user kubalav.\n- Spanish translations.\nFixed\n- App may crash during launch on macOS.\n- IKEv2 may get stuck after waking from sleep on Windows.\n- IP utilities sometimes not available after changing from custom config to regular location.\n- IP pinning and rotation features may be disabled when using Circumvent Censorship on Windows.\n- WireGuard may fail to reconnect on PC wake when using Circumvent Censorship on Windows.\n- Clicking \"Login\" from Preferences while logged out goes to Welcome screen instead.\n- Rotating the MAC address causing the tunnel test phase to get stuck.\n- e-mail field should not show for hashed accounts.\n- 'Clear Wi-Fi History' feature not clearing WLAN profiles on Windows.\n- /etc/gai.conf changes not undone after disconnection on Linux.\n- ip6tables rule ordering on Linux.\n- Updater may get stuck if gnome-session-service doesn't reap the old process on Linux.\n- DPI scaling issues in login/signup UI.\n- A failed assertion at app start.\n- Incorrect window ordering when returning to login screen.\n- Incorrect Update button size in app update available notification banner.\n- Login not working with windscribe-cli.\n- Emergency connect icon opacity.\n- Incorrect network connectivity drop when restarting split tunnel extension on macOS.\n- Decoy traffic not started when using pinned IP.\n- Decoy traffic volume silently reverts to 'Low' after app restart.\n- Input sanitation when using custom config.\n- Potentially incorrect firewall rules when using custom configs.\n- Combobox items in preferences are not left-aligned.\n- Incorrect window ordering when returning to login screen.\n- Incorrect window elements if showing credentials prompt immediately after CPU usage warning.\n- Split tunnel applications not populated on some Linux distros.\n- DNS not being set on the system for OpenVPN custom configs on Linux.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.21.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.21.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.21.7/Windscribe_2.21.7_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.21.7_amd64.exe",
+          "sha256": "f42e3110682d957af701bea6ea79b4eb2a9097dcd41acac9fd0e39ca1276c3ba",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.21.7/Windscribe_2.21.7_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.21.7_arm64.exe",
+          "sha256": "96f543a84122c093f2bce47e7c7392da9ccc75fb3d36024e71603bf33785b864",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.20.7",
+      "release_date": "2026-02-23",
+      "release_notes": "Added\n- Feature to clear Wi-Fi history. Details here.\n- Port selection on protocol change screen.\n- Support for hashed login. Details here.\nImproved\n- Logging & detection for abusers.\n- App robustness if the wstunnel process is killed or crashes on macOS.\n- Automatic DNS manager detection on Linux.\n- Edit box UX.\n- CLI commands to return success when it is already in the correct state.\n- WireGuard client IP determination and reduced dependency on server API.\n- Tray menu UX for 'Show/Hide', replacing it with just 'Show app' on macOS and Linux.\n- Helper command robustness and removed unused commands.\n- Windows helper code organization and interaction with the Service Control Manager.\n- Locations resizing behaviour.\n- Window resizing behaviour and performance.\n- Font sizing and contrast.\n- Linux install scripts not to disable firewalld.\nFixed\n- Captcha compatibility issues for ScribeForce customers.\n- WireGuard connection may not reconnect after Windows wakes from sleep mode.\n- Description width on protocol screen.\n- Connecting to a static IP location may fail on WireGuard.\n- WireGuard connection failures when key limit is reached.\n- Multiple dropdowns showing at the same time on protocol screen.\n- \"Unsaved changes\" alert may bypass invalid DNS settings check.\n- Maximum log file size was too large. Now limited to 2 MB.\n- Potential app crash on launch.\n- App not displaying DNS conflict warning when a local DNS daemon is running and the custom DNS feature is enabled on macOS.\n- Installer binary displaying incorrect version number and copyright date on macOS.\n- Inclusive split tunneling route may not be added correctly on Linux.\n- Helper resource leak on macOS and Linux.\n- Editbox text may be cut off.\n- Back button from captcha screen.\n- IP rotate may be disabled unintentionally due to network changes.\n- Invalid interfaces in MAC spoofing interface dropdown on Linux.\n- Potential crash in logging.\n- Helper commands sometimes get stuck on macOS 26.\n- Package dependencies for arm64 architectures on Linux.\n- Split tunnel toggles may be drawn at incorrect position.\n- Tray icon sometimes can't be clicked on Linux.\n- Text alignment in preferences.\n- Scrollbar artifacts on curved border.\n- Visual artifact when switching to ROBERT preferences.\n- Context menu look on the custom config credentials prompt.\n- Freshly launched app may not clean up stale interface on macOS and Linux.\n- In-app data counter may be incorrect on macOS and Linux.\n- Linux script not retaining SELinux context.\nUpdated\n- ctrld to 1.4.9.\n- OpenVPN to 2.6.17.\n- curl to the official 8.17.0 release.\n- OpenSSL to 3.6.0, and deprecated use of oqsprovider for post-quantum algorithms.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.20.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.20.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.20.7/Windscribe_2.20.7_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.20.7_amd64.exe",
+          "sha256": "edadcd301dfae9a7c32bb720a912893c400db9b3497314b08f57318749b2a70c",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.20.7/Windscribe_2.20.7_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.20.7_arm64.exe",
+          "sha256": "537f53ada4dbba44e7aa53fd93cadee226ec150107e5a4091545b42802329173",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.19.7",
+      "release_date": "2026-01-05",
+      "release_notes": "Added\n- Individual toggle switches for split tunneling entries.\n- Slovak translations from GitHub user kubalav.\n- Greek (machine) translations.\n- Prompt to use protocol as preferred after successful protocol failover.\n- A backup endpoint for connectivity (tunnel) test in wsnet.\nImproved\n- Connected DNS UX.\n- Sorting of countries by latency.\n- Protocol selection after failover.\n- Manual connection mode to try alternate datacenter server, if available, when first connection attempt fails.\n- Docked tray behaviour on Windows.\n- UX when split tunneling is enabled but the macOS system extension has not been approved.\n- German translations provided by GitHub user Evonos.\n- Logging for account abuse.\nFixed\n- OpenVPN protocols not working on openSUSE Tumbleweed.\n- Linux share proxy sometimes not working, particularly on CLI after reboot.\n- IPv4/v6 DNS priority while connected on Linux.\n- ctrld may not be terminated after disconnecting when using custom DNS preference.\n- Protocol failover may cause IP pinning to fail.\n- 'Firewall' label may be too long with some languages.\n- One-time override not showing preferred protocol prompt.\n- Background scaling issues on high DPI displays.\n- Initial unhover opacity for IP utilities menu.\n- Dropdown item order for sound notifications.\n- Scrollbar was cutting off hover effect from location row.\n- Window may extend beyond bottom of screen.\n- A potential crash when clicking the login button multiple times.\n- ws-no-pings advanced parameter is not respected.\n- Rotating IP repeatedly and quickly may hit a rate limit.\n- GUI misalignment and font when proxy gateway/secure hotspot are enabled.\n- The login username input box losing focus when using the trackpad on macOS.\n- Preferred protocol prompt should not be shown on IP rotate.\n- A height calculation error for error descriptions.\n- Installer background does not show on macOS 26.2 Beta.\n- Tooltips not working at app launch until user clicks the main window on Linux.\n- Qt log spam on Windows and Linux.\nUpdated\n- OpenVPN to 2.6.16.\n- 7zr utility to 25.01 on Windows.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.19.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.19.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.19.7/Windscribe_2.19.7_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.19.7_amd64.exe",
+          "sha256": "106505261ee122d4ddbebc09993c3ee7c7962274af013efc684c064f2f4ee5fa",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.19.7/Windscribe_2.19.7_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.19.7_arm64.exe",
+          "sha256": "937676500fb84a4e64c22c3b1fcae7feaf14e8b473d73e5155deba4bf1469bcf",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.18.8",
+      "release_date": "2025-11-24",
+      "release_notes": "Added\n- IP rotation & favourite functionality.\n- Control D option to Connected DNS.\n- Preference for specifying the tray icon color on Windows.\n- Optional port selection when connecting with windscribe-cli.\n- WireGuard post-quantum encryption notice to the readme.\nImproved\n- Locations UI design to match the main screen.\n- Korean translations from GitHub user Alex4386.\n- Detection when circumvent censorship should be enabled automatically.\n- Tooltip usability.\n- Implementation of ICMP pings in wsnet for macOS.\nFixed\n- OpenSSL auto-loading openssl.cnf security vulnerability.\n- Potential privilege escalation on Linux.\n- Automatic connection mode does not try alternate datacenter server, if available, when first connection attempt fails.\n- VPN interface network category is private on Windows. Reverted to default value of public.\n- Tray Icon Colour preference location by moving it to the Look & Feel tab.\n- GUI showing the wrong field for Connected DNS in some cases.\n- GUI window not hidden correctly when transitioning.\n- Error message not hidden after successful fetching of Control D devices after a failed attempt.\n- wsnet may stop processing DNS queries.\n- Internet connectivity detection in some cases.\n- AirDrop not working when using split tunneling on macOS.\n- A potential application crash when quitting on macOS.\n- Behaviour when menu bar icon is hidden via System Settings and app is docked on macOS.\n- OpenVPN daemon fails to start when using an HTTP LAN proxy on Windows.\n- OpenVPN protocols not connecting due to script permission on macOS.\n- WireGuard handshake may timeout unexpectedly on Linux.\n- Missing Linux dependency for desktop-file-utils.\n- High CPU usage in helper on Linux.\n- Erroneous assert in the debug log during GUI preferences output on macOS.\n- Unnecessary usage of environment variables for testing.\nRemoved\n- Refresh button for locations.\n- Advanced parameter for configuring the VPN adapter network category as public on Windows.\n- Deprecated (as of Windows 11 25H2) use of wmic utility.\nUpdated\n- ctrld to 1.4.7.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.18.8",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.18.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.18.8/Windscribe_2.18.8_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.18.8_amd64.exe",
+          "sha256": "d5eae8e336a110d4b6fc4515e49499fd0735e3ac17c28962b1eb192089aebfbf",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.18.8/Windscribe_2.18.8_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.18.8_arm64.exe",
+          "sha256": "8921af359ee85d1e9257e1608325903b7d97f2b3df41c9662aae5f5f4f1928e7",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.17.10",
+      "release_date": "2025-10-17",
+      "release_notes": "Added\n- Post-quantum server API integration.\n- Advanced parameters for overriding the API, assets, and checkip domains used in wsnet.\nImproved\n- Icons on the favourites tab to be the country flag.\n- Advanced parameter handling.\n- wsnet to use bearer token in all server API calls.\n- Audio library to reduce binary size.\n- Locations list in CLI to show more information.\n- Native window colours in accordance with OS theme.\n- Filesystem organization/packaging per FHS on Linux.\n- Highlight colours used in log viewer.\n- Locations UI tweaks (highlight location under mouse, changed location icon).\n- Text in macOS installer DMG is a bit blurry.\n- Qt library dependency now served from vcpkg.\nFixed\n- Clean app install and in-app updates may not work due to missing platform identifier on Linux.\n- An issue where the account status bottom-bar widget was sometimes not displayed.\n- Memory usage for flags. You should see a dramatic drop in app memory usage when it is launched.\n- On certain screen scales the \"Get more data\" button is too large and overlaps the data counter.\n- Unexpected scroll in the preferences screen when sending a debug log.\n- Incorrect scroll position in preferences.\n- Custom DNS preferences behaviour when user attempts to set Upstream 2 without first setting Upstream 1.\n- Playing a sound may capture the audio device, preventing Windows from sleeping.\n- Regression in the in-app updater on macOS for versions 2.17.2-2.17.4.\n- Resize bar may be cut off when update banner is shown.\n- Incorrect URL for the 'connection mode' help link in preferences.\n- libcurl loading openssl.cnf from untrusted path.\n- Potential crash when operating with empty port map.\n- Some wsnet failover behaviour.\n- Installer alert border on Windows and macOS.\n- Missing tray icon on macOS.\n- Missing xcb plugin on Linux.\n- Missing window decorators for advanced parameter/log viewer screens in Wayland.\n- Missing dependency for openSUSE.\n- Rendering issues on X11 (non-wayland) environments.\n- Last opened locations tab is not remembered.\n- Alert window cut off when showing an update error.\n- App no longer debug logging to the system debugger/stdout.\n- Erroneous 'failed to set network category' error message from Windows helper.\n- DNS may leak on Linux distros using resolvectl to determine the system DNS.\n- wsnet not triggering failover on some invalid payloads.\n- French translation of 'Release' update channel.\n- Pings may be invalidated while connected.\n- A crash in the audio dependencies when building on Windows.\n- Rendering issues on X11 (non-wayland) environments.\n- Potential DNS leak when using ctrld (custom DNS setting) on Linux.\nUpdated\n- OpenVPN DCO driver to v1.3.3.\n- ctrld to 1.4.6.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.17.10",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.17.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.17.10/Windscribe_2.17.10_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.17.10_amd64.exe",
+          "sha256": "9abb80ded6197b02b5ba2d4da44101bd289fb519cfc233de4b50e8dfeccc257b",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.17.10/Windscribe_2.17.10_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.17.10_arm64.exe",
+          "sha256": "d3c66101845cf64958044a37d8a790e0a363a7a7ada88ccaaa8d782762c2e541",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.17.9",
+      "release_date": "2025-09-30",
+      "release_notes": "Added\n- Post-quantum server API integration.\n- Advanced parameters for overriding the API, assets, and checkip domains used in wsnet.\nImproved\n- Icons on the favourites tab to be the country flag.\n- Advanced parameter handling.\n- wsnet to use bearer token in all server API calls.\n- Audio library to reduce binary size.\n- Locations list in CLI to show more information.\n- Native window colours in accordance with OS theme.\n- Filesystem organization/packaging per FHS on Linux.\n- Highlight colours used in log viewer.\n- Locations UI tweaks (highlight location under mouse, changed location icon).\n- Text in macOS installer DMG is a bit blurry.\n- Qt library dependency now served from vcpkg.\nFixed\n- An issue where the account status bottom-bar widget was sometimes not displayed.\n- Memory usage for flags. You should see a dramatic drop in app memory usage when it is launched.\n- On certain screen scales the \"Get more data\" button is too large and overlaps the data counter.\n- Unexpected scroll in the preferences screen when sending a debug log.\n- Incorrect scroll position in preferences.\n- Custom DNS preferences behaviour when user attempts to set Upstream 2 without first setting Upstream 1.\n- Playing a sound may capture the audio device, preventing Windows from sleeping.\n- Regression in the in-app updater on macOS for versions 2.17.2-2.17.4.\n- Resize bar may be cut off when update banner is shown.\n- Incorrect URL for the 'connection mode' help link in preferences.\n- libcurl loading openssl.cnf from untrusted path.\n- Potential crash when operating with empty port map.\n- Some wsnet failover behaviour.\n- Installer alert border on Windows and macOS.\n- Missing tray icon on macOS.\n- Missing xcb plugin on Linux.\n- Missing window decorators for advanced parameter/log viewer screens in Wayland.\n- Missing dependency for openSUSE.\n- Rendering issues on X11 (non-wayland) environments.\n- Last opened locations tab is not remembered.\n- Alert window cut off when showing an update error.\n- App no longer debug logging to the system debugger/stdout.\n- Erroneous 'failed to set network category' error message from Windows helper.\n- DNS may leak on Linux distros using resolvectl to determine the system DNS.\n- wsnet not triggering failover on some invalid payloads.\n- French translation of 'Release' update channel.\n- Pings may be invalidated while connected.\n- A crash in the audio dependencies when building on Windows.\n- Rendering issues on X11 (non-wayland) environments.\n- Potential DNS leak when using ctrld (custom DNS setting) on Linux.\nUpdated\n- OpenVPN DCO driver to v1.3.3.\n- ctrld to 1.4.6.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.17.9",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.17.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.17.9/Windscribe_2.17.9_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.17.9_amd64.exe",
+          "sha256": "91378b0597fa5320c8fe62520e644d5c864d0f7ae1aa7c85e0c772a6b744e867",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.17.9/Windscribe_2.17.9_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.17.9_arm64.exe",
+          "sha256": "11091e698096af3b159ed73f891deacc6c46ccdcab0ffd3a1de789b094b0dec0",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.16.14",
+      "release_date": "2025-07-28",
+      "release_notes": "Added\n- New app UI design.\n- Bundled backgrounds and sound notifications.\n- Look & Feel tab in preferences.\n- Two stage login and CAPTCHA.\n- A new firewall mode Always On+.\n- Advanced parameter for configuring the VPN adapter network category as public on Windows (ws-use-public-network-category).\n- Advanced parameter to suppress pings (ws-no-pings).\n- Flag resources for new locations.\nImproved\n- Installer icon on Windows and macOS.\n- Preferences import/export to include advanced parameters.\n- Inconsistent (English) spelling.\n- App logs to output GUI and engine settings in JSON format.\n- Chinese translation from GitHub user YerongAI.\n- Russian translation.\n- Build instructions.\n- WireGuard® support on adverse networks by forcing a handshake after interface configuration.\nFixed\n- Best Location is chosen incorrectly.\n- CLI-only client waits forever to connect without internet connectivity.\n- CLI-only client may not display a useful error.\n- Some blocking CLI commands may consume more CPU than intended.\n- Existing local DNS ignored when using custom DNS on Windows.\n- Reconnection after waking from sleep may fail if split tunneling on macOS.\n- Split tunnel rule precedence after waking from sleep on Linux.\n- Internet connectivity detection when using PPPoE on Windows.\n- Linux app aborting due to exception in boost library.\n- 400 'header or cookie too large' for Cloudflare API endpoints.\n- App firewall blocking Sidecar/Continuity features on macOS.\n- Docked window is sometimes in the wrong position on macOS.\n- Misleading log error message on Windows.\n- wsnet sometimes not detecting OS default DNS server when using DHCP during app start on macOS.\n- Build-a-plan shows as free account.\n- Upgrade banner may show on a Pro account.\n- OpenVPN config file path missing terminating double-quote in helper.\n- In-app update download may fail prematurely on slow networks.\n- Maximum CAPTCHA trail size too large and causing login failures.\nUpdated\n- c-ares to 1.34.5.\n- ctrld to 1.4.4.\n- wireguard-go to 0.0.20250515 on macOS and Linux.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.16.14",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.16.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.16.14/Windscribe_2.16.14_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.16.14_amd64.exe",
+          "sha256": "ecf7a5fe00be0f64456690a3eacdc7bfb0b86c8b0d209664168f4a51d5baf9b5",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.16.14/Windscribe_2.16.14_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.16.14_arm64.exe",
+          "sha256": "49143220b622af030e7732d3fb7e3c3fab645d55635e4ef24743ac04b76a48e4",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.16.11",
+      "release_date": "2025-07-21",
+      "release_notes": "Added\n- New app UI design.\n- Bundled backgrounds and sound notifications.\n- Look & Feel tab in preferences.\n- Two stage login and CAPTCHA.\n- A new firewall mode Always On+.\n- Advanced parameter for configuring the VPN adapter network category as public on Windows (ws-use-public-network-category).\n- Advanced parameter to suppress pings (ws-no-pings).\n- Flag resources for new locations.\nImproved\n- Installer icon on Windows and macOS.\n- Preferences import/export to include advanced parameters.\n- Inconsistent (English) spelling.\n- App logs to output GUI and engine settings in JSON format.\n- Chinese translation from GitHub user YerongAI.\n- Russian translation.\n- Build instructions.\n- WireGuard® support on adverse networks by forcing a handshake after interface configuration.\nFixed\n- Best Location is chosen incorrectly.\n- CLI-only client waits forever to connect without internet connectivity.\n- CLI-only client may not display a useful error.\n- Some blocking CLI commands may consume more CPU than intended.\n- Existing local DNS ignored when using custom DNS on Windows.\n- Reconnection after waking from sleep may fail if split tunneling on macOS.\n- Split tunnel rule precedence after waking from sleep on Linux.\n- Internet connectivity detection when using PPPoE on Windows.\n- Linux app aborting due to exception in boost library.\n- 400 'header or cookie too large' for Cloudflare API endpoints.\n- App firewall blocking Sidecar/Continuity features on macOS.\n- Docked window is sometimes in the wrong position on macOS.\n- Misleading log error message on Windows.\n- wsnet sometimes not detecting OS default DNS server when using DHCP during app start on macOS.\nUpdated\n- c-ares to 1.34.5.\n- ctrld to 1.4.4.\n- wireguard-go to 0.0.20250515 on macOS and Linux.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.16.11",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.16.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.16.11/Windscribe_2.16.11_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.16.11_amd64.exe",
+          "sha256": "60cc6ed656d5531f28ac08db7aced65d79d0187b4eabaf2c20915c55275e790f",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.16.11/Windscribe_2.16.11_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.16.11_arm64.exe",
+          "sha256": "3b3687c648baf6599871b7a440ab7dc64b74623ff1f564df3ee1460fc12081be",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.15.8",
+      "release_date": "2025-05-16",
+      "release_notes": "Added\n- Ability to customize location names.\n- Support for local DNS as connected DNS.\n- Fedora arm64 build.\nImproved\n- Client log when unable to retrieve WireGuard config from server.\n- Anti-censorship mechanisms.\n- IPC communication between the client and helper/service.\n- Consistency of install package naming.\n- Confusing \"No P2P\" icon.\n- Flag assets.\n- UX when unable to connect to the Windscribe helper/service.\n- Behavior when the firewall is on and the app exits unexpectedly.\n- UX and fixed text overlaps on the static IPs screen.\n- Installer language detection to use app language if available on Windows and macOS.\n- UX when user connects with split tunneling enabled, but has not approved the macOS network extension.\n- Startup time when not docked on macOS.\nFixed\n- The app freezing on exit.\n- Cursor may not change when a location becomes disabled/enabled.\n- Static IP link color may be incorrect.\n- Static IP locations that are unavailable are not displayed.\n- Window height is cut off if window transitions while being dragged.\n- Firewall blocking VPN connections on port 53 on macOS.\n- Potential crash at exit on macOS.\n- Firewall may be briefly incorrectly disabled after in-app update on Windows and macOS.\n- Tool-tip sometimes shows behind main window on macOS.\n- Firewall behavior due to Linux iptables 1.8.11 bug.\n- Postquantum KEMs not being proposed on Linux.\n- Fixed Best Location is chosen incorrectly.\n- Fixed exclusive-mode split tunneling fails to exclude host names on Windows.\n- Fixed Windows installer buttons are not transparent.\n- Fixed specifying a custom MTU value may cause the app to crash on Windows.\n- Fixed docked window is sometimes in the wrong position on macOS.\n- Fixed ctrld sometimes does not start when using custom DNS on macOS.\n- Fixed enabling MAC spoofing causes loss of connection with the helper daemon on Linux.\n- Incorrect comparison when importing location renames.\n- Custom config name is cut too short.\n- Latency bars display 'full strength' when ping information is not available/failed for the location.\n- Unhandled -os_restart command-line argument from previous releases on Windows.\n- Erroneous 'missing log' warning in merged logs due to Linux not having an installer log.\n- Translations for Arabic/Farsi in Decoy Traffic.\nUpdated\n- OpenVPN to 2.6.13.\n- Qt to 6.8.3.\n- ctrld to 1.4.3.\n- liboqs to 0.12.0 and oqs-provider to 0.7.0.\nRemoved\n- Code usage of Qt5 compatibility module.\n-  -no-drivers argument for Windows installer.\nKnown Issues\n- Split tunneling on macOS 12/13",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.15.8",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.15.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.15.8/Windscribe_2.15.8_amd64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.15.8_amd64.exe",
+          "sha256": "7a92be65624e341a86602fc5a59644ca01e8c8af29ba8b39d7381afdbd5db387",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.15.8/Windscribe_2.15.8_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.15.8_arm64.exe",
+          "sha256": "07e46b90f354c29e8b787da63040cf69df76b3cac3819a3a1171e7f114cf917d",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.14.12",
+      "release_date": "2025-04-03",
+      "release_notes": "Added\n- Per-app split tunneling on macOS.\n- Decoy traffic feature.\n- Showing device name when requesting list of static IP locations in CLI on Linux.\n-  --cacheonly to the update script for Fedora RPMs.\n- Extended cleanup logs in wsnet.\nImproved\n- Decoy Traffic algorithm data rate limits on high-bandwidth networks.\n- Changed VPN interface network category from public to private on Windows.\n- Windows uninstaller folder security.\n- Multi-desktop app window behavior on macOS.\n- Windows-on-Arm installer to use arm64 7-zip extractor.\n- Detection and logging of failures in the client<->helper communication mechanism on Windows.\n- Flow when user enables Show notifications but system notifications are disabled on Windows.\n- Custom connected DNS error UX.\n- Initialization and preferences animations.\n- Log frequency in wsnet.\n- Reliability of wsnet in unstable network environments.\n- Ping logging.\nFixed\n- Always-on firewall not functional after reboot on Linux.\n- App does not retry login if first attempt failed due to lack of connectivity.\n- Allow LAN traffic takes precedence over split tunneling rule.\n- Fixed split tunnel apps added via the search method may not be split tunneled on macOS.\n- reset date being shown on account screen instead of expiry date for some plans.\n- 2FA code expires before working endpoint can be found [wsnet].\n- System notifications are disabled alert shown unexpectedly on Windows.\n- App update fails when using pre-2.4 app on Windows.\n- Installer alerts may not fit in window for some translations.\n- Incorrect network status detection on macOS.\n- Missing firewall rule to allow the VPN DNS when using IKEv2 on macOS.\n- Disconnecting due to out of data turns off firewall.\n- Incorrect check for LAN address for custom DNS.\n- App stuck during login after accepting prompt to ignore SSL errors.\n- Install fails if uninstall registry information is missing on Windows.\n- Incorrect characters displayed in Windows installer bootstrap error message.\n- Sometimes IP does not change after connecting with inclusive split tunnel on macOS.\n- Some CLI commands may indicate that the operation was interrupted when it wasn't on Linux.\n- Potential crash in ProcessManager [wsnet] on macOS.\n- Mangled ar/fa translations.\n- Docked window is sometimes in the wrong position on Windows.\n- Inclusive split tunneling, IPv6 interactions, and split tunneling extension versioning on macOS.\n- Inconsistent behavior when starting app and 'close to tray' is enabled.\n- Window size after dismissing alert at the login window.\n- Windows error message box may be displayed when reinstalling deleted/disabled Windscribe service.\n- Split tunnel extension versioning on macOS.\n- DNS no longer allowed by firewall if toggled while connected on macOS.\n- Split tunnel rule in exclusive mode on Linux.\n- Window size is incorrect after expanding then collapsing preferences on Linux.\n- App is launched minimized instead of minimized to tray when Start Minimized and Close to Tray are enabled.\n- Automatic-mode firewall remains on when Windows is restarted and the app is closed to the tray.\n- App remains running, but non-functioning, if user cancels Windows shutdown.\n- Split tunnel extension sometimes not started on macOS.\n- Possible error when parsing the routing table on Linux.\n- Location tab transitions to search tab even when modifier keys are pressed.\n- Unnecessary delay when disconnecting on macOS.\n- DNS not working on macOS 15.4 Beta 2.\n- Toggling split tunneling mode while connected with WireGuard may cause loss of connection on macOS.\n- CLI platform may be misdetected on Raspberry Pi.\n- Missing dependency for the Fedora package.\nUpdated\n- wstunnel dependency to v1.0.5. Adds support for anti-censorship TLS stuffing.\nRemoved\n- IPv6 split tunneling (for now) due to edge cases.\n- Some log spam on Windows and macOS.\nKnown Issues:\n- Windows: the Circumvent Censorship feature does nothing when using the TCP protocol due to a missing feature in the OpenVPN DCO driver. If you require use of the TCP protocol and the Circumvent Censorship feature, you can add ws-use-openvpn-wintun to the Advanced Parameters setting to force the use of the wintun driver.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.14.12",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.14.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.14.12/Windscribe_2.14.12.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.14.12.exe",
+          "sha256": "56eb96462db9beaaa94920edfa85f3f1ccea457d4f64ba97bc4dc6341467b31c",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.14.12/Windscribe_2.14.12_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.14.12_arm64.exe",
+          "sha256": "22b41e82beb2265edb678f24a7cbd72311190a4489bea123dbdcd38d534606ef",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.14.10",
+      "release_date": "2025-03-27",
+      "release_notes": "Improved\n- Decoy Traffic algorithm data rate limits on high-bandwidth networks.\nKnown Issues:\n- Windows: the Circumvent Censorship feature does nothing when using the TCP protocol due to a missing feature in the OpenVPN DCO driver. If you require use of the TCP protocol and the Circumvent Censorship feature, you can add ws-use-openvpn-wintun to the Advanced Parameters setting to force the use of the wintun driver.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.14.10",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.14.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.14.10/Windscribe_2.14.10.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.14.10.exe",
+          "sha256": "df3a6a0d2bea84a5bf31a5fbda0c534330e7b08ca1279a292077d662d1113117",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.14.10/Windscribe_2.14.10_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.14.10_arm64.exe",
+          "sha256": "a5f7e17416f505e013224e2312f04c6a05ac6dc3f0cbc7d0f067b121dc2b98c8",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.14.9",
+      "release_date": "2025-03-17",
+      "release_notes": "Added\n- Per-app split tunneling on macOS.\n- Decoy traffic feature.\n- Showing device name when requesting list of static IP locations in CLI on Linux.\n-  --cacheonly to the update script for Fedora RPMs.\n- Extended cleanup logs in wsnet.\nImproved\n- Changed VPN interface network category from private to public on Windows.\n- Windows uninstaller folder security.\n- Multi-desktop app window behavior on macOS.\n- Windows-on-Arm installer to use arm64 7-zip extractor.\n- Detection and logging of failures in the client<->helper communication mechanism on Windows.\n- Flow when user enables Show notifications but system notifications are disabled on Windows.\n- Custom connected DNS error UX.\n- Initialization and preferences animations.\n- Log frequency in wsnet.\n- Reliability of wsnet in unstable network environments.\n- Ping logging.\nFixed\n- App does not retry login if first attempt failed due to lack of connectivity.\n- Allow LAN traffic takes precedence over split tunneling rule.\n- Fixed split tunnel apps added via the search method may not be split tunneled on macOS.\n- reset date being shown on account screen instead of expiry date for some plans.\n- 2FA code expires before working endpoint can be found [wsnet].\n- System notifications are disabled alert shown unexpectedly on Windows.\n- App update fails when using pre-2.4 app on Windows.\n- Installer alerts may not fit in window for some translations.\n- Incorrect network status detection on macOS.\n- Missing firewall rule to allow the VPN DNS when using IKEv2 on macOS.\n- Disconnecting due to out of data turns off firewall.\n- Incorrect check for LAN address for custom DNS.\n- App stuck during login after accepting prompt to ignore SSL errors.\n- Install fails if uninstall registry information is missing on Windows.\n- Incorrect characters displayed in Windows installer bootstrap error message.\n- Sometimes IP does not change after connecting with inclusive split tunnel on macOS.\n- Some CLI commands may indicate that the operation was interrupted when it wasn't on Linux.\n- Potential crash in ProcessManager [wsnet] on macOS.\n- Mangled ar/fa translations.\n- Docked window is sometimes in the wrong position on Windows.\n- Inclusive split tunneling, IPv6 interactions, and split tunneling extension versioning on macOS.\n- Inconsistent behavior when starting app and 'close to tray' is enabled.\n- Window size after dismissing alert at the login window.\n- Windows error message box may be displayed when reinstalling deleted/disabled Windscribe service.\n- Split tunnel extension versioning on macOS.\n- DNS no longer allowed by firewall if toggled while connected on macOS.\n- Split tunnel rule in exclusive mode on Linux.\n- Window size is incorrect after expanding then collapsing preferences on Linux.\n- App is launched minimized instead of minimized to tray when Start Minimized and Close to Tray are enabled.\n- Automatic-mode firewall remains on when Windows is restarted and the app is closed to the tray.\n- App remains running, but non-functioning, if user cancels Windows shutdown.\n- Split tunnel extension sometimes not started on macOS.\n- Possible error when parsing the routing table on Linux.\n- Location tab transitions to search tab even when modifier keys are pressed.\n- Unnecessary delay when disconnecting on macOS.\n- DNS not working on macOS 15.4 Beta 2.\n- Toggling split tunneling mode while connected with WireGuard may cause loss of connection on macOS.\n- CLI platform may be misdetected on Raspberry Pi.\n- Missing dependency for the Fedora package.\nUpdated\n- wstunnel dependency to v1.0.5. Adds support for anti-censorship TLS stuffing.\nRemoved\n- IPv6 split tunneling (for now) due to edge cases.\n- Some log spam on Windows and macOS.\nKnown Issues:\n- Windows: the Circumvent Censorship feature does nothing when using the TCP protocol due to a missing feature in the OpenVPN DCO driver. If you require use of the TCP protocol and the Circumvent Censorship feature, you can add ws-use-openvpn-wintun to the Advanced Parameters setting to force the use of the wintun driver.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.14.9",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.14.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.14.9/Windscribe_2.14.9.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.14.9.exe",
+          "sha256": "7ec9466869052f7f6b08382156aed980f646e46c46370df8948a5b71b04a8eae",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.14.9/Windscribe_2.14.9_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.14.9_arm64.exe",
+          "sha256": "bb570fab8f9450d22b4f2c0438507d3bc18c0142cd966a0d19d510df962fd226",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.13.8",
+      "release_date": "2025-01-27",
+      "release_notes": "Added\n- IPv6 support for split tunneling.\n- Static IP support in CLI.\n- Toggle to enable proxy gateway only while VPN is connected, based on contributions from GitHub user intangir.\n- h3:// and sdns:// protocol support for ctrld (custom DNS preference).\n- A changelog link in the About preferences screen.\n- Translation keys for 'Release' and 'Beta' release channels.\nImproved\n- Location ordering when searching.\n- Network detection and minimized location service requests on Windows 11 24H2.\n- UX for some CLI commands.\n- CLI entry of credentials when logging in.\n- Japanese translations from GitHub user Ue05.\n- Russian translations from GitHub user MedicalJewel105.\n- Login/logout CLI flow.\n- UX and performance when dragging windows to different screens.\n- Installer to notify the user if the helper service fails to install on Windows.\n- Error reporting if installation to a custom folder fails on Windows.\n- Split tunneling apps list population on Linux, based on contributions from GitHub user intangir.\nFixed\n- Potential local privilege escalation vulnerability in the Windows installer bootstrap.\n- Autoconnect attempting to connect to invalid locations.\n- Incorrect static device name.\n- Scroll position not retained when leaving/reentering a window.\n- Importing JSON may put the Secure Hotspot preference in an invalid state.\n- Changelog link for many platforms was incorrect in General Preferences.\n- Incorrect connectivity detection on macOS 15.x+ when rebooting the OS with the firewall set to always on.\n- A potential program quit hang [wsnet].\n- Custom config path not checked when importing preferences.\n- Symlink target for windscribe-cli.\n- Additional 'Start Minimized' use cases.\n- Static IP commands in CLI with GUI backend.\n- CLI symlink sometimes not created on macOS.\n- Start Minimized may not work when \"Minimize windows into application icon\" is enabled on macOS.\n- Incorrect firewall rule blocking IPv6 during inclusive split tunnel on Windows.\n- Missing interface in MAC spoofing dropdown.\n- Window is invisible when app is docked in Windows and device pixel ratio is not 1.\n- Missing 'psmisc' dependency on Linux.\n- Incorrect usage of nmcli in the Linux CLI client.\n- Incorrect log names for Linux CLI client.\n- Invalid MAC spoofing loop when specifying an invalid address on Linux.\n- The Ecuador flag.\n- Missing null pointer checks in the client application.\nRemoved\n- Ability to use Secure Hotspot together with inclusive split tunneling.\n- IPv6 toggle in preferences.\nUpdated\n- ctrld, utilized by the custom DNS preference, to 1.3.10.\nKnown Issues:\n- Windows: the Circumvent Censorship feature does nothing when using the TCP protocol due to a missing feature in the OpenVPN DCO driver. If you require use of the the TCP protocol and the Circumvent Censorship feature, you can add ws-use-openvpn-wintun to the Advanced Parameters setting to force the use of the wintun driver.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.13.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.13.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/Windscribe_2.13.8.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.13.8.exe",
+          "sha256": "875ee772040c5276fa38b2de57df3593b804334f35f44aece35022a24068187c",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/Windscribe_2.13.8_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.13.8_arm64.exe",
+          "sha256": "4aad7c5c1cc8308b66d7f9d0cb49a0febc15efd63f16121bc661214debef086d",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.12.7",
+      "release_date": "2024-11-20",
+      "release_notes": "Added\n- MAC spoofing in Linux.\n- Support for in-app updates from many immutable Linux distros.\n- Flags for new and upcoming locations.\n- Link to our website for further information about the Circumvent Censorship feature in preferences.\n- Additional curl logs for failed server API requests in wsnet.\nImproved\n- UDP/TCP/Stealth/WStunnel protocol performance on Windows by using the OpenVPN DCO kernel driver as their default driver.\n- Behavior when querying the SSID on Windows 11 24H2 and Location services is off.\n- Behavior when querying the SSID on macOS 15.\n- Description for packet size, clarifying that it doesn't do anything for TCP-based protocols.\n- Error message when update download fails.\n- The failover algorithm in wsnet to prevent it from 'sticking' to one domain.\n- Split tunneling behavior on Linux by doing a self-test at service start.\nFixed\n- Docked Windows app does not detect change in taskbar size and adjust position when displayed.\n- App update may fail to stop and remove OpenVPN/Wireguard daemons on Windows.\n- Debug log may fail to send.\n- Double blinking cursors on custom config credentials prompt.\n- Custom config authorization data not deleted when custom config directory cleared.\n- Latency endpoint duplicate requests.\n- Imported JSON values may be incorrect.\n- Additional JSON & GUI input validation errors.\n- Proxy validation to only allow an IP address. Prior proxy configurations using a hostname will no longer function.\n- Proxy gateway sometimes sends invalid headers.\n- Memory leaks in wsnet.\n- UDP protocol on Windows may fail to connect when Circumvent Censorship is enabled.\n- \"Secure Hotspot\" feature not being disabled properly when using IKEv2 on Windows.\n- Installer ignoring username/password command-line arguments on Windows.\n- Emergency connect fails to connect due to incompatibility with OpenVPN DCO driver on Windows.\n- macOS installer may mangle the 'windscribe' user if it's a regular user.\n- Always-on firewall may not be enabled after reboot on macOS.\n- Installer window in wrong position during in-app update on macOS.\n- Unexpected permission prompt during upgrade on macOS.\n- Custom DNS may be bound to wrong interface due to firewall state cache on macOS.\n- Potential app crash on macOS when App Internal DNS setting is 'OS Default'.\n- Potential app crash when installing helper on macOS.\n- Memory leaks in IPC and other macOS-specific code.\n- Linux helper may get stuck when disconnecting on Raspberry Pi with split tunneling enabled.\n- openSUSE CLI install script not starting the helper service.\n- Auto-rotate MAC not working when disconnecting and reconnecting to the same network on Linux.\n- Linux helper service may not be restarted after update.\n- Debian package dependencies for Debian Trixie.\n- Possible delay when setting firewall rules on Linux.\n- Update not working in Fedora Silverblue while connected.\nUpdated\n- Windows OpenVPN DCO driver to v1.2.1.\n- German translations provided by GitHub user Evonos.\n- Spanish translations provided by GitHub user IceString3.\n- Russian translations in installer.\n- c-ares in wsnet to the latest version 1.33.1, increased timeouts for DNS requests.\nKnown Issues:\n- Windows: the Circumvent Censorship feature does nothing when using the TCP protocol due to a missing feature in the OpenVPN DCO driver. If you require use of the the TCP protocol and the Circumvent Censorship feature, you can add ws-use-openvpn-wintun to the Advanced Parameters setting to force the use of the wintun driver.",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.12.7",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.12.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.12.7/Windscribe_2.12.7.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.12.7.exe",
+          "sha256": "c6678edba05f5af3148e7777940de0eff7d5d5e030f28822d7b988e2c4d63dc7",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.12.7/Windscribe_2.12.7_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.12.7_arm64.exe",
+          "sha256": "3d13056ad15bd7bf5854a23b044b9c3dca41afca0e49cd264f3d51fb55367471",
+          "product_code": "{fa690e90-ddb0-4f0c-b3f1-136c084e5fc7}_is1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start",
+            "install_location": "-dir \"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.10.16",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.10.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.10.16/Windscribe_2.10.16_arm64.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.10.16_arm64.exe",
+          "sha256": "4a6ad0bc394457359631f9f77b205787530d9318d36480d743e423f08052fa2d",
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.10.16/Windscribe_2.10.16.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.10.16.exe",
+          "sha256": "36d8428d1e2f8116f288aed6a3466144d81c8a922cb589416ec3fae9a533f1ea",
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.10.16/Windscribe_2.10.16.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.10.16.exe",
+          "sha256": "36d8428d1e2f8116f288aed6a3466144d81c8a922cb589416ec3fae9a533f1ea",
+          "switches": {
+            "silent": "-silent -no-auto-start",
+            "silent_with_progress": "-silent -no-auto-start"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.9.9",
+      "release_date": "2024-02-20",
+      "release_notes": "See changelog for details on what is new and fixed.Installer Hashes\n| Installer | SHA-256 hash |\n| --- | --- |\n| Windows x86_64 | d2a817e8f2738cacc646d3dc2194d7fd28f2ce1de435be24fa98ed8928b4daa2 |\n| Windows arm64 | 2c70b96e559474ad8518d5cc53ff92a6cf8277a530245760f42b0a3bbc50cea7 |\n| macOS universal | 683093d718680f1cb8b5fe0c4ec14fd1fdad357c9a9a46438feeb19331ffb185 |\n| Ubuntu x86_64 | c1c62d4101b63dd574b986a124b07c5e9649f88e7a249dc42a454b4f90105baa |\n| Ubuntu arm64 | 83fdc19f54b1b5fa907e5b3a9ab6b4e8fe92f0e3deac11af4df67bd0a697280f |\n| Fedora x86_64 | cb254b2fe0246a5f5ee23a51dee05a77fc2a7872ec7afc9403d65da52bf13ab1 |\n| Arch Linux x86_64 | 915f6cba01cb801e8c91dda3a2d0d4cc4da76833d73c7a1112569ee8f5112bc3 |",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.9.9",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.9.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.9.9/Windscribe_2.9.9.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.9.9.exe",
+          "sha256": "d2a817e8f2738cacc646d3dc2194d7fd28f2ce1de435be24fa98ed8928b4daa2",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.8.6",
+      "release_date": "2023-12-14",
+      "release_notes_url": "https://github.com/Windscribe/Desktop-App/releases/tag/v2.8.6",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.8.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.8.6/Windscribe_2.8.6.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.8.6.exe",
+          "sha256": "d43f1ef244e8c9a9e22eb6c792d7420436e904fcb80f4fa4eafd4e6fab29e702",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.14",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.6.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://deploy.totallyacdn.com/desktop-apps/2.6.14/Windscribe_2.6.14.exe",
+          "host": "deploy.totallyacdn.com",
+          "filename": "Windscribe_2.6.14.exe",
+          "sha256": "f5534fd03b47615cac91ddbcbd204a4ce35fe5ad2d420f9fde019f4612db0281",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5.18",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.5.18",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://deploy.totallyacdn.com/desktop-apps/2.5.18/Windscribe_2.5.18.exe",
+          "host": "deploy.totallyacdn.com",
+          "filename": "Windscribe_2.5.18.exe",
+          "sha256": "a58515e3c3b350de864bfd41ebd570724efdffe44e17de571f78da74b5ef7475",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4.11",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/w/Windscribe/Windscribe/2.4.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "exe",
+          "url": "https://github.com/Windscribe/Desktop-App/releases/download/v2.4.11/Windscribe_2.4.11.exe",
+          "host": "github.com",
+          "filename": "Windscribe_2.4.11.exe",
+          "sha256": "5328dbc9edddb1af7231354c16ac95fa2de0fc66cfc4f2b3cd57057d42da0333",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "2.24.12",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://deploy.totallyacdn.com/desktop-apps/2.24.12/Windscribe_2.24.12_universal.dmg",
+          "host": "deploy.totallyacdn.com",
+          "filename": "Windscribe_2.24.12_universal.dmg",
+          "sha256": "0a5624463d1ad4959181d7317658b7afd3121802c3a2e83e653d7eb85d1534a9"
+        }
+      ],
+      "cask": {
+        "manual_installer": true,
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.windscribe.gui.macos",
+            "com.windscribe.helper.macos",
+            "com.windscribe.launcher.macos"
+          ],
+          "launchctl": [
+            "com.windscribe.helper.macos",
+            "com.windscribe.launcher.macos"
+          ],
+          "remove": [
+            "/Applications/Windscribe.app",
+            "/Library/LaunchDaemons/com.windscribe.helper.macos.plist",
+            "/Library/PrivilegedHelperTools/com.windscribe.helper.macos",
+            "/usr/local/bin/windscribe-cli"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.windscribe.launcher.macos.sfl*",
+            "~/Library/Application Support/Windscribe",
+            "~/Library/Preferences/com.aaa.windscribe.windscribe.plist",
+            "~/Library/Preferences/com.windscribe.Windscribe2.plist",
+            "~/Library/Saved Application State/com.windscribe.gui.macos.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b5471dcc3b6c320cc21a7c76da016ffa7fe18901",
+      "retrieved_at": "2026-11-13T13:08:36.198Z",
+      "path": "manifests/w/Windscribe/Windscribe"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "192c285f7def9411a513489ff6687db1347ccab9",
+      "retrieved_at": "2026-11-13T13:08:36.198Z",
+      "path": "Casks/w/windscribe.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/windscribe.json"
+    }
+  ]
+}

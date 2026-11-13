@@ -1,0 +1,1232 @@
+{
+  "schema_version": 2,
+  "slug": "xemu",
+  "name": "Xemu",
+  "publisher": "xemu Project",
+  "ids": {
+    "winget": "xemu-project.xemu",
+    "homebrew_cask": "xemu",
+    "flathub": "app.xemu.xemu"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Original Xbox Emulator",
+  "description": "A free and open-source application that emulates the original Microsoft Xbox game console, enabling people to play their original Xbox games on Windows, macOS, and Linux systems.",
+  "tags": [
+    "game",
+    "xbox"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/xemu-project/xemu",
+    "publisher": "https://xemu.app",
+    "support": "https://github.com/xemu-project/xemu/issues",
+    "bug_tracker": "https://github.com/xemu-project/xemu/issues",
+    "release_notes": "https://github.com/xemu-project/xemu/releases/tag/v0.8.139",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://xemu.app/docs"
+      },
+      {
+        "label": "FAQ",
+        "url": "https://xemu.app/docs/faq/"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-2.0",
+    "url": "https://github.com/xemu-project/xemu/blob/master/LICENSE",
+    "spdx": "GPL-2.0",
+    "copyright": "© 2026 xemu Project"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.8.139",
+    "macos": "0.8.139",
+    "linux": "0.8.136"
+  },
+  "last_updated": "2026-10-21",
+  "versions_total": {
+    "windows": 154,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.8.139",
+      "release_date": "2026-10-21",
+      "release_notes": "Pull Requests\n- #3088 - Fix 1852 nv2a vsh cpu based register carryover (@abaire)\nIssues Fixed\n- #1602 - FIFA 2004, 2005, Euro 2004, World Cup 2002 black menu screen (due to unimplemented VSH register carryover)\n- #1852 - Some game shadows are the Incorrect colour (due to unimplemented VSH register carryover)\n- #2198 - American Chopper 2: Full Throttle tank texturing issue due to lack of VSH register carryover\n- #2642 - Sensible Soccer 2006 Graphical Issue (due to unimplemented VSH register carryover)\nAffected Titles\nThe following titles had issues fixed in this release:\n- Blade II (#1852)\n- American Chopper (#2198)\n- American Chopper 2: Full Throttle (#2198)\n- Sensible Soccer 2006 (#2642)\n- Madden NFL 2002 (#1852)\n- 2002 FIFA World Cup (#1852)\n- Madden NFL 2003 (#1852)\n- Madden NFL 2004 (#1852)\n- FIFA Football 2004 (#1852)\n- Madden NFL 2005 (#1852)\n- Madden NFL 06 (#1852)\n- Madden NFL 07 (#1852)\n- Madden NFL 08 (#1852)\n- Madden NFL 09 (#1852)\n- Hunter: The Reckoning: Redeemer (#1852)\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.138...v0.8.139",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.139",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.139",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.139/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "fbb14dd7ea08120ca9ec99c955758786645af16a5058250553b3b7d7592e8701"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.139/xemu-win-aarch64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-aarch64-release.zip",
+          "sha256": "869509a5544f75bf2eda4043c931869c6a04bc8f2421236137ae89ad94c86324"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.138",
+      "release_date": "2026-10-20",
+      "release_notes": "Pull Requests\n- #3125 - Improve compatibility with older versions of Vulkan (@mborgerson)\n- #2968 - Fix 2906 memory leak in slow vga path (@abaire)\n- #3124 - nv2a/vk: Support Vulkan 1.4 (@mborgerson)\n- #3123 - nv2a/vk: Select SPIR-V target from renderer state at compile time (@mborgerson)\n- #3000 - nv2a/vk: compile SPIR-V for the version the device supports (@jessedye)\n- #2453 - debug: Log GL errors during assertions in debug mode (@abaire)\n- #2211 - nv2a: Resolve overlapped dirty draws during 2d blit ops (@abaire)\n- #2456 - Adds menu item to create a GitHub title issue (@abaire)\n- #3114 - ci: Use the host's GLib in the AppImage (@mborgerson)\n- #3056 - nv2a: Enable clear handling for X1A7 formats (@abaire)\n- #2720 - nv2a: Fix R12 input in paired/multiout ops writing to oPos (@abaire)\n- #2843 - nv2a: Fix epoxy flake using debug funcs on macOS (@abaire)\n- #2158 - nv2a: Fix handling of color/zeta offset with RAM addresses (@abaire)\n- #2083 - Fix material color source ambient and emissive (@abaire)\n- #3068 - nv2a: Always report PFIFO CACHE1_DMA_CTL as valid (@GXTX)\n- #3076 - nv2a: Fix specular param handling (@abaire)\n- #3094 - nv2a: Only enable point sprites when rendering points (@abaire)\n- #3070 - nv2a: Fix/implement Y16 texture formats (@abaire)\n- #3087 - nv2a: Implement texgen view model (@abaire)\n- #3085 - nv2a: Implement clamping of passthru values (@abaire)\n- #3078 - nv2a: Implement spotlight falloff (@abaire)\n- #3106 - ci: Run xemu-test on PRs (@abaire)\n- #3110 - nv2a: Remove unconfirmed message for empty begin/end groups (@abaire)\nIssues Fixed\n- #2906 - null render memory leak\n- #950 - Splinter Cell: Pandora Tomorrow fire effects cause artefacts\n- #2199 - Fireblade Imaging thermal freezes the screen\n- #473 - UI shortcut to report GitHub issues\n- #3043 - Xemu window bar doesn't show up on debian gnome wayland\n- #2426 - Clear color handling for LE_X1A7R8G8B8_O1A7R8G8B8 and LE_X1A7R8G8B8_Z1A7R8G8B8 needs testing/assert removal\n- #2427 - Surface format NV097_SET_SURFACE_FORMAT_COLOR_LE_X8R8G8B8_O8R8G8B8 is not implemented\n- #2458 - MechAssault 2: Lone Wolf graphical issue\n- #1864 - Prince of Persia: The Sands of Time: Incorrect rendering of water surface\n- #326 - [Assertion] surface->offset ⇐ dma.limit\n- #3075 - Specular highlighting is an approximation rather than a match for hardware\n- #3093 - psh: Texture 3 sampler is incorrectly forced to point_sprite for non-point rendering when NV_PGRAPH_SETUPRASTER_POINTSMOOTHENABLE is enabled\n- #2657 - Unimplemented Texture format NV097_SET_TEXTURE_FORMAT_COLOR_SZ_Y16\n- #3086 - NV097_SET_TEXGEN_VIEW_MODEL_INFINITE_VIEWER is silently ignored for NV097_SET_TEXGEN_VIEW_MODEL\n- #2523 - Crazy Taxi 3: High Roller - Dark light cast behind taxi car in stages with headlight on (cause: PASSTHROUGH texture coords must be clamped to match HW)\n- #3077 - Spotlight falloff is not implemented\n- #771 - nv2a: Warning unconfirmed feature: EMPTY NV097_SET_BEGIN_END\nAffected Titles\nThe following titles had issues fixed in this release:\n- MechAssault 2: Lone Wolf (#2458)\n- FireBlade (#2199)\n- Crazy Taxi 3: High Roller (#2523)\n- ESPN NFL Football (#326)\n- Fatal Frame II: Crimson Butterfly (#326)\n- New Legends (#2657)\n- Tom Clancy's Splinter Cell: Pandora Tomorrow (#950)\n- Prince of Persia: The Sands of Time (#1864)\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.137...v0.8.138",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.138",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.138",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.138/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "bb6d8b3a82ca514a162ebd0f237a912143238bfc635311f9835768eb2ceedba4"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.138/xemu-win-aarch64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-aarch64-release.zip",
+          "sha256": "c48e3de31ca38f957b9554fab8a784f1da3dbbabe6b728386b0e82cfa5c47131"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.137",
+      "release_date": "2026-10-16",
+      "release_notes": "Pull Requests\n- #3089 - meson: Bump sdl3 to release-3.4.18 (@xemu-robot)\n- #3090 - meson: Bump SPIRV-Reflect to vulkan-sdk-1.4.363.0 (@xemu-robot)\n- #3069 - doc: Add scope and design philosophy (@abaire)\n- #3049 - meson: Bump glslang to 16.6.0 (@xemu-robot)\n- #3035 - nv2a: Fix rounding issue in timer scheduling (@abaire)\n- #3045 - docs: Add style exception for variable declaration location (@abaire)\n- #3042 - meson: Bump sdl3 to release-3.4.16 (@xemu-robot)\n- #3041 - meson: Bump nlohmann_json to v3.12.0 (@xemu-robot)\n- #3039 - meson: Track nlohmann_json with a git wrap (@mborgerson)\n- #3038 - meson: Track SDL3 with a git wrap (@mborgerson)\n- #3040 - docs: Drop watermark item in agent pre-submission checklist (@mborgerson)\n- #3031 - docs: Add instructions for autonomous agents (@abaire)\n- #3037 - docs: Add note on comment use (@abaire)\n- #3036 - ci: Run unit tests alongside build (@abaire)\n- #2972 - ui: Use DXGI to perform swapping on Windows (@abaire)\n- #3009 - ui: Log joystick devices that are not gamecontrollers, implement gamecontrollerdb_path config handling (@abaire)\n- #3030 - docs: Add top level contribution guidance (@abaire)\n- #2568 - nv2a: Implement PTIMER alarm interrupts (@abaire)\n- #3005 - apu: Disable DSP JIT by default for first release (@mborgerson)\n- #2986 - nv2a/gl: Clear PGRAPH register dirty bitmap when binding shader (@abaire)\n- #2963 - meson: Bump glslang to 16.5.0 (@xemu-robot)\n- #2960 - meson: Bump SPIRV-Reflect to vulkan-sdk-1.4.357.0 (@xemu-robot)\n- #2874 - nv2a/vk: Fix blurry 2D/UI rendering at internal resolutions > 1x (@stianeklund)\n- #2932 - nv2a: Add driver version to shader cache validation. (@Reedzit)\n- #2945 - apu: Return sample count for NV_PAPU_XGSCNT (@Yuvi-App)\n- #2942 - meson: Bump glslang to 16.4.0 (@xemu-robot)\n- #2801 - apu: Add new DSP56300 emulator with JIT execution engine (@mborgerson)\n- #2645 - build: Fix MSYS2 Building (@oltolm)\n- #2895 - meson: Bump VulkanMemoryAllocator to v3.4.0 (@xemu-robot)\nIssues Fixed\n- #3029 - Performance loss on Windows when port forwarding is enabled after #2568 was merged\n- #2790 - Performance regression between 0.8.133 and 0.8.134 releases caused by PR #2691. Related to vsync being enabled and influenced by display refresh rate, seems specific to AMD drivers on Windows.\n- #2983 - pgraph regs_dirty bitmap is never cleared in GL renderer\n- #2597 - Tighten FS shader cache validation\n- #579 - Ultra Bust A Move and the Outlaw golf have an audio bug which freezes the game\n- #2023 - Braveknight: Lieveland Eiyuuden Random crashes and performance issues\n- #2106 - Prisoner of war performance Issue due to music\n- #2332 - Sonic Mega Collection Plus - Delayed/distorted audio in emulated games\n- #2578 - Meta: In-game Cut-scenes running too fast\n- #108 - Implement missing DSP instructions\nAffected Titles\nThe following titles had issues fixed in this release:\n- Pro Fishing Challenge (#108)\n- True Crime: New York City (#2578)\n- Prisoner of War (#579, #2106)\n- Terminator 3: Rise of the Machines (#579)\n- Terminator 3: The Redemption (#579)\n- Marc Ecko's Getting Up: Contents Under Pressure (#2578)\n- Braveknight: Lieveland Eiyuuden (#579, #2023)\n- Ultra Bust-A-Move (#579)\n- Halo 2 (#108)\n- Sonic Mega Collection Plus (#2332)\n- Kikou Heidan J-Phoenix + (#579)\n- Outlaw Golf (#579)\n- The Da Vinci Code (#2578)\n- Outlaw Golf: 9 Holes of X-Mas (#579)\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.136...v0.8.137",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.137",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.137",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.137/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "153ede6595e472a12238ce4d51f4bc7bddcf632f281d4b95db56ebf06c1f2e31"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.137/xemu-win-aarch64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-aarch64-release.zip",
+          "sha256": "d6acdf19f0e099831fe40b87c025003249791c68e34566a840fe31291a575271"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.136",
+      "release_date": "2026-06-08",
+      "release_notes": "Pull Requests\n- #2892 - ci: Update Windows build toolchain image SHA (@mborgerson)\n- #2891 - ubuntu-win64-cross: Bump mxe, GCC toolchain (@mborgerson)\n- #2890 - Enable x86-64-v3 optimizations for release builds (@mborgerson)\n- #2882 - Bump SDL3 subproject to 3.4.10 (@mborgerson)\n- #2823 - hw/xbox: Clean up use of assert(false) (@Reedzit)\n- #2867 - ui: Account for pixel density and display scaling (@mborgerson)\n- #2866 - ui: Set SDL_HINT_VIDEO_DRIVER to wayland,x11 (@mborgerson)\nIssues Fixed\n- #1485 - build.sh should not hardcode IvyBridge target for macOS x86-64 builds\n- #1492 - Enable additional architectural optimizations in release\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.135...v0.8.136",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.136",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.136",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.136/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "b25a6c24a2c2c36a0843a153cd9ee59ca6833ef87bdcd855ba0824930e4ddd1d"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.136/xemu-win-aarch64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-aarch64-release.zip",
+          "sha256": "4ad9d8f059848b86d2218805c2d133ba79ecafb28e3ab45a13c8381e8bb57688",
+          "apps_and_features": [
+            {
+              "display_name": "xemu (ARM64)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.135",
+      "release_date": "2026-05-20",
+      "release_notes": "Pull Requests\n- #2870 - meson: Bump SPIRV-Reflect to vulkan-sdk-1.4.350.0 (@xemu-robot)\n- #2863 - meson: Bump volk to 1.4.350 (@xemu-robot)\n- #2848 - meson: Use SDL3 CMake subproject wrap (@mborgerson)\n- #2847 - meson: Bump SDL3 wrap to 3.4.8 (@mborgerson)\n- #2844 - meson: Bump glslang to 16.3.0 (@xemu-robot)\n- #2839 - nv2a/vk: Skip finish stall when no reports are pending (@abaire)\n- #2829 - ui: Force NVIDIA present method to native (@abaire)\n- #2811 - meson: Bump curl to 8.12.1-2 (@xemu-robot)\n- #2795 - scripts/download-macos-libs.py: Target Darwin 23 for arm64 (@mborgerson)\n- #2786 - ui: Do not pass missing path to SDL_ShowOpenFileDialog (@abaire)\n- #2732 - meson: Bump SPIRV-Reflect to vulkan-sdk-1.4.341.0 (@xemu-robot)\n- #2739 - nv2a/vk: Relax and simplify surface to texture constraints (@mborgerson)\nIssues Fixed\n- #2785 - If games directory becomes invalid, 'Load Disc..' crashes Xemu\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.134...v0.8.135",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.135",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.135",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.135/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "a311e5355c2699e21409c7ec26e29a797b976e6edf2ee0552d8ea2dd2fb402c4"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.134",
+      "release_date": "2026-02-26",
+      "release_notes": "Pull Requests\n- #2751 - meson: Bump SDL3 to 3.4.2 (@mborgerson)\n- #2752 - ci: Work around broken LLVM package repo (@mborgerson)\n- #2748 - xblc: Cleanup (@mborgerson)\n- #2698 - xblc: Migrate to SDL3 (@faha223)\n- #2744 - nv2a: Use G_GNUC_PRINTF macro for debug function printf attribute (@mborgerson)\n- #2733 - nv2a/vk: Cleanup instance creation a bit (@mborgerson)\n- #2741 - apu: Improve throttling (@mborgerson)\n- #2727 - apu: Move monitor management out to monitor.c (@mborgerson)\n- #2726 - apu: Use SDL_SetAudioStreamGain to control monitor volume (@mborgerson)\n- #2725 - apu: Clear HRTF history on voice_reset_filters (@mborgerson)\n- #2708 - apu: Restructure monitor sink to eliminate callbacks and extra buffer (@mborgerson)\n- #2714 - u: Fix crash in SDL_Quit (@oltolm)\n- #2713 - ci: Install Meson in subproject update workflow (@mborgerson)\n- #2691 - ui: Restructure display handling for independent refresh (@mborgerson)\n- #2712 - ci: Check for subproject updates from wrapdb (@mborgerson)\n- #2711 - ci: Add 'dependencies' label to PRs created from subproject update wo… (@mborgerson)\n- #2703 - xemu-snapshots: fix assert (@oltolm)\n- #2701 - meson: Bump glslang to 16.2.0 (@xemu-robot)\n- #2692 - ui: fix crash bug when clicking config info (@oltolm)\n- #2679 - Migrate to SDL3 (@mborgerson)\n- #2682 - ui: Improve Windows updater (@mborgerson)\nIssues Fixed\n- #2253 - Add support for Vulkan 1.1 or 1.2 for low end/older devices on Linux ARM64\n- #2737 - Nascar 06: Audio Buzzing\n- #354 - Crashes without an available audio device\n- #2683 - Separate host/guest refresh\n- #2684 - Continue emulation while dragging/resizing main window on Windows\n- #350 - File-Browse Dialog not accessible while Fullscreen is enabled\n- #574 - Y axis of right analog not detected on USB controller\n- #1537 - Flatpak: XDG Desktop Portal for FileChooser\n- #1882 - Migrate to SDL3\n- #1952 - Xemu doesn't work properly with Windows scaling in fullscreen mode\n- #2180 - Bluetooth-connected xinput controller not detected by xemu\n- #2356 - 8BitDo right stick and triggers stopped working in version 0.8.93+\n- #2685 - Continue emulation while file selection dialogs are open\n- #344 - Auto-updater may temporarily grab old releases upon new release\n- #1672 - Provide more update details in auto-update dialog\n- #2003 - Link to release notes in auto-updater\n- #2689 - Auto-updater is not using current package names\nAffected Titles\nThe following titles had issues fixed in this release:\n- NASCAR 06: Total Team Control (#2737)\n- NASCAR 07 (#2737)\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.133...v0.8.134",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.134",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.134",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.134/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "3d32bf3c1c73d5469d860e1e3e0b9a83bef38d11bbc5d18b9340b12160124a1f"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.133",
+      "release_date": "2026-01-20",
+      "release_notes": "Pull Requests\n- #2680 - ci: Revert Windows ARM64 toolchain update (@mborgerson)\n- #2677 - Merge QEMU v10.2.0 (@mborgerson)\n- #2676 - ui: Make 'Exclusive Fullscreen' option configurable (@mborgerson)\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.132...v0.8.133",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.133",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.133",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.133/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "6a8dd63c247596efa8594699f9a476868d2f020552b1670fcc2e90f1bf649673"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.132",
+      "release_date": "2026-01-16",
+      "release_notes": "Pull Requests\n- #2666 - nv2a: Clip image blits to GPU tile bounds (@abaire)\n- #2673 - ci: Generate nicer release notes (@mborgerson)\n- #2672 - .github: Add some context for copilot reviews (@mborgerson)\n- #2670 - nv2a: Fix calculation of palette length (@abaire)\n- #2517 - nv2a: Handle zero sized surfaces (@abaire)\n- #2669 - ci: Fix Win version.rc compilation on forks (@abaire)\n- #2668 - ci: Configure workflow concurrency (@mborgerson)\n- #2667 - ci: Create pre-release on push to master (@mborgerson)\n- #2664 - ci: Fix post release issues (@mborgerson)\nIssues Fixed\n- #559 - pfifo.c:424 assertion - \"pb reserved cmd 0x3edfb38 - 0xff000000\"\n- #2002 - Improve release notes\n- #2403 - MVP Baseball series Pitch meter freezes\n- #2646 - NBA Street Vol. 2 - Stats displayed for each player and team are incorrect.\n- #2159 - Psychonauts VK check failed assert\n- #2161 - Psychonauts framebuffer complete assert GL\n- #2516 - 0-sized surfaces are not handled correctly\nAffected Titles\nThe following titles had issues fixed in this release:\n- NBA Street Vol. 2 (#2646)\n- MVP Baseball 2003 (#2403)\n- MVP Baseball 2004 (#2403)\n- MVP Baseball 2005 (#2403)\n- MVP 06 NCAA Baseball (#2403)\n- Psychonauts (#2159, #2161)\n- WWE WrestleMania 21 (#559)\nFull Changelog: https://github.com/xemu-project/xemu/compare/v0.8.131...v0.8.132",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.132",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.132",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.132/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "372ebf6a55eccbcb0dc54725607e717246447024c96cfd783ec59692650e57a1"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.131",
+      "release_date": "2026-01-13",
+      "release_notes": "- 739520523f xid: Fix USB_XID_GAMEPAD_S VMState minimum_version_id\n- b28279ca74 ui: Disable CRT assert dialogs, log to stderr\n- 246f17cab5 ci: Bump astral-sh/setup-uv from 7.1.6 to 7.2.0\n- ddd5a81de1 ci: Ensure ccache, LTO cache dirs always exist before use\n- 78934edcbc ci: Enable Incremental LTO for Windows x86_64 release builds\n- c7bd7baaa3 ci: Move Windows build container to job level\n- 4c7729d248 ci: Build Windows x86_64 releases with GCC15\n- 62c73f929d ci: Move build option setup to separate step for Windows builds\n- 2604967941 ci: Use CCACHE env variables for Windows builds\n- 8a78a1342a ci: Enable ThinLTO for macOS release builds\n- f01cf7c4eb ci: Enable ThinLTO for Linux release builds\n- 18018f12cf ubuntu-win64-cross: Add zstd to build tools\n- b3d6bb0efa ubuntu-win64-cross: Add curl\n- d49402972a ubuntu-win64-cross: Bump mxe, build GCC toolchain\n- bdef3ea496 ci: Fallback to unofficial when tags are unavailable\n- 84e723cd0b ci: Use clang for Linux builds\n- f6d9bb529f meson: Bump xxHash wrap\n- df6fa71b5d meson: Bump curl to 8.12.1\n- 3cc2989a98 meson: Update imgui\n- 0428fa4388 ci: Use full 'windows' platform tag for artifacts\n- 4b17284800 ci: Add package alias for Windows arm64 release\n- 6557a66818 ci: Use arm64 architecture tag instead of aarch64 for Windows packages\n- f7dd5a1f81 ci: Drop some useless quotation marks\n- 9f737f87e6 ci: Pass build version using job outputs\n- 1176f3a561 ci: Generate release notes\n- d692c98c15 ci: Drop DEBIAN_FRONTEND setup\n- 4f68e60e1a ci: Disable default Debian build LTO settings\n- 6b072c214a ci: Use more generic build job names\n- 9fdcefd5d9 ci: Simplify build matrices\n- 6b1d33b240 ci: Move macOS runners to macos-15 image\n- d389853bb0 ci: Set compression-level=0 for already compressed artifacts\n- 806d2d9188 ci: Compress source with zstd\n- 7157fe18ee ci: Strip directory prefix on source extraction\n- f54d804568 ci: Determine package version\n- 7687af0861 scripts/archive-source.sh: Support prefixing tar\n- 95ee862219 scripts/archive-source.sh: Drop xemu version determination\n- 1448f1e5da ci: Migrate Windows transition package\n- b558315d21 ci: Limit release files again\n- 9c15054fb5 ci: Update macOS ccache symlink path\n- 568fe25e21 ci: Move homebrew environment variables up to job scope\n- ec6ecc803d ci: Break out macOS ccache setup/summary to separate steps\n- c4f3f84ab6 scripts/archive-source.sh: Download subprojects in parallel\n- 072a261b86 ci: Version source release asset\n- 4f4ceda4d1 ci: Drop Windows binary strip\n- 7c8cf19587 ci: Version Windows release assets\n- e19076d1cb ci: Version macOS release assets\n- 776637cb47 ci: Shorten workflow call names\n- c9d2146497 ci: Simplify Linux artifacts\n- f3a008ff4d ci: Don't update website or PPA snapshot for pre-releases\n- c7a184beaa ci: Always use ${{ ... }} expression syntax in \"if\" conditional\n- e409f7afd9 ui: Drop xemu branch tracking\n- 3334a76f73 ci: Drop version 'v' prefix for AppImage\n- 8adac8e9d9 ci: Pin setup-python\n- a99e4347f4 ci: Split up build workflow",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.131",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.131",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.131/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "1d481083052ce7e3375827dc8956549443022117f413e545d329442b74c11e8e"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.130",
+      "release_date": "2026-01-02",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.130",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.130",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.130/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "6c1677ec644bb2824f2106edafccaf8477ef232c48d54a1781fc57f804aa35cd"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.129",
+      "release_date": "2025-12-28",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.129",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.129",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.129/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "8ba61fe622fdb02683184f123db27e6700dbdf258b0e1267a7aae55ccc705ed3"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.128",
+      "release_date": "2025-12-27",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.128",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.128",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.128/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "3a310d59e27ab8764f45a4dfd77315e52f005270d471aea57625754bd37143ec"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.127",
+      "release_date": "2025-12-26",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.127",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.127",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.127/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "2d5140397ca7a1a21b280e524d0d5dd01708f8f312617b9a8b881d979a3ff43d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.125",
+      "release_date": "2025-12-26",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.125",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.125",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.125/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "435dc12c49808fbedc4da85d9cdf3aa37f34d2ee3039aaaf32e663dba65c6209"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.124",
+      "release_date": "2025-12-25",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.124",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.124",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.124/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "49f012f52bb1c783a4d6692285944506d5330fdcd4a3318197a6a68277beb530"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.123",
+      "release_date": "2025-12-25",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.123",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.123",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.123/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "c3abfcbd5c93a485f447cd0463732f79accc61eba2959a46dc6fe9eca793fa04"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.122",
+      "release_date": "2025-12-23",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.122",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.122",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.122/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "635340e70012d1d428a80e367162943468532127d103caf0c1b25bcd138db486"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.121",
+      "release_date": "2025-12-19",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.121",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.121",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.121/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "d03eaab4f669912609740d52f1df039456562bf4b735c035ed897daa425a338f"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.119",
+      "release_date": "2025-12-10",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.119",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.119",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.119/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "84db3821582601a75b2758998ac1b9c5496eafd63d3d2f7fcbb5d4b5554df388"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.118",
+      "release_date": "2025-11-29",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.118",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.118",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.118/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "d87ef6be467a001aacd209e5df0b6c2d85aa72a654f46eabe4f35d1b7a5598b5"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.117",
+      "release_date": "2025-11-28",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.117",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.117",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.117/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "7e0b05860706efaabd21b3acfd499fcb026be5ab380c7c70237af320562973b2"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.116",
+      "release_date": "2025-11-27",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.116",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.116",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.116/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "c0da14f91d2f9d320f873d474dddb7e5631531eb1866826d0dbf08b9e8481a70"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.115",
+      "release_date": "2025-11-16",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.115",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.115",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.115/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "681339bf78350bb017dde3c82f17b746afa33e78c5dc04331efc60f55db033e3"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.114",
+      "release_date": "2025-11-14",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.114",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.114",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.114/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "8a892b771e4771a8f9e8c0f8a879eb838998b3955244bba88b0df77d4dec7633"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.113",
+      "release_date": "2025-11-10",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.113",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.113",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.113/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "435bb9abadeae002effef4cbba9202bbb47134d99a0bf580b29205171b1ae22e"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.112",
+      "release_date": "2025-11-06",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.112",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.112",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.112/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "2846c008b2d17c99a257eb401f283b1103bdb5610ef43fff9e70a4c4e18b9006"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.111",
+      "release_date": "2025-10-29",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.111",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.111",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.111/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "9e44a719c84d5bef165a50d847f4bec066ca82e94b0163b22eaa6ce0e3fc738e"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.110",
+      "release_date": "2025-10-28",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.110",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.110",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.110/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "876aaac975efe44bcfb38cd81ca7e1921fba06053909b842518143f24fef2555"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.109",
+      "release_date": "2025-10-24",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.109",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.109",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.109/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "52bfc502cfbc3b990a77f3699f1d457ccf6612dd12d6fa168527c49665b57ab6"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.108",
+      "release_date": "2025-10-16",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.108",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.108",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.108/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "7200b39bb6ca6621c89a15b6fbe344dfc6ceb48a9fd0f13c1aaf009d8754f84b"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.107",
+      "release_date": "2025-10-15",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.107",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.107",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.107/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "88b8bbdbd3554b008e12f739e7b0587147345726d08b986b1edc068074ee9b04"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.106",
+      "release_date": "2025-09-29",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.106",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.106",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.106/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "47a5532969a292888fe32b572e330176504f58638df93edb2f19d6c5373f6bd1"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.105",
+      "release_date": "2025-09-25",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.105",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.105",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.105/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "8aea7e533f3916c26244e4eba333b27f5a47ca30b3773ef69129233b4d889bc6"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.104",
+      "release_date": "2025-09-23",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.104",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.104",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.104/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "c96f5e1455313709a4d833025027f10133fd6931c1891edbf8f48f8aa22d9767"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.103",
+      "release_date": "2025-09-20",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.103",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.103",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.103/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "f9839266a2ac5111afc0949db8c000c8c4612fbe940d8fb6696ed25fb940a9d0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.102",
+      "release_date": "2025-09-18",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.102",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.102",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.102/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "626e5460846bf40b108f9e8335d3299f6af437e3030da3d08c3e6f4943f3bc84"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.101",
+      "release_date": "2025-09-16",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.101",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.101",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.101/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "3b94000443d9fdaa53ecc8fecb3ce11615d34fc28efd30af1c6fe551715fed33"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.99",
+      "release_date": "2025-09-16",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.99",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.99",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.99/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "2009026148203edc66c4516736222766d6a15b5a8579d489b2340a87593f4e78"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.98",
+      "release_date": "2025-09-08",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.98",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.98",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.98/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "e47ea33e22d8ea0bfb842f8c866ff4bbb972fe2157954e86f80a029d397d3b7b"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.97",
+      "release_date": "2025-09-03",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.97",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.97",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.97/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "03f9f5b74c39c8e9dbb0930922b7cae51c88623b7f381591b8b41d8fbac3521d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.96",
+      "release_date": "2025-07-29",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.96",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.96",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.96/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "fa121ab6741a2b66b4995f2a68d66e2a3d8d8ca80b9002650a833f49ab7cf6c0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.95",
+      "release_date": "2025-07-21",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.95",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.95",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.95/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "f7c053c25f000cf8ecd464fba83d6774cfe171c42b6cf8ba8e60651b097759e3"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.94",
+      "release_date": "2025-07-11",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.94",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.94",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.94/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "e58292ed06a3eb4f5492c37746fa63be5addcfd05d66c53b9c3b0b02eba78fe2"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.93",
+      "release_date": "2025-07-09",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.93",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.93",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.93/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "2a01fce1672398f327fcb186259c88a238b191625b0cb698a48649fa354c70ca"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.92",
+      "release_date": "2025-07-03",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.92",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.92",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.92/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "20ba7b0ffb3943dfc3005ce4e1a4212db6bc95441876105d0b4a71b2d42584b2"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.90",
+      "release_date": "2025-07-03",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.90",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.90",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.90/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "b1c7503295174c57d3cfbb185bffef2256a3ff55d60d7f6c0cd2f53511161487"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.89",
+      "release_date": "2025-07-02",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.89",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.89",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.89/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "0aadc074b806bcbfd5465a7dc47b3ad203d3e328d7fe1598cdb38caf2f5cbaa0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.88",
+      "release_date": "2025-07-02",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.88",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.88",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.88/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "171cbbf873e9660e50bbb6962574ca8031481394e22b21c16bb6341666cbc696"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.87",
+      "release_date": "2025-06-30",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.87",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.87",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.87/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "3c9eeef4d4d1688b23224cc7a8adca5efc72d2408e2819d88e7dad2e92ee3c79"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.8.86",
+      "release_date": "2025-06-28",
+      "release_notes_url": "https://github.com/xemu-project/xemu/releases/tag/v0.8.86",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/x/xemu-project/xemu/0.8.86",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.86/xemu-win-x86_64-release.zip",
+          "host": "github.com",
+          "filename": "xemu-win-x86_64-release.zip",
+          "sha256": "fbcc34e8a9949b8f30e044e13e35e83a232b46f9d0fcf8e1a4a9d7fb86ddcd4c"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.8.139",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "zip",
+          "url": "https://github.com/xemu-project/xemu/releases/download/v0.8.139/xemu-0.8.139-macos-universal.zip",
+          "host": "github.com",
+          "filename": "xemu-0.8.139-macos-universal.zip",
+          "sha256": "9817aaa5e187a698416271a6ddc083a40d7ff5e09c3231cff32a692638c7427d"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "xemu.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/xemu",
+            "~/Library/Preferences/xemu.app.0.plist",
+            "~/Library/Saved Application State/xemu.app.0.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "0.8.136",
+      "release_date": "2026-10-04",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/app.xemu.xemu.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "app.xemu.xemu.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/app.xemu.xemu.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "app.xemu.xemu.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b5471dcc3b6c320cc21a7c76da016ffa7fe18901",
+      "retrieved_at": "2026-11-13T13:08:36.198Z",
+      "path": "manifests/x/xemu-project/xemu"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "192c285f7def9411a513489ff6687db1347ccab9",
+      "retrieved_at": "2026-11-13T13:08:36.198Z",
+      "path": "Casks/x/xemu.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/xemu.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/app.xemu.xemu",
+      "retrieved_at": "2026-11-13T13:08:39.843Z",
+      "path": "api/v2/appstream/app.xemu.xemu",
+      "api_url": "https://flathub.org/api/v2/appstream/app.xemu.xemu",
+      "content_sha256": "bcd00a18948f45cc1126e3f7b2dd53726ae63cb396d68017385dffd58db02703"
+    }
+  ],
+  "flathub": {
+    "app_id": "app.xemu.xemu",
+    "page_url": "https://flathub.org/apps/app.xemu.xemu",
+    "repo_url": "https://github.com/flathub/app.xemu.xemu",
+    "install_command": "flatpak install flathub app.xemu.xemu",
+    "run_command": "flatpak run app.xemu.xemu",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "xemu.app",
+      "verified_on": "2025-01-02"
+    },
+    "license": "GPL-2.0-only",
+    "free_license": true,
+    "developer_name": "xemu project",
+    "categories": [
+      "Game",
+      "Emulator"
+    ],
+    "download_size": 22525353,
+    "installed_size": 34425856,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}
