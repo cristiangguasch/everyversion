@@ -41,7 +41,7 @@
     "support": "https://help.obsidian.md/",
     "privacy": "https://obsidian.md/privacy",
     "purchase": "https://obsidian.md/pricing",
-    "release_notes": "https://obsidian.md/changelog/2026-10-22-desktop-v1.15.0/"
+    "release_notes": "https://obsidian.md/changelog/2026-11-12-desktop-v1.15.1/"
   },
   "license": {
     "name": "Proprietary",
@@ -54,17 +54,163 @@
     "source": "curated"
   },
   "latest_versions": {
-    "windows": "1.15.0",
-    "macos": "1.15.0",
+    "windows": "1.15.1",
+    "macos": "1.15.1",
     "linux": "1.15.0"
   },
-  "last_updated": "2026-11-02",
+  "last_updated": "2026-11-12",
   "versions_total": {
-    "windows": 70,
+    "windows": 71,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "1.15.1",
+      "release_date": "2026-11-12",
+      "release_notes": "New\n\nSearch\n- Added Relevance sort option that sorts notes based on the best match for your query.\n- Search and search filters in other views (e.g. Backlinks, Outline and Bookmarks) now ignore accents, so cafe finds café.\n- Search and suggestions now treat ø, ł, đ, ð, ħ and ı as o, l, d, d, h and i, and ß, æ, œ and þ as ss, ae, oe and th, which helps with German, French, Danish, Norwegian, Polish, Croatian, Serbian, Vietnamese, Icelandic, Faroese, Maltese, Turkish and Azerbaijani. For example, lodz finds Łódź and strasse finds Straße.\n- Results now appear much faster when a search matches thousands of notes.\n- Results now update faster as you keep typing a word or add words to a search.\n- The search term explanation no longer flickers and shifts the results while you type.\n- Fixed Show more context showing a whole long table, code block, or list at once instead of the part around the match.\n\nImprovements\n\nPerformance\n- The workspace now appears right away while Obsidian starts, with start-up progress in the status bar instead of a loading screen.\n- Notes now render faster in Reading mode, and the vault is indexed faster, especially with long notes.\n- Files: Loads faster in vaults with thousands of notes, and when expanding large folders.\n- Canvas: Large canvases now open, pan, and zoom much faster when content is visible.\n- The first launch after re-indexing a vault is no longer slower than usual.\n\nEditor\n- Live Preview: Opening a note no longer shows the Markdown syntax at the cursor (e.g. the ## of a heading on the first line) until you move the cursor or start typing.\n- Smart lists prevents over-indenting list items more than one level deeper than the item above it.\n- Smart lists no longer moves nested list items when indenting or moving lines where text is selected.\n\nOther\n- New vaults no longer show the ribbon. It can be turned on in Settings → Interface → Show ribbon.\n- Settings → Files and links → Allow URI callbacks is now set once on each device for all vaults instead of syncing with the vault. If you use callbacks, turn it on again on each device.\n- Opening a file of an unrecognized type in another app from a link in a note now requires confirmation, since some file types can run code on your computer.\n- Settings → Web viewer → Homepage and Search engine are now set separately on each device instead of syncing with the vault.\n- Sync: Vaults shared with you no longer sync main settings, appearance, themes, snippets, or hotkeys by default when you first connect.\n- Holding Ctrl/Cmd while picking a vault from the vault profile menu in the sidebar now replaces the current window instead of opening a new one.\n- Deleting a file now shows an error when it can’t be moved to the system trash, instead of moving it to the vault’s .trash folder (except from the CLI’s delete command).\n- Community plugins: Installing a plugin no longer picks up settings that came with the vault before it was installed. They’re kept as data.json.bak instead.\n- Obsidian URI: obsidian://new with a heading but no append or prepend now appends to that heading instead of showing an error.\n- On Windows, creating or moving a vault inside Obsidian’s installation folder, or opening a folder there that isn’t in your vault list, now shows an error. Opening a vault that’s already in your list shows a warning, since the installer erases that folder when Obsidian updates.\n\nNo longer broken\n\nCanvas\n- Curved connections no longer disappear near the edge of the screen.\n- Scroll position no longer resets after you zoom out and move away from a card.\n- Buttons on a “missing file” card stay responsive after you zoom out and back in.\n\nmacOS\n- Fixed the main window turning black when you minimize the Settings window while the main window is in full screen.\n- Fixed Obsidian staying open in the Dock, or not reopening after “Relaunch”, when a note was still saving or a pop-out window was open.\n\nLinks and backlinks\n- Fixed a rare case of links and backlinks no longer updating until restart, after a note was deleted just after it changed.\n- Fixed a rare case of links and backlinks no longer updating after Settings was closed right after it opened in its own window.\n- Fixed a rare case of a note renamed just after it changed being listed twice in backlinks, or sharing its headings and links with a new note at its old name, until restart.\n- Fixed a rare case of a note in Reading view no longer updating after a pop-out window, such as Settings in its own window, was closed.\n\nOther\n- Vault: Fixed a vault failing to load when it contains a folder Obsidian can’t read.\n- Settings: Fixed plugins turned on or off and Sync settings changed right before quitting sometimes going back to how they were the next time Obsidian opened.\n- Community plugins: Fixed Settings → Community plugins showing nothing when a plugin’s manifest.json has no name. Such plugins are now skipped.\n- Files: Fixed long folders snapping open or closed instead of animating.\n- Tabs: Fixed empty tabs showing the old buttons after a core plugin is turned on or off.\n- Editor: Fixed “Inline math” in the Format menu not showing a check mark when the cursor is inside inline math.\n- Diagrams: Fixed obsidian:// links in Mermaid diagrams not opening the URI.\n- Graph view: Fixed a tag: filter with Tags turned on still showing the other tags of matching notes.\n- Tags: Fixed a tag: search (e.g. tag:#foo) hiding every tag.\n- Vault switcher: Fixed it staying in the old language after you pick a new one.\n- CLI: Fixed commands that take a moment to finish printing nothing when run from a script or another program.\n- Sync: Fixed folders at the top of the vault with certain names (e.g. constructor) never syncing to other devices.\n- Publish: Fixed Publish changes, Publish’s navigation settings and “Bookmark” not working with a top-level folder named constructor, toString or valueOf.\n- Math: Fixed links in formulas (\\href) accepting addresses other than web and file links.\n\nDevelopers\n- setTimeout and setInterval now run on time in minimized and hidden windows. Use window.setTimeout instead of activeWindow.setTimeout, whose timers never fire once their pop-out window closes.\n- CLI: eval now supports top-level await (e.g. eval code=\"await app.vault.adapter.list('/')\").\n- Array#contains and String#contains are deprecated. Use includes instead.\n- FileManager#trashFile and FileManager#promptForDeletion now resolve to false when the file couldn’t be moved to the system trash.",
+      "release_notes_url": "https://obsidian.md/changelog/2026-11-12-desktop-v1.15.1/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/o/Obsidian/Obsidian/1.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/Obsidian-1.15.1.exe",
+          "host": "github.com",
+          "filename": "Obsidian-1.15.1.exe",
+          "sha256": "218c7d30acc065355ce94719dd996d5e2a2347cde3811ea5dc29380583f02b58",
+          "product_code": "bd400747-f0c1-5638-a859-982036102edf",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "obsidian"
+          ],
+          "file_extensions": [
+            "md"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/Obsidian-1.15.1.exe",
+          "host": "github.com",
+          "filename": "Obsidian-1.15.1.exe",
+          "sha256": "218c7d30acc065355ce94719dd996d5e2a2347cde3811ea5dc29380583f02b58",
+          "product_code": "bd400747-f0c1-5638-a859-982036102edf",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "obsidian"
+          ],
+          "file_extensions": [
+            "md"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/Obsidian-1.15.1.exe",
+          "host": "github.com",
+          "filename": "Obsidian-1.15.1.exe",
+          "sha256": "218c7d30acc065355ce94719dd996d5e2a2347cde3811ea5dc29380583f02b58",
+          "product_code": "bd400747-f0c1-5638-a859-982036102edf",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "obsidian"
+          ],
+          "file_extensions": [
+            "md"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/Obsidian-1.15.1.exe",
+          "host": "github.com",
+          "filename": "Obsidian-1.15.1.exe",
+          "sha256": "218c7d30acc065355ce94719dd996d5e2a2347cde3811ea5dc29380583f02b58",
+          "product_code": "bd400747-f0c1-5638-a859-982036102edf",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "obsidian"
+          ],
+          "file_extensions": [
+            "md"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/Obsidian-1.15.1.exe",
+          "host": "github.com",
+          "filename": "Obsidian-1.15.1.exe",
+          "sha256": "218c7d30acc065355ce94719dd996d5e2a2347cde3811ea5dc29380583f02b58",
+          "product_code": "bd400747-f0c1-5638-a859-982036102edf",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "obsidian"
+          ],
+          "file_extensions": [
+            "md"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/Obsidian-1.15.1.exe",
+          "host": "github.com",
+          "filename": "Obsidian-1.15.1.exe",
+          "sha256": "218c7d30acc065355ce94719dd996d5e2a2347cde3811ea5dc29380583f02b58",
+          "product_code": "bd400747-f0c1-5638-a859-982036102edf",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "obsidian"
+          ],
+          "file_extensions": [
+            "md"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "1.15.0",
@@ -5445,84 +5591,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "1.0.3",
-      "release_date": "2022-10-26",
-      "release_notes_url": "https://github.com/obsidianmd/obsidian-releases/releases/tag/v1.0.3",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/o/Obsidian/Obsidian/1.0.3",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian.1.0.3-32.exe",
-          "host": "github.com",
-          "filename": "Obsidian.1.0.3-32.exe",
-          "sha256": "f1467dd452a0ec31a1ebe8c10a1d60fc9a85eb9764d4c3f3281f88aa3f3a9696",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "silent"
-          ],
-          "upgrade_behavior": "install",
-          "file_extensions": [
-            "md"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian.1.0.3-arm64.exe",
-          "host": "github.com",
-          "filename": "Obsidian.1.0.3-arm64.exe",
-          "sha256": "3ee1386c1ed0a61cd39b83ec983a8aac935fdc59ea3f3b8d012996b869ffc25b",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "silent"
-          ],
-          "upgrade_behavior": "install",
-          "file_extensions": [
-            "md"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian.1.0.3.exe",
-          "host": "github.com",
-          "filename": "Obsidian.1.0.3.exe",
-          "sha256": "deed7e9104e50f274026a96728d9f4bcaf1fe4cafc7692ac43c87f72d2bd53ba",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "silent"
-          ],
-          "upgrade_behavior": "install",
-          "file_extensions": [
-            "md"
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "1.15.0",
+      "version": "1.15.1",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.0/Obsidian-1.15.0.dmg",
+          "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.15.1/Obsidian-1.15.1.dmg",
           "host": "github.com",
-          "filename": "Obsidian-1.15.0.dmg",
-          "sha256": "d3f837e6fd3efaf65fa0bec987b18296982995d4ddae3171a7f7f67e0e2b7aa8",
+          "filename": "Obsidian-1.15.1.dmg",
+          "sha256": "e05c7e3e2262b14c965bb246dcb74a30fc9098bd669e42957c4d9f788d04fdf4",
           "min_os_version": "12"
         }
       ],
@@ -5585,16 +5664,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
-      "retrieved_at": "2026-11-08T21:59:01.347Z",
+      "commit": "a2bf4af82349e2f9c643fe5acd61c84a7a132216",
+      "retrieved_at": "2026-11-13T14:56:34.531Z",
       "path": "manifests/o/Obsidian/Obsidian"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "7397801fbe3ada511d5ac422b78730f4735af8f9",
+      "retrieved_at": "2026-11-13T14:56:34.531Z",
       "path": "Casks/o/obsidian.rb",
       "api_url": "https://formulae.brew.sh/api/cask/obsidian.json"
     },

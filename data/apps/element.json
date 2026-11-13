@@ -41,7 +41,7 @@
     "support": "https://element.io/help",
     "privacy": "https://element.io/privacy",
     "purchase": "https://element.io/pricing",
-    "release_notes": "https://github.com/element-hq/element-web/releases/tag/v1.12.34",
+    "release_notes": "https://github.com/element-hq/element-web/releases/tag/v1.12.35",
     "documentation": [
       {
         "label": "User Guide",
@@ -60,17 +60,74 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "1.12.34",
-    "macos": "1.12.34",
+    "windows": "1.12.35",
+    "macos": "1.12.35",
     "linux": "1.12.35"
   },
-  "last_updated": "2026-11-11",
+  "last_updated": "2026-11-12",
   "versions_total": {
-    "windows": 168,
+    "windows": 169,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "1.12.35",
+      "release_date": "2026-11-12",
+      "release_notes": "🐛 Bug Fixes\n- [Backport staging] Fall back to synchronous safeStorage (#35807). Contributed by @RiotRobot.",
+      "release_notes_url": "https://github.com/element-hq/element-web/releases/tag/v1.12.35",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/e/Element/Element/1.12.35",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://packages.element.io/desktop/install/win32/x64/Element%20Setup%201.12.35.exe",
+          "host": "packages.element.io",
+          "filename": "Element Setup 1.12.35.exe",
+          "sha256": "8064db8e9b2a5eff871b56ef063af4fc751f1058344f108285c33a9bb97ba994",
+          "product_code": "element-desktop",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "element"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://packages.element.io/desktop/install/win32/arm64/Element%20Setup%201.12.35.exe",
+          "host": "packages.element.io",
+          "filename": "Element Setup 1.12.35.exe",
+          "sha256": "03d7eb062502925aaa4a1a79a89763ee55e3f910dbc8c95dcb69559477a9cf85",
+          "product_code": "element-desktop",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "element"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "1.12.34",
@@ -2888,97 +2945,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "1.11.96",
-      "release_date": "2025-03-25",
-      "release_notes": "✨ Features\n- RoomListViewModel: Track the index of the active room in the list (#29519). Contributed by @MidhunSureshR.\n- New room list: add empty state (#29512). Contributed by @florianduros.\n- Implement MessagePreviewViewModel (#29514). Contributed by @MidhunSureshR.\n- RoomListViewModel: Add functionality to toggle message preview setting (#29511). Contributed by @MidhunSureshR.\n- New room list: add more options menu on room list item (#29445). Contributed by @florianduros.\n- RoomListViewModel: Provide a way to resort the room list and track the active sort method (#29499). Contributed by @MidhunSureshR.\n- Change *All rooms* meta space name to *All Chats* (#29498). Contributed by @florianduros.\n- Add setting to hide avatars of rooms you have been invited to. (#29497). Contributed by @Half-Shot.\n- Room List Store: Save preferred sorting algorithm and use that on app launch (#29493). Contributed by @MidhunSureshR.\n- Add key storage toggle to Encryption settings (#29310). Contributed by @dbkr.\n- New room list: add primary filters (#29481). Contributed by @florianduros.\n- Implement MSC4142: Remove unintentional intentional mentions in replies (#28209). Contributed by @tulir.\n- White background for 'They do not match' button (#29470). Contributed by @andybalaam.\n- RoomListViewModel: Support secondary filters in the view model (#29465). Contributed by @MidhunSureshR.\n- RoomListViewModel: Support primary filters in the view model (#29454). Contributed by @MidhunSureshR.\n- Room List Store: Implement secondary filters (#29458). Contributed by @MidhunSureshR.\n- Room List Store: Implement rest of the primary filters (#29444). Contributed by @MidhunSureshR.\n- Room List Store: Support filters by implementing just the favourite filter (#29433). Contributed by @MidhunSureshR.\n- Move toggle switch for integration manager for a11y (#29436). Contributed by @Half-Shot.\n- New room list: basic flat list (#29368). Contributed by @florianduros.\n- Improve rageshake upload experience by providing useful error information (#29378). Contributed by @Half-Shot.\n- Add more functionality to the room list vm (#29402). Contributed by @MidhunSureshR.\n🐛 Bug Fixes\n- Fix --no-update command line flag (#2210). Contributed by @t3chguy.\n- New room list: fix compose menu action in space (#29500). Contributed by @florianduros.\n- Change ToggleHiddenEventVisibility & GoToHome KeyBindingActions (#29374). Contributed by @gy-mate.\n- Fix Docker Healthcheck (#29471). Contributed by @benbz.\n- Room List Store: Fetch rooms after space store is ready + attach store to window (#29453). Contributed by @MidhunSureshR.\n- Room List Store: Fix bug where left rooms appear in room list (#29452). Contributed by @MidhunSureshR.\n- Add space to the bottom of the room summary actions below leave room (#29270). Contributed by @langleyd.\n- Show error screens in group calls (#29254). Contributed by @robintown.\n- Prevent user from accidentally triggering multiple identity resets (#29388). Contributed by @uhoreg.\n- Remove buggy tooltip on room intro & homepage (#29406). Contributed by @t3chguy.",
-      "release_notes_url": "https://github.com/element-hq/element-desktop/releases/tag/v1.11.96",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/e/Element/Element/1.11.96",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "exe",
-          "scope": "user",
-          "url": "https://packages.element.io/desktop/install/win32/ia32/Element%20Setup%201.11.96.exe",
-          "host": "packages.element.io",
-          "filename": "Element Setup 1.11.96.exe",
-          "sha256": "3b2aa351db701ecbfced221d99aa2c4453e70285d4b50cafa5ecd0a9356b3ddb",
-          "product_code": "element-desktop",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "silent": "--silent",
-            "silent_with_progress": "--silent"
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "element"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "exe",
-          "scope": "user",
-          "url": "https://packages.element.io/desktop/install/win32/x64/Element%20Setup%201.11.96.exe",
-          "host": "packages.element.io",
-          "filename": "Element Setup 1.11.96.exe",
-          "sha256": "2f799aa8f5edf39b184e548b60ae55b3e6e9bb305df13bb0ad702ccb7863d812",
-          "product_code": "element-desktop",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "silent": "--silent",
-            "silent_with_progress": "--silent"
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "element"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "exe",
-          "scope": "user",
-          "url": "https://packages.element.io/desktop/install/win32/arm64/Element%20Setup%201.11.96.exe",
-          "host": "packages.element.io",
-          "filename": "Element Setup 1.11.96.exe",
-          "sha256": "e128f8e3f7666d1586a7acd1555b40a77d7ef6ef15673cbed98824b81c8ea83a",
-          "product_code": "element-desktop",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "silent": "--silent",
-            "silent_with_progress": "--silent"
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "element"
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "1.12.34",
+      "version": "1.12.35",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "zip",
-          "url": "https://packages.element.io/desktop/update/macos/Element-1.12.34-universal-mac.zip",
+          "url": "https://packages.element.io/desktop/update/macos/Element-1.12.35-universal-mac.zip",
           "host": "packages.element.io",
-          "filename": "Element-1.12.34-universal-mac.zip",
-          "sha256": "485b3e2e39935963f7ea1f11a3f902259cd98f441033cf5c7eebb360466fa614",
+          "filename": "Element-1.12.35-universal-mac.zip",
+          "sha256": "87020aaaa9b28ad4dceef47ba5df70a9bc193b2c52df64994417fa669f0931d6",
           "min_os_version": "13"
         }
       ],
@@ -3044,16 +3021,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
+      "commit": "a2bf4af82349e2f9c643fe5acd61c84a7a132216",
+      "retrieved_at": "2026-11-13T14:56:34.531Z",
       "path": "manifests/e/Element/Element"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "011c91bc5ede5c6aeb118fc34d57d2a4717d4b6e",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
+      "commit": "7397801fbe3ada511d5ac422b78730f4735af8f9",
+      "retrieved_at": "2026-11-13T14:56:34.531Z",
       "path": "Casks/e/element.rb",
       "api_url": "https://formulae.brew.sh/api/cask/element.json"
     },
@@ -3061,10 +3038,10 @@
       "source": "flathub",
       "platform": "linux",
       "repo": "https://github.com/flathub/im.riot.Riot",
-      "retrieved_at": "2026-11-13T13:08:39.843Z",
+      "retrieved_at": "2026-11-13T14:56:46.032Z",
       "path": "api/v2/appstream/im.riot.Riot",
       "api_url": "https://flathub.org/api/v2/appstream/im.riot.Riot",
-      "content_sha256": "f74765218566fd8bc9f3977b570a58483642678527b9e76b8b02843e7bb4ec14"
+      "content_sha256": "9064f4d409dc588c577a5244d764f60d997f34c8a86a8dfca9f544e6a58cdae3"
     }
   ],
   "flathub": {
@@ -3083,8 +3060,8 @@
       "Chat",
       "VideoConference"
     ],
-    "download_size": 196096070,
-    "installed_size": 568966144,
+    "download_size": 201263186,
+    "installed_size": 586469376,
     "arches": [
       "arm64",
       "x64"
