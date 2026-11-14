@@ -1,0 +1,187 @@
+{
+  "schema_version": 2,
+  "slug": "opentoonz",
+  "name": "OpenToonz",
+  "publisher": "DWANGO Co., Ltd.",
+  "ids": {
+    "winget": "DWANGO.OpenToonz",
+    "homebrew_cask": "opentoonz",
+    "flathub": "io.github.OpenToonz"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "A 2D animation software.",
+  "tags": [
+    "open-toonz",
+    "animation",
+    "animator"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/opentoonz/opentoonz"
+  },
+  "license": {
+    "name": "BSD-3"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.8.0",
+    "macos": "1.8.0",
+    "linux": "1.8.0"
+  },
+  "last_updated": "2026-06-19",
+  "versions_total": {
+    "windows": 2,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.8.0",
+      "release_date": "2026-06-19",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/DWANGO/OpenToonz/1.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "url": "https://github.com/opentoonz/opentoonz/releases/download/v1.8.0/OpenToonzSetup.exe",
+          "host": "github.com",
+          "filename": "OpenToonzSetup.exe",
+          "sha256": "bd678a03d2725522346bf5a055a7bc44ded6537957efb0026bfd875d3ac061d0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.1",
+      "release_date": "2023-05-10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/DWANGO/OpenToonz/1.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "url": "https://github.com/opentoonz/opentoonz/releases/download/v1.7.1/OpenToonzSetup.exe",
+          "host": "github.com",
+          "filename": "OpenToonzSetup.exe",
+          "sha256": "8825f1bb2717ad9348a37a06fb75ae2230b87ce0727b2a91d6769821cf0a8823"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.8.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "pkg",
+          "url": "https://github.com/opentoonz/opentoonz/releases/download/v1.8.0/OpenToonz.pkg",
+          "host": "github.com",
+          "filename": "OpenToonz.pkg",
+          "sha256": "6360efbde7739910d4eefe9d494b6b57e852a3f75bdbeb1e6d75abb84e609d13"
+        }
+      ],
+      "cask": {
+        "pkgs": [
+          "OpenToonz.pkg"
+        ],
+        "cleanup": {
+          "pkgutil": [
+            "io.github.opentoonz"
+          ],
+          "zap_paths": [
+            "~/Library/Caches/OpenToonz",
+            "~/Library/Saved Application State/io.github.opentoonz.OpenToonz.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "1.8.0",
+      "release_date": "2026-06-15",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/io.github.OpenToonz.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "io.github.OpenToonz.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "aeaa6e3f3093b00ce7d7e0091fd2dd4224eeec5f",
+      "retrieved_at": "2026-11-14T22:02:38.419Z",
+      "path": "manifests/d/DWANGO/OpenToonz"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "40bfcea50dc5c8c8acfe70fe1bf78640ce5b33b0",
+      "retrieved_at": "2026-11-14T22:02:38.419Z",
+      "path": "Casks/o/opentoonz.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/opentoonz.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/io.github.OpenToonz",
+      "retrieved_at": "2026-11-14T22:02:42.239Z",
+      "path": "api/v2/appstream/io.github.OpenToonz",
+      "api_url": "https://flathub.org/api/v2/appstream/io.github.OpenToonz",
+      "content_sha256": "c45a05b5ec6d9bed724d8e1cf3bdfb885f941b7127af7ba0ea993143d2c8eda7"
+    }
+  ],
+  "flathub": {
+    "app_id": "io.github.OpenToonz",
+    "page_url": "https://flathub.org/apps/io.github.OpenToonz",
+    "repo_url": "https://github.com/flathub/io.github.OpenToonz",
+    "install_command": "flatpak install flathub io.github.OpenToonz",
+    "run_command": "flatpak run io.github.OpenToonz",
+    "verified": false,
+    "license": "BSD-3-Clause",
+    "free_license": true,
+    "developer_name": "DWANGO Co., Ltd.",
+    "categories": [
+      "Graphics"
+    ],
+    "download_size": 56087803,
+    "installed_size": 127380480,
+    "arches": [
+      "x64"
+    ]
+  }
+}
