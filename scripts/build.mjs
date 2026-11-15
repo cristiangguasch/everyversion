@@ -269,7 +269,7 @@ ${noindex ? '<meta name="robots" content="noindex,follow">\n' : ''}${alternates}
 <meta name="twitter:card" content="summary">
 <meta name="color-scheme" content="light dark">
 <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/x-icon" href="https://everyversion.net/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -677,15 +677,57 @@ ${rec.license.url ? `<p class="pin">${link(rec.license.url, 'Read the license')}
 </div>
 </div>`;
 
-  const installerHtml = plats
+  // System requirements per platform: only what the package data holds (minimum OS, CPU architectures, dependencies, Flathub sizes).
+  const REQ_TITLE = { windows: 'PC requirements', macos: 'Mac requirements', linux: 'Linux requirements' };
+  const winName = (v) => {
+    const [maj, min, build] = String(v).split('.').map(Number);
+    const name = maj === 10 ? (build >= 22000 ? 'Windows 11' : 'Windows 10') : { '6.3': 'Windows 8.1', '6.2': 'Windows 8', '6.1': 'Windows 7', '6.0': 'Windows Vista', '5.1': 'Windows XP' }[`${maj}.${min}`] || 'Windows';
+    return `${name} (${v}) or later`;
+  };
+  const fmtBytes = (n) => (n >= 2 ** 30 ? `${(n / 2 ** 30).toFixed(n >= 10 * 2 ** 30 ? 0 : 1)} GiB` : `${Math.max(1, Math.round(n / 2 ** 20))} MiB`);
+  const requirementsOf = (p) => {
+    const ins = latestOf[p].installers;
+    const uniq = (a) => [...new Set(a.filter(Boolean))];
+    const rows = [];
+    const mins = uniq(ins.map((i) => i.min_os_version));
+    if (p === 'windows' && mins.length) rows.push(['Minimum Windows version', mins.map(winName).join('; ')]);
+    if (p === 'macos' && mins.length) rows.push(['Minimum macOS version', mins.map((v) => `macOS ${v} or later`).join('; ')]);
+    const archs = p === 'linux' && rec.flathub?.arches?.length ? rec.flathub.arches : uniq(ins.map((i) => i.architecture));
+    rows.push([p === 'linux' ? 'Architectures' : 'CPU architecture', archs.map((a) => (p === 'macos' ? MAC_ARCH[a] : null) || ARCH[a] || a).join(', ')]);
+    const deps = [];
+    if (p === 'windows') {
+      for (const d of ins.map((i) => i.dependencies).filter(Boolean)) {
+        deps.push(...(d.packages || []).map((x) => `\`${x}\` (winget package)`), ...(d.windows_features || []).map((x) => `${x} (Windows feature)`), ...(d.windows_libraries || []).map((x) => `${x} (Windows library)`));
+      }
+    }
+    if (p === 'macos') {
+      const d = latestOf[p].cask?.depends_on;
+      deps.push(...(d?.casks || []).map((x) => `\`${x}\` (Homebrew cask)`), ...(d?.formulae || []).map((x) => `\`${x}\` (Homebrew package)`));
+    }
+    if (deps.length) rows.push([p === 'macos' ? 'Dependencies (Homebrew)' : 'Dependencies', uniq(deps).join('; ')]);
+    if (p === 'linux' && rec.flathub) {
+      if (rec.flathub.download_size) rows.push(['Download size', fmtBytes(rec.flathub.download_size)]);
+      if (rec.flathub.installed_size) rows.push(['Installed size', fmtBytes(rec.flathub.installed_size)]);
+    }
+    return rows;
+  };
+  const installerHtml = `<div class="plat-cols">
+${plats
     .map(
-      (p) => `<h3>${esc(PLATFORM[p])}</h3>
+      (p) => `<div class="plat-col">
+<h3>${esc(PLATFORM[p])}</h3>
 <ul class="clean">
 ${summaries[p].map((s) => `<li>${withCode(s)}</li>`).join('\n')}
 </ul>
-${latestOf[p].cask?.caveats ? `<p class="pin">Homebrew note shown after install: ${esc(trunc(latestOf[p].cask.caveats, 300))}</p>` : ''}`,
+${latestOf[p].cask?.caveats ? `<p class="pin">Homebrew note shown after install: ${esc(trunc(latestOf[p].cask.caveats, 300))}</p>` : ''}
+<h3>${esc(REQ_TITLE[p])}</h3>
+<ul class="clean req">
+${requirementsOf(p).map(([k, v]) => `<li><strong>${esc(k)}:</strong> ${withCode(v)}</li>`).join('\n')}
+</ul>
+</div>`,
     )
-    .join('\n');
+    .join('\n')}
+</div>`;
 
   // Publisher changelog: the app-level release-notes URL if upstream gives one, else the GitHub releases page
   // of the repo the installers are published from. Null when neither exists.
@@ -1183,6 +1225,9 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
       '',
       allCustom ? '### What the download is' : '### What the installer does',
       ...summaries[p].map((s) => `- ${s}`),
+      '',
+      `### ${REQ_TITLE[p]}`,
+      ...requirementsOf(p).map(([k, v]) => `- **${k}:** ${v.replace(/`/g, '')}`),
       '',
       `### Versions (newest first)${p === 'macos' && !customOf(p) ? ' — Homebrew lists only the current release' : p === 'linux' && rec.flathub ? ' — Flathub lists only the current release' : ''}`,
       '',

@@ -104,8 +104,7 @@ export function summariseInstaller(installers) {
   if (pkgs.length) out.push(`Needs ${pkgs.length === 1 ? 'this winget package' : 'these winget packages'} first: ${joinList(pkgs.map((p) => `\`${p}\``))}.`);
   if (feats.length) out.push(`Requires the Windows ${feats.length === 1 ? 'feature' : 'features'} ${joinList(feats.map((p) => `\`${p}\``))}.`);
   if (libs.length) out.push(`Requires the Windows ${libs.length === 1 ? 'library' : 'libraries'} ${joinList(libs.map((p) => `\`${p}\``))}.`);
-  const minOs = uniq(installers.map((i) => i.min_os_version).filter(Boolean));
-  if (minOs.length === 1) out.push(`Minimum Windows version: \`${minOs[0]}\`.`);
+  // The minimum Windows version is shown under "PC requirements" on the page.
 
   // 6. Upgrades.
   const up = uniq(installers.map((i) => i.upgrade_behavior).filter(Boolean));
@@ -150,10 +149,8 @@ export function summariseCask(version) {
   if (c.other_artifacts?.length) out.push(`Also installs: ${joinList(c.other_artifacts.map((a) => a.replace(/_/g, ' ')))}.`);
 
   // 3. Requirements and updates
-  const minOs = uniq(ins.map((i) => i.min_os_version).filter(Boolean));
-  if (minOs.length === 1) out.push(`Requires macOS ${minOs[0]} or later.`);
-  const deps = [...(c.depends_on?.casks || []), ...(c.depends_on?.formulae || [])];
-  if (deps.length) out.push(`Needs ${deps.length === 1 ? 'this Homebrew package' : 'these Homebrew packages'} first: ${joinList(deps.map((d) => `\`${d}\``))}.`);
+  // The minimum macOS version is shown under "Mac requirements" on the page.
+  // Cask dependencies are listed under "Mac requirements" on the page.
   if (c.auto_updates) out.push('The app updates itself, so it may be newer than the version Homebrew lists.');
 
   // 4. Removal
