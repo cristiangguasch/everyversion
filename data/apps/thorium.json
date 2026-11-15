@@ -1,0 +1,1674 @@
+{
+  "schema_version": 2,
+  "slug": "thorium",
+  "name": "Thorium",
+  "publisher": "The Thorium Authors",
+  "author": "Alex313031",
+  "ids": {
+    "winget": "Alex313031.Thorium",
+    "moniker": "thorium",
+    "homebrew_cask": "alex313031-thorium"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Chromium fork for Linux, Windows, macOS, Android, and Raspberry Pi named after radioactive element No. 90.",
+  "tags": [
+    "browser",
+    "chromium",
+    "internet",
+    "manifestv2",
+    "mv2",
+    "web",
+    "webpage"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://thorium.rocks/",
+    "publisher": "https://thorium.rocks/",
+    "support": "https://github.com/Alex313031/Thorium-Win/issues",
+    "bug_tracker": "https://github.com/Alex313031/Thorium-Win/issues",
+    "release_notes": "https://github.com/gz83/thorium/releases/tag/M156.0.8078.28"
+  },
+  "license": {
+    "name": "BSD-3-Clause",
+    "url": "https://github.com/Alex313031/Thorium-Win/blob/HEAD/LICENSE",
+    "spdx": "BSD-3-Clause",
+    "copyright": "Copyright 2026 The Thorium Authors. All rights reserved."
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "156.0.8078.28",
+    "macos": "M138.0.7204.303"
+  },
+  "last_updated": "2026-10-11",
+  "versions_total": {
+    "windows": 14,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "156.0.8078.28",
+      "release_date": "2026-10-11",
+      "release_notes": "Hello everyone, I am gz83, a collaborator on the Thorium browser project. Since Alex is currently unavailable to update Thorium, I have temporarily taken over the task, and this release is a major update to the stable version of M156. The code is available here:\nhttps://github.com/gz83/thorium\nI think the current version is quite stable, and I'm only marking it as BETA because it hasn't been officially released by Alex yet.\nWelcome to use Thorium. Please submit any issues you encounter in the main Thorium repository using the issue template:\nhttps://github.com/Alex313031/thorium/issues\nHere are the release notes for this release:\n(Due to space limitations, not all changes are fully summarized.)\nUpdated Chromium from 154.0.8037.45 to 156.0.8078.28.\nThorium highlights\n- Updated bundled uBlock Origin to 1.75.0, retaining offline installation for new profiles.\n- Improved icon switching across the browser UI and WebUI. Thorium icons now use separate resources, preserving Chromium's rounded and legacy icons when --disable-thorium-icons is used.\n- Updated Android extensions and on-device DevTools for M156, including a fix for the missing extension-feature declaration that caused Android compilation errors.\n- Adapted the legacy download shelf to Chromium's updated active-content view API.\n- Fixed V8 snapshot dependencies for Windows SSE2 installer packaging and macOS framework resources, resolving GN generation errors encountered during cross-compilation.\nChromium highlights\n- JPEG XL decoding is enabled by default, using the Rust-based decoder with support for progressive images, HDR and animation.\n- Expanded CSS support, including symbols(), margin-trim, random() and :navigation-source, for custom counters, cleaner layouts and navigation feedback.\n- More capable JavaScript modules: import text directly with with { type: \"text\" }, and retry module fetches after network failures instead of permanently caching those failures.\n- Expanded WebCrypto algorithms, adding ML-KEM, ML-DSA, X-Wing and ChaCha20-Poly1305.\n- Inherited upstream stability and memory-safety fixes, including a dangling-reference fix in DOM attribute cloning.",
+      "release_notes_url": "https://github.com/gz83/thorium/releases/tag/M156.0.8078.28",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/156.0.8078.28",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/gz83/thorium/releases/download/M156.0.8078.28/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "4cf50828e26a6a45ed4467191be9dc3093bf88d16c1aba8c3ba404ea46ea4e37",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/gz83/thorium/releases/download/M156.0.8078.28/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "4cf50828e26a6a45ed4467191be9dc3093bf88d16c1aba8c3ba404ea46ea4e37",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/gz83/thorium/releases/download/M156.0.8078.28/Thorium_SSE3_156.0.8078.28.zip",
+          "host": "github.com",
+          "filename": "Thorium_SSE3_156.0.8078.28.zip",
+          "sha256": "9fc0a97c24f666a45686b8452a8b848c62fbb7557e4559643005b1943ff80083",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "154.0.8037.45",
+      "release_date": "2026-09-24",
+      "release_notes": "Hello everyone, I am gz83, a collaborator on the Thorium browser project. Since Alex is currently unavailable to update Thorium, I have temporarily taken over the task, and this release is a major update to the stable version of M154. The code is available here:\nhttps://github.com/gz83/thorium\nI think the current version is quite stable, and I'm only marking it as BETA because it hasn't been officially released by Alex yet.\nWelcome to use Thorium. Please submit any issues you encounter in the main Thorium repository using the issue template:\nhttps://github.com/Alex313031/thorium/issues\nHere are the release notes for this release:\n(Due to space limitations, not all changes are fully summarized.)\nUpdated Chromium from 152.0.7977.55 to 154.0.8037.45.\nThorium changes\n- Updated Android extension support for M154 while preserving the mobile UI.\n- Enabled on-device DevTools and Task Manager on Android, adapted from Cromite.\n- Fixed missing WebUI images, including the mascot on thorium://version.\n- Disabled Linux hardware video encoding by default to mitigate GPU-process crashes; hardware decoding remains unchanged.\n- Updated Privacy Sandbox defaults and removed attestation preloading and component updates.\n- Fixed uBlock Origin resource packaging, Windows installer builds, ChromeOS build compatibility, and macOS DMG asset downloads.\n- Disabled bundled Mutter for SSE2 builds to avoid incompatible GLib configuration.\nChromium highlights\n- DevTools can now retain network response bodies across cross-document navigations.\n- Enabled the CSS scroll-axis-lock property by default.\n- Continued removing deprecated Topics API code.",
+      "release_notes_url": "https://github.com/gz83/thorium/releases/tag/M154.0.8037.45",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/154.0.8037.45",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/gz83/thorium/releases/download/M154.0.8037.45/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "19cf70fd682ac0dffc4c885f5859c391f8e317c54f132f19c9d3f6824661cb8b",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/gz83/thorium/releases/download/M154.0.8037.45/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "19cf70fd682ac0dffc4c885f5859c391f8e317c54f132f19c9d3f6824661cb8b",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/gz83/thorium/releases/download/M154.0.8037.45/Thorium_SSE3_154.0.8037.45.zip",
+          "host": "github.com",
+          "filename": "Thorium_SSE3_154.0.8037.45.zip",
+          "sha256": "cee4276d4d595c091856efc5ba660c7e1995a0dbf8b3a981024cc8ca970c0d02",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "138.0.7204.303",
+      "release_date": "2026-02-18",
+      "release_notes": "M138 R2\n- Includes security fixes from upstream for latest M138 LTS version: DIFF\n- Corrected issue where \"Open in Current Tab\" was placed where \"Open in New tab\" used to be in the webpage right click menu, which ruined muscle memory and annoyed many users (including me). https://github.com/Alex313031/thorium/issues/1110\n- Colored icons corrected.\n- Fixed the download shelf not showing tooltips on hover. https://github.com/Alex313031/thorium/commit/fac9b6d9f8c74d39a979caa34f14206045ae997a\n- Fixed crash in profile selector https://github.com/Alex313031/thorium/issues/1115 & https://github.com/Alex313031/thorium/issues/1137\n- Fix misc. crashes that should have been fixed upstream, but weren't > https://github.com/Alex313031/thorium/pull/1145\n- Fix crash when \"Remove Tab Search Button\" flag is enabled https://github.com/Alex313031/thorium/issues/1111\n- WebRTC should now work, for example Zoom calls, Discord, etc. https://github.com/Alex313031/thorium/issues/1113\n- Easter eggs page (chrome://eggs) now works again (favicon needs fixing) https://github.com/Alex313031/thorium/commit/bbdf32090fe9c66cdc1a02b944af2a44a9445e5b\n- New GUI installer with progress bar and confirmation, that builds on top of the installer from previous M138 release > https://github.com/Alex313031/thorium/commit/af404cdfaa0834052e607320248a9ea037bc7c0a\nKnown Issues:\n- Top bar window dragging space (above the tabs) when Window is unmaximized is (still) too large on Windows and Linux.",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M138.0.7204.303",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/138.0.7204.303",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M138.0.7204.303/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "7243fd08a4b86568fc07b9ce9b8baf1dcf3ae40c1fbe75efdd6eee043a8ddeb1",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M138.0.7204.303/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "7243fd08a4b86568fc07b9ce9b8baf1dcf3ae40c1fbe75efdd6eee043a8ddeb1",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M138.0.7204.303/thorium_SSE3_138.0.7204.303.zip",
+          "host": "github.com",
+          "filename": "thorium_SSE3_138.0.7204.303.zip",
+          "sha256": "931468563186c4fb1d0f4f835a5b1399be18c3d1c399d7f78fb02d4f1b1a23a8",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Thorium (Portable)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "138.0.7204.300",
+      "release_date": "2026-01-01",
+      "release_notes": "Happy New Year Release!\nWhoo 😅 It took a long while to get here. Many months without updates.\nHowever, going forward, Thorium will be based on the latest LTS (Long Term Support) Chromium revision, which changes twice a year. This will let me focus on features, bug fixes, and keeping Thorium secure, instead of always having to do the long, tedious work of rebasing to a new major Chromium revision. With my new job, I simply don't have as much free time. M138 is the current one, M144 is going to be the new LTS in 2 months. In between, I can make minor updates to Thorium to address security concerns and major bugs.\n- Th24 now 98% complete, good enough for a release, Ill fix minor stuff in a future build.\n- Restored ability to install MV2 extensions from the web store (previously you would have to sideload a .crx, or keep MV2 extensions you already had installed in that user profile).\n- Fixed the Download Shelf crash, so chrome://flags/#download-shelf works again for people like me who hate the new download bubble. (bug in prev. beta release)\n- Fixed Notification settings crash that plagued the last release. (bug in prev. beta release)\n- Fixed Google sync not working and fixed translate not showing on some sites (bug in prev. beta release)\n- Added HEVC patches (bug in prev. beta release)\n- Windows Installer now has a dialog asking if you want to install (use --silentcommandline switch to revert to old silent behaviour)\nAlso, thanks to @gz83 work, the FTP patch is restored and working! Since Supermium removed the FTP patch, this makes Thorium the only browser left on earth that still supports FTP. FTP users, continue as you were 😁\nKnown Issues:\n1. Top bar window dragging space (above the tabs) when Window is unmaximized is too large on Windows and GTK3 (Linux)\n2. Some colored icons are missing in WebUI (people who hate my colored icons will rejoice 😆 )\n3. Ask.com was removed as a search engine.\n4. Easter eggs page isn't working (need to find out why, patches are in there)\n5. I added a new right click menu item \"Open in same tab\" to prevent links from opening in a new tab, however I put it at the top of the menu, which I found is terrible for muscle memory since I kept accidentally clicking it. Will move it in next release.\nEDIT: Sorry, took more like 50 hours to get the rest of the builds out. I'm in the middle of moving, so I've been physically exhausted. 😪",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/138.0.7204.300",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/138.0.7204.300",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M138.0.7204.300/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "db38e1a19c9a113e18047a651486ca741a18752154cfe71511f2c1797466e533",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M138.0.7204.300/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "db38e1a19c9a113e18047a651486ca741a18752154cfe71511f2c1797466e533",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent",
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "130.0.6723.174",
+      "release_date": "2025-02-13",
+      "release_notes": "M130\nThis release took a long time (3+ months!) to get out because of a new full time job, and the fact that Windows builds are still crashing. Windows builds are still delayed until I can figure it out. Might need to procure the help of some upstream Chromium devs that are nice enough to help me for free. Me and @midzer decided it would be a good idea to go ahead and release the Linux builds, which are working perfectly, even though we can't release for other platforms yet. UPDATE: Good news, I finally fixed the Windows crash, and MacOS builds are working again! So get ready for M130 for all the other platforms within the next day!\nThis is one of the complaints from the community that has always been valid, I am one man doing 95% of the coding work, so I can't keep it as up to date as a whole team or corporation can (@gz83 and @midzer occasionally help with coding, but mostly just make Windows and MacOS builds, and help with maintenance tasks).\nIf you are very concerned about Thorium not always being on the latest Chromium, then perhaps use another browser, or only use Thorium for specific tasks like JPEG-XL or viewing FTP sites. I use it all day, everyday, for work and pleasure, on all my various computers/old phones, since 2021 when I started the project. I've never gotten hacked, or gotten malware. That isn't to say that some zero-day, that they may have patched in a minor revision that Thorium hasn't been updated to yet, couldn't leave Thorium more vulnerable than Google Chrome for instance. It is just that usually, it would have to be a targeted attack, and running this build based on Chromium M130, rather than M132 (the latest), isn't going to turn your computer into some sort of virus magnet all of a sudden. Basically all I am saying is that the complaints and reasoning are very valid, but perhaps some of ya'll are getting a little too afraid and/or heated about it. (People getting mad at me on Reddit, or spamming my email with links to new zero days that have been found in Chromium).\n\nNew explainer document (with pictures!) about Cr23 and Th24 UI stuff: >> TH24.md\nMore Th24 fixes/updates include:\n- More Chrome Labs items like \"Middle Click Scroll\"\n- Tab Search button alignment is fixed. On Linux/MacOS it is also restored to the original rounded shape. On Windows, it is restored to the old style of being a window control button, like the minimize/maximize/close buttons.\n- Colors are Restored! I originally didn't want to do this, but it turned out to be relatively easy. The old, non Cr23 colors had more contrast, and were more neutral so they blended better with different OSes styling. In addition, the \"Customize Thorium\" side panel now has the old color options on top of the existing new ones. See explainer document for pictures.\n- Top bar icon sizes were slightly increased, to make them look better with the old UI.\n- Omnibox suggestion row button radius was fixed\n- Downloads page (chrome://downloads/) duplicate close button on previously downloaded items was fixed.\n- Toggle button styling were restored. See explainer document for pictures.\n- Dialog box sizing was restored. See explainer document for pictures.\n- Sharing hub button was restored on the right side of the omnibox, where the bookmark button is, along with the original icon.\n- Bookmarks folder icon restored for Linux now too (originally I just restored the Windows one).\n- Bookmarks bar overflow button and \"All Bookmarks\" button alignment fixed.\n- Omnibox left-hand-side separator is restored, as well as the color of the icon.\n- Original new tab button and tab search button icons restored\n- Unmaximized window frame grab handle height fixed in Th24\n- Menu arrows restored to pre-Cr23 icons.\n\n- Global Privacy Control patch added! This makes Thorium one of the few Chromium based browsers to have it. Cromite and Brave have it, but I'm not aware of any others. You can test that it is working in Thorium by visiting https://global-privacy-control.glitch.me/. The setting is a toggle right below the \"Do Not Track\" toggle. Both are enabled by default in Thorium for the obvious privacy benefits. You can read more about it and toggle it on and off at chrome://settings/cookies.\n- When the chrome://flags#rectangular-tabs I added in M128 is enabled, now the new tab button and tab search button will also have a rectangular appearance as well.\n- New command line flag --reader-mode to start Thorium with reader mode turned on for all sites.\n- Menu show delay time for menus and items was turned down to 0 milliseconds for all platforms. I hate artificial delays added to the UI of applications just to make it match the OS. Heck, I don't like it on the OS either, so I tweak the registry on Windows, or make a GNOME config on Ubuntu to do the same thing but for the whole OS.\n- New file handler icons for Windows & MacOS. I might add some for Linux next release too.\n- New menu items when right clicking a video\n- Hardware acceleration issues with AMD GPUs on Linux fixed by reverting a status flag I had modified back to the way upstream Chromium had it.\n- Bookmark bar separator colors fixed.\n- Bug where the disable-thorium-icons flag was not working for the home button is fixed.\n- Fixed fullscreen mode of the Dino game (called \"Arcade Mode\") at chrome://dino/. This is actually an upstream bug, so it is broken in Chrome/Chromium still as well! I also made a pull request upstream with the fix, but noone has looked at it yet. So for now Thorium is the only Chromium based browser with a working Arcade Mode of the dino game. So make sure when you are slacking off at work, you choose Thorium for jumping over stuff with a T-Rex! When my fix is (hopefully) accepted upstream, I will let ya'll know lol. The commit that broke it is Here for anyone interested.\n- Text contrast increased for better readability in dark mode.\n- Side panel grab handle size reduced because it's simply too big.\n- Building for a given SIMD level is much easier now, for example an AVX2 or AVX512 or custom build. I did a major code refactor for the compiler optimizations of Thorium, and it can now be controlled through build args rather than source code. See Here for more info. (Only of interest to those building it for themselves).\n- New debugging tool for USERS (not just devs). Backstory: Chromium/Thorium can be built with is_debug = true, but these builds are large, very slow, and not suitable for public release. They are normally only used internally by me and the builders @midzer and @gz83 , but they have one thing I wished I had by default: Verbose Logging. Well, now we do, even in non-debug builds! Set the new environment variable THORIUM_DEBUG=1 (or THORIUM_DEBUG=true) (for info on how to set an environment variables, see Here), and when running Thorium from the command line, it will respect them, and cause it to log to console with the same verbosity as a debug build normally would. This means it will show verbose info, non fatal errors and warnings (normally only fatal errors and certain warnings are shown). It will also show any output from the devtools console of the current tab, even if devtools isn't open! Basically this will let you gather a verbose log to send to me in a GitHub issue if I ask for it or if you already know that it's relevant to the bug at hand. It could also be useful for web devs since they can view the devtools console output without it being open.\n- Security on Linux improved slightly by disallowing loading .so libraries from anywhere outside the directory the thorium binary resides in, or system library directories.\n- Downloads bubble menu width increased to allow long filenames to be read easier.\n- Close confirmation flag fixed.\nI have also added a new flag to the Chrome Labs i.e. Thorium Experiments button (as well as the chrome://flags page of course), that controls a new feature that may become default in a later release. I am particularly proud of this new feature code-wise, as it was not easy to implement like one would think. Anyway, it is a new top bar button! Enabling chrome://flags#restore-tab-button will add a new little separator and button to the left side of the top bar, beside the home button (or reload button, if you have the home button turned off). Clicking it simply opens the last closed tab or window. Successive presses will open the 2nd last closed tab/window, etc. similar to Ctrl + Shift + T, just with a button instead of a keyboard shortcut for people who like to use their mouse.\nNote: If you have turned on the \"Disable Download Bubble\" flag, you will need to turn it on again because the name and internal variable (which is why you have to set it again) has been changed to \"Restore Download Shelf\" & chrome://flags#download-shelf\nNote 2: A full scale, C++ auto-updater that is directly integrated into the browser is in the works, instead of the kinda not so great https://github.com/Alex313031/thorium-winupdater. One that behaves just like Google Chrome's one, except without any enterprise policy or LTS Channel stuff. Although I do want to write it so that it detects what type of build you are running (i.e. AVX or SSE3) and downloads the appropriate version in the background to the system's TEMP folder. That way all you have to do to change from one version to the other, is download the installer for it manually, and from then on, it would auto-update to whatever version you preferred.",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M130.0.6723.174",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/130.0.6723.174",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M130.0.6723.174/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "f2ce7c91b68647ac5de1a0a4d251f9978aa186636d299ed8a5e50abee7cf6516",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M130.0.6723.174/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "f2ce7c91b68647ac5de1a0a4d251f9978aa186636d299ed8a5e50abee7cf6516",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "128.0.6613.189",
+      "release_date": "2024-10-18",
+      "release_notes": "M128 Thorium 2024 UI \"Th24\" is complete. Please see the past 3 beta releases if you aren't up to speed about it. On top of those, we now:\n- Have the restored bookmarks folder icon used in the bookmarks ui and bookmarks bar\n- Fixed spacing of the new tab button\n- Added 180px as an option to the new custom-tab-width chrome flag\n- Tab separators are 2px again after I had temporarily reverted back to 1px\n- More WebUI stuff is reverted to its pre-Chrome 2023 appearance.\n- I am writing a full write-up/explainer on what Cr23 is, what Th24 is, and why I made it. It will have pictures to illustrate as well. It isn't finished yet but you can find it Here.\n\nNow, other stuff:\n- New flag chrome://flags#classic-omnibox \"classic omnibox\". When enabled, the omnibox (i.e. url bar) takes on a more squareish shape similar to classic versions of Chromium/Chrome. It was adapted from the same flag in Supermium, but I adjusted the radius, and I fixed an issue with stuff not showing up quite right when the omnibox is focused, i.e. when the results are all showing up. Might make a pull request upstream.\n- The Thorium 2024 flag was added to \"Chrome Labs\" to make it easier to enable than going to chrome://flags. Just click the \"beaker\" icon (actually an Erlenmeyer flask lol) in the top bar, and you can enable it there.\n- New flag chrome://flags/#remove-tabsearch-button to remove the tab search button from the tab strip.\n- The bug on Linux where me setting it to the classic theme by default was causing crashes is now fixed.\n- I finally added some background music to the Chrome Dino game. You can hear it on chrome://dino\n- Added a new WebUI page chrome://eggs that has images from the easter egg contest on it.\n- I enabled the Customize Toolbar feature ahead of schedule (the official stable enabled by default release was in M129). This lets you add a bunch of stuff to the toolbar.\n- The size of the main menu button (aka the \"hamburger menu\" or \"three dots menu\") has been corrected to be smaller\n- Better compiler tuning on MacOS\n- \"About Thorium\" item in the main menu is now in a better place and doesn't have a blue \"i\" icon on it anymore.\n- New flag chrome://flags#transparent-tabs, which makes tabs semi-transparent (Windows only)\n- Limits of MV3 were removed. A MV3 extension like UBlock Origin Lite, if it were coded to take advantage of Thorium, now has limits on declarativeNetRequest that are similar to MV2. Thorium still intends to restore MV2 code when the time comes, but I thought this would be an interesting experiment. I might try to fork Ublock, so if you're interested in this, watch my GitHub account for a new repo.\nIncludes a build of Thorium UI Debug Shell (AVX only) TODO: Fix alignment of tab search button, fix FTP link clicking.",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M128.0.6613.189",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/128.0.6613.189",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M128.0.6613.189/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "831e82c4ee36db0f4ba867b457ee891c1a83a15fa09f66ce92a9f094d7089f2b",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M128.0.6613.189/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "831e82c4ee36db0f4ba867b457ee891c1a83a15fa09f66ce92a9f094d7089f2b",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "126.0.6478.231",
+      "release_date": "2024-08-12",
+      "release_notes": "M126\n- This is also Thorium's 30th major version anniversary. Very first Thorium was based on M96.\n- Skipped M125 because it was too old. I was house-sitting for my dad/stepmom while they were away on a month long trip. I didn't have access to my workstation which I really need to do anything more than minor development work.\n- (Linux Only) kAllowWindowDragUsingSystemDragDrop was re-enabled at the source level. This should fix tab/window dragging issues on Wayland, but may cause other unforeseen bugs on Wayland. File bugs if appropriate. Can be disabled with the cmdline flag --disable-features=AllowWindowDragUsingSystemDragDrop\n- Google Hangouts component extension was removed, following concerns about privacy. However, if you use hangouts frequently and would like this extension back, see this ReadMe. Closes https://github.com/Alex313031/thorium/issues/743, https://github.com/Alex313031/thorium/issues/740, https://github.com/Alex313031/thorium/issues/449, https://github.com/Alex313031/thorium/issues/410\n- The Chrome Refresh 2023 UI is now the default.\n- I moved the tab search button back to the right of the tabstrip. I think it was a bad decision to put it on the left in the 2023 UI. However, if you prefer it on the left (to have Thorium's UI match Chrome's), enable the new chrome://flags/#left-aligned-tab-search-button flag I added.\n- Another performance bump due to some new PGO configs courtesy of @RobRich999. See this commit. In some limited testing it got better Speedometer 3.0 scores than Chrome.\n- libjxl updated to 0.10.3\n- Manifest V2 support force enabled (Starting in M128 they are experimenting with disabling MV2). It will be completely removed in M136 (10 months from now), and when they finally do remove the actual code for loading MV2 extensions, it will be restored, because F**k Google! Even if it takes a crapload of work, I am determined to restore it, because without UBlock Origin working properly in Thorium, I wouldn't even want to use my own browser! If you want to use other Chromium based browsers, you will eventually be out of luck, and will either need to use Firefox, or find another Chromium fork that has MV2 support when the time comes.\n- New flag chrome://flags#revert-from-portable can be used to prevent data loss when reverting a user profile from portable mode to normal mode (i.e. when turning off the disable-encryption and disable-machine-id flags). Can also be used when moving the user profile from one machine to another. Read the flag description for details.\nTwo more things: – I have created a new user survey for 2024. The more responses I get, the better, and it will be used to guide decisions about Thorium into Q4 of 2024. Take the 8 question quick survey here > https://www.surveymonkey.com/r/355TK88 – I am hosting an art/image contest! The winner's image will be displayed on the easter egg page, as well as the chrome://version page. It should be an art or clipart image. See details and requirements over here > https://thorium.rocks/contest",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M126.0.6478.231",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/126.0.6478.231",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M126.0.6478.231/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "1ba8bd00d6d3b3eab1f6bb4b69eef15e1656dc83942adb631757bf2b133ede3e",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M126.0.6478.231/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "1ba8bd00d6d3b3eab1f6bb4b69eef15e1656dc83942adb631757bf2b133ede3e",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "124.0.6367.218",
+      "release_date": "2024-05-17",
+      "release_notes": "M124\n- AC3/E-AC3 Audio support restored. It was disabled in the last couple of versions due to ffmpeg changes. Dolby Atmos audio is also restored. Note that for ARM/ARM64 builds, it is still disabled, due to incompatibilities with how Chromium loads the libffmpeg library.\n- WebRTC (used for real-time communication like video chats, i.e. Zoom, for example) can now use H.265/HEVC (recent upstream Chromium feature) on devices without hardware decoding support (Thorium feature). This is good because H.265 compression means that you will have less stuttery streams if you are on a bandwidth limited connection.\n- Fingerprinting protection patch added. Note this isn't a safety blanket, and doesn't mean Thorium will remove all types of fingerprint tracking it just makes it better than normal Chromium/Chrome. I would like to expand on this in the next version by adding a setting to enable the Global Privacy Control header, alongside the \"Do Not Track\" setting, which is also enabled by default in Thorium.\n- Added flag to enable/disable Side Panel Journeys, which can be annoying. chrome://flags#side-panel-journeys\n- Added flag to enable/disable showing the built in internal extensions that are normally hidden. They are now hidden by default (like in normal Chromium), but can be re-enabled with chrome://flags#show-component-extension-options. I did this because I was getting too many issues with people wondering what they are, why they couldn't be removed, and if they were a security concern. These extensions are built in to every Chromium browser. Disabling them would remove support for the Web Store, viewing PDFs, and integrating with Google Hangouts. I added a patch from UnGoogled Chromium a while back to un-hide them, but it has led to more confusion than it is worth. Since most people don't care, they are now hidden again, but the flag is for people who want to inspect or debug them, or just want the transparency of showing all extensions that are loaded in the browser.\n- The Side Panel Chrome Customization feature now works even if Chrome Refresh 2023 UI is disabled (Thorium has it disabled by default). However, fixing this this led to an unforeseen minor issue, that I didn't catch until everything was already built. Even if Chrome Refresh 2023 is enabled with the chrome://flags/#chrome-refresh-2023 and chrome://flags/#customize-chrome-side-panel flags as mentioned in the M123 release, it still won't actually work unless you also pass the --disable-features=CustomizeChromeSidePanelNoChromeRefresh2023 flag. Since I didn't catch this until afterward, there is no GUI flag available on the chrome://flags page. You will need to specify it manually on the commandline, either from the terminal, or to make it permanent, by editing the shortcut (on Windows), or editing /usr/bin/thorium-browser (on Linux). Next release will fix this.\n- The entire browser now respects Gamma/Alpha settings that the user has set for the display (Windows only for now). It is unknown how this will play with Thorium's JPEG-XL support. Feedback requested.\n- New commandline flag to disable the custom Thorium DNS config. Normally, Thorium uses two patches, to make DNS queries more privacy respecting, and to use DNS over HTTPS (DoH) by default, which is more secure and can't be intercepted by \"man in the middle\" attackers. However, this was breaking some people's configurations, especially when they had manually set DNS options in the OS, or were using external third party apps that change DNS settings (like VPN services). So, if you pass the --disable-thorium-dns-config flag on the commandline, Thorium will use the default Chromium DNS configuration. You can make it permanent using the same steps as above. I will also make this a GUI flag in the next release.\n- 32 Bit Linux is now supported, however I am not going to be regularly building binaries. But it is at least supported at the source code level again. There is an M123 release available. Note that Ubuntu 16.04 is not supported.\n- FTP support restored! Chromium and Firefox both removed all support for ftp:// URLs back in 2021. This has always annoyed me, because alot of ftp servers are still around, and alot of old software is only downloadable from ftp servers. In addition, tools like wget and curl wont download from them by default. This made it really convoluted to download files from an ftp website, usually making the user have to download a third party app. FTP means \"File Transfer Protocol\", and it was used heavily on the web for serving download directories to people (Microsoft used to host updates on an ftp site, for example). Learn more about it Here.\n  It is enabled by default, but can also be disabled by the restored flag chrome://flags/#enable-ftp. There are two minor bugs though. First, favicons don't work, so when you are on an ftp site, the tab will show the \"dino\" icon usually used when a site is not reachable. Second, directly clicking links doesn't work, and will instead land you on an \"about:blank#blocked\" page. To go to an ftp site, right click the link, and select \"Copy link address\", and then open a new tab, paste the link in the address bar, and press enter. I hope to resolve these in the next version. This makes Thorium the only modern browser that supports FTP anymore. Thorium also now registers as an FTP URL handler with the OS, but I have not tested if opening an ftp url in an external app will cause Thorium to open it correctly, or land you on that \"about:blank#blocked\" page. Feedback is requested. Thanks to @win32ss for modernizing some of the code, since obviously stuff has changed alot in the Chromium repo since 2021. I took his patches, and adapted/fixed them to work on the M124 Chromium revision(s).\n- I enabled a feature that is normally disabled, that allows you to configure more options for PWA (Progressive Web App) windows. See the settings while in a PWA to see the extra options.\n- Global Media Controls (this little icon in the top bar > ) can be disabled again. I had enabled a feature that updates the UI on ChromiumOS/ThoriumOS, but it had the unforeseen effect of force-enabling it on other platforms.\n- Major vulnerability CVE-2024-4671 is fixed in this version.",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M124.0.6367.218",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/124.0.6367.218",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M124.0.6367.218/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "9021dc35ef9e2174d57d74b880e42bb236eb9e33f2193258ab8d9624d38c9f19",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M124.0.6367.218/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "9021dc35ef9e2174d57d74b880e42bb236eb9e33f2193258ab8d9624d38c9f19",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "123.0.6312.133",
+      "release_date": "2024-04-24",
+      "release_notes": "M123\n- Enabled WebSQL by default (for things like Session Buddy 3)\n- More compiler optimizations in PGO (Linux-only for now) > https://github.com/Alex313031/thorium/commit/acf69ddd0fd1069fc39db86a8fee3644c5747c5a#diff-9b63dea0428a0efde7b9737c2b752678592868f64817cfbad4af4767d4bdfa84\n- More compiler optimizations (well, actually the removal of some LLVM flags) > https://github.com/Alex313031/thorium/commit/c55c6b3e1ba9550b9c11700f929f51e8c57853a3\n- Disabled the ugly \"Chrome Refresh 2023\" UI by default https://github.com/Alex313031/thorium/commit/ec8b741ecf60bf1cfc6e44428afb20764109430a however, if you decide you want it, set these two flags to true: chrome://flags/#chrome-refresh-2023 & chrome://flags/#customize-chrome-side-panel\n- If Chrome 2023 Refresh UI is enabled, then I added updated icons for the top bar (colored by default like usual, but can be made grey with the chrome://flags/#disable-thorium-icons flag). > https://github.com/Alex313031/thorium/commit/ec8b741ecf60bf1cfc6e44428afb20764109430a\n- Minor spacing and spelling fixes on some chrome:// pages that Thorium modifies. > https://github.com/Alex313031/thorium/commit/8d050fcf04e356c1a6dc2bed839181ae3a99872f\n- Added Policy Templates for people wanting to set enterprise policies, or simply to see the available Windows Registry keys to control certain behaviors. These are identical to the ones for Chromium, except the directory names and registry key names have been changed to \"Thorium\" so that you don't have to do that yourself. They are in the thorium_policy_templates.zip file. > https://github.com/Alex313031/thorium/commit/dcf4dd9848eb2a3041896d00eec135d3281d17ec\n- Added a Memorial easter egg dedicated to my Grandmother \"Gramma Linda\", who I spent the last month in the hospital with, and she sadly died March 23, 2024 at the age of 83. 😭 Born on Dec. 27th, 1940. You can view the easter egg by running Thorium from the cmdline with --enable-logging --v=1 >> C:\\place\\where\\you\\want\\debug.log. The top of the logfile will print the Thorium brand name and version, and under that is my little memorial code. > https://github.com/Alex313031/thorium/commit/8c0850e25eb5946e33dbe400ce279630cfda87e7\n- The NTP page was broken when using a search engine other than Google, including the extra ones I added to some locales. I fixed it here > https://github.com/Alex313031/thorium/commit/e11300316f324c389fe513f12911014d3e1d605c\n- Fixed the disable-encryption flag not working properly (for users of the portable .zips) > https://github.com/Alex313031/thorium/commit/1ac0e00cbca58628e4e24c779dddd65569c158b8 This should fix issues where Thorium signs you out of sites on every restart.\n- Updated libhighway in the libjxl repo to 1.1.0 > https://github.com/Alex313031/thorium-libjxl/commit/1a4d1e77902ada5e673a1881d2efa54a6d55f95c for better SIMD optimization\n- Update libjxl to 0.10.2, which makes JPEG-XL rendering much faster, and fixes bugs when images were above a certain size > https://github.com/Alex313031/thorium-libjxl/commit/fb2a3d6a7925ecaab68b729fe64f6ea277221251\nBig news! On top of Thorium continuing to support Windows 7/8/8.1 (which I have been doing for a while now, since M110), Thorium now supports Windows XP and Windows Vista! I made a page dedicated to it, with an XP style theme similar to the Win7 page > https://thorium.rocks/xp/.\nDownload releases for all these Pre-Windows 10 OSes here > https://github.com/Alex313031/thorium-legacy/releases\nThis also means that Thorium now supports more OSes and architectures than ANY other browser on the market!. Windows XP - 11 x32, x64, and arm64. MacOS x64 and arm64. Linux x64 and Raspberry Pi arm64. And Android arm32, arm64, and x86.\nThanks to @gz83 for helping with Windows builds + policy templates, and @win32ss for providing the baseline patches used to restore Windows XP/Vista support.",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M123.0.6312.133",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/123.0.6312.133",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M123.0.6312.133/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "6e73d7aa7413fc3d49bc309717470606254812cc87d8dd6ef8031a9853333800",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M123.0.6312.133/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "6e73d7aa7413fc3d49bc309717470606254812cc87d8dd6ef8031a9853333800",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "122.0.6261.132",
+      "release_date": "2024-03-15",
+      "release_notes": "Nothing too special this release, just your standard Chromium upgrade.However, four things:- Fixed the profile picker crash, which would cause Thorium to just segfault and crash without warning or any useful log output if you tried to add a new profile, OR if you had multiple profiles already added. This is my fault and I was being a dummy last release. Let me explain: Last release notes I said \"Enabled AutoPlay toggle in Settings, I previously had it disabled due to a crash\". Well I literally left myself a comment line to remind me what the crash was >  Yet I just tested to make sure the browser didn't crash on startup (which it wouldn't on my end because I only use one profile). I forgot to check by making a new profile(s). Thus, I declared the bug \"fixed\" when it really wasn't, and promptly got spammed with a bunch of sad people who's browsers were crashing. This was a stupid mistake on my part, and I'm sorry to anyone whos workflows got interrupted and the frustration that people were having. I will probably leave this setting disabled indefinitely, since I already added a chrome://flags flag to control this behavior anyway > chrome://flags/#autoplay-policy  Fixes            and Alex313031/Thorium-MacOS#42\n- Disabled some more \"Privacy Sandbox\" bullcrap\n- Added a patch from Ungoogled to disable captive portal detection. Note this won't work in all cases. Fixes Alex313031/thorium#528\n- This release is actually ahead of the version in official stable Chrome right now (.128 minor rev), as I spotted a nice security fix in V8 that was not landed until the .132 minor revision.\nAlso, I got more issues regarding people disliking the custom colored top bar icons. Reminder that since M121, I added a flag to disable these > chrome://flags/#disable-thorium-icons",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M122.0.6261.132",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/122.0.6261.132",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M122.0.6261.132/thorium_AVX2_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_AVX2_mini_installer.exe",
+          "sha256": "692a039a11e0df7079d0947e2dd5790f617c9c7ce277309dd7a1ea2eb6b483f0",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M122.0.6261.132/thorium_AVX2_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_AVX2_mini_installer.exe",
+          "sha256": "692a039a11e0df7079d0947e2dd5790f617c9c7ce277309dd7a1ea2eb6b483f0",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M122.0.6261.132/thorium_AVX2_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_AVX2_mini_installer.exe",
+          "sha256": "692a039a11e0df7079d0947e2dd5790f617c9c7ce277309dd7a1ea2eb6b483f0",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M122.0.6261.132/thorium_AVX2_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_AVX2_mini_installer.exe",
+          "sha256": "692a039a11e0df7079d0947e2dd5790f617c9c7ce277309dd7a1ea2eb6b483f0",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "121.0.6167.204",
+      "release_date": "2024-02-20",
+      "release_notes": "M121 Thorium's 30th version birthday!\n- Disabled annoying feature promos like \"Show me how to set Chrome's theme?\" and \"Do you want to take the privacy check now?\". It wouldn't be so bad if these didn't appear randomly, and interrupt your workflow by blocking interaction with the rest of the browser until you click \"Yes\" or \"Not right now\". (Also notice how they say \"Not right now\" instead of \"No\". WTF is up with corporations doing this. It's subtle, but it's like psychologically saying \"we'll let you say no now, but we expect you to change your decision later\". Like no, leave me alone!).\n- Dolby Vision should now use proper color space info from your machine. Note that Dolby support still requires a hardware decoder to work at all, unlike HEVC/H.265 content which we added a patch to allow software decoding.\n- Updated libhighway to 1.0.7, and libjxl to 0.9.2. This should hopefully fix the JPEG-XL HDR issues some people reported. Should fix https://github.com/Alex313031/thorium-libjxl/issues/18\n- On Windows, the mini_installer.exe unpacks itself faster due to an upstream change.\n- On Windows, preloading the browser, for example with background mode enabled, is now a little bit faster due to preloading pdh.dll and uxtheme.dll from system32.\n- Network Certificates now use the BoringSSL library (yes that's really its name), which is better overall than OpenSSL. (Don't worry, BoringSSL is still open source, and is actually a fork of OpenSSL).\n- Enabled a new Experimental feature, called kResponsiveToolbar. This makes it where when the window size is too small to hold both the tabstrip and top bar buttons (for example if you have alot of pinned extensions), the top bar buttons will be moved to a little chevron overflow menu.\n- Re-enabled a setting that I previously disabled due to crashes, which allows you to toggle AutoPlay settings at chrome://settings/content/sound\n- Added a much requested feature to be able to disable the colored custom top bar icons. You can now disable them with the flag > chrome://flags/#disable-thorium-icons. Rejoice! as I know many people don't like that I added blue and green colors to those. Note that icons used in the menus and settings still have blue colored triangles. I'm not gonna change those, as it's too much work and most people don't care about those. Fixes https://github.com/Alex313031/thorium/issues/307 and https://github.com/Alex313031/thorium/issues/66\n- Prevented Thorium complaining about missing Vulkan drivers on non-Intel platforms. This has been a long standing issue in Chromium, but I'm not going to file a bug because it is used by their infrastructure.\n- Added Thorium's extra search engines to even more locales, including Mexico and Venezuela.\n- Completely disabled the \"Privacy Sandbox\" (previously known as FLOC), because it's a s**tshow, and not good for user's privacy at all. See > https://proton.me/blog/google-privacy-sandbox\n- Enabled a compiler flag called _LIBCPP_HARDENING_MODE = _LIBCPP_HARDENING_MODE_FAST, which hardens C++ code against flow integrity issues and memory overflows, while still keeping stuff fast compared to = 1\n- Removed some extraneous LLVM opts\n- Re-enabled the chrome://whats-new page after I accidentally disabled it in M117.\n- More SIMD optimizations in the AVX2 versions.\n- I changed the download bubble flag name to chrome://flags/#disable-download-bubble, so if you changed this to restore the old download shelf, you will need to set it again.\n- Updated the documentation in the //docs directory, and on the site at https://thorium.rocks/docs which should allow you all to easily make your own builds now. Previously, following the docs which were very out of date (out of date for both upstream and because of the new build scripts added to the repo) would not yield a working browser. Fixes https://github.com/Alex313031/thorium/issues/488, https://github.com/Alex313031/thorium/issues/362, https://github.com/Alex313031/thorium/issues/551, and https://github.com/Alex313031/thorium/issues/477.\n- Added SSE3, AVX, and AVX2 builds for both Windows and Linux. I am deprecating the Thorium-Linux-AVX2, Thorium-SSE3, and Thorium-Win-AVX2 repos.",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M121.0.6167.204",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/121.0.6167.204",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M121.0.6167.204/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "968abe9257cdfc58078a828fe2d4b085bc3cea89535c371d27e06afee389b3d0",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M121.0.6167.204/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "968abe9257cdfc58078a828fe2d4b085bc3cea89535c371d27e06afee389b3d0",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-WOA/releases/download/M121.0.6167.204/thorium_ARM64_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_ARM64_mini_installer.exe",
+          "sha256": "461f34407018ce0a6981371b308bbe6ec3e8a5745239a299ec744a4251230e13",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-WOA/releases/download/M121.0.6167.204/thorium_ARM64_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_ARM64_mini_installer.exe",
+          "sha256": "461f34407018ce0a6981371b308bbe6ec3e8a5745239a299ec744a4251230e13",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "120.0.6099.235",
+      "release_date": "2024-01-24",
+      "release_notes": "- More optimization flags as per guidance from @RobRich999 here > RobRich999/Chromium_Clang#26 (comment)\n- Re-enabled component ffmpeg.dll (in case you ever wanted to replace it with a version that doesn't have proprietary codecs to make a \"fully FOSS\" build. Most people won't want this as it breaks media playback on alot of sites (including Widevine).\n- Added a new right-click menu item to \"Save video frame\" which you can use to save a .png of the current paused frame.\nAdded three new chrome://flags flags. These are:\n- chrome://flags/#vaapi-video-decode-linux-gl to toggle using the GL backend for VAAPI acceleration (Linux only). Fixes Alex313031/thorium#162\n- chrome://flags/#close-window-with-last-tab which allows you to keep the application open when closing the last tab (i.e. closing the last tab will simply open a new blank one). Fixes Alex313031/thorium#338\n- chrome://flags/#allow-insecure-downloads to fix the annoying issue where Thorium won't download files if they come from http:// ftp:// or \"mixed origins\" i.e. an http:// download initiated by an https:// page. Fixes Alex313031/thorium#509",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M120.0.6099.235",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/120.0.6099.235",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M120.0.6099.235/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "8dee0b7b34f4de0e024b9297e6514a0466776f99b35686be38bc709921aca533",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M120.0.6099.235/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "8dee0b7b34f4de0e024b9297e6514a0466776f99b35686be38bc709921aca533",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-WOA/releases/download/M120.0.6099.235/thorium_ARM64_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_ARM64_mini_installer.exe",
+          "sha256": "9dcaaad6e08a57c73c57b841c12c5701a2debd70cd8a3defcdac3a592c7ae96a",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-WOA/releases/download/M120.0.6099.235/thorium_ARM64_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_ARM64_mini_installer.exe",
+          "sha256": "9dcaaad6e08a57c73c57b841c12c5701a2debd70cd8a3defcdac3a592c7ae96a",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "119.0.6045.214",
+      "release_date": "2024-01-06",
+      "release_notes": "- Fixes multiple CVEs including https://github.com/advisories/GHSA-xm5p-7w7v-qqr5\n- Better HLS support\n- Better JavaScript compilation performance due to new Thorium compiler flags as well as upstream V8 re-workings.\n- Updated Widevine versions\n- The search engine choices that Thorium adds are now available in more locales. (Notably not in Russia or China because ya know, their governments not allowing certain URLs.\n  Hong Kong and Ukraine are not affected).\n- Live Caption should now finally work (English only, sorry.\n  The .grdp files for other languages are closed source for now).\n- ChromeCast can now use VP8 and VP9 codecs for less bandwidth consumption if you have slower internet. (Note that this is disabled by default in Chromium, I enabled it, but it is still experimental).\n- New chrome://flags flag chrome://flags#disable-aero This disables transparency effects and GPU accelerated window frame compositing (while still leaving GPU acceleration for the actual web contents intact).\n  It is useful if you dislike transparency, or are getting glitches on Windows 11 with the window frame.\n- Storage Access API was disabled because the security risk is more than the usability improvement.\n  If you need this, use the new chrome://flags/#storage-access-api flag I added to enable it.\n- Keyboard shortcuts in ThoriumOS now align better with Linux.\n- Portable version now also sets the cache dir to ./.config/cache, to prevent any disk writes outside of the dir.\n- Rejoice!\n  If you are like me and hate the new \"Download bubble\" and want the old \"Download shelf\" back, well I reverted a commit from upstream, and now there is a flag for it! > chrome://flags#download-bubble\n- Windows builds are now more hardened against memory overflows by enabling the arg \"win_enable_cfg_guards = true\"\n- PGO is now more effective (thanks @RobRich999) > https://github.com/Alex313031/thorium/commit/\n- New flag from Ungoogled-Chromium chrome://flags#tab-hover-cards Allows removing tab hover card images, and instead replace with a tooltip (the behavior before M106).\n- __Added SSE3 builds for people without AVX-capable CPUs__",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M119.0.6045.214",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/119.0.6045.214",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M119.0.6045.214/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "237899b8ebd0bf47c9ed2e8470a8cca8a72421cc601c35cf254f6b1982e192f4",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M119.0.6045.214/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "237899b8ebd0bf47c9ed2e8470a8cca8a72421cc601c35cf254f6b1982e192f4",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M119.0.6045.214/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "237899b8ebd0bf47c9ed2e8470a8cca8a72421cc601c35cf254f6b1982e192f4",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M119.0.6045.214/thorium_SSE3_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_SSE3_mini_installer.exe",
+          "sha256": "237899b8ebd0bf47c9ed2e8470a8cca8a72421cc601c35cf254f6b1982e192f4",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "117.0.5938.157",
+      "release_date": "2023-10-10",
+      "release_notes": "- Removed Linux middle click autoscroll by default because it caused bugs for some people. You can still enable it by using the cmdline flag --enable-blink-features=MiddleClickAutoscroll (and I removed the warning bar for people who do). Fixes > Alex313031/thorium#199\n- You can now choose to not show full URLs. Previously it was forced to true, and selecting/unselecting \"Always show full URLs\" would do nothing. It is now still enabled by default, but you can choose to unselect it. I will be making a PR to Ungoogled Chromium about this.\n- HEVC/H.265 decoding is now multi-threaded. Thanks to @RobRich999 for pointing this out and where to enable it.\n- Two major security vulnerabilities in libwebp and libvpx were fixed. See the new security policy for info about submitting security bugs, and a list of fixed vulnerabilities (which will be updated henceforth). If you use any of my Electron apps, those were also recently fixed.\n- On top of my Thorium-Win7 fork, which will soon be updated to be based on Supermium M118 (me and @gz83 are working on a unified patch for this), I also made a new repo: https://github.com/Alex313031/chromium-xp with ongoing work to resurrect Chromium on XP. I currently have fixed google search, compiling with the windows 10 sdk, and added Thorium's optimizations (minus AVX).\n- chrome_management_service should work properly now, if any of you out there are using Thorium with enterprise policies set.\n- Slightly higher Speedometer scores, due to both upstream optimizations, and me tweaking rustflags in the compiler config.",
+      "release_notes_url": "https://github.com/Alex313031/Thorium-Win/releases/tag/M117.0.5938.157",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/a/Alex313031/Thorium/117.0.5938.157",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M117.0.5938.157/thorium_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_mini_installer.exe",
+          "sha256": "6932df0545278add147665edacdf98ee145516ba7ded05b8a42e9c2806e7272e",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-Win/releases/download/M117.0.5938.157/thorium_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_mini_installer.exe",
+          "sha256": "6932df0545278add147665edacdf98ee145516ba7ded05b8a42e9c2806e7272e",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://github.com/Alex313031/Thorium-WOA/releases/download/M117.0.5938.157/thorium_ARM64_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_ARM64_mini_installer.exe",
+          "sha256": "59c0abc967d18274abbc592afaf629b96c4c1b6d3719522efe4448f60eab85b4",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/Alex313031/Thorium-WOA/releases/download/M117.0.5938.157/thorium_ARM64_mini_installer.exe",
+          "host": "github.com",
+          "filename": "thorium_ARM64_mini_installer.exe",
+          "sha256": "59c0abc967d18274abbc592afaf629b96c4c1b6d3719522efe4448f60eab85b4",
+          "product_code": "Thorium",
+          "install_modes": [
+            "silent"
+          ],
+          "switches": {
+            "log": "--verbose-logging --log-file=\"<LOGPATH>\"",
+            "custom": "--do-not-launch-chrome --system-level"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "http",
+            "https",
+            "mailto",
+            "tel"
+          ],
+          "file_extensions": [
+            "htm",
+            "html",
+            "pdf",
+            "shtml",
+            "svg",
+            "webp",
+            "xht",
+            "xhtml"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "M138.0.7204.303",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/Alex313031/Thorium-MacOS/releases/download/M138.0.7204.303/Thorium_MacOS_x64.dmg",
+          "host": "github.com",
+          "filename": "Thorium_MacOS_x64.dmg",
+          "sha256": "9a31c4d3fea1f6a49f2943f30d3400ef7cffbb8ab815567e83049b88652b8778"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/Alex313031/Thorium-MacOS/releases/download/M138.0.7204.303/Thorium_MacOS_ARM64.dmg",
+          "host": "github.com",
+          "filename": "Thorium_MacOS_ARM64.dmg",
+          "sha256": "01f77352f40445e5c39a838c6e48198a09b64c14b0ec423c83fd9b461e0d7069"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Thorium.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/Thorium",
+            "~/Library/Caches/Thorium",
+            "~/Library/Preferences/org.chromium.Thorium.plist",
+            "~/Library/Saved Application State/org.chromium.Thorium.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "28c059d95935eba4ba4190fa642ae66e35d361f7",
+      "retrieved_at": "2026-11-15T14:32:32.999Z",
+      "path": "manifests/a/Alex313031/Thorium"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "303dca8565c8a3d371fc9cbd7d0af390cb545147",
+      "retrieved_at": "2026-11-15T14:32:32.999Z",
+      "path": "Casks/a/alex313031-thorium.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/alex313031-thorium.json"
+    }
+  ]
+}

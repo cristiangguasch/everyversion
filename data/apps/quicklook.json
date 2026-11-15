@@ -1,0 +1,519 @@
+{
+  "schema_version": 2,
+  "slug": "quicklook",
+  "name": "QuickLook",
+  "publisher": "Paddy Xu",
+  "author": "Paddy Xu",
+  "ids": {
+    "winget": "QL-Win.QuickLook",
+    "moniker": "quicklook"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "summary": "Bring macOS “Quick Look” feature to Windows",
+  "tags": [
+    "quicklook"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/QL-Win/QuickLook",
+    "publisher": "https://github.com/QL-Win",
+    "support": "https://github.com/QL-Win/QuickLook/issues",
+    "bug_tracker": "https://github.com/QL-Win/QuickLook/issues",
+    "privacy": "https://github.com/QL-Win/QuickLook/blob/master/PRIVACY.md",
+    "release_notes": "https://github.com/QL-Win/QuickLook/releases/tag/4.5.0"
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://raw.githubusercontent.com/QL-Win/QuickLook/3.6.11/LICENSE-GPL.txt",
+    "spdx": "GPL-3.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "4.5.0"
+  },
+  "last_updated": "2026-04-13",
+  "versions_total": {
+    "windows": 15
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "4.5.0",
+      "release_date": "2026-04-13",
+      "release_notes": "## What's Changed\n\n- Update LAVFilters to 0.81.0 #1362 #1855 #1863\n\n  > A possible side effect is that users with older GPUs or without the latest VC++ Redistributable\n  > installed may experience video playback failures.\n  >\n  > Nevertheless, QuickLook has chosen to continue with an up-to-date update strategy.\n  >\n  > If you encounter any issues, you can refer to #1362 and consider downgrading your LAVFilters\n  > version.\n\n- Improve LRC handling by merging duplicate timestamps #1858\n- Improve the translation of Simplified Chinese by @stxttkx\n- Add support for the WindowBackdrop option (Auto/None/Mica/Acrylic/Tabbed/Acrylic10/Acrylic11)\n- Add PKCS7 extensions to supported file types (.p7s and .pkcs7)\n- Add support Fortran95 (.f90, .f95, .f03), GDScript (.gd), Diff (.patch, .rej), Razor (.cshtml,\n  .razor), ActionScript (.as, .mx), Assembly (.asm), Ada (.ada, .ads, .adb), AutoHotkey (.ahk), Rhai\n  (.rhai), C++ ( .cu, .cuh, .hip), Python (.pyx), PlantUML (.puml, .plantuml, .pu, .uml, .iuml,\n  .wsd), Zig (.zig), Moji (.moji), GraphQL (.graphql, .gql, .gqls), Mermaid (.mmd, .mermaid), KQL\n  (.kql), PromQL (.promql), JSON Lines (.jsonl), ANTLR, Boo, Ceylon, ChucK, Clojure, Cocoa,\n  CoffeeScript, Cool, and others syntax highlighting, including the dark mode theme\n- Add support Chromium .pak viewer and file extraction\n- Add .axml extension to XML syntax highlighting\n- Add .cursorignore extension to GitIgnore syntax\n- Add support for Python .whl and .egg archives\n- Add support .psv parsing in CsvViewer\n- Add Mermaid (.mermaid) support and .mmd detection #1893\n- Add plugin icon registration and include QLPlugin.ico designed by @Shomnipotence\n- Add DICOM image support to ImageViewer plugin #1866 This is not a long-lasting built-in plugin\n- Add Romanian translation by @Laszlo19\n- Add F11 full screen toggle support #253\n- Fix markdown not supporting absolute resource paths\n- Fix option <UseTransparency>False</UseTransparency> not taking effect in Windows 10 #1542\n- Fix loop toggle resuming paused video playback #1852\n- Fix unhandled Exception with XLSX and CSV files in OfficeViewer resize with\n  RPC_E_CANTCALLOUT_ININPUTSYNCCALL #1854\n- Fix command line relative path resolution #1857\n- Fix taskbar icon intermittently missing after Explorer restart #1864\n- Fix {Desktop composition is disabled} exceptions in GetMonitorColorProfileFromWindow #4\n- Fix assimp.dll not found for win-x64 #1741",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/4.5.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/4.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/4.5.0/QuickLook-4.5.0.msi",
+          "host": "github.com",
+          "filename": "QuickLook-4.5.0.msi",
+          "sha256": "130f601eab7c388025351312f949749adebc6429b1042bd2001ac32a17a2748c",
+          "product_code": "{6B6946D5-D3E9-48F9-AA6C-70133B09D730}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "QL-Win",
+              "product_code": "{6B6946D5-D3E9-48F9-AA6C-70133B09D730}",
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.4.0",
+      "release_date": "2026-01-07",
+      "release_notes": "What's Changed\n- Add support for .cnf files to INI syntax highlighting\n- Add support for .ddeb Debian debug symbol packages\n- Add a Reload option to the More context menu #1839\n- Add support for embedded lyrics in music file #1847\n- Add a certificate viewer plugin to support extensions .p12, .pfx, .cer, .crt, .pem, .mobileprovision and .certSigningRequest\n- Add support for Compound File Binary formats (.cfb and .eif is now supported)\n- Add a restart button after plugin installation #1823\n- Improve XML version attribute detection in XMLDetector (e.g. <?xml version='1.0'?> is now supported)\n- Improve YAML highlighting and support .clang-format\n- Fix a crash that could occur when shutting down or restarting Windows #1782\n- Fix JSON detection with UTF-8 BOM present\n- Fix tags not displayed due to empty cover art #1845\nFull Changelog: 4.3.0...4.4.0",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/4.4.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/4.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/4.4.0/QuickLook-4.4.0.msi",
+          "host": "github.com",
+          "filename": "QuickLook-4.4.0.msi",
+          "sha256": "7b63d86217d073a030852569e35d2b6322864dda1cff435f6679c73b7f165ccb",
+          "product_code": "{2816B901-9678-4197-8DBA-78802C01FCE1}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "QL-Win",
+              "product_code": "{2816B901-9678-4197-8DBA-78802C01FCE1}",
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.0",
+      "release_date": "2025-12-10",
+      "release_notes": "What's Changed\n- Add Svelte syntax highlighting support\n- Add ShowInTaskbar setting to display window in taskbar #1789\n- Add option to disable automatic update check at startup #1801\n- Update PowerShell syntax colors in dark theme\n- Improve TextViewerPanel UI and usability\n- Fix DOpus crash when QuickLook runs with different privilege level #1781\n- Fix volume control exceeding limits during mouse wheel scroll #1813\n- Fix error in RTF file originating from version 4.2.1 #1826\nFull Changelog: 4.2.2...4.3.0",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/4.3.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/4.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/4.3.0/QuickLook-4.3.0.msi",
+          "host": "github.com",
+          "filename": "QuickLook-4.3.0.msi",
+          "sha256": "db8bdb10937c2cfd964b9b965bd846fa6a7061f261f9044c4eb5238a992bf52b",
+          "product_code": "{22BC9998-C051-41A8-98D7-DA9A59BA9CBE}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "QL-Win",
+              "product_code": "{22BC9998-C051-41A8-98D7-DA9A59BA9CBE}",
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.1",
+      "release_date": "2025-07-19",
+      "release_notes": "What's Changed\n- Add built-in ThumbnailViewer plugin #1662\n- Add built-in HelixViewer for 3d models #1662\n- Add FBX model support using AssimpNet #1479\n- Add SVGA and Lottie Files animation preview support\n- Add MathJax inline math support to Markdown #1640\n- Add SubRip Subtitle (.srt) files, Protobuf, NSIS, .gitmodules, .dotsettings, .gitignore, .gitattributes, Markdown, reStructuredText, simple QML syntax, .env, Configuration (.conf;.config;.cfg) highlighting #1002\n- Add dark mode highlighting for PowerShell, Registry, C, C++, Java, Rust, SQL, Ruby, R, PHP, Pascal, Objective-C, Lisp, Kotlin, Erlang, Dart, Swift, VisualSolution, CMake\n- Add MakefileDetector, CMakeListsDetector for CMakeLists.txt, DockerfileDetector, HostsDetector for hosts for text viewer\n- Improve QuickLook initialization speed\n- Optimize JSONDetector with Span\n- Set RichTextBox background to transparent\n- Revert Add Sandbox detection from 4.1.0 which will call crash\nhttps://github.com/QL-Win/QuickLook/blob/master/CHANGELOG.md\nFull Changelog: 4.1.0...4.1.1",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/4.1.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/4.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/4.1.1/QuickLook-4.1.1.msi",
+          "host": "github.com",
+          "filename": "QuickLook-4.1.1.msi",
+          "sha256": "bb744d099b47358ad4ce77ebf078681d366e24f75ec58e406ec0702b86f1b1c6",
+          "product_code": "{2539FDEE-AE38-4D4A-B4D7-2F9DC42EB9C3}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "QL-Win",
+              "product_code": "{2539FDEE-AE38-4D4A-B4D7-2F9DC42EB9C3}",
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.2",
+      "release_date": "2025-05-28",
+      "release_notes": "[Major Change]\n- Support .pcx image #1638\n- Improve PE parsing with extended buffer size\n- Fix flickering #1628\n- Fix DpiAwareness for PerMonitor #1626\n[Small Change]\n- Hide PEViewer Title just like InfoPanel\n- Avoid audio cover null exception in xaml\nFull Changelog: 4.0.1...4.0.2\nDifferences Between Distributions: What's the differences between distributions\n> If you don’t understand or don’t want to know more, please just use the .msi installer.",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/4.0.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/4.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/4.0.2/QuickLook-4.0.2.msi",
+          "host": "github.com",
+          "filename": "QuickLook-4.0.2.msi",
+          "sha256": "85d4f92493221c710f4732a206c92ea99241e8fceb6f173c20fec97ab6d6a132",
+          "product_code": "{31BA0625-C42E-4E53-A0E8-E0ADCF57117A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "QL-Win",
+              "product_code": "{31BA0625-C42E-4E53-A0E8-E0ADCF57117A}",
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.1",
+      "release_date": "2025-05-10",
+      "release_notes": "What's Changed\n- Update pt-BR string in Translations.config by @JNylson in #1604 and #1607\n- Support more Markdown file extensions #1562, #1601\n- Support CLI options #1620\n- Update pt-BR translations in Translations.config\n- Delay initialization of MarkdownViewer\n- Make .exe installer use MSI path by default #1596\n- Fix style issues in the Search Panel #1592\n- Fix volume control not working #1578\n- Fix exception when checking for updates #1577\nNew Contributors\n- @JNylson made their first contribution in #1604\nFull Changelog: 4.0.0...4.0.1\nhttps://github.com/QL-Win/QuickLook/wiki/Changelog\nDifferences Between Distributions: wiki/Differences-Between-Distributions",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/4.0.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/4.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/4.0.1/QuickLook-4.0.1.msi",
+          "host": "github.com",
+          "filename": "QuickLook-4.0.1.msi",
+          "sha256": "beee6a562c4cf0d37883f0d78507ac427c40d81c20d6eac5166d4f1f887c4b8d",
+          "product_code": "{2A501862-A5F9-4C1C-B212-42534DF5B41E}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "QL-Win",
+              "product_code": "{2A501862-A5F9-4C1C-B212-42534DF5B41E}",
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.0",
+      "release_date": "2025-04-16",
+      "release_notes": "What's Changed\n- Handle multi-layer gimp xcf files. by @mooflu in #1224\n- Upgrade Magick.NET to latest by @mooflu in #1230\n- Fix gimp xcf file extension check by @mooflu in #1229\n- Change AllowDarkTheme handling by @mooflu in #1238\n- Update for commic archive file types. by @MonOcean in #1276\n- Greek translation by @NickMihal in #1256\n- Ukrainian translation fixes + addition by @Joonel in #1244\n- hebrew translation by @1kamma in #1241\n- Add translation possibility for missing buttons by @rabelux in #1116\n- added missing translations for russian by @PhysShell in #1285\n- Polish translation fixes by @Piteriuz in #1328\n- Ukrainian translation additions by @r37r0m0d3l in #1392\n- Add .ino extension to C++ syntax highlighting by @BackThePortal in #1415\n- add scoop installation route by @Clausinho in #1397\n- Fix for Everything v1.5(a). Also supports v1.4 side by side. by @shanto in #1469\n- Improved MarkdownViewer by @KamilDev in #1490\n- Adds \"Open Data Folder\" option and dark mode support to tray menu. by @KamilDev in #1491\n- Multi Commander support by @Dreamoochy in #1398\n- Implement modern message box by @KamilDev in #1494\n- Github action workflow to run a build for the latest version by @mooflu in #1337\n- Implement Windows block detection and automatic fix by @KamilDev in #1495\n- Fix ArchiveViewer by @KamilDev in #1497\n- Fix the issue where certain remote desktop software may generate drivers with unknown device types, causing null values in the values obtained by GetGPUNames, which leads to program crash during startup by @josStorer in #1532\nNew Contributors\n- @MonOcean made their first contribution in #1276\n- @NickMihal made their first contribution in #1256\n- @Joonel made their first contribution in #1244\n- @1kamma made their first contribution in #1241\n- @PhysShell made their first contribution in #1285\n- @BackThePortal made their first contribution in #1415\n- @Clausinho made their first contribution in #1397\n- @shanto made their first contribution in #1469\n- @KamilDev made their first contribution in #1490\n- @Dreamoochy made their first contribution in #1398\n- @josStorer made their first contribution in #1532\nFull Changelog: 3.7.3...4.0.0",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/4.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/4.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/4.0.0/QuickLook-4.0.0.msi",
+          "host": "github.com",
+          "filename": "QuickLook-4.0.0.msi",
+          "sha256": "6386712ba237aca1b09fecad9268d773fbdb7dde9d49c7ab4a3355378995ccde",
+          "product_code": "{47E203DD-4783-42A2-A8D4-3FAE64B21960}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "publisher": "QL-Win",
+              "product_code": "{47E203DD-4783-42A2-A8D4-3FAE64B21960}",
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.3",
+      "release_date": "2022-11-23",
+      "release_notes": "- #1210: Fix an issue where syntax highlighting does not work when previewing texts.",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/3.7.3",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.7.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.7.3/QuickLook-3.7.3.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.7.3.msi",
+          "sha256": "258d42a4b7bdec8bad1b6a2531c935b617d8cf450d31d5e0ccc31437481f7224",
+          "product_code": "{CCCEE9ED-B2D7-4D9E-A454-BEDA89E806DE}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{C83B9C02-87D6-494E-9F5F-CF4C3900A54D}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.2",
+      "release_date": "2022-11-05",
+      "release_notes_url": "https://github.com/QL-Win/QuickLook/releases/tag/3.7.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.7.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.7.2/QuickLook-3.7.2.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.7.2.msi",
+          "sha256": "fad4d93b6c3365e93a01cec27d14e740d6f1136bf80bafa23838fd55b229b4f0",
+          "product_code": "{09A0625F-C6E8-4D27-BC1D-F363616CA2AD}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.1.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.7.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.7.1/QuickLook-3.7.1.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.7.1.msi",
+          "sha256": "16641db14617c403100ad890ccf1706082a9f08b38812d566e4d4cfcd627ec59",
+          "product_code": "{E343355A-7BDA-4AEB-8486-7CF9539F0274}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.0.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.7.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.7.0/QuickLook-3.7.0.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.7.0.msi",
+          "sha256": "fa6731210700c7948039b868285e286858f0898a184f3d8e3fce76b701d0ee30",
+          "product_code": "{38B45586-BC1F-4E6F-BAC0-1BDD0CFA2D75}",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.11.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.6.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.6.11/QuickLook-3.6.11.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.6.11.msi",
+          "sha256": "94d45abaadfee85796d5a1688e68485356cbc25cfe4025c89d84a5fdfadd8c7f",
+          "product_code": "{60724D63-F540-450C-81FC-7FF505DD0732}",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.10.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.6.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.6.10/QuickLook-3.6.10.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.6.10.msi",
+          "sha256": "b788df588af0e868e89b90d6359bf7a14cee7511e2a42bb687fcd0f96b2bd65e",
+          "product_code": "{06186FAF-E9AC-401D-81C0-515FEE358067}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.9.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.6.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.6.9/QuickLook-3.6.9.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.6.9.msi",
+          "sha256": "ff6fa22699b4159792f217357ea7d6a7a5ba3f58f404c74c97d47d200dafad05",
+          "product_code": "{8B083906-7D54-47DE-A58D-792CD5A06BE9}",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.8.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/q/QL-Win/QuickLook/3.6.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/QL-Win/QuickLook/releases/download/3.6.8/QuickLook-3.6.8.msi",
+          "host": "github.com",
+          "filename": "QuickLook-3.6.8.msi",
+          "sha256": "12c23308152f2128de62383c612cc606fce91fcec38eabe42763614fc9aa8c58",
+          "product_code": "{1CC5E0BB-5131-49BB-BC0C-97ECB6364E01}",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "28c059d95935eba4ba4190fa642ae66e35d361f7",
+      "retrieved_at": "2026-11-15T14:49:45.539Z",
+      "path": "manifests/q/QL-Win/QuickLook"
+    }
+  ]
+}
