@@ -1,0 +1,1243 @@
+{
+  "schema_version": 2,
+  "slug": "qownnotes",
+  "name": "QOwnNotes",
+  "publisher": "pbek",
+  "author": "https://github.com/pbek",
+  "ids": {
+    "winget": "pbek.QOwnNotes",
+    "homebrew_cask": "qownnotes",
+    "flathub": "org.qownnotes.QOwnNotes"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "QOwnNotes is the open source notepad with markdown support and todo list manager",
+  "tags": [
+    "markdown",
+    "notes",
+    "notetaking",
+    "qownnotes",
+    "todo"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/pbek/QOwnNotes",
+    "publisher": "https://github.com/pbek/QOwnNotes",
+    "support": "https://github.com/pbek/QOwnNotes/issues",
+    "bug_tracker": "https://github.com/pbek/QOwnNotes/issues",
+    "release_notes": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.6"
+  },
+  "license": {
+    "name": "GPL-2.0",
+    "url": "https://github.com/pbek/QOwnNotes/blob/HEAD/LICENSE",
+    "spdx": "GPL-2.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "26.11.6",
+    "macos": "26.9.0",
+    "linux": "26.11.10"
+  },
+  "last_updated": "2026-11-07",
+  "versions_total": {
+    "windows": 230,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "26.11.6",
+      "release_date": "2026-11-07",
+      "release_notes": "26.11.6\n- Fixed the text of the tag list of the Nextcloud Deck dialog and the Note tags panel\n  being cut off when the interface font size is overridden\n  (for #3834)\n- Fixed external changes of the current note getting overwritten by the automatic note saving\n  while the dialog about the external modification was still open, so that\n  Reload from disk loaded the overwritten text instead of the external changes\n  (for #3838,\n  #3842, thank you, @myukitty)\n  - This affects the default setup with note checksum checks turned off\n\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.6",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.11.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "wix",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.6/QOwnNotes.msi",
+          "host": "github.com",
+          "filename": "QOwnNotes.msi",
+          "sha256": "0e9fc42fdae0011c3bcc3ab367ce7ae1c26c5529cde89c8e2306b4d6a84537cb",
+          "product_code": "{95313CA0-2146-4FC4-9B9C-AAF77736A0EE}",
+          "apps_and_features": [
+            {
+              "publisher": "Patrizio Bekerle",
+              "product_code": "{95313CA0-2146-4FC4-9B9C-AAF77736A0EE}",
+              "upgrade_code": "{B54EFB98-5068-4979-BC71-57C1E0318C24}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.6/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "1a6391d0382a7f7771d1d54c77c732b3c031fe0c8a153fbb53d864090cb83e6d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.11.5",
+      "release_date": "2026-11-05",
+      "release_notes": "26.11.5\n- Raised the minimum supported Qt 5 version to 5.13, matching the oldest retained CI\n  build, and removed the Qt 5.9 build job\n  (related to #3752)\n  - qmake and CMake now reject older Qt 5 versions during configuration\n- Added Ubuntu 27.04 Tenacious T-Rex to the Qt6 Launchpad build script\n- Line ending markers (¶) in the note editor now use the Whitespace marker color of the\n  editor color scheme, like the markers for spaces and tabs\n  (for #3840)\n- Added tag support to the Nextcloud Deck dialog\n  (for #3834)\n  - Tags of the cards are shown as colored pills in the new Tags column of the card list,\n    and the search also finds cards by their tags\n  - The tags of a card are shown as colored chips in the card editor and can be removed\n    with a click\n  - Tags can be added via the Add tag button or Ctrl + T, which opens a searchable\n    tag list of the board\n  - New tags can be created right from the tag list, with a choice of the Deck tag colors\n- The Note tags panel got a new look\n  (for #3841)\n  - Tags are shown as rounded chips in their tag color, and can be removed via their ✕ button\n  - Clicking a tag shows all notes with that tag in the Tags panel\n  - Tags wrap onto more lines instead of needing a horizontal scrollbar\n  - Add tag opens a searchable list of all tags, nested tags are shown with their parent tags,\n    tags can be toggled and new tags can be created right from the list\n  - With multiple notes selected, tags that are only on some of the notes are shown faded\n    with a dashed border, and adding them in the tag list adds them to all selected notes\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.5",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.11.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.5/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "a1a942911ea6a34e286ecf9a855d2e5af51011eb210b3c64e0e5336e6ca4df9e"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.11.4",
+      "release_date": "2026-11-03",
+      "release_notes": "26.11.4\n- The link dialog now opens immediately when a URL is in the clipboard or selected,\n  and fetches the title of the webpage in the background\n  - A slim progress bar shows which website the title is fetched from, and the fetch can be cancelled\n  - The download stops as soon as the title is found, so big webpages are much faster\n  - Typing a URL no longer starts a request for every keystroke, and typing a link name\n    stops the title fetch\n  - Errors, like timeouts after 15 seconds, are shown briefly below the URL\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.4",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.11.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.4/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "ba5d822648fa8080fc4dc1c929ef008d8664234f50319ec205186a10382f108b"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.11.3",
+      "release_date": "2026-11-02",
+      "release_notes": "26.11.3\n- Fixed PDF exports adding extra margins beyond those selected in page setup,\n  for both single notes and selected notes\n  (for #3837)\n- Fixed unsafe media and attachment paths being followed when copying, moving, or\n  exporting notes (thank you, r3vpwnx)\n  (for GHSA-fmqx-8x8h-gf76)\n- Hardened file and folder names from notes, imports, the local trash and remote data, so they\n  can no longer lead to files outside their folders being read, written or deleted\n  (for #3836)\n  - The Files navigation panel ignores media and attachment links that escape their folders\n  - Note files, including notes created from wiki links or server data, are never stored outside\n    the note folder\n  - The Joplin import skips folder names and resource file extensions that point outside\n    their folders\n  - Trashed notes, and scripts from the script repository, are only used with plain file names\n  - Exporting a note as HTML with embedded images only embeds files that are real images\n  - Path-containment checks resolve symlinks while preserving symlinked root directories\n  - Filename cleanup preserves new titles containing path punctuation without touching files\n    at their original, unsafe paths\n  - Media and attachment transfers reject symlink escapes while preserving links within\n    their folders\n  - Image filename extensions alone are not trusted when exporting HTML; extensionless\n    images and long-header SVGs remain supported\n  - Joplin imports reject folder and resource symlinks that escape the import or note folder\n  - Local trash restoration rejects symlink destinations outside the note folder\n  - Script installation and updates reject symlink escapes from the script repository\n  - Creating notes from wiki links rejects subfolder symlinks that escape the note folder\n- The 26.11.0 release of\n  QOwnNotes for Nextcloud adds bookmark management\n  - A Bookmarks dialog lists bookmarks from notes tagged bookmarks or named Bookmarks,\n    compatible with QOwnNotes Desktop's Web Companion bookmarks and QOwnNotes Android bookmarks\n  - Search and filter bookmarks by tags, open, edit or delete them, with changes saved to all\n    bookmark notes containing them; editing includes a Markdown preview\n  - Fixed notes failing to load with status code 423 when the note folder doesn't exist yet\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.11.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.3/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "c1b687c05d973d546b60bc86af4d21fcfbae593a3625b8f92c5f6eca579d85cb"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.11.2",
+      "release_date": "2026-11-01",
+      "release_notes": "26.11.2\n- Fixed regular expression replacements losing surrounding text context, so lookarounds\n  and word-boundary checks work correctly, while preserving capture references and case sensitivity\n  (for #3831)\n- Added an Enable font ligatures option in the editor font settings for regular text\n  and code (requires Qt 6.7 or newer and a ligature-capable font; restart required)\n  (for #3830)\n- Added built-in OpenRouter AI support, listed first in the\n  AI settings with encrypted API-key storage and a connection test\n  (for #3829)\n  - Includes the free-only openrouter/free router and free Gemma 4 and Liquid LFM 2.5\n    models for summarizing, rewriting and organizing notes\n  - Free model availability and rate limits can change; no paid fallback is configured\n- Changed the default Groq AI model to openai/gpt-oss-20b for users without a saved\n  model selection, replacing the retired llama-3.1-8b-instant (thank you, Agustin Torres)\n  (for #3813)\n- Fixed AI connection tests changing the selected backend or saved model, and made\n  them work even when AI features are disabled\n  - The Groq test now uses openai/gpt-oss-20b instead of displaying a retired model\n    name while testing the saved model\n- Fixed the stored attachments and stored images dialogs allowing links to be inserted\n  into the current note in read-only mode\n- Double-clicking a file in the stored attachments and stored images dialogs now opens\n  it externally instead of inserting a link into the current note\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.11.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.2/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "f8577d2878cfa59a942c691f1b8c0ff8d3dafd3a68cc7ac87063870ec7a08f8c"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.11.1",
+      "release_date": "2026-10-31",
+      "release_notes": "26.11.1\n- Added a release deployment safeguard that checks the local and remote versions,\n  published GitHub release, and release tag commit before uploading source archives\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.1/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "86c9a5e53f158cbd44ff7cc681fe9e6c10c9612d32efa6a23dc7fd7f5953628c"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.15",
+      "release_date": "2026-10-30",
+      "release_notes": "26.10.15\n- Extended the search field in the local and Nextcloud / ownCloud note trash dialogs\n  to search note text as well as note names, ignoring case\n  (for #3823)\n  - Selecting a match shows its note text; clearing the search shows all trashed notes again\n  - The in-note search bar opens with the same query to highlight and navigate text matches\n- Retired the legacy Qt 5-named Snap jobs from stable and continuous GitHub releases\n  (for #3752)\n  - Use the Qt 6 snap from the Snap Store\n  - The final genuine Qt 5 AMD64 snap, QOwnNotes-Qt5-amd64.snap, remains available\n    in the 26.10.6 release\n  - Later artifacts with that filename already used Qt 6; Qt 5 macOS builds and\n    source compatibility remain supported for now\n- Added an editor setting Do not insert a space after autocompletion to suppress the\n  trailing space for script and language server completions\n  (for #3781,\n  #3819, thank you, @sciurius)\n- Added case-insensitive text search across all loaded versions in the Nextcloud / ownCloud\n  and Git note version dialogs (for #3822)\n  - The search field above the version list filters versions by their note text\n  - Matches are highlighted with the regular search bar in the Note text tab\n- There was a new release of QOwnNotes for Android,\n  v1.8.0\n  - Search text across all note versions in the note versions dialog, filtering the list to\n    matching versions with match counts and highlighted excerpts\n  - The version preview highlights all matches and lets you step between them\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.15",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.15/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "d72b81e5656870ce9803b316905766fe411a411d5c43f443a0ece28f505d6f8d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.14",
+      "release_date": "2026-10-29",
+      "release_notes": "26.10.14\n- Added export of selected notes to individual PDFs from the note list context menu\n  (for #994,\n  #3821, thank you, @serebryakov02)\n  - Choose the destination folder and page settings once for all selected notes\n  - Existing PDFs are preserved by using numbered filenames\n- Added clickable <details> / <summary> sections to both note preview backends,\n  including nested sections and initially expanded sections with open\n  (for #3818)\n  - Expansion state is preserved while editing the current note\n  - HTML exports keep native disclosure markup; printing and PDF export include all content\n- Failed CalDAV task saves now show an error and leave the cached task unchanged,\n  instead of making rejected edits appear saved after refreshing the task list\n  (for #3815)\n  - Apply the same protection to new tasks, completion changes, and task moves\n  - Only close the task dialog after a successful save\n  - Save and insert only inserts the task link after the save succeeds\n- Added a Windows installer QOwnNotes.msi to the releases, next to the\n  QOwnNotes.zip archive, so QOwnNotes can be installed without unzipping\n  - It installs QOwnNotes for the current user, without administration permissions,\n    adds a start menu shortcut and keeps the automatic updater working\n- There was a new release of the QOwnNotes Web Companion browser extension\n  2026.10.0\n  - Context-menu actions now open the setup popup when user data consent or the security\n    token is missing (for #122)\n  - The popup now has a minimum height so dialogs display properly even with few or no\n    bookmarks, including searches with no results\n  - Updated dependencies\n- There was a new release of the QOwnNotesAPI Nextcloud App,\n  v26.8.1\n  - QOwnNotesAPI is now deprecated; Nextcloud users are encouraged to switch to\n    QOwnNotes for Nextcloud\n  - Read the migration guide\n    for installation and client compatibility requirements before removing QOwnNotesAPI\n  - QOwnNotes for Nextcloud does not support ownCloud, so ownCloud users cannot migrate to it\n- qc v0.7.0 was released\n  - qc switch now uses the configured searchable selector to choose a note folder,\n    marking the current folder and using a bordered layout with fzf\n    (for #25)\n  - Pressing Ctrl + C exits with code 130 without printing an error,\n    including when cancelling snippet selection (for #1)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.msi: Windows installer built with Qt 6\n- QOwnNotes.msi.sha256sum: SHA-256 checksum for the Qt 6 Windows installer\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.14",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.14/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "d8c2087fc7eec61972b4863607e513012a1eec83af98596fa0f85abc0365706f"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.13",
+      "release_date": "2026-10-27",
+      "release_notes": "26.10.13\n- Fixed nix run github:pbek/qownnotes failing to build because GitHub flake\n  archives omit the required Git submodules\n- Added icons to the note list context menu and its folder and tag submenus\n  (for #2589,\n  thank you, @serebryakov02)\n- Raised the CMake compatibility minimum to 3.10 to avoid deprecation warnings\n  with recent CMake versions, including for bundled dependencies\n- Switched translation source updates to CMake, removing the deprecated qmake input\n  to lupdate and preserving existing edits to other languages\n  - Include library strings across platforms and optional build features\n- Reorganized menus for easier discovery (for #3811)\n  - Added top-level Insert and Search menus, moved note deletion, version history,\n    and encryption into Note, and flattened Edit → Edit\n  - Added a Tools menu for spelling, grammar, dictionaries, AI, stored images and\n    attachments, and sending the clipboard, so Edit only contains editing actions\n  - Replaced Extra with a Copy submenu and directly accessible editing actions,\n    renamed Note text edit to Editor context menu, and moved Activate context menu\n    and Allow all note editing into Edit\n  - Combined layout selection and management under Window → Layout\n  - Adjusted menu access keys so they don't conflict with each other or existing shortcuts\n  - Keyboard shortcuts are unchanged\n- Added more French, German, Russian, Chinese Simplified, Italian, Portuguese, Brazilian,\n  Polish, Spanish, Japanese translation (thank you, jd-develop, pbek, spamcutters)\n- There was a new release of QOwnNotes for Android,\n  v1.7.0\n  - Edit bookmark names, URLs, tags, and descriptions, or delete bookmarks directly from the\n    bookmark browser; changes are saved offline to the source Markdown note, preserving unrelated\n    text and protecting changed, read-only, or conflicted notes\n  - Long-press a checkbox block in the note preview to delete it together with nested items and\n    continuation text after confirmation; read-only and conflicted notes remain protected\n- There was a new release of QOwnNotes for Android,\n  v1.6.1\n  - Fixed checkbox dragging and toggling in notes containing checkbox-like lines that are not\n    rendered as checkboxes, such as empty items or lines inside HTML comments or code blocks\n- The 26.10.4 release of\n  QOwnNotes for Nextcloud hides its navigation\n  entry for users excluded by Nextcloud's app group restrictions\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.13",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.13/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "8678cdfa3048d4dc12388deb31a429490142303d6e96c9b98748cea91634bc34"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.12",
+      "release_date": "2026-10-25",
+      "release_notes": "26.10.12\n- Moved Add tag to note directly into the Edit menu and removed the Tag menu;\n  Insert Nextcloud Deck card link is now only in Edit → Insert, not also in Todo\n  (for #3803)\n- Remember the last-used Diff or Note text tab in the Git and Nextcloud/ownCloud\n  note version dialogs (for #3809)\n- Enabled the built-in Git version viewer in the Qt6 AppImage, Windows, macOS,\n  Snap, Launchpad, OBS, and Slackware release builds with CMake and libgit2 support\n  (for #3802)\n- Fixed the secure credential store migration notice appearing on every startup when\n  keychain writes fail; the notice is now only shown until acknowledged, while migration\n  continues to retry and secrets remain in legacy-encrypted storage until it succeeds\n  (for #3801)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.12/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "06b932f00d9dbf1fab851343c3bffe7fdfaac4cf3b4f3ab02ba11f9e0abf6904"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.11",
+      "release_date": "2026-10-24",
+      "release_notes": "26.10.11\n- Fixed command injection through note filenames in the external Git version viewer\n  (CWE-78, reported by Dilanka Kaushal Hewage / r3vpwnx)\n  - External Git log commands now run directly without an implicit shell; %notePath%\n    must be a separate argument. Configurations using shell syntax need a wrapper script\n    that accepts the note path as an argument\n  - Security advisory: GHSA-jp2h-69pm-p69c\n- QOwnNotes for Android is now available on\n  F-Droid\n- There was a new release of QOwnNotes for Android,\n  v1.6.0\n  - Copy notes to an existing or new subfolder, or duplicate them in the same folder; move and\n    copy also support multiple selected notes, with folder actions available when Use subfolders\n    is enabled for the account\n  - Share notes through public Nextcloud links, optionally with password protection and editing\n    permission; links can be copied, sent, or opened, and passwords changed or removed later\n  - Reorder checkbox list items in the note preview by dragging their grip handles, moving nested\n    items with their parent within the same list and scrolling automatically near the note's edges\n- There was a new release of QOwnNotes TUI,\n  v1.3.2\n  - Updated rustls, rustls-webpki, and webpki-roots to address six security advisories\n    in the HTTPS dependencies\n- There was a new release of QOwnNotes TUI,\n  v1.3.1\n  - Fixed Windows-style line endings and embedded ASCII control characters disrupting note\n    rendering and leaving text from previous notes visible in the viewer and editor\n- The 26.10.2 release of\n  QOwnNotes for Nextcloud adds translations\n  and improves the note list and editor\n  - The web interface, admin settings, and Nextcloud integrations now follow the user's Nextcloud\n    language, with German, Chinese (Simplified), Russian, Italian, Portuguese (Brazil), Polish,\n    French, and Spanish translations\n  - Notes whose title starts with an emoji can show it as their note-list icon, even if QOwnNotes\n    Desktop removed it from the file name; conflict copies are marked with a warning icon\n  - Fixed the editor cursor being hard to see in dark mode\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.11/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "8bb892bf340fba6d2a9db5b35bfe61b8ef4af93f85f90b319ef05e70e7ef5b2a"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.10",
+      "release_date": "2026-10-22",
+      "release_notes": "26.10.10\n- Added a lightweight Nextcloud Deck link picker using the existing Deck dialog, with\n  search, board/stack selection, and insertion of links for multiple selected cards\n  (for #3790)\n  - Insert Nextcloud Deck card link now opens the picker, while Manage Nextcloud Deck cards\n    keeps the full editing interface\n- Added touchscreen drag-to-scroll with kinetic scrolling in the note editor and both\n  preview backends, while keeping mouse text selection unchanged\n  (for #3800)\n- Fixed in-note searches with no results moving the cursor and scrolling to the start or end\n  of the document, in both the editor and preview\n  (for #3799)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.10/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "f90b63509ee970de3214ada3cf864f244f0a09b301335a759fe72978de784bcb"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.9",
+      "release_date": "2026-10-20",
+      "release_notes": "26.10.9\n- The 26.10.3 release of\n  QOwnNotes for Nextcloud adds more editor actions\n  to the web interface\n  - Link dialog with web page title fetching and a searchable Link to note tab, inserting\n    relative note links compatible with QOwnNotes Desktop (Ctrl+L, or Ctrl+Shift+L for note links)\n  - Insert inline code or fenced code blocks, including wrapping selected text (Ctrl+Shift+C)\n  - Toggle checkbox list formatting on the current line or selected lines, preserving list markers\n    and indentation (Alt+L)\n  - These actions are also available in the note's \"…\" menu; use Cmd instead of Ctrl on macOS\n- Fixed saved task list selections being cleared when accepting settings without changes\n  (for #3798)\n- Added an optional Linux Qt6 CMake build with KDE Frameworks application metadata\n  (QON_KDE_INTEGRATION), a qownnotes-qt6-kde Nix flake package, and build diagnostics\n  (for #3796)\n  - just build / just nix-build now select the KDE variant on Linux; plain Qt6 and\n    macOS builds remain available without KDE dependencies\n  - KDE builds initialize KCrash for GUI startup, with DrKonqi support when the reporter\n    and system crash-reporting setup are available\n  - KDE builds use native Plasma global shortcuts when its service is available, preserving\n    Plasma-side changes and retaining the portal/QHotkey backends on other desktops\n  - All actions are offered in the Plasma shortcut settings, so global shortcuts can also\n    be assigned there, and they are shown with their menu path (e.g. Note → New note)\n  - KDE builds send desktop notifications that can be configured in Plasma's notification\n    settings, e.g. when the current note was modified externally while QOwnNotes was in\n    the background\n  - KDE builds use the PlasmaActivities library for the KDE Plasma activity integration,\n    so activities are loaded without blocking, while older activity managers and other\n    desktops keep using the existing implementation\n  - KDE builds can use an installed KDE color scheme for the user interface, which can be\n    selected in the Interface settings, while the system palette stays the default\n  - When QOwnNotes is started again while it is already running, or by a global shortcut of\n    the desktop portal, its window is now raised with the activation token of the launch on\n    Wayland, and with the startup notification ID on X11 in KDE builds\n  - KDE builds can send note files to installed targets like KDE Connect or email with\n    the new Send note to menus in the Note menu and the note list context menu\n  - Notes of a running QOwnNotes can be found in KDE Plasma's KRunner search by their name\n    or text, without showing note text, if the KRunner plugin file is installed,\n    which KDE builds do\n- Added a new scripting command script.showNotification() to show a desktop notification,\n  falling back to the system tray or the status bar\n  (for #3796)\n  - For more information please take a look at the\n    Showing a desktop notification\n    documentation\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.9/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "8113d560b301fe79e3d2ca3e9f4746925dbad62ce34423b404284c37eb000a3b"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.2/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "867d24a387374870440ba0db8ac86d4cfa6b35f12dc59509580b1830cbb6f6a6"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.10.0",
+      "release_date": "2026-10-01",
+      "release_notes": "26.10.0\n- Changes to the note-folder database notes.sqlite made outside QOwnNotes now refresh\n  note tags and the tag tree (for #3764)\n- On Windows, the Font rendering interface setting is no longer reset to Automatic\n  when the settings dialog is closed (for #3757)\n- On Windows, italic text in fonts without a real italic face, like Tahoma, is now also\n  rendered without font smoothing when Windows font smoothing is disabled\n  (for #3757)\n- If the setting to ask for a note name when creating a new note with Ctrl + N is enabled,\n  the dialog is now prefilled with the default note name including the current date and time,\n  which is selected so it can be overwritten right away, and the setting and dialog now talk\n  about a note name instead of a headline (for #3765)\n- The Secure password storage dialog doesn't show up on every start anymore if there is no\n  system keychain, like GNOME Keyring or KWallet, available on Linux; in that case passwords\n  and API keys stay in the legacy storage (for #3766)\n- There was a new release of QOwnNotes for Android,\n  v1.0.0\n  - Note tags are shared with QOwnNotes desktop through the notes.sqlite file in the notes folder,\n    and notes can be filtered and tagged, even offline\n  - Opening a note while searching the note list opens Find in note with the same text\n  - A new Ask for name of new notes setting asks for the name of a new note before creating it\n  - Nextcloud Deck cards can be created from the editor toolbar, and card links open in the\n    Nextcloud Deck Android app\n  - The account menu now lists all accounts at the top, so switching accounts is one tap away\n- The unit tests are now built with CMake and Qt 6 instead of qmake, and a crash of the\n  unit tests caused by leftover data in the test database was fixed\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.10.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.10.0/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "a988142eff1e370dcb25e625ded9089434f8919413c90b42b81f8a29e0e7c591"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.14",
+      "release_date": "2026-09-29",
+      "release_notes": "26.9.14\n- Due dates in the past are now highlighted in the card list of the Nextcloud Deck dialog\n  (for #3761)\n- On Windows, automatically use legacy GDI font rendering when system font smoothing is\n  disabled, with a new interface setting to choose automatic, DirectWrite, or GDI rendering\n  (for #3757)\n- Fixed editor highlighting for indented code block lines that start with a list\n  marker like -, * or + (for #3749)\n- A new opt-in setting Ignore accents in search in the Panels settings lets searches\n  without accented letters also find text with accented letters, for example avion also\n  finds Avión (for #3128)\n  - It works for the note search, including the highlighting in the note editor and preview,\n    and for the filters of the tag, note subfolder and navigation panels\n  - Searches with accented letters still only find exact matches, so schön doesn't find schon\n  - Only Latin letters are affected, characters of other scripts are always matched exactly\n  - The scripting methods script.fetchNoteIdsByNoteTextPart and script.searchTagsByName\n    got a new optional ignoreAccents parameter\n- The scripting documentation now explains how to format dates and times with\n  Qt.formatDateTime and the scripting examples use it instead of formatting dates by hand\n  (for scripts#298)\n  - See Formatting dates and times\n- There was a new release of QOwnNotes for Android,\n  v0.9.0\n  - Search text can be turned into a new note named after the query in the selected category\n  - The Markdown editor toolbar can insert the local date or date and time at the cursor\n  - A clipboard web URL can be turned into a Markdown link labeled with the page title\n  - Note view provides an information dialog with note, text statistics and synchronization details\n  - Editing medium-large notes with many links and tasks now stays responsive\n- There was a new release of QOwnNotes for Android,\n  v0.10.0\n  - Notes are shown as bordered cards in the note list, with an optional compact note list setting\n  - Note-list widgets can show all notes, uncategorized notes, or a single category\n  - Widgets and the note list have new appearance settings for colors, headers, and category labels\n- There was a new release of QOwnNotes TUI,\n  v1.0.0\n  - The cursor can move word by word in the viewer and editor with Ctrl-Left and\n    Ctrl-Right, and text can be selected with Ctrl-Shift-Left and Ctrl-Shift-Right\n  - Typing / in the editor now inserts the character instead of opening the in-note search;\n    use Ctrl-f to search while editing\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.14",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.14",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.14/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "08cf57599b32364bc3a6b26c67676e9b924658d6d18a40a007b8adeb7f687b53"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.13",
+      "release_date": "2026-09-27",
+      "release_notes": "26.9.13\n- Fixed a startup crash when restoring the layout of a maximized or fullscreen window\n  (for #3758)\n- Fixed the Secure password storage dialog appearing on every startup when a legacy\n  password or API key contains an encrypted empty string (for\n  #3756)\n- Fixed duplicate taskbar icons in KDE Plasma on Wayland for the Flatpak package by\n  matching the application's desktop identity to its exported launcher (for\n  #3755)\n  - Existing custom window rules matching the old Flatpak identity PBE.QOwnNotes\n    may need updating, and stale taskbar pins may need re-pinning\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.13",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.13",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.13/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "4a45559ededf8a61cde349a6692801794e6f2f0bcbc9ebabb9bdecc10b3061b9"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.12",
+      "release_date": "2026-09-26",
+      "release_notes": "26.9.12\n- Fixed scripts installed from the script repository no longer being found after a Snap\n  package update (for #3753)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.12",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.12/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "3bd890cd3203388f90d8a399eee6c493a0300bdf986b8363b9fafeb02be0a090"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.11",
+      "release_date": "2026-09-25",
+      "release_notes": "26.9.11\n- Deprecated the non-GitHub Qt 5 release packages by removing the legacy Ubuntu\n  Launchpad and OBS deployments from the release process, while retaining the\n  Qt 5 artifacts built by the GitHub release workflow (for\n  #3752)\n- Added more French translation (thank you, jd-develop)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.11/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "d22534293e8f3d4980d66a7898b949ac11e2a42780dea675d9c4171334676f67"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.10",
+      "release_date": "2026-09-24",
+      "release_notes": "26.9.10\n- Migrated the Slackware 15.0 build system to Qt 6 and retired the Slackware 14.x\n  release targets (for #3751)\n- Fixed the first line of code blocks being offset to the right in the Markdown preview\n  (for #3750)\n- Fixed editor highlighting for indented code block lines that start with a digit\n  (for #3749)\n- Fixed stale packages in the Arch Linux OBS repository by explicitly unpublishing\n  artifacts from the retired build target (for\n  #3743)\n- Fixed a second application instance and a second system tray icon being able to start\n  after the application was restarted from the settings while the single app instance mode\n  was enabled (for #3746)\n  - The application is now restarted after the current instance released its single app\n    instance lock, so the new instance can register itself again\n- A notice is now shown before stored passwords and API keys are migrated to the\n  operating system keychain, explaining the system password prompts that may follow\n  (for #3597)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.10/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "f1c15c6ecad02a11933cd07eb8e5483612f25ee3810fdec2f3d0bffe28bf987e"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.9",
+      "release_date": "2026-09-21",
+      "release_notes": "26.9.9\n- Added a separate font setting for Markdown PDF export and printing (for\n  #3740)\n- Fixed links to files in the media/ folder with note file extensions being\n  treated as missing notes (for #3742)\n- There was a new release of QOwnNotes TUI,\n  v0.9.0\n  - Markdown lists and checklists now continue automatically when pressing Enter\n  - Notes can be soft-wrapped in the editor, with cursor tracking and mouse selection across\n    wrapped rows\n  - Search within notes is now available in the viewer and editor, including match navigation\n- There was a new release of QOwnNotes for Android,\n  v0.8.0\n  - Configurable home-screen widgets can show an account's note list or a selected note\n  - An offline bookmark browser adds text search, tag filters, and a configurable bookmarks file\n  - Images can be selected while editing and inserted as Markdown links in the compatible media/\n    folder\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.9/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "6f91b9e382e3e4659ff41b0855a686575da36726d4e323da2458f1b8676a1d4a"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.8",
+      "release_date": "2026-09-20",
+      "release_notes": "26.9.8\n- Fixed release assets not being uploaded by replacing the deprecated GitHub release asset\n  upload action (for #3744)\n- Fixed the inconsistent Arch Linux package repository by preventing the legacy OBS\n  target from publishing duplicate QOwnNotes packages (for\n  #3743)\n- Added a text magnifier when hovering over the Document overview panel (for\n  #3730)\n- Further improved typing performance in large notes with full-sync Markdown language\n  servers by reducing synchronization frequency and only re-highlighting lines with\n  changed diagnostics (for #3739)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.8/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "079efed3e4297caa54094b99951f7993af8a914dbc01d4babe421376b5c55dd6"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.7",
+      "release_date": "2026-09-17",
+      "release_notes": "26.9.7\n- Added an optional Document overview panel with a minimap of the current note,\n  viewport indication, and quick mouse navigation (for #3730)\n- Improved typing performance in large notes when using full-sync Markdown language\n  servers such as Rumdl (for #3739)\n- There was a new release of QOwnNotes for Android,\n  v0.5.0\n  - The remote trash dialog can now be searched by note name and shows deletion dates more clearly\n  - Adding a Nextcloud account now reports malformed or empty SSO responses as a clear protocol\n    error instead of crashing\n  - Note lists and searches can now handle notes too large for Android's CursorWindow\n- There was a new release of QOwnNotes for Android,\n  v0.6.0\n  - Relative attachments/ and media/ links in note previews can now be opened in installed\n    Android apps\n  - Find in note now also searches the Markdown source in the editor and highlights every match\n  - Large Nextcloud accounts can prune stale local notes without exceeding Android SQLite\n    bind-variable limits\n  - Malformed Nextcloud update responses no longer replace a local note's remote identity\n- A new release of QOwnNotes for Android,\n  v0.7.0, adds\n  - Background synchronization with network constraints and retry backoff\n  - Conflict review, merging, and recovery for notes changed locally and remotely\n  - Local changes are preserved when a note is deleted remotely or becomes read-only, with an\n    explicit recovery action when needed\n  - Durable synchronization diagnostics and more responsive editing for large notes\n  - Synchronization failures and completed updates no longer overwrite newer local edits or deletion\n    intent\n  - Nextcloud Notes API files from the top-level attachments/ and media/ trees no longer appear\n    as notes\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.7/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "0e4998bcf62e7b1d3485c1a6b9c42a2b7bdc98bdc194fb70295f2242019bfed0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.6",
+      "release_date": "2026-09-16",
+      "release_notes": "26.9.6\n- Undo in the note editor now groups consecutive typing instead of undoing one\n  character at a time (for #3729)\n- Fixed external links with a URL fragment not opening and bare URLs with\n  characters like @ in paths or / and = in fragments not being recognized\n  in the note preview (for #3737)\n- Notes can now optionally be saved with a final newline by enabling the existing\n  Ensure an empty last line in the note text editor setting (for\n  #3734)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.6/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "515af85dc647c9016eb1c8090e0e75cf2895acff4dfb68b9145cf8d5a5826f5d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.5",
+      "release_date": "2026-09-12",
+      "release_notes": "26.9.5\n- Fixed duplicate resource files being created during Joplin imports when a\n  resource's file extension differs from Qt's MIME-derived canonical suffix\n  (for #3736)\n- Internal note links like [QOwnNotes Android Done](QOwnNotes%20Android%20Done.md) are now\n  styled like external links, where the note file name is grayed out while the link text keeps\n  the internal link color (for #3735)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.5/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "5abfbec21c315867007f7f86dab1e198c2be46f37f63cae31d29066f69a79e6f"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.4",
+      "release_date": "2026-09-12",
+      "release_notes": "26.9.4\n- Fixed a crash when editing wrapped Markdown list items with hanging indentation\n  (for #3733)\n- There was a new release of QOwnNotes for Android,\n  v0.4.0\n  - Note-search filter for title-only and title-and-content search modes\n  - Note-list sorting by latest modification or by title in ascending or descending order\n  - Account management from the profile menu with shared folder and extension settings\n  - Swipe actions to toggle favorites and move notes to trash, configurable in Settings\n  - Reorganized note-list toolbar with compact search and overflow menu\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.4/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "480d7920bb1710ec059857e4875924b6dd4125c428a42b6bd493df1ca995620a"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.3",
+      "release_date": "2026-09-10",
+      "release_notes": "26.9.3\n- Fixed excessive spacing between information items in tall Script repository dialogs\n  (for #3709)\n- Fixed percent-encoded local Markdown links not showing the pointer cursor or opening\n  with Ctrl + click in the note editor (for #3695)\n- Add HTML <sub> and <sup> tags rendering as subscript and superscript in the\n  QLiteHtml note preview (for #3728)\n- The tooltips in the Headings panel now show the full heading text and the heading\n  level (for #3731)\n- There were four new releases of QOwnNotes for Android,\n  v0.3.0,\n  v0.3.1,\n  v0.3.2, and\n  v0.3.3\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.3/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "31af0bb18df64759dfd6ec874538e52df29ce0aae5268bd6c12f9299fde0d7d8"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.2",
+      "release_date": "2026-09-07",
+      "release_notes": "26.9.2\n- Introducing QOwnNotes for Android!\n  (https://github.com/qownnotes/qownnotes-android)\n  - Offline-capable Markdown notes with Room as the source of truth, synchronized\n    through the Nextcloud Notes API with incremental pulls, ETags, and conflict-safe\n    updates\n  - Import Nextcloud accounts via Single Sign-On from the Nextcloud Files Android app\n  - Render CommonMark and GitHub Flavored Markdown, checkbox lists with three states, wiki links,\n    tables, fenced code, and safe remote images\n  - Edit highlighted Markdown source with formatting actions, undo/redo, cursor\n    preservation, and local draft persistence\n  - Browse and restore note versions and remotely trashed notes with the QOwnNotesAPI app\n  - Favorite notes with a star and keep them above other notes\n  - Create notes from text shared by other Android apps\n  - Light and dark themes on Android 9 and newer\n- Fixed notes with duplicate names in the same subfolder potentially overwriting each\n  other's content, and prevented duplicate image and attachment copies during Joplin imports\n  (for #3726, thank you, @MySkeletonHurts)\n- Added Qt6 Open Build Service configurations for Fedora, openSUSE, and Arch Linux\n  (for #3727)\n- Added more French translation (thank you, jd-develop)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.2/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "d343f3086481846322b444591b7adbed06e8208add19ba4792e3dda8bcac7103"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.1",
+      "release_date": "2026-09-04",
+      "release_notes": "26.9.1\n- Pasting or dropping a Markdown file into the note edit panel now asks whether\n  to add it as a new note or insert it as an attachment\n  (for #3721)\n- Added a Username field to the LanguageTool settings so LanguageTool Premium\n  accounts, which authenticate with a username and API key together, can be used\n  for grammar and style checking (for #3718, thank you @gregoreficint)\n- Text inside code blocks, inline code, bold, italic and link text can now be\n  selected with the mouse in the note preview panel, instead of only being\n  selectable by dragging over the surrounding text\n  (for #3720)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.1/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "b0e758d34afd1368e51f8cff7c13f6b280a5a34a77d3497e645b2c2c05e5ce45"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.9.0",
+      "release_date": "2026-08-31",
+      "release_notes": "26.9.0\n- Added a new editor setting to disable highlighting and applying of Markdown text\n  formatting across multiple lines; it is enabled by default\n  (for #3690)\n- Whitespace markers in the note editor can now use a separate foreground color\n  configured in the editor color scheme (for #3670)\n- Added an Insert footnote action to the Edit menu and the note editor context\n  menu that inserts a footnote reference with the next free number at the current\n  cursor position, adds the footnote definition at the end of the note, and jumps\n  there to enter the footnote text (for #3714)\n- The Joplin importer now preserves notes' original modification dates, allowing\n  imported notes to be sorted by their actual update time\n  (for #3715, thank you, @MySkeletonHurts)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.9.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.0/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "91f3a25d64e87a29a4094d90f7e92c699b61b4201ef50dfda2f7a526fc8136a7"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.11",
+      "release_date": "2026-08-27",
+      "release_notes": "26.8.11\n- Added support for numeric and named Markdown footnotes, with link styling and\n  navigation between references and definitions in the note editor and preview\n  (for #3714)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.11",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.11",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.11/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "d52d5e49bfed9e3106cab049105c9ceebe303184aa28149f4d339eeb131111b5"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.10",
+      "release_date": "2026-08-27",
+      "release_notes": "26.8.10\n- Layouts can now use either the note edit or note preview panel as the\n  central widget, allowing preview-only layouts to resize correctly\n  (for #3712)\n- Added a new Layouts panel to the interface settings where layouts can be\n  created, switched, removed, renamed, reordered, configured to use the central widget,\n  or created from layout presets in a dedicated dialog; the former layout\n  management dialog and separate preset settings page were merged into this page\n  (for #3713)\n- Improved fenced code block syntax highlighting in the note editor and preview with\n  more common language aliases, support for richer fence info strings, and fixes for\n  JavaScript, SystemVerilog, SQL, Forth, C/C++ and CSS highlighting\n  (for #3711)\n- Fixed deleting a note in the note tree resetting the selected note subfolder to\n  the root folder (for #3708)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.10/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "f6f57a3a23fca37c0e74f541997206fc30bc8835293979f92e5667473cb02316"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.9",
+      "release_date": "2026-08-25",
+      "release_notes": "26.8.9\n- The Script repository dialog now links to available script changelogs and shows\n  the relevant changelog entries between the installed and target versions when updating\n  a script\n  (for #3709)\n- Updated script repository links and downloads to use the repository's main branch\n  instead of the obsolete master branch\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.9/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "56b17fd3c42a5f8fa8b641a6479aad2722e9157098ba81cbcd32e84d3ce1c2c8"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.8",
+      "release_date": "2026-08-23",
+      "release_notes": "26.8.8\n- Added a new editor setting to insert an autocompletion directly if there is\n  only one result, without showing the popup menu; it applies to word,\n  wiki-link, equation, script and Markdown LSP completions and is disabled\n  by default (for #3703)\n- Fixed the Ctrl + Space autocompletion menu not showing word,\n  wiki-link, equation or script completions when Markdown LSP support is enabled;\n  the LSP server is now only queried if there are no built-in completions\n  (for #3705)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.8/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "141260825865d32c5c0f30285ba2591a13fc7b7ee0ebe5ca86855550b65641ad"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.7",
+      "release_date": "2026-08-22",
+      "release_notes": "26.8.7\n- The pointer cursor now appears over the entire inline Markdown link and\n  Ctrl + click opens it from both its label and URL, while the URL part\n  remains highlighted on hover\n  (for #3695)\n- There was a new release of the QOwnNotesAPI Nextcloud App,\n  v26.8.0\n  - Added and tested support for Nextcloud 35\n    (for #59)\n  - Dropped support for unsupported Nextcloud versions older than 32\n  - Updated dependencies\n- Added more Spanish, French, Korean translation (thank you, AlejandroMoc, jd-develop, VenusGirl)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.7/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "bbb801c6a4908300fa4945fa64961b2c3614e08ed22a4516929042be36fec347"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.6",
+      "release_date": "2026-08-18",
+      "release_notes": "26.8.6\n- Fixed unmatched or malformed Markdown emphasis, underline, and strikeout markers\n  incorrectly applying formatting to following text or lines in the note editor and preview\n  (valid formatting containing internal underscores, such as __foo_bar__, still works)\n  (for #3702)\n- Fixed the Cloud connection combo box in the Note folder settings initially\n  showing \"None\" instead of the selected cloud connection\n  (for #3699)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.6/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "a798023faaadb4569189d9959ceaa580a02baa85e37c43ead4b04afeb95553fa"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.5",
+      "release_date": "2026-08-17",
+      "release_notes": "26.8.5\n- Fixed the detected file suffix being ignored when saving inserted media or attachments\n  (for #3701, thank you, @VXNCXNX)\n- Note folders can now be set to use no cloud connection by selecting\n  \"None\" in the Cloud connection combo box in the Note folder settings\n  (for #3699)\n  - Cloud versioning, cloud trash and note sharing are then disabled for that\n    note folder, as if no cloud connection was configured at all\n- There was a new release of QOwnNotes TUI,\n  v0.6.0\n  - Added a --session option for using a separate QOwnNotes settings and database context\n  - Added Ctrl + Space support for opening links and toggling checkboxes\n    at the cursor in the viewer and editor\n  - Viewer cursor positions and selections are now preserved when entering and leaving edit mode\n  - The project was relicensed under GPL-3.0-only\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.5/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "c6dfe9a657d377e9e901f7d125437e050f853436786957ddcf9d459cd9eccfe1"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.4",
+      "release_date": "2026-08-15",
+      "release_notes": "26.8.4\n- Fixed the boundary arrow navigation in the note editor being dead on macOS,\n  where pressing the Up arrow on the first line should move the cursor to the\n  start of the line and Down on the last line to the end of it, because Qt\n  delivers arrow keys with Qt::KeypadModifier set on macOS and the modifier\n  is now masked off before comparing\n  (for #3572, thank you, @VXNCXNX)\n- The AppImage no longer requires libfuse2 to be installed separately because\n  its FUSE userspace library is now included in the runtime\n  (for #3694)\n- Added configurable link hover highlighting to the note editor and preview, including\n  dedicated Link hover colors for the Light and Dark editor schemas\n  (for #3695)\n- There was a new release of the QOwnNotes Web Companion browser extension\n  2026.8.1\n  - Bookmark links can now be copied from the bookmark list\n    (for #121)\n- There was a new release of QOwnNotes TUI,\n  v0.5.0\n  - Added Markdown highlighting for angle-bracketed URI autolinks\n  - Added clickable HTTP and HTTPS links in the viewer, including links that wrap\n    across lines\n  - Added restoration of the last opened note when the application starts\n- There was a new release of QOwnNotes TUI,\n  v0.4.0\n  - Added shell completion generation for Bash, Fish, and Zsh\n  - Added clickable relative, legacy note://, and wiki-style note links in the viewer\n  - Added back and forward note navigation with preserved viewer and editor positions\n  - Added keyboard and mouse text selection, clipboard actions, and a visible viewer cursor\n  - Added reverse pane focus cycling and navigation from the viewer back to the note list\n  - Added checkbox-list and Setext-style heading highlighting in the viewer and editor\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.4/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "1b859608b86a44bb76861359329bf807598fac700ba1f7f51a6ab6f3f6cf2641"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.3",
+      "release_date": "2026-08-13",
+      "release_notes": "26.8.3\n- The new QOwnNotes TUI project provides a\n  keyboard-first terminal browser and editor for local, QOwnNotes-compatible Markdown note folders\n  - It can use note folders configured in QOwnNotes and follows its note sorting settings\n  - Notes can be created, edited, searched, syntax-highlighted, renamed from their content, and\n    safely deleted from the terminal, with automatic saving and external-change conflict detection\n  - It supports configurable themes, mouse controls, Nix, and a Home Manager module\n- Added support for highlighting and applying strikeout and other Markdown text\n  formatting across multiple lines (for #3690)\n- Improved performance when switching away from notes with wiki-style links when the\n  Note relations panel was visible (for #3691)\n- Renamed the Message boxes section in the General settings to Dialog preferences and\n  clarified which remembered dialog choices can be reset\n  (for #3692)\n- There was a new release of the QOwnNotes Web Companion browser extension\n  2026.8.0\n  - An error dialog now explains how to resolve a failed connection to the QOwnNotes socket server\n    (for #120)\n  - The dependencies were updated\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.3/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "10332da9785faf7dd4a339d88decdf3c8f9ecf99d6b9c1db3d8e2283a5129f1a"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.2",
+      "release_date": "2026-08-06",
+      "release_notes": "26.8.2\n- Fixed Ctrl + Space no longer auto-formatting Markdown\n  tables when Markdown LSP support was enabled (for #3685)\n- Added OpenSSL 3 to the universal macOS Qt 6 package, enabling connections to\n  TLS 1.3-only servers while retaining TLS 1.2 and certificate verification\n  support (for #3681)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.2/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "41c623aecf8745cf6d778d7f1f81ed7b9f41686e5e819e0ee4b2198f201be151"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.1",
+      "release_date": "2026-08-04",
+      "release_notes": "26.8.1\n- In read-only mode, pressing Ctrl + Space on a linked\n  Markdown checkbox now asks to enable editing and toggles the checkbox instead\n  of opening the link (for #3682)\n- Fixed an empty color mode ID warning when opening the Color modes settings\n  (for #3526)\n- Improved the heading folding gutter by reducing the space between folding\n  symbols and line numbers and ensuring the symbols remain visible with mixed\n  dark application and light editor themes on Windows\n  (for #3680)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.1/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "4b178d2ca3ba76e8eeae38fc22a646206a055f68710b7f43d88a4689c42d8aac"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.8.0",
+      "release_date": "2026-08-03",
+      "release_notes": "26.8.0\n- Fixed Joplin RAW import silently skipping some attachments\n  (for #3672, thank you, @MySkeletonHurts)\n- The Nextcloud Deck dialog now preserves an already entered description and\n  due date when pressing Enter on an unmatched search to create a new card\n  (for #3673)\n- qc v0.6.3 was released\n  - qc configure no longer fails with command not found when the configured editor is not\n    installed on the system (for #24)\n    - The editor is now resolved every time the config file is edited, falling back to the VISUAL\n      and EDITOR environment variables and then to a list of common editors\n    - A clear error message is shown when no editor could be found at all\n  - The config file path is now quoted when it is passed to the editor, so paths containing spaces\n    work as expected\n  - Update dependencies\n    - Go 1.25 is now required to build the project\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.8.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.8.0/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "93e20d212bad1308c33e879685dbf49cf57134a988cf8b6135542b31ffb6e5ad"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.10",
+      "release_date": "2026-07-26",
+      "release_notes": "26.7.10\n- Improved text selection in the QLiteHtml preview by avoiding redundant\n  selection processing and full preview repaints, preserving selections while\n  dragging across whitespace, and automatically scrolling beyond the viewport\n  (for #3668)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.10",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.10/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "500b9e76c023752aa1bc2e70b31dbe6941b8bd8ecc6fea054ef949a815ce01c1"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.9",
+      "release_date": "2026-07-23",
+      "release_notes": "26.7.9\n- Added syntax highlighting for GNU R fenced code blocks in the note editor\n  and preview (for #2845)\n- Added the word: and w: note search operators for matching whole words\n  without changing the existing substring and quoted-phrase search behavior\n  (for #1756)\n  - See the searching documentation\n    for more information about the new operators and how they interact with\n    existing search syntax\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.9",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.9/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "d39935c218dd3c0c77829bf6d757334d6913c5aaf686d343d5fcf73f3f42e693"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.8",
+      "release_date": "2026-07-18",
+      "release_notes": "26.7.8\n- Fixed excessive system keychain (libsecret on Linux) access while typing:\n  the LanguageTool checker no longer re-reads and decrypts its API key on\n  every keystroke and scroll event (only when its settings actually change),\n  and the Markdown note preview no longer re-decrypts the Nextcloud/ownCloud\n  password on every debounced preview refresh unless the note actually\n  contains an unresolved Nextcloud preview image\n  (for #3665)\n- Added a Search in the selection only toggle to the note text search, next\n  to Match case sensitive, so search and search & replace can be limited to\n  the selected text range (for #3664)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.8",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.8/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "40f4c42e9dd25c64315a8db02d2ef62df65a0642eaf421392772925086a7973c"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.7",
+      "release_date": "2026-07-14",
+      "release_notes": "26.7.7\n- The active entry is now marked with a checkbox in the Note folder and\n  Color modes settings lists, which can also be used to set the active item\n  (for #3663)\n- Added more Spanish, French, Korean translation (thank you, AlejandroMoc, jd-develop, VenusGirl)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.7",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.7/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "e515d17dbe5658d154a250092cbaf5e94930abbd4224f3765d7500d6f6686e5b"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.6",
+      "release_date": "2026-07-13",
+      "release_notes": "26.7.6\n- Nextcloud sync conflicted-copy notes like TODO (conflicted copy 2026-07-10 070952).md\n  are now marked with a warning emoji in the note list so they are easier to spot\n  (for #3662)\n- Added a General settings option for the keychain access timeout, defaulting\n  to 2 seconds, so QOwnNotes falls back to SimpleCrypt legacy encryption faster\n  if the system keychain service is unavailable (for #3661)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.6",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.6/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "abb01b8952e96a98666782eef10d69b549963a1d839611c3b485889257a7c8fb"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.5",
+      "release_date": "2026-07-09",
+      "release_notes": "26.7.5\n- Fixed generated note insertions while read-only mode is active, so QOwnNotes\n  now asks to allow note editing before adding links, attachments, media, HTML as\n  Markdown, data-url images, or autocomplete text (for #3659)\n- Added more French, Korean translation (thank you, jd-develop, VenusGirl)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.5",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.5/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "63919afedc893b2dbeac67aac0f3bf6d45c88f2bec58f767eca62dfea0412ada"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.4",
+      "release_date": "2026-07-08",
+      "release_notes": "26.7.4\n- Fixed non-breaking spaces like U+00A0 and U+202F being converted to\n  regular spaces when notes were edited and saved (for #2839)\n- Fixed the status bar note path staying on the old filename after a note was\n  renamed from its header/title until switching notes (for #3658)\n- Fixed frontmatter entries followed by the closing --- delimiter being shown\n  as Setext headings in the Navigation panel (for #3657)\n- Added a button to the Debug settings to open the active settings file in an\n  external editor on systems where the settings are stored in an editable file\n  (for #3656)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.4/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "56d3a4d0dbf223fa34cb1946d01f00d0d32cea0970d770860a03fa8a6b86f179"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.7.3",
+      "release_date": "2026-07-07",
+      "release_notes": "26.7.3\n- New notes now use ATX headings by default for generated titles, and the\n  General settings now include an option to use Setext headings instead\n  (for #3655)\n- Fixed the Preview panel font scaling on Windows with high display scale\n  settings, so the preview no longer grows larger than the note editor at e.g.\n  300% desktop scaling (for #3653)\n- Added emojis to the note title of the welcome notes to demonstrate emojis in\n  the note list (for #2190)\nReleased files\n- QOwnNotes-x86_64.AppImage: Portable Linux AppImage build with Qt 6\n- QOwnNotes-x86_64.AppImage.sha256sum: SHA-256 checksum for the AppImage\n- QOwnNotes-amd64.snap: Linux Snap build with Qt 6\n- QOwnNotes-amd64.snap.sha256sum: SHA-256 checksum for the Qt 6 Snap package\n- QOwnNotes-Qt5-amd64.snap: Linux Snap build with Qt 5 for older environments\n- QOwnNotes-Qt5-amd64.snap.sha256sum: SHA-256 checksum for the Qt 5 Snap package\n- QOwnNotes.zip: Windows ZIP package built with Qt 6\n- QOwnNotes.zip.sha256: SHA-256 checksum for the Qt 6 Windows ZIP package\n- QOwnNotes.zip.sha256sum: Alternative SHA-256 checksum file for the Qt 6 Windows ZIP package\n- QOwnNotes.dmg: macOS disk image built with Qt 6\n- QOwnNotesQt5.dmg: macOS disk image built with Qt 5 for older systems",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.7.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/pbek/QOwnNotes/26.7.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.7.3/QOwnNotes.zip",
+          "host": "github.com",
+          "filename": "QOwnNotes.zip",
+          "sha256": "58eb5d628c5219e1c2a2edf14affd4fbf9d851e48e14812a385a32101a61433b"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "26.9.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/pbek/QOwnNotes/releases/download/v26.9.0/QOwnNotes.dmg",
+          "host": "github.com",
+          "filename": "QOwnNotes.dmg",
+          "sha256": "2fe30b0aa2ddd7652204ad265f79e370b1cb7d9bd93e0c66b41e41b391ecb967",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "QOwnNotes.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.PBE.QOwnNotes"
+          ],
+          "zap_paths": [
+            "~/Library/Preferences/com.pbe.QOwnNotes.plist",
+            "~/Library/Saved Application State/com.PBE.QOwnNotes.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "26.11.10",
+      "release_date": "2026-11-15",
+      "release_notes_url": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.10",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.qownnotes.QOwnNotes.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.qownnotes.QOwnNotes.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.qownnotes.QOwnNotes.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.qownnotes.QOwnNotes.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "manifests/p/pbek/QOwnNotes"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "9ee85620da80e284f05f92020572f74897893773",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "Casks/q/qownnotes.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/qownnotes.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.qownnotes.QOwnNotes",
+      "retrieved_at": "2026-11-16T23:03:23.336Z",
+      "path": "api/v2/appstream/org.qownnotes.QOwnNotes",
+      "api_url": "https://flathub.org/api/v2/appstream/org.qownnotes.QOwnNotes",
+      "content_sha256": "b6ba5e6dfc0261d3a965dd2cb190b255bd60e49ecf57f525f79e215773b8f678"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.qownnotes.QOwnNotes",
+    "page_url": "https://flathub.org/apps/org.qownnotes.QOwnNotes",
+    "repo_url": "https://github.com/flathub/org.qownnotes.QOwnNotes",
+    "install_command": "flatpak install flathub org.qownnotes.QOwnNotes",
+    "run_command": "flatpak run org.qownnotes.QOwnNotes",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "qownnotes.org",
+      "verified_on": "2024-07-03"
+    },
+    "license": "GPL-2.0+",
+    "free_license": true,
+    "developer_name": "Patrizio Bekerle",
+    "categories": [
+      "Utility",
+      "TextEditor"
+    ],
+    "download_size": 30234382,
+    "installed_size": 75928576,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

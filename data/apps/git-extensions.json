@@ -1,0 +1,886 @@
+{
+  "schema_version": 2,
+  "slug": "git-extensions",
+  "name": "Git Extensions",
+  "publisher": "Git Extensions Team",
+  "author": "Git Extensions Team",
+  "ids": {
+    "winget": "GitExtensionsTeam.GitExtensions",
+    "moniker": "git-extensions"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "summary": "Git Extensions is a standalone UI tool for managing git repositories. It also integrates with Windows Explorer and Microsoft Visual Studio (2015/2017/2019).",
+  "tags": [
+    "git",
+    "git-client",
+    "git-gui"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://gitextensions.github.io/",
+    "publisher": "https://gitextensions.github.io/",
+    "support": "https://github.com/gitextensions/gitextensions/issues",
+    "bug_tracker": "https://github.com/gitextensions/gitextensions/issues",
+    "privacy": "https://github.com/gitextensions/gitextensions/blob/HEAD/setup/assets/PrivacyPolicy.md",
+    "release_notes": "https://github.com/gitextensions/gitextensions/releases/tag/v7.2.1",
+    "documentation": [
+      {
+        "label": "Manual",
+        "url": "https://git-extensions-documentation.readthedocs.io/"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/gitextensions/gitextensions/blob/HEAD/LICENSE.md",
+    "spdx": "GPL-3.0",
+    "copyright": "Copyright © 2008-2026 Git Extensions Team",
+    "copyright_url": "https://raw.githubusercontent.com/gitextensions/gitextensions/master/LICENSE.md"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "7.2.1.7"
+  },
+  "last_updated": "2026-08-18",
+  "versions_total": {
+    "windows": 23
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "7.2.1.7",
+      "release_date": "2026-08-18",
+      "release_notes": "Downloads\nRelease Notes Highlights\n- Required: .NET 10.0 Desktop Runtime v10.0.9 x64 or later 10.x\n- Recommended: Git 2.53.0 or later\n- Several bug fixes, particularly for the Bug Reporter\n- Updated and added translations\nKnown Issues\n- #13156 workaround: turn on \"View | Show session checkpoints\" if using WSL with zsh\nWhat's Changed\n- docs: add DAG (Docs-Augmented Generation) agent documentation by @RussKie in #13165\n- ci: only clear no-recent-activity label on author response by @RussKie in #13182\n- perf(clone): choose Windows / WSL git according to destination directory by @mstv in #13203\n- fix(push button): restore color if not behind by @mstv in #13206\n- Preserve anchored repositories when trimming recent repository history by @RussKie with @Copilot in #13174\n- Push ShellProvider into DI by @RussKie with @Copilot in #13168\n- Limit reset check to scope of documentation to \"not loose commits\" by @becm in #13199\n- fix(cancellation): Pass cancellation tokens to awaited tasks by @mstv in #13209\n- feat(camel humps): also just lowercase by @SparshGarg999 in #13103\n- ci: harden build workflow and fix test-report gating by @RussKie in #13116\n- fix(worktree): normalise new branch name and offer to switch after create by @RussKie in #13180\n- fix: three cross-platform fixes for HOME, the avatar cache path and meld by @AlexThunder1989 in #13214\n- feat(cross-platform): add names of diff/merge tools by @mstv in #13221\n- chore(rebase): Bypass false debug assertion by @pmiossec in #12985\n- fix(bug reporter): remove wrong configuration by @mstv in #13225\n- fix(push reject): ignore ANSI escape sequences by @mstv in #13219\n- feat(confirmations): Add in-dialog \"Don't show again\" checkbox by @RussKie in #13163\n- feat(issue-triage): close legacy runtime loading reports by @RussKie in #13236\n- feat(plugins): validate compatibility on load by @mstv in #13234\n- fix(scripts): avoid crash by outdated plugins by @mstv in #13230\n- fix(TextAreaControl): measure glyph width by @mstv in #13238\nNew Contributors\n- @SparshGarg999 made their first contribution in #13103\n- @AlexThunder1989 made their first contribution in #13214\nFull Changelog: v7.2.0...v7.2.1",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v7.2.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/7.2.1.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v7.2.1/GitExtensions-x64-7.2.1.7-0aea2d6df.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-7.2.1.7-0aea2d6df.msi",
+          "sha256": "3d8043608fcb211b1ee26250dd1d5f0c596c82891230e8ea22549e3012c32475",
+          "product_code": "{BF76B530-3522-436E-9F87-25DF0FEF51E4}",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "git",
+            "github-mac",
+            "github-windows"
+          ],
+          "file_extensions": [
+            "gitext"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.10"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Git Extensions 7.2.1.7",
+              "product_code": "{BF76B530-3522-436E-9F87-25DF0FEF51E4}",
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v7.2.1/GitExtensions-arm64-7.2.1.7-0aea2d6df.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-arm64-7.2.1.7-0aea2d6df.msi",
+          "sha256": "4196dabeb9b3ea1e6d067c6beed80021e41eb7f5627a032b7074d25aa952daab",
+          "product_code": "{F263885F-D242-4FF2-896E-A7E75B9CF29D}",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "git",
+            "github-mac",
+            "github-windows"
+          ],
+          "file_extensions": [
+            "gitext"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.10"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Git Extensions 7.2.1.7",
+              "product_code": "{F263885F-D242-4FF2-896E-A7E75B9CF29D}",
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.2.0.92",
+      "release_date": "2026-07-10",
+      "release_notes": "Release Notes Highlights\n- Required: .NET 10.0 Desktop Runtime v10.0.9 x64 or later 10.x\n- Recommended: Git 2.53.0 or later\n- Many updated and added translations\n- Bug fixes for RC1\n- Minor improvements\nWhat's Changed\n- feat(RevisionGrid): Draw ahead/behind info; adapt tag shape by @mstv in https://github.com/gitextensions/gitextensions/pull/13104\n- fix: remove unused UxTheme native methods by @gerhardol in https://github.com/gitextensions/gitextensions/pull/13117\n- fix(FormCommit): Avoid empty diff on multi-selection by @mstv in https://github.com/gitextensions/gitextensions/pull/13129\n- Fix unhandled exception when selecting non-TrueType font in Appearance settings by @RussKie with @Copilot in https://github.com/gitextensions/gitextensions/pull/13145\n- fix(Reset changes): Restrict to working dir by @mstv in https://github.com/gitextensions/gitextensions/pull/13138\n- fix: dispose Process handles by @gerhardol in https://github.com/gitextensions/gitextensions/pull/13134\n- Do not show merge commit editor when there are no errors by @zvirja in https://github.com/gitextensions/gitextensions/pull/13148\n- build(translation): Verify Transifex base files by @mstv in https://github.com/gitextensions/gitextensions/pull/13135\n- fix: checkout branch --track by @gerhardol in https://github.com/gitextensions/gitextensions/pull/13143\n- ci(cla-check): Reject \"noreply\" email by @mstv in https://github.com/gitextensions/gitextensions/pull/13150\n- feat: hide fetch-all UI when there is only one remote by @gerhardol in https://github.com/gitextensions/gitextensions/pull/13064\n- fix(ISetting): read and store bool in lowercase by @mstv in https://github.com/gitextensions/gitextensions/pull/13154\n- feat(.gitignore): Support single selected folder by @mstv in https://github.com/gitextensions/gitextensions/pull/13147\n- Avoid some string allocations, plus some collection tweaks by @Henr1k80 in https://github.com/gitextensions/gitextensions/pull/13139\n- feat(RevisionGrid): Preview amend on Ctrl+click by @mstv in https://github.com/gitextensions/gitextensions/pull/13137\n- perf: make classes sealed by @mstv in https://github.com/gitextensions/gitextensions/pull/13158\n- feat(RevisionGrid): Improve label hover hit-test by @mdonatas in https://github.com/gitextensions/gitextensions/pull/13133\n- fix: unblock UI thread while awaiting merge tool by @mstv in https://github.com/gitextensions/gitextensions/pull/13159\nFull Changelog: https://github.com/gitextensions/gitextensions/compare/v7.1.0...v7.2.0",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v7.2.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/7.2.0.92",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v7.2.0/GitExtensions-x64-7.2.0.92-501f831.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-7.2.0.92-501f831.msi",
+          "sha256": "32b9a9997bb36b36d14c9fe06c9a7a521b8234280dc21e19c22db29fcaf0cbbe",
+          "product_code": "{0E816151-6F52-43D0-B5ED-4201230A26EA}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "git",
+            "github-mac",
+            "github-windows"
+          ],
+          "file_extensions": [
+            "gitext"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.9"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.0.1.86",
+      "release_date": "2026-05-31",
+      "release_notes": "Release Notes Highlights\n- Required: .NET 10.0 Desktop Runtime v10.0.08 x64 or later 10.x\n- Recommended: Git 2.53.0 or later\n- Bug fixes for RC1\nWhat's Changed\n- refactor(AppSettings): Replace dynamic type coercion with baked-in converters by @mstv in https://github.com/gitextensions/gitextensions/pull/13084\n- fix(StartFileHistoryDialog): Add missing call by @mstv in https://github.com/gitextensions/gitextensions/pull/13087\n- Optimized StringBuilder usage by @Henr1k80 in https://github.com/gitextensions/gitextensions/pull/13049\n- fix(SubmoduleHelpers): Support quoted filenames by @mstv in https://github.com/gitextensions/gitextensions/pull/13090\nFull Changelog: https://github.com/gitextensions/gitextensions/compare/v7.0.0...v7.0.1",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v7.0.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/7.0.1.86",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v7.0.1/GitExtensions-x64-7.0.1.86-c119a52.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-7.0.1.86-c119a52.msi",
+          "sha256": "53792d2bf39e0949319ca711a189120e41d53b60d7b74d6a11d66120cd0725ed",
+          "product_code": "{32A5FAEE-669C-4E17-87F6-FFAF65A706E5}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "git",
+            "github-mac",
+            "github-windows"
+          ],
+          "file_extensions": [
+            "gitext"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.9"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.5.18375",
+      "release_date": "2025-11-28",
+      "release_notes": "Release Notes Highlights\n- Required: .NET 9.0 Desktop Runtime v9.0.11 x64 or later 9.x\n- Recommended: Git 2.51.0 or later\n- Two fixes\n- Updated translations (ja, ko 100%; ta, zh, fr, tr, ru > 95%; others less)\nWhat's Changed\n- fix(CheckSettingsLogic): Prefer native executables by @mstv in https://github.com/gitextensions/gitextensions/pull/12704\n- fix(plugin loading): Await registration before use by @mstv in https://github.com/gitextensions/gitextensions/pull/12707\nFull Changelog: https://github.com/gitextensions/gitextensions/compare/v6.0.4...v6.0.5",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v6.0.5",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/6.0.5.18375",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v6.0.5/GitExtensions-x64-6.0.5.18375-069d8b778.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-6.0.5.18375-069d8b778.msi",
+          "sha256": "d925a0a1c96b49687cb099baf0449930f0bcbaa9f13647c44aded770d9f5d3c2",
+          "product_code": "{933E07E5-C4C0-4D49-8BFD-096FE307264A}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "git",
+            "github-mac",
+            "github-windows"
+          ],
+          "file_extensions": [
+            "gitext"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.9"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.0.2.18262",
+      "release_date": "2025-10-10",
+      "release_notes": "Release Notes Highlights\n- Required: .NET 9.0 Desktop Runtime v9.0.9 x64 or later 9.x\n- Required for Plugin Manager: .NET 9.0 Desktop Runtime v9.0.9 x86 or later 9.x\n- Recommended: Git 2.51.0 or later\n- Update Plugin Manager\n- Several fixes and improvements\n- Remove support for mailing patches\nWhat's Changed\n- fix: prepare for .net10 by @gerhardol in https://github.com/gitextensions/gitextensions/pull/12519\n- fix: remove mail patches by @gerhardol in https://github.com/gitextensions/gitextensions/pull/12522\n- fix: show recent destination directories on clone by @nikolaosginos in https://github.com/gitextensions/gitextensions/pull/12499\n- fix: appveyor warning for lineending by @gerhardol in https://github.com/gitextensions/gitextensions/pull/12542\n- fix: include rc in .net debug listings by @gerhardol in https://github.com/gitextensions/gitextensions/pull/12543\n- fix: do not add / to submodule names by @gerhardol in https://github.com/gitextensions/gitextensions/pull/12541\n- Update contributors.txt by @logiclrd in https://github.com/gitextensions/gitextensions/pull/12551\n- Test robustness: Account for core.autocrlf in DiffHighlightServiceTests.MarkInlineGap by @logiclrd in https://github.com/gitextensions/gitextensions/pull/12548\n- fix: create worktrees with relative paths by @gerhardol in https://github.com/gitextensions/gitextensions/pull/12533\n- fix(FileStatusList): set files as new for initial commit by @gerhardol in https://github.com/gitextensions/gitextensions/pull/12544\n- Fix the creation of orphan branches in empty repositories by @logiclrd in https://github.com/gitextensions/gitextensions/pull/12539\nNew Contributors\n- @nikolaosginos made their first contribution in https://github.com/gitextensions/gitextensions/pull/12499\n- @logiclrd made their first contribution in https://github.com/gitextensions/gitextensions/pull/12551\nFull Changelog: https://github.com/gitextensions/gitextensions/compare/v6.0.1...v6.0.2",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v6.0.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/6.0.2.18262",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v6.0.2/GitExtensions-x64-6.0.2.18262-f02a06bf5.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-6.0.2.18262-f02a06bf5.msi",
+          "sha256": "d6bc75bb00e10453bd93f05127611f4447f23c70e2748b9e3018767ab8248311",
+          "product_code": "{2A10A44A-3774-45D3-A51A-D654AB2F5FA0}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "git",
+            "github-mac",
+            "github-windows"
+          ],
+          "file_extensions": [
+            "gitext"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.9"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.2.1.18061",
+      "release_date": "2025-01-30",
+      "release_notes": "Release Notes Highlights\n- Required: .NET 8.0 Desktop Runtime v8.0.12 or later 8.0.x\n- Recommended: Git 2.46.0 or later\n- Bugfixes for process dialog, blame loading and output history\nWhat's Changed\n- fix(ShowProcessDialogPasswordInput): Default to false by @mstv in #12171\n- fix(AheadBehindDataProvider): Restrict debug output by @mstv in #12143\n- fix(bare repo): Skip git status and git stash list by @mstv in #12165\n- fix(Blame): Do not cancel loading if nothing changed by @mstv in #12158\nFull ChangeLog\nhttps://github.com/gitextensions/gitextensions/compare/v5.2...v5.2.1\nBinaries for Windows on ARM by @chirontt",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v5.2.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/5.2.1.18061",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v5.2.1/GitExtensions-x64-5.2.1.18061-0d74cfdc3.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-5.2.1.18061-0d74cfdc3.msi",
+          "sha256": "6a678b485b98aa52dba33da053c5472caa9ddd1e32efb7a915e3ac0ff0a99b7f",
+          "product_code": "{6A973EA0-8D1D-4DED-B6D3-FB7BF6ACD9A5}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "git",
+            "github-mac",
+            "github-windows"
+          ],
+          "file_extensions": [
+            "gitext"
+          ],
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.8"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.1.17970",
+      "release_date": "2024-11-09",
+      "release_notes": "What's Changed\n- fix(Diff View): Avoid exception on open by @mstv in https://github.com/gitextensions/gitextensions/pull/12028\nFull Changelog: https://github.com/gitextensions/gitextensions/compare/v5.1...v5.1.1",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v5.1.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/5.1.1.17970",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v5.1.1/GitExtensions-x64-5.1.1.17970-939c0edba.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-5.1.1.17970-939c0edba.msi",
+          "sha256": "e03479241cf9acdbcdb37d5cacea0933117c564dd8e7ca540bf77f48006b4c2e",
+          "product_code": "{A189377F-D96F-4FFC-AC7E-1FBF17D5BA13}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.8"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.1.0.17965",
+      "release_date": "2024-11-07",
+      "release_notes": "DownloadsRelease Notes Highlights\n- Required: .NET 8.0 Desktop Runtime v8.0.10 or later\n- Recommended: Git 2.46.0 or later\n- Several bugfixes including for diff display in case diff.external is configured for Git\n- Allow ^ and .. in manual branch filters\n- Improve in-line diff highlight, add anchor markers indicating where text was added / removed\n- Add Output tab with the output from interactively run Git commands\n- Performance improvements\n- UI and usability improvements\nWhat's Changed\n- fix: bold attributes applies to both fore/back by @gerhardol in #11849\n- feat: Recommend Git 2.46.0 by @gerhardol in #11853\n- feat: GitCache: Add current directory to key by @gerhardol in #11850\n- fix: try-catch for FileSystemWatcher by @gerhardol in #11855\n- fix: RunCommand() should not throw when exit is checked by @gerhardol in #11871\n- Update README.md to v5.0 by @RussKie in #11889\n- fix: merge adjacent textmarkers by @gerhardol in #11887\n- Fix NRE in scripts if arguments unset by @RussKie in #11893\n- fix: LineNumber presentation for Git word-diff by @gerhardol in #11888\n- Correctly escape paths by @RussKie in #11900\n- Add navigation commands \"Go to first / last parent commit\" by @mstv in #11884\n- Move NoWarn=NU1903 to the Wix PackageReference by @ericstj in #11911\n- FileStatusList: Reuse context menu separators by @mstv in #11916\n- FormCommit: Disable ResetSoft if command not applicable by @mstv in #11917\n- fix: support Git < 2.26 with bright colors by @gerhardol in #11915\n- Make DropDownWidth calculation Dpi aware and account for vertical scrollbar by @mdonatas in #11864\n- Adjust ToolStripComboBox size based on DPI scaling by @mdonatas in #11865\n- feat(settings): deeper checks for GitExtensions install directory by @pmiossec in #11913\n- chore: Update wix to v3.14.1 (security update) by @pmiossec in #11912\n- fix: Always present git inserted as Header by @gerhardol in #11922\n- fix: Merge git-diff textmarkers separated by newlines by @gerhardol in #11921\n- Use \"real\" GitUICommands instance by @RussKie in #11927\n- fix: Allow ^and .. in manual branch filters by @gerhardol in #11923\n- fix!: View colors in git-blob diff files by @gerhardol in #11930\n- Use \"-D\" instead of \"-d\" when deleting unmerged branches by @georg138 in #11937\n- Diff View: Match similar lines in changed blocks by @mstv in #11851\n- Expose git-grep in settings and context menu by @RussKie in #11858\n- fix(show git-grep): Sync and use actual visibility by @mstv in #11948\n- fix: Align difftastic colors by @gerhardol in #11946\n- fix(FormGoToCommit): Improve performance by @mstv in #11952\n- Fix FileViewer's encoding bug when showing unstaged files by @mdonatas in #11960\n- fix: Reset current ansi terminal color by @gerhardol in #11962\n- fix(ReportDubiousOwnership): Support normal paths, too by @mstv in #11965\n- fix: commit gpgSign Git defaults by @gerhardol in #11963\n- fix(settings): Ignore non-boolean advanced git config settings by @mstv in #11959\n- Improve in-line diff highlight and add anchor markers by @mstv in #11862\n- fix(FormRenameBranch): Run git interactively by @mstv in #11987\n- fix(push): fix tracking reference not well selected by @pmiossec in #11954\n- feat: Avoid coloring moved lines by @gerhardol in #11947\n- Improve unit tests code by @pmiossec in #11993\n- fix: Handle dubious repo ownership, too, if detected by GitStatusMonitor by @mstv in #11992\n- fix: Restrict settings to \"global\" when not in a repository by @pmiossec in #11955\n- feat: Cache the diff highlighting by @gerhardol in #11981\n- fix(in-line diff): Support non-reversed git coloring by @mstv in #11994\n- Singed for contributing  by @chkoddi in #11995\n- fix(Push): fix false positive detection of \"detached head\" state by @pmiossec in #11999\n- Add control with last interactive Git outputs and traces by @mstv in #10307\n- fix(difftastic): Adjust endmarkers by @gerhardol in #11983\n- fix(FileStatusList): Set Text for accessibility by @mstv in #12004\n- fix(FormDiff): Avoid \"A task was canceled.\" by @mstv in #12012\n- fix(FormCommit): Restore file selection by @mstv in #12013\n- fix(FilterToolBar): Correctly resize branch dropdown by @mstv in #12014\n- fix(git diff): Suppress diff.external by @mstv in #12007\n- fix(File History): Do not change capitalization of filename by @mstv in #12016\n- fix: Add missing defaults to git attributes parser by @gerhardol in #12018\nNew Contributors\n- @ericstj made their first contribution in #11911\n- @georg138 made their first contribution in #11937\n- @chkoddi made their first contribution in #11995\nFull Changelog: https://github.com/gitextensions/gitextensions/compare/v5.0...v5.1",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v5.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/5.1.0.17965",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v5.1/GitExtensions-x64-5.1.0.17965-f9e558c2f.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-5.1.0.17965-f9e558c2f.msi",
+          "sha256": "209e3df9d65d5963cc720ef6a3b289bbd3c8bfce2ae167d1c4189be88b9a7c28",
+          "product_code": "{726F278F-6547-43A9-8535-BE5CC7F29F0C}",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Git.Git",
+              "Microsoft.DotNet.DesktopRuntime.8"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Git Extensions 5.1.0.17965",
+              "publisher": "Git Extensions Team",
+              "product_code": "{726F278F-6547-43A9-8535-BE5CC7F29F0C}",
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "5.0.0.17897",
+      "release_date": "2024-09-06",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v5.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/5.0.0.17897",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v5.0/GitExtensions-x64-5.0.0.17897-2a3b78b86.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-x64-5.0.0.17897-2a3b78b86.msi",
+          "sha256": "36526a42a6a1ac0ee5b7248084b891a639e844c1bb831e58d71642f826d38cce",
+          "product_code": "{D9390DA1-1B21-4F3F-B7A3-515A12C9A519}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.8"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.1.17611",
+      "release_date": "2023-11-27",
+      "release_notes": "Release Notes Highlights\nRequires: .NET 6.0 Desktop Runtime v6.0.25 or later\nChanges:\n- #11393 Avoid popup resetting new file to index\n- #11389 GPG: don't crash on artificial commits\n- #11384 Do not migrate empty settings\n- #11381 GitExtSshAskPass: Ensure chars are outputed as UTF8 chars\n- #11376 Delete unused branch plugin: Makes GetBranchNames() support worktrees\n- #11369 Let git deny the commit if committer is not specified\nFull change log: https://github.com/gitextensions/gitextensions/blob/v4.2.1/GitUI/Resources/ChangeLog.md#version-421-28-nov-2023",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v4.2.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/4.2.1.17611",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v4.2.1/GitExtensions-4.2.1.17611-b0c0b2848.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-4.2.1.17611-b0c0b2848.msi",
+          "sha256": "dbf66a494bda70686c1eb4f5d5acaa0bd870a91342d3ea8c2fb4acb2e194e310",
+          "product_code": "{0E1D27B4-745E-487F-A702-56BAB4247BDD}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.6"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.0.17591",
+      "release_date": "2023-11-13",
+      "release_notes": "Release Notes Highlights\nRequires: .NET 6.0 Desktop Runtime v6.0.24 or later\n- Git 2.42 is recommended\n- Various performance improvements\n- Various UI improvements\n- Improvements to Git Commandlog dialog\n- Improvements to the Rebase dialog\n- Allow \"Save as...\" multiple files\n- Editor can now move line up/down with ALT + UP and ALT + DOWN\n- OpenSSH to use SSH_ASKPASS env variable if a password is requested (requires OpenSSH 8.4 or higher; no effect for older versions of OpenSSH)\n- Auto-set GE as editor only in current environment\n- Unstaged changes can be reset without affecting staged\n- More user friendly handling for \"Could not load file or assembly\" exceptions\n- New GitLab integration plugin\n- JIRA plugin now supports personal access tokens\n- Vertical tab (SHIFT + ENTER) is now treated as a line feed\n- Add support to build GE for Windows on Arm64 (WoA). This, however, requires manual build.\n- New option {HEAD} available in scripts\nFull change log: https://github.com/gitextensions/gitextensions/blob/v4.2/GitUI/Resources/ChangeLog.md#version-42-13-nov-2023",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v4.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/4.2.0.17591",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v4.2/GitExtensions-4.2.0.17591-bf814d4f1.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-4.2.0.17591-bf814d4f1.msi",
+          "sha256": "11943a26c0b12020254739a2c857d0c28408d2b419fb06b0328de8472b4571a6",
+          "product_code": "{0FAEC6FA-F036-458E-9576-EE29781B6B8E}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.6"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.0.16698",
+      "release_date": "2023-05-12",
+      "release_notes": "Release Notes Highlights\nRequires: .NET 6.0 Desktop Runtime v6.0.16 or later\n- Git 2.40.1 is recommended\n- Improvements in WSL2 handling, e.g., automatically convert \\\\wsl.localhost\\ to \\\\wsl$\\ paths\n- Dashboard perf improvements\n- Avatar perf improvements\n- Blame perf improvements\n- Reflog is decoupled from branch filtering and turned into an additive filter\n- Ctrl+Enter creates commit when released and not pressed\n- Windows Explorer integration can now be registered and unregistered from Settings\nFull change log: https://github.com/gitextensions/gitextensions/blob/release/4.0/GitUI/Resources/ChangeLog.md#version-41-01-may-2023",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v4.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/4.1.0.16698",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v4.1/GitExtensions-4.1.0.16698-1fe52a137.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-4.1.0.16698-1fe52a137.msi",
+          "sha256": "02c54a7562d354db63b3aca7b6086bad7becf04b49d36dbc674f9e29f6e101c7",
+          "product_code": "{2801196B-5200-4CE2-8326-C5CE9A9A1AEA}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.6"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.2.16100",
+      "release_date": "2023-01-15",
+      "release_notes": "Maintenance v4 release\nhttps://github.com/gitextensions/gitextensions/blob/release/4.0/GitUI/Resources/ChangeLog.md#version-402-15-jan-2023\nRequires: .NET 6.0 Desktop Runtime v6.0.13 or later",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v4.0.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/4.0.2.16100",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v4.0.2/GitExtensions-4.0.2.16100-25100ec1f.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-4.0.2.16100-25100ec1f.msi",
+          "sha256": "32c1da8edb3e69f2252b8e81b4ad22ee380bcbb07dec1f9c353cadfe0500ddb3",
+          "product_code": "{99DA7AAC-1F6B-43B4-A847-A5588C7CFFD2}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.6"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.1.15887",
+      "release_date": "2022-12-15",
+      "release_notes": "Maintenance v4 release\nhttps://github.com/gitextensions/gitextensions/blob/release/4.0/GitUI/Resources/ChangeLog.md#version-401-15-dec-2022",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/releases/tag/v4.0.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/4.0.1.15887",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v4.0.1/GitExtensions-4.0.1.15887-f2567dea2.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-4.0.1.15887-f2567dea2.msi",
+          "sha256": "a30a6545eff8d03a1158454586b27c51f04472d63d71625bd3a06761b41b7161",
+          "product_code": "{9309CECB-F249-4E62-91D1-C9A426BF4E5B}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.6"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{140E80EA-5053-42DC-AB0E-6FF0E49E6BCF}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.0.15569",
+      "release_notes_url": "https://github.com/gitextensions/gitextensions/blob/release/4.0/GitUI/Resources/ChangeLog.md#version-400-31-oct-2022",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/4.0.0.15569",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v4/GitExtensions-4.0.0-cba315df5.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-4.0.0-cba315df5.msi",
+          "sha256": "9201c15e7ee5affe3ba764316297f8c95f7cd07469b1a2d40fa0f0a01b871e3b",
+          "product_code": "{491CFDF0-5096-42D2-A2F4-51C0F9BD219C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.DesktopRuntime.6",
+              "Git.Git"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Git Extensions 4.0.0.15569",
+              "publisher": "Git Extensions Team",
+              "product_code": "{491CFDF0-5096-42D2-A2F4-51C0F9BD219C}",
+              "installer_type": "msi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.4.12724",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.5.4.12724",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.5.4/GitExtensions-3.5.4.12724-65f01f399.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.5.4.12724-65f01f399.msi",
+          "sha256": "01e4ed009f71a89eb7f707bda48242fed0458f19a2f2122a2d1f4246f32c403a",
+          "product_code": "{EAF138EC-A867-442D-950D-D77C627D060D}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.3.12551",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.5.3.12551",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.5.3/GitExtensions-3.5.3.12551-00604a59a.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.5.3.12551-00604a59a.msi",
+          "sha256": "3cdfd2fc69d9ba5bb164cdf707d0b53e52557614ac1b45d19f072e07cad4f2b1",
+          "product_code": "{D154CA9B-79AE-4AC8-9754-B427DBA1A41A}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.2.12435",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.5.2.12435",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.5.2/GitExtensions-3.5.2.12435-77413699a.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.5.2.12435-77413699a.msi",
+          "sha256": "b57aecd7897fc93ca8ed6ec755b2de2f14c92cdb741433ad0df9c1344dee0a69",
+          "product_code": "{1D200853-D544-42C9-A6AB-BDA28BE39EC7}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.1.12196",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.5.1.12196",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.5.1/GitExtensions-3.5.1.12196-9099a1e76.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.5.1.12196-9099a1e76.msi",
+          "sha256": "4635ad03f771995444261ce485e7c199c5c72181a8aa0a48a2071a333c19ed34",
+          "product_code": "{72FFE252-3CB2-4C14-A598-18AE70A594D9}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.0.11713",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.5.0.11713",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.5/GitExtensions-3.5.0.11713-0a5ef9ca6.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.5.0.11713-0a5ef9ca6.msi",
+          "sha256": "0690dc4f163bf1c7b70138e300e086f594dfca52580d0959d2d801b682731657",
+          "product_code": "{7B6CA439-D683-4B45-893D-2C28B3271199}",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.3.9999",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.4.3.9999",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.4.3/GitExtensions-3.4.3.9999-d4b0f48bb.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.4.3.9999-d4b0f48bb.msi",
+          "sha256": "96811ea4f9266ba8ee5c758c146fbc84f3cfe5ec4c5c966b5885e11b5f696f74",
+          "product_code": "{9DA925A7-6D52-41F8-B91E-872C0FCC2E9D}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.1.9675",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.4.1.9675",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.4.1/GitExtensions-3.4.1.9675-f49b4d059.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.4.1.9675-f49b4d059.msi",
+          "sha256": "a192378ee61cbe83326b53368c7e946385ad3e170a68207eb26a96884e08e35f",
+          "product_code": "{FBAD705D-6D2F-46DF-8BE4-D12E25465ADC}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.1.7897",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/g/GitExtensionsTeam/GitExtensions/3.3.1.7897",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/gitextensions/gitextensions/releases/download/v3.3.1/GitExtensions-3.3.1.7897.msi",
+          "host": "github.com",
+          "filename": "GitExtensions-3.3.1.7897.msi",
+          "sha256": "8a2cf10a8d14444d60485a462c649c48d44f41ff1283b4e7e72a00165c19e54f",
+          "product_code": "{FA461E68-A9EE-407C-8109-1E220291A93E}"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "manifests/g/GitExtensionsTeam/GitExtensions"
+    }
+  ]
+}

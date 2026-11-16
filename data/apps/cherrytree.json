@@ -1,0 +1,409 @@
+{
+  "schema_version": 2,
+  "slug": "cherrytree",
+  "name": "CherryTree",
+  "publisher": "Giuseppe Penone",
+  "author": "Giuseppe Penone",
+  "ids": {
+    "winget": "Giuspen.Cherrytree",
+    "flathub": "net.giuspen.cherrytree"
+  },
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "summary": "A hierarchical note taking application, featuring rich text and syntax highlighting, storing data in a single xml or sqlite file.",
+  "description": "A hierarchical note taking application, featuring rich text and syntax highlighting, storing data in either a single file (xml or sqlite) or multiple files and directories.",
+  "tags": [
+    "editor",
+    "note",
+    "wiki"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://www.giuspen.com/cherrytree",
+    "publisher": "https://www.giuspen.com/",
+    "support": "https://github.com/giuspen/cherrytree/issues",
+    "bug_tracker": "https://github.com/giuspen/cherrytree/issues",
+    "release_notes": "https://github.com/giuspen/cherrytree/releases/tag/v1.7.3"
+  },
+  "license": {
+    "name": "GPL-3.0-or-later",
+    "url": "https://github.com/giuspen/cherrytree/blob/HEAD/license.txt",
+    "spdx": "GPL-3.0-or-later",
+    "copyright": "Copyright © 2009-2025\nGiuseppe Penone <giuspen@gmail.com>\nEvgenii Gurianov <https://github.com/txe>",
+    "copyright_url": "https://github.com/giuspen/cherrytree/blob/master/license.txt"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.7.3",
+    "linux": "b'1.7.3'"
+  },
+  "last_updated": "2026-11-07",
+  "versions_total": {
+    "windows": 9,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.7.3",
+      "release_date": "2026-11-07",
+      "release_notes": "- fixed command injection with custom link actions (@r3vpwnx, @Afnaan-Ahmed #2945 CVE-2026-118692)\n- fixed arbitrary local file read via crafted embedded-file name (@Afnaan-Ahmed, #2944 CVE-2026-118693)\n- reject symlinked multifile node directories + prevent cleanup from following symlinks (@acts-1631, #2922, #2920)\n- reject empty tables during XML parsing so malformed XML cannot reach table construction or clipboard indexing (@acts-1631, #2923)\n- on node name header, show node icon and aux icons on the left rather than on the right, just after last visited nodes buttons\n- improved image download on HTML paste from browser (#2925)\n- fixed crash when destroying anchored widgets (#2947)\n- support for new language Tamil (@TamilNeram)\n- build with libxml++5 on windows/msys2, ubuntu 26.04+, flatpak (#2918, @bgermann)",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.7.3",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.7.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.7.3/cherrytree_1.7.3.0_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.7.3.0_win64_setup.exe",
+          "sha256": "77e5759903afe0ac5fb6d4e83cb4dae1c5416b080675fe5bcbdff098fe90c49f",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.7.3.0",
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.2",
+      "release_date": "2026-08-30",
+      "release_notes": "- fixed crash introduced with word count changes in v1.7.1 (#2890)\n- moved tree explorer auxiliary icon (e.g. indicating read only) between node icon and node name (#2458)\n- fixed selecting a word via double click in a codebox or table cell not working\n- improved search in node name and tags to support multiple words across both (#2894)\n- improved pasting rich text from mismatching theme (e.g. from dark theme source to locally configured light theme)\n- fixed embedded files cannot be opened anymore with custom action on windows (#2892)\n- added support for pasting web content containing .webp images on windows (#2907)\n- fixed LatexBox containing non ASCII characters loses end bytes after saving in SQLite/reopening (#2903, @cartesiana)\n- fixed crash selecting syntax highlighting language id 'def' not meant to be in the list (#2906)\n- fixed regression after indent/unindent multiple list items in a selection - if the selection included non list items, those were not indented (#2881)\n- when a numbered list is split by pressing enter twice at the end of an intermediate list item, the second part of the list now decrements as the temporary intermediate list item is removed\n- increased margin at the bottom of the tree explorer to prevent the hovering horizontal scrollbar from hiding the last node (#2891)\n- when pasting rich text which results empty, automatically fallback to the plain text clipboard target (#2878)",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.7.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.7.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.7.2/cherrytree_1.7.2.1_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.7.2.1_win64_setup.exe",
+          "sha256": "81048bf7b326516dace5a7078794d7bbe05ec44d5d7be9492f304b8347a4f898",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.7.2.1",
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.1",
+      "release_date": "2026-07-18",
+      "release_notes": "- word count now enabled by default (can be disabled in preferences dialog, tab 'Interface')\n- word count now counting only inside of the selection when a selection is in place (#283)\n- word count to work also inside of codeboxes and tables\n- tree node icons to change size with tree font\n- added current tree node icon on the node name header\n- support indent/unindent multiple list items when there is a selection (#2881)\n- when toggling a formatting (e.g. bold), toggle off only if all selected text has it, otherwise toggle on (#2885)\n- added menu items/actions to insert tomorrow's node similarly to today's node\n- fixed regression after #2814 - the option to collapse all nodes on startup not properly working anymore (#2865)\n- collapse all nodes action now drops expanded status at all levels (#2865)\n- implemented safe fallback for multiFile backup directory moves (#2867)\n- improved performance of nodes sorting algorithm (#2868)\n- fixed copy/paste issues from firefox on mac os (#2878)\n- 'Do Not Auto-Select Objects on Single Click' enebled by default on KDE (#2873)\n- fixed generation of pdf when the text contains a link URL with invalid control character (e.g. '\\n')\n- fixed regression text row cut/copy/delete no longer including newline\n- fix: avoid crash in time_format when localtime returns null (#2871)\n- fixed warning pasting from firefox on windows\n- when dragging a node and dropping as a child of another node, do not expand the new parent node to select the dragged child if Shift is held down",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.7.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.7.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.7.1/cherrytree_1.7.1.0_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.7.1.0_win64_setup.exe",
+          "sha256": "f654d311e08fb3a94679395eccd56d87eb2fc3c92469e012d5ac470e55b6797d",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.0",
+      "release_date": "2026-05-23",
+      "release_notes": "- implemented new start dialog that shows when no document is loaded (e.g. after file--new instance) to better guide the user in what to do (and preferences dialog option to disable it)\n- added confirmation dialog for when the user is searching + replacing with the option 'all, list matches' and the replace entry is empty (#2850)\n- when searching + replacing rich text that has format or link tags, do not lose the tags\n- when searching + replacing, all replacements were also happening inside of link targets without any option. the option has now been added in the search/replace dialog, off by default\n- fixed issue with search with option all matches (default), and presence of the pattern also in links targets and anchors names\n- fixed issue with search, iteratively forward / backward, and presence of the pattern also in links targets and anchors names\n- fixed data loss when replacing attachment with same name in case of multi file data storage and option to use embedded file name on disk (#2859)\n- support for remembering/restoring nodes children expanded status when parent node is collapsed and then expanded again (#2814)\n- search / replace history persistence to disk is now configurable in the preferences dialog (#2849)\n- fixed on linux links to files containing question marks don't work (#2808)\n- fixed switch to node (-n or --node) not working if already running (#2813)\n- improved robustness of code to notify that a change happened, saving is needed - possibly fixing reported issue (not easy to reproduce)\n- fixed issues with copying line (Shift+Alt+C)\n- fixed latex injection vulnerabilities (#2846)\n- fixed when tree configured on the right hand side may have width increasing on every app start (#2847)\n- fixed issue with tree tooltip and node names with ampersand (#2860)\n- fixed in search results dialog, last result hidden by overlay horizontal scrollbar (#2862)\n- added on the statusbar indication of the number of children nodes of the currently selected node\n- implemented workaround for issue of freeze in Debian12/KDE6 caused by Klipper - added option 'Do Not Auto-Select Objects on Single Click' in preferences dialog, tab rich text (#2759)\n- added check to avoid writing to read only document file (#2851)\n- multi file document type, in case of bad unicode node content generated from external application, do not crash and allow the remaining nodes to open normally (#2807, work of @kindofbeard)\n- hide the menu item to copy the current document path to clipboard if the document was never saved / has no path\n- fixed crash importing from tomboy/gnote (#2845)\n- all the languages translations where the maintainer could not support this release have been completed with github copilot. If you spot issues and want to help providing a better translation use https://github.com/giuspen/cherrytree/issues",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.7.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.7.0/cherrytree_1.7.0.0_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.7.0.0_win64_setup.exe",
+          "sha256": "ae919b8163e65899d626cb2e5b370bd0fdf11b603cc7a443fb021ea08ff6431d",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.3",
+      "release_date": "2026-01-13",
+      "release_notes": "- improved search/replace dialog with memory of the latest patterns searched for / replaced with\n- fixed closing parenthesis not included in automatically created link (#2789)\n- fix for drag and drop of text on windows behaving as copy, not move (#2786)\n- added action to copy to clipboard the current document filepath (#2764)\n- added icons for artificial intelligence chatgpt, gemini, copilot, claude\n- fixed title of dialog to search/replace in multiple nodes (#2770)\n- incomplete languages: ar, bg, fa, fi, fr, hi_IN, hr, hu, lt, nl, pt, sk, sv, zh_CN (want to help and update one? write me https://www.giuspen.net/feedback/)",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.6.3",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.6.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.6.3/cherrytree_1.6.3.0_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.6.3.0_win64_setup.exe",
+          "sha256": "021583bdd0cee0a6258829ab8ec460373314731bfd5f1a3b154b8f072be5c45b",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "CherryTree version 1.6.3.0",
+              "display_version": "1.6.3.0",
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.2",
+      "release_date": "2025-09-19",
+      "release_notes": "- fixed links to TOCs (anchors) no longer scrolling to the target (#2768, #2766, #2389)\n- default option for searching multiple words is back to 'exact match' as way faster; the last used option is now preserved across sessions (#2767)",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.6.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.6.2/cherrytree_1.6.2.0_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.6.2.0_win64_setup.exe",
+          "sha256": "5d0cf06b68376ea58dd11a7a4b9735e07619af78c8e1b045fb89ef0d21b3459e",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "CherryTree version 1.6.2.0",
+              "display_version": "1.6.2.0",
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.0",
+      "release_date": "2025-09-09",
+      "release_notes": "- implemented support for searching for multiple words disregarding the order (aka AND) and matching any (aka OR) (#2674, #2221, #1255, #752)\n- fixed crash when exporting to pdf (#2735)\n- added support for search and replace also in links targets (#975, #2719)\n- fixed issue with microsoft print to pdf causing huge font (#2479, #2735)\n- fixed copy/paste and drag/drop of files from windows file manager into rich text (#2738)\n- fix paste filepath from clipboard on windows does not recognise an image (#2737)\n- fixed copying from code and pasting to rich text sometimes not retaining syntax highlighting colours\n- added syntax highlighting definition for glib's GKeyFile\n- fixed clicking on a TOC leading to an anchor that is hidden doesn't expand and select the anchor (#2389)\n- handle bookmarks dialog, use the correct nodes icons rather than generic pin icon\n- added option to follow links with double click rather than single click (#2736)\n- fixed table light interface editable in read only mode (#2756)\n- table light interface, fixed moving a column does not move the column width\n- added in preferences dialog configurability of whether in rich text nodes to automatically create links for urls\n- last visited nodes on node name header, added node icon beside node name and inverted order as more intuitive with more recent on the right\n- moved preferences for 'last visited nodes on node name header' from tab 'tree explorer' to tab 'interface' and added control also in top menu view (#2746)\n- allocated default keyboard shortcut Ctr+7,8,9 to small,subscript,superscript (#2758)\n- fixed code that checks if a keyboard shortcut is already in use, issue with case (#2758)\n- added possibility to configure a proxy in the preferences dialog, tab misc (#2522)",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.6.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.6.0/cherrytree_1.6.0.0_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.6.0.0_win64_setup.exe",
+          "sha256": "f69f1070b1d79fe8e02935c5a90899f8f9912bf95f088cee158d4f72e6924dd3",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.6.0.0",
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.0",
+      "release_date": "2025-02-14",
+      "release_notes": "- insert image dialog, added support for cropping (#2626, work of @Uks2)\n- implemented table column cut/copy/paste (#2542)\n- fixed crash at table row move up, so called heavy version\n- fixed table export to csv with empty cells (#2028)\n- improved html parsing (rich text from clipboard / import from html) - added support for\n- fixed issue with reloading document after external edit and encrypted documeents (#2612)\n- fixed search missing first match after a codebox (#2631)\n- fixed duplication of codebox toolbar callbacks after changing codebox properties (#2635, work of @Uks2)\n- fixed issues pasting a codebox into a codebox (#2625)\n- change cursor when hovering collapsible headers to indicate that it is clickable (#2389)\n- collapsible headers use same icon of expand/collapse tree node (#2389)\n- improved action that clears the formatting to retain the links (#2389)\n- multiple files storage, added configurable option to use for the embedded files a constant name (#2354)\n- do not add 'http://' in front of a link of type 'mailto:'\n- preferences dialog, added buttons to reset to default to: timestamp formatting, chars to select at double click, horizontal rule\n- chars to select at double click default, added underscore (#2581)\n- restored support for building on ubuntu 18.04 where gtksourceview4 is not available, gtksourceview3 must be used instead (#2583)\n- do not use a leading dot for backups inside of the home directory if snap package (#2507)",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.3.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.3.0/cherrytree_1.3.0.1_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.3.0.1_win64_setup.exe",
+          "sha256": "8751482af6e538d596195afe6c191e621836f2686b631e25ef54023043134176",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.3.0.1",
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2.0",
+      "release_date": "2024-10-04",
+      "release_notes": "- dropped unmaintained and outdated libgtksourceviewmm3 for libgtksourceview4 (direct access to C API, #2562)\n- implemented quick node selection typing part of the node name, default keyboard shortcut to Ctrl+Shift+G (#2552, work of @ericguin)\n- implemented collapsible headers support when TOC is generated (#2389)\n- fixed links to nodes not working when exporting to html, single file (#2570)\n- fixed properties of fonts selected in the preferences dialog not enforced: bold, italic, stretch, variant (#2533)\n- hyperlinks: do not automatically add the prefix http:// when a URL-like prefix already exists (#2570)\n- fixed crash pressing Ctrl+Z while editing table light cell\n- changed default keyboard shortcut to open codebox properties dialog to Shift+Alt+U as the previous shortcut was causing problems to german layout keyboards (#2549)\n- fixed formatting issues with fmt 11 (#2548, #2560)\n- added support for new language Slovak (work of Michal Fusatý)",
+      "release_notes_url": "https://github.com/giuspen/cherrytree/releases/tag/v1.2.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/g/Giuspen/Cherrytree/1.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/giuspen/cherrytree/releases/download/v1.2.0/cherrytree_1.2.0.0_win64_setup.exe",
+          "host": "github.com",
+          "filename": "cherrytree_1.2.0.0_win64_setup.exe",
+          "sha256": "4f2e476772e88692b0632fc6cb8873518d2e33ce4bc6923a7aa802d053a3b211",
+          "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.2.0.0",
+              "product_code": "{DBA7384C-E1C6-44B5-A3B4-C94F2F0B8C0C}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "version": "b'1.7.3'",
+      "release_date": "2011-11-11",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/net.giuspen.cherrytree.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "net.giuspen.cherrytree.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/net.giuspen.cherrytree.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "net.giuspen.cherrytree.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "manifests/g/Giuspen/Cherrytree"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/net.giuspen.cherrytree",
+      "retrieved_at": "2026-11-16T23:03:23.336Z",
+      "path": "api/v2/appstream/net.giuspen.cherrytree",
+      "api_url": "https://flathub.org/api/v2/appstream/net.giuspen.cherrytree",
+      "content_sha256": "56233989a7c887265c6900c70d05e12389b795bc26d7506400d19b40f17d5813"
+    }
+  ],
+  "flathub": {
+    "app_id": "net.giuspen.cherrytree",
+    "page_url": "https://flathub.org/apps/net.giuspen.cherrytree",
+    "repo_url": "https://github.com/flathub/net.giuspen.cherrytree",
+    "install_command": "flatpak install flathub net.giuspen.cherrytree",
+    "run_command": "flatpak run net.giuspen.cherrytree",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "giuspen.net",
+      "verified_on": "2025-05-11"
+    },
+    "license": "GPL-3.0+",
+    "free_license": true,
+    "developer_name": "Giuseppe Penone",
+    "categories": [
+      "Utility"
+    ],
+    "download_size": 83307570,
+    "installed_size": 211296256,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

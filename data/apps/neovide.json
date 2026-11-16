@@ -1,0 +1,746 @@
+{
+  "schema_version": 2,
+  "slug": "neovide",
+  "name": "Neovide",
+  "publisher": "Neovide",
+  "ids": {
+    "winget": "Neovide.Neovide",
+    "homebrew_cask": "neovide-app",
+    "flathub": "dev.neovide.neovide"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "No Nonsense Neovim Client in Rust",
+  "tags": [
+    "gpu",
+    "neovim",
+    "neovim-guis",
+    "rust",
+    "skia"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/neovide/neovide",
+    "publisher": "https://github.com/neovide",
+    "support": "https://github.com/neovide/neovide/issues",
+    "bug_tracker": "https://github.com/neovide/neovide/issues",
+    "release_notes": "https://github.com/neovide/neovide/releases/tag/0.17.2"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/neovide/neovide/blob/HEAD/LICENSE",
+    "spdx": "MIT",
+    "copyright": "Copyright (c) 2023 Neovide Contributors",
+    "copyright_url": "https://github.com/neovide/neovide/blob/main/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.17.2",
+    "macos": "0.17.2",
+    "linux": "0.17.2"
+  },
+  "last_updated": "2026-11-04",
+  "versions_total": {
+    "windows": 18,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.17.2",
+      "release_date": "2026-11-04",
+      "release_notes": "What's Changed\n- feat: add bottom background filling toggle by @falcucci in #3626\n- fix: address CVE-2026-25541 by @falcucci in #3622\n- fix: address GHSA-3pv8-6f4r-ffg2 by @falcucci in #3623\n- fix: address GHSA-cq8v-f236-94qc by @falcucci in #3625\n- fix: constrain bottom background filling to the main grid by @falcucci in #3629\n- fix: support macOS proxy icon state on neovim nightly (0.13+) by @falcucci in #3630\n- fix: turn bottom background filling opt-in by default by @falcucci in #3631",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.17.2",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.17.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/neovide/neovide/releases/download/0.17.2/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "c8460bab3f75387822fd41e24114436d72fb879b45e7131f20fef2f5523921d6",
+          "product_code": "{3F95194F-29D2-45CA-B81C-B263CFC49D75}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{3F95194F-29D2-45CA-B81C-B263CFC49D75}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.17.1",
+      "release_date": "2026-10-31",
+      "release_notes": "What's Changed\n- fix: restore --embed for Windows neovim sessions by @falcucci in #3619",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.17.1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.17.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/neovide/neovide/releases/download/0.17.1/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "28e4cba9fd9017da6009d4db3910bf4b51dbbeb039d3e19210e04c12cb6868b8",
+          "product_code": "{E9D855F4-08A2-4329-89B9-01A8519DF159}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{E9D855F4-08A2-4329-89B9-01A8519DF159}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.17.0",
+      "release_date": "2026-10-31",
+      "release_notes": "Neovim 0.12+ is now required\nhey there everyone! from now on, we have decided to raise the minimum neovim version to 0.12+ in #3588. this also applies when using WSL or connecting to a remote neovim server. If you need an older neovim version, use an earlier Neovide release that supports it.\n\nFeatures\n- feat: support neovim :connect by @falcucci in #3614\n- macOS: add a custom native Editors window switcher by @falcucci in #3527\n- macos: add split-aware scrollbars at both outer window padding by @falcucci in #3589\n- handoff: Add neovim-bin and neovim arguments by @CGamesPlay in #3440\n- feat: settings for menu shortcuts on macOS by @vapourismo in #3481\n- macos: add system window proxy icon support by @falcucci in #3494\n- add startup-message capture settings by @falcucci in #3517\n- handle neovim bufwrite progress events by @falcucci in #3546\n\nBug Fixes\n- fix: panicking on zero-height grids by @falcucci in #3487\n- fix: track reasonable cmdline modes and reset springs on immediate cursor moves by @falcucci in #3484\n- fix: avoid fullscreen on new tab windows if already set by @falcucci in #3496\n- fix event loop CPU spin without deadline by @falcucci in #3503\n- fix: surface startup errors before first grid - 0.12+ only by @falcucci in #3504\n- windows: fix overlapped pipe read crash by @windexlight in #3505\n- fix: parsing neovim api function parameters by @onion108 in #3530\n- fix: ignore unrelated config directory events by @fzlzjerry in #3545\n- fix: render COLRv1 fonts on Linux by @fzlzjerry in #3544\n- bridge: handle quit callbacks without an exit code by @falcucci in #3583\n- fix: harden neovim restart handling by @BreezeDelegate in #3552\n- fix: preserve Windows file drop paths by @BreezeDelegate in #3553\n- fix: preserve channel properties across :restart by @falcucci in #3591\n- fix: request activation for wayland focus commands by @falcucci in #3592\n- fix --wayland-app-id option by @falcucci in #3594\n- fix: avoid startup crashes when configured fonts are missing by @falcucci in #3595\n- fix: keep grid contents when win_pos reports a stale window size by @SirVer in #3612\n\nPerformance and visual polish\n- Cursor Polish by @Kethku in #3543\n- batch wheel scrolls by @falcucci in #3562\n- fill fractional bottom edge backgrounds by @falcucci in #3572\n\nDocumentation\n- update homebrew installation docs. by @falcucci in #3582\n- docs: add new :NeovideHelp as immediate forward by @falcucci in #3587\n- fix(docs): escape / in autocmd pattern by @pilgrimlyieu in #3570\n- docs: add macos opt-in system scrollbars (nightly) by @falcucci in #3610\n\nRefactoring\n- moving platform window wrapper to sub-mod by @falcucci in #3600\n- moving and creating window platform setup sub-mods by @falcucci in #3602\n- moving macos window/settings into window platform sub-mods by @falcucci in #3603\n- moving macos platform scrollbar to window wrapper by @falcucci in #3604\n- moving macos switcher to window wrapper by @falcucci in #3605\n- moving platform root into sub-mods by @falcucci in #3606\n- moving platform application into sub-mods by @falcucci in #3607\n- macos: fix unnecessary wrapper imports and some cleanup by @falcucci in #3608\n- wrapper: stop referencing the parent mod on specific cases. by @falcucci in #3609\n- chore: move error_handling.rs => errors/mod.rs by @falcucci in #3611\n\nBuild and maintenance\n- fix clippy warnings after new rust stable version by @falcucci in #3485\n- chore: update rust edition to 2024 by @falcucci in #3489\n- bump skia-safe to 0.97 by @falcucci in #3501\n- bump skia-safe to 0.97.2 by @falcucci in #3510\n- ci: fix AppImage updates for nightly builds by @mareklangiewicz in #3535\n- swap the drained vector out using std::mem::take by @falcucci in #3559\n- profile scroll command pressure without tracy fibers by @falcucci in #3561\n- bump skia-safe to 0.99.0 by @falcucci in #3560\n- fix clippy errors from derive-new crate by @falcucci in #3584\n- macso: fix entitlements with audio-input access by @falcucci in #3585\n- macos: fix YAML sign formatting by @falcucci in #3586\n- experimental: bump rust nightly for better fmt and features by @falcucci in #3597\n- bump skia-safe 0.156.0 by @falcucci in #3615\n- chore: automatic draft release by @falcucci in #3558\n\nNew Contributors\n- @vapourismo made their first contribution in #3481\n- @windexlight made their first contribution in #3505\n- @onion108 made their first contribution in #3530\n- @mareklangiewicz made their first contribution in #3535\n- @fzlzjerry made their first contribution in #3545\n- @dajiaohuang made their first contribution in #3566\n- @BreezeDelegate made their first contribution in #3552\n- @pilgrimlyieu made their first contribution in #3570\n- @SirVer made their first contribution in #3612",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.17.0",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/neovide/neovide/releases/download/0.17.0/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "6947e43695f3b93d0f7bc2155fa578bb7e2259454939f771ae88ecd53766f41d",
+          "product_code": "{E19FD3F6-C3F9-4CCE-A8E5-19E14F8CE8DE}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{E19FD3F6-C3F9-4CCE-A8E5-19E14F8CE8DE}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.16.2",
+      "release_date": "2026-04-14",
+      "release_notes": "The fixes of the week!\nNeovide will always be free and open-source.\nSponsorship is highly appreciated.\nWhat's Changed\n\nBug Fixes\n- fix: handle nvim-initiated too-large resizes by @CGamesPlay in #3439\n- fix: stop retrying invalid fallback entries on shape-cache misses by @falcucci in #3468\n- ui2: don't let resize restore hidden grids by @falcucci in #3476\n- fix: keypad * mapping (use NumpadMultiply instead of NumpadStar) by @pvxx in #3477\n\nDocs\n- docs: update tracy dependency instructions by @falcucci in #3472\n\nNew Contributors\n- @pvxx made their first contribution in #3477",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.16.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.16.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/neovide/neovide/releases/download/0.16.2/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "e44830297bb8eae67f4828265db2a7b813f9d9c022ceb5efa61271d0e6017532",
+          "product_code": "{16D57EE7-DDA0-41F9-B0AF-74556403DFE1}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{16D57EE7-DDA0-41F9-B0AF-74556403DFE1}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.16.1",
+      "release_date": "2026-04-04",
+      "release_notes": "The fixes of week, enjoy!\nNeovide will always be free and open-source.\nSponsorship is highly appreciated.\nWhat's Changed\n\nBug Fixes\n- fix: update neovim listen_addr :restart protocol and keep open args per route by @falcucci in #3441\n- fix: reintroduce error window for launch failures by @CGamesPlay in #3445\n- fix: defer cold-start file drops until ui_attach completes by @falcucci in #3448\n- fix: expand tilde in chdir config. by @falcucci in #3449\n- fix: apply neovide_scale_factor at startup and on updates correctly by @falcucci in #3451\n- fix: split startup preflight from runtime setup by @falcucci in #3453\n- fix: treat clipboard failure as a state, not as fatal by @falcucci in #3454\n- fix: preserve cwd on login-shell launches by @falcucci in #3455\n\nNew Contributors\n- @CGamesPlay made their first contribution in #3445",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.16.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.16.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/neovide/neovide/releases/download/0.16.1/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "8fd9b13dd1d0e209ec60904de7838b82ea997adf51830ba55c110e47407d49e2",
+          "product_code": "{D605F527-7638-4FE2-803E-7D66B89B62BC}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{D605F527-7638-4FE2-803E-7D66B89B62BC}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.16.0",
+      "release_date": "2026-03-30",
+      "release_notes": "At the time that @neovim releases 0.12, we must also ship something special!\nWe are happy to bring this release, which is a quite big one due to one of the most substantial Neovide updates in recent months, with major improvements, configs, rendering and many new features to improve your workflow.\nPlease, heads up to the updated docs to check this out further.\nNeovide will always be free and open-source.\nSponsorship is highly appreciated.\nmacOS multi-window\nYou can check the multi-window documentation to enable system tabs if you want, setup hotkeys and more.\n\nScreenshot of Neovide using system tabs on macOS\n\nScreenshot of Neovide using the native system switcher on macOS\n\nAnimated Progress Bar\nprogress-bar.mp4\n\nForce-Click Preview on macOS\nIt comes enabled by default once you press your trackpad force-click, check the docs to customize it.\n\nNative Quick Look panel for files\nfile-preview.mp4\n\nURL force-click with Quick Look preview\nurl-preview.mp4\n\nDictionary for plain text\ndictionary.mp4\n\nMultiple suggestions for plain text\nsiri-suggestion.mp4\n\nSystem matching pair highlight\nOpt-in, see the docs for more info.\nfind-indicator.mp4\n\nFeatures\n- feat: Add underline offset config to adjust underline position by @nomantis in #3148\n- feat: handling a custom icon path if provided by @falcucci in #3272\n- feat: add :NeovideConfig command to open the config file by @falcucci in #3275\n- feat: include a new icon field in the configuration file by @falcucci in #3274\n- feat: add animated progress bar with nvim_echo event support by @falcucci in #3279\n- feat: inject and manage sponsor banner in neovim intro message by @falcucci in #3285\n- feat: --chdir option by @fboundp in #2800\n- feat: expand leading tildes paths to load custom icons by @falcucci in #3295\n- feat: support working directory via env and config by @falcucci in #3301\n- feat: 'open-file with' option support for missing file extensions by @falcucci in #3304\n- feat: support :restart with some state preservation by @falcucci in #3327\n- feat: set window borders enabled by default by @falcucci in #3329\n- feat: forward piped output to neovim by @fredizzimo in #3206\n- feat: copy command output by drag selection by @falcucci in #3368\n- feat: add toggle for message area drag selection by @falcucci in #3372\n- feat: add opt-in cell color fallback on cursor by @falcucci in #3402\n- feat: rename updateloop to application by @falcucci in #3340\n- feat: introduce touchpad pressure preview actions for url/file/text by @falcucci in #2762\n- feat: add g:neovide_pixel_geometry setting by @khyperia in #3367\n- feat: introduce macOS matching pair highlight with find indicator by @falcucci in #3346\n- feat: add a help menu for bug reports and neovide accessibility by @falcucci in #3350\n- feat: add sponsor menu item on help by @falcucci in #3355\n- feat: support title-hidden option in full frame for macOS by @TymekV in #3361\n- feat: on macos use ppid heuristic for gui launch by @falcucci in #3376\n- feat: multi-window support by @falcucci in #2872\n- feat: support title-hidden and add a minimal split for renderer/window configs by @falcucci in #3405\n- feat: add mouse-cursor-icon support by @falcucci in #3406\n- feat: support window geometry as one setting by @falcucci in #3407\n- feat: support idle config option by @falcucci in #3409\n- feat: add a bedside handoff IPC transport for instances by @falcucci in #3410\n- feat: forward handoff file-open requests by @falcucci in #3411\n- feat: add --reuse-instance through the handoff path by @falcucci in #3412\n- feat: focus the reused window by @falcucci in #3413\n- feat: preserve caller cwd for --reuse-instance requests by @falcucci in #3414\n- feat: make handoff requests tolerant of protocol changes by @falcucci in #3416\n- feat: improve handoff resolved cwd from chdir if needed by @falcucci in #3417\n- feat: add --new-window cli option by @falcucci in #3420\n- feat: return the listener version in responses by @falcucci in #3423\n\nBug Fixes\n- fix: queue file drops until handler exists on macOS by @falcucci in #3384\n- fix: don't clear hidden window titles by @falcucci in #3403\n- fix: macOS window border and shadow visibility with transparency by @utakotoba in #3253\n- fix: macOS file-open focusing across active desktop by @jamylak in #3193\n- fix: link the quartz macos framework via ffi by @falcucci in #3309\n- fix hidden cursor sticking after focus changes by @falcucci in #3294\n- fix: ensure teardown via context to avoid clipboard outliving event loop by @falcucci in #3312\n- fix: ensure clean up during teardown and on drop by @falcucci in #3313\n- fix: make it possible to check for pre-release versions of Nvim by @fredizzimo in #3231\n- fix: ensure the teardown safely on exit by @paulobressan in #3319\n- fix: window error now takes ownership of the real clipboard by @paulobressan in #3321\n- fix: Clean up various ways of calling nvim by @fredizzimo in #3230\n- fix: Send 0 for the mouse grid if Neovim supports it by @fredizzimo in #3111\n- fix: use the Neovim grid clustering rules by @fredizzimo in #3242\n- fix: replaced some .unwrap() calls for crash prevention by @falcucci in #3352\n- fix: regression doing extra render work when a frame is already late by @falcucci in #3408\n- fix: carry font-changed across first draw by @falcucci in #3381\n- fix: fill the trailing right-edge gap by @falcucci in #3387\n- fix: we now make guifont parser non-fatal for partial fallback misses by @falcucci in #3371\n- fix: use saturating_sub for safer arithmetic in by @davehorner in #3109\n- fix: prevent font cache thrashing on high-DPI displays by @diegodario88 in #3324\n- fix: classic division by zero panic. by @falcucci in #3325\n- fix: remove background color legacy setting by @falcucci in #3328\n- fix: detect real stdin descriptors to stabilize embedded neovim ingestion by @falcucci in #3290\n- fix: neovim passthrough & command builder cleanup by @falcucci in #3296\n- fix: Always auto-detect the background color, support setting the window theme by @fredizzimo in #3207\n- fix: re-enable the IME pre-edit support by @fredizzimo in #3221\n- fix: update colorscheme stream management at NeovimRuntime by @falcucci in #3358\n- fix: properly detach from the terminal when forking by @bk2204 in #3363\n- fix: adding missing neovide e.g {server, size, grid} to config and envs by @falcucci in #3364\n- fix: parse -dirty version correctly by @sevenc-nanashi in #3353\n- fix: avoid nvim default guifont overriding config by @falcucci in #3374\n- fix: set font state before ui_attach to avoid default guifont override by @falcucci in #3375\n- fix: move --embed to be last argument by @khyperia in #3393\n- fix: --embed append only regression by @falcucci in #3397\n- fix: preserve terminal launch context on --fork by @falcucci in #3398\n- fix: ignore padding changes to support banner on nightly release changes by @falcucci in #3418\n- fix: expand tilde before rebasing paths on cwd by @falcucci in #3419\n- fix: split route cwd from caller cwd on handoffs by @falcucci in #3422\n\nBreaking Changes\n- g:neovide_theme changed its meaning. Now we automatically manage Neovim's background value by default,\n  as long as the user has not set it explicitly. At the same time g:neovide_theme now controls the window theme rather\n  than the old behavior.\n- g:neovide_background_color has been removed. It now has no effect.\n  If you previously used it to control title bar or transparency-related appearance on macOS, migrate to g:neovide_opacity and,\n  when/if needed, g:neovide_normal_opacity to achieve similar results.\n\nCompatibility Notes\n- g:neovide_show_border is now enabled by default.\n  Users who relied on the old default appearance may want to set it to false explicitly.\n\nOthers\n- chore: Add editorconfig by @fredizzimo in #3241\n- chore: update skia to 0.89.1 by @fredizzimo in #3257\n- feat: refactor project structure for platform-specific code - [1/20] by @falcucci in #3259\n- feat: moving macOS settings - [2/20] by @falcucci in #3260\n- ci: automate nightly cross-platform nightly-release builds by @falcucci in #3280\n- ci: fix and limit mac deployment steps to main branch only by @falcucci in #3283\n- ci: automate nightly artifact creation for windows and macos binaries by @falcucci in #3286\n- chore: remove old workspace configuration files by @falcucci in #3292\n- chore: upgrade skia-safe to 0.90.0 by @falcucci in #3305\n- chore: bump tracy latest 0.27.0 by @falcucci in #3314\n- indicate startup-notification in desktop entry by @Hawk777 in #3335\n- fix: cargo-nextest build without --locked causes impl conflicts by @falcucci in #3341\n- build-dmg: improve build script reliability by @falcucci in #3343\n- bump lru to 0.16.3 by @falcucci in #3348\n- other: qol update for windows installer by @kuzma-t in #3349\n- bumping tokio and related dep by @falcucci in #3351\n- bump skia-safe to 0.91.1 by @falcucci in #3354\n- bump skia-safe to 0.93.0 by @falcucci in #3369\n- bump skia-safe to 0.93.1 by @falcucci in #3392\n- fmt: standardize rustfmt style_edition = 2024 (latest) by @falcucci in #3394\n- nightly: don't rebuild the same artifacts every day by @falcucci in #3395\n- versioning: generate nightly versions from git describe by @falcucci in #3399\n- ci: retry hdiutil during dmg creation by @falcucci in #3400\n- bump winit 0.30.13 by @falcucci in #3401\n- chore: remove comment from rustfmt.toml by @falcucci in #3415\n- chore: bump time = \"0.3.47\" by @falcucci in #3426\n- chore: rename macos-_ settings to system-_ by @falcucci in #3432\n\nDocs\n- docs: update discord badge to show live member count by @falcucci in #3287\n- docs: update the discord badge image to use shields.io by @falcucci in #3288\n- docs: add sponsor docs page and refresh readme support info by @falcucci in #3302\n- docs: refer to nightly builds for better visibility by @falcucci in #3310\n- docs: fix and simplify clipboard bindings example by @mwinters0 in #3337\n- docs: document neovide startup specific issues and opengl workarounds by @falcucci in #3339",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.16.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/neovide/neovide/releases/download/0.16.0/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "f016845dad59991447c620e6ac42ea916ad7b13cde19d26a5e733d26a5bd8237",
+          "product_code": "{0B1965E1-EB06-46F4-AF55-2C8E8CDC2AB5}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{0B1965E1-EB06-46F4-AF55-2C8E8CDC2AB5}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.15.2",
+      "release_date": "2025-09-20",
+      "release_notes": "What's Changed\nThis release mainly updates system dependencies to allow distributions to package Neovide properly\nBug Fixes\n- fix: check for window focus when showing or hiding cursor by @jmaliksi in #3135\n- fix: drag events outside window by @Kethku in #3203\n- fix: Remove unimplemented theme setting from the config file by @fredizzimo in #3208\n- fix: T-junctions in native box drawings by @fredizzimo in #3219\n- fix: add Go and Rust to Info.plist by @Kreeblah in #3222\nOther\n- fix: publishing to crates-io by @fredizzimo in #3171\n- doc: fix title-hidden default value and clarify srgb platform defaults in documentation by @bio in #3141\n- doc: Add doc comments to RedrawEvent by @agraven in #3112\n- chore: fix formatting and clippy warnings by @fredizzimo in #3172\n- chore: upgrade deps winit, glutin, objc2. clean macos codes. by @crupest in #3119\n- chore: Delete unused release Github action by @fredizzimo in #3201\n- chore: Upgrade and clean up dependencies by @fredizzimo in #3205\n- chore(CI): Improve the CI caching behaviour by @fredizzimo in #3226\n- chore: Update Skia to 0.88.0 by @fredizzimo in #3228\n- fix(CI): fix the CI caching behaviour from #3226 by @fredizzimo in #3227\nNew Contributors\n- @bio made their first contribution in #3141\n- @jmaliksi made their first contribution in #3135\n- @kanium3 made their first contribution in #3110\n- @Kreeblah made their first contribution in #3222\nFull Changelog: 0.15.1...0.15.2",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.15.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.15.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.15.2/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "794ab765029065fcff82087c6fb6f4ad952f4e2e8b8ac9e45cfb4b1736245ebb",
+          "product_code": "{D562A049-4E69-4852-AE2F-7BCF513E0C63}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{D562A049-4E69-4852-AE2F-7BCF513E0C63}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.15.1",
+      "release_date": "2025-07-20",
+      "release_notes": "What's Changed\nBug fixes\n- fix: cmdline escaping when using WSL by @fredizzimo in #3087\n- fix: box drawing gaps due to inconsistent rendering by @fredizzimo in #3082\n- fix: powerline half circle box drawing by @fredizzimo in #3092\n- fix: audio input support on macos (#3070) by @helins in #3095\n- fix: use composition information from Neovim by @fredizzimo in #2919\n- fix: fix blank message lines and missing status bar with Neovim 0.11.3 by @fredizzimo in #3168\nNew Features\n- feat: configurable short cursor animation by @fredizzimo in #3093\n- feat: add simple fullscreen feature for MacOS by @wiserfz in #3072\n- feat: add an API for disabling redraw by @fredizzimo in #3097\nOther Changes\n- fix: markdown link for configuration doc by @wiserfz in #3081\n- chore: pass DrawCommandBatcher around instead of relying on interior mutability by @fredizzimo in #3096\nNew Contributors\n- @wiserfz made their first contribution in #3081\n- @helins made their first contribution in #3095\nFull Changelog: 0.15.0...0.15.1",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.15.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.15.1/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "84559efadd92392a0d17489b640c5b316ad077b69cc305d63875b534432fef59",
+          "product_code": "{E462D657-7A5F-42B0-8D96-49E1DC6A04C1}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{E462D657-7A5F-42B0-8D96-49E1DC6A04C1}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.15.0",
+      "release_date": "2025-04-02",
+      "release_notes": "What's Changed\nThis release adds two major things\n1. You can now enable box drawing to be done by Neovide instead of by the fonts. This eliminates gaps between characters. The feature is still experimental, and needs to be enabled separately, see https://neovide.dev/config-file.html?highlight=box#box-drawing\n2. The default cursor animation has been changed to feel more responsive. The front of the cursor now moves to the destination immediately, while the trail is animating. Many of the cursor effects have also been fixed. Furthermore, Neovide now supports multiple effects at the same time. Finally, the defaults for some of the effects have been changed.\n   To restore the feel of older Neovide versions, you can start by lowering neovide_cursor_trail_size (https://neovide.dev/configuration.html?highlight=trail#animation-trail-size) to 0.7 and then adjust that and https://neovide.dev/configuration.html?highlight=trail#animation-length to your liking.\n   We are also looking for feedback on theese new settings, so don't forget to share you favourite defaults here #3077!\nBreaking changes\n- feat!: rename and deprecate neovide_transparency to neovide_opacity by @fredizzimo in #3024\n- chore!: upgrade the Ubuntu runners to 22.04 by @fredizzimo in #3037\n  - This drops support for running the Neovide Appimage or binaries on older distributions.\n- feat!: low latency cursor animation by @fredizzimo in #3054\n  - feat!: more configurable cursor animation by @fredizzimo in #3061\n  - This changes the default cursor animation, but it can be changed, see the main description.\n- fix!: simplify and fix the launching of Neovim by @fredizzimo in #3045\n  - This bug will be present again #2060, but remain closed as won't fix due to the complexity of supporting it properly. The workaround is a wrapper shell script.\n- fix!: The unit of neovide_cursor_vfx_particle_density is now particles per line by @fredizzimo in #3062\nBug fixes\n- fix!: simplify and fix the launching of Neovim by @fredizzimo in #3045\n  - This fixes a lot of macOS startup issues, and also some WSL ones\n- fix: Update swash to fix issues with some fonts by @fredizzimo in #3025\n- fix: particle vfx not being emitted for short travels by @fredizzimo in #3052\n- fix: point highlight cursor effects are properly emitted and animated by @fredizzimo in #3053\n- fix: allow blinking when blinkwait is 0 by @fredizzimo in #3055\n- fix: the z-index of message windows by @fredizzimo in #3063\n- fix: don't draw shadows for the cmdline window unless it's scrolled and displaying a message by @fredizzimo in #3064\n- fix: file drop with open in tabs set to false by @fredizzimo in #3074\nNew Features\n- feat: native rendering for box drawing chars by @entombedvirus in #3033\n- feat!: low latency cursor animation by @fredizzimo in #3054\n  - feat!: more configurable cursor animation by @fredizzimo in #3061\n  - This also makes it possible to lower the neovide_scroll_animation_length setting\n- feat: background blur for Windows by @AntonDankov in #3021\n- feat(env): add NEOVIDE_CONFIG env var by @amadaluzia in #3010\n- feat(linux): Support xdg activation by @bbb651 in #3051\n- feat: enabled remapping of Command+Q on macOS by @austinlongmn in #3048\n- feat: make it possible to disable the cursor hack by @fredizzimo in #3035\n- feat: Use multiple cursor_vfx at the same time by @zooeywm in #3009\nOther Changes\n- chore: fix nightly clippy warnings by @fredizzimo in #3041\n- Revisit Fedora installation.md notes. by @simi in #3044\n- chore: Use nvim_exec2 instead of deprecated nvim_exec by @fredizzimo in #3076\n- chore: Release 0.15.0 by @fredizzimo in #3075\nNew Contributors\n- @AntonDankov made their first contribution in #3021\n- @simi made their first contribution in #3044\n- @amadaluzia made their first contribution in #3010\n- @bbb651 made their first contribution in #3051\n- @austinlongmn made their first contribution in #3048\n- @entombedvirus made their first contribution in #3033\n- @zooeywm made their first contribution in #3009\nFull Changelog: 0.14.1...0.15.0",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.15.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.15.0/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "53bdcb4901b61790dfdd61328bed58b0bf3950a8356c439e01f25d25aad9d32c",
+          "product_code": "{62E56FBA-BA60-4746-BD07-79244D8003F5}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{62E56FBA-BA60-4746-BD07-79244D8003F5}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.1",
+      "release_date": "2025-02-23",
+      "release_notes": "What's Changed\nBug Fixes\n- fix: execute login using zsh shell configuration by @falcucci in https://github.com/neovide/neovide/pull/2928\n- fix: --wsl error if using non-POSIX shell as login shell by @ejrichards in https://github.com/neovide/neovide/pull/2950\n- fix(metal): respect text_gamma and text_contrast setting by @xzbdmw in https://github.com/neovide/neovide/pull/2956\n- fix: build failure on case sensitive file system by @danbee in https://github.com/neovide/neovide/pull/2988\n- fix: separate text underline from baseline by at least 1 pixel by @markstegeman in https://github.com/neovide/neovide/pull/2987\n- fix: Ensure that the target directory exists before writing backtrace by @fredizzimo in https://github.com/neovide/neovide/pull/2997\n- fix: Glyph offsets within a single cluster by @fredizzimo in https://github.com/neovide/neovide/pull/2998\n- chore: bump winit to 0.30.9 by @falcucci in https://github.com/neovide/neovide/pull/2964\n  - See the list of bugfixes in https://github.com/rust-windowing/winit/releases 0.30.8 and 0.30.9\n- fix: Remove duplicate nvim bin argument for WSL by @fredizzimo in https://github.com/neovide/neovide/pull/3001\n- fix: Statically link the msvc runtime when deploying by @fredizzimo in https://github.com/neovide/neovide/pull/3003\n- fix: Use drop for filedrop by @fredizzimo in https://github.com/neovide/neovide/pull/3002\n- fix: Call format_key_text when delivering IME input by @fredizzimo in https://github.com/neovide/neovide/pull/3004\n- fix: Update dependencies by @fredizzimo in https://github.com/neovide/neovide/pull/3005\n- fix: Fix mouse manager rounding by @fredizzimo in https://github.com/neovide/neovide/pull/3015\n  - fix: mousemanager regression by @fredizzimo in https://github.com/neovide/neovide/pull/3018\n- fix: remove redundant code for macos key event handling by @falcucci in https://github.com/neovide/neovide/pull/3014\nOther Changes\n- add quake mode accessibility like terminals (with different spaces) by @falcucci in https://github.com/neovide/neovide/pull/2971\n- chore: update neovide-derive to 0.1.1 by @falcucci in https://github.com/neovide/neovide/pull/2933\n- chore: update neovide-derive to 0.1.1 by @falcucci in https://github.com/neovide/neovide/pull/2935\n- build: add exclusion for files in website/ directory in cargo.toml by @falcucci in https://github.com/neovide/neovide/pull/2934\n- docs: macOS login shells by @falcucci in https://github.com/neovide/neovide/pull/2945\n- docs: refine login shell session by @falcucci in https://github.com/neovide/neovide/pull/2946\n- De-globalize RUNNING_TRACKER and SETTINGS by @Kethku in https://github.com/neovide/neovide/pull/2835\n- chore: prepare for objc2 frameworks v0.3 by @madsmtm in https://github.com/neovide/neovide/pull/2980\n- docs: clarify link includes details about config file settings by @wulfgarpro in https://github.com/neovide/neovide/pull/2967\n- ci: action setup vim has been fixed by @falcucci in https://github.com/neovide/neovide/pull/2996\n- cli-docs: add usage of frame on macOS by @kindy in https://github.com/neovide/neovide/pull/2993\nNew Contributors\n- @ejrichards made their first contribution in https://github.com/neovide/neovide/pull/2950\n- @madsmtm made their first contribution in https://github.com/neovide/neovide/pull/2980\n- @wulfgarpro made their first contribution in https://github.com/neovide/neovide/pull/2967\n- @danbee made their first contribution in https://github.com/neovide/neovide/pull/2988\n- @kindy made their first contribution in https://github.com/neovide/neovide/pull/2993\n- @markstegeman made their first contribution in https://github.com/neovide/neovide/pull/2987\nFull Changelog: https://github.com/neovide/neovide/compare/0.14.0...0.14.1",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.14.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.14.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.14.1/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "c1a657dd843f704ac3f7dd773cc7dbbc9a645225c0bfe01dfc1929b3e3d2c3c1",
+          "product_code": "{0FCC868F-7DF9-4462-8F67-0CCDE64BDB57}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{0FCC868F-7DF9-4462-8F67-0CCDE64BDB57}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.0",
+      "release_date": "2025-01-03",
+      "release_notes": "What's Changed\nThe main highlights are:\n- Rounded floating windows;\n- Users now have the option to choose the mouse cursor icon;\n- Apple code signing and notarization to bolster security and user trust;\n- Added default support to Metal rendering for macOS users as a first class citizen having OpenGL optional still.\nThe performance and smoothness took a noticeable improvement due to the seamless integration on Apples specific hardware and it's a quite impactful merge;\nNew Features\n- feat: add support of Metal renderer on macOS. by @crupest in #2461\n- on macOS, activate when launched by @fboundp in #2799\n- feat: add normal opacity by @lucobellic in #2780\n- feat: add mouse cursor icon option by @falcucci in #2834\n- disable AppKit's command line processing by @fboundp in #2798\n- Update syn to 2.x to reduce package repetition in the binary by @Kethku in #2811\n- Windows app icon to display in old alt+tab on Windows. by @madcdevelop in #2816\n- Remove lazy_static by @InfyniteHeap in #2821\n- internal: Use macOS-latest runners and bump MACOSX_DEPLOYMENT_TARGET to 10.11 by @falcucci in #2844\n- feat: Rounded floating windows (#1993) by @jheroy in #2743\n- feat: create apple code signing and notarization by @falcucci in #2814\n- feat: add title bar colours for windows by @teehee567 in #2827\n- Initialize the window when 'win_viewport_margins' is received by @fredizzimo in #2904\n- feat: backtraces file path config in #2717\nBug Fixes\n- fix: Force Neovide to exit, even if the IO streams are not closed by @fredizzimo in #2765\n- fix: drag and drop files on application icon in Dock to open not work. by @crupest in #2782\n- fix: Mouse scrolling when multigrid is disabled by @fredizzimo in #2805\n- fix: Update winit to 0.30.5 by @fredizzimo in #2806\n- Fix macos download link by @Kethku in #2808\n- fix: error if trying to specify font style overrides without a family by @xzbdmw in #2812\n- bug: make sure to load and set the app icon for any context by @falcucci in #2832\n- fix: ci build errors by @fredizzimo in #2851\n- Fix: --wayland_app_id doesn't work by @floflo0 in #2847\n- fix: rounded corners rendering by @lucobellic in #2857\n- fix: pasting ^M symbols from clipboard by @damiandimanov in #2869\n- fix: handle font changes during frame prepare by @fredizzimo in #2909\n- fix: setting of lines/columns on Wayland by @fredizzimo in #2907\n- fix: the calculation of the window size by @fredizzimo in #2908\n- fix: the calculation of the window size (attempt 2) by @fredizzimo in #2912\n- fix: crash when flushed before win_pos by @fredizzimo in #2913\n- fix: Neovide transparency works for floating windows again by @fredizzimo in #2916\n- fix: add text_background_opacity in the opaque validation by @falcucci in #2917\nOther Changes\n- docs: improve installation instructions and build steps for macOS by @falcucci in #2875\n- Add faq entry for disabling all animations by @Kethku in #2810\n- docs: consolidate macOS build instructions and scripts by @falcucci in #2716\n- chore: Update dependencies by @fredizzimo in #2902\n- chore: fix the formatting by @fredizzimo in #2903\n- chore: Switch to glamour instead of euclid by @fredizzimo in #2708\n- chore: Update to winit 0.30.3 by @fredizzimo in #2698\n- chore: update create-dmg package installation by @falcucci in #2756\n- chore: update objc2 and remove icrate. also some refactor. by @crupest in #2768\n- chore: update funding to open_collective by @falcucci in #2880\n- chore: add stylua.toml and format code by @lucobellic in #2823\n- chore: update skia-safe version to 0.80.0 by @falcucci in #2873\nNew Contributors\n- @fboundp made their first contribution in #2798\n- @madcdevelop made their first contribution in #2816\n- @jheroy made their first contribution in #2743\n- @floflo0 made their first contribution in #2847\n- @teehee567 made their first contribution in #2827\n- @damiandimanov made their first contribution in #2869\nFull Changelog: https://github.com/neovide/neovide/compare/0.13.3...0.14.0Funding\nNeovide will always be free and open-source, but it isn't free to make! Because Neovide is free, we rely on the generosity of the community to fund our efforts. If you are a happy user of Neovide, please consider donating. every bit helps!Project sponsorship and funding\nNeovide offers a simple sponsorship program that allows companies to get visibility and recognition among various developers.You can sponsor or fund the project via Open collective",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.14.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.14.0/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "f8889c2afac1cf41a35888646c057dee5cc0344aa386e01337dcad372ab6c11d",
+          "product_code": "{84CBEAF1-D50B-4574-8A42-A828E33CF9BB}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{84CBEAF1-D50B-4574-8A42-A828E33CF9BB}",
+              "upgrade_code": "{22816C0C-92F8-46F9-BA8D-B2F5F8C8C743}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.3",
+      "release_date": "2024-07-16",
+      "release_notes": "What's Changed\nBug Fixes\n- fix: use pre-defined font weights only if user does not specify one by @xzbdmw in https://github.com/neovide/neovide/pull/2710\nFull Changelog: https://github.com/neovide/neovide/compare/0.13.2...0.13.3",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.13.3",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.13.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.13.3/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "923c03803bfa905e2e362cbdfbd036716c825104953cea7853f2f488da6d3ec8",
+          "product_code": "{A4220AAF-B6DD-4E0C-8195-291F72F0C6AD}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.2",
+      "release_date": "2024-07-13",
+      "release_notes": "What's Changed\nBug Fixes\n- fix #2605: indicate that --no-fork is now the default behavior by @BatmanAoD in https://github.com/neovide/neovide/pull/2606\n- fix: Position underline correctly with linespace >0 by @cpmsmith in https://github.com/neovide/neovide/pull/2607\n- handle scale_factor change early by @xzbdmw in https://github.com/neovide/neovide/pull/2610\n- Add position_animation_length documentation by @xzbdmw in https://github.com/neovide/neovide/pull/2611\n- fix: Remove some logspam by @fredizzimo in https://github.com/neovide/neovide/pull/2623\n- fix: Neovide --version and Neovide --help by @fredizzimo in https://github.com/neovide/neovide/pull/2621\n- fix: emulate Neovim layer drawing by @fredizzimo in https://github.com/neovide/neovide/pull/2612\n- fix: C-Space was not mappable on Windows by @Geobert in https://github.com/neovide/neovide/pull/2672\n- Fix wrong toml format and improve font fallback logic by @xzbdmw in https://github.com/neovide/neovide/pull/2639\n- Remove Snap store from installation.md by @thirstyice in https://github.com/neovide/neovide/pull/2674\n- fix: Ensure windows settings are initialized when the window is created by @fredizzimo in https://github.com/neovide/neovide/pull/2619\n- fix: terminal file handler and UI command to use tabs based on settings by @falcucci in https://github.com/neovide/neovide/pull/2692\n- fix: A smal tweak to how the baseline offset and underline position is calculated by @fredizzimo in https://github.com/neovide/neovide/pull/2687\n- fix: Ensure that the mouse position is positive by @fredizzimo in https://github.com/neovide/neovide/pull/2690\n- fix: Fix the remote clipboard support by @fredizzimo in https://github.com/neovide/neovide/pull/2696\n- fix: Unset ARGV0 to fix AppImage launch by @fredizzimo in https://github.com/neovide/neovide/pull/2691\n- fix: update deployment scripts for macOS .dmg creation by @falcucci in https://github.com/neovide/neovide/pull/2700\nNew Features\n- The build now includes both an X86_64 and aarch64 image for macOS\n- feat: Provide a neovide_version variable by @fredizzimo in https://github.com/neovide/neovide/pull/2622\n- Detach prompt by @cosmicboots in https://github.com/neovide/neovide/pull/2683\nOther Changes\n- chore: Remove obsolete --no-fork arguments by @last-partizan in https://github.com/neovide/neovide/pull/2625\n- style: simplify string formatting by @hamirmahal in https://github.com/neovide/neovide/pull/2640\n- Run Clippy directly instead of reviewdog by @fredizzimo in https://github.com/neovide/neovide/pull/2685\nNew Contributors\n- @BatmanAoD made their first contribution in https://github.com/neovide/neovide/pull/2606\n- @xzbdmw made their first contribution in https://github.com/neovide/neovide/pull/2610\n- @Geobert made their first contribution in https://github.com/neovide/neovide/pull/2672\n- @cosmicboots made their first contribution in https://github.com/neovide/neovide/pull/2683\n- @thirstyice made their first contribution in https://github.com/neovide/neovide/pull/2674\nFull Changelog: https://github.com/neovide/neovide/compare/0.13.1...0.13.2",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.13.2",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.13.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.13.2/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "5ce4071e063b61f2fa70c203e22f59597eab833028a92e4a4b9b72a46b0b2048",
+          "product_code": "{79AFB752-9AB3-4311-B514-3DD7C5646B01}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.1",
+      "release_date": "2024-05-24",
+      "release_notes": "What's Changed\nBug Fixes\n- fix: Fix underline rendering by @AThePeanut4 in https://github.com/neovide/neovide/pull/2564\n- fix: Delay the window creation until it's time to draw by @fredizzimo in https://github.com/neovide/neovide/pull/2562\n  - This fixes a lot of macOS issues, and some glitches when showing the window initially on other platforms\n- fix: neovide_scale_factor minor fix by @dineshKumar777 in https://github.com/neovide/neovide/pull/2570\n- fix: Require only DXGI 1.2 when not debugging by @fredizzimo in https://github.com/neovide/neovide/pull/2559\n  - Fixes startup crash on Windows\n- fix: Broken IME enable and popup position by @fredizzimo in https://github.com/neovide/neovide/pull/2571\n- docs: Update list of currently available settings by @ekorchmar in https://github.com/neovide/neovide/pull/2583\n- fix: group floating window by @TwIStOy in https://github.com/neovide/neovide/pull/2578\n- fix: Don't use login shell on macOS if $TERM is set by @cpmsmith in https://github.com/neovide/neovide/pull/2587\n- fix: Another attempt to fix the IME not geting properly enabled by @fredizzimo in https://github.com/neovide/neovide/pull/2581\n- fix: Disable inter-layer grouping by default by @fredizzimo in https://github.com/neovide/neovide/pull/2580\nOther Changes\n- refactor: remove unnecessary casting to usize by @hamirmahal in https://github.com/neovide/neovide/pull/2589\nNew Contributors\n- @ekorchmar made their first contribution in https://github.com/neovide/neovide/pull/2583\n- @hamirmahal made their first contribution in https://github.com/neovide/neovide/pull/2589\nFull Changelog: https://github.com/neovide/neovide/compare/0.13.0...0.13.1",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.13.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.13.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.13.1/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "3e5727872a9c1d27c87e43c5bc3be5befaaeb7c5833fa47226e220f36f082bf5",
+          "product_code": "{60A77959-2AAF-4945-910E-94779980869A}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.0",
+      "release_date": "2024-05-17",
+      "release_notes": "What's Changed\nThe main highlights are:\n- Improved and more configurable font rendering, see neovide_text_contrast and neovide_text_gamma\n- D3D for smoother rendering on Windows\n- Fully working smooth scrolling in Windows with borders and highlights\n- Better stability compared to 0.12.x\nBreaking changes\n- Neovim 0.10.0 is now required\n- The font size in config.toml is now specified in points instead of pixels, to match the behaviour of guifont and most other software\n- The macOS option neovide_input_macos_alt_is_meta has been renamed to neovide_input_macos_option_key_is_meta and instead of true/false it can now be set to only_left, only_right, both or none\n- The font sizes are now slightly different and matches that set in most other programs due to the fractional font support.\n- The --fork option has been reversed, and --no-fork is now the default. If the old behaviour is desired, you can set the environment variable NEOVIDE_FORK=1\n- Closing the Window when using remote connections now also exits Neovim. If you want to keep the remote instance running, you can detach using :call chanclose(g:neovide_channel_id)\nKnown issues\n- Neovide will hang on some Windows systems. This has turned out to be a very tricky bug to track down, since it only occurs on a few systems. See https://github.com/neovide/neovide/pull/2463 for more information. Any help debugging this is highly appreciated.\nFeatures\n- fix: font width can't be configured with config file by @gmr458 in https://github.com/neovide/neovide/pull/2331\n- feat: add support for hiding window title from config file by @falcucci in https://github.com/neovide/neovide/pull/2344\n- doc: instructions of profiling with tracy. by @crupest in https://github.com/neovide/neovide/pull/2356\n- feat(macos): display border for opaque backgrounds by @emonadeo in https://github.com/neovide/neovide/pull/2351\n- feat: add window menu on mac by @polachok in https://github.com/neovide/neovide/pull/2323\n- feat(macos): drop multiple files and folders on macOS by @falcucci in https://github.com/neovide/neovide/pull/2396\n- feat: Smooth cursor blink animation option by @agraven in https://github.com/neovide/neovide/pull/2421\n- feat: tabs option as ENV variable and config file position + prefix cleanup for CLI argument by @nazriel in https://github.com/neovide/neovide/pull/2441\n- feat: Apply winit window blur setting on all platforms by @agraven in https://github.com/neovide/neovide/pull/2440\n- feat(windows): Direct3D Rendering on Windows by @fredizzimo in https://github.com/neovide/neovide/pull/2215\n- feat: add ability to open files from Finder in macOS by @polachok in https://github.com/neovide/neovide/pull/2395\n- feat: render same z-index together by @Kethku in https://github.com/neovide/neovide/pull/2467\n- feat!: Option key as meta configuration by @9mm in https://github.com/neovide/neovide/pull/2486\n- feat!: Support fractional grid and font sizes by @fredizzimo in https://github.com/neovide/neovide/pull/2485, https://github.com/neovide/neovide/pull/2500\n- feat: Configurable contrast and gamma by @fredizzimo in https://github.com/neovide/neovide/pull/2510\n- fix: relative WSL paths and paths with spaces by @fredizzimo in https://github.com/neovide/neovide/pull/2507\nBug fixes\n- fix: Handle some more numpad keys by @hhirtz in https://github.com/neovide/neovide/pull/2334\n- Update commands.md missing link by @dineshKumar777 in https://github.com/neovide/neovide/pull/2341\n- fix(macos): bug of restoring window position on macos. by @crupest in https://github.com/neovide/neovide/pull/2345\n- fix: loading of fonts with OpenType font variations by @fredizzimo in https://github.com/neovide/neovide/pull/2354\n- fix(wsl): #2049 ignore lines matching wsl screen size error by @DZappala in https://github.com/neovide/neovide/pull/2374\n- docs: fix show_border cutting into transparent by @emonadeo in https://github.com/neovide/neovide/pull/2380\n- fix(macos): execute login before starting login shell by @falcucci in https://github.com/neovide/neovide/pull/2405\n- fix: Handle new viewport margins event (fixes smooth scrolling with borders and winbars) by @Kethku in https://github.com/neovide/neovide/pull/2455\n- fix: Prevent intro message hack from showing when the intro message is fixed upstream by @Kethku in https://github.com/neovide/neovide/pull/2460\n- fix: Convert Windows paths to WSL when launching in WSL mode by @Holzhaus in https://github.com/neovide/neovide/pull/2256\n- fix: Determine the window under the mouse on the fly by @fredizzimo in https://github.com/neovide/neovide/pull/2311\n- fix: save grid size for maximized windows by @sid-6581 in https://github.com/neovide/neovide/pull/2528\n- fix:! Don't fork by default by @fredizzimo in https://github.com/neovide/neovide/pull/2512\n- fix!: Perform a clean exit again by @fredizzimo in https://github.com/neovide/neovide/pull/2463\n- fix!: Use points instead of pixels for the config file by @fredizzimo in https://github.com/neovide/neovide/pull/2476\n- fix(docs): fix reversed autocmds for setting input_ime by @cpmsmith in https://github.com/neovide/neovide/pull/2545\nOther changes\n(including fixes for bugs that were not part of the previous release)\n- chore: update lru crate to fix building with the nightly toolchain by @fredizzimo in https://github.com/neovide/neovide/pull/2346\n- Update nvim-rs, remove superflous arc-wrapping by @KillTheMule in https://github.com/neovide/neovide/pull/2336\n- chore: remove legacy objc and cocoa by @polachok in https://github.com/neovide/neovide/pull/2390\n- chore: Upgrade dependencies and remove unused by @agraven in https://github.com/neovide/neovide/pull/2443\n- chore: remove swash's scale and render features by @tim-harding in https://github.com/neovide/neovide/pull/2450\n- chore: Support multiple render backends by @fredizzimo in https://github.com/neovide/neovide/pull/2359\n- fix: set startup directory failed is not an error by @TwIStOy in https://github.com/neovide/neovide/pull/2457\n- chore(CI): Enable full build on pull requests by @fredizzimo in https://github.com/neovide/neovide/pull/2473\n- chore: Refactor the update loop by @fredizzimo in https://github.com/neovide/neovide/pull/2470\n- fix: Temporary hang after sleep by @fredizzimo in https://github.com/neovide/neovide/pull/2472\n- chore: Fix clippy warnings by @fredizzimo in https://github.com/neovide/neovide/pull/2483\n- feat: draw block characters with background opacity (was reverted) by @Theaninova in https://github.com/neovide/neovide/pull/2478\n- chore: Use typesafe pixel and grid units by @fredizzimo in https://github.com/neovide/neovide/pull/2484\n- fix: address viewport margin regression by sorting DrawCommand batches by @Kethku in https://github.com/neovide/neovide/pull/2487\n- chore: Refactor the registry-relevant functions. by @InfyniteHeap in https://github.com/neovide/neovide/pull/2490\n- fix: clipping rect regression by @fredizzimo in https://github.com/neovide/neovide/pull/2494\n- Revert \"feat!: Support fractional grid and font sizes\" by @Kethku in https://github.com/neovide/neovide/pull/2497\n- chore: migrate dependency from winapi to windows. by @InfyniteHeap in https://github.com/neovide/neovide/pull/2505\n- fix: Cursor offset by @fredizzimo in https://github.com/neovide/neovide/pull/2511\n- fix: respect floating shadow setting in layer rendering by @sid-6581 in https://github.com/neovide/neovide/pull/2526\n- fix: fix the CI by @fredizzimo in https://github.com/neovide/neovide/pull/2534\n- chore: yet another fix for the CI by @fredizzimo in https://github.com/neovide/neovide/pull/2535\n- fix: don't group floating windows unless one is fully contained in the other by @sid-6581 in https://github.com/neovide/neovide/pull/2527\n- fix: Use composition to fix window transparency when using D3D by @fredizzimo in https://github.com/neovide/neovide/pull/2529\n- chore: add cfg to is_tty so that it isn't built on windows by @Kethku in https://github.com/neovide/neovide/pull/2537\n- fix: dont resize the d3d buffers if the window size is zero by @Kethku in https://github.com/neovide/neovide/pull/2538\nNew Contributors\n- @gmr458 made their first contribution in https://github.com/neovide/neovide/pull/2331\n- @hhirtz made their first contribution in https://github.com/neovide/neovide/pull/2334\n- @DZappala made their first contribution in https://github.com/neovide/neovide/pull/2374\n- @emonadeo made their first contribution in https://github.com/neovide/neovide/pull/2351\n- @polachok made their first contribution in https://github.com/neovide/neovide/pull/2323\n- @nazriel made their first contribution in https://github.com/neovide/neovide/pull/2441\n- @Theaninova made their first contribution in https://github.com/neovide/neovide/pull/2478\n- @Holzhaus made their first contribution in https://github.com/neovide/neovide/pull/2256\n- @InfyniteHeap made their first contribution in https://github.com/neovide/neovide/pull/2490\n- @cpmsmith made their first contribution in https://github.com/neovide/neovide/pull/2545\nFull Changelog: https://github.com/neovide/neovide/compare/0.12.2...0.13.0",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.13.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.13.0/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "f7b0c5e9e2a46349ec20a873485a06037d7ad71e30e0325a48f96fc579f418d0",
+          "product_code": "{9D88F19C-AB71-4FB7-B93B-20A38978DDAA}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.2",
+      "release_date": "2024-01-05",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.12.2/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "6459f2fc19dac121b5116b23eb4ce5613e9459212dc58984200af3c7daa58d24",
+          "product_code": "{15398CB6-5FBC-41F5-8156-E4ACA9CDCADC}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.1",
+      "release_date": "2024-01-05",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.12.1/neovide.msi",
+          "host": "github.com",
+          "filename": "neovide.msi",
+          "sha256": "543c0cecee683a4da571d2e706ca0776ba363b9cbb9e83af4d7dfb2a24679751",
+          "product_code": "{A8543382-F83B-4897-851A-4E3F80D5AF65}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.10.4",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/n/Neovide/Neovide/0.10.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/neovide/neovide/releases/download/0.10.4/neovide.msi.zip",
+          "host": "github.com",
+          "filename": "neovide.msi.zip",
+          "sha256": "34189d0472d9981b53002d2417e63bde42778102feb5442d240dcc534bee75e5",
+          "product_code": "{A8543382-F83B-4897-851A-4E3F80D5AF65}"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.17.2",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/neovide/neovide/releases/download/0.17.2/Neovide-x86_64-apple-darwin.dmg",
+          "host": "github.com",
+          "filename": "Neovide-x86_64-apple-darwin.dmg",
+          "sha256": "3f81dce5f8507fa6602c5d194b79d28bc7d9c0bccb5b0380c5648bda25f22a76"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/neovide/neovide/releases/download/0.17.2/Neovide-aarch64-apple-darwin.dmg",
+          "host": "github.com",
+          "filename": "Neovide-aarch64-apple-darwin.dmg",
+          "sha256": "45f6bbec3f067ae595578127249714411dc2a8fb37a34f598eb8175ac767ea7b"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Neovide.app"
+        ],
+        "binaries": [
+          "neovide"
+        ],
+        "depends_on": {
+          "formulae": [
+            "neovim"
+          ]
+        },
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Application Support/neovide",
+            "~/Library/Saved Application State/com.neovide.neovide.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "0.17.2",
+      "release_date": "2026-11-05",
+      "release_notes_url": "https://github.com/neovide/neovide/releases/tag/0.17.2",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/dev.neovide.neovide.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "dev.neovide.neovide.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/dev.neovide.neovide.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "dev.neovide.neovide.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "manifests/n/Neovide/Neovide"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "9ee85620da80e284f05f92020572f74897893773",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "Casks/n/neovide-app.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/neovide-app.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/dev.neovide.neovide",
+      "retrieved_at": "2026-11-16T23:03:23.336Z",
+      "path": "api/v2/appstream/dev.neovide.neovide",
+      "api_url": "https://flathub.org/api/v2/appstream/dev.neovide.neovide",
+      "content_sha256": "d4a04f7044974aa4f9470c328c86833ef41f1a39df8203be1518fbe9e40e52c9"
+    }
+  ],
+  "flathub": {
+    "app_id": "dev.neovide.neovide",
+    "page_url": "https://flathub.org/apps/dev.neovide.neovide",
+    "repo_url": "https://github.com/flathub/dev.neovide.neovide",
+    "install_command": "flatpak install flathub dev.neovide.neovide",
+    "run_command": "flatpak run dev.neovide.neovide",
+    "verified": false,
+    "license": "MIT",
+    "free_license": true,
+    "developer_name": "Kaylee Simmons",
+    "categories": [
+      "Utility",
+      "TextEditor"
+    ],
+    "download_size": 29500818,
+    "installed_size": 85993472,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

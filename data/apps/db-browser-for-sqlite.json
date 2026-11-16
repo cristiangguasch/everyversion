@@ -1,0 +1,743 @@
+{
+  "schema_version": 2,
+  "slug": "db-browser-for-sqlite",
+  "name": "DB Browser for SQLite",
+  "publisher": "DB Browser for SQLite Team",
+  "author": "DB Browser for SQLite Team",
+  "ids": {
+    "winget": "DBBrowserForSQLite.DBBrowserForSQLite",
+    "moniker": "dbbrowser",
+    "homebrew_cask": "db-browser-for-sqlite",
+    "flathub": "org.sqlitebrowser.sqlitebrowser"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "A high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.",
+  "description": "DB Browser for SQLite (DB4S) is a high quality, visual, open source tool designed for people who want to create, search, and edit SQLite or SQLCipher database files. DB4S gives a familiar spreadsheet-like interface on the database in addition to providing a full SQL query facility. It works with Windows, macOS, and most versions of Linux and Unix.",
+  "tags": [
+    "c-plus-plus",
+    "cross-platform",
+    "database",
+    "database-browser",
+    "database-gui",
+    "sqlite",
+    "sqlitebrowser"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://sqlitebrowser.org/dl/",
+    "publisher": "https://sqlitebrowser.org/",
+    "support": "https://github.com/sqlitebrowser/sqlitebrowser/issues",
+    "bug_tracker": "https://github.com/sqlitebrowser/sqlitebrowser/issues",
+    "privacy": "https://sqlitebrowser.org/privacy-policy",
+    "release_notes": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.13.1",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/sqlitebrowser/sqlitebrowser/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "MPL-2.0 and GPL-3.0-or-later",
+    "url": "https://github.com/sqlitebrowser/sqlitebrowser/blob/master/LICENSE",
+    "copyright": "Copyright © DB Browser for SQLite Team"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "3.13.1",
+    "macos": "3.13.1",
+    "linux": "3.13.1"
+  },
+  "last_updated": "2026-04-03",
+  "versions_total": {
+    "windows": 8,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "3.13.1",
+      "release_date": "2026-04-03",
+      "release_notes": "> [!NOTE]\n>\n> Binaries for Windows on ARM were released on April 3, 2026.\n> and this work was successfully completed thanks to the support provided by the Microsoft App Assure Service team.\n> We would like to take this opportunity to express our gratitude. :)\n\n> [!NOTE]\n>\n> A problem has been reported where the AppImage cannot be run on some previous OS versions,\n> leading to the release of version v2 specifically for the AppImage binary. Further information: #3781,\n> https://github.com/sqlitebrowser/sqlitebrowser/discussions/3775#discussioncomment-10969170\n\nThis is a new release with several improvements over the v3.13.0 release from three months ago. 🚀\n\nAs a special mention, SQLean has a new time extension! Check out the following link for more information:\nhttps://github.com/nalgeon/sqlean/blob/main/docs/time.md\n\nThanks to everyone for being part of our Community!\n\nRelated Discussion: https://github.com/sqlitebrowser/sqlitebrowser/discussions/3775\n\n### Changelog\n\n## Added\n\n- Add links to the wiki as help for many dialogs (7af1256, b5abc86)\n\n## Changed\n\n- Change the default to install a shortcut to the Start menu when installing on Windows (623bec6)\n- Improve icon image for links in 'Help' menu (#3693, 027c6a8)\n- Pragma names and values can now be translated (#3697, bf62f3a, ad00ad4)\n- Remove trailing characters when copying a single cell (#3735, 20f481a)\n- Update AppImage binary to use the latest SQLCipher library (#3744, 21ba2d0)\n- When editing the DB cells, expanded queries with parameters are included in the SQL Log (ac3209f)\n\n### Fixed\n\n- ExtendedTableWidget\n  - Fix an issue that prevented autocomplete from working in some race conditions (#2567, #3706)\n  - Use Tab to close autocomplete popup and move to next item (3aff8c9)\n  - Troubleshoot 'Copy as SQL' action on a cell results in string being copied (#1952, 1ebe7bf)\n- Global\n  - Fix \"Argument Missing\" error in Korean translation (#3635, #3692, cd518de)\n  - Fix an issue that caused apps to crash on some older versions of macOS (#3691)\n  - Fix an issue when freezing after stopping a pragma (#3742, 15a9620)\n  - Fix an issue with outputting the wrong version on macOS\n  - Troubleshooting poor HiDPI support on Windows (#3684)\n  - Troubleshoot SQL queries containing VACUUM that run incorrectly (#3723, 51784aa)\n- MainWindow\n  - Fix an issue when selecting queries containing multi-byte strings (#3731, f89097c)\n- TableBrowser\n  - Fix a bug where the first row was not adjusted (#3767, ad690e7)\n- etc\n  - Fix misleading links to Qt license information (8361aa5)\n  - Replace 'http' with 'https' in the 'AboutDialog' and 'MainWindow' (9832a52)\n  - Translation\n    - German (#3749, 8e38bf0)\n    - Indonesian (#3756, 6100595)\n    - Japanese (#3755, e0f6aea)\n    - Korean (7bbfcf9)\n    - Simplified Chinese (#3761, 9eb0a5a)\n    - Spanish (ac33918)\n\n### Dependent library version information for each OS\n\n┌──────────────────┬────────────┬────────────┬────────────────┬────────────────┐\n│ -                │ Qt         │ SQLCipher  │ SQLite         │ SQLean         │\n├──────────────────┼────────────┼────────────┼────────────────┼────────────────┤\n│ AppImage         │ 5.12.8     │ 4.6.1      │ Not applicable │ Not applicable │\n├──────────────────┼────────────┼────────────┼────────────────┼────────────────┤\n│ macOS            │ 5.15.13    │ 4.6.1      │ Not applicable │ 0.27.1         │\n├──────────────────┼────────────┼────────────┼────────────────┼────────────────┤\n│ Windows          │ 5.15.2     │ 4.6.1      │ 3.46.1         │ 0.27.1         │\n├──────────────────┼────────────┼────────────┼────────────────┼────────────────┤\n│ Windows on ARM   │ 6.8.3      │ 4.6.1      │ 3.51.3         │ 0.28.2         │\n└──────────────────┴────────────┴────────────┴────────────────┴────────────────┘",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.13.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.13.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1-win32.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-v3.13.1-win32.msi",
+          "sha256": "e0b9f86d3da4d8d800e144295487e43de306c1bd27f14dccfe41e904736f25f7",
+          "product_code": "{58F132A6-6CB1-45F3-9AC9-6ED957514E94}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{58F132A6-6CB1-45F3-9AC9-6ED957514E94}",
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1-win64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-v3.13.1-win64.msi",
+          "sha256": "d023d54b3a5db10c7e896089bb3dbe6e7f4bc4eaa9bbecb34ca414be5970f688",
+          "product_code": "{541AE182-7C1D-426C-8155-4867303B75A4}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{541AE182-7C1D-426C-8155-4867303B75A4}",
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1-arm64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-v3.13.1-arm64.msi",
+          "sha256": "89bf0adafad492f44d850d76c188204f0639f185b50482a3cbd59afe509b1d84",
+          "product_code": "{F0CB5153-3208-444F-9A77-3DF8DDDC9037}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{F0CB5153-3208-444F-9A77-3DF8DDDC9037}",
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.13.0",
+      "release_date": "2024-07-23",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.13.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.0/DB.Browser.for.SQLite-v3.13.0-win32.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-v3.13.0-win32.msi",
+          "sha256": "81af0e90257b96d4ddac32b93801c160e18ec450c2727d507f80ba3c585279f3",
+          "product_code": "{31DB629B-1047-47DC-BE5D-AFC2656B2F27}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.0/DB.Browser.for.SQLite-v3.13.0-win64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-v3.13.0-win64.msi",
+          "sha256": "4fd5a308481fa8ff3008bcbd069da03944698f1397b509f22a43bfda93dfccd3",
+          "product_code": "{84FA58C5-3D4A-4BDB-8901-467DD1B78E60}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.12.2",
+      "release_date": "2021-05-17",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.12.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.2/DB.Browser.for.SQLite-3.12.2-win32.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.12.2-win32.msi",
+          "sha256": "2b87a0ca1b14f436f2dc2cbfaa380249e754c3c87c81b6648a513f75d3c73368",
+          "product_code": "{DE0EB075-3F05-4A25-8075-5BBAE6D38BEC}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.2/DB.Browser.for.SQLite-3.12.2-win64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.12.2-win64.msi",
+          "sha256": "723d601f125b0d2402d9ea191e4b310345ec52f76b61e117bf49004a2ff9b8ae",
+          "product_code": "{5211034D-495B-4A5E-9B8D-8961BBB2B9E2}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.12.1",
+      "release_date": "2020-11-09",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.12.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.12.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.1/DB.Browser.for.SQLite-3.12.1-win32-v2.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.12.1-win32-v2.msi",
+          "sha256": "6fb72e41cf867e34d1fffdd5b544dc317fbbd25e3c4e56986d62de0c0e46da06",
+          "product_code": "{AAFA3E9F-719B-4298-99D6-4C07FC7511BD}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.1/DB.Browser.for.SQLite-3.12.1-win64-v2.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.12.1-win64-v2.msi",
+          "sha256": "512f68ff998564b6a297ee0910563bd97808ce292bf09a840f097faea9be577e",
+          "product_code": "{05578DF5-8497-4177-970D-702309C5D897}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.12.0",
+      "release_date": "2020-06-25",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.12.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.0/DB.Browser.for.SQLite-3.12.0-win32.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.12.0-win32.msi",
+          "sha256": "67f2bd4574fc46f0769bb6fcd940a91367cf32e56a94d4dbd6efe156dfc48e43",
+          "product_code": "{9BC65494-4E3E-4DF2-B167-0CAFBB57D0F3}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.0/DB.Browser.for.SQLite-3.12.0-win64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.12.0-win64.msi",
+          "sha256": "0298b9e441f619f6945e8c52878171790aaefd84df349d84770cdde6a639a583",
+          "product_code": "{EBC2E51F-67BE-4839-8215-2D3C1AD19D1A}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11.2",
+      "release_date": "2019-04-03",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.11.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.11.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.11.2/DB.Browser.for.SQLite-3.11.2-win32.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.11.2-win32.msi",
+          "sha256": "0a660c8eefdfbb8be6cf8be2abe223b0149ce8723cc1c19a36b88198be071abe",
+          "product_code": "{60A6564D-4E90-4F6F-859B-8E60C769AEFD}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.11.2/DB.Browser.for.SQLite-3.11.2-win64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.11.2-win64.msi",
+          "sha256": "9db9d0c69c1372f09ef54599e3f87af3e28057a20c2bd6f59787d1cf16edb742",
+          "product_code": "{ABCC928D-E47F-4867-94A6-F9F129F3FB05}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11.1",
+      "release_date": "2019-02-18",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.11.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.11.1/DB.Browser.for.SQLite-3.11.1-win32.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.11.1-win32.msi",
+          "sha256": "76076d5c20240479238705f2211cad709f23c31cabe1682e2953bf6a7168b8d0",
+          "product_code": "{698F58C3-5236-4B2D-BBC8-C78687182BF9}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.11.1/DB.Browser.for.SQLite-3.11.1-win64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.11.1-win64.msi",
+          "sha256": "ffe1f44f10d49c9d382e66b951125ae1ee10d4bce93e5a32dbb8547d6bf7122f",
+          "product_code": "{A0C240ED-A142-45EE-9D9D-8F50125F0DE6}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11.0",
+      "release_date": "2019-02-07",
+      "release_notes_url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/tag/v3.11.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite/3.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.11.0/DB.Browser.for.SQLite-3.11.0-win32.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.11.0-win32.msi",
+          "sha256": "d1e28bb123ab758b476f1d1f86be5f9b0c4f4e55a72f9d6e29cfc7924adf44bb",
+          "product_code": "{89628D04-102D-49BB-B4F2-FBEEFD51A02C}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.11.0/DB.Browser.for.SQLite-3.11.0-win64.msi",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-3.11.0-win64.msi",
+          "sha256": "83c8847d0f86354c53b30407fa4af96c9674711bf92c8705e2e4f33897fc9cdd",
+          "product_code": "{BB89AB3F-DE8C-4DB4-9862-324F67B36BF0}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "SHORTCUT_SQLITE_DESKTOP=1 SHORTCUT_SQLCIPHER_DESKTOP=1 SHORTCUT_SQLITE_PROGRAMMENU=1 SHORTCUT_SQLCIPHER_PROGRAMMENU=1"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "db",
+            "db3",
+            "sqlite",
+            "sqlite3"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{124623D9-35D6-4D2E-9474-2ADACC8BABBB}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "3.13.1",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1.dmg",
+          "host": "github.com",
+          "filename": "DB.Browser.for.SQLite-v3.13.1.dmg",
+          "sha256": "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "DB Browser for SQLite.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Preferences/com.sqlitebrowser.sqlitebrowser.plist",
+            "~/Library/Preferences/net.sourceforge.sqlitebrowser.plist",
+            "~/Library/Saved Application State/net.sourceforge.sqlitebrowser.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "3.13.1",
+      "release_date": "2024-10-16",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.sqlitebrowser.sqlitebrowser.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.sqlitebrowser.sqlitebrowser.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.sqlitebrowser.sqlitebrowser.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.sqlitebrowser.sqlitebrowser.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "manifests/d/DBBrowserForSQLite/DBBrowserForSQLite"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "9ee85620da80e284f05f92020572f74897893773",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "Casks/d/db-browser-for-sqlite.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/db-browser-for-sqlite.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.sqlitebrowser.sqlitebrowser",
+      "retrieved_at": "2026-11-16T23:03:23.336Z",
+      "path": "api/v2/appstream/org.sqlitebrowser.sqlitebrowser",
+      "api_url": "https://flathub.org/api/v2/appstream/org.sqlitebrowser.sqlitebrowser",
+      "content_sha256": "81e5cbc9c9f5bdac381ca462999b1387acf33f90dc54bfd2ea4f85bc6e2e8aeb"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.sqlitebrowser.sqlitebrowser",
+    "page_url": "https://flathub.org/apps/org.sqlitebrowser.sqlitebrowser",
+    "repo_url": "https://github.com/flathub/org.sqlitebrowser.sqlitebrowser",
+    "install_command": "flatpak install flathub org.sqlitebrowser.sqlitebrowser",
+    "run_command": "flatpak run org.sqlitebrowser.sqlitebrowser",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "sqlitebrowser.org",
+      "verified_on": "2026-01-28"
+    },
+    "license": "MPL-2.0 and GPL-3.0+",
+    "free_license": true,
+    "developer_name": "DB Browser for SQLite developers",
+    "categories": [
+      "Development",
+      "Utility",
+      "Database"
+    ],
+    "download_size": 9785924,
+    "installed_size": 20859392,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

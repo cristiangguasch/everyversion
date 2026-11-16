@@ -1,0 +1,755 @@
+{
+  "schema_version": 2,
+  "slug": "sunshine",
+  "name": "Sunshine",
+  "publisher": "LizardByte",
+  "ids": {
+    "winget": "LizardByte.Sunshine",
+    "moniker": "sunshine",
+    "flathub": "dev.lizardbyte.app.Sunshine"
+  },
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "summary": "Sunshine is a Gamestream host for Moonlight.",
+  "description": "Sunshine is a self hosted, low latency, cloud gaming solution with support for AMD,\nIntel, and Nvidia GPUs.\nIt is an open source implementation of NVIDIA's GameStream, as used by the NVIDIA Shield.\nConnect to Sunshine from any Moonlight client, available for nearly any device imaginable.",
+  "tags": [
+    "gamestream",
+    "gaming",
+    "moonlight",
+    "stream",
+    "streaming"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/LizardByte/Sunshine",
+    "publisher": "https://app.lizardbyte.dev/",
+    "support": "https://app.lizardbyte.dev/#Support",
+    "release_notes": "https://github.com/LizardByte/Sunshine/releases/tag/v2026.914.233613"
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/LizardByte/Sunshine/blob/HEAD/LICENSE",
+    "spdx": "GPL-3.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2026.914.233613",
+    "linux": "2026.914.233613"
+  },
+  "last_updated": "2026-09-15",
+  "versions_total": {
+    "windows": 24,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2026.914.233613",
+      "release_date": "2026-09-15",
+      "release_notes": "‼️ Attention\nThis release contains a high-severity security update for Linux hosts. For more information, see:\n- GHSA-fp6g-27w5-489j\nLinux users should update as soon as possible!\n⚠️ Breaking changes and migration notes\n- Windows hosts using Virtual HID Driver must update to version 2026.914.1218.10 or newer. Earlier driver versions are not supported by this Sunshine release.\n✨ Highlights\n- Clearer Windows virtual-input choices. A new gamepad_driver setting lets users choose all available drivers, only Virtual HID Driver, or only ViGEmBus. Selecting ViGEmBus also suppresses Virtual HID Driver notifications. (#5653)\n- More reliable Linux capture and encoding. This release fixes multi-plane DMA-BUF handling for wlroots capture, corrects variable-rate behavior across KWin versions, and allows Portal capture with VA-API to use high-priority EGL contexts. (#5699, #5705, #5709)\n- Improved encoder compatibility. Updated to FFmpeg 9. Fixes include accurate AV1 and HEVC capability detection, FFmpeg 9 Vulkan queue support, NVENC support in Linux builds without CUDA, and ARM64 NVENC DLL loading on NVIDIA RTX Spark. (#5554, #5675, #5698, #5682)\n- Correct network-interface binding. Sunshine now consistently respects the configured bind_address, including IPv4 addresses in dual-stack mode, and Web UI links use the configured address correctly. (#5700)\n- Easier XDG Portal recovery. Linux and FreeBSD users can clear a stale Portal restore token directly from the Troubleshooting page and select their display again. (#5701)\n- Broader Linux availability. Release coverage now includes Alpine Linux 3.24 packages, openSUSE Leap 16.0 and Tumbleweed builds, and Ubuntu 26.10 packages.\nFor a comprehensive list of changes, see below.\nWhat's Changed\n- chore(deps): update dependency @lucide/vue to v1.42.0 by @renovate[bot] in #5636\n- chore(deps): lock file maintenance by @renovate[bot] in #5634\n- chore(deps): Update build-deps to v2026.905.170812 by @LizardByte-bot in #5637\n- build(Linux): enable openSUSE Leap 16.0 and Tumbleweed by @ReenigneArcher in #5633\n- chore(flatpak): update org.kde.Platform runtime to 6.11 by @ReenigneArcher in #5639\n- feat(config): add gamepad_driver option by @ReenigneArcher in #5653\n- chore(l10n): update translations by @LizardByte-bot in #5632\n- chore(deps): update dependency marked to v18.0.12 by @renovate[bot] in #5648\n- build(deps): bump third-party/moonlight-common-c from 874ac95 to 62e0663 by @dependabot[bot] in #5657\n- chore(deps): update lizardbyte/actions action to v2026.909.30231 by @renovate[bot] in #5664\n- chore(deps): update ubuntu docker tag to v26 by @renovate[bot] in #5666\n- chore(deps): update vmactions/freebsd-vm action to v1.5.6 by @renovate[bot] in #5665\n- chore(deps): update dependency @lucide/vue to v1.43.0 by @renovate[bot] in #5655\n- ci(homebrew): run tests in separate step by @ReenigneArcher in #5669\n- fix(deps): fix legacy nvenc presets and bump third-party/build-deps by @ReenigneArcher in #5668\n- build(Linux): add Alpine packages by @ReenigneArcher in #4987\n- fix(linux/vulkan): use vkGetDeviceQueue2 with FFmpeg 9.0 queue flags by @solidv in #5675\n- build(Linux): harden Qt6 dependency detection by @ReenigneArcher in #5679\n- fix(av1,hevc): stop av1 probes from clobbering hevc results by @bitness in #5554\n- fix(api): return the final result of pairing by @ReenigneArcher in #5680\n- fix(nvapi,nvenc): Load ARM64 DLLs on RTX Spark by @cgutman in #5682\n- ci(homebrew): skip more_space action for release job by @ReenigneArcher in #5683\n- chore(deps): update dependency @lucide/vue to v1.44.0 by @renovate[bot] in #5674\n- fix(web-ui): localize config categories by @ReenigneArcher in #5688\n- ci(homebrew): drop sonoma by @ReenigneArcher in #5689\n- build(deps): bump third-party/plasma-wayland-protocols from 4c015e9 to 382dfab by @dependabot[bot] in #5687\n- build(deps): bump third-party/doxyconfig from b87f7e4 to 212e309 by @dependabot[bot] in #5686\n- fix: missing initializers and incorrect default for native_pen_touch by @cgutman in #5693\n- build(Linux): add Ubuntu 26.10 Docker bake target by @ReenigneArcher in #5622\n- fix(linux): handle NVENC in builds without CUDA by @ReenigneArcher in #5698\n- fix(network): respect configured bind address by @ReenigneArcher in #5700\n- fix(web-ui): add XDG Portal token reset by @ReenigneArcher in #5701\n- fix(linux): export all Wayland DMA-BUF planes by @ReenigneArcher in #5699\n- chore(deps): update dependency @lucide/vue to v1.45.0 by @renovate[bot] in #5694\n- build(deps): bump third-party/doxyconfig from 212e309 to 419127b by @dependabot[bot] in #5703\n- build(deps): bump packaging/linux/flatpak/deps/flatpak-builder-tools from 1fc3219 to de2225a by @dependabot[bot] in #5702\n- fix(pipewire): extend KWin version check to handle 6.8 beta/RC versions by @psyke83 in #5704\n- fix(linux): repair privileged DRM worker build by @ReenigneArcher in #5706\n- fix(pipewire): gate variable rate to KWin 5.x.x - 6.7.79 (up to stable 6.7 series) by @psyke83 in #5705\n- test: PowerShell tests with Pester and Sonar fixes by @ReenigneArcher in #5708\n- test(linux): synchronize environment sanitizer tests by @ReenigneArcher in #5710\n- build(copr): use cuda redistributatle for Fedora builds by @ReenigneArcher in #5719\n- build(linux): fix ubuntu 26.10 aarch64 artifact extraction by @ReenigneArcher in #5720\n- chore(deps): update dependency @lucide/vue to v1.46.0 by @renovate[bot] in #5715\n- chore(deps): lock file maintenance by @renovate[bot] in #5714\n- chore(deps): update dependency vite to v8.3.0 by @renovate[bot] in #5711\n- chore(deps): update dependency windows to v2025 by @renovate[bot] in #5712\n- feat(linux): use privileged EGL worker thread by @psyke83 in #5709\n- chore(deps): update astral-sh/setup-uv action to v10.1.0 by @renovate[bot] in #5684\n- chore(l10n): update translations by @LizardByte-bot in #5654\n- chore(deps): bump libvirtualhid by @ReenigneArcher in #5722\nNew Contributors\n- @solidv made their first contribution in #5675\n- @bitness made their first contribution in #5554\nFull Changelog: v2026.906.222525...v2026.914.233613\nContributors\nReenigneArcherrenovate[bot]dependabot[bot]LizardByte-botpsyke83cgutmanbitnesssolidv\n📦 Assets:\n──────────────────────────────────────────────────────┬────────────────┬─────────────────\n⬇️ Download                                           │#️⃣ Download     │🛡️ VirusTotal\n                                                      │Count           │\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-FreeBSD-15.1-amd64.pkg                       │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-Windows-AMD64-debuginfo.7z                   │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-Windows-AMD64-installer.msi                  │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-Windows-AMD64-lite.zip                       │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-Windows-ARM64-debuginfo.7z                   │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-Windows-ARM64-installer.msi                  │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-Windows-ARM64-lite.zip                       │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-macOS-arm64.dmg                              │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine-macOS-x86_64.dmg                             │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine_2026.914.233613_aarch64.AppImage             │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nSunshine_2026.914.233613_x86_64.AppImage              │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nflathub.tar.gz                                        │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine-2026.914.233613-1-x86_64.pkg.tar.zst         │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine.pkg.tar.gz                                   │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine.rb                                           │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine_2026.914.233613-1+debiantrixie_amd64.deb     │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine_2026.914.233613-1+debiantrixie_arm64.deb     │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine_2026.914.233613-1+ubuntu22.04_amd64.deb      │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine_2026.914.233613-1+ubuntu22.04_arm64.deb      │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────\nsunshine_2026.914.233613-1+ubuntu24.04_amd64.deb      │Downloads       │VirusTotal\n──────────────────────────────────────────────────────┼────────────────┼─────────────────",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2026.914.233613",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/2026.914.233613",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2026.914.233613/Sunshine-Windows-AMD64-installer.msi",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-AMD64-installer.msi",
+          "sha256": "1d7fed8beecd5889dc7ff14cf9f42d6d38f37c3066c13c6c2a5f4e91847e0ccf",
+          "product_code": "{F4B3C08C-F867-4367-9465-6DAB091E5FB6}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F4B3C08C-F867-4367-9465-6DAB091E5FB6}",
+              "upgrade_code": "{512A3D1B-BE16-401B-A0D1-59BBA3942FB8}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2026.914.233613/Sunshine-Windows-ARM64-installer.msi",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-ARM64-installer.msi",
+          "sha256": "1e211404b924fcf421657c71e1aaa95cf1f76e172cacf8ff8430beacc0e30e4a",
+          "product_code": "{652D54E6-96EC-4359-AC7B-A8C0BF541D8D}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{652D54E6-96EC-4359-AC7B-A8C0BF541D8D}",
+              "upgrade_code": "{512A3D1B-BE16-401B-A0D1-59BBA3942FB8}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2026.906.222525",
+      "release_date": "2026-09-06",
+      "release_notes": "‼️ Attention\nThis release contains critical security updates. For more information see the following:\n- GHSA-6w33-pjh7-p77c\n- GHSA-6jvv-jqr7-m6m3\n- GHSA-36ff-frg7-492f\n- GHSA-26q2-58j6-qmvv\n- GHSA-c428-87f8-rrv5\nPlease update as soon as possible!\n⚠️ Breaking changes and migration notes\n- Windows NSIS (.exe) installers have been discontinued. Use the WiX-based .msi installer instead.\n- Windows portable packages were renamed. Sunshine-Windows-{arch}-portable.zip is now Sunshine-Windows-{arch}-lite.zip. Update any fixed download URLs or automation. (#5405)\n- Linux KMS display indices may be reordered. Configurations using a numeric output_name may need to reselect their display. Connector names such as DP-1 or HDMI-A-1 are now recommended. (#5489)\n- Sunshine has migrated to libvirtualhid. It replaces Inputtino on Linux and ViGEmBus as the primary input backend on Windows AMD64, and also handles additional input functionality on macOS. Virtual-device names, controller identities, permissions, and application-specific mappings may change. (#5368)\n  - On Windows, full driver-backed gamepad, Raw Input keyboard, and Raw Input mouse support requires the separately installed Virtual HID Driver, an active machine license, and driver version 2026.905.2300.20 or newer. You can purchase a license from the Sunshine web-ui or our store. Lifetime and yearly subscription options are available.\n  - Existing ViGEmBus installations remain available only as a limited Xbox 360 and DualShock 4 fallback. Sunshine no longer bundles or installs ViGEmBus.\n  - Automatic gamepad emulation may now expose an Xbox Series controller instead of the previous Windows Xbox 360 or Linux Xbox One controller. Games and controller profiles may need to be reconfigured.\n  - See the Introducing libvirtualhid and Virtual HID Driver blog post for more information.\n- The input configuration key ds5_inputtino_randomize_mac was renamed to virtualhid_randomize_mac. The old key is no longer recognized.\n- The ViGEmBus Web API was replaced. GET /api/vigembus/status and POST /api/vigembus/install were removed. Integrations should migrate to GET /api/virtual-input/status and the new /api/virtual-input/license endpoints.\n- Linux release filenames changed.\n  - sunshine.AppImage is now versioned and architecture-specific, for example Sunshine_2026.906.222525_x86_64.AppImage.\n  - Debian and Ubuntu packages now use native versioned filenames, for example sunshine_2026.906.222525-1+ubuntu24.04_amd64.deb.\n  - Automation using fixed GitHub release URLs must be updated.\n- The prebuilt platform matrix changed.\n  - The minimum supported FreeBSD release increased from 14.4 to 15.1.\n  - Prebuilt FreeBSD aarch64 packages were removed; aarch64 users must compile Sunshine themselves. (#5516)\n  - Fedora 42 and openSUSE Leap 15.6 RPMs are no longer attached to GitHub releases.\n- Sunshine no longer opens the Web UI automatically at startup. Open it manually when configuration is needed. (#5329)\n- Log files now rotate at startup. Previous logs are retained as .1 through .5; log collectors may need rotation-aware handling. (#5485)\nSource builders and downstream packagers\n- The minimum required CMake version increased from 3.20 to 3.24.\n- The system tray migrated to Qt on every platform. Downstream packages must provide the applicable Qt Widgets and SVG dependencies. (#5260)\n- Python development dependencies moved from pip extras to uv dependency groups. Existing pip install \".[test]\", .[lint], and similar workflows must migrate to uv sync and uv run. (#5222)\n- Several build paths and submodules were removed or relocated, including Inputtino, GoogleTest, nanors, nv-codec-headers, the Flatpak shared-modules checkout, and the version-specific Ubuntu Dockerfiles. Downstream scripts and patches referencing these paths must be updated.\n✨ Highlights\n- Expanded virtual input support. The new libvirtualhid integration adds Xbox 360, Xbox One, Xbox Series, DualShock 4, DualSense, Nintendo Switch Pro, and generic virtual gamepad profiles, along with broader keyboard, mouse, touchscreen, pen, and trackpad support. (#5368)\n- Continued NVENC support for older NVIDIA GPUs on Windows. Sunshine now dynamically selects a compatible NVIDIA Video Codec SDK version at runtime, preserving hardware encoding support on older NVIDIA cards while retaining support for newer hardware. (#5451)\n- Hardware YUV 4:4:4 and HDR encoding on NVIDIA Linux systems. CUDA and CUDA-GL capture paths can now provide higher-quality chroma reproduction, including HDR configurations. (#4965, #5315)\n- Improved VA-API controls. New rate-control, quality, and block-level bitrate-control options provide greater control over AMD and Intel encoding behavior. (#5388)\n- Major Wayland and PipeWire improvements. This release improves DMA-BUF modifier support, display switching, variable-rate capture, fractional refresh rates, unpaced capture, software-encoder buffers, and compatibility with KWin and other compositors.\n- More reliable Linux display selection. Connector names such as DP-1 and HDMI-A-1 can now be used instead of unstable numeric display indices. (#5423)\n- Qt-based system tray across all platforms. Sunshine now uses a unified, cross-platform tray implementation with improved behavior on Linux, macOS, Windows, AppImage, and Flatpak installations. (#5260)\n- Improved macOS display management. Sunshine now uses libdisplaydevice to enumerate displays and apply or restore display changes, alongside improved scroll handling, display wake behavior, and microphone permission support. (#5338)\n- Native aarch64 AppImage support. Linux ARM64 users can now download an official AppImage. (#5627)\n- Better Web UI application management. The Applications page now supports filtering and searching, with refreshed Add, Edit, and Delete workflows and broader layout improvements.\n- More resilient streaming behavior. Highlights include automatic SDR fallback when HDR is unavailable, improved video reinitialization, corrected fractional frame pacing, better modifier-key handling, and use of the configured Windows audio sink.\n- Rotating logs and improved diagnostics. Startup logs are preserved across multiple runs, making crashes and initialization failures easier to troubleshoot. (#5485)\n- Per-session client identification. Launched applications can read the connected client name from the new SUNSHINE_CLIENT_NAME environment variable. (#5465)\n- Configurable RTSP packet size. The new packetsize option can improve compatibility with clients or networks that cannot configure an appropriate packet size themselves. (#5153)\n- Easier Linux installation and updates through Cloudsmith. Official Sunshine DEB and RPM repositories are now available in stable and beta channels, allowing updates through apt, dnf, or zypper. See Introducing LizardByte's Cloudsmith repositories for setup instructions.\nFor a comprehensive list of changes, see below.\nWhat's Changed\n- build(deps): bump third-party/inputtino from f4ce2b0 to b887f6a by @dependabot[bot] in #5135\n- fix(macos): scale remote scroll input using macOS scroll speed by @martona in #5133\n- chore(deps): update dependency vue-i18n to v11.4.3 by @renovate[bot] in #5139\n- chore: fixes for release automation by @ReenigneArcher in #5142\n- chore(deps): update dependency vue-i18n to v11.4.4 by @renovate[bot] in #5143\n- chore(deps): update dependency date-fns to v4.2.1 by @renovate[bot] in #5145\n- chore(deps): update codecov/codecov-action action to v6.0.1 by @renovate[bot] in #5149\n- fix(web): disconnect only the disabled client instead of all sessions by @neatnoise in #5138\n- chore(deps): update dependency marked to v18.0.4 by @renovate[bot] in #5151\n- chore: rename copilot-instructions.md to AGENTS.md by @ReenigneArcher in #5156\n- fix(Windows-installer): move ViGEmBus to ThirdParty group by @ReenigneArcher in #5157\n- feat(rtsp): add option to limit packetsize for clients that cannot configure it by @httpstorm in #5153\n- feat(web-ui): Added Filtering & Searching to the Apps page by @Noklef in #5158\n- build(deps): bump packaging/linux/flatpak/deps/flatpak-builder-tools from dda10aa to ee65dc7 by @dependabot[bot] in #5155\n- chore(crowdin): set commit message by @ReenigneArcher in #5160\n- chore(l10n): update translations by @LizardByte-bot in #5161\n- fix(web): the packetsize upper limit is 65535 by @httpstorm in #5167\n- chore(l10n): update translations by @LizardByte-bot in #5162\n- chore(deps): update dependency date-fns to v4.3.0 by @renovate[bot] in #5172\n- build(deps): bump packaging/linux/flatpak/deps/flatpak-builder-tools from ee65dc7 to 96e2fe8 by @dependabot[bot] in #5165\n- chore(deps): update lizardbyte/actions action to v2026.522.121358 by @renovate[bot] in #5173\n- fix(web-ui): add documentation link and version-aware URLs by @ReenigneArcher in #5176\n- chore(deps): update lizardbyte/actions action to v2026.524.145234 by @renovate[bot] in #5177\n- chore(deps): migrate from lucide-vue-next to @lucide/vue by @ReenigneArcher in #5179\n- chore(l10n): update translations by @LizardByte-bot in #5178\n- chore: Add CLion run configuration for 'sunshine' by @ReenigneArcher in #5181\n- build(freebsd): fix npm install by @ReenigneArcher in #5182\n- fix(linux): migrate to qt tray by @ReenigneArcher in #4907\n- fix: explicitly check construct function error in thread_safe.h by @Kishi85 in #5184\n- build(macos): quote SHOULD_SIGN env expansion in install script by @Nottlespike in #5185\n- fix(macos/packaging): add NSLocalNetworkUsageDescription so Bonjour can register by @Nottlespike in #5186\n- chore(l10n): update translations by @LizardByte-bot in #5193\n- fix(linux/vulkan): preserve host aspect ratio in encoder output by @hebo6 in #5130\n- fix(macos): drop max_ref_frames=1 for h264_videotoolbox and enable PARALLEL_ENCODING by @Nottlespike in #5200\n- chore(deps): update dependency vue to v3.5.35 by @renovate[bot] in #5204\n- chore(l10n): update translations by @LizardByte-bot in #5196",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2026.906.222525",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/2026.906.222525",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2026.906.222525/Sunshine-Windows-AMD64-installer.msi",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-AMD64-installer.msi",
+          "sha256": "59ed473a5bd77c6886f74674d9424336e829bae40494c76f9d69b3d5bd2bc89d",
+          "product_code": "{CF727414-4CA1-4E43-8248-86D42E51A8C3}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{CF727414-4CA1-4E43-8248-86D42E51A8C3}",
+              "upgrade_code": "{512A3D1B-BE16-401B-A0D1-59BBA3942FB8}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2026.906.222525/Sunshine-Windows-ARM64-installer.msi",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-ARM64-installer.msi",
+          "sha256": "94a5f7cb1f923c1f9b7d2933faf67fdca6db334f833b85c181c69daae5dcb9c5",
+          "product_code": "{72663E10-8D40-4560-8431-C460C850C19F}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{72663E10-8D40-4560-8431-C460C850C19F}",
+              "upgrade_code": "{512A3D1B-BE16-401B-A0D1-59BBA3942FB8}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2026.516.143833",
+      "release_date": "2026-05-16",
+      "release_notes": "Attention\nThis release contains critical security updates. For more information see the following:\n- GHSA-ph75-mgxh-mv57\nPlease update as soon as possible!\nBreaking Changes\n- ViGEmBus is no longer installed automatically. Instead you can install it from the troubleshooting page of the web-ui if needed.\n- CSRF protection has been added to web-ui. If you access Sunshine through an address other than localhost you must add this to your sunshine.conf file manually. See https://docs.lizardbyte.dev/projects/sunshine/latest/md_docs_2configuration.html#csrf_allowed_origins\nHighlighted Changes\n- Added XDG, Pipewire, and KWin direct screencast capture on Linux\n- Added Vulkan encoding on Linux\n- Added official OpenSUSE packages to LizardByte copr repos\n- Added FreeBSD packages\n- Sunshine can now bind to a specific network interface\n- Added msi/wix installer for Windows\n- Added Windows support for ARM64\n- Added signed dmg package for macOS\n- Windows executables and installers are now signed for AMD64 packages\n- New endpoints for Rest API [/api/covers]\n- Updated icons, added themes, and modernized web-ui\n- Capture audio on macOS using Tap API\n- Add client enable/disable access control from web-ui\n- Support for clients to request fractional NTSC framerates\n- Support for split frame encoding on GPUs with 2+ nvenc blocks\n- Updated FFmpeg to 8.1 branch\nFor a comprehensive list of changes, see below.\nWhat's Changed\n- ci(copr): Trigger release job only for non-prereleases by @ReenigneArcher in #4297\n- build(Linux): Refactor Dockerfiles and build script for multi-stage, step-based builds by @ReenigneArcher in #4299\n- build(deps): bump vue from 3.5.21 to 3.5.22 by @dependabot[bot] in #4301\n- build(linux): update pkg-config systemd variable names by @PVermeer in #4303\n- build(deps): bump third-party/build-deps from c38829d to 2840c8a by @dependabot[bot] in #4307\n- build(packaging/homebrew): Rename class from @PROJECT_NAME@ to Sunshine by @ReenigneArcher in #4308\n- build(deps): bump LizardByte/actions from 2025.917.25039 to 2025.927.193939 in the lizardbyte-actions group by @dependabot[bot] in #4309\n- build(deps): bump LizardByte/actions from 2025.927.193939 to 2025.929.125237 in the lizardbyte-actions group by @dependabot[bot] in #4313\n- fix(linux): service file for Trixie by @ReenigneArcher in #4319\n- build(linux): static link std libraries by @PVermeer in #4321\n- build(linux): enable cpack auto dependencies by @PVermeer in #4323\n- build(linux): explicitely set CC and CXX compilers by @PVermeer in #4325\n- feat(audio): allow sending continuous audio by @mariotaku in #4261\n- build(deps): bump LizardByte/actions from 2025.929.125237 to 2025.1011.184228 in the lizardbyte-actions group by @dependabot[bot] in #4327\n- feat(fps): support x-nv-video[0].clientRefreshRateX100 for requesting fractional NTSC framerates by @andygrundman in #4019\n- build(deps): bump third-party/build-deps from 2840c8a to 1dd1b68 by @dependabot[bot] in #4326\n- fix(web-ui): translation function in DisplayOutputSelector label by @ReenigneArcher in #4328\n- build(deps): bump actions/setup-node from 5 to 6 in the github-actions group by @dependabot[bot] in #4334\n- build(deps): bump LizardByte/actions from 2025.1011.184228 to 2025.1020.14905 in the lizardbyte-actions group by @dependabot[bot] in #4347\n- build(deps): bump packaging/linux/flatpak/deps/shared-modules from 231e052 to 6537464 by @dependabot[bot] in #4346\n- build(deps): bump third-party/build-deps from 1dd1b68 to 6c9ec34 by @dependabot[bot] in #4345\n- build(rpm): Update Fedora spec and CUDA math_functions.h patch for Fedora 43+ by @ReenigneArcher in #4353\n- fix(windows): Memory leak when EnumAdapters1 uses dxgi::adapter_t address as parameter by @xd-byte in #4340\n- build(deps): bump the github-actions group with 2 updates by @dependabot[bot] in #4356\n- build(rpm): add OpenSUSE support by @ReenigneArcher in #4359\n- ci(copr): fix release event conditions by @ReenigneArcher in #4360\n- ci: move bundle analysis to separate job by @ReenigneArcher in #4361\n- fix(config): ensure apps.json is writeable by @SuperSandro2000 in #4249\n- chore(l10n): update translations by @LizardByte-bot in #4302\n- build(deps): bump LizardByte/actions from 2025.1020.14905 to 2025.1028.23217 in the lizardbyte-actions group by @dependabot[bot] in #4365\n- build(flatpak): update org.freedesktop.Platform version by @ReenigneArcher in #4382\n- docs(readme): Update for clarity and image sources by @ReenigneArcher in #4384\n- build(deps): bump third-party/Simple-Web-Server from 187f798 to 546895a by @dependabot[bot] in #4370\n- build(deps): bump boost to 1.89 by @ReenigneArcher in #4253\n- build(deps): bump third-party/build-deps from 6c9ec34 to bcaf64b by @dependabot[bot] in #4375\n- build(deps): bump packaging/linux/flatpak/deps/shared-modules from 6537464 to 8d705c8 by @dependabot[bot] in #4385\n- feat(video): use unified color conversion matrix generator by @ns6089 in #4387\n- build(deps): bump third-party/build-deps from bcaf64b to ca3f2da by @dependabot[bot] in #4392\n- fix(config): Add missing framerateX100 fields at the initializers for the video::config_t literals by @mcourteaux in #4391\n- fix(video): fix leaky abstraction in ogl luma shader by @ns6089 in #4404\n- build(deps): bump third-party/moonlight-common-c from 5f22801 to 2d984f4 by @dependabot[bot] in #4409\n- build: add freebsd support by @ReenigneArcher in #4049\n- fix(launch): Fix several launch failure conditions (exceptions thrown in child.wait, and boost::split_unix) by @mcourteaux in #4390\n- ci: harden workflows by @ReenigneArcher in #4412\n- fix(win): Windows.Graphics.Capture API frame rate capped at 60fps by @StringWeaver in #4424\n- build(deps): bump vmactions/freebsd-vm from 1.2.6 to 1.2.7 by @dependabot[bot] in #4425\n- chore(l10n): update translations by @LizardByte-bot in #4386\n- build(packaging/Arch): fix cuda gcc version detection by @Garmelon in #4442\n- build(deps): bump third-party/tray from 0309a7c to d43f4c2 by @dependabot[bot] in #4445\n- build(deps): bump third-party/wayland-protocols from 0091197 to 6141e11 by @dependabot[bot] in #4446\n- build(deps): bump third-party/build-deps from ca3f2da to afe70fa by @dependabot[bot] in #4447\n- build(arch): temporarily disable broken Arch build by @cgutman in #4451\n- build(deps): bump third-party/moonlight-common-c from 2d984f4 to b126e48 by @dependabot[bot] in #4452\n- build(deps): bump vue-i18n from 11.1.12 to 11.2.2 by @dependabot[bot] in #4454\n- build(deps): bump vue from 3.5.22 to 3.5.25 by @dependabot[bot] in #4444\n- build(deps): bump actions/checkout from 5 to 6 in the github-actions group by @dependabot[bot] in #4435\n- build(deps): bump packaging/linux/flatpak/deps/flatpak-builder-tools from ea92dc2 to fdbe66a by @dependabot[bot] in #4443\n- build(deps): bump packaging/linux/flatpak/deps/shared-modules from 8d705c8 to 3456e75 by @dependabot[bot] in #4431\n- fix(tray): use the blocking event loop to avoid wasting power by @cgutman in #4457\n- build(deps): bump vmactions/freebsd-vm from 1.2.7 to 1.2.8 by @dependabot[bot] in #4463\n- ci(homebrew): enable test coverage on Linux by @ReenigneArcher in #3842\n- ci(windows): Remove unused test preparation by @ReenigneArcher in #4467\n- ci(homebrew): free runner space on Linux by @ReenigneArcher in #4477\n- build(deps): bump third-party/build-deps from afe70fa to d65e305 by @dependabot[bot] in #4472\n- build(linux): add support for self-compiling on ubuntu 25.10 by @a-turtle9302 in #4471\n- ci(linux): migrate Archlinux build to GitHub workflow by @ReenigneArcher in #4478\n- build(tests): static link libgcc and libstdc++ on Linux by @ReenigneArcher in #4485\n- build(homebrew): Run test_sunshine and coverage only for main repo by @ReenigneArcher in #4491\n- style(Homebrew): Update Homebrew formula dependencies and conflicts by @ReenigneArcher in #4484\n- fix: namespace declaration for boost::process::v1 by @ReenigneArcher in #4518\n- chore: change libevdev source to LizardByte mirror by @ReenigneArcher in #4524\n- chore(homebrew): add bottle do section placeholder by @ReenigneArcher in #4525\n- feat(network): allow binding to specific interface by @ReenigneArcher in #4481\n- build(deps): bump the github-actions group across 1 directory with 3 updates by @dependabot[bot] in #4503\n- chore: update global workflows by @LizardByte-bot in #4486\n- build(deps): bump vmactions/freebsd-vm from 1.2.8 to 1.3.0 by @dependabot[bot] in #4489\n- build(deps): bump peter-evans/create-pull-request from 7 to 8 by @dependabot[bot] in #4496\n- build(deps): bump packaging/linux/flatpak/deps/shared-modules from 3456e75 to 72028a8 by @dependabot[bot] in #4517\n- build(deps): bump LizardByte/actions from 2025.1221.31807 to 2025.1224.155016 in the lizardbyte-actions group across 1 directory by @dependabot[bot] in #4533\n- build(deps): bump vue from 3.5.25 to 3.5.26 by @dependabot[bot] in #4522\n- build(deps): bump vue-i18n from 11.2.2 to 11.2.7 by @dependabot[bot] in #4529\n- build(deps): bump third-party/wayland-protocols from 6141e11 to 8822301 by @dependabot[bot] in #4513\n- build(deps): bump third-party/build-deps from d65e305 to 814fa85 by @dependabot[bot] in #4526\n- chore(l10n): update translations by @LizardByte-bot in #4497\n- ci(homebrew): fix formula version patch by @ReenigneArcher in #4535\n- ci(homebrew): fix livecheck patch by @ReenigneArcher in #4538\n- build(deps): bump LizardByte/actions from 2025.1224.155016 to 2025.1227.191137 in the lizardbyte-actions group across 1 directory by @dependabot[bot] in #4541\n- build(Archlinux): Update GCC version in PKGBUILD to 15 by @ReenigneArcher in #4546\n- fix(nvenc): Include bitstream restrictions in H.264/HEVC SPS by @cgutman in #4556\n- build(packaging): bash comparison in PKGBUILD by @ReenigneArcher in #4565\n- build(vaapi): Add vaMapBuffers2() stub by @cgutman in #4581\n- ci: run workflows for any branch by @ReenigneArcher in #4584\n- build(deps): bump third-party/build-deps from 814fa85 to 4463f7a by @dependabot[bot] in #4578",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2026.516.143833",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/2026.516.143833",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2026.516.143833/Sunshine-Windows-ARM64-installer.msi",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-ARM64-installer.msi",
+          "sha256": "d00c60140fa75445106f613874b28885bc80b174bae4aa29f8a6aed30764fdb5",
+          "product_code": "Sunshine",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "Sunshine"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2026.516.143833/Sunshine-Windows-AMD64-installer.msi",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-AMD64-installer.msi",
+          "sha256": "e7208b11a4ab9dd89871133a054bbb8dc55dfbba408227b0eccab22c60b273a2",
+          "product_code": "Sunshine",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "Sunshine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.924.154138",
+      "release_date": "2025-09-24",
+      "release_notes": "What's Changed\n- fix(windows): Correct binPath syntax in install-service.bat by @ReenigneArcher in #4290\n- build(macos): Remove XCode dependency by @eduardomozart in #4293\nNew Contributors\n- @eduardomozart made their first contribution in #4293\nFull Changelog: v2025.923.33222...v2025.924.154138\nContributors\nReenigneArchereduardomozartLizardByte-bot\n🛡️ VirusTotal Results:\n- Sunshine-Windows-AMD64-debuginfo.7z\n- Sunshine-Windows-AMD64-installer.exe\n- Sunshine-Windows-AMD64-portable.zip\n- flathub.tar.gz\n- sunshine-debian-trixie-amd64.deb\n- sunshine-debian-trixie-arm64.deb\n- sunshine-ubuntu-22.04-amd64.deb\n- sunshine-ubuntu-22.04-arm64.deb\n- sunshine-ubuntu-24.04-amd64.deb\n- sunshine-ubuntu-24.04-arm64.deb\n- sunshine.AppImage\n- sunshine.pkg.tar.gz\n- sunshine.pkg.tar.zst\n- sunshine.rb\n- sunshine_aarch64.flatpak\n- sunshine_debug_aarch64.flatpak\n- sunshine_debug_x86_64.flatpak\n- sunshine_x86_64.flatpak",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2025.924.154138",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/2025.924.154138",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2025.924.154138/Sunshine-Windows-AMD64-installer.exe",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-AMD64-installer.exe",
+          "sha256": "51b62bb830fd2a4dd4aeb1caf418876b0a2c1ebf38d33d8a4294521f61516c13",
+          "product_code": "Sunshine",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "Sunshine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.923.33222",
+      "release_date": "2025-09-23",
+      "release_notes": "Attention\nThis release contains critical security updates. For more information see the following:\n- GHSA-6p7j-5v8v-w45h\nPlease update as soon as possible!\nFor a comprehensive list of user-facing changes, see below.\nWhat's Changed\n- fix(power): don't wake up every 500ms to poll while not streaming by @cgutman in #4051\n- fix(amf): attempt to use level 5.1/5.2 for hevc by @mariotaku in #3888\n- fix(display): Restore Checkbox import for display device opts by @VMFortress in #4076\n- fix(windows): bundle vigembus instead of downloading it by @ReenigneArcher in #4088\n- fix(api): don't require content type for apps delete endpoint by @doxxx in #4093\n- fix(video): restore the ability to set a minimum fps target by @andygrundman in #4114\n- fix(packaging/linux): depend on libgbm by @ReenigneArcher in #4113\n- build(linux): compile with gcc13+ and bump cuda by @ReenigneArcher in #4136\n- build(deps): Update to FFmpeg 8.0 branch by @cgutman in #4143\n- feat(input/linux): allow ds5 gamepads to have a fixed device mac based on controller index by @Kishi85 in #4158\n- fix(input): Cleanup and show additional gamepad options correctly on linux (DS5) by @Kishi85 in #4169\n- fix(input): Add missing default value for ds5_inputtino_randomize_mac by @Kishi85 in #4207\n- fix(tray): optionally run tray in main event loop enabling support for macOS by @ReenigneArcher in #3818\n- feat(tray): Add runtime config option to enable/disable system tray by @Kishi85 in #4208\n- fix(packaging/Arch): make cuda and unit tests optional by @FineWolf in #4254\n- fix(packaging/Arch): do not fail if cuda was freshly installed by @FineWolf in #4257\n- fix(Linux): udev rules style issues by @Revival8697 in #4276\n- build(packaging/Linux): remove cuda as required dependency on aur by @ReenigneArcher in #4278\n- fix(packaging/Linux): ensure that uhid is loaded automatically by @gschintgen in #2906\nNew Contributors\n- @mengyanshou made their first contribution in #3741\n- @doxxx made their first contribution in #4092\n- @erikmagkekse made their first contribution in #3986\n- @Kishi85 made their first contribution in #4158\n- @a5ehren made their first contribution in #4162\n- @scottnm made their first contribution in #4231\n- @FineWolf made their first contribution in #4254\n- @Revival8697 made their first contribution in #4276\nFull Changelog: v2025.628.4510...v2025.923.33222\nContributors\ndependabotReenigneArcherLizardByte-botKishi85FineWolfcgutmandoxxxRevival8697a5ehrenerikmagkeksegschintgenmengyanshouscottnmVMFortressandygrundmanmariotaku\n🛡️ VirusTotal Results:\n- Sunshine-Windows-AMD64-debuginfo.7z\n- Sunshine-Windows-AMD64-installer.exe\n- Sunshine-Windows-AMD64-portable.zip\n- flathub.tar.gz\n- sunshine-debian-trixie-amd64.deb\n- sunshine-debian-trixie-arm64.deb\n- sunshine-ubuntu-22.04-amd64.deb\n- sunshine-ubuntu-22.04-arm64.deb\n- sunshine-ubuntu-24.04-amd64.deb\n- sunshine-ubuntu-24.04-arm64.deb\n- sunshine.AppImage\n- sunshine.pkg.tar.gz\n- sunshine.pkg.tar.zst\n- sunshine.rb\n- sunshine_aarch64.flatpak\n- sunshine_debug_aarch64.flatpak\n- sunshine_debug_x86_64.flatpak\n- sunshine_x86_64.flatpak\n- Sunshine-2025.923.33222-1.fc41.aarch64.rpm\n- Sunshine-2025.923.33222-1.fc41.x86_64.rpm\n- Sunshine-2025.923.33222-1.fc42.aarch64.rpm\n- Sunshine-2025.923.33222-1.fc42.x86_64.rpm",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2025.923.33222",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/2025.923.33222",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2025.923.33222/Sunshine-Windows-AMD64-installer.exe",
+          "host": "github.com",
+          "filename": "Sunshine-Windows-AMD64-installer.exe",
+          "sha256": "96d4586a81cca85342b6a83aedb96b848a46618ae1e47bd5f901e7468b07e0f4",
+          "product_code": "Sunshine",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "Sunshine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.122.141614",
+      "release_date": "2025-01-22",
+      "release_notes": "What's Changed\n- build(linux)!: remove legacy input option by @ReenigneArcher in #3562\n- fix(flatpak): fix broken desktop file, icons, and service by @ReenigneArcher in #3561\n- fix(web-ui): fix new version notification conditions by @ReenigneArcher in #3577\n- chore(l10n): update translations by @LizardByte-bot in #3563\nNew Contributors\n- @CodyManess made their first contribution in #3558",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2025.122.141614",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/2025.122.141614",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2025.122.141614/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "d0ff60b60219b58c5eb05848acb303403028601a9126715f266ac1dd290f6630",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2025.118.151840",
+      "release_date": "2025-01-18",
+      "release_notes": "- Implemented automatic resolution and HDR mode changing on Windows.\n- Implemented YUV 4:4:4 encoding support for Intel and NVIDIA GPUs on Windows.\n- Implemented automatic discovery support for macOS hosts.\n- Added support for capturing displays other than the main display on macOS.\n- Added support for emulating DS5, Nintendo Switch Pro, and Xbox One controllers on Linux.\n- Removed the limit on concurrent streaming sessions.\n- Eliminated the need for driver patching to use NvFBC capture on Linux.\n- Significantly reduced CPU usage for encoding when using AMD GPUs (RDNA or later) on Windows.\n- Fixed video traffic timeout error when streaming from a Hyper-V VM using GPU Paravirtualization.\n- Fixed inability to stream from a Windows machine when using the Microsoft Basic Display Adapter driver.\n- Optimized internal frame handling by eliminating redundant data copies and using functions optimized for SSSE3,\n- Implemented flow control to reduce the chance of dropped packets by overwhelmed routers or network switches.\n- Reworked the video encoding rate control logic for VA-API to improve bitrate efficiency on Linux.\n- New capture method using Windows.\n  Graphics.\n  Capture API on Windows.\n- Clients can now be named and unpaired individually.\n- The web UI now supports dark mode.\n- Checkboxes replace select menus for boolean settings in the web UI.\n- RestAPI improvements.\nWhat's Changed\n- feat(macos/capture): support for capture display other than main display by @TimmyOVO in #2449\n- fix(macos/input): incorrect mouse input for non-main display by @TimmyOVO in #2461\n- webui: Update resolution automation example text with auto refresh rate by @cgarst in #2503\n- fix(linux): add frame processing latency and logging improvements by @gschintgen in #2502\n- AppImage: add needed VA-API libraries (Intel & AMD) by @gschintgen in #2429\n- Allow a custom FFmpeg build to be provided using CMake variables by @chewi in #1970\n- Fix log message for Periodic Ping by @c3m3gyanesh in #2538\n- feat(ui): Dark Mode by @Hazer in #2493\n- build(win): use UCRT64 environment instead of MinGW64. by @tez011 in #2323\n- feat(win): new capture method, Windows.\n  Graphics.\n  Capture  by @tez011 in #2580\n- Name and unpair individual clients by @xanderfrangos in #2042\n- feat(audio): custom surround-params by @mariotaku in #2424\n- Remove the need for a patched nvidia library for NvFBC. by @hgaiser in #2471\n- build(linux): add homebrew support by @ReenigneArcher in #2667\n- fix(macos): Mouse input broken in-game by @Hazer in #2550\n- feat(input/linux): add support for more virtual input devices by @Hazer in #2606\n- fix(linux/input): battery values conversion by @ABeltramo in #2715\n- feat: add min_fps_target setting by @ReenigneArcher in #1043\n- fix(upnp): support newer miniupnpc library by @ReenigneArcher in #2782\n- macOS: New implementation of service publication by @cathyjf in #2786\n- build(linux): drop support for AUR by @ReenigneArcher in #2819\n- Implement basic network flow control by @ns6089 in #2803\n- Provide SSSE3, AVX2, and AVX512 optimized Reed-Solomon functions by @cgutman in #2828\n- Eliminate a redundant alloc+copy of each frame by @cgutman in #2852\n- Implement S/G IO for non-batched sends and eliminate more data copies by @cgutman in #2867\n- Implement S/G IO for batched sends and eliminate another frame copy by @cgutman in #2874\n- Migrate audio pipeline to float from 16-bit integer by @ns6089 in #2873\n- Handle CTRL_CLOSE_EVENT on Windows by @ns6089 in #2952\n- feat!: drop advertised resolutions and fps by @ReenigneArcher in #2924\n- fix(linux): ensure NvFBC capture works after multiple sessions by @insanemal in #3020\n- feat(win/video): support native YUV 4:4:4 encoding by @ns6089 in #2533\n- fix(linux): enable lowlatency mode for AMD by @ReenigneArcher in #3088\n- fix(nvhttp): wrap TLS socket to ensure graceful closure by @cgutman in #3077\n- fix(mdns): don't hardcode mDNS instance name by @cgutman in #3084\n- fix(win/video): don't offload chroma subsampling math to texture sampler when downscaling by @ns6089 in #3014\n- build(cmake): Prioritize vendored includes over system-wide by @jmou in #3182\n- fix(macos): Touch input broken by @BayLee4 in #3240\n- fix(video): encode at least one frame before capture reinit by @cgutman in #3300\n- fix: Reverse Proxy support by @Degot in #3173\n- feat(stream)!: remove limit on concurrent sessions and allow quitting apps with active sessions by @cgutman in #3325\n- fix(nvenc): disable filler data in AV1 bitstream by @cgutman in #3336\n- feat(vaapi): add option to enable strict enforcement of frame size by @cgutman in #3332\n- fix(macos): prevent indefinite hanging if screen capture is not granted by @cathyjf in #3360\n- fix(process): avoid leaking zombies and fds in detached processes by @cgutman in #3379\n- fix(hostname): fix handling of non-ASCII hostnames on Windows by @cgutman in #3382\n- feat(display)!: Add libdisplaydevice dependency and output name mapping by @FrogTheFrog in #2894\n- fix(nvenc): Enable opt-in client refresh by client by @TheElixZammuto in #3415\n- fix(shaders/directx): replace modulus with bitwise operator by @iMakeSoftware in #3499\n- feat(display): Configure display device based on user config by @FrogTheFrog in #3441\n- fix(confighttp): do not return 200 on errors by @ReenigneArcher in #3385\n- feat(display): add display mode remapping option by @FrogTheFrog in #3529\n- fix(capture/windows): fix capture when using the basic render driver by @cgutman in #3531\n- feat(capture/windows): hook APIs to avoid output reparenting that breaks DDA by @cgutman in #3530\n- fix(checkbox): inverse global prep values for apps by @FrogTheFrog in #3547\nNew Contributors\n- @TimmyOVO made their first contribution in #2449\n- @cgarst made their first contribution in #2503\n- @skryvel made their first contribution in #2514\n- @c3m3gyanesh made their first contribution in #2538\n- @BeeLeDev made their first contribution in #2555\n- @xanderfrangos made their first contribution in #2042\n- @hgaiser made their first contribution in #2471\n- @cathyjf made their first contribution in #2786\n- @cfalas made their first contribution in #2841\n- @insanemal made their first contribution in #3020\n- @jmou made their first contribution in #3183\n- @BayLee4 made their first contribution in #3240\n- @andygrundman made their first contribution in #3294\n- @midwesternrodent made their first contribution in #3287\n- @caveat-makes-software made their first contribution in #3264\n- @Degot made their first contribution in #3173\n- @soerenkampschroer made their first contribution in #3348\n- @davidemarcoli made their first contribution in #3356\n- @MiroKaku made their first contribution in #3416\n- @petrhanak made their first contribution in #3490\n- @iMakeSoftware made their first contribution in #3499\n- @Gurubaseio made their first contribution in #3466",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2025.118.151840",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/2025.118.151840",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v2025.118.151840/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "345bf92d6332d247152601e6d117fd05752cb3dfc3987702a6d1ce8d2433e6ca",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.23.1",
+      "release_date": "2024-04-21",
+      "release_notes": "- (Capture/Windows) Disable HRD and CBR encoding options by default for AMD GPUs due to video quality regressions in v0.23.0\n- (UI) Fix incorrect strings for QuickSync 'fast' and 'faster' presets\n- (UI/Linux) Fix update prompt appearing even when running the latest version\n- (Input) Fix crash when absolute input events are received prior to the display viewport being set\n- (Input/Linux) Fix missing clamping of rumble intensity to valid range\n- (Build/Tests) Fix error when attempting to disable compilation of tests\n- (Build/Linux) Fix some compilation errors when using Musl libc\n- (Logging) Fix broken debug messages for codec capability flags\n- (Logging/Linux) Fix log messages to include the correct setcap command for resolving KMS permission errors\n- (Capture/Linux) Improve frame time consistency for all capture backends\n- (UI) Set focus to the PIN textbox when navigating to the PIN tab\n- Remove libavdevice dependency\n- (Linux) Prefer ayatana-appindicator3 over appindicator3 if both are available",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.23.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.23.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.23.1/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "5608a618bc19fa3e21e6272d91d6443512da3c3965bd62e18092b4c7ec07cd29",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.23.0",
+      "release_date": "2024-04-07",
+      "release_notes": "- (Linux) Drop support for Ubuntu 20.04\n- (Linux) No longer provide arm64 rpm packages, due to extreme compile time on GitHub hosted runners\n- (Network) Ensure unpairing takes effect without restart\n- (Capture/Linux) Fix logical comparison of texture size\n- (Service/Windows) Quote the path to sunshinesvc.exe when launching the termination helper\n- (WebUI) Localization support\n- (Capture/Linux) Populate host latency for kmx/x11 grab\n- (Capture/Windows) AMF rate control improvements\n- (Linux) Add support for Ubuntu 24.04 (x86_64 only)\n- Bump rstcheck from 6.2.0 to 6.2.1\n- Bump org.flatpak.\n  Builder.\n  BaseApp from 644487f to 6e295e6\n- Bump ffmpeg\n- Bump @fortawesome/fontawesome-free from 6.5.1 to 6.5.2\n- (Style) Refactored video encoder declarations\n- (CI) Refactored Linux build in CI\n- (CI) Added unit testing and code coverage\n- (Docs/macOS) Update curl command for Portfile install\n- (Style) Refactor logging initialization",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.23.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.23.0/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "b2cb2cfaa5668e9ba1c31549db5dff3642af0a0b0b3c41d97011ee712e7067fc",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.2",
+      "release_date": "2024-03-15",
+      "release_notes": "- (Tray/Windows) Fix broken system tray icon on some systems\n- (Linux) Fix crash when XDG_CONFIG_HOME or CONFIGURATION_DIRECTORY are set\n- (Linux) Fix config migration across filesystems and with non-existent parent directories",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.22.2",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.22.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.22.2/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "f5abfe4213600d06250088a763b9148b290272a08d93610aa7aafaab6ac8b456",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.1",
+      "release_date": "2024-03-14",
+      "release_notes": "- (ArchLinux) Drop support for standalone PKGBUILD files.\n  Use the binary Arch package or install via AUR instead.\n- (macOS) Drop support for experimental dmg package.\n  Use Homebrew or MacPorts instead.\n- (macOS) Added Homebrew support\n- (Process/Windows) The working directory is now searched first when the command contains a relative path\n- (ArchLinux) The kmsgrab capture backend is now compiled by default to support Wayland capture on non-wlroots-based compositors\n- (Capture/Linux) X11 capture is now preferred over kmsgrab for cards that lack atomic modesetting support to ensure cursor capture works\n- (Capture/Linux) Kmsgrab will only choose NVENC by default if the display is connected to the Nvidia GPU to avoid possible EGL import failures\n- (Config) Fix unsupported resolution error with some Moonlight clients\n- (Capture/Windows) Fix crash when streaming Ryujinx, Red Alert 2, and other apps that use unusually sized monochrome cursors\n- (Capture/Linux) Fix crash in KMS cursor capture when running on Arch-based distros\n- (Capture/Linux) Fix crash if CUDA GPU has a PCI ID with hexadecimal digits greater than 9\n- (Process/Windows) Fix starting apps when the working directory is enclosed in quotes\n- (Process/Windows) Fix process tree tracking when the app is launched via a cmd.exe trampoline\n- (Installer/Windows) Fix slow operation during ViGEmBus installation that may cause the installer to appear stuck\n- (Build/macOS) Fix issues building on macOS 13 and 14\n- (Build/Linux) Fix missing install script in the Arch binary package\n- (Build/Linux) Fix missing optional dependencies in the Arch binary package\n- (Build/Linux) Ensure correct Arch pkg is published to GitHub releases\n- (Capture/Linux) Fix mismatched case and unhandled exception in CUDA device lookup\n- (Config) Add missing resolution to default config ui\n- (Linux) Fix udev rules for uinput access not working until after reboot\n- (Linux) Fix wrong path in desktop files\n- (Tray) Cache icons to avoid possible DRM issues\n- (Tray) Fix attempt to update tray icon after it was destroyed\n- (Linux) Migrate old config files to new location if env SUNSHINE_MIGRATE_CONFIG=1 is set (automatically set for Flatpak)\n- (Linux/Fedora) Re-enable CUDA support and bump to 12.4.0\n- (Build/Windows) Adjust Windows debuginfo artifact to reduce confusion with real release binaries",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.22.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.22.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.22.1/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "b1f3f6586cbe6bf236cced0a9db3edbe97a04a8ddab90e691d4598477c0cef72",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.0",
+      "release_date": "2024-03-04",
+      "release_notes": "- (Network) Clients must now be paired with the host before they can use Wake-on-LAN\n- (Build/Linux) Drop Fedora 37 support\n- (Input/Linux) Add native/pen touch support for Linux\n- (Capture/Linux) Add HDR streaming support for Linux using KMS capture backend\n- (Capture/Linux) Add KMS capture support for Nvidia GPUs running Wayland\n- (Network) Add support for full E2E stream encryption, configurable for LAN and WAN independently\n- (Process) Add process group tracking to automatically handle launchers that spawn other child processes\n- (Capture/Windows) Add setting for controlling GPU power saving and encoding latency tradeoff for NVENC\n- (Capture/Windows) Add additional encoding settings for NVENC\n- (Process/Windows) Add experimental support for launching URLs and other non-exe files\n- (Capture/Windows) Add setting to allow use of slower HEVC encoding on older Intel GPUs\n- (Input/Windows) Add settings to control automatic gamepad type selection heuristics\n- (Input/Windows) Add setting to allow DS4 back/select button to trigger touchpad click\n- (Input) Add setting to disable high resolution scrolling and native pen/touch support\n- (Network) Add support for certificates types other than RSA-2048\n- (Build/Linux) Add Fedora 39 docker image and rpm package\n- (Capture/Linux) Display monitor indexes in logs for wlroots and KMS capture backends\n- (UI) Add link to logs inside fatal error container\n- (UI) Add hash handler and ids for all configuration categories and settings\n- (UI) Several configuration options have been moved to more suitable locations\n- (Network) Client-selected bitrate is now adjusted for FEC percentage and other stream overhead\n- (Capture/Linux) Improve VAAPI encoding performance on Intel GPUs\n- (Capture) Connection establishment delay is reduced by eliminating many encoder probing operations\n- (Process) Graceful termination of running processes is attempted first when stopping apps\n- (Capture) Improve software encoding performance by enabling multi-threaded color conversion\n- (Capture) Adjust default CPU thread count for software encoding from 1 to 2 for improved performance\n- (Steam/Windows) Modernized the default Steam app shortcut to avoid depending on Steam's install location and support app termination\n- (Linux) Updated desktop files\n- (Config) Add 2560x1440 to default resolutions\n- (Network) Use the configured ping timeout for the initial launch event timeout\n- (UI) Migrate UI to Vite and Vue3, and various UX improvements\n- (Logging) Adjust wording and severity of some log messages\n- (Build) Use a single submodule for ffmpeg\n- (Install/Windows) Skip ViGEmBus installation if a supported version is already installed\n- (Build/Linux) Optionally, allow using the system installation of wayland-protocols\n- (Build/Linux) Make vaapi optional\n- (Windows) Replace boost::json with nlohmann/json\n- (Network/Windows) Fix auto-discovery of hosts by iOS/tvOS clients\n- (Network) Fix immediate connection termination when streaming over some Internet connections\n- (Capture/Linux) Fix missing mouse cursor when using KMS capture on a GPU with hardware cursor support\n- (Capture/Windows) Add workaround for Nvidia driver bug causing Sunshine to crash when RTX HDR is globally enabled\n- (Capture/Windows) Add workaround for AMD driver bug on pre-RDNA GPUs causing hardware encoding failure\n- (Capture/Windows) Reintroduce support for NVENC on older Nvidia GPU drivers (v456.71-v522.25)\n- (Capture/Windows) Fix encoding on old Intel GPUs that don't support low-power H.264 encoding\n- (Capture/Linux) Fix GL errors or corrupt video output on GPUs that use aux planes such as Intel Arc\n- (Capture/Linux) Fix GL errors or corrupt video output on GPUs that use DRM modifiers on YUV buffers\n- (Input/Windows) Fix non-functional duplicate controllers appearing in rare cases\n- (Input/Windows) Avoid triggering crash in ViGEmBus when the system goes to sleep\n- (Input/Linux) Fix scrolling in applications that don't support high-resolution scrolling\n- (Input/Linux) Fix absolute mouse input being interpreted as touch input\n- (Capture/Linux) Fix wlroots capture causing GL errors and crashes\n- (Capture/Linux) Fix wlroots capture failing when the display scale factor was not 1\n- (Capture/Linux) Fix excessive CPU usage when using wlroots capture backend\n- (Capture/Linux) Fix capture of virtual displays created by the amdgpu kernel driver\n- (Audio/Windows) Fix audio capture failures on Insider Preview versions of Windows 11\n- (Capture/Windows) Fix incorrect portrait mode rotation\n- (Capture/Windows) Fix capture recovery when a driver update/crash occurs while streaming\n- (Capture/Windows) Fix delay displaying UAC dialogs when the mouse cursor is not moving\n- (Capture/Linux) Fix corrupt video output or stream disconnections if the display resolution changes while streaming\n- (Capture/Linux) Fix color of aspect ratio padding in the capture image with VAAPI\n- (Capture/Linux) Fix NVENC initialization error when using X11 capture with some GPUs\n- (Tray/Linux) Fix random crash when the tray icon is updating\n- (Network) Fix QoS tagging when running in IPv4+IPv6 mode\n- (Process) Fix termination of child processes upon app quit when the parent has already terminated\n- (Process) Fix notification of graceful termination to connected clients when Sunshine quits\n- (Capture) Fix corrupt output or green aspect-ratio padding when using software encoding with some video resolutions\n- (Windows) Fix crashes when processing file paths or other strings with certain non-ASCII characters\n- (Capture) Ensure user supplied framerates are used exclusively in place of pre-defined framerates\n- (CMake/Linux) Skip including unnecessary headers\n- (Capture/Linux) Replace vaTerminate method with dl handle\n- (Capture/Linux) Fix capture when DRM is enabled and x11 is disabled\n- (Tray) Use PROJECT_NAME definition for tooltip\n- (CMake) Use GNUInstallDirs to install data and lib directories\n- (macOS) Replace deprecated code\n- (API) Allow trailing slashes in on API endpoints\n- (API) Add additional pin validation\n- (Linux) Use XDG spec for fetching config directory\n- (CMake) Properly find evdev\n- (Config) Properly save global_prep_cmd and fps settings\n- Bump third-party/wayland-protocols from 681c33c to 46f201b\n- Bump third-party/nv-codec-headers from 9402b5a to 22441b5\n- Bump third-party/nanors from 395e5ad to e9e242e\n- Bump third-party/Simple-Web-Server from 2f29926 to 27b41f5\n- Bump ffmpeg\n- Bump third-party/tray from 2664388 to 2bf1c61\n- Bump actions/setup-python from 4 to 5\n- Bump actions/upload-artifact from 3 to 4\n- Bump @fortawesome/fontawesome-free from 6.4.2 to 6.5.1\n- Bump babel from 2.13.0 to 2.14.0\n- Move miniupnpc from submodule to system installed package\n- Bump furo from 2023.9.10 to 2024.1.29\n- Bump third-party/moonlight-common-c from f78f213 to cbd0ec1\n- Bump third-party/ViGEmClient from 1920260 to 8d71f67\n- Bump peter-evans/create-pull-request from 5 to 6\n- Bump bootstrap from 5.3.2 to 5.3.3\n- (Build) Update global workflows\n- (Docs/Linux) Add example for setting custom resolution with NVIDIA\n- (Docs) Fix broken links\n- (Docs/Windows) Add information about disk permissions\n- (Docs) Fix failing images\n- (Docs) Use glob pattern to match source code docs\n- (CI/macOS) Install boost from source\n- (Docs) Add reset credentials examples for unique packages\n- (Docs) Refactor and general cleanup\n- (Docs) Cross-reference config settings to the UI\n- (Docs/Docker) Add podman notes\n- (Build) Use CMAKE_SOURCE_DIR property everywhere\n- (Build/Docker) Add docker toolchain file for CLion\n- (macOS) Various code style fixes\n- (Deps) Alphabetize git submodules\n- (Docs/Examples) Update URI examples\n- (Refactor) Refactored some code in preparation for unit testing implementation\n- (CMake) Add option to skip cuda inheriting compile options\n- (CMake) Add option to error build on warnings",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.22.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.22.0/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "d4b30c1f2c1f10f46037533e5768b6abba1f60a613e779d871c21abe8ef02d48",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.21.0",
+      "release_date": "2023-10-16",
+      "release_notes": "- (Input) Add support for automatically selecting the emulated controller type based on the physical controller connected to the client\n- (Input/Windows) Add support for Applications (context menu) key\n- (Input/Windows) Implement touchpad, motion sensors, battery state, and LED control for the emulated DualShock 4 controller\n- (Input) Advertise support for new input features to clients\n- (Linux/Debian) Added Debian Bookworm package\n- (Prep-Commands) Expose connection environment variables\n- (Input/Windows) Implement pen and touch support\n- (Capture/Windows) Add standalone NVENC encoder\n- (Capture) Implement AV1 encoding\n- (Network) Implement IPv6 support\n- (Capture/Windows) Add option to disable realtime hags\n- (Graphics/NVIDIA) Add an option to decrease GPU scheduling priority to workaround HAGS video hang\n- (Capture/Linux) Add FFmpeg powerpc64le architecture for self compiling Sunshine\n- (Capture/Windows) Add support for capturing rotated displays\n- (System Tray) Implement streaming event notifications\n- (UI) Add port configuration table\n- (Applications) Added option to automatically treat launcher type apps as detached commands\n- (Input/Gamepad) Allow the Misc button to work as Guide on emulated Xbox 360 controllers\n- (Input) Reduce latency by implementing input batching\n- (Logging) Move input packet debug prints off the control stream thread\n- (Input) Refactor gamepad emulation code to use DS4 extended report format\n- (Graphics/NVIDIA) Modify and restore NVIDIA control panel settings before and after stream, respectively\n- (Graphics/NVIDIA) New config page for NVENC\n- (Graphics/Windows) Refactor DX shaders\n- (Input/Windows) Use our own keycode mapping to avoid installing the US English keyboard layout\n- (UI) Fix update notifications\n- (Dependencies/Linux) Replace libboost chrono and thread with standard chrono and thread\n- (Input) Increase maximum gamepad limit to 16\n- (Network) Allow use of multiple ENet channels\n- (Network) Consider link-local addresses on LAN\n- (Input) Fixed issue where button may sometimes stick on Windows\n- (Input) Fix \"ControllerNumber not allocated\" warning when a gamepad is removed\n- (Input) Fix handling of gamepad feedback with multiple clients connected\n- (Input) Fix clamping mouse position to aspect ratio adjusted viewport\n- (Graphics/AMD) Fix crash during startup on some older AMD GPUs\n- (Logging) Fix crash when non-ASCII characters are logged\n- (Prep-Commands) Fix resource exhaustion bug which could occur when many prep commands were used\n- (Subprocesses) Fix race condition when inserting new processes\n- (Logging) Log error if encoder doesn't produce IDR frame on demand\n- (Audio) Improve audio capture logic and logging\n- (Logging) Fix AMF logging to match configured log level\n- (Logging) Log FFmpeg to log file instead of stdout\n- (Capture) Reject codecs that are not supported by display device\n- (Capture) Add fallbacks for unsupported codec settings\n- (Capture) Avoid probing HEVC or AV1 codecs in some cases\n- (Caputre) Remove DwmFlush()\n- (Capture/Windows) Improvements to capture sleeps for better frame stability\n- (Capture/Windows) Adjust capture rate to better match with display\n- (Linux/ArchLinux) Fix package version in PKGBUILD and precompiled package\n- (UI) Highlight fatal log messages in web ui\n- (Commands) Allow stream if prep command fails\n- (Capture/Linux) Fix KMS grab VRAM capture with libva 2.20\n- (Capture/macOS) Fix video capture backend\n- (Misc/Windows) Don't start the session monitor window when launched in command mode\n- (Linux/AppImage) Use the linuxdeploy GTK plugin to correctly deploy GTK3 dependencies\n- (Input/Windows) Fix reWASD not recognizing emulated DualShock 4 input\n- Bump bootstrap from 5.2.3 to 5.3.2\n- Bump third-party/moonlight-common-c from c9426a6 to 7a6d12f\n- Bump gcc-10 in Ubuntu 20.04 docker image\n- Bump furo from 2023.5.20 to 2023.9.10\n- Bump sphinx from 7.0.1 to 7.2.6\n- Bump cmake from 3.26 to 3.27 in Fedora docker images\n- Move third-party/nv-codec-headers from sdk/11.1 branch to sdk/12.0 branch\n- Automatic bump ffmpeg\n- Bump actions/checkout from 3 to 4\n- Bump boost from 1.80 to 1.81 in Macport manifest\n- Bump @fortawesome/fontawesome-free from 6.4.0 to 6.4.2\n- (Docs) Force badges to use svg\n- (Docs) Add Linux SSH example\n- (Docs) Add information about mesa for Linux\n- (CI) Free additional space on Docker, Flatpak, and AppImage builds due to internal changes on GitHub runners\n- (Docs/Logging/UI) Corrected various typos\n- (Docs) Add blurb about Gamescope compatibility\n- (Installer/Windows) Use system proxy to download ViGEmBus\n- (CI) Ignore third-party directory for clang-format\n- (Docs/Linux) Add Plasma-Compatible resolution example\n- (Docs) Add Sunshine website available at https://app.lizardbyte.dev/Sunshine\n- (Build/Windows) Fix audio code build with new MinGW headers\n- (Build/Windows) Fix QoS code build with new MinGW headers\n- (CI/Windows) Prevent winget action from creating an update when running in a fork\n- (CI/Windows) Change winget job to ubuntu-latest runner\n- (CI) Add CodeQL analysis\n- (CI/Docker) Fix ArchLinux image caching issue\n- (Windows) Manifest improvements\n- (CI/macOS) Simplify macport build\n- (Docs) Remove deprecated options from readthedocs config\n- (CI/Docs) Lint rst files\n- (Docs) Update localization information (after consolidating Crowdin projects)\n- (Cmake) Split CMakelists into modules\n- (Docs) Add Linux Headless/SSH Guide",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.21.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.21.0/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "7962ae41ff9d8fc1a98f8c16f8e2f06dc4fbd5ca2e24aad1856072c6c0023cd9",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.20.0",
+      "release_date": "2023-05-29",
+      "release_notes": "- (Windows) The Windows installer version of Sunshine is now always launched by the Sunshine Service.\n  Manually launching Sunshine.exe from Program Files is no longer supported.\n  This was necessary to address security issues caused by non-admin users having access to Sunshine's config data.\n  If you have set up Task Scheduler or other mechanisms to launch Sunshine automatically, remove those from your system before updating.\n- (Windows) The Start Menu shortcut has been redesigned for use with the Sunshine Service.\n  It now launches Sunshine in the background (if not already running) and opens the Web UI, avoiding the persistent Command Prompt window present in prior versions.\n  The Start Menu shortcut is now the recommended method for opening the Web UI and launching Sunshine.\n- (Network/UPnP) If the Moonlight Internet Hosting Tool is installed alongside Sunshine, you must remove it or upgrade to v5.6 or later to prevent conflicts with Sunshine's UPnP support.\n  As a reminder, the Moonlight Internet Hosting Tool is not required to stream over the Internet with Sunshine.\n  Instead, simply enable UPnP in the Sunshine Web UI.\n- (Windows) If Steam is installed, the Steam Streaming Speakers driver will be automatically installed when starting a stream for the first time.\n  This behavior can be disabled in the Audio/Video tab of the Web UI.\n  This Steam driver enables support for surround sound and muting host audio without requiring any manual configuration.\n- (Input) The Back Button Timeout option has been renamed to Guide Button Emulation Timeout and has been disabled by default to ensure long presses on the Back button work by default.\n  The previous behavior can be restored by setting the Guide Button Emulation Timeout to 2000.\n- (Windows) The service name of SunshineSvc has been changed to SunshineService to address a false positive in MalwareBytes.\n  If you have any scripts or other logic on your system that is using the service name, you will need to update that for the new name.\n- (Windows) To support new installer features, install-service.bat no longer sets the service to auto-start by default.\n  Users executing install-service.bat manually on the Sunshine portable build must also execute autostart-service.bat to start Sunshine on boot.\n  However, installing the service manually like this is not recommended.\n  Instead, use the Sunshine installer which handles service installation and configuration automatically.\n- (Linux/Fedora) Fedora 36 builds are removed due to upstream end of support\n- (Windows) Added an option to launch apps and prep/undo commands as administrator\n- (Installer/Windows) Added an option to choose whether Sunshine launches on boot.\n  If not configured to launch on boot, use the Start Menu shortcut to start Sunshine when desired.\n- (Input/Windows) Added option to send VK codes instead of scancodes for compatibility with iOS/Android devices using non-English keyboard layouts\n- (UI) The Apply/Restart option is now available in the Web UI for all platforms\n- (Systray) Added a Restart option to the system tray context menu\n- (Video/Windows) Added host latency data to video frames.\n  This requires future updates to Moonlight to display in the on-screen overlay.\n- (Audio) Added support for matching Audio Sink and Virtual Sink values on device names\n- (Client) Added friendly error messages for clients when streaming fails to start\n- (Video/Windows) Added warning log messages when Windows is hiding DRM-protected content from display capture\n- (Interop/Windows) Added warning log messages when GeForce Experience is currently using the same ports as Sunshine\n- (Linux/Fedora) Fedora 38 builds are now available\n- (Video) Encoder selection now happens at each stream start for more reliable GPU detection\n- (Video/Windows) The host display now stays on while clients are actively streaming\n- (Audio) Streaming will no longer fail if audio capture is unavailable\n- (Audio/Windows) Sunshine will automatically switch back to the Virtual Sink if the default audio device is changed while streaming\n- (Audio) Changes to the host audio playback option will now take effect when resuming a session from Moonlight\n- (Audio/Windows) Sunshine will switch to a different default audio device if Steam Streaming Speakers are the default when Sunshine starts.\n  This handles cases where Sunshine terminates unexpectedly without restoring the default audio device.\n- (Apps) The Connection Terminated dialog will no longer appear in Moonlight when the app on the host exits normally\n- (Systray/Windows) Quitting Sunshine via the system tray will now stop the Sunshine Service rather than leaving it running and allowing it to restart Sunshine\n- (UI) The 100.64.0.0/10 CGN IP address range is now treated as a LAN address range\n- (Video) Removed a workaround for some versions of Moonlight prior to mid-2022\n- (UI) The PIN field is now cleared after successfully pairing\n- (UI) User names are now treated as case-insensitive\n- (Linux) Changed udev rule to automatically grant access to virtual input devices\n- (UI) Several item descriptions were adjusted to reflect newer configuration recommendations\n- (UI) Placeholder text opacity has been reduced to improve contrast with non-placeholder text\n- (Video/Windows) Minor capture performance improvements\n- (Video) VRAM usage while streaming is significantly reduced, particularly with higher display resolutions and HDR\n- (Network/UPnP) UPnP support was rewritten to fix several major issues handling router restarts, IP address changes, and port forwarding expiration\n- (Input) Fixed modifier keys from the software keyboard on Android clients\n- (Audio) Fixed handling of default audio device changes while streaming\n- (Windows) Fixed streaming after Microsoft Remote Desktop or Fast User Switching has been used\n- (Input) Fixed some games not recognizing emulated Guide button presses\n- (Video/Windows) Fixed incorrect gamma when using an Advanced Color SDR display on the host\n- (Installer/Windows) The installer is no longer blurry on High DPI systems\n- (Systray/Windows) Fixed multiple system tray icons appearing if Sunshine exits unexpectedly\n- (Systray/Windows) Fixed the system tray icon not appearing in several situations\n- (Windows) Fixed hang on shutdown/restart if mDNS registration fails\n- (UI) Fixed missing response headers\n- (Stability) Fixed several possible crashes in cases where the client did not successfully connect\n- (Stability) Fixed several memory leaks\n- (Input/Windows) Back/Select input now correctly generates the Share button when emulating DS4 controllers\n- (Audio/Windows) Fixed various bugs in audio-info.exe that led to inaccurate output on some systems\n- (Video/Windows) Fixed incorrect resolution values from dxgi-info.exe on High DPI systems\n- (Video/Linux) Fixed poor quality encoding from H.264 on Intel encoders\n- (Config) Fixed a couple of typos in predefined resolutions\n- Bump sphinx-copybutton from 0.5.1 to 0.5.2\n- Bump sphinx from 6.13 to 7.0.1\n- Bump third-party/nv-codec-headers from 2055784 to 2cd175b\n- Bump furo from 2023.3.27 to 2023.5.20\n- (Build/Linux) Add X11 to PLATFORM_LIBARIES when found\n- (Build/macOS) Fix compilation with Clang 14\n- (Docs) Fix nvlax URL\n- (Docs) Add diagrams using graphviz\n- (Docs) Improvements to source code documentation\n- (Build) Unpin docker dependencies\n- (Build/Linux) Honor install prefix for tray icon\n- (Build/Windows) Unstripped binaries are now provided as a debuginfo package to support crash dump debugging\n- (Config) Config directories are now created recursively",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.20.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.20.0/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "95d22f07256798c2c1f32e813e9ee2fc2888428ffc431b92d6c0ce07c80e2257",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.19.1",
+      "release_date": "2023-03-30",
+      "release_notes": "- (Audio) Fixed no audio issue introduced in v0.19.0",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.19.1",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.19.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.19.1/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "a5cd1fa111a9c74284986276ca903af7c464ad397f79b4eb703deac5b02eb4c8",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.19.0",
+      "release_date": "2023-03-30",
+      "release_notes": "- (Linux/Flatpak) Moved Flatpak to org.freedesktop.Platform 22.08 and Cuda 12.0.0\n- (Input) Added option to suppress input from gamepads, keyboards, or mice\n- (Input/Linux) Added unicode support for remote pasting (may not work on all DEs)\n- (Input/Linux) Added XTest input fallback\n- (UI) Added version notifications to web UI\n- (Linux/Windows) Add system tray icon\n- (Windows) Added ability to safely elevate commands that fail due to insufficient permissions when running as a service\n- (Config) Added global prep commands, and ability to exclude an app from using global prep commands\n- (Installer/Windows) Automatically install ViGEmBus if selected\n- (Logging) Changed client verified messages to debug to prevent spamming the log\n- (Config) Only save non default config values\n- (Service/Linux) Use xdg-desktop-autostart for systemd service\n- (Linux) Added config option to force capture method\n- (Windows) Execute prep command in context of current user\n- (Linux) Allow disconnected X11 outputs\n- (Input/Windows) Fix issue where internation keys were not translated correct, and modifier keys appeared stuck\n- (Linux) Fixed startup when /dev/dri didn't exist\n- (UI) Changes software encoding settings to select menu instead of text input\n- (Initialization) Do not terminate upon failure, allowing access to the web UI\n- Bump third-party/moonlight-common-c from 07beb0f to c9426a6\n- Bump babel from 2.11.0 to 2.12.1\n- Bump @fortawesome/fontawesome-free from 6.2.1 to 6.4.0\n- Bump third-party/ViGEmClient from 9e842ba to 726404e\n- Bump ffmpeg\n- Bump third-party/miniupnp from 014c9df to e439318\n- Bump furo from 2022.12.7 to 2023.3.27\n- Bump third-party/nanors from 395e5ad to e9e242e\n- (GitHub) Shared feature request board with Moonlight\n- (Docs) Improved application examples\n- (Docs) Added WIP documentation for source code using Doxygen and Breathe\n- (Build) Fix linux clang build errors\n- (Build/Archlinux) Skip irrelevant submodules\n- (Build/Archlinux) Disable download timeout\n- (Build/macOS) Support compiling for earlier releases of macOS\n- (Docs) Add favicon\n- (Docs) Add missing config default values\n- (Build) Fix compiler warnings due to depreciated elements in C++17\n- (Build) Fix libcurl link errors\n- (Clang) Adjusted formatting rules",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.19.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.19.0/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "feb694229409c5f4797e1ae939fcd85ee741fc05980560f1fa6e7272e6f5f3c5",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.18.4",
+      "release_date": "2023-02-21",
+      "release_notes": "Fixed\n- (Linux/AUR) Drop support of AUR package\n- (Docker) General enhancements to docker images",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.18.4",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.18.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.18.4/sunshine-windows-installer.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows-installer.exe",
+          "sha256": "6cc53d36968b36a889d8abe48f9784974eb760d25d62d482dd9bf2b2efd46d85",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.18.3",
+      "release_date": "2023-02-14",
+      "release_notes": "Added\n- (Linux) Added PKGBUILD for Archlinux based distros to releases\n- (Linux) Added precompiled package for Archlinux based distros to releases\n- (Docker) Added archlinux docker image (x86_64 only)",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.18.3",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.18.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.18.3/sunshine-windows.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows.exe",
+          "sha256": "d4f665d12b52d241c1fcfb86d1755aa77b573cf7d0fc486235bbc51fa5e8b861",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.18.1",
+      "release_date": "2023-02-01",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.18.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.18.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.18.1/sunshine-windows.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows.exe",
+          "sha256": "197eb417753c3c5ba175facea64071e93be7ca5ea2e961a9b014e21cfef99af2",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.18.0",
+      "release_date": "2023-01-30",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.18.0",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.18.0/sunshine-windows.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows.exe",
+          "sha256": "dc75d946b130119a84ae26e2547aecc3afce4898a6f3608fc397d16c54a4fbab",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.16.0",
+      "release_date": "2022-12-14",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v0.16.0",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.16.0/sunshine-windows.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows.exe",
+          "sha256": "d2825e08f8d71e5f5b4fadf9eb348d87d90a501a3ecaf598b45f4c73fbc01cdf",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.15.0",
+      "release_date": "2022-10-30",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/blob/master/CHANGELOG.md",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.15.0/sunshine-windows.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows.exe",
+          "sha256": "56804e348c138ca38a5d2d9d935fa5773e48e77c2615133092b3e97ea7d34d38",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.1",
+      "release_date": "2022-08-10",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/blob/master/CHANGELOG.md",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.14.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.14.1/sunshine-windows.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows.exe",
+          "sha256": "3f6e88245e112b87694c795c69bf6a4ea2b9ac5114f9d8759ae978ad61e2d224",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.0",
+      "release_date": "2022-06-16",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/l/LizardByte/Sunshine/0.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/LizardByte/Sunshine/releases/download/v0.14.0/sunshine-windows.exe",
+          "host": "github.com",
+          "filename": "sunshine-windows.exe",
+          "sha256": "9ecc738f5db5822e5eab3814c649fc5a42d34fe8ae80c4745c7db35dbffd712a",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "version": "2026.914.233613",
+      "release_date": "2026-09-14",
+      "release_notes_url": "https://github.com/LizardByte/Sunshine/releases/tag/v2026.914.233613",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/dev.lizardbyte.app.Sunshine.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "dev.lizardbyte.app.Sunshine.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/dev.lizardbyte.app.Sunshine.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "dev.lizardbyte.app.Sunshine.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "manifests/l/LizardByte/Sunshine"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/dev.lizardbyte.app.Sunshine",
+      "retrieved_at": "2026-11-16T23:03:23.336Z",
+      "path": "api/v2/appstream/dev.lizardbyte.app.Sunshine",
+      "api_url": "https://flathub.org/api/v2/appstream/dev.lizardbyte.app.Sunshine",
+      "content_sha256": "17d63c5c5afaaaa7da7a775eaa435cb3ea12b22badc9c8e5c6aaeb5c6333d2bc"
+    }
+  ],
+  "flathub": {
+    "app_id": "dev.lizardbyte.app.Sunshine",
+    "page_url": "https://flathub.org/apps/dev.lizardbyte.app.Sunshine",
+    "repo_url": "https://github.com/flathub/dev.lizardbyte.app.Sunshine",
+    "install_command": "flatpak install flathub dev.lizardbyte.app.Sunshine",
+    "run_command": "flatpak run dev.lizardbyte.app.Sunshine",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "lizardbyte.dev",
+      "verified_on": "2024-10-03"
+    },
+    "license": "GPL-3.0-only",
+    "free_license": true,
+    "developer_name": "LizardByte",
+    "categories": [
+      "RemoteAccess",
+      "Network"
+    ],
+    "download_size": 37208011,
+    "installed_size": 115983872,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

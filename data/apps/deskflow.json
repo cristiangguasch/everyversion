@@ -1,0 +1,613 @@
+{
+  "schema_version": 2,
+  "slug": "deskflow",
+  "name": "Deskflow",
+  "publisher": "Deskflow",
+  "ids": {
+    "winget": "Deskflow.Deskflow",
+    "flathub": "org.deskflow.deskflow"
+  },
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "summary": "Deskflow lets you share one mouse and keyboard between multiple computers on Windows, macOS and Linux. It's like a software KVM (but without video).",
+  "tags": [
+    "keyboard",
+    "keyboard-emulation",
+    "mouse",
+    "mouse-emulation",
+    "network"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/deskflow/deskflow",
+    "publisher": "https://github.com/deskflow",
+    "support": "https://github.com/deskflow/deskflow/issues",
+    "bug_tracker": "https://github.com/deskflow/deskflow/issues",
+    "release_notes": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/deskflow/deskflow/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "GPL-2.0",
+    "url": "https://github.com/deskflow/deskflow/blob/HEAD/LICENSE",
+    "spdx": "GPL-2.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.27.0",
+    "linux": "1.27.0"
+  },
+  "last_updated": "2026-10-01",
+  "versions_total": {
+    "windows": 16,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.27.0",
+      "release_date": "2026-10-01",
+      "release_notes": "What's Changed\nFeatures\n- Remove the generic connection failure dialog by @sithlord48 in #9498\n- Suggest also ipv6 by @sithlord48 in #9505\n- Make a Status bar widget by @sithlord48 in #9507\n- Disable screen rename when core is running by @sithlord48 in #9515\n- Settings adjust by @sithlord48 in #9531\n- Window settings by @sithlord48 in #9544\n- Allow for run command on enter or exit by @sithlord48 in #9564\n- fix: adjust command line size to allow expanding by @sithlord48 in #9589\n- Timeout longer by @sithlord48 in #9607\n- Have the Messages check settings on their own by @sithlord48 in #9637\n- Replace LOG_IPC with actual IPC by @nbolton in #9458\n- Closes core upon accessibility permissions revocation by @amagus in #9579\n- Improve connection stability by @AlD in #9616\n- Protocol settings in main settings only. by @sithlord48 in #9667\n- feat: Print Qt logs same as other log lines by @nbolton in #9685\n- feat: handle input capture session persistence by @whot in #9415\n- Use QStrings for exceptions whats by @sithlord48 in #9713\n- Log updates by @sithlord48 in #9726\n- feat: add search evdev.xml path for NetBSD/OpenBSD by @jg1uaa in #9744\n- refactor: include install info in about info by @sithlord48 in #9752\n- Fix client network bind by @alizane in #9672\n- Better local fingerprint preview by @sithlord48 in #9816\n- Mv grid info outof server config by @sithlord48 in #9837\n- Cleanup protocol remnents by @sithlord48 in #9838\n- Move more to general settings by @sithlord48 in #9848\n- Move more server options to new settings by @sithlord48 in #9859\n- Clipboard support for Wayland (input capture and remote desktop portals) by @whot in #9431\n- Move aliases to general config by @sithlord48 in #9879\n- fix: defer client disconnect cleanup by @happys2333 in #9958\n- fix(wayland): only add input-capture barriers on the outer desktop edge by @TSUMUGI-XE in #9976\n- fix: release EIS emulation grab when idle so client screens can sleep by @ElCruncharino in #9894\n- Better help by @sithlord48 in #10002\n- Token in state by @sithlord48 in #10015\n- feat(macos): preserve the left/right side of modifier keys on the client by @rNoz in #9916\n- Accumulate smooth scroll into full wheel clicks on server by @neon12345 in #9975\n- refactor: no need to call setAppId for gui as the App does it on its own by @sithlord48 in #10048\n- fix(macos): build key map with UCKeyTranslate to honor keyboard type by @fruitriin in #10046\n- fix(wayland): fix mouse scroll jitter and missing scroll events on a wayland host to a mac client by @sawicky in #9993\n- Better readonly settings by @sithlord48 in #10058\n- More updates to Server Config Dialog by @sithlord48 in #10067\n- Default action for help dialog by @sithlord48 in #10075\n- Prep for more items in general configuration by @sithlord48 in #10077\n- ci: disable fedora h264 repo we do not need this by @sithlord48 in #10105\n- Deletion of dead code, refactor and correcting logging messages by @KoljaFrahm in #10116\n- Support a clean exit of the client by @KoljaFrahm in #10111\n- feat: support link-local connections in Preferences dialog by @eean in #9566\n- Portal Globalshortcuts implementation by @KoljaFrahm in #9858\n- Move more screen options to the general config by @sithlord48 in #10161\n- feat: Upgrade settings 1.26 -> 1.27 by @sithlord48 in #10186\n- Use computer not Screen by @sithlord48 in #10195\nFixes\n- fix: Read fingerprint data before applying the initial config to prev… by @sithlord48 in #9484\n- fix: XWindowScreen, do not send a scroll delta for 0 by @sithlord48 in #9479\n- fix: Settings dialog blocking return to Automatic by @sithlord48 in #9503\n- Do not call showAndActivte for errors we don't plan to show a dialog for by @sithlord48 in #9517\n- Fix tls icon for clients by @sithlord48 in #9525\n- Misc fixes by @sithlord48 in #9527\n- fix: properly handling infinite timeout for macOS on EventQueue by @amagus in #9530\n- fix: do not reset network if old interface is missing by @sithlord48 in #9553\n- fix: retry OpenClipboard() on Windows by @nbolton in #9563\n- fix: kill core orphan on gui death (linux) by @nbolton in #9582\n- fix: plus key as hotkey support by @jasonmit in #9585\n- fix: prevent daemon ipc client from sending multiple messages at the same time by @amagus in #9591\n- fixes AltGr for clients w/windows+finnish-layout. by @aalm in #9441\n- Scroll log widget when appending a new line by @sithlord48 in #9628\n- fix: clipboard buffer overrun using propose solution from kitknox by @sithlord48 in #9663\n- Use Maximum for the high of the mode selection to prevent being cut off by @sithlord48 in #9669\n- fix(tls): prevent DoS by removing blocking sleep by @nbolton in #9703\n- feat(ipc): Stop bad version existing Core process by @nbolton in #9645\n- fix: ensure correct screen name is set for switchToScreen by @ts-kang in #9707\n- fix(macos): recognize brightness media keys by @k2patel in #9710\n- fix(mac): prevent cursor warps from outside quartz event loop (if active) by @amagus in #9732\n- fix(mac): protect TIS API calls with a mutex (they are not thread safe) by @amagus in #9733\n- fix: do not use xdisplay to read locale on wayland by @sithlord48 in #9735\n- Add Alt Gr modifier override to Screen Settings Dialog by @64johnlee in #9751\n- fix: remove unneeded EVP_PKEY_new() (causes memory leak) by @jg1uaa in #9766\n- Fix image copy/paste from macOS by @nbolton in #9728\n- Windows misc fixes by @sithlord48 in #9777\n- fix: change QString to QByteArray for exception message handling by @nbolton in #9786\n- fix(macos): center cursor on primary leave to prevent first-move jump by @MomoyamaSawa in #9784\n- fix: use Qt localized path for open cert by @sithlord48 in #9804\n- fix: crash on windows if fixed font is missing by @sithlord48 in #9814\n- fix(client): restore cursor positions locally In relative mouse mode by @MomoyamaSawa in #9789\n- fix: remove ClipboardSending handler in proxy destructors (use-after-free) by @dreamingbinary in #9843\n- Fix Windows start up warnings by @sithlord48 in #9868\n- fix: do add existing aliases to the alias list correctly remove items on save by @sithlord48 in #9867\n- Protect Clipboards with mutexes by @sithlord48 in #9874\n- fix: [CVE-2026-63409] Check options array is always an even size by @sithlord48 in #9907\n- fix: clamp mapped modifiers by @sithlord48 in #9935\n- fix: revise scoped_lock to avoid deadlock for XWindowsClipboard by @jg1uaa in #9900\n- Fix Portal IC thread cleanup on throw by @nbolton in #9952\n- fix: prevent crash in fingerprint trust dialog by @nbolton in #9953\n- fix: don't recenter cursor or notify server on transient EiScreen shape churn by @ElCruncharino in #9972\n- fix bug of keystroke always sending the first hotkey shortcut by @tvidal-net in #9989\n- fix(mac): preserve mouse event number during dragging - only affects macOS 27 by @ZeroSegFault in #9991\n- fix(win): stop TLS sockets busy-spinning the socket poll loop by @ElCruncharino in #9977\n- fix(macos): null-check the input source languages before counting them by @rNoz in #10009\n- fix(mac): properly handle system initiated quit events by @amagus in #10005\n- fix: handle top-down DIB images in clipboard bitmap converter by @mmustafasenoglu in #10023\n- fix(wayland): Corrects the cursor coordinates mappings at primary desktop by @piterpunk in #10007\n- fix(mac): invalidate event tap CFMachPort on disable by @MrMage in #10010\n- fix: prevent modifier keys from being stuck (Windows) by @barrelltitor in #10041\n- fix: prevent stuck keys on x11 client by @barrelltitor in #10044\n- feat: using xkbregistry instead of manually parsing evdev.xml by @praharshaAdhikari in #9934\n- fix(clipboard): check oob for clipboard before reading number of formats by @sithlord48 in #10104\n- fix(wayland): Prevent clipboard causing portal reprompts if the backend is incorrectly reporting clipboard state of the previous token by @ElCruncharino in #10124\n- fix(settings): keyword typo heatbeat -> heartbeat by @sithlord48 in #10144\n- fix(macos): map F17-F20 keys by @sithlord48 in #10174\nBuild\n- Require libportal 0.9.1 by @sithlord48 in #9522\n- build: ensuring macOS codesign is triggered for changes in core by @amagus in #9545\n- build: not using cache to store global state for macOS signing by @amagus in #9548\n- Common include dir by @sithlord48 in #9651\n- fix: enforce C locale in LogTests for decimal formatting by @alizane in #9665\n- build(macos): remove unneeded setting for sysroot by @sithlord48 in #9698\n- Remove uneeded QtGlobal include from deskflow-core by @sithlord48 in #9714\n- fix: add #include to avoid 'unknown type name' error by @jg1uaa in #9757\n- Fix FTBFS with OpenSSL 4.0.0 by @kenhys in #9812\n- More cmake cleanup by @sithlord48 in #9985\n- build: enable CMP0207 by @sithlord48 in #9979\n- Remove googletest use by @sithlord48 in #9980\n- Remove unneeded linux dependencies by @sithlord48 in #9981\n- build: flatpak use kde platform 6.11 by @sithlord48 in #10012\n- build(arch): adjust for libgcc package name by @sithlord48 in #10018\n- Simplify our inner linkage by @sithlord48 in #10027\n- build(win32): use zip for our portable windows release by @sithlord48 in #10177\nDocumentation\n- repo: add an initial code of conduct by @sithlord48 in #9578\n- docs: tidy up pr template by @nbolton in #9729\n- chore(issue-template): improved bug report and feature request templates by @0Ky in #9748\n- docs(issue-template): fix grammar in sanity checks within bug report template by @0Ky in #9767\n- update gh_pages action by @sithlord48 in #9901\n- docs: fix up broken screen option table and valid keys list in configuration.md by @sithlord48 in #10028\n- docs: update config key list by @sithlord48 in #10031\n- docs: update configuration to not include screen sections examples by @sithlord48 in #10208\nCI Updates\n- ci: remove winget publish step from our release job by @sithlord48 in #9489\n- Ci update 3 by @sithlord48 in #9493\n- ci: split build and package for mac os letting us retry dmg creation … by @sithlord48 in #9528",
+      "release_notes_url": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.27.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.27.0/deskflow-1.27.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.27.0-win-x64.msi",
+          "sha256": "0ca5668c4731f5477d0b189bdb11196a2ca51281985d9d8c0757bf7f3b782d64",
+          "product_code": "{9E3B2247-66B4-47B2-8C65-986CC86ADEA6}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "publisher": "Deskflow Devs",
+              "product_code": "{9E3B2247-66B4-47B2-8C65-986CC86ADEA6}",
+              "upgrade_code": "{027D1C8A-E7A5-4754-BB93-B2D45BFDBDC8}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.27.0/deskflow-1.27.0-win-arm64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.27.0-win-arm64.msi",
+          "sha256": "7a8632193d8fb4814bd93526995b209afbbb9f293468cfc50ca1bddaa3cb752b",
+          "product_code": "{C281A69C-6199-4478-B22A-F3A2EE6796D2}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "publisher": "Deskflow Devs",
+              "product_code": "{C281A69C-6199-4478-B22A-F3A2EE6796D2}",
+              "upgrade_code": "{027D1C8A-E7A5-4754-BB93-B2D45BFDBDC8}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.26.0",
+      "release_date": "2026-02-16",
+      "release_notes": "What's Changed\n- Ci: Update OS runners to be used for 1.26.0 by @sithlord48 in #9191\n- [RU TRANSLATE] remove mistake and remade sentence for more logic meaning by @levpr1c in #9192\n- ci: more post 1.25 cleanup by @sithlord48 in #9194\n- Unify the Tls Utility and Certificate by @sithlord48 in #9197\n- fix: macOS, crash when log is open and you minimize the gui by @sithlord48 in #9208\n- fix: held keys are not longer toggled by @sithlord48 in #9217\n- fix: deskflow-core no longer acts like --new-instance is enabled by @sithlord48 in #9215\n- Begin to use QtSsl in more places by @sithlord48 in #9209\n- feat: Configure default screen lock state by @PseudoResonance in #9205\n- fix: ServerApp, do not blindly read the external config path by @sithlord48 in #9228\n- ClientConnection use Signal to ask for error dialog by @sithlord48 in #9229\n- Server Connection use signals for new client dialog by @sithlord48 in #9230\n- fix: key repeat regression for windows caused by #9217 by @sithlord48 in #9234\n- fix: Mac os Preferences missing when translated by @sithlord48 in #9231\n- Sonar cleanup 22 by @sithlord48 in #9239\n- Fix: Gui resizes with client errors by @sithlord48 in #9236\n- Restore the gui starting the core based on it state at exit by @sithlord48 in #9238\n- Remove deskflow::filesystem::path by @sithlord48 in #9243\n- Fix Homebrew tap command in README by @albertsikkema in #9246\n- get strings sizes via QString by @sithlord48 in #9248\n- chore(tr): Add translators as CODEOWNERS for language files by @nbolton in #9183\n- Remove unused Unicode methods by @sithlord48 in #9249\n- Fix Mac os only symbolic icon works by @sithlord48 in #9257\n- I18N use short (ISO639) names to save and load by @sithlord48 in #9258\n- Add additional note about damaged app on mac os by @sithlord48 in #9253\n- ci: add dispatch event to homebrew-tap by @sithlord48 in #9259\n- remove io/Filesystem by @sithlord48 in #9260\n- Add I18N tests by @sithlord48 in #9265\n- I18N: use 639 name for currentLang by @sithlord48 in #9272\n- fix: Mac os log file not working by @sithlord48 in #9277\n- Docs: Update readme for os support by @sithlord48 in #9269\n- Improve Settings logLevelToInt by @sithlord48 in #9283\n- build (win32): exclude any icu*.dll from the windows packages by @sithlord48 in #9278\n- network: lookup hostname using any valid Ip4 or Ip6 address by @sithlord48 in #9281\n- Constants cleanup by @sithlord48 in #9293\n- fix: error on start shows gui by @enzious in #9063\n- Style cleanup, remove unused items by @sithlord48 in #9300\n- Screen dialog cleanup by @sithlord48 in #9304\n- fix: Restore clipboard sharing after 5344182 by @chrschmidt in #9307\n- Various build updates by @sithlord48 in #9308\n- feat(network): add network monitoring with IP selection by @re2zero in #9270\n- Give our loose headers proper library homes by @sithlord48 in #9309\n- Parts of #8948 by @sithlord48 in #9310\n- Sonar cleanup 23 by @sithlord48 in #9311\n- fix(macos): prevent automatic termination during memory pressure by @johnweldon in #9312\n- refactor: RM IEventQueueBuffernewTimer and IEventQueueBuffer::deleteTimer by @sithlord48 in #9313\n- fix: macOS key repeat not working by @sithlord48 in #9318\n- Sonar cleanup 24 by @sithlord48 in #9315\n- Use arch daemon windows directly by @sithlord48 in #9316\n- move DaemonApp => apps/deskflow-daemon by @sithlord48 in #9323\n- fix: macOS server crash when client disconnects abruptly by @gayanMatch in #9331\n- Make sure a Daemon log exsits if using daemon before FileTail by @sithlord48 in #9330\n- fix: OSXScreenSaver, do not call CFRelease for empty processes by @sithlord48 in #9327\n- refactor: modernize Server info structs to use C++ RAII by @Angel98518 in #9335\n- Fix: Allow comma and semicolon in hotkey config (#7130) by @Ashutosh0x in #9353\n- Feat: Support multiple server IP addresses (#3665) by @Ashutosh0x in #9355\n- refactor: add (C) to copyright header where missing by @sithlord48 in #9358\n- Fix and improve Russian translation by @shigalovalexs in #9363\n- build: Add Pull Request Template by @sithlord48 in #9362\n- Sonar cleanup 25 by @sithlord48 in #9345\n- refactor: update icon creation and url handling by @re2zero in #9343\n- Feat: log search by @sithlord48 in #9356\n- Clear invalid settings by @sithlord48 in #9359\n- feat: Add a setting to allow the version to be shown in the windows title by @sithlord48 in #9357\n- ci: exit ci run if build causes repo changes by @sithlord48 in #9370\n- Fix wl clipboard test by @sithlord48 in #9372\n- refactor: WlClipboard, close not kill running copy process on exit by @sithlord48 in #9380\n- fix: gui crash on clearsettings in debug mode by @sithlord48 in #9374\n- fix: Settings, do not remove valid QRects from the state file by @sithlord48 in #9383\n- Use FormatMessage directly for Winsock errors by @nbolton in #9384\n- Fix various typos (README and source files) by @nbolton in #9385\n- Fix: Add exception handling to setValue functions by @dive2tech in #9391\n- I18N: Add Korean(ko) translation by @sinuku in #9387\n- chore: remove more unused code by @sithlord48 in #9393\n- Adjust log levels by @sithlord48 in #9396\n- Ci updates by @sithlord48 in #9397\n- Remove HelloBack class and move hello back logic to Client by @nbolton in #9399\n- refactor: networkprotocol, add string / enum conversion methods and use them by @sithlord48 in #9388\n- docs: remove bounty links from the readme by @sithlord48 in #9405\n- refactor: remove kProtocolName vars and use the NetworkProtocol instead by @sithlord48 in #9403\n- chore: remove unused test files no longer needed after #9399 by @sithlord48 in #9406\n- ci: use Fancy Checkout v2 by @sithlord48 in #9408\n- Fix: detect key repeat in libei input by @jmberg in #9404\n- fix: log protocol mismatch at INFO level by @evolvomind in #9412\n- fix: handle back / forward mouse buttons on xwindows and windows by @sithlord48 in #9419\n- chore: add CLAUDE.md to the gitignore by @sithlord48 in #9418\n- Use computer by @sithlord48 in #9416\n- fix: scroll Issue on X11 created by #9419 by @sithlord48 in #9421\n- fix: OSX Server not sending back / forward mouse buttons. by @sithlord48 in #9424\n- build: recommend qt6-svg-plugins on debian by @sithlord48 in #9428\n- New Scroll Scaling, remove old speed method by @sithlord48 in #9427\n- Further clean up scroll by @sithlord48 in #9433\n- build: fix typo in daemonDepends by @sithlord48 in #9440\n- Support Horizontal scroll on all platforms by @sithlord48 in #9438\n- ci: use CodeQL v4 by @sithlord48 in #9446\n- ci: add step to install and test package binaries by @Razano26 in #9445\n- fix: extra \"a\" with Rime by @wickywonka in #9435\n- build: enables CMP0156 policy if available (de-duplicates libraries on linker calls) by @amagus in #9460\n- ci: use concurrency groups to limit number of runs each PR can have at the same time by @sithlord48 in #9464\n- ci: remove concurrency check for valgrind workflow by @sithlord48 in #9467\n- fix: NetworkMonitor virtual sorting by @sithlord48 in #9463\n- Fix test results CI comment always showing by @nbolton in #9469\n- Update link for latest vc_redist by @mdmahendri in #9472\n- Optimize start up mode selection by @sithlord48 in #9473\n- fix: using a proper std::string to store screens inside KeyInfo by @amagus in #9470\n- Client settings dialog, with new Horizontal scroll Modifiers by @sithlord48 in #9471\nNew Contributors\n- @PseudoResonance made their first contribution in #9205\n- @albertsikkema made their first contribution in #9246\n- @johnweldon made their first contribution in #9312\n- @gayanMatch made their first contribution in #9331\n- @Angel98518 made their first contribution in #9335\n- @Ashutosh0x made their first contribution in #9353\n- @shigalovalexs made their first contribution in #9363\n- @dive2tech made their first contribution in #9391\n- @sinuku made their first contribution in #9387\n- @jmberg made their first contribution in #9404\n- @evolvomind made their first contribution in #9412\n- @Razano26 made their first contribution in #9445\n- @wickywonka made their first contribution in #9435\n- @amagus made their first contribution in #9460\n- @mdmahendri made their first contribution in #9472\nFull Changelog: v1.25.0...v1.26.0",
+      "release_notes_url": "https://github.com/deskflow/deskflow/releases/tag/v1.26.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.26.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.26.0/deskflow-1.26.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.26.0-win-x64.msi",
+          "sha256": "25525334fb33c7b6479884a9ef343212c1edafe57c6f39001a435afbb1ea9b02",
+          "product_code": "{D7E929E9-AF90-4E80-9F15-50AA4595AE16}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "publisher": "Deskflow Devs",
+              "product_code": "{D7E929E9-AF90-4E80-9F15-50AA4595AE16}",
+              "upgrade_code": "{027D1C8A-E7A5-4754-BB93-B2D45BFDBDC8}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.26.0/deskflow-1.26.0-win-arm64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.26.0-win-arm64.msi",
+          "sha256": "35bc31668be58bf8e193aa11d83053858b6d86bf55e0ef5ed6e5c2ce0c527d74",
+          "product_code": "{46291368-91DF-44DD-9A5C-09E6AEBBAC45}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "publisher": "Deskflow Devs",
+              "product_code": "{46291368-91DF-44DD-9A5C-09E6AEBBAC45}",
+              "upgrade_code": "{027D1C8A-E7A5-4754-BB93-B2D45BFDBDC8}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.25.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.25.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.25.0/deskflow-1.25.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.25.0-win-x64.msi",
+          "sha256": "a766301eeb2ca3d3a960128020198fd9c7b65c1de13d86f169a6e6ea1fb82424",
+          "product_code": "{ED488E0D-F513-49FE-BDF8-EE888B3FF908}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.25.0/deskflow-1.25.0-win-arm64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.25.0-win-arm64.msi",
+          "sha256": "61a74ee7a92c921e74948ba1112fd5cb63894e35ec3b28c63aa3f2c372b8a3fe",
+          "product_code": "{8D4E987D-A80E-4AC6-BAC9-222484D45C13}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.24.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.24.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.24.0/deskflow-1.24.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.24.0-win-x64.msi",
+          "sha256": "9f8bc62a67575cc9a42fed28d498b4362507c79ade16fcf46a4e4febfef73c90",
+          "product_code": "{62634615-7371-4B3B-AE80-5366F4CB38FD}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.24.0/deskflow-1.24.0-win-arm64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.24.0-win-arm64.msi",
+          "sha256": "a7108acb9191ea607578e1817665ae9852b9d975de92ba3d21f8f0729a73fc8a",
+          "product_code": "{38F1CFAC-5FF5-4A9C-8600-2D3F0D1C2434}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.23.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.23.0/deskflow-1.23.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.23.0-win-x64.msi",
+          "sha256": "be7c978138ae3bc26e01230cae2021e0f6dfcfc24e52c2b0170da40aa9549944",
+          "product_code": "{47BD1EAA-3C45-44FB-A2D8-7B570CC69C57}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.23.0/deskflow-1.23.0-win-arm64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.23.0-win-arm64.msi",
+          "sha256": "cda2d01c4dfd277ac309914ffd3512819a29a4283211513f5b3a8c4c0c6951d0",
+          "product_code": "{711FA59F-C310-4C3F-96E1-A840FD8596E1}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.22.0",
+      "release_date": "2025-05-29",
+      "release_notes_url": "https://github.com/deskflow/deskflow/releases/tag/v1.22.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.22.0/deskflow-1.22.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.22.0-win-x64.msi",
+          "sha256": "855810aec1a7123ee351eed58d6d46e0d2fad68c6bf5cba1599ea24da0c8709f",
+          "product_code": "{52D5BC78-5A98-42AD-940A-77EEAC6C0880}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.21.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.21.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.21.2/deskflow-1.21.2-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.21.2-win-x64.msi",
+          "sha256": "e6c52120d780e5fadb037b9d38029c8714b5088a1dd92e658ae70dc98dac6962",
+          "product_code": "{BAEA2BA7-70A6-4757-884F-3333C115112E}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.21.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.21.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.21.1/deskflow-1.21.1-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.21.1-win-x64.msi",
+          "sha256": "a69a81cc2ea3340417d38a4c17d905f03cfd26afd277786d9efe0850ec7fd444",
+          "product_code": "{09C0D860-17A4-49C1-B502-D72BE7B57BFD}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.21.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.21.0/deskflow-1.21.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.21.0-win-x64.msi",
+          "sha256": "7f566e632269520cc331c451601c6099b7e7690da2d334fa26f3d52ff5b005cb",
+          "product_code": "{40E58446-6DD4-4162-A3BB-D751AB3A3292}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.20.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.20.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.20.1/deskflow-1.20.1-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.20.1-win-x64.msi",
+          "sha256": "3660cae595fc4e1a41dd7792b0bafbd30ea2945d057e71f7200f73ea953f5a6b",
+          "product_code": "{3BC8942A-82C2-491D-AC2F-3B4B4B0B775C}",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.20.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.20.0/deskflow-1.20.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.20.0-win-x64.msi",
+          "sha256": "51553ab8c93efc139f7f7f80c8d1feef0558d4323c2de0c88023820d4949bb03",
+          "product_code": "{95FBB6B4-92C7-4E89-8CFE-498DDA6B0DC7}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.19.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.19.0/deskflow-1.19.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.19.0-win-x64.msi",
+          "sha256": "83ad86e6d1d093ad7f1d5eac4141808b610ba37b19be4a0ad01d6eaf55443bfd",
+          "product_code": "{B4DFF724-8F2A-4B95-A15A-234390B6C06F}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.18.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.18.0/deskflow-1.18.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.18.0-win-x64.msi",
+          "sha256": "c417f1c109d3aa7e47dae27c45fd345545b54bcc932f73661124183f40376429",
+          "product_code": "{1BE0ACBF-4202-478A-859F-C3CB8A99EBFB}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.2",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.17.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.17.2/deskflow-1.17.2-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.17.2-win-x64.msi",
+          "sha256": "9caf8e43ed3bc50559eece3c2be02770d02704a52df61a91a0374236269e6045",
+          "product_code": "{4CA82E1F-C30F-4423-BF94-3BAD3C06391E}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.1",
+      "release_date": "2024-11-08",
+      "release_notes_url": "https://github.com/deskflow/deskflow/releases/tag/v1.17.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.17.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.17.1/deskflow-1.17.1-win-x64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.17.1-win-x64.msi",
+          "sha256": "a8f655403f82d8848f93b333c272822328eaaddd9cea41b843e236b561382be2",
+          "product_code": "{5BEDC013-CED4-444D-852A-13DED725AABE}"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.17.0",
+      "release_date": "2024-10-02",
+      "release_notes_url": "https://github.com/deskflow/deskflow/releases/tag/v1.17.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/d/Deskflow/Deskflow/1.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "locale": "en-US",
+          "url": "https://github.com/deskflow/deskflow/releases/download/v1.17.0/deskflow-1.17.0.0_win64.msi",
+          "host": "github.com",
+          "filename": "deskflow-1.17.0.0_win64.msi",
+          "sha256": "f70a21f8e4f415b47ad34aa30bddc8d929ad42dbaee071cbed40d577bd1e0f49",
+          "product_code": "{0D79F5CB-9C83-4BCD-9500-19E369BE6303}"
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "version": "1.27.0",
+      "release_date": "2026-10-01",
+      "release_notes_url": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.deskflow.deskflow.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.deskflow.deskflow.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.deskflow.deskflow.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.deskflow.deskflow.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
+      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "path": "manifests/d/Deskflow/Deskflow"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.deskflow.deskflow",
+      "retrieved_at": "2026-11-16T23:03:23.336Z",
+      "path": "api/v2/appstream/org.deskflow.deskflow",
+      "api_url": "https://flathub.org/api/v2/appstream/org.deskflow.deskflow",
+      "content_sha256": "700d046e07df5e8436a42c4a1dedbcb8d7508717bba56fff6ba90a0331d7f667"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.deskflow.deskflow",
+    "page_url": "https://flathub.org/apps/org.deskflow.deskflow",
+    "repo_url": "https://github.com/flathub/org.deskflow.deskflow",
+    "install_command": "flatpak install flathub org.deskflow.deskflow",
+    "run_command": "flatpak run org.deskflow.deskflow",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "deskflow.org",
+      "verified_on": "2024-11-21"
+    },
+    "license": "GPL-2.0-only",
+    "free_license": true,
+    "developer_name": "Deskflow Developers",
+    "categories": [
+      "Utility"
+    ],
+    "download_size": 4009834,
+    "installed_size": 7276544,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}
