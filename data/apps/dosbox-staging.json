@@ -28,7 +28,7 @@
     "publisher": "https://www.dosbox-staging.org/",
     "support": "https://github.com/dosbox-staging/dosbox-staging/issues",
     "bug_tracker": "https://github.com/dosbox-staging/dosbox-staging/issues",
-    "release_notes": "https://www.dosbox-staging.org/releases/release-notes/0.83.0/",
+    "release_notes": "https://www.dosbox-staging.org/releases/release-notes/0.83.1/",
     "documentation": [
       {
         "label": "Getting Started",
@@ -50,17 +50,58 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "0.83.0-7b400",
+    "windows": "0.83.1-8888e",
     "macos": "0.83.1",
     "linux": "0.83.1"
   },
-  "last_updated": "2026-08-27",
+  "last_updated": "2026-11-14",
   "versions_total": {
-    "windows": 8,
+    "windows": 9,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "0.83.1-8888e",
+      "release_date": "2026-11-14",
+      "release_notes": "The main focus of this maintenance release is to fix a few regressions introduced in 0.83.0 and earlier releases.\nThis release was made possible by everyone who tried our 0.83.0 release, reported bugs and pull requests, and tested the updates. Thank you!\n0.83.0 regression fixes\n- Fix joystick becoming disabled after changing the joysticktype setting at runtime.\n- Fix IPX regressions when toggling the ipx setting at runtime.\n- Fix saving rendered screenshot when presentation_mode = host-rate or vsync = on is set.\n- Fix some games that support joysticks misbehaving with innovation = on.\n- Fix Zone Raiders displaying distorted graphics on macOS.\n- Restore the --noconsole Windows-only command line option.\n- Reduce the size of the DOSBox Staging executable from about 45 MB to 13 MB.\n0.82.1 regression fixes\n- Fix running programs and batch files via relative paths without file extension.\nOther changes\n- Add new CHCP command to change only the code page at runtime.\n- Remove automatic locale detection — it didn’t work reliably and consistently across our supported platforms (especially on Windows), so it had to go.",
+      "release_notes_url": "https://www.dosbox-staging.org/releases/release-notes/0.83.1/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/d/DOSBoxStaging/DOSBoxStaging/0.83.1-8888e",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/dosbox-staging/dosbox-staging/releases/download/v0.83.1/dosbox-staging-windows-x64-v0.83.1-setup.exe",
+          "host": "github.com",
+          "filename": "dosbox-staging-windows-x64-v0.83.1-setup.exe",
+          "sha256": "bb474223d1a80c9c4647546adb7fa80495b97418c1e2ca33ca3b10b6dc346c87",
+          "product_code": "{587471B7-02F6-4F25-8D00-70006790653C}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/dosbox-staging/dosbox-staging/releases/download/v0.83.1/dosbox-staging-windows-x64-v0.83.1-setup.exe",
+          "host": "github.com",
+          "filename": "dosbox-staging-windows-x64-v0.83.1-setup.exe",
+          "sha256": "bb474223d1a80c9c4647546adb7fa80495b97418c1e2ca33ca3b10b6dc346c87",
+          "product_code": "{587471B7-02F6-4F25-8D00-70006790653C}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "0.83.0-7b400",
@@ -502,8 +543,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "5d7134826490032cd3d406a583931a8f7c2191e2",
-      "retrieved_at": "2026-11-15T15:18:54.595Z",
+      "commit": "a9b93ec337898c8a25185b789cc994f938e6af87",
+      "retrieved_at": "2026-11-16T23:31:13.582Z",
       "path": "manifests/d/DOSBoxStaging/DOSBoxStaging"
     },
     {
