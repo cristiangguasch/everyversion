@@ -27,7 +27,7 @@
   },
   "latest_versions": {
     "windows": "26.10.0",
-    "macos": "8.0.47"
+    "macos": "26.10.0"
   },
   "last_updated": "2026-10-05",
   "versions_total": {
@@ -174,35 +174,42 @@
     },
     {
       "platform": "macos",
-      "version": "8.0.47",
+      "version": "26.10.0",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community-8.0.47-macos-x86_64.dmg",
-          "host": "cdn.mysql.com",
+          "url": "https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community-8.0.47-macos-x86_64.dmg",
+          "host": "downloads.mysql.com",
           "filename": "mysql-workbench-community-8.0.47-macos-x86_64.dmg",
-          "sha256": "9fb82446b8c89a5326f9c4b2ab59ab6ac76b389713f1f13553743f34952639a8"
+          "sha256": "9fb82446b8c89a5326f9c4b2ab59ab6ac76b389713f1f13553743f34952639a8",
+          "version": "8.0.47"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community-8.0.47-macos-arm64.dmg",
+          "url": "https://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-26.10.0-macos-arm64.dmg",
           "host": "cdn.mysql.com",
-          "filename": "mysql-workbench-community-8.0.47-macos-arm64.dmg",
-          "sha256": "90b177034b3e2c64b822f44920cb11996ec1323f4c49e2fa0224748103fb4844"
+          "filename": "mysql-workbench-26.10.0-macos-arm64.dmg",
+          "sha256": "b0ea97a20a0ff368247ddd3b90dbb2f4ad866a43e0e722d4b1a13f43bbba51ed"
         }
       ],
       "cask": {
         "apps": [
-          "MySQLWorkbench.app"
+          "MySQL Workbench.app"
         ],
         "cleanup": {
+          "quit": [
+            "com.oracle.mysqlworkbench"
+          ],
           "zap_paths": [
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.oracle.mysqlworkbench.sfl*",
+            "~/Library/Application Support/MySQL Workbench",
             "~/Library/Application Support/MySQL/Workbench",
             "~/Library/Caches/com.oracle.workbench.MySQLWorkbench",
+            "~/Library/Preferences/com.oracle.mysqlworkbench.plist",
             "~/Library/Preferences/com.oracle.workbench.MySQLWorkbench.plist",
             "~/Library/Saved Application State/com.oracle.workbench.MySQLWorkbench.savedState"
           ]
@@ -232,8 +239,8 @@
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "04018de6306a2214b0ec0c1602df674c751d15e8",
-      "retrieved_at": "2026-11-10T12:24:32.184Z",
+      "commit": "912fe9186809a376e17fadd9ef7b8aaf2e1ae50e",
+      "retrieved_at": "2026-11-18T00:32:22.956Z",
       "path": "Casks/m/mysqlworkbench.rb",
       "api_url": "https://formulae.brew.sh/api/cask/mysqlworkbench.json"
     }

@@ -14,14 +14,14 @@
   "summary": "A utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc.",
   "description": "Rufus is a utility that helps format and create bootable USB flash drives.\n\nFeatures:\n- Format USB, flash card and virtual drives to FAT/FAT32/NTFS/UDF/exFAT/ReFS/ext2/ext3\n- Create DOS bootable USB drives using FreeDOS or MS-DOS\n- Create BIOS or UEFI bootable drives, including UEFI bootable NTFS\n- Create bootable drives from bootable ISOs (Windows, Linux, etc.)\n- Create bootable drives from bootable disk images, including compressed ones\n- Create Windows 11 installation drives for PCs that don't have TPM or Secure Boot\n- Create Windows To Go drives\n- Create VHD/DD, VHDX and FFU images of an existing drive\n- Create persistent Linux partitions\n- Compute MD5, SHA-1, SHA-256 and SHA-512 checksums of the selected image\n- Perform runtime validation of UEFI bootable media\n- Improve Windows installation experience by automatically setting up OOBE parameters (local account, privacy options, etc.)\n- Perform bad blocks checks, including detection of \"fake\" flash drives\n- Download official Microsoft Windows 8, Windows 10 or Windows 11 retail ISOs\n- Download UEFI Shell ISOs\n- Modern and familiar UI, with 38 languages natively supported\n- Small footprint. No installation required.\n- Portable. Secure Boot compatible.",
   "tags": [
-    "operating-system-booting",
-    "os-booting",
+    "bootable-drives",
     "formatting",
     "foss",
+    "operating-system-booting",
+    "os-booting",
     "uefi",
     "unetbootin",
     "utility",
-    "bootable-drives",
     "windows-to-go"
   ],
   "locale": "en-US",
@@ -30,7 +30,7 @@
     "publisher": "https://github.com/pbatard",
     "support": "https://github.com/pbatard/rufus/issues",
     "bug_tracker": "https://github.com/pbatard/rufus/issues",
-    "release_notes": "https://github.com/pbatard/rufus/releases/tag/v4.15",
+    "release_notes": "https://github.com/pbatard/rufus/releases/tag/v4.16",
     "documentation": [
       {
         "label": "FAQ",
@@ -53,13 +53,60 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "4.15"
+    "windows": "4.16"
   },
-  "last_updated": "2026-06-30",
+  "last_updated": "2026-11-17",
   "versions_total": {
-    "windows": 25
+    "windows": 26
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "4.16",
+      "release_date": "2026-11-17",
+      "release_notes": "- Finally work around that stupid AMI NTFS driver bug, so that runtime UEFI media validation can work on the millions of PCs that AMI screwed up\n- Finally report USB 3.2+ devices (USB 3.2 = 20 Gbps, USB 4.0 = 40 Gpbs, USB 4.1 = 80 Gbps — See, USB Forum, it's really NOT that hard!)\n- Fix the CA 2023 updated files not being taken into account during runtime UEFI media validation\n- Fix the \"Silent\" installation option being potentially applied even when all dependencies aren't met (#3008)\n- Fix a regression where \"Write as ESP\" used the whole drive, instead of the expected 1 GB partition\n- Fix WUE timezone duplication for non English locales (#3070, #2499) and reinstate the use of dots in local usernames (#3057)\n- Add classic right click context menu restoration to the QoL improvements option (courtesy of @Fredolx , #3007)\n- Drop the ever problematic use of Group Policies when disabling the \"Do you want to format this drive?\" prompt (#3042)\n- Improve raw image partition (re)mount (courtesy of @jaredhagel2, #3002)\n- Update embedded GRUB to version 2.16\n- Update libcdio to latest\n- Update the official UEFI DBX URLs, since they were changed by Microsoft\n- Address multiple vulnerabilities, courtesy of @indep-arg, @andife, Adam Korczynski, @SilentSobs and @kasparovabi:\n  - GHSA-hhx4-pjqh-499x, GHSA-hrxr-p5wv-qxm2, GHSA-6xgr-6q48-jwxr, GHSA-xh22-8phc-hw8j, GHSA-877g-r8h5-fq8p, GHSA-hcpc-vq8c-923h, GHSA-w4w7-p3x2-3p83, GHSA-j6fh-hww6-74mw, GHSA-xx6m-qq8h-8882\n  - #3033, #3022\n  - ANT-2026-QQV5VRY4, ANT-2026-A0JKMSB0, ANT-2026-85N3B2M9, ANT-2026-3CMBZ6X6, ANT-2026-1FCTXF5S, ANT-2026-0J6W5VHP\n  - It should be noted that all the vulnerabilities above either require an already compromised system (for local to elevated exploitation), or a malicious ISO, or a MITM/domain/GitHub compromise, in which case you are most likely already p0wned, as an attacker should avail of much better paths of exploitation than a Rufus exploit.",
+      "release_notes_url": "https://github.com/pbatard/rufus/releases/tag/v4.16",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/r/Rufus/Rufus/4.16",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.16/rufus-4.16_x86.exe",
+          "host": "github.com",
+          "filename": "rufus-4.16_x86.exe",
+          "sha256": "bf7375002ba867327d86c32839cff8dd7dd798853ac750a918312ccdcc3bd86a",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.16/rufus-4.16.exe",
+          "host": "github.com",
+          "filename": "rufus-4.16.exe",
+          "sha256": "8351a56c134aa6dd26a930d702cc3fd57f11ef90b17e55a8de960d5a73d46cfc",
+          "commands": [
+            "rufus"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "portable",
+          "url": "https://github.com/pbatard/rufus/releases/download/v4.16/rufus-4.16_arm64.exe",
+          "host": "github.com",
+          "filename": "rufus-4.16_arm64.exe",
+          "sha256": "301e7bfe41d7fa15bf75da189302eb797986a77629ea4e41b172431beef2744c",
+          "commands": [
+            "rufus"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "4.15",
@@ -1307,8 +1354,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "dd54877fd2054ade0201487eb82b3ae9c153929d",
+      "retrieved_at": "2026-11-18T00:32:22.956Z",
       "path": "manifests/r/Rufus/Rufus"
     }
   ]

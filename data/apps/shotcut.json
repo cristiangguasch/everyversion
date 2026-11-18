@@ -33,7 +33,7 @@
     "homepage": "https://shotcut.org/",
     "publisher": "https://shotcut.org/",
     "support": "https://forum.shotcut.org/",
-    "release_notes": "https://github.com/mltframework/shotcut/releases/tag/v26.9.27",
+    "release_notes": "https://github.com/mltframework/shotcut/releases/tag/v26.11.15",
     "documentation": [
       {
         "label": "Tutorial",
@@ -64,17 +64,104 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "26.9.27",
-    "macos": "26.9.28",
+    "windows": "26.11.15",
+    "macos": "26.11.15",
     "linux": "26.11.15"
   },
-  "last_updated": "2026-09-28",
+  "last_updated": "2026-11-16",
   "versions_total": {
-    "windows": 51,
+    "windows": 52,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "26.11.15",
+      "release_date": "2026-11-16",
+      "release_notes": "What's Changed\n- Fixed a crash when drag-n-drop video suggesting conversion when Settings > Timeline > Automatically Add Tracks is on (broke in v26.9).\n- Fixed Timeline interactions slow when something is using Windows UI Automation (broke in v26.9).\n- Fixed copy and paste of multiple clips including dissolve video transitions (broke in v26.9).\n- Fixed audio playback might sound scratchy (broke in v26.9).\n- Fixed Ctrl+mouse-wheel and context menus in the numeric fields of filters on Windows (broke in v26.9).\n- Fixed crash when using hardware decoding and preview scaling with GPU processing mode (broke in v26.9).\n- Fixed scrubbing audio in the Source player (broke in v26.9).\n- Fixed pasting filters to a track (broke in v26.9).\n- Fixed moving a clip in Timeline with drag-n-drop was slower (broke in v26.9).\n- Fixed some VST2 plugins made app hang on start or make the app or export jobs crash on exit (broke in v26.8).\n- Typewriter filter: fixed changing the text can temporarily break timing in preview (broke in v26.4).\n- Fixed launching Glaxnimate installed to Program Files on Windows (broke in v26.4).\n- Fixed possible crash when drag-moving a clip beyond a transition to end of track.\n- Fixed resizing a transition by dragging the clip before it.\n- Fixed saving a preset export with / in the name.\n- Fixed loading B frames from custom export preset with hardware encoding on.\n- Fixed the macOS 27 font dialog does not work.\n- Fixed crash opening a file dialog in AppImage/Snap on Ubuntu 26.04.1.\n- Fixed snapping to the playhead or a marker is inaccurate when Timeline is zoomed out.\n- Subtitle Burn In filter: fixed failing to render beyond an item with blank lines.\n- Fixed using Size, Position & Rotate filter on an Adjustment Clip.\n- Reduced the memory usage of audio transitions.\n- Improved the performance of dissolve video transitions in 8-bit processing mode.\n- Added Remove Old Program Files to the Windows installer when doing upgrade.\n  This fixes problems caused by old, incompatible DLLs no longer being used.\n- Added support for Premiere and Resolve video proxy file conventions:\n  Proxy or Proxies subfolder, case insensitive, same as source name but possibly different extension, optionally with _Proxy suffix before extension.\n- Reduced playhead thickness.\n- Removed Settings > Player > Audio API > Waveform Audio on Windows.\n  This was a legacy API that was dropped by the SDL library we use for audio output.\n  The new defaults are WASAPI for stereo and DirectSound for multi-channel.\n- GPS Graphic filter: optimized drawing by skipping overlapping lines.\n- GPS Text filter: added support for decimals X argument for datetime keywords.\n- GPS filters: added support for parsing plain text files such as dashcam logs.\n- GPS filters: automatically load a companion gps file (with the same name).\n- Added support for rectangle parameters to the experimental add-on filter UI generator including a player overlay control (VUI).\n- Added a camcorder viewfinder (recording) animation to Elements > Graphics.\n- Added a search field (English only) to Elements.\n- Added Settings > Shortcuts (an alias for Help > Actions and Shortcuts).\n- Added Settings > Timeline > Rounded Rectangles option to turn off that cosmetic feature.\n- Added Settings > Timeline > Sync Zoom With Keyframes.\n- Added Timeline > Edit > Audio Mixing Assistant dialog.\n- General performance and stability improvements.\nNew Contributors\n- @MoutonBinoclard made their first contribution in https://github.com/mltframework/shotcut/pull/1927\n- @Lucatacos made their first contribution in https://github.com/mltframework/shotcut/pull/1930\n- @juliusniittymaa made their first contribution in https://github.com/mltframework/shotcut/pull/1934\n- @WMikhail made their first contribution in https://github.com/mltframework/shotcut/pull/1938\nFull Changelog: https://github.com/mltframework/shotcut/compare/v26.9.27...v26.10.30",
+      "release_notes_url": "https://github.com/mltframework/shotcut/releases/tag/v26.11.15",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/m/Meltytech/Shotcut/26.11.15",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/mltframework/shotcut/releases/download/v26.11.15/shotcut-win64-26.11.15.exe",
+          "host": "github.com",
+          "filename": "shotcut-win64-26.11.15.exe",
+          "sha256": "f440b9b9aa9e92040683d43094502f6dcfa8ff4800fb80299f9402d1ac0df624",
+          "product_code": "Shotcut_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mlt"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/mltframework/shotcut/releases/download/v26.11.15/shotcut-win64-26.11.15.exe",
+          "host": "github.com",
+          "filename": "shotcut-win64-26.11.15.exe",
+          "sha256": "f440b9b9aa9e92040683d43094502f6dcfa8ff4800fb80299f9402d1ac0df624",
+          "product_code": "Shotcut_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mlt"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/mltframework/shotcut/releases/download/v26.11.15/shotcut-win_ARM-26.11.15.exe",
+          "host": "github.com",
+          "filename": "shotcut-win_ARM-26.11.15.exe",
+          "sha256": "48ec8c97f15ff9d148bba93fe5a85ae9aa3e47abaacd68b273fb06c96be6fadd",
+          "product_code": "Shotcut_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mlt"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/mltframework/shotcut/releases/download/v26.11.15/shotcut-win_ARM-26.11.15.exe",
+          "host": "github.com",
+          "filename": "shotcut-win_ARM-26.11.15.exe",
+          "sha256": "48ec8c97f15ff9d148bba93fe5a85ae9aa3e47abaacd68b273fb06c96be6fadd",
+          "product_code": "Shotcut_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mlt"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "26.9.27",
@@ -2516,36 +2603,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "20.07.11",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/m/Meltytech/Shotcut/20.07.11",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "url": "https://github.com/mltframework/shotcut/releases/download/v20.07.11/shotcut-win64-200711.exe",
-          "host": "github.com",
-          "filename": "shotcut-win64-200711.exe",
-          "sha256": "1e924933ff0c3067512171ccb08b033c46dbcdfa1921ba686f332cb9aedbbb87",
-          "min_os_version": "10.0.0.0"
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "26.9.28",
-      "source_version": "26.9.28,26.9.27",
+      "version": "26.11.15",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://github.com/mltframework/shotcut/releases/download/v26.9.27/shotcut-macos-26.9.28.dmg",
+          "url": "https://github.com/mltframework/shotcut/releases/download/v26.11.15/shotcut-macos-26.11.15.dmg",
           "host": "github.com",
-          "filename": "shotcut-macos-26.9.28.dmg",
-          "sha256": "0e4c95ad41f26d96c442642e03e0c107bf98abfceea78724e2b05aa704ef79c6",
+          "filename": "shotcut-macos-26.11.15.dmg",
+          "sha256": "664c6ea4195d58dbf3fd43f3d74ae46d59b6310f9ac628d5e70a8e2786a4f80b",
           "min_os_version": "12"
         }
       ],
@@ -2603,16 +2671,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "0356288295f94d0c65ec0ecf8696c6d5c10b3dd4",
-      "retrieved_at": "2026-11-04T20:55:11.768Z",
+      "commit": "dd54877fd2054ade0201487eb82b3ae9c153929d",
+      "retrieved_at": "2026-11-18T00:32:22.956Z",
       "path": "manifests/m/Meltytech/Shotcut"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
-      "retrieved_at": "2026-11-04T20:55:11.768Z",
+      "commit": "912fe9186809a376e17fadd9ef7b8aaf2e1ae50e",
+      "retrieved_at": "2026-11-18T00:32:22.956Z",
       "path": "Casks/s/shotcut.rb",
       "api_url": "https://formulae.brew.sh/api/cask/shotcut.json"
     },
