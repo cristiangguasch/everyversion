@@ -1,0 +1,916 @@
+{
+  "schema_version": 2,
+  "slug": "mobaxterm",
+  "name": "MobaXterm",
+  "publisher": "Mobatek",
+  "author": "MOBATEK SARL",
+  "ids": {
+    "winget": "Mobatek.MobaXterm"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "summary": "Enhanced terminal for Windows with X11 server, tabbed SSH client, network tools and much more",
+  "description": "MobaXterm is your ultimate toolbox for remote computing. In a single Windows application, it provides loads of functions that are tailored for programmers, webmasters, IT administrators and pretty much all users who need to handle their remote jobs in a more simple fashion.\nMobaXterm provides all the important remote network tools (SSH, RDP, X11, SFTP, FTP, Telnet, Rlogin, ...) to Windows desktop, in a single portable exe file which works out of the box. Some plugins can be used to add functions to MobaXterm such as Unix commands (bash, ls, cat, sed, grep, awk, rsync, ...).",
+  "tags": [
+    "ftp",
+    "rdp",
+    "remote",
+    "server",
+    "sftp",
+    "ssh",
+    "telnet",
+    "vnc",
+    "x11",
+    "xorg",
+    "xserver"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://mobaxterm.mobatek.net/",
+    "publisher": "https://www.mobatek.net/",
+    "support": "https://mobaxterm.mobatek.net/documentation.html",
+    "privacy": "https://ccc.mobatek.net/mobatek_privacy.html",
+    "release_notes": "https://mobaxterm.mobatek.net/download-home-edition.html"
+  },
+  "license": {
+    "name": "Freeware",
+    "url": "https://mobaxterm.mobatek.net/license.html",
+    "copyright": "© 2008 - 2026 Mobatek. MobaXterm® is a registered trademark of Mobatek"
+  },
+  "pricing": {
+    "status": "freeware",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "26.6.0.5560"
+  },
+  "last_updated": "2026-10-25",
+  "versions_total": {
+    "windows": 24
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "26.6.0.5560",
+      "release_date": "2026-10-25",
+      "release_notes": "- New feature: added a new 64-bit RDP engine for faster remote desktop sessions\n- New feature: added a new IME composition tool for terminal sessions\n- Improvement: improved support of the \"RemoteGuard\" RDP option with the new RDP engine\n- Improvement: added support for the \"PublicMode\" setting in the new RDP engine\n- Improvement: improved compatibility with new versions of RDP servers with the new RDP engine\n- Improvement: the new IME composition window is now displayed directly inside terminal sessions\n- Improvement: properly handle the backspace key in the new IME composition window\n- Improvement: changed the order of the executable main icon for better compatibility with Citrix\n- Improvement: added automatic detection of multi-line PAM prompts in SSH and SFTP sessions\n- Improvement: added automatic detection of URLs in SSH and SFTP session prompts\n- Improvement: the SSH browser follows the current terminal path even when the browser tab is hidden\n- Improvement: the \"_Username_\" variable in the custom persistent root folder will be translated into the current user name\n- Improvement: ensure that all terminal sessions are properly notified when the keyboard layout changes\n- Improvement: suppressed a first-time startup window in browser sessions that use the Firefox engine\n- Improvement: updated the embedded OpenSSL library to its latest version\n- Improvement: updated the embedded OpenSSH command to its latest version\n- Improvement: updated the embedded X server based on Xorg to its latest version\n- Bugfix: after reconnecting an RDP session, the corresponding tab title is no longer displayed in red\n- Bugfix: the startup macro now remains attached to the session when duplicating it\n- Bugfix: on some Windows 7 Pro computers, the tab titles were hidden",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/26.6.0.5560",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2662026100713843/MobaXterm_Installer_v26.6.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v26.6.zip",
+          "sha256": "c4840fffebf0f722e68f9279f9c57aff8782ee5fc46f1f397fb19dbf2a58dcf1",
+          "product_code": "{498DB265-E4C3-4580-B8D0-482C79F36E7D}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.5.0.5542",
+      "release_date": "2026-09-11",
+      "release_notes": "- Improvement: added automatic detection of junctions or symbolic links used for the slash folder\n- Improvement: added support for WebAuthn redirection in RDP sessions, allowing Windows Hello requests to be redirected to the local computer\n- Improvement: updated the embedded Xorg server to its latest version\n- Improvement: updated the embedded PuTTY-based terminal to its latest version\n- Improvement: updated the embedded OpenSSL library to its latest version\n- Improvement: updated the embedded OpenSSH command to its latest version\n- Improvement: added support for Ctrl+Mouse Wheel events in VNC sessions\n- Improvement: added support for keyboard shortcuts in VNC sessions using combinations of Ctrl, Alt, Shift, Win, and/or standard keys\n- Improvement: automatically adapts the VNC session size after the remote desktop resolution is changed\n- Improvement: improved copy-and-paste operations in VNC sessions\n- Improvement: added support for new VNC encodings: Tight, Hextile, RRE, and TRLE\n- Improvement: added support for new VNC authentication methods: Tight, SASL, UltraVNC, and MsLogon2\n- Improvement: added several enhancements to VNC sessions for better performance and compatibility with specific remote servers\n- Improvement: in SFTP sessions, files can now be dragged directly from the remote server into a subfolder in the local file browser on the left\n- Improvement: prevented MobaXterm from searching for translation files in the installation folder\n- Improvement: added an option in the Customizer to disable all local terminals, including CygUtils and WSL\n- Improvement: added an option in the Customizer to disable the MobaXterm debug log\n- Improvement: assigned the main icon to the main window class to prevent an empty icon from appearing in the Windows taskbar\n- Improvement: improved startup speed by preventing MobaXterm from searching for files that are no longer needed\n- Improvement: added a verification step to ensure that the CygUtils file has not been altered before it is unpacked\n- Improvement: restricted permissions for the installation folder\n- Improvement: prevented MobaXterm from attempting to load the \"winsta.dll\" file at startup\n- Bugfix: fixed an issue where the mouse wheel did not work properly in a VNC session displayed on a secondary monitor\n- Bugfix: prevented VNC sessions from locking the clipboard\n- Bugfix: prevented the \"ssh -legacy\" command from failing when the server offered an \"ssh-rsa\" host key\n- Bugfix: properly handled the \"DesktopSize\" encoding in VNC sessions\n- Bugfix: removed an error message that could appear when exiting MobaXterm while the \"View\" menu was still open\n- Bugfix: prevented unexpected word wrapping in the \"View\" menu title",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/26.5.0.5542",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2652026082870834/MobaXterm_Installer_v26.5.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v26.5.zip",
+          "sha256": "fb898e15b98cd2656fef04108601bc6102a2f19f48b6412b25f4f0563b3b0c1d",
+          "product_code": "{90D5116C-DB8C-4BBA-8FE7-510E14AEB80C}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.4.0.5512",
+      "release_date": "2026-06-11",
+      "release_notes": "- New feature: added support for smart card certificate authentication in SSH sessions using Microsoft CryptoAPI\n- New feature: added a smart card management interface (add/remove smart card certificates, retrieve the OpenSSH public key, ...)\n- New feature: added a right-click option on SSH sessions to open an SFTP session with the same parameters\n- New feature: you can now choose the SSH browser location by clicking the SSH browser title icon, allowing you to display your sessions and the SSH browser simultaneously\n- Improvement: added a new option in SSH session expert settings to select a smart card certificate\n- Improvement: added a new option in the global settings to add a smart card to MobAgent\n- Improvement: multiplex mode is now automatically applied for the SSH browser when the SSH session uses a smart card\n- Improvement: deferred the creation of system and toolbar icons to increase startup speed\n- Improvement: deferred the creation of item lists with checkboxes to increase startup speed\n- Improvement: added caching in graphical components to prevent unnecessary recalculation of their dimensions\n- Improvement: prevented core components from triggering unnecessary Windows messages when invisible at startup\n- Improvement: improved management of embedded fonts in memory at MobaXterm startup\n- Improvement: added a default openssl.cnf configuration file for the local terminal \"openssl\" command\n- Improvement: added the \"linux\" terminal type to terminal-based session settings\n- Improvement: install embedded fonts into Windows to prevent rendering issues when the Windows embedded fonts feature is disabled\n- Improvement: the master password prompt no longer stays on top of all windows after unlocking the Windows desktop\n- Improvement: improved the appearance of the remote monitoring bar by preventing double borders when the bar is adjacent to another\n- Improvement: column sizes in the SSH browser are now saved and restored upon MobaXterm restart\n- Improvement: added a confirmation prompt before overwriting files downloaded or uploaded with the SSH browser\n- Improvement: the default WSL shell can now use native authentication with the \"DefaultWslUsesNativeAuth=1\" directive in the \"Misc\" section of the configuration file\n- Improvement: improved the management of PNG image files and PNG icons by handling files without alpha layers\n- Improvement: when selecting a session folder in the \"Quick connect\" bar, it is now automatically selected and expanded\n- Improvement: increased MobaTextEditor performance when replacing multiple occurrences of a pattern or undoing many actions in a file\n- Improvement: updated the embedded OpenSSH client, the OpenSSL library and the X server to their latest versions\n- Improvement: switched the default compression setting to \"no\" in SSH sessions and in the local terminal\n- Bugfix: when updating MobaXterm, clean the previous \"AdmSlash\" folder if it exists\n- Bugfix: prevented \"mobagrep\" from creating a blank file when using the \"-i\" command-line switch\n- Bugfix: hidden modal windows are no longer displayed in the Aero Peek preview when hovering over the MobaXterm taskbar button\n- Bugfix: disabled bracket characters in the credentials creation window\n- Bugfix: when quickly switching tabs with the \"Follow terminal\" feature enabled, the SSH browser could appear empty\n- Bugfix: prevented MobaXterm from launching the wrong session when double-clicking a session if the second click occurred over another session\n- Bugfix: fixed a potential freeze when pasting clipboard content into the terminal if the clipboard owner became unresponsive\n- Bugfix: prevented mobagrep from stopping the search thread if one of the searched files fails to open\n- Bugfix: cleaned the MobaXterm temporary folder at startup in \"portable\" mode if it already exists\n- Bugfix: prevented MobaTextEditor, Xorg, MoTTY and the Cygwin library from loading some unused libraries at startup (fixes CVE-2026-11879 reported by Pedro J. Nunez-Cacho Fuentes @tunelko)\n- Bugfix: prevented MobaXterm from trying to load the \"winspool.drv\" file at startup (fixes CVE-2026-11967 reported by Pedro J. Nunez-Cacho Fuentes @tunelko)",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/26.4.0.5512",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2642026060332702/MobaXterm_Installer_v26.4.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v26.4.zip",
+          "sha256": "44c21c00f264fdc9e6b997bc7d4b63a4bcebd4b953af1410f4adead545d0a4e5",
+          "product_code": "{C831C0FB-270F-4B0D-AD0C-9732A0D7DE09}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{C831C0FB-270F-4B0D-AD0C-9732A0D7DE09}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.3.0.5486",
+      "release_date": "2026-04-10",
+      "release_notes": "- Improvement: the paste confirmation dialog can be accepted directly by pressing \"Return\"\n- Improvement: the paste content is checked only once when pasting to multiple terminals\n- Improvement: added the paste confirmation dialog to the popup console\n- Bugfix: the paste confirmation dialog was frozen in \"MultiExec\" mode\n- Bugfix: the paste confirmation dialog was not properly restored when switching from another application to a MobaXterm detached tab\n- Bugfix: the popup console is no longer moved to the top of the screen after changing its font\n- Bugfix: the value for the \"terminal log folder\" field was not properly saved\n- Bugfix: the value for the \"force log folder\" field was not properly saved in the Customizer program",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/26.3.0.5486",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2632026040882303/MobaXterm_Installer_v26.3.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v26.3.zip",
+          "sha256": "9fa4381dae047c1bc6bca3a50ff8a3bc63eb7a38fdb2137854f0548bf967e754",
+          "product_code": "{BA8C1399-3CCA-4620-8314-4AA4B5E005D0}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{BA8C1399-3CCA-4620-8314-4AA4B5E005D0}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.2.0.5480",
+      "release_date": "2026-04-03",
+      "release_notes": "- New feature: added a warning prompt before pasting content identified as malicious by MobaXterm\n- Improvement: added detection of potential homograph attacks in pasted content (when a Unicode character visually impersonates a Latin character)\n- Improvement: added detection of potential \"pipe to shell\" risks in pasted content (when a downloaded script is directly piped to a shell)\n- Improvement: added detection of potential \"redirect to profile\" risks in pasted content (when a command or script is redirected to a profile script)\n- Improvement: added detection of potential \"unpack to root\" risks in pasted content (when an archive is extracted to the root folder to replace system files)\n- Improvement: added detection of zero-width or non-breakable spaces in pasted content (when the command contains unusual space characters)\n- Improvement: you can now modify, copy, or paste the paste confirmation content itself\n- Improvement: reduced the main executable size by removing unused resources and changing the main icon format\n- Improvement: improved detection of new lines in text copied from web browsers\n- Improvement: removed the left margin for SSH browser elements to gain space\n- Improvement: reduced SSH agent startup time, making local terminal sessions start faster\n- Improvement: suppressed the /etc/passwd and /etc/groups files that are no longer needed in the local terminal\n- Improvement: added a new \"Duplicate tunnel\" button in the \"MobaSSHTunnel\" port forwarding tool\n- Improvement: improved the font selection control when the dark theme is enabled\n- Improvement: improved the background color of pasted text in the 64-bit local terminal\n- Improvement: improved Windows XP and Wine for Mac/Linux compatibility by using replacement system calls when recent ones are not available\n- Improvement: prevented the terminal from freezing when pasting very large text\n- Improvement: increased the number of lines taken into account when printing terminal content\n- Improvement: improved startup speed by removing unnecessary file checks\n- Improvement: the contextual macro menu triggered with Alt+Space now appears in detached windows, even if they do not correspond to the current tab\n- Improvement: added a new right-click menu option in the sessions tree to collapse all open session folders\n- Bugfix: fixed delayed closing of SSH sessions with the error message \"SCP transfer in progress, please wait\"\n- Bugfix: fixed glitches when switching to the dark theme with an FTP or SFTP session open\n- Bugfix: in the Professional Edition, \"%\" characters in the \"force log folder\" field could break the \"Terminal type\" value\n- Bugfix: in the Professional Edition, the Customizer did not remember the dark theme when it was previously selected\n- Bugfix: fixed refresh issues with the \"private key\" field in SSH sessions when selecting part of it in dark mode\n- Bugfix: fixed an issue causing the MobaXterm desktop shortcut to request administrator privileges on first launch on some Windows versions\n- Bugfix: removed the \"msimg32.dll\" library dependency",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/26.2.0.5480",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2622026032581854/MobaXterm_Installer_v26.2.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v26.2.zip",
+          "sha256": "b6e7ffe7899118adde2d18e948a4a565280b6b321060f00e156be3fcbc6b1897",
+          "product_code": "{5356F134-D661-40F6-B998-5610DF070612}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{5356F134-D661-40F6-B998-5610DF070612}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.1.0.5456",
+      "release_date": "2026-03-06",
+      "release_notes": "- New feature: small dots in the session tree now indicate which sessions are already open\n- New feature: clicking the green dots in the session tree now jumps to the corresponding tabs\n- New feature: you can now assign a dedicated icon to each session via the Customizer or in shared sessions\n- Improvement: improved session tree rendering performance\n- Improvement: custom icons are now stored with sessions when exporting or sharing them\n- Improvement: it is now possible to assign a specific custom icon per session even when more than 64 custom icons are used\n- Improvement: updated the embedded X server to the latest Xorg version\n- Improvement: improved X server startup speed\n- Improvement: updated several other embedded command-line tools to their latest versions\n- Improvement: improved autocompletion for the \"livesession\" and \"createsession\" commands\n- Improvement: optimized code executed during tab switches to improve tab switching performance\n- Improvement: reorganized the icon chooser window to display more icons per row\n- Improvement: improved custom icon loading speed from the INI file at startup\n- Improvement: improved detection of default Linux and macOS shell locations under Wine\n- Improvement: disabled the Edge browser on legacy Windows versions (XP, Vista) to prevent potential crashes in MobaTextEditor\n- Improvement: improved icon rendering in tabs with better anti-aliasing\n- Improvement: added a new button in MobaTextDiff to swap left and right files\n- Improvement: improved detection of non-Latin characters in MobaTextEditor for word boundary detection\n- Improvement: updated MobaSwInfo and MobaHwInfo to support the latest Windows releases\n- Improvement: some agents such as SK-SSH-Agent now work even when MobAgent is disabled\n- Improvement: SSH sessions now support logins containing square brackets\n- Improvement: updated the command-line SSH client and the OpenSSL library to their latest versions\n- Bugfix: prevented an error when upgrading from an older MobaXterm version using an obsolete Xorg release\n- Bugfix: fixed an issue where tab text remained red after selecting and unselecting an inactive tab\n- Bugfix: fixed a brief black rectangle flash when clicking the \"Quick Search\" field\n- Bugfix: fixed a high memory usage issue after mutiple successive pastes of very long texts in the terminal\n- Bugfix: fixed potential graphical glitches when starting MobaXterm with a theme and then switching to the Windows dark theme\n- Bugfix: fixed an issue with the 64-bit command-line OpenSSH client when requesting keys from MobAgent or the PuTTY SSH agent\n- Bugfix: fixed a high memory usage issue after leaving the terminal window detached for many hours\n- Bugfix: fixed an issue where MobaTextDiff would not start in portable mode when it was launched from the SSH browser\n- Bugfix: fixed an issue where copying an IP address from Google Chat inserted a newline character into the host field\n- Bugfix: fixed a search path issue when choosing a custom text editor in the global settings window",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/26.1.0.5456",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2612026022582601/MobaXterm_Installer_v26.1.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v26.1.zip",
+          "sha256": "125a2645e1a2b12dc73b9699ee4a5c4e65e002e1a527390cd1e8643252e92ff6",
+          "product_code": "{7D1AE484-DD89-448B-8DD0-AA298CE67602}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{7D1AE484-DD89-448B-8DD0-AA298CE67602}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.0.0.5436",
+      "release_date": "2026-02-06",
+      "release_notes": "- New feature: the \"livesession\" command allows you to launch a session from the local terminal or from a script\n- New feature: the \"createsession\" command allows you to create and save a session from the local terminal or from a script\n- New feature: you can launch a live session directly from the \"Quick connect\" bar (e.g. you can type \"ssh user@server\")\n- Improvement: added a way to import RDM sessions by right-clicking on the \"User sessions\" folder and choosing \"Import sessions from third-party programs\"\n- Improvement: added a way to import sessions from generic CSV files by right-clicking on the \"User sessions\" folder and choosing \"Import sessions from a CSV file\"\n- Improvement: you can now automate MobaXterm by using the \"-exec\" command line parameter with a live session\n- Improvement: the network scanner now shows a new entry for MAC addresses that you can click to look up the MAC vendor\n- Improvement: you can type \"Help\" in the \"Quick connect\" bar for complete documentation with all the available options listed\n- Improvement: removed the \"Specify username\" checkbox in the SSH session definition\n- Improvement: increased the session creation and session launch speed\n- Improvement: added some contextual hints on many graphical interface elements\n- Improvement: added a contextual completion menu in the \"Quick connect\" bar\n- Improvement: in the SSH-browser, the size of the file to download is calculated immediately before the download begins\n- Improvement: in SFTP sessions, the size of the file to download is calculated immediately before the download begins\n- Improvement: added a new \"DirectDraw\" option in the X11 global settings, to enable/disable DirectDraw rendering of X11 windows\n- Improvement: increased the speed of SSH tunnels list creation and SSH tunnels list display\n- Improvement: you can now change the SSH tunnels sequence order by dragging the \"grip\" button on the right of each tunnel entry\n- Improvement: if the \"Follow SSH path\" is activated, the SSH-browser follows the path even if it has been changed via a macro\n- Improvement: improved the SSH-browser directory listing speed for folders containing many files\n- Improvement: log events sent after having closed SSH gateways are still written into the MobaXterm log file\n- Improvement: the terminal block cursor becomes an empty box when the terminal loses focus\n- Improvement: improved Windows version and CPU identification in \"MobaHwInfo\"\n- Improvement: activated the \"bracketed paste\" feature by default in the local terminal\n- Improvement: added an option in the advanced terminal settings to disable the \"bracketed paste\" feature\n- Improvement: adapted dark mode colors when the SSH-browser is not activated\n- Improvement: eliminated some flickering effects on the sessions tree in dark mode under Windows 11\n- Improvement: increased the speed of the ZIP creation in the \"apt plugin\" command\n- Improvement: adapted the color of the \"Reattach tab\" button to the current tab color\n- Improvement: you can now scroll horizontally in MobaTextEditor and MobaDiff using \"Shift + MouseWheel\"\n- Improvement: you can now select a line by using the triple click shortcut in MobaTextEditor and MobaDiff\n- Improvement: the embedded X server can now use fonts installed using the \"apt install\" or \"apt plugin\" commands\n- Bugfix: fixed an issue in the Customizer program when creating a macro attached to a custom session\n- Bugfix: corrected the \"lscolors\" script that was not properly printing the color bar\n- Bugfix: downloading symlinks in the SSH-browser or in SFTP sessions sometimes resulted in truncated files\n- Bugfix: the SSH-browser folder was empty when the directory listing and \"Follow SSH path\" features were triggered at the same time\n- Bugfix: when using the same gateway for different sessions, after exiting some sessions, the remaining ones were sometimes disconnected\n- Bugfix: corrected a bug with tab icons on old Windows versions (XP and Seven)\n- Bugfix: fixed a bracketed paste issue when pasting a password to OpenSSH in the local terminal\n- Bugfix: fixed an issue with the \"apt\" command when the name of the package was too long for Windows\n- Bugfix: removed Windows sounds when you press \"Escape\" or \"Return\" in the search fields, the Quick connect fields, or when you launch a session or a macro\n- Bugfix: the home tab now respawns properly when checking the \"Do not exit MobaXterm when last tab is closed\" option\n- Bugfix: some texts were not properly centered on High DPI monitors in MobaTextEditor settings window",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/26.0.0.5436",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2602026012910130/MobaXterm_Installer_v26.0.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v26.0.zip",
+          "sha256": "a29dcc27bf874ad416bf00269db9ace546951cd49c7f9eb9b1837b08953d84a7",
+          "product_code": "{FDBA3A6E-4080-4BDD-9689-349F4B15F946}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{FDBA3A6E-4080-4BDD-9689-349F4B15F946}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.4.0.5418",
+      "release_date": "2025-11-28",
+      "release_notes": "- New feature: you can now use the Windows SSH agent to authenticate to your SSH sessions\n- Improvement: added a new option in macros to include another macro\n- Improvement: added milliseconds in terminal logs timestamps\n- Improvement: improved the default syntax highlighting in MobaTextEditor\n- Improvement: added Ctrl+Backspace keyboard shortcut to delete the last word in text fields\n- Improvement: improved startup speed and MobaXterm closing speed\n- Improvement: several new external PuTTY-based SSH agents are now supported in SSH/SFTP sessions\n- Improvement: better detection of long URLs when ctrl+clicking into the terminal\n- Improvement: you can now toggle between relative and absolute paths for root and home folders in the Customizer\n- Improvement: improved the paste and search feature in MobaTextEditor and MobaTextDiff\n- Improvement: enhanced the MobaXterm debug file, especially the event viewer section\n- Improvement: user identity can now be confirmed by using the \"Windows Hello\" mechanism (fingerprint or face recognition)\n- Improvement: better detection of the current explorer path for the \"Popup Console\" in the latest Windows 11 updates\n- Improvement: added a new \"floating window\" setting for the Popup Console spawned using Ctrl+Alt+M\n- Improvement: better detection of text files format (UTF-8 or ANSI) in MobaTextEditor and MobaTextDiff\n- Improvement: added a button to toggle between dark and bright theme in MobaFoldersDiff\n- Improvement: auto-detection of SSH sessions to Cisco devices that need a filtered KEX list to work properly\n- Improvement: added a new expert SSH setting \"Chokes on full KEXINIT\" for SSH servers that have a KexInit list limit\n- Improvement: better identification of old SSH servers that need some SSH tweaks to work properly\n- Improvement: improved the SSH-browser transfer speed, either in SFTP or in SCP mode\n- Bugfix: when the \"Use external PuTTY agent\" setting was unchecked, MobaXterm was still requesting keys from Pageant\n- Bugfix: some browsing windows could freeze MobaXterm, because they were trying to open archive files as folders\n- Bugfix: when setting a dark theme in the Customizer program, some pop-up windows were not properly themed\n- Bugfix: some search terms were not highlighted in MobaTextEditor when very long text lines were used in the text file",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/25.4.0.5418",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2542025111600034/MobaXterm_Installer_v25.4.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v25.4.zip",
+          "sha256": "f273737ab3112c7b79d49bb3ba9fe158a7c7ad44e9f6fa8123104e343669be04",
+          "product_code": "{4AA491A5-27B7-40EE-834C-49562302A32B}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{4AA491A5-27B7-40EE-834C-49562302A32B}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.3.0.5384",
+      "release_date": "2025-10-03",
+      "release_notes": "- New feature: you can now search for words in all files contained in a folder and its sub-folders using MobaTextEditor or the \"MobaFind\" command\n- Improvement: huge ergonomics improvements in the search feature of MobaTextEditor and MobaTextDiff (instant results highlight, contextual lines, number of results, ...)\n- Improvement: added a new feature to move or copy blocks of lines up/down/left/right in MobaTextEditor (Alt+arrows by default)\n- Improvement: added a new option in MobaTextEditor and MobaDiff to automatically highlight the same words as the one under the cursor\n- Improvement: added a new option in MobaTextEditor and MobaDiff to display indent guides\n- Improvement: added a new \"Toggle comments\" feature in MobaTextEditor\n- Improvement: the colors in HTML format are now identified by MobaTextEditor and highlighted using the corresponding color\n- Improvement: improved syntax highlighting color schemes in MobaTextEditor and MobaDiff\n- Improvement: improved UTF-8 character recognition in MobaTextEditor and MobaDiff especially for 4-bytes UTF-8 characters\n- Improvement: added an extended character mapping table to MobaTextEditor\n- Improvement: you can now export your code to HTML with syntax highlighting from MobaTextEditor\n- Improvement: improved the parent bracket highlighting feature in MobaTextEditor\n- Improvement: added an indicator and some information in the MobaTextEditor status bar when the file is edited on a remote server\n- Improvement: you can now zoom in/out the text in MobaTextEditor using Ctrl-MouseWheel or Ctrl-+\n- Improvement: added a new feature to autocomplete code in MobaTextEditor (Ctrl+Space by default)\n- Improvement: changed the text engine and the memory manager used in MobaTextEditor and MobaDiff\n- Improvement: added a new status bar in MobaTextEditor to display useful details about the edited file\n- Improvement: added a new option in MobaTextEditor and MobaDiff to toggle dark/bright theme that is independent of MobaXterm\n- Improvement: added a new graphical hexadecimal color picker in MobaTextEditor\n- Improvement: organized the MobaTextEditor and MobaDiff settings window and added several new options\n- Improvement: improved the Unix Shell Script syntax highlighting in MobaTextEditor and MobaDiff\n- Improvement: improved the PHP syntax highlighting in MobaTextEditor and MobaDiff\n- Improvement: added a new Html/Javascript/Css/Php syntax that autodetects multi-format HTML pages in MobaTextEditor and MobaTextDiff\n- Improvement: improved detection and opening speed of binary files in MobaTextEditor\n- Improvement: improved MobaTextEditor and MobaDiff speed when opening files with very long lines\n- Improvement: improved rendering of font ligatures in MobaTextEditor and MobaDiff\n- Improvement: the syntax highlighting is preserved in text selections in MobaTextEditor and MobaDiff\n- Improvement: improved selection color with a dark theme in MobaTextEditor and MobaDiff\n- Improvement: improved the visibility of the MobaTextEditor caret, especially in dark mode\n- Improvement: added a new keyboard shortcut to cycle through tabs in MobaTextEditor (Ctrl-Tab by default)\n- Improvement: added a new keyboard shortcut to select a whole line in MobaTextEditor (Ctrl+L by default)\n- Improvement: added the \"Select to Match Bracket\" keyboard shortcut in MobaTextEditor\n- Improvement: added right-click menus on the MobaTextEditor status bar to quickly modify some of the text file settings\n- Improvement: added quick access to recently opened files in MobaTextEditor\n- Improvement: when switching MobaTextEditor or MobaTextDiff from a first monitor to a second monitor in High DPI mode, the application switches to High DPI mode\n- Improvement: if MobaTextEditor fonts are blocked by a Windows policy, use \"Consolas\" by default instead\n- Improvement: if the embedded MobaXterm terminal font is blocked by a Windows policy, try to use the \"MobaFont\" if it is installed or use \"Consolas\" if there is no other choice\n- Improvement: in the Customizer program, if you choose a shared sessions file, its path will use common variables like \"_MyDocuments_\" to adapt to other computers\n- Bugfix: the password request and save password prompt windows were overlapping each other when connecting to FreeBSD with SSH\n- Bugfix: in browser sessions, the \"script URL\" field was too large for the container\n- Bugfix: paste using Ctrl+V was disabled in the user syntax highlighting edition\n- Bugfix: on some Windows versions, MobaXterm log identified Windows 11 as Windows 10\n- Bugfix: fixed some windows title bars that were white when the MobaXterm theme was set to dark\n- Bugfix: fixed a typo in an SSH connection warning prompt\n- Bugfix: modified the \"smart tabs\" feature in MobaTextEditor and MobaDiff to automatically adapt to mixed tabs and spaces indentations\n- Bugfix: the highlighted search results were not reset when switching from one tab to another in MobaTextEditor\n- Bugfix: the \"indent/unindent block\" feature was not properly taken into account in the \"Undo\" action of MobaTextEditor\n- Bugfix: the extended characters are no longer treated as separators in MobaTextEditor and MobaDiff\n- Bugfix: the highlighted searched patterns were still highlighted after switching to another tab in MobaTextEditor\n- Bugfix: fixed the MobaTextEditor tabs placements\n- Bugfix: only the first line was copied in MobaDiff when multiple lines were selected\n- Bugfix: removed the \"snap to monitor\" feature in MobaTextEditor",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/25.3.0.5384",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2532025092512146/MobaXterm_Installer_v25.3.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v25.3.zip",
+          "sha256": "17efd554dff3a01e991a891ab7ae66c135a5a3438e1a790bf8e44096c47b220f",
+          "product_code": "{A4E8D0E8-595F-4C16-821A-C476AA49110F}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{A4E8D0E8-595F-4C16-821A-C476AA49110F}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.2.0.5296",
+      "release_date": "2025-05-03",
+      "release_notes": "- Improvement: increased the maximum number of custom icons from 32 to 64\n- Improvement: decreased icons decompression speed and improved icons loading at startup\n- Improvement: updated the terminal to the latest version of the PuTTY engine\n- Improvement: support for ML-KEM, the NIST-standardised post-quantum key exchange mechanism\n- Improvement: increased folders comparison speed in \"MobaTextDiff\" tool\n- Improvement: added a new \"Use Redirection Server Name\" setting for RDP sessions\n- Improvement: you can now select only some specific drives to redirect for RDP sessions\n- Improvement: improved the loading speed of the Home tab and the overall startup speed\n- Improvement: better detection of available WSL distributions and available WSL desktop environments\n- Improvement: adapted the old Crystal icons theme to high DPI monitors\n- Improvement: added the \"New session\" button to the home page when MobaXterm is started for the first time\n- Improvement: when reconnecting an RDP session, if an SSH tunnel is used, the tunnel is also reconnected\n- Improvement: prioritized the CygUtils plugin over third-party plugins when extracting a shell application\n- Improvement: removed the \"Experimental\" flag on several settings that are no longer experimental\n- Improvement: added a dialog box to warn you if you are switching from Professional to Personal Edition\n- Improvement: added an option to use a specific password when you export your configuration to a file\n- Improvement: added a confirmation prompt when you choose to encrypt your configuration file with your master password\n- Improvement: the \"Try to follow SSH path in the browser\" setting is now enabled by default in SSH sessions\n- Improvement: the \"Remote monitoring\" setting is now enabled by default in the global settings\n- Bugfix: the \"replace\" window was not centered in the Text Editor and in the \"TextDiff\" tools",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/25.2.0.5296",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2522025040602403/MobaXterm_Installer_v25.2.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v25.2.zip",
+          "sha256": "cdcf61ffede716ad566fefcbeebda7f02eb6a51d299b8eff5d87988c8e839c3b",
+          "product_code": "{2BCC729C-27CC-4162-848E-A0D84EC1680D}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{2BCC729C-27CC-4162-848E-A0D84EC1680D}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.1.0.5288",
+      "release_date": "2025-03-15",
+      "release_notes": "- New feature: added a new setting in SSH sessions to use an SSH proxy with netcat/socat command or port forwarding\n- Improvement: updated the embedded X server to version 21.1.15\n- Improvement: fixed an error when starting the X server on Windows versions older than Windows Vista\n- Improvement: updated OpenSSH, OpenSSL, Curl, Git and Rsync in the 32-bit and 64-bit local terminal\n- Improvement: updated the Cygwin library in the 64-bit local terminal\n- Improvement: updated man pages and adapted the \"man\" command to read external man pages\n- Improvement: removed the \"SSH engine new/legacy\" setting and always use the new SSH engine instead\n- Improvement: decreased the CPU consumption of the SSH-browser in SFTP mode\n- Improvement: allowed password saving for SSH proxy connections\n- Improvement: added a \"proxy\" prefix to each log line corresponding to a proxy connection\n- Improvement: forced the SSH browser type to \"SCP\" for connections through CyberArk jump hosts\n- Improvement: updated the packages provided by \"MobApt\" to their latest version in the 64-bit local terminal\n- Improvement: switched the terminal banner format to UTF-8, to properly display international characters\n- Improvement: updated the Customizer program with a new setting to disable the deprecated 32-bit local terminal\n- Improvement: added a new option in the SSH session expert settings to set an optional certificate to use with the SSH private key\n- Improvement: added a new option in the SSH session expert settings to set an optional host CA public key\n- Improvement: when importing PuTTY sessions, the proxy settings are now also imported\n- Improvement: when importing PuTTY sessions, the certificate to use with the SSH private key and the host CA public key are also imported\n- Improvement: added a new right-click menu entry in the macros section to create a new empty macro (without recording)\n- Improvement: prevented VNC sessions from freezing when the remote server was unreachable\n- Improvement: you can now import PuTTY sessions used for Teleport jump hosts\n- Bugfix: fixed the SSH \"legacy\" message displayed when the server only supports some old algorithms\n- Bugfix: when dark mode was set in the Customizer, it was not possible to modify the banners colors\n- Bugfix: after having disabled the \"Save Passwords\" feature in the Customizer, it was not possible to change the Master Password\n- Bugfix: fixed importing PuTTY sessions containing a \"percent\" sign in the username field\n- Bugfix: removed an \"ioctl\" error message when using Rsync or Git over SSH\n- Bugfix: if the DISPLAY variable was not set in the local terminal, the SSH command could fail when X11-forwarding was activated\n- Bugfix: after having started \"TCPCapture\" from the \"Tools\" menu, the local terminal \"TCPCapture\" command could not start",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/25.1.0.5288",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2512025030285413/MobaXterm_Installer_v25.1.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v25.1.zip",
+          "sha256": "63a4c8f5a7dec3ef04ce54d95f90165fa51f15132be4f5c21771b674f560de18",
+          "product_code": "{465D551F-651B-4C9B-BF60-A50EF8B6EEEA}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{465D551F-651B-4C9B-BF60-A50EF8B6EEEA}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "25.0.0.5264",
+      "release_date": "2025-01-18",
+      "release_notes": "- Improvement: updated the terminal to the latest version of the PuTTY engine\n- Improvement: updated the terminal character analysis to Unicode 16.0.0.\n- Improvement: the terminal configuration window is now dark when the MobaXterm theme is set to \"Dark Mode\"\n- Improvement: the right-click menu, paste confirmation, event viewer and host key prompt messages now properly handle Windows \"Dark Mode\"\n- Improvement: improved IP address lookup for servers when Windows call to \"GetHostByName\" fails\n- Improvement: better detection of SFTP failures in SSH-browser to properly trigger SCP protocol switch\n- Improvement: added some more debugging information to DNS lookup functions\n- Bugfix: after launching a session with some specific expert terminal options, the same options were applied to default sessions\n- Bugfix: corrected zero padding when sending SHA2-based RSA signatures\n- Bugfix: you can now launch a macro containing a backslash in its title from the terminal \"Ctrl+Space\" shortcut\n- Bugfix: you can now launch a macro containing a backslash in its title from the sessions macros list\n- Bugfix: terminal wrap mishandling caused occasional incorrect redraws in curses-based applications",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/25.0.0.5264",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2502024121622306/MobaXterm_Installer_v25.0.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v25.0.zip",
+          "sha256": "317ac523678402d4c67c3bf051cdc77971515b828f3a2b7e8db73f1e4de66747",
+          "product_code": "{34C80516-5FBE-474F-BCA8-6ABAB45D05F2}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{34C80516-5FBE-474F-BCA8-6ABAB45D05F2}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.4.0.5258",
+      "release_date": "2024-12-08",
+      "release_notes": "- Improvement: better detection of drag and drop operations in the sessions menu\n- Improvement: updated the SFTP sessions and the graphical SFTP browser for better compatibility with new algorithms\n- Improvement: rekeying process has been improved in order to prevent SFTP issues with some SSH servers\n- Improvement: verify at each startup if we have switched to the \"AdmSlash\" mode and unpack utilities again if necessary\n- Improvement: added support for multi-block uploads and downloads in the SFTP browser\n- Improvement: increased SFTP transfer speed with some specific SSH servers\n- Improvement: added better detection of text file formats when using SFTP in ASCII mode\n- Improvement: added support for semi-transparent PNG logos in the Professional Customizer\n- Improvement: increased MobaXterm startup speed, especially when the company logo file size was very big\n- Improvement: added a keyboard shortcut for the \"Rename tab\" function\n- Improvement: added \"Close all tabs to the left\" and \"Close all tabs to the right\" features to the tabs right-click menu\n- Improvement: added a new \"Force X11 local access control\" security setting to the Professional Customizer program\n- Bugfix: when the sidebar was set to the right, the new macros menu was not displayed properly\n- Bugfix: macros containing a backslash character in their title were not stored properly\n- Bugfix: fixed SSH-browser connections through SSH gateways when IPv6 was enabled but IPv6 loopback was unreachable\n- Bugfix: fixed SFTP sessions to localhost or through SSH gateways when IPv6 was enabled but IPv6 loopback was unreachable",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/24.4.0.5258",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2442024120112207/MobaXterm_Installer_v24.4.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v24.4.zip",
+          "sha256": "f66fd78e0e004e9017580ed5d5e915e209fd9da1c47616dbd0cc1cdb7f923b19",
+          "product_code": "{A8017A13-9FE7-45E6-B851-A2A14D441581}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{A8017A13-9FE7-45E6-B851-A2A14D441581}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.3.0.5248",
+      "release_date": "2024-10-30",
+      "release_notes": "- New feature: added \"graphical macros\" that can record your mouse and keyboard inputs and replay them later\n- Improvement: you can now put your macros into folders and organize them using drag-and-drop\n- Improvement: added IPv6 support to VNC sessions (using the new VNC engine)\n- Improvement: added a new security setting in the Professional Customizer to disable the \"list open network ports\" tool\n- Improvement: added a new security setting in the Professional Customizer to disable the \"admin command prompt\" tool\n- Improvement: when the \"Disable X11 autostart\" security setting is set in the Professional Customizer, the option is disabled in the global settings window\n- Improvement: when the \"Disable X11 remote access\" security setting is set in the Professional Customizer, the option is disabled in the global settings window\n- Improvement: macros that are embedded into sessions are now encrypted by default\n- Improvement: delayed some checks at startup to improve overall performances\n- Improvement: improved macro recording by catching more keyboard events than before\n- Improvement: added a right-click option on tabs that allows to close all inactive tabs\n- Improvement: focus is sent to the terminal just after running a macro\n- Improvement: switched the date format in the Bash prompt from \"(day)/(month)/(year)\" to \"(year)-(month)-(day)\" by default\n- Improvement: improved the tooltip shown when the mouse cursor is over the sessions tree\n- Improvement: added some more debugging information during startup, especially for the Slash folder identification\n- Improvement: switched local terminal to 64-bit by default for new MobaXterm users\n- Bugfix: after disabling the \"reconnect RDP\" feature in the Professional Customizer, a \"Reconnect\" button was still available in the RDP top bar\n- Bugfix: the \"WaitFor\" condition in macros now properly handles spaces at the beginning and at the end of the expected pattern\n- Bugfix: suppressed a popup console window flashing during the installation process (fixes CVE-2024-48200 reported by Ahmed Sherif)\n- Bugfix: the macro list in the sidebar was not refreshed after changing the master password",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/24.3.0.5248",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2432024101610907/MobaXterm_Installer_v24.3.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v24.3.zip",
+          "sha256": "f406a07f5f42f029cb21e5d30fb3f0f25a9f5df62467df3775dff8f56cbd4254",
+          "product_code": "{C2787C28-70D5-4C12-BB32-1FE0A91C5DC1}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{C2787C28-70D5-4C12-BB32-1FE0A91C5DC1}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.2.0.5220",
+      "release_date": "2024-07-02",
+      "release_notes": "- New feature: added a new \"Expert RDP settings\" window where you can set advanced settings for your RDP connection\n- Improvement: moved the RDP CredSSP and RDP gateway settings to the \"Expert RDP settings\" window\n- Improvement: you can now specify a different login for the RDP gateway and the session itself\n- Improvement: you can set the RDP gateway authentication to use a smartcard\n- Improvement: added the \"Restricted Admin\" feature to RDP sessions\n- Improvement: added an option for using the local Windows credentials in \"Restricted Admin\" mode\n- Improvement: added the \"Remote Credentials Guard\" feature to RDP sessions\n- Improvement: the new \"Multi-monitors\" setting in RDP sessions allows you to expand the remote desktop to all your local monitors\n- Improvement: you can now auto-detect RDP bandwidth to adapt the remote graphics level accordingly\n- Improvement: added an option that allows you to put any tab in fullscreen across all available monitors\n- Improvement: you can now use a web account to connect to RDP sessions (useful for Azure Virtual Desktop)\n- Improvement: you can now set the \"automatic reconnection\" RDP feature\n- Improvement: you can now tune the graphics settings for each RDP session\n- Improvement: removed the \"High DPI adaptation for legacy servers\" feature, and replaced it with the \"Zoom\" feature in RDP sessions\n- Improvement: you can force magic cookies for X11 localhost connections by turning on the new \"X11MCAuth\" experimental setting in the \"Misc\" section of the INI file\n- Improvement: better detection of the current monitor when launching the \"Find\" window from MobaTextEditor\n- Improvement: added a new right-click option in \"MultiExec\" mode that allows to synchronize mouse scrolling\n- Improvement: added a new set of right-click options in \"MultiExec\" mode that allow to activate or deactivate all terminals\n- Improvement: you can now have SSH logins composed of a fixed part and a credential in square brackets\n- Improvement: reset the current path and other environment variables before restarting MobaXterm after changing the terminal type\n- Improvement: if the SCP browser fails to connect, try to restart it in multiplex mode by using the terminal session channel\n- Bugfix: fixed a graphic glitch when switching a browser session from a high DPI monitor to a low DPI monitor\n- Bugfix: fixed the position of the \"Find\" dialog after 2 consecutive searches in MobaTextDiff\n- Bugfix: prevent MobaXterm Professional Customizer from adding an extra line at the end of the profile script",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/24.2.0.5220",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2422024061715901/MobaXterm_Installer_v24.2.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v24.2.zip",
+          "sha256": "9c0b9f66270ce27f8f66e6954415aa68f52f7e377d4c9082df0897eb0b28e8a8",
+          "product_code": "{BF9F11D8-3C23-41B6-85C9-1BD0C5A1BD1C}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{BF9F11D8-3C23-41B6-85C9-1BD0C5A1BD1C}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.1.0.5208",
+      "release_date": "2024-04-26",
+      "release_notes": "- Improvement: the embedded Xorg server has been updated to version 21.1.12\n- Improvement: the X11 \"on-demand\" setting from the Customizer cannot be superseded with the \"xhost\" command anymore\n- Improvement: the embedded terminal and X server no longer use the Windows UAC virtualization technology\n- Improvement: the Ed25519 SSH keys in PuTTY format are now properly managed by the command-line SSH client\n- Improvement: added a new \"PingCmd\" ini setting under the \"Misc\" section to modify the ping command available from the session context menu\n- Improvement: added a minor RSA-SHA2 kex workaround for not-entirely-compliant servers in SFTP sessions\n- Improvement: improved the embedded X server decompression at MobaXterm startup\n- Security fix: 521-bit ECDSA keys (ecdsa-sha2-nistp521) are not signed using a deterministic nonce anymore (fixes CVE-2024-31497)",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/24.1.0.5208",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2412024041614011/MobaXterm_Installer_v24.1.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v24.1.zip",
+          "sha256": "0745338cb95248f4ee083e417ec343fffd1b068064a93ef48b7df8a0adfc649b",
+          "product_code": "{26FE75FD-FBB4-4009-AF91-CC74A9E298BB}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{26FE75FD-FBB4-4009-AF91-CC74A9E298BB}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "24.0.0.5204",
+      "release_date": "2024-03-08",
+      "release_notes": "- New feature: a new \"Expert terminal settings\" button has been added to the global settings\n- New feature: a new \"Expert terminal settings\" button has been added in each session settings\n- Improvement: the keyboard shortcuts used in the terminal disconnection message are now configurable\n- Improvement: the delimiters that are used when selecting a word in the terminal using double-click are now configurable\n- Improvement: you can now define the maximum number of scrollback lines for each terminal\n- Improvement: you can now enable or disable the terminal alternate screen\n- Improvement: the local echo feature can be forced on or off for each terminal\n- Improvement: application cursors and application keypad features can be forced on or off and can also be activated by default for each terminal\n- Improvement: you can now decide whether \"Ctrl+Alt\" keys act as \"AltGr\" key\n- Improvement: the \"Answerback\" string is now configurable for each terminal\n- Improvement: you can now disable the \"Auto-copy selected text\" feature\n- Improvement: each terminal can now add a \"CR\" or \"LF\" at each new line if necessary\n- Improvement: tuned TLS settings for better support of AWS S3 servers\n- Improvement: removed some unnecessary checks during MobaXterm startup\n- Improvement: updated MobaXterm embedded help with the latest features additions\n- Improvement: the DNS query for the SFTP browser has been improved for better performances\n- Improvement: modified the MSI installer to ensure that the installation folder contains a \"MobaXterm\" subdirectory\n- Improvement: added many more items in the default syntax, especially for network equipment and shell scripts\n- Improvement: a new prompt allows you to accept a new server host key if the SFTP browser fails to connect because of an invalid stored host key\n- Bugfix: adjusted the macro title length when it was too long to be displayed\n- Bugfix: adjusted the width of some checkboxes in the global settings window to fit monitors using 175% DPI\n- Bugfix: fixed an issue with credentials used in jump hosts when no session was configured with these credentials\n- Bugfix: the \"edit session presets\" setting was not working when launched from the \"Compact Mode\" menu\n- Bugfix: fixed a graphical SFTP browser connection issue when using server names without their FQDN",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/24.0.0.5204",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2402024022512842/MobaXterm_Installer_v24.0.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v24.0.zip",
+          "sha256": "f9de0ab4edc1048169186dbef6b7a74714f9ab23291cd9e0555af530d964ef07",
+          "product_code": "{79CD2C42-8C19-483C-9C01-FE493E289079}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{79CD2C42-8C19-483C-9C01-FE493E289079}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.6.0.5186",
+      "release_date": "2023-12-30",
+      "release_notes": "- Improvement: updated the SSH and terminal emulator engine with the latest improvements from the PuTTY project to address Terrapin issue\n- Improvement: updated the command-line SSH client based on OpenSSH to the latest version to address Terrapin issue\n- Improvement: updated OpenSSL in the 64-bit local terminal environment\n- Improvement: the \"Publisher name\" field is not emp ty anymore in the embedded X11 server\n- Improvement: after having modified a remote file, the confirmation popup now contains buttons with borders\n- Improvement: updated some packages available through the \"apt\" command in the 64-bit local terminal environment",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/23.6.0.5186",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2362023122033030/MobaXterm_Installer_v23.6.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v23.6.zip",
+          "sha256": "6770bb1538143f530441e9de17583d99e5cb529ae54340f84de1f313f4081927",
+          "product_code": "{C9D456CC-BC1A-4671-8891-A6593420ABD1}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{C9D456CC-BC1A-4671-8891-A6593420ABD1}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.5.0.5182",
+      "release_date": "2023-12-01",
+      "release_notes": "- Improvement: updated the SSH and terminal emulator engine with the latest improvements from the PuTTY project\n- Improvement: added support for SSH MAC algorithm \"hmac-sha2-512\"\n- Improvement: updated Toybox to the latest version in the 64-bit terminal environment\n- Improvement: added some new embedded commands in the 64-bit local terminal: file, getopt, hexdump, iconv, sha256sum, sha512sum\n- Improvement: upgraded OpenSSL to version 3.0 in the 64-bit local terminal environment\n- Improvement: improved the speed of the \"apt\" command in the 64-bit local terminal environment\n- Improvement: updated all the packages available through the \"apt\" command in the 64-bit local terminal environment\n- Improvement: the MobApt package manager displays a prompt to allow the local terminal to be switched to 64-bit\n- Improvement: better detection of small changes in \"MobaTextDiff\" graphical diff and merge tool\n- Improvement: added a check for empty file names in the SSH browser, before removing color sequences\n- Improvement: improved completion of plugin names in the new \"apt plugin\" command\n- Improvement: many new packages are now available in the \"apt plugin\" command\n- Improvement: improved conversion of Unix to Dos files paths for \"ldd\" and \"open\" commands\n- Improvement: better detection of the proper monitor for terminal popup messages placement\n- Improvement: updated the embedded X11 server based on Xorg to version 21.1.8\n- Improvement: added a way to disable SSH, Serial, Browser, Shell, and WSL sessions in the Professional Customizer\n- Improvement: added syntax highlighting for Cmake files in the MobaTextEditor and MobaTextDiff\n- Improvement: modified the mechanism used for 64-bit binaries located in a read-only folder\n- Bugfix: prevented the command line SSH client from breaking the tty when exiting on error\n- Bugfix: the basic telnet server used to freeze a few seconds during client disconnection",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/23.5.0.5182",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "url": "https://download.mobatek.net/2352023111832715/MobaXterm_Installer_v23.5.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v23.5.zip",
+          "sha256": "715f1db3d326bce409893477c71f0c66e9786e25a7d58d3271c3977605f02308",
+          "product_code": "{D6BE09DF-1E6E-4258-B645-5155F5B06846}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{D6BE09DF-1E6E-4258-B645-5155F5B06846}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.4.0.5156",
+      "release_date": "2023-11-01",
+      "release_notes": "- Improvement: improved the overall speed of the new \"apt plugin\" command\n- Improvement: better detection of escape color codes in the graphical SSH browser\n- Improvement: better compatibility with specific GSSAPI implementations in the graphical SSH browser\n- Improvement: added a new \"TFTP buffer size\" setting in the embedded TFTP server configuration\n- Improvement: added a time delay when entering wrong master passwords several times\n- Improvement: the tabs bar can now be scrolled using the mouse wheel\n- Improvement: all tabs can now be pinned to the left of the tabs bar\n- Improvement: prevent MobaXterm from doubling the path backslashes in tab titles\n- Improvement: 2 sessions to the same server with the same login can now use different credentials\n- Improvement: increased the speed of authentication using credentials\n- Improvement: the popup terminal now uses the global default shell, even if this default shell is WSL, CMD, Powershell, Git-Bash, Msys, or Cygwin\n- Security fix: updated Curl to the latest version (fixes CVE-2023-38545)",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/23.4.0.5156",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "scope": "machine",
+          "url": "https://download.mobatek.net/2342023101450418/MobaXterm_Installer_v23.4.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v23.4.zip",
+          "sha256": "f38b58b309b650981854b0639b531dcfb00123699c969a85d53d2f5095b86a60",
+          "product_code": "{A78AB09C-EEA8-4744-83A4-8B430BED60C4}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{A78AB09C-EEA8-4744-83A4-8B430BED60C4}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.3.0.5142",
+      "release_date": "2023-09-29",
+      "release_notes": "- New feature: you can now create your own plugins for MobaXterm local terminal by using the \"createplugin\" command\n- Improvement: added many new fonts in the embedded X server\n- Improvement: you can now disable the \"Wake On Lan\" feature from the Professional Customizer program\n- Improvement: added some specific patterns for log parsing in the syntax highlighting feature\n- Improvement: implemented a workaround in order to prevent Caffeine from writing unwanted characters onto the terminal\n- Improvement: when clicking on the \"Stay on top\" button in a detached tab, the window now stays in the same position\n- Improvement: the XWin executable is removed after disabling the X11 server from the Professional Customizer program\n- Improvement: the SSH engine has been set to \"New\" by default in the Professional Customizer program\n- Improvement: some basic telnet options are now available in the Live terminal configuration settings\n- Improvement: updated the embedded OpenSSH to version 9.4p1\n- Improvement: added some more Windows commands to the 64-bit terminal (nslookup, ...)\n- Improvement: you can now force Telnet to send \"control-M\" instead of \"new line\" when pressing the \"Return\" key\n- Improvement: added a way to force Telnet negotiation to \"Passive\" mode if the server needs it\n- Improvement: improved the Unix to Windows path conversion functions\n- Improvement: added a new Telnet \"KeepAlive\" setting that allows to regularly send data through idle connections\n- Improvement: implemented a better detection of IPv6 hosts for SFTP browser and SFTP sessions\n- Improvement: the remote monitoring bar is now able to display more than 16 network interfaces\n- Bugfix: fixed a potential race condition when browsing for a folder in the TFTP service settings\n- Bugfix: removed multiple error messages when transferring files through SFTP to folders without proper permissions\n- Bugfix: removed the \"Terminal settings\" section from VNC sessions",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/23.3.0.5142",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "scope": "machine",
+          "url": "https://download.mobatek.net/2332023092000531/MobaXterm_Installer_v23.3.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v23.3.zip",
+          "sha256": "4021ce8311fe88afeabcc677981294a79d4c8c744c583cfcc6c75453cfae05cc",
+          "product_code": "{516551DE-C69E-4A2D-8AC8-8EE10F56F5A1}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{516551DE-C69E-4A2D-8AC8-8EE10F56F5A1}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.2.0.5082",
+      "release_date": "2023-06-25",
+      "release_notes": "- Improvement: added support for NTRU Prime post-quantum key exchange in the expert SSH settings\n- Improvement: added support for AES-GCM cipher in the expert SSH settings\n- Improvement: you can now set the minimum master password complexity in the Customizer to \"standard\" (8 characters minimum) or \"strong\" (12 characters minimum)\n- Improvement: updated the MoTTY engine with the latest improvements from the PuTTY project\n- Improvement: the \"MobaSSHTunnel\" button now brings any existing window to the front, even if it was minimized\n- Improvement: merged fonts locations \"/usr/share/fonts\" and \"/usr/share/X11/fonts\" into a single one\n- Improvement: added a new setting in MobaDiff in order to highlight small text changes with a different color\n- Improvement: the X server is not moved anymore to the top left corner once it is started\n- Improvement: the \"screen\" parameter in \"XWinSwitches\" overloads the existing one instead of being added to the X11 command line\n- Improvement: you can now go to the parent directory in the SSH browser by clicking on the 4th mouse button\n- Improvement: improved compatibility of the terminal with the \"tsh\" Teleport client\n- Improvement: you can now close a tab by using middle-click on the corresponding top-right popup menu item\n- Improvement: when closing a tab, other remaining tabs are now immediately replaced\n- Bugfix: in MobaDiff, the \"Find\" dialog theme was incorrect when the dialog was spawned twice on 2 different files\n- Bugfix: when MobaXterm is hidden and an SSH session without a login is launched, the characters in the login prompt are not masked anymore\n- Bugfix: deleted an error message when starting a 64-bit local terminal with the agent enabled and an RSA key present in the home directory\n- Bugfix: prevented renaming of a sessions folder when dragging a session over that folder\n- Bugfix: there was an overlap issue when the Home tab was set to be replaced when starting a terminal and the tabs were set to be opened beside the current tab\n- Bugfix: when a local WSL terminal was launched just after a WSL session containing a command, the shell command was executed in the local WSL terminal\n- Bugfix: under some specific circumstances, the passphrase for SSH keys was asked twice in 64-bit mode",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/23.2.0.5082",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "scope": "machine",
+          "url": "https://download.mobatek.net/2322023060714555/MobaXterm_Installer_v23.2.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v23.2.zip",
+          "sha256": "69994d0fcc11ff65890c0a39d3c3912f0d5c8c7b51778620f4d5fda9f96f9a15",
+          "product_code": "{7991D101-447C-4078-84DD-7E8CFB2E1472}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{7991D101-447C-4078-84DD-7E8CFB2E1472}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.1.0.5058",
+      "release_date": "2023-04-01",
+      "release_notes": "- New feature: it is now possible to modify directly shared sessions that are stored in a network folder, as long as you have write access to this folder\n- New feature: it is now possible to automatically refresh shared sessions that are stored in a network folder\n- Improvement: added a new security setting in the Customizer program in order to disallow the \"Remember master password\" feature\n- Improvement: updated the interface for creating shared sessions and for managing existing shared sessions\n- Improvement: a folder of shared sessions can now display a green \"Refresh\" icon when the shared sessions are updated by someone else\n- Improvement: updated OpenSSL library and OpenSSH command line client to the latest version\n- Improvement: added a message in the command line SSH client in case you are trying to connect to an old SSH server with legacy algorithms\n- Improvement: improved MOSH sessions compatibility with remote TCSH, CSH, and FISH shells\n- Improvement: improved MOSH sessions compatibility with legacy SSH servers that use outdated algorithms\n- Improvement: added mouse wheel scrolling feature in the MobaSSHTunnel list and in the sessions SSH jump hosts list\n- Improvement: the file extension is now automatically appended when exporting a color theme\n- Improvement: create files /etc/passwd and /etc/groups at first start for proper names resolution in the \"ls\" commands in 32-bit terminals\n- Improvement: improved switching to MobaSSHTunnel window to prevent potential focus loss\n- Improvement: you can now use double quotes around the full \"File/Folder\" sessions parameters\n- Improvement: do not display font ligatures in the terminal and the text editor by default (the feature remains available in the global settings, terminal tab, font selection)\n- Bugfix: fixed the \"Soliterm\" game display that was scrambled in the latest release\n- Bugfix: when searching for a session in the \"Quick Connect\" field, the results list was not resized properly when resizing the sidebar\n- Bugfix: refreshing shared sessions stored on an HTTP backend did not work properly when the session was cached by the browser\n- Bugfix: the tab color selection button was hardly visible when the tab color was white\n- Bugfix: in the Customizer program, the custom toolbar buttons were not always refreshed\n- Bugfix: fixed a race condition when starting a very slow SSH session, and stopping it immediately, while another one is already started\n- Bugfix: with the \"Deep\" skin, the \"Recent sessions\" list was hardly readable on light background\n- Bugfix: detached tabs were sometimes sticking to the borders of the screen in a multi-monitor environment\n- Bugfix: fixed a potential race condition when using the mouse wheel in the sessions SSH jump hosts list",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/23.1.0.5058",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "scope": "machine",
+          "url": "https://download.mobatek.net/2312023031823706/MobaXterm_Installer_v23.1.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v23.1.zip",
+          "sha256": "a37a3f1ff350651a347298ae1d94cfc9afa7caa3e9f3866c07e517634d8a5bb5",
+          "product_code": "{CF6F690A-57ED-42D1-847C-61015C09D45C}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{CF6F690A-57ED-42D1-847C-61015C09D45C}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "23.0.0.5042",
+      "release_date": "2023-01-27",
+      "release_notes": "- Improvement: added a new web browser engine based on Microsoft Edge WebView\n- Improvement: added a new RDP \"Zoom\" feature that allows you to specify a Zoom level for your remote RDP session\n- Improvement: added a new RDP setting \"Authentication level\" that is useful when you use RDP over SSL\n- Improvement: added a new RDP setting \"Color depth\" in order to specify the desired color depth on the client side\n- Improvement: added a new RDP setting \"Redirect smartcards\" that allows using local smartcards on the server side, even for authentication\n- Improvement: arranged RDP advanced settings in a more convenient fashion\n- Improvement: added proxy support in browser sessions based on Edge/WebView\n- Improvement: improved VNC sessions overall speed with embedded engine\n- Improvement: increased the width of port fields for better reading of port numbers greater than 9999\n- Improvement: added a new setting in the professional Customizer program to disable the Remote Monitoring feature\n- Improvement: it is now possible to select a 64-bit terminal from the Customizer program\n- Improvement: the plugins are now unpacked after installation when the Slash directory is set to the \"Program Files\" folder\n- Improvement: you can now include 64-bit plugins in MobaXterm Customizer\n- Bugfix: fixed an issue with the SSH command line client when a jump host was set and the Slash directory was set to the \"Program Files\" folder\n- Bugfix: fixed a potential crash on VNC sessions when the new embedded engine and an SSH gateway were set\n- Bugfix: the local terminal setting was not properly restored when importing an old customization file into the Customizer program\n- Bugfix: fixed the OpenSSH daemon start-up when the slash directory was set to \"same as application\" in the customizer\n- Bugfix: fixed Unicode characters display in the SSH key sessions fields\n- Bugfix: fixed Unicode characters display in the start-up folder sessions fields\n- Bugfix: fixed Unicode characters display in the persistent Home and persistent Slash folders fields",
+      "release_notes_url": "https://mobaxterm.mobatek.net/download-home-edition.html",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/m/Mobatek/MobaXterm/23.0.0.5042",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "zip",
+          "nested_type": "wix",
+          "scope": "machine",
+          "url": "https://download.mobatek.net/2302023012231703/MobaXterm_Installer_v23.0.zip",
+          "host": "download.mobatek.net",
+          "filename": "MobaXterm_Installer_v23.0.zip",
+          "sha256": "668550319b08dbc690290b13d129d337b3d82383b7def31afaecff4e793b5c1d",
+          "product_code": "{5D049EF0-F163-4D5A-A229-708AAA5FB847}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "mobaxterm"
+          ],
+          "file_extensions": [
+            "moba"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "{5D049EF0-F163-4D5A-A229-708AAA5FB847}",
+              "upgrade_code": "{745A604F-05A1-4867-8881-59888EC8B806}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "2357ad82abb28d4643441bca40767ddc3b356869",
+      "retrieved_at": "2026-11-18T14:27:13.991Z",
+      "path": "manifests/m/Mobatek/MobaXterm"
+    }
+  ]
+}

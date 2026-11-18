@@ -9911,7 +9911,7 @@
   "soulseekqt": {
     "checked_at": "2026-11-18",
     "skipped": true,
-    "reason": "2 of 2 downloads failed: curl: (7) Failed to connect to f004.backblazeb2.com port 443 after 5037 ms: Connection refused",
+    "reason": "2 of 2 downloads failed: curl: (7) Failed to connect to f004.backblazeb2.com port 443 after 5041 ms: Connection refused",
     "installers_attempted": [
       {
         "platform": "windows",
@@ -9920,7 +9920,7 @@
         "url": "https://f004.backblazeb2.com/file/SoulseekQt/SoulseekQt-2026-4-30-64bit.exe",
         "expected_sha256": "4ba32e37bbd804ee69a88af018c3b9b49dd1bf772b65ad7c268718d0ed93eb29",
         "hash": "download-failed",
-        "error": "curl: (7) Failed to connect to f004.backblazeb2.com port 443 after 5037 ms: Connection refused",
+        "error": "curl: (7) Failed to connect to f004.backblazeb2.com port 443 after 5041 ms: Connection refused",
         "signature": {
           "tool": null,
           "status": "not-checked",
@@ -9934,7 +9934,7 @@
         "url": "https://f004.backblazeb2.com/file/SoulseekQt/SoulseekQt-2026-4-30.dmg",
         "expected_sha256": "72fa8c2b91c9eda39c765485c09995299a17834bf62862e37e4d6353bc18f1b7",
         "hash": "download-failed",
-        "error": "curl: (7) Failed to connect to f004.backblazeb2.com port 443 after 5024 ms: Connection refused",
+        "error": "curl: (7) Failed to connect to f004.backblazeb2.com port 443 after 5027 ms: Connection refused",
         "signature": {
           "tool": null,
           "status": "not-checked",
@@ -15843,21 +15843,19 @@
   },
   "seafile": {
     "checked_at": "2026-11-18",
-    "skipped": true,
-    "reason": "2 of 2 downloads failed: curl: (6) Could not resolve host: sos-ch-dk-2.exo.io",
-    "installers_attempted": [
+    "installers": [
       {
         "platform": "windows",
         "version": "9.0.22",
         "filename": "seafile-9.0.22-en.msi",
         "url": "https://sos-ch-dk-2.exo.io/seafile-downloads/seafile-9.0.22-en.msi",
         "expected_sha256": "03bea055d061cf2d764fac82279b5cfb66e0a14b56beff314f1b3b189eddc5ad",
-        "hash": "download-failed",
-        "error": "curl: (6) Could not resolve host: sos-ch-dk-2.exo.io",
+        "computed_sha256": "03bea055d061cf2d764fac82279b5cfb66e0a14b56beff314f1b3b189eddc5ad",
+        "hash": "match",
         "signature": {
-          "tool": null,
-          "status": "not-checked",
-          "detail": "download failed"
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Seafile Ltd."
         }
       },
       {
@@ -15866,12 +15864,12 @@
         "filename": "seafile-client-9.0.22.dmg",
         "url": "https://sos-ch-dk-2.exo.io/seafile-downloads/seafile-client-9.0.22.dmg",
         "expected_sha256": "c2c587daab5be250668740f092adc8a3808cce47af5f3f345c88e9e27615d11b",
-        "hash": "download-failed",
-        "error": "curl: (6) Could not resolve host: sos-ch-dk-2.exo.io",
+        "computed_sha256": "c2c587daab5be250668740f092adc8a3808cce47af5f3f345c88e9e27615d11b",
+        "hash": "match",
         "signature": {
-          "tool": null,
-          "status": "not-checked",
-          "detail": "download failed"
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/seafile-macos-seafile-client-9.0.22.dmg: code object is not signed at all"
         }
       }
     ]
@@ -18170,6 +18168,876 @@
           "tool": "codesign",
           "status": "unsigned",
           "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/intellij-idea-macos-ideaIU-2026.3-aarch64.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "canva": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "1.129.0",
+        "filename": "Canva Setup 1.129.0.exe",
+        "url": "https://desktop-release.canva.com/Canva%20Setup%201.129.0.exe",
+        "expected_sha256": "536c29dd56670c8328cf14192103498c664e769721d8f10449978985700f6f84",
+        "computed_sha256": "536c29dd56670c8328cf14192103498c664e769721d8f10449978985700f6f84",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Canva"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "1.129.0",
+        "filename": "Canva-1.129.0-universal.dmg",
+        "url": "https://desktop-release.canva.com/Canva-1.129.0-universal.dmg",
+        "expected_sha256": "2f2aa0b64d8ca7e3ca4851f10d70f147a453704748ddd6b4ad087dc1cd6a529a",
+        "computed_sha256": "2f2aa0b64d8ca7e3ca4851f10d70f147a453704748ddd6b4ad087dc1cd6a529a",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/canva-macos-Canva-1.129.0-universal.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "capcut": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "9.8.0.4213",
+        "filename": "CapCut_9_8_0_4213_capcutpc_0_creatortool.exe",
+        "url": "https://sf16-web-tos-buz.capcutstatic.com/obj/capcut-web-buz-sg/packages/CapCut_9_8_0_4213_capcutpc_0_creatortool.exe",
+        "expected_sha256": "0bc1ffb20a8b1f081ddbc91de678eb94b486d2643a97b3d0458ee9017284e79b",
+        "computed_sha256": "0bc1ffb20a8b1f081ddbc91de678eb94b486d2643a97b3d0458ee9017284e79b",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Bytedance Pte. Ltd."
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "9.8.0.4799",
+        "filename": "CapCut_9_8_0_4799_capcutpc_0_creatortool_nosandbox.dmg",
+        "url": "https://sf16-web-tos-buz.capcutstatic.com/obj/capcut-web-buz-sg/packages/CapCut_9_8_0_4799_capcutpc_0_creatortool_nosandbox.dmg",
+        "expected_sha256": "174d22264055e67047c0f0a495c3c7ac0e6681dfe80dac31c80f9741b12204e1",
+        "computed_sha256": "174d22264055e67047c0f0a495c3c7ac0e6681dfe80dac31c80f9741b12204e1",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/capcut-macos-CapCut_9_8_0_4799_capcutpc_0_creatortool_nosandbox.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "anaconda": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "2026.07-1",
+        "filename": "Anaconda3-2026.07-1-Windows-x86_64.exe",
+        "url": "https://repo.anaconda.com/archive/Anaconda3-2026.07-1-Windows-x86_64.exe",
+        "expected_sha256": "b545f4bd8ab3bf32d99002a0779a887668ebfe479ee32ecbf060375670d5ee09",
+        "computed_sha256": "b545f4bd8ab3bf32d99002a0779a887668ebfe479ee32ecbf060375670d5ee09",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Anaconda\\"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "2026.07-1",
+        "filename": "Anaconda3-2025.06-1-MacOSX-x86_64.sh",
+        "url": "https://repo.anaconda.com/archive/Anaconda3-2025.06-1-MacOSX-x86_64.sh",
+        "expected_sha256": "58139fe195337f3041259e3a611339ed3afa4d164cc9aa2a7e8e84c0673e3670",
+        "computed_sha256": "58139fe195337f3041259e3a611339ed3afa4d164cc9aa2a7e8e84c0673e3670",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "sh files carry no embedded signature"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "2026.07-1",
+        "filename": "Anaconda3-2026.07-1-MacOSX-arm64.sh",
+        "url": "https://repo.anaconda.com/archive/Anaconda3-2026.07-1-MacOSX-arm64.sh",
+        "expected_sha256": "6a9b63c645db4dbe293ffe9f168f7e380fe7a041fc863e67ee84db027425bce2",
+        "computed_sha256": "6a9b63c645db4dbe293ffe9f168f7e380fe7a041fc863e67ee84db027425bce2",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "sh files carry no embedded signature"
+        }
+      }
+    ]
+  },
+  "claude": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "4.29.0",
+        "filename": "Claude-2609742292f7dbce2e259e76f53620cac4da9002.msix",
+        "url": "https://downloads.claude.ai/releases/win32/x64/4.29.0/Claude-2609742292f7dbce2e259e76f53620cac4da9002.msix",
+        "expected_sha256": "3451a3004da97d23b9680517c1f792ddb978b9209433237449267474ad6cfc36",
+        "computed_sha256": "3451a3004da97d23b9680517c1f792ddb978b9209433237449267474ad6cfc36",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "4.29.0",
+        "filename": "Claude-2609742292f7dbce2e259e76f53620cac4da9002.msix",
+        "url": "https://downloads.claude.ai/releases/win32/arm64/4.29.0/Claude-2609742292f7dbce2e259e76f53620cac4da9002.msix",
+        "expected_sha256": "11cec03646e1c791106ae4334a30ce3b789ec1d9b3cfd805b2bfb4830e7596a0",
+        "computed_sha256": "11cec03646e1c791106ae4334a30ce3b789ec1d9b3cfd805b2bfb4830e7596a0",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "4.29.0",
+        "filename": "Claude-2609742292f7dbce2e259e76f53620cac4da9002.exe",
+        "url": "https://downloads.claude.ai/releases/win32/x64/4.29.0/Claude-2609742292f7dbce2e259e76f53620cac4da9002.exe",
+        "expected_sha256": "669b6c60b1a56028df49d745d045658f51be5cf787b7d17792da632ed0d2eb1c",
+        "computed_sha256": "669b6c60b1a56028df49d745d045658f51be5cf787b7d17792da632ed0d2eb1c",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Anthropic\\"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "4.29.0",
+        "filename": "Claude-2609742292f7dbce2e259e76f53620cac4da9002.exe",
+        "url": "https://downloads.claude.ai/releases/win32/arm64/4.29.0/Claude-2609742292f7dbce2e259e76f53620cac4da9002.exe",
+        "expected_sha256": "10c5695dbfb2d4627cfaf77de939fc06d0ea1eb3366716970863ccabc35d6348",
+        "computed_sha256": "10c5695dbfb2d4627cfaf77de939fc06d0ea1eb3366716970863ccabc35d6348",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Anthropic\\"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "6.6395.0",
+        "filename": "Claude-d71a20056be3b25708751e98bef60759ea1f441b.zip",
+        "url": "https://downloads.claude.ai/releases/darwin/universal/6.6395.0/Claude-d71a20056be3b25708751e98bef60759ea1f441b.zip",
+        "expected_sha256": "88c7b43039e77529930eda386a21141232bf2acb6762d04e6fbc2d028813847a",
+        "computed_sha256": "88c7b43039e77529930eda386a21141232bf2acb6762d04e6fbc2d028813847a",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      }
+    ]
+  },
+  "clickup": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "3.5.402",
+        "filename": "ClickUp Setup 3.5.402 - Build 261028rnqdrclpe-x64.exe",
+        "url": "https://download.todesktop.com/221003ra4tebclw/ClickUp%20Setup%203.5.402%20-%20Build%20261028rnqdrclpe-x64.exe",
+        "expected_sha256": "99089894577808aeaa0b601f5e760472d8385a472923b7570937a501fb455f34",
+        "computed_sha256": "99089894577808aeaa0b601f5e760472d8385a472923b7570937a501fb455f34",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by CLICKUP (MANGO TECHNOLOGIES\\"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "3.5.402",
+        "filename": "ClickUp-3.5.402-build-261028rnqdrclpe-x64.msi",
+        "url": "https://download.todesktop.com/221003ra4tebclw/ClickUp-3.5.402-build-261028rnqdrclpe-x64.msi",
+        "expected_sha256": "895c87aafdc8106f89b8f4d3f7fb705cc295608afb79363014579c573bfcf52b",
+        "computed_sha256": "895c87aafdc8106f89b8f4d3f7fb705cc295608afb79363014579c573bfcf52b",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by CLICKUP (MANGO TECHNOLOGIES\\"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "3.5.402",
+        "filename": "ClickUp 3.5.402 - Build 261028rnqdrclpe-x64.dmg",
+        "url": "https://download.todesktop.com/221003ra4tebclw/ClickUp%203.5.402%20-%20Build%20261028rnqdrclpe-x64.dmg",
+        "expected_sha256": "61675bf12d831643d4304055a05179a48cea00a8a6ee62dfbc53fa8e4ae92620",
+        "computed_sha256": "61675bf12d831643d4304055a05179a48cea00a8a6ee62dfbc53fa8e4ae92620",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/clickup-macos-ClickUp_3.5.402_-_Build_261028rnqdrclpe-x64.dmg: code object is not signed at all"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "3.5.402",
+        "filename": "ClickUp 3.5.402 - Build 261028rnqdrclpe-arm64.dmg",
+        "url": "https://download.todesktop.com/221003ra4tebclw/ClickUp%203.5.402%20-%20Build%20261028rnqdrclpe-arm64.dmg",
+        "expected_sha256": "3d5f17eba61685f06c9540ac3ef00649ad43789ae1a58cf58d5738c7dcc35092",
+        "computed_sha256": "3d5f17eba61685f06c9540ac3ef00649ad43789ae1a58cf58d5738c7dcc35092",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/clickup-macos-ClickUp_3.5.402_-_Build_261028rnqdrclpe-arm64.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "chatgpt": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "26.1111.2228.0",
+        "filename": "ChatGPT-x64.msix",
+        "url": "https://persistent.oaistatic.com/codex-app-prod/releases/26.1111.2228.0/ChatGPT-x64.msix",
+        "expected_sha256": "9af8619e929f00369a47326717f9515205a0e25dd409bc4c29af62c74c1ed898",
+        "computed_sha256": "9af8619e929f00369a47326717f9515205a0e25dd409bc4c29af62c74c1ed898",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "26.1111.2228.0",
+        "filename": "ChatGPT-arm64.msix",
+        "url": "https://persistent.oaistatic.com/codex-app-prod/releases/26.1111.2228.0/ChatGPT-arm64.msix",
+        "expected_sha256": "e9f413125a05f02f4bfde82685d6be64f19f450844b3f0d0339129b1907ccb8f",
+        "computed_sha256": "e9f413125a05f02f4bfde82685d6be64f19f450844b3f0d0339129b1907ccb8f",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "26.1111.71025",
+        "filename": "ChatGPT-darwin-x64-26.1111.71025.zip",
+        "url": "https://persistent.oaistatic.com/codex-app-prod/ChatGPT-darwin-x64-26.1111.71025.zip",
+        "expected_sha256": "c7ebb225169be945fe27c2d9d51547dfa77d58a97b0b81d5c5e814f3925a82d5",
+        "computed_sha256": "c7ebb225169be945fe27c2d9d51547dfa77d58a97b0b81d5c5e814f3925a82d5",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "26.1111.71025",
+        "filename": "ChatGPT-darwin-arm64-26.1111.71025.zip",
+        "url": "https://persistent.oaistatic.com/codex-app-prod/ChatGPT-darwin-arm64-26.1111.71025.zip",
+        "expected_sha256": "7edb7f133e41d947a9e11826f3669fd32be2ff6c6bbdaa01e40eb41b9e39e957",
+        "computed_sha256": "7edb7f133e41d947a9e11826f3669fd32be2ff6c6bbdaa01e40eb41b9e39e957",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      }
+    ]
+  },
+  "expressvpn": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "14.3.1+15429",
+        "filename": "expressvpn-windows-x64-14.3.1.15429_release.exe",
+        "url": "https://www.expressvpn.works/clients/windows/expressvpn-windows-x64-14.3.1.15429_release.exe",
+        "expected_sha256": "d31b94902e2a31a3514e546204861fb9534dc579820e289ff1e3f311bdbff1cb",
+        "computed_sha256": "d31b94902e2a31a3514e546204861fb9534dc579820e289ff1e3f311bdbff1cb",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Expressco Services LLC"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "14.3.1+15429",
+        "filename": "expressvpn-windows-arm64-14.3.1.15429_release.exe",
+        "url": "https://www.expressvpn.works/clients/windows/expressvpn-windows-arm64-14.3.1.15429_release.exe",
+        "expected_sha256": "0e6d7ca02d4037e1e36370b6676b946ffe067a89f75fad4e3f7c96f7807e4faf",
+        "computed_sha256": "0e6d7ca02d4037e1e36370b6676b946ffe067a89f75fad4e3f7c96f7807e4faf",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Expressco Services LLC"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "14.3.1.15429",
+        "filename": "expressvpn-macos-universal-14.3.1.15429_release.zip",
+        "url": "https://www.expressvpn.works/clients/mac/expressvpn-macos-universal-14.3.1.15429_release.zip",
+        "expected_sha256": "27403401df75ae32aeb8e7621164ef949a40c8f6858e84c05a34f33665ffb7e4",
+        "computed_sha256": "27403401df75ae32aeb8e7621164ef949a40c8f6858e84c05a34f33665ffb7e4",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      }
+    ]
+  },
+  "grammarly": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "1.2.310.2001",
+        "filename": "GrammarlyInstaller.exe",
+        "url": "https://download-windows.grammarly.com/versions/1.2.310.2001/net10/x64/GrammarlyInstaller.exe",
+        "expected_sha256": "b88cfc0981ba8e105dc2a99fa1f315b704cf1d0755958c460e11f2055d08ed9e",
+        "computed_sha256": "b88cfc0981ba8e105dc2a99fa1f315b704cf1d0755958c460e11f2055d08ed9e",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Grammarly\\"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "1.211.0.0",
+        "filename": "Grammarly.dmg",
+        "url": "https://download-mac.grammarly.com/versions/1.211.0.0/Grammarly.dmg",
+        "expected_sha256": "2aed2845270a340b624fa3f33d476f9654c59660f82b3f1fbf8f75c8afe99278",
+        "computed_sha256": "2aed2845270a340b624fa3f33d476f9654c59660f82b3f1fbf8f75c8afe99278",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "valid",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/grammarly-macos-Grammarly.dmg: valid on disk | /var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/grammarly-macos-Grammarly.dmg: satisfies its Designated Requirement"
+        }
+      }
+    ]
+  },
+  "mobaxterm": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "26.6.0.5560",
+        "filename": "MobaXterm_Installer_v26.6.zip",
+        "url": "https://download.mobatek.net/2662026100713843/MobaXterm_Installer_v26.6.zip",
+        "expected_sha256": "c4840fffebf0f722e68f9279f9c57aff8782ee5fc46f1f397fb19dbf2a58dcf1",
+        "computed_sha256": "c4840fffebf0f722e68f9279f9c57aff8782ee5fc46f1f397fb19dbf2a58dcf1",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      }
+    ]
+  },
+  "loom": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "0.386.0",
+        "filename": "Loom Setup 0.386.0.exe",
+        "url": "https://cdn.loom.com/desktop-packages/Loom%20Setup%200.386.0.exe",
+        "expected_sha256": "8f11771ec0ccc91c0b4971ce3bf648d789d1f25a1a3f9a388b7b8c0a6b5b2dfc",
+        "computed_sha256": "8f11771ec0ccc91c0b4971ce3bf648d789d1f25a1a3f9a388b7b8c0a6b5b2dfc",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Atlassian US\\"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "0.386.0",
+        "filename": "Loom-0.386.0.dmg",
+        "url": "https://packages.loom.com/desktop-packages/Loom-0.386.0.dmg",
+        "expected_sha256": "a5bff6ea85eab34fab6f979c7328c88484b5c62a9e0d1a4839b3a26db21c315b",
+        "computed_sha256": "a5bff6ea85eab34fab6f979c7328c88484b5c62a9e0d1a4839b3a26db21c315b",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/loom-macos-Loom-0.386.0.dmg: code object is not signed at all"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "0.386.0",
+        "filename": "Loom-0.386.0-arm64.dmg",
+        "url": "https://packages.loom.com/desktop-packages/Loom-0.386.0-arm64.dmg",
+        "expected_sha256": "3dcd8fffd8dd87163e1480d568752e64e32878c06890accd3a65f46700a2e380",
+        "computed_sha256": "3dcd8fffd8dd87163e1480d568752e64e32878c06890accd3a65f46700a2e380",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/loom-macos-Loom-0.386.0-arm64.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "power-bi-desktop": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "2.159.1231.0",
+        "filename": "PBIDesktopSetup-2026-10_x64.exe",
+        "url": "https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup-2026-10_x64.exe",
+        "expected_sha256": "55e8ee44aa908d75edaed4bdb1a34863f41c047951f3724f298486fe07049f2d",
+        "computed_sha256": "55e8ee44aa908d75edaed4bdb1a34863f41c047951f3724f298486fe07049f2d",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Microsoft Corporation"
+        }
+      }
+    ]
+  },
+  "revo-uninstaller": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "2.7.2",
+        "filename": "revosetup.exe",
+        "url": "https://revouninstaller.b-cdn.net/ruf272/revosetup.exe",
+        "expected_sha256": "2ddea619387aa1f12a03fbe9d283ce5f65f900085c419c2f615d3c7273a3a509",
+        "computed_sha256": "2ddea619387aa1f12a03fbe9d283ce5f65f900085c419c2f615d3c7273a3a509",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by VS REVO GROUP OOD"
+        }
+      }
+    ]
+  },
+  "proton-mail-bridge": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "3.27.2",
+        "filename": "Bridge-Installer.exe",
+        "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.27.2/Bridge-Installer.exe",
+        "expected_sha256": "60be9e343840391629dd692c9b3339dee98ee6ff140e150dcb3866921c3e3268",
+        "computed_sha256": "60be9e343840391629dd692c9b3339dee98ee6ff140e150dcb3866921c3e3268",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Proton AG"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "3.27.2",
+        "filename": "Bridge-Installer.dmg",
+        "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.27.2/Bridge-Installer.dmg",
+        "expected_sha256": "e9d9a0edf7fc9cd6cd42d518bfebafa5c2b5657f39b54637d1f4cd85b0a45c61",
+        "computed_sha256": "e9d9a0edf7fc9cd6cd42d518bfebafa5c2b5657f39b54637d1f4cd85b0a45c61",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/proton-mail-bridge-macos-Bridge-Installer.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "processing": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "4.5.7",
+        "filename": "processing-4.5.7-windows-x64.msi",
+        "url": "https://github.com/processing/processing4/releases/download/processing-1435-4.5.7/processing-4.5.7-windows-x64.msi",
+        "expected_sha256": "27f88ededad83edb04ae04f7ff1c32e02552104b18b439384ac378d2da28467a",
+        "computed_sha256": "27f88ededad83edb04ae04f7ff1c32e02552104b18b439384ac378d2da28467a",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Processing Foundation Inc."
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "4.5.7",
+        "filename": "processing-4.5.7-macos-x64.dmg",
+        "url": "https://github.com/processing/processing4/releases/download/processing-1435-4.5.7/processing-4.5.7-macos-x64.dmg",
+        "expected_sha256": "d22d90852cf6f9d1dbc0bf4152691baa98820a36ea93acafea942ebbd6a2d5e5",
+        "computed_sha256": "d22d90852cf6f9d1dbc0bf4152691baa98820a36ea93acafea942ebbd6a2d5e5",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/processing-macos-processing-4.5.7-macos-x64.dmg: code object is not signed at all"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "4.5.7",
+        "filename": "processing-4.5.7-macos-aarch64.dmg",
+        "url": "https://github.com/processing/processing4/releases/download/processing-1435-4.5.7/processing-4.5.7-macos-aarch64.dmg",
+        "expected_sha256": "27fb4bb8d5fb785c02cc6987649e215b224d49a3ad9ae7dbedc3a8ccf981cae9",
+        "computed_sha256": "27fb4bb8d5fb785c02cc6987649e215b224d49a3ad9ae7dbedc3a8ccf981cae9",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/processing-macos-processing-4.5.7-macos-aarch64.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "spark-mail": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "3.32.5",
+        "filename": "Spark.exe",
+        "url": "https://downloads.sparkmailapp.com/Spark3/win/dist/3.32.5.141587/Spark.exe",
+        "expected_sha256": "e8cb9103a406d2ad7eefa748546c962b75818767f4c4d132c1f05b3a591ce4d4",
+        "computed_sha256": "e8cb9103a406d2ad7eefa748546c962b75818767f4c4d132c1f05b3a591ce4d4",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Spark Mail Limited"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "3.32.5.141586",
+        "filename": "Spark.zip",
+        "url": "https://downloads.sparkmailapp.com/Spark3/mac/dist/3.32.5.141586/Spark.zip",
+        "expected_sha256": "eb928d962d425ec0654f7fc356496712d2fe46cd8a9da2927bca1800f136acb1",
+        "computed_sha256": "eb928d962d425ec0654f7fc356496712d2fe46cd8a9da2927bca1800f136acb1",
+        "hash": "match",
+        "signature": {
+          "tool": null,
+          "status": "not-applicable",
+          "detail": "zip files carry no embedded signature"
+        }
+      }
+    ]
+  },
+  "vagrant": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "2.4.9",
+        "filename": "vagrant_2.4.9_windows_i686.msi",
+        "url": "https://releases.hashicorp.com/vagrant/2.4.9/vagrant_2.4.9_windows_i686.msi",
+        "expected_sha256": "6a093c498f4a568d0ce4f6170779fdd55ef5ee1707b33de1d88b9ffce6489207",
+        "computed_sha256": "6a093c498f4a568d0ce4f6170779fdd55ef5ee1707b33de1d88b9ffce6489207",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by HashiCorp\\"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "2.4.9",
+        "filename": "vagrant_2.4.9_windows_amd64.msi",
+        "url": "https://releases.hashicorp.com/vagrant/2.4.9/vagrant_2.4.9_windows_amd64.msi",
+        "expected_sha256": "3bdd967927705872a70c7c98e0576afd5acd9dd73b527695f4d9dd75dd26cbe3",
+        "computed_sha256": "3bdd967927705872a70c7c98e0576afd5acd9dd73b527695f4d9dd75dd26cbe3",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by HashiCorp\\"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "2.4.9",
+        "filename": "vagrant_2.4.9_darwin_amd64.dmg",
+        "url": "https://releases.hashicorp.com/vagrant/2.4.9/vagrant_2.4.9_darwin_amd64.dmg",
+        "expected_sha256": null,
+        "computed_sha256": "8de08bd435ef8ae0fc5fbd6acefa9c68e62fb898c5ae0fbdacd26853bea9d4d6",
+        "hash": "no-upstream-hash",
+        "signature": {
+          "tool": "codesign",
+          "status": "valid",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/vagrant-macos-vagrant_2.4.9_darwin_amd64.dmg: valid on disk | /var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/vagrant-macos-vagrant_2.4.9_darwin_amd64.dmg: satisfies its Designated Requirement"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "2.4.9",
+        "filename": "vagrant_2.4.9_darwin_arm64.dmg",
+        "url": "https://releases.hashicorp.com/vagrant/2.4.9/vagrant_2.4.9_darwin_arm64.dmg",
+        "expected_sha256": "8de08bd435ef8ae0fc5fbd6acefa9c68e62fb898c5ae0fbdacd26853bea9d4d6",
+        "computed_sha256": "8de08bd435ef8ae0fc5fbd6acefa9c68e62fb898c5ae0fbdacd26853bea9d4d6",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "valid",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/vagrant-macos-vagrant_2.4.9_darwin_arm64.dmg: valid on disk | /var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/vagrant-macos-vagrant_2.4.9_darwin_arm64.dmg: satisfies its Designated Requirement"
+        }
+      }
+    ]
+  },
+  "streamlabs-desktop": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "1.22.5",
+        "filename": "Streamlabs+Desktop+Setup+1.22.5.exe",
+        "url": "https://slobs-cdn.streamlabs.com/Streamlabs+Desktop+Setup+1.22.5.exe",
+        "expected_sha256": "45d893eb0047ad6f4c3ff804255e7e85dff02eb0fd95f8aefc4d852d73eeca7b",
+        "computed_sha256": "45d893eb0047ad6f4c3ff804255e7e85dff02eb0fd95f8aefc4d852d73eeca7b",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Logitech Inc"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "1.21.6",
+        "filename": "Streamlabs+Desktop-1.21.6.dmg",
+        "url": "https://slobs-cdn.streamlabs.com/Streamlabs+Desktop-1.21.6.dmg",
+        "expected_sha256": "79ccb708da01a409a50effbde17a2066d37e4c96b3f0940137851732fa83c1a2",
+        "computed_sha256": "79ccb708da01a409a50effbde17a2066d37e4c96b3f0940137851732fa83c1a2",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/streamlabs-desktop-macos-Streamlabs_Desktop-1.21.6.dmg: code object is not signed at all"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "1.21.6",
+        "filename": "Streamlabs+Desktop-1.21.6-arm64.dmg",
+        "url": "https://slobs-cdn.streamlabs.com/Streamlabs+Desktop-1.21.6-arm64.dmg",
+        "expected_sha256": "60be6614cf6e32d065cb04b63e29e54f7af25539604296ca17eb3b7b48d2c569",
+        "computed_sha256": "60be6614cf6e32d065cb04b63e29e54f7af25539604296ca17eb3b7b48d2c569",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/streamlabs-desktop-macos-Streamlabs_Desktop-1.21.6-arm64.dmg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "tableau-public": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "25.1.463",
+        "filename": "TableauPublicDesktop-64bit-2025-1-0.exe",
+        "url": "https://downloads.tableau.com/public/TableauPublicDesktop-64bit-2025-1-0.exe",
+        "expected_sha256": "83cff95a891efdac14f8ff69a729900408043b39e2cd19dd19d9a6bd9e8d7081",
+        "computed_sha256": "83cff95a891efdac14f8ff69a729900408043b39e2cd19dd19d9a6bd9e8d7081",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Salesforce\\"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "2026.3.0",
+        "filename": "TableauPublic-2026-3-0.pkg",
+        "url": "https://downloads.tableau.com/esdalt/2026.3.0/TableauPublic-2026-3-0.pkg",
+        "expected_sha256": "50b73dbc3114b15ccbfd9c94ef628596d2e6284c00ed9d0d0abf4612534855d4",
+        "computed_sha256": "e5dbb30b76e6ef9c4ea5e4c5359e1af092be513db7727aa15cee901f70d3f808",
+        "hash": "MISMATCH",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/tableau-public-macos-TableauPublic-2026-3-0.pkg: code object is not signed at all"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "2026.3.0",
+        "filename": "TableauPublic-2026-3-0-arm64.pkg",
+        "url": "https://downloads.tableau.com/esdalt/2026.3.0/TableauPublic-2026-3-0-arm64.pkg",
+        "expected_sha256": "25bb55dda09413e71bce7581a70a2ee98bb8fc8a377eaa573b17ae258d510d43",
+        "computed_sha256": "92048a92d94c75d6089cd64a0958053171c293b8b757569426159205ac8d6fac",
+        "hash": "MISMATCH",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/tableau-public-macos-TableauPublic-2026-3-0-arm64.pkg: code object is not signed at all"
+        }
+      }
+    ]
+  },
+  "windsurf": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "2.3.15",
+        "filename": "WindsurfUserSetup-x64-2.3.15.exe",
+        "url": "https://windsurf-stable.codeiumdata.com/win32-x64-user/stable/c46c49e94b4d3f41181204d59809d8f1b2c48d68/WindsurfUserSetup-x64-2.3.15.exe",
+        "expected_sha256": "d5c38c53bd6152401d979873875f2a92d880720402037c340fafdaa5ffbd5ea1",
+        "computed_sha256": "d5c38c53bd6152401d979873875f2a92d880720402037c340fafdaa5ffbd5ea1",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Exafunction\\"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "2.3.15",
+        "filename": "WindsurfSetup-x64-2.3.15.exe",
+        "url": "https://windsurf-stable.codeiumdata.com/win32-x64/stable/c46c49e94b4d3f41181204d59809d8f1b2c48d68/WindsurfSetup-x64-2.3.15.exe",
+        "expected_sha256": "d30ff9c6a490597aac354746b689335587f6bf8da671b935e8d1be51b3825d15",
+        "computed_sha256": "d30ff9c6a490597aac354746b689335587f6bf8da671b935e8d1be51b3825d15",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Exafunction\\"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "2.3.15",
+        "filename": "WindsurfUserSetup-arm64-2.3.15.exe",
+        "url": "https://windsurf-stable.codeiumdata.com/win32-arm64-user/stable/c46c49e94b4d3f41181204d59809d8f1b2c48d68/WindsurfUserSetup-arm64-2.3.15.exe",
+        "expected_sha256": "678a6f616f4eb2cb8fcfb11f1b8c65b3f366de88968e6dc99429bd7c74087dae",
+        "computed_sha256": "678a6f616f4eb2cb8fcfb11f1b8c65b3f366de88968e6dc99429bd7c74087dae",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Exafunction\\"
+        }
+      },
+      {
+        "platform": "windows",
+        "version": "2.3.15",
+        "filename": "WindsurfSetup-arm64-2.3.15.exe",
+        "url": "https://windsurf-stable.codeiumdata.com/win32-arm64/stable/c46c49e94b4d3f41181204d59809d8f1b2c48d68/WindsurfSetup-arm64-2.3.15.exe",
+        "expected_sha256": "bf98ed6411a1876f4614d3789a794fc98adfe3d1a068eeda286776e3c16657f1",
+        "computed_sha256": "bf98ed6411a1876f4614d3789a794fc98adfe3d1a068eeda286776e3c16657f1",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by Exafunction\\"
+        }
+      }
+    ]
+  },
+  "yandex-browser": {
+    "checked_at": "2026-11-18",
+    "installers": [
+      {
+        "platform": "windows",
+        "version": "26.11.0.2027",
+        "filename": "Yandex.exe",
+        "url": "https://download.cdn.yandex.net/browser/int/26_11_0_2027_121940/en/Yandex.exe",
+        "expected_sha256": "114ec1fc31dfc4fe94834f77cc5ff37216f1ce78a6787cc0dc8cf884402a0210",
+        "computed_sha256": "114ec1fc31dfc4fe94834f77cc5ff37216f1ce78a6787cc0dc8cf884402a0210",
+        "hash": "match",
+        "signature": {
+          "tool": "osslsigncode",
+          "status": "valid",
+          "detail": "signed by YANDEX LLC"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "26.11.0.2030",
+        "filename": "yandex.dmg",
+        "url": "https://download.cdn.yandex.net/browser/update/26_11_0_2022_121956_m_s_r/yandex.dmg",
+        "expected_sha256": "55730453bd78e738997d4b6467a1f59c275860ce3de1fa51d698cd911c9e9cb8",
+        "computed_sha256": "55730453bd78e738997d4b6467a1f59c275860ce3de1fa51d698cd911c9e9cb8",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/yandex-browser-macos-yandex.dmg: code object is not signed at all"
+        }
+      },
+      {
+        "platform": "macos",
+        "version": "26.11.0.2030",
+        "filename": "yandex.dmg",
+        "url": "https://download.cdn.yandex.net/browser/update/26_11_0_2030_121941_m_s_r/yandex.dmg",
+        "expected_sha256": "eb93a27d746068c5519ac9d713fea5e3c32585851624f58c7272f796c372af99",
+        "computed_sha256": "eb93a27d746068c5519ac9d713fea5e3c32585851624f58c7272f796c372af99",
+        "hash": "match",
+        "signature": {
+          "tool": "codesign",
+          "status": "unsigned",
+          "detail": "/var/folders/nq/vbrmpvnx33gcm9wdyyms4jm80000gn/T/everyversion-verify/yandex-browser-macos-yandex.dmg: code object is not signed at all"
         }
       }
     ]

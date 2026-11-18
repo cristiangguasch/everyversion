@@ -1,0 +1,1055 @@
+{
+  "schema_version": 2,
+  "slug": "proton-mail-bridge",
+  "name": "Proton Mail Bridge",
+  "publisher": "Proton AG",
+  "author": "Proton AG",
+  "ids": {
+    "winget": "Proton.ProtonMailBridge",
+    "moniker": "protonmailbridge",
+    "homebrew_cask": "proton-mail-bridge",
+    "flathub": "ch.protonmail.protonmail-bridge"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Use Proton Mail with your desktop email client",
+  "description": "Proton Mail Bridge adds end-to-end encryption to popular email apps, including Outlook, Thunderbird, and Apple Mail. Secure email made easy.",
+  "tags": [
+    "email",
+    "mail",
+    "proton-mail"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://proton.me/mail/bridge",
+    "publisher": "https://proton.me/",
+    "support": "https://proton.me/support/mail/",
+    "privacy": "https://proton.me/legal/privacy",
+    "release_notes": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.27.2"
+  },
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/ProtonMail/proton-bridge/blob/master/LICENSE",
+    "spdx": "GPL-3.0",
+    "copyright": "Copyright (c) 2026 Proton AG",
+    "copyright_url": "https://github.com/ProtonMail/proton-bridge/blob/master/COPYING_NOTES.md"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "3.27.2",
+    "macos": "3.27.2",
+    "linux": "3.27.2"
+  },
+  "last_updated": "2026-11-06",
+  "versions_total": {
+    "windows": 27,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "3.27.2",
+      "release_date": "2026-11-06",
+      "release_notes": "Added\n- BRIDGE-699: Added support for the oo7 keyring service.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.27.2",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.27.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.27.2/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "60be9e343840391629dd692c9b3339dee98ee6ff140e150dcb3866921c3e3268",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.27.1",
+      "release_date": "2026-09-29",
+      "release_notes": "Fixed\n- BRIDGE-644: Recover from corrupted sync state file; force file sync during write.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.27.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.27.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.27.1/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "025b6faa5d01b900acf5fb40acbf5bb1e4d72091b681517e632eb9fb3d931537",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.27.0",
+      "release_date": "2026-09-09",
+      "release_notes": "Added\n- Added the expected mock for properly reported errors from Gluon.\n- BRIDGE-616: Maximum MIME structure depth added.\nChanged\n- BRIDGE-622: Patch vulnerabilities August 2026.\n- BRIDGE-619: Gluon's apply sentry reporting is gated behind a feature-flag.\n- Separate context with timeout used in session.done() handler.\n- External WKD keys are not used if they cant be imported.\n- BRIDGE-621: Silence Vulnerabilities August 2026.\nFixed\n- BRIDGE-627: Return RFC3501 compliant response for body-fld-enc & body-fld-param.\n- Fixed an E2E test case; expect human verification when signing in with wrong credentials.\n- BRIDGE-614: Read onDiskLiteral in applyMessageUpdated before any DB transactions.\n- Fixed a deadlock contention in collector_test.\n- BRIDGE-618: UpdateRemoteMessageID used the correct SQL table.\n- BRIDGE-615: RemoveMessagesFromMailbox uses proper chunked ids.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.27.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.27.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.27.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "6b83ddba984aa0411f41b51cc540a824e5498ee888f0da33892b7856184339f7",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.26.0",
+      "release_date": "2026-08-17",
+      "release_notes": "Added\n- BRIDGE-576: Added logging to current auth session ID.\n- BRIDGE-568: Added meta+W shortcut to close the main window.\n- BRIDGE-571: Added a marker for the initial eventID during sync.\nChanged\n- BRIDGE-601: Calendar Event doesn't mutate a copy in go-proton-api.\n- BRIDGE-602: Remove unused worker-pool implementation in go-proton-api.\n- BRIDGE-603: Removed unused futures implementation in go-proton-api.\n- BRIDGE-611: HV requests resolve to correct API environment.\n- BRIDGE-587: Vulnerabilities Patched July 2026.\n- BRIDGE-581: Replaced FILENAME_VARIABLE with OUTPUT_SCRIPT for bridge-gui.\n- BRIDGE-574: Go Toolchain bump to 1.26.4.\n- BRIDGE-577: Replaced gomock with uber-go/mock.\n- BRIDGE-555: Go Toolchain bump to 1.26.3 & Vulnerabilities patched for June 2026.\n- BRIDGE-582: Empty address list now returns nil instead of empty list per RFC 3501.\n- BRIDGE-610: Literals are now structurally compared if byte-for-byte comparison fails.\n- BRIDGE-558: Orphaned unencrypted vaults are now deleted once keychain access is gained.\nFixed\n- BRIDGE-612: Fixed a crash on macOS 27.\n- BRIDGE-608: Fixed an issue with sync_test that doesn't panic. Proper event resolution for SyncFinished event in UserRefreshEvent test.\n- BRIDGE-608: Fixed wait time for TestBridge_SendInvite test.\n- BRIDGE-561: Fixed an issue where in-flight cancelled request caused a connection-down status.\n- BRIDGE-563: Fixed an issue where cpu and memory where unbounded in the rfcparser for Gluon.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.26.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.26.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.26.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "84e364280f0168621fdbbefcdd5ed3bb27ee9e0c495ffd7ed3504b22ae7c3f8e",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.25.0",
+      "release_date": "2026-06-01",
+      "release_notes": "Added\n- BRIDGE-519: Include recipients address in an errormapped error.\n- BRIDGE-547: Automatically retry failing tests on CI.\n- BRIDGE-511: Include the full error-chain when an update fails to install.\n- BRIDGE-139: New test that checks the validity of KB article URLs.\n- BRIDGE-531: New modernize linter and CI go:fix piplines added.\n- BRIDGE-559: NoSuchUser error gets mapped to a user friendly message.\nChanged\n- BRIDGE-534: Usage of exp/maps replaced with maps from standard library.\n- BRIDGE-526: Go toolchain bump to 1.26.2.\n- BRIDGE-514: Map API validation errors to a more user-friendly error.\n- BRIDGE-528: Removed old legacy versioner utility & legacy updater logic.\n- BRIDGE-486: Removed stale feature flags.\n- BRIDGE-483: Patch vulnerabilities for March 2026.\n- BRIDGE-548: Modify message building MIME boundary generation logic (stochastic).\nFixed\n- BRIDGE-557: Change Local Cache uses QFileDialog instead of Qt.Quick Folder Dialog.\n- BRIDGE-540: Runtime index out of bounds error during build stage.\n- BRIDGE-515: Replace old go syntax using go:fix to match new go 1.26 syntax.\n- BRIDGE-503: Dependencies update and updated deprecated functions.\n- BRIDGE-512: Attachment filenames are sanitized in user debug mode.\n- BRIDGE-415: Remove temporary directory after update installation on macOS.\n- BRIDGE-499: Correct error value gets logged when building a RFC822 message.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.25.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.25.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.25.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "0cc9c525f4d0be1cd8c864bc1341ba2933f4057db6a3b4b191cfb0b6a6c24450",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.24.2",
+      "release_date": "2026-04-20",
+      "release_notes": "Changed\n- BRIDGE-535: Use new base golang version based on Debian Bullseye.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.24.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.24.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.24.2/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "08e7fca9974be1bfa6272d84239087aaa483618299557456ea8f145b8aa76010",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.24.1",
+      "release_date": "2026-04-08",
+      "release_notes": "Changed\n- BRIDGE-522: Restored old unlabel endpoint logic under a feature flag.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.24.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.24.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.24.1/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "f3c58b15b680040c2d9d90af673bf66b2d41c898705194b0c99d48b59c841b15",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.23.1",
+      "release_date": "2026-03-12",
+      "release_notes": "Fixed\n- BRIDGE-488: Restore previous RemoveFromMailbox behavior (< 3.23.0). Drafts moved to trash should not be perma-deleted.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.23.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.23.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.23.1/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "95e928476aa09908cb988f1b4f8b548a8c75b2b34479cbbdee36f9ebd9d0e6a7",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.22.0",
+      "release_date": "2026-01-28",
+      "release_notes": "Added\n- BRIDGE-358: Hover tooltip for IMAP/SMTP settings clipboard UI actions.\n- BRIDGE-356: Added support for unavailable keychain retries on Linux, such that we don't wipe the vault. Feature flag support before Bridge initialization.\n- BRIDGE-278: Rollout feature flag support.\n- BRIDGE-151: Additional sentry reporting related to auto-update failures.\n- BRIDGE-361: Debug information on the utilized keychain helper.\n- BRIDGE-396: Observability caching and metrics for vault related issues.\n- BRIDGE-449: Generic IMAP OK heartbeat for long lasting commands.\nChanged\n- BRIDGE-374: Modified MBOX header sanitization logic, it now ensures that RFC822 headers are present before stripping content.\n- BRIDGE-391: Simplified internal label conflict resolver.\n- BRIDGE-409: Increased the import size limit to 55MB.\n- BRIDGE-369: Bumped gopenpgp to v2.9.0.\n- BRIDGE-455: Bumped Go to 1.24.11.\n- BRIDGE-424: FIDO2 support.\nFixed\n- BRIDGE-395: Don't store the last utilized keychain as the user preference on Windows & macOS.\n- BRIDGE-387: Use the address gluon ID, instead of the address ID to fetch message counts.\n- BRIDGE-394: Prevent the RFC822 parser from mutating the message literal.\n- BRIDGE-355: Prevent Bridge from crashing when an unknown message charset is detected on Import.\n- BRIDGE-447: Adjusted error message for message import size limitation.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.22.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.22.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "512fcaf033d5a253ab5cfa20adb90afcf20059366648782983fe911759c71c62",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.21.1",
+      "release_date": "2025-06-12",
+      "release_notes": "Changed\n- BRIDGE-383: Extended internal mailbox conflict resolution logic and minor changes to the mailbox conflict pre-checker.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.21.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.21.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.21.1/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "a31d97c945e9513b974c40b23bff892cff3e6a8b51ad6fa6961ebccfc6a2dc8e",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.20.0",
+      "release_date": "2025-05-06",
+      "release_notes": "Added\n- BRIDGE-340: Added additional logging for label operations and related bad events.\n- BRIDGE-324: Log a hash of the vault key on Bridge start.\nChanged\n- BRIDGE-352: Chore: bump go to 1.24.2.\n- BRIDGE-353: Chore: update x/net package to 0.38.0.\nFixed\n- BRIDGE-341: Replaced go-autostart with a fork to support creating autostart shortcuts in directories with Unicode characters on Windows.\n- BRIDGE-332: Strip newline characters from username and password fields in the Bridge GUI.\n- BRIDGE-336: Ensure all remote labels are verified and created in Gluon at Bridge startup.\n- BRIDGE-335: Persist the last successfully used keychain helper as a user preference on Linux.\n- BRIDGE-333: Ignore unknown label IDs during Bridge synchronization.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.20.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.20.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "fbea131ef1dded6fe39d886ec335a25aa7a879e78ceb65e03db3b92bdde19a82",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.19.0",
+      "release_date": "2025-03-18",
+      "release_notes": "Changed\n- BRIDGE-316: Update Qt to latest LTS version 6.8.2.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.19.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.19.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "467b3a29596f6278a0edb92cfc21f0d29f9d547cd533a4b7c91ebb376f0bf382",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.18.0",
+      "release_date": "2025-02-27",
+      "release_notes": "Changed\n- BRIDGE-309: Revised update logic and structure.\n- BRIDGE-154: Added access token to expiry refresh request.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.18.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.18.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "6de53128336a0f58c83395df71ae5c73cab0909c2242702e4c6436cdbaf76057",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.17.0",
+      "release_date": "2025-01-29",
+      "release_notes": "Added\n- BRIDGE-271: Report version file check failure to Sentry.\n- BRIDGE-247: Test: Automate Bridge 0% update rollout.\n- BRIDGE-248: Test: Additional Bridge UI e2e automation tests.\nChanged\n- BRIDGE-73: Update goopenpgp.\n- BRIDGE-287: Update x/net and x/crypto dependencies.\n- BRIDGE-303: Update govulncheck to latest release.\n- BRIDGE-226: Bump Go version to 1.23.4.\n- BRIDGE-288: Extension to synchronization update handler, observability tweaks and gluon update.\nFixed\n- BRIDGE-291: Use correct field for user plan type.\n- BRIDGE-143: Add missing QML component attribute, cut/paste disabled on read-only text areas.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.17.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.17.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "9aa41662786d03175435cbe79a0df54ef2a680258ce47038b4befc40d3cc4ce6",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.16.0",
+      "release_date": "2024-12-17",
+      "release_notes": "Added\n- BRIDGE-205: Add support for the IMAP AUTHENTICATE command.\n- BRIDGE-268: Add kill switch feature flag for the IMAP AUTHENTICATE command.\n- BRIDGE-261: Delete gluon data during user deletion.\n- BRIDGE-246: Test: Add Settings Menu Bridge UI e2e automation tests.\nChanged\n- BRIDGE-107: Improved human verification UX.\n- BRIDGE-281: Disable keychain test on macOS.\n- BRIDGE-266: Heartbeat telemetry update.\n- BRIDGE-253: Removed unused telemetry (activation and troubleshooting).\n- BRIDGE-252: Restored the -h shortcut for the CLI --help switch.\n- BRIDGE-264: Ignore apple notes as UserAgent.\nFixed\n- BRIDGE-256: Fix reversed order of headers with multiple values.\n- BRIDGE-258: Fixed issue with draft updates and sending during synchronization.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.16.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.16.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "224f234dab22cf3e3770363a67645396d74df701bfe3850ca1b4ddd4d8b4e50d",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.15.1",
+      "release_date": "2024-12-05",
+      "release_notes": "Changed\n- BRIDGE-281: Disable keychain test on macOS.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.15.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.15.1/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "5a0fa312ba843798cdc42ccc5142f6c171f4371af768d5ed20be809e5bff5a3b",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.15.0",
+      "release_date": "2024-11-13",
+      "release_notes": "Added\n- BRIDGE-238: Added host information to sentry events; new sentry event for keychain issues.\n- BRIDGE-236: Added SMTP observability metrics.\n- BRIDGE-217: Added missing parameter to the CLI help command.\n- BRIDGE-234: Add accessibility name in QML for UI automation.\n- BRIDGE-232: Test: Add Home Menu Bridge UI e2e automation tests.\n- BRIDGE-220: Test: Add Bridge E2E UI login/logout tests for Windows.\nChanged\n- BRIDGE-228: Removed sentry events.\n- BRIDGE-218: Observability adapter; gluon observability metrics and tests.\n- BRIDGE-215: Tweak wording on macOS profile install page.\n- BRIDGE-131: Test: Integration tests for messages from Proton <-> Gmail.\n- BRIDGE-142: Bridge icon can be removed from the menu bar on macOS.\nFixed\n- BRIDGE-240: Fix for running against Qt 6.8 (contribution of GitHub user Cimbali).\n- BRIDGE-231: Fix reversed header order in messages.\n- BRIDGE-235: Fix compilation of Bridge GUI Tester on Windows.\n- BRIDGE-120: Use appropriate address key when importing / saving draft.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.15.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.15.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "b179b0b633e3a975ffc56ee9b15db56caea2cb4eff970327802d942978ee6fa3",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.14.0",
+      "release_date": "2024-09-30",
+      "release_notes": "Changed\n- BRIDGE-207: Failure to download or verify an update now fails silently.\n- BRIDGE-204: Removed redundant Sentry events.\n- BRIDGE-150: Observability service modification.\n- BRIDGE-210: Reduced log level of cache events so they won't be printed to stdout.\nFixed\n- BRIDGE-106: Fixed import of multipart-related messages.\n- BRIDGE-108: Fixed GetInitials when empty username is passed.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.14.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.14.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "b047938ddcbec42fda66ae6a88f1876ddaca8f4b24e5b2794c044978951c1fa9",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.13.0",
+      "release_date": "2024-09-10",
+      "release_notes": "Added\n- BRIDGE-37: added message broadcasting functionality.\n- BRIDGE-122: added observability service.\n- BRIDGE-119: added support for Feature Flags.\n- BRIDGE-116: added command-line switches to enable/disable keychain check on macOS.\n- BRIDGE-88: added context menu for quick actions on input labels: cut, copy, paste.\nChanged\n- BRIDGE-81: KB article suggestion updates + more weight for long keywords.\nFixed\n- BRIDGE-67: Added detection for username changes on macOS & automatic reconfiguration.\n- BRIDGE-138: Remove deprecated doc.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.13.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.13.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "c35d9a7ba7b464ca6106bab7cb29c68ab5ad6e1e96a194a21030a74ad31dba45",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.12.0",
+      "release_date": "2024-06-19",
+      "release_notes": "Added\n- BRIDGE-75: Bridge repair button.\n- BRIDGE-79: Add New Outlook for Mac KB disclaimer.\nChanged\n- BRIDGE-16: Bump version Go 1.21.9 Qt 6.4.3.\n- BRIDGE-23: Update gluon to go 1.21.\n- BRIDGE-22: Update gpa to go 1.21.\nFixed\n- BRIDGE-90: Disable repair button when bridge cannot connect to proton servers; bump GPA.\n- BRIDGE-69: Explicitly handle semver panic for last bridge version from vault.\n- BRIDGE-29: Bump gluon version.\n- BRIDGE-49: Configure gitleaks baseline and grype config.\n- BRIDGE-21: Missing panic handling.\n- BRIDGE-17: Broken telemetry heartbeat test.\n- BRIDGE-10: Bumped gluon version.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.12.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.12.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "55b052a88d8b23c0241568da6de00283f282a46f3b820469b76f5188413cbe25",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11.1",
+      "release_date": "2024-05-21",
+      "release_notes": "Fixed\n- BRIDGE-70: Hotfix for blocked smtp/imap port causing bridge to quit.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.11.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.11.1/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "859a6aecb8688466eef6a61c851f25c185e6da5fcfbd9f0366e6fa551825d7bb",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11.0",
+      "release_date": "2024-04-29",
+      "release_notes": "Added\n- GODT-3185: Report cases which leads to wrong address key used.\nChanged\n- BRIDGE-14: HV3 implementation.\n- BRIDGE-15: Certificate install is now also done during Outlook setup on macOS.\n- GODT-3146: Start servers on startup, keep running even when no users are active.\n- BRIDGE-19: Update checksum validation use warning instead of error on non-existing files.\nFixed\n- BRIDGE-8: Fix bridge double sessionID issue in logs.\n- BRIDGE-7: Modify keychain test on macOS.\n- BRIDGE-4: Logs not being created when invalid flag is passed.\n- BRIDGE-5: Add tooltip to tray icon.\n- GODT-3163: Filter MBOX format delimiter.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.11.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.11.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "c0bb3554fb72233a4f24731857e056590829e6b9d77d6eea0c5734b685019cf4",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.10.0",
+      "release_date": "2024-03-12",
+      "release_notes": "Added\n- GODT-3199: Add package log field.\n- GODT-3220: Add more test scenarios.\nChanged\n- GODT-3193: Preserve attachment encoding.\n- GODT-3214: Encrypt only with primary key.\n- GODT-2662: Use tart runner for darwin jobs.\n- GODT-1602: Test: run integration tests against black 🖤.\n- GODT-3257: Test: quad9 provider test not working on CI.\nFixed\n- GODT-3290: Fix test failing because of leap day.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.10.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.10.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "b3c12fde958d308bd13ad1eb4b4ad0952868eb23077afc7880e659d047930110",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.1",
+      "release_date": "2024-02-12",
+      "release_notes": "Fixed\n- GODT-3235: Update bridge update key.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.9.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.9.1/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "ff87a309a8de0f5aee10ad9ddf85550355ed6c834fdd8a1619476838904f6939",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.3",
+      "release_date": "2023-05-10",
+      "release_notes": "Changed\n- GODT-2616: Silence UID of order report.\n- GODT-2614: Handle failed update during sync.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v3.1.3",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/3.1.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.1.3/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "c7bbd5eec1877ee97d942f5aae69ab3fc7c0f1c7c78bf315b72a189f005b162c",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3.0",
+      "release_date": "2022-09-01",
+      "release_notes": "Added\n- GODT-1739: Opt-out All Mail visibility in settings file.\n  - GODT-1794: CLI wording.\n  - GODT-1794: Add confirmation dialog and change wording.\n  - GODT-1741: GUI and CLI settings to change visibility of All Mail folder.\n  - GODT-1740: Opt-out All Mail visibility in settings file.\nChanged\n- GODT-1737: Improve logging during import.\n- GODT-1754: Add logs for unilateral updates and SEARCH.\nFixed\n- GODT-1840: Use Safe map for mailboxID cache.\n- GODT-1795: Fix automatic installation of profile for AppleMail on macOS Ventura beta (qt 5).\n- GODT-1833: Fix gobinsec cache.\n- GODT-1799: Fix dependency link.\n- Other: Update SSL certificate fingerprint for test.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v2.3.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/2.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v2.3.0/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "6937ff311718732ae432c67e45c469a83170bfab6216553472136de4d55bed6f",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.3",
+      "release_date": "2022-04-11",
+      "release_notes": "Added\nGODT-1525: Add keybase/go-keychain/secretservice as new keychain helper.\nChanged\nGODT-1527: Change bug report description.\nFixed\nGODT-1537: Manual in-app update mechanism.",
+      "release_notes_url": "https://github.com/ProtonMail/proton-bridge/releases/tag/v2.1.3",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proton/ProtonMailBridge/2.1.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v2.1.3/Bridge-Installer.exe",
+          "host": "github.com",
+          "filename": "Bridge-Installer.exe",
+          "sha256": "ddfaa8f2cbf81d8d6d4bacee53eb042eb8e068b878973d1b1b96a01022608e28",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "silent": "/exenoui /quiet /norestart",
+            "silent_with_progress": "/exenoui /passive /norestart",
+            "install_location": "APPDIR=\"<INSTALLPATH>\"",
+            "log": "/log \"<LOGPATH>\""
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "3.27.2",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/ProtonMail/proton-bridge/releases/download/v3.27.2/Bridge-Installer.dmg",
+          "host": "github.com",
+          "filename": "Bridge-Installer.dmg",
+          "sha256": "e9d9a0edf7fc9cd6cd42d518bfebafa5c2b5657f39b54637d1f4cd85b0a45c61"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Proton Mail Bridge.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.protonmail.bridge"
+          ],
+          "launchctl": [
+            "Proton Mail Bridge"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/protonmail",
+            "~/Library/Caches/Proton AG/Proton Mail Bridge",
+            "~/Library/Caches/protonmail"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "3.27.2",
+      "release_date": "2026-11-17",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/ch.protonmail.protonmail-bridge.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "ch.protonmail.protonmail-bridge.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "2357ad82abb28d4643441bca40767ddc3b356869",
+      "retrieved_at": "2026-11-18T14:27:13.991Z",
+      "path": "manifests/p/Proton/ProtonMailBridge"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "4181f7a7fc911534eedc921e788bc4fe118126f7",
+      "retrieved_at": "2026-11-18T14:27:13.991Z",
+      "path": "Casks/p/proton-mail-bridge.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/proton-mail-bridge.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/ch.protonmail.protonmail-bridge",
+      "retrieved_at": "2026-11-18T14:27:17.554Z",
+      "path": "api/v2/appstream/ch.protonmail.protonmail-bridge",
+      "api_url": "https://flathub.org/api/v2/appstream/ch.protonmail.protonmail-bridge",
+      "content_sha256": "38bfd41ca63eb0d05f1803673e7f45b3d1ec6c6607b7e3855b0c1ad4cb9705cf"
+    }
+  ],
+  "flathub": {
+    "app_id": "ch.protonmail.protonmail-bridge",
+    "page_url": "https://flathub.org/apps/ch.protonmail.protonmail-bridge",
+    "repo_url": "https://github.com/flathub/ch.protonmail.protonmail-bridge",
+    "install_command": "flatpak install flathub ch.protonmail.protonmail-bridge",
+    "run_command": "flatpak run ch.protonmail.protonmail-bridge",
+    "verified": false,
+    "license": "GPL-3.0",
+    "free_license": true,
+    "developer_name": "Proton AG",
+    "categories": [
+      "Office",
+      "Email"
+    ],
+    "download_size": 72192013,
+    "installed_size": 188310016,
+    "arches": [
+      "x64"
+    ]
+  }
+}
