@@ -1,0 +1,311 @@
+{
+  "schema_version": 2,
+  "slug": "love2d",
+  "name": "LÖVE",
+  "publisher": "love2d.org",
+  "ids": {
+    "winget": "Love2d.Love2d",
+    "moniker": "love2d",
+    "homebrew_cask": "love",
+    "flathub": "org.love2d.love2d"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "LÖVE is a framework you can use to make 2D games in Lua.",
+  "tags": [
+    "framework",
+    "gameengine",
+    "lua"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "http://www.love2d.org/",
+    "publisher": "https://love2d.org/",
+    "support": "https://github.com/love2d/love/issues",
+    "bug_tracker": "https://github.com/love2d/love/issues",
+    "release_notes": "https://github.com/love2d/love/releases/tag/11.5",
+    "documentation": [
+      {
+        "label": "Wiki",
+        "url": "https://github.com/love2d/love/wiki"
+      }
+    ]
+  },
+  "license": {
+    "name": "zlib/libpng License",
+    "url": "https://github.com/love2d/love/blob/HEAD/license.txt",
+    "copyright": "Copyright (c) 2006-2021 LÖVE Development Team"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "11.5",
+    "macos": "11.5",
+    "linux": "11.5"
+  },
+  "last_updated": "2023-12-03",
+  "versions_total": {
+    "windows": 3,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "11.5",
+      "release_date": "2023-12-03",
+      "release_notes": "Released: 2023-12-03\n\nChangelog:\n* Added \"LÖVE Loader\" launcher on Android for easier loading of .love files.\n\n* Changed iOS game selector to alphabetically sort the list of .love files.\n* Changed JIT compilation on macOS arm64 (Apple Silicon) to be off by default, since performance and available JIT memory isn't reliable.\n\n* Fixed inconsistent and buggy behaviour of 'pairs' by updating LuaJIT.\n* Fixed \"unexpected alignment\" errors when running love on some 32 bit Linux systems.\n* Fixed running fused games on Windows when the executable has been code-signed.\n* Fixed undefined behaviour in love.data.hash's implementation.\n* Fixed writing files when a symlink exists in the save directory's path.\n* Fixed love.threaderror not being called if the error message is an empty string.\n* Fixed a race condition when a Thread is destroyed immediately after Thread:start.\n* Fixed unexpectedly slow first frames on macOS.\n* Fixed love.joystick.setGamepadMapping when replacing an existing mapping.\n* Fixed love.joystick.getGamepadMappingString.\n* Fixed duplicate platform fields in love.joystick.saveGamepadMappings.\n* Fixed DistanceJoint type information.\n* Fixed time drift in Source:tell after a Source loops.\n* Fixed audio not always pausing when the app is minimized on Android.\n* Fixed RecordingDevice:start to return false instead of hard-crashing on iOS.\n* Fixed identical frames in Ogg Theora videos being skipped.\n* Fixed love.font.newBMFontRasterizer's single file parameter variant.\n* Fixed the original window size not always being restored when exiting fullscreen on Linux.\n* Fixed some cases of framerate hitches in Windows when vsync is enabled in windowed mode.\n* Fixed colors appearing over-saturated on P3 displays in macOS.\n* Fixed textures looking washed out when gamma-correct rendering is used on some Android devices.\n* Fixed images with mipmaps when ANGLE is used with an AMD GPU.\n* Fixed line rendering when duplicate points are used in the line.\n* Fixed line rendering with miter and bevel line join modes when antiparallel lines are formed.\n* Fixed a crash when calling Text:add with an empty string parameter.",
+      "release_notes_url": "https://github.com/love2d/love/releases/tag/11.5",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/l/Love2d/Love2d/11.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/love2d/love/releases/download/11.5/love-11.5-win32.exe",
+          "host": "github.com",
+          "filename": "love-11.5-win32.exe",
+          "sha256": "11bde8121a734c0453c48c3cd335076ca8063867d2ba25b1c22a3f76b108bf2d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "/S",
+            "silent_with_progress": "/S"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/love2d/love/releases/download/11.5/love-11.5-win64.exe",
+          "host": "github.com",
+          "filename": "love-11.5-win64.exe",
+          "sha256": "a91ec9beb1ea9fa74ada64c2dd9f052ce142077e718920eb91b059fcfb950faa",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "/S",
+            "silent_with_progress": "/S"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "11.4",
+      "release_date": "2022-01-02",
+      "release_notes": "Changelog:\n- Added native arm64 support on macOS.\n- Added a variant of love.filesystem.newFileData which accepts a Data object.\n- Added Body:getLocalPoints.\n- Added Font:getKerning.\n- Added support for r16, rg16, and rgba16 pixel formats in Canvases.\n- Added Shader:send(name, matrixlayout, data, ...) variant, whose argument order is more consistent than Shader:send(name, data, matrixlayout, ...).\n- Changed all builds and platforms where LOVE provides LuaJIT to use LuaJIT 2.1 instead of 2.0.\n- Changed love.timer.getTime to start at 0 when the module is first loaded.\n- Changed certain out-of-Lua-memory situations to show a message box instead of instantly crashing.\n- Changed the naming scheme of LOVE's embedded Lua files for improved integration with Lua chunkname APIs.\n- Fixed build-time compatibility with Lua 5.4.\n- Fixed code compatibility with math.mod and string.gfind when LuaJIT 2.1 is used.\n- Fixed errors on some systems related to > 53 bit pointer addresses, when recent versions of LuaJIT 2.1 are used.\n- Fixed the default error handler showing a blank screen on some mobile devices.\n- Fixed drag-and-drop to open a love game on macOS causing love.event.quit(\"restart\") to fail.\n- Fixed fused macOS apps opening other love games when drag-and-drop is used (if the fused app hasn't already removed .love files from recognized document types).\n- Fixed File:isEOF when called on a dropped file.\n- Fixed support for > 2GB dropped files on desktops.\n- Fixed ByteData and DataView missing Data:clone implementations.\n- Fixed love.physics meter scale value persisting after love.event.quit(\"restart\").\n- Fixed audio to resume properly after interruption on iOS.\n- Fixed love.graphics.newVideo to error instead of crash when an invalid video file is given.\n- Fixed initial window creation to set the window's title during creation instead of after.\n- Fixed the window's screen position when exiting fullscreen via love.window.setFullscreen.\n- Fixed love.displayrotated being given a boolean instead of an enum string.\n- Fixed memory corruption and a crash when drawing smooth lines.\n- Fixed a crash in Canvas:newImageData when the pixel format's pixel byte size multiplied by its width isn't a multiple of 4.\n- Fixed love.graphics.newVolumeImage when explicit mipmaps are provided.\n- Fixed freezes and crashes in automatic batching when an AMD GPU is used.\n- Fixed love.graphics.print and Image:replacePixels on more AMD/ATI GPUs.\n- Fixed Font:setFallbacks to account for different DPI scales in each fallback font.\n- Fixed Font:getWrap to not remove trailing newlines.\n- Fixed Text:getWidth when the Text's string only contains spaces.\n- Fixed a crash with some Intel graphics drivers on Linux.\n- Fixed a hang with some Intel graphics drivers on Windows, by preventing gamma correct rendering on affected systems.\n- Fixed a crash with some Intel graphics drivers on Windows when mipmapped Canvases are used.\n- Fixed texture memory reported by love.graphics.getStats when a volume or array Canvas is created.\n- Fixed DXT1 textures which use 1 bit alpha-cutout.\n- Fixed rare issues where textures were not sent to shaders correctly.\n- Fixed Shader:send(name, data, matrixlayout, ...).\n- Fixed quad offsets in ParticleSystems when ParticleSystem:setOffset is not used.\n- Fixed a performance issue with setting a small subrange of data in non-stream Meshes and SpriteBatches.\n- Fixed rounded rectangles breaking if the rx or ry parameters are negative.\n- Fixed rounded rectangle automatic points calculation when rx or ry are more than half the rectangle's size.\n- Fixed source code compilation on Xcode 12+.\n- Fixed source code compilation on Linux systems that don't provide posix_spawn APIs.",
+      "release_notes_url": "https://github.com/love2d/love/releases/tag/11.4",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/Love2d/Love2d/11.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/love2d/love/releases/download/11.4/love-11.4-win32.exe",
+          "host": "github.com",
+          "filename": "love-11.4-win32.exe",
+          "sha256": "316018a3fc0f493a0e487d289a5377cb57a828e7d4412c0c753dff30ff7a6f2e",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/love2d/love/releases/download/11.4/love-11.4-win64.exe",
+          "host": "github.com",
+          "filename": "love-11.4-win64.exe",
+          "sha256": "ccf5b952385cbe138a67c8afc0e6ceed25fae2c61cbcd760e6115df2ee113fce",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "11.3",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/l/Love2d/Love2d/11.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/love2d/love/releases/download/11.3/love-11.3-win64.exe",
+          "host": "github.com",
+          "filename": "love-11.3-win64.exe",
+          "sha256": "46c1d2bab149ce911f0c21d5763a121902f06fe27397d592a09801bfdf726d73",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/love2d/love/releases/download/11.3/love-11.3-win32.exe",
+          "host": "github.com",
+          "filename": "love-11.3-win32.exe",
+          "sha256": "dc434ef7b427de462ddced513a2f62614fbdc3ce103481771eaf6470d161e3c0",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "11.5",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "zip",
+          "url": "https://github.com/love2d/love/releases/download/11.5/love-11.5-macos.zip",
+          "host": "github.com",
+          "filename": "love-11.5-macos.zip",
+          "sha256": "6795bb3a1656af6a2fdfe741e150787b481886d3a280327a261a3fdded586913"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "love.app"
+        ],
+        "binaries": [
+          "love"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/Library/Saved Application State/org.love2d.love.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "11.5",
+      "release_date": "2023-12-03",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.love2d.love2d.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.love2d.love2d.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.love2d.love2d.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.love2d.love2d.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "homebrew_cask_disabled": {
+    "reason": "fails_gatekeeper_check",
+    "date": "2026-09-01"
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "f6b3861bc0b6c894cd7cce0d65b748431268e9e4",
+      "retrieved_at": "2026-11-17T23:57:49.272Z",
+      "path": "manifests/l/Love2d/Love2d"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "912fe9186809a376e17fadd9ef7b8aaf2e1ae50e",
+      "retrieved_at": "2026-11-17T23:57:49.272Z",
+      "path": "Casks/l/love.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/love.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.love2d.love2d",
+      "retrieved_at": "2026-11-17T23:57:53.789Z",
+      "path": "api/v2/appstream/org.love2d.love2d",
+      "api_url": "https://flathub.org/api/v2/appstream/org.love2d.love2d",
+      "content_sha256": "f2c12e1d9f07f93f0a4e32e7a0b313ae31eea73cc08fd59cc4ef7c0cea766018"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.love2d.love2d",
+    "page_url": "https://flathub.org/apps/org.love2d.love2d",
+    "repo_url": "https://github.com/flathub/org.love2d.love2d",
+    "install_command": "flatpak install flathub org.love2d.love2d",
+    "run_command": "flatpak run org.love2d.love2d",
+    "verified": false,
+    "license": "Zlib",
+    "free_license": true,
+    "developer_name": "Love2d Developers",
+    "categories": [
+      "Game",
+      "Development",
+      "Utility"
+    ],
+    "download_size": 3107418,
+    "installed_size": 6731776,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

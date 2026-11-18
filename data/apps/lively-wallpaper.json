@@ -1,0 +1,1562 @@
+{
+  "schema_version": 2,
+  "slug": "lively-wallpaper",
+  "name": "Lively Wallpaper",
+  "publisher": "rocksdanister",
+  "author": "rocksdanister",
+  "ids": {
+    "winget": "rocksdanister.LivelyWallpaper",
+    "moniker": "livelywallpaper"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "summary": "Free and open-source software that allows users to set animated desktop wallpapers and screensavers.",
+  "description": "Free and open-source software that allows users to set animated desktop wallpapers and screensavers.",
+  "tags": [
+    "foss",
+    "live-wallpaper",
+    "open-source",
+    "screensaver",
+    "wallpaper"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/rocksdanister/lively",
+    "publisher": "https://github.com/rocksdanister/lively",
+    "support": "https://github.com/rocksdanister/lively/issues",
+    "bug_tracker": "https://github.com/rocksdanister/lively/issues",
+    "privacy": "https://github.com/rocksdanister/lively/blob/core-separation/PRIVACY.md",
+    "release_notes": "https://github.com/rocksdanister/lively/releases/tag/v2.2.1.0"
+  },
+  "license": {
+    "name": "GPLv3",
+    "url": "https://github.com/rocksdanister/lively/blob/HEAD/LICENSE",
+    "copyright": "© 2025 rocksdanister",
+    "copyright_url": "https://github.com/rocksdanister/lively/blob/core-separation/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "2.2.1.0"
+  },
+  "last_updated": "2025-09-18",
+  "versions_total": {
+    "windows": 25
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "2.2.1.0",
+      "release_date": "2025-09-18",
+      "release_notes": "This follow-up update v2.2.1.0 builds on the previous release, bringing improvements and bug fixes.\n\n### Audio by Display\n\n- You can now choose which display's wallpaper is allowed to play audio.\n- In Per-screen layout, only the wallpaper on the selected display will output sound.\n\nNote: This feature is only available when using the \"Grid\" or \"All process\" pause algorithm.\n\n### Visualizer Audio Source\n\n- You can now choose which audio device the wallpaper visualizer uses.\n- The Default option follows the system's default playback device and updates automatically if the\n  system default changes.\n- If you pick a specific device, it will stay fixed and only switch if that device is disconnected.\n\n### Join the Beta Channel\n\nLively has grown so much over the years that it's no longer possible for me to personally test every\nfeature or account for every way people use it. Joining the beta and reporting any issues early is a\ngreat way to help.\n\n- You can now switch to Beta or Testing release directly from within the application.\n- Test releases are updated more frequently and may contain bugs - join only if you're comfortable\n  with potential issues.\n\nSimilarly you can switch back to the stable release, but because settings or configuration may\nchange between versions, you might occasionally need to delete the settings file to fully revert.\n\nWhen you encounter a problem, report it in the GitHub issues and mention that you're using the beta\nbuild.\n\nNote: This feature is not available for Microsoft Store version.\n\n### Enhancements\n\n- In Span layout, wallpaper pausing now depends on the \"Display pause\" rule:\n  - Per screen: Pauses only when windows cover all screens.\n  - All screen: Pauses when a window covers any screen.\n\n### Fixes\n\n- Fixed wallpapers not being cleaned up when a crash occurred during import.\n- Fixed incorrect update notifications inside the app.\n- Fixed application pause rules not applying correctly.\n- Fixed language translation link not working.\n\n### Updates\n\n- Updated MPV player.\n- Updated CefSharp player.\n- Updated community translation.\n\n### SHA256\n\n98f4e96bb8e2c416384eeaf48016eadaea9dce8263b8d212052775ebcf2d7e34",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.2.1.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.2.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.2.1.0/lively_setup_x86_full_v2210.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2210.exe",
+          "sha256": "98f4e96bb8e2c416384eeaf48016eadaea9dce8263b8d212052775ebcf2d7e34",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64",
+              "Microsoft.EdgeWebView2Runtime"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.2.1.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.0.8",
+      "release_date": "2024-05-31",
+      "release_notes": "This is a patch release to fix issues in v2.1.0.6 deemed important for stability based on bug reports.For the full list of v2.1 changes visit:\nhttps://www.rocksdanister.com/lively/changelog/Miscellaneous\n- Apps can now be excluded from displaying music information in the settings (Experimental.)\n- New reload setwp option to restart wallpapers.\nShow documentation\n- Added library item reorganizing animation.\n- Control panel styling improvements.\nFixes\n- Fixed Set as Wallpaper context menu not showing screen selector when required.\n- Fixed media properties resetting on restart in some systems.\n- Fixed splashscreen always showing in some systems.\n- Fixed Mpv player writing to log excessively.\nTranslations\n- Added Irish language. Thanks to socbocs.\n- Updated community translations.\nSHA256\n93e873373a84a6444f9ff0966dd36c1d38f3f7230c4011e61eb61a01a6194eb4",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.1.0.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.1.0.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.1.0.8/lively_setup_x86_full_v2108.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2108.exe",
+          "sha256": "93e873373a84a6444f9ff0966dd36c1d38f3f7230c4011e61eb61a01a6194eb4",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.1.0.8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.7.0",
+      "release_date": "2023-06-27",
+      "release_notes": "AI Depth Wallpapers\n- Using Machine Learning to predict distance of objects from the camera and then use GPU shaders to create 3D image!\n- When it comes to privacy, everything is run 100% local.\n  No network required to run the model, no data sent to the cloud.\n- In my testing works best with scenery, dont be afraid to try different things out and share with the community what you find.\n  You can get some stock images to try here: https://www.pexels.com/\nNew Wallpapers\n- \"Living Room\" a stylish isometric room showing currently playing music, dynamic lighting that reacts to music bass and more!\nUI/UX\n- Updated ColorPicker control, packed with new features.\n- Tray customize menu now takes display scaling into account.\n- Refactoring and improvements should yield better performance and consistency.\nEnhancements\n- Added .\n  JFIF image support.\n- LivelyProperties now support tooltips, display helpful information about the setting on hover.\nFixes\n- Fixed wallpaper FileDialog not opening when the program is Run as administrator.\n- Fixed media not changing in music wallpapers when the new track is from the same artist.\n- Fixed scaling settings not working with Windows Media Foundation (wmf) player.\nTranslation\n- Updated translations.\n- The new features may not be translated to all the languages on first release due to the nature of community translations, hope you understand.\nUpdates\n- Updated Mpv player.\n- Updated dependencies.\n- Updated .\n  NET Desktop Runtime v7.0.7\n- Updated WindowsAppSDK v1.3.2\nKnown issues\n- Incompatibility with MSI Afterburner RivaTuner Statistics Server, HW64 or other overlay; add exception for Lively UI.",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.7.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.7.0/lively_setup_x86_full_v2070.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2070.exe",
+          "sha256": "a83933272e3d3a03ac4136c64efd2a5d47ca6280a6c2e67cf6fcb93c9d5a1ec9",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.7.0",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.6.6",
+      "release_date": "2023-05-11",
+      "release_notes": "- Fixed application crashing/blank for some users microsoft/WindowsAppSDK#3616.\n- Fixed Active Wallpaper button not showing wallpaper count on restart.\n- Fixed tray customize menu theme.",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.6.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.6.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.6.6/lively_setup_x86_full_v2066.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2066.exe",
+          "sha256": "f62eb93451e4aa704d5d94c40511e3af146b74b2cca9f304cd3b81f05e37df9a",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.6.6",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.6.6/lively_setup_x86_full_v2066.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2066.exe",
+          "sha256": "f62eb93451e4aa704d5d94c40511e3af146b74b2cca9f304cd3b81f05e37df9a",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.6.6",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.6.5",
+      "release_date": "2023-02-22",
+      "release_notes": "- This update focuses on quality of life improvements, performance and new search feature.\n- What's changed in Lively v2.0.6.5\n- # New Wallpapers\n- \"Rain\" wallpaper updated with video background support.\n- \"Protein Clouds\" wallpaper with customization.\n- # UI/UX\n- Search function implemented in title area, find installed wallpapers based on name.\n- Labels are hidden after first run for a more clean look.\n- Updated Mica Backdrop implementation based on latest guidelines.\n- New hover animation for expander menu and other enhancements\n- Made about page icons less jagged.\n- # Enhancements\n- New command line command for wallpaper placement.\n- https://github.com/rocksdanister/lively/wiki/Command-Line-Controls#placement-method\n- # Performance\n- Smoother UI scrolling and responsiveness.\n- # Latest WindowsAppSDK improvements.\n- https://github.com/microsoft/microsoft-ui-xaml/milestone/18?closed=1\n- https://github.com/microsoft/WindowsAppSDK/milestone/14?closed=1\n- # Fixes\n- Fixed application UI being blank for some users.\n- Fixed debugger title not visible in dark theme.\n- Latest WindowsAppSDK improvements.\n- # Installer\n- Fixed Korean language not displaying correctly in Installer.\n- Removed duplicate languages from the list.\n- # Translation\n- Added Danish and Afrikaans languages.\n- Updated community translations.\n- Learn more: https://crowdin.com/project/lively-wallpaper\n- # Updates\n- Updated dependency libraries.\n- Updated WindowsAppSDK v1.3\n- Updated .NET Desktop Runtime v7.0.5\n- # Known issues\n- Incompatibility with MSI Afterburner RivaTuner Statistics Server, HW64 or other overlay; add exception for Lively UI.\n- Elevation (Run as admin) is not fully supported in some versions of Windows and file dialog fails to open.",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.6.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.6.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.6.5/lively_setup_x86_full_v2065.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2065.exe",
+          "sha256": "01c8069f2a47834362da7d301a796c3838385c54546da3f33b9b96b91bea98be",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.6.5",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.6.5/lively_setup_x86_full_v2065.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2065.exe",
+          "sha256": "01c8069f2a47834362da7d301a796c3838385c54546da3f33b9b96b91bea98be",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.6.5",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.6.1",
+      "release_date": "2023-02-22",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.6.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.6.1/lively_setup_x86_full_v2061.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2061.exe",
+          "sha256": "3991f4c4af685c2ff20ebfde2cbdebe27f4f468c11f036a5e3140b43605317c6",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.6.1",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.6.1/lively_setup_x86_full_v2061.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2061.exe",
+          "sha256": "3991f4c4af685c2ff20ebfde2cbdebe27f4f468c11f036a5e3140b43605317c6",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.6.1",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.5.0",
+      "release_date": "2022-11-15",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.5.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.5.0/lively_setup_x86_full_v2050.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2050.exe",
+          "sha256": "00446677990be6841dd83b9e3b736d71a70a094f3babbdfb5fb9139f97d95b94",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.5.0",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.5.0/lively_setup_x86_full_v2050.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2050.exe",
+          "sha256": "00446677990be6841dd83b9e3b736d71a70a094f3babbdfb5fb9139f97d95b94",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.5.0",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.4.0",
+      "release_date": "2022-10-07",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.4.0",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.4.0/lively_setup_x86_full_v2040.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2040.exe",
+          "sha256": "f9146eda6fc65629ffb674f0ec11d461ad02617a255e94d9b01ad6b9db368e67",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.4.0",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.4.0/lively_setup_x86_full_v2040.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2040.exe",
+          "sha256": "f9146eda6fc65629ffb674f0ec11d461ad02617a255e94d9b01ad6b9db368e67",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.4.0",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.3.2",
+      "release_date": "2022-09-05",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.3.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.3.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.3.2/lively_setup_x86_full_v2032.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2032.exe",
+          "sha256": "19286d360fd6197cf4eea6130a93eb28de30a266d58b0f94c4a55662f00732a2",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.2.8",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.3.2/lively_setup_x86_full_v2032.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2032.exe",
+          "sha256": "19286d360fd6197cf4eea6130a93eb28de30a266d58b0f94c4a55662f00732a2",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.2.8",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.2.8",
+      "release_date": "2022-08-11",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.2.8",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.2.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.8/lively_setup_x86_full_v2028.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2028.exe",
+          "sha256": "e563c77218725f614135fc66d73ec8f8fa45daf37942d207baabafa7163eb847",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.2.8",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.8/lively_setup_x86_full_v2028.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2028.exe",
+          "sha256": "e563c77218725f614135fc66d73ec8f8fa45daf37942d207baabafa7163eb847",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.2.8",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.2.4",
+      "release_date": "2022-07-08",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.2.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.2.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.4/lively_setup_x86_full_v2024.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2024.exe",
+          "sha256": "4cc1cc320a94504486e27a9e2c9fd9a2394fe7b48014f429e177eef43163419c",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.2.4",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.4/lively_setup_x86_full_v2024.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2024.exe",
+          "sha256": "4cc1cc320a94504486e27a9e2c9fd9a2394fe7b48014f429e177eef43163419c",
+          "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "Lively Wallpaper version 2.0.2.4",
+              "publisher": "rocksdanister",
+              "product_code": "{E3E43E1B-DEC8-44BF-84A6-243DBA3F2CB1}}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.2.2",
+      "release_date": "2022-06-14",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.2.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.2/lively_setup_x86_full_v2022.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2022.exe",
+          "sha256": "ece974279c873074fcb02e3ee5494c99d99e6e24544967a00c5d551749a04e86",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.2/lively_setup_x86_full_v2022.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2022.exe",
+          "sha256": "ece974279c873074fcb02e3ee5494c99d99e6e24544967a00c5d551749a04e86",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.0.2.1",
+      "release_date": "2022-06-10",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v2.0.2.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/2.0.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.1/lively_setup_x86_full_v2021.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2021.exe",
+          "sha256": "66fea3857d50f9f4dbe2c6df2630d567df283067cb4b90f36c27c3c9cc1d90d4",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v2.0.2.1/lively_setup_x86_full_v2021.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v2021.exe",
+          "sha256": "66fea3857d50f9f4dbe2c6df2630d567df283067cb4b90f36c27c3c9cc1d90d4",
+          "min_os_version": "10.0.18362.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.5.2",
+      "release_date": "2022-04-25",
+      "release_notes_url": "https://github.com/rocksdanister/lively/releases/tag/v1.7.5.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.5.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.5.2/lively_setup_x86_full_v1752.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1752.exe",
+          "sha256": "9313ceff2d9aadbcdf55813d0572f09c8e3c01b57739e2361888ea3ea320b347",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.5.2/lively_setup_x86_full_v1752.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1752.exe",
+          "sha256": "9313ceff2d9aadbcdf55813d0572f09c8e3c01b57739e2361888ea3ea320b347",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.4.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.4.2/lively_setup_x86_full_v1742.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1742.exe",
+          "sha256": "0683fe78bede802eece570da143e8c26c75753374f57c964907c672b66d12b6e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.4.2/lively_setup_x86_full_v1742.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1742.exe",
+          "sha256": "0683fe78bede802eece570da143e8c26c75753374f57c964907c672b66d12b6e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.4.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.4.0/lively_setup_x86_full_v1740.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1740.exe",
+          "sha256": "94e57a8742a5221dab5bfbe09bcb1c91f138f6eb8e7a945fd588982b6bdd7dd4",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.4.0/lively_setup_x86_full_v1740.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1740.exe",
+          "sha256": "94e57a8742a5221dab5bfbe09bcb1c91f138f6eb8e7a945fd588982b6bdd7dd4",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.2.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.2.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.6/lively_setup_x86_full_v1726.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1726.exe",
+          "sha256": "8bf189dc5a0cdab5db905cbff4907d796d416f50df82eaedbc7e2c20e1a38cc2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.6/lively_setup_x86_full_v1726.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1726.exe",
+          "sha256": "8bf189dc5a0cdab5db905cbff4907d796d416f50df82eaedbc7e2c20e1a38cc2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.2.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.2.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.4/lively_setup_x86_full_v1724.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1724.exe",
+          "sha256": "9347f0c36df25b9852ee65427e9de2a7644dbda2adbc23bde6aa7de026f5909f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.4/lively_setup_x86_full_v1724.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1724.exe",
+          "sha256": "9347f0c36df25b9852ee65427e9de2a7644dbda2adbc23bde6aa7de026f5909f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.2.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.2/lively_setup_x86_full_v1722.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1722.exe",
+          "sha256": "505a0c7b16dd505355873fe19a5cd68928ee57844c0aaae924e9befee4ba0f4a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.2/lively_setup_x86_full_v1722.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1722.exe",
+          "sha256": "505a0c7b16dd505355873fe19a5cd68928ee57844c0aaae924e9befee4ba0f4a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.2.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.0/lively_setup_x86_full_v1720.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1720.exe",
+          "sha256": "f92068b5f4bb6ffe6dd6de3347d6e06eb1f6bbeb2d7074807ea77d0bec9c479e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.2.0/lively_setup_x86_full_v1720.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1720.exe",
+          "sha256": "f92068b5f4bb6ffe6dd6de3347d6e06eb1f6bbeb2d7074807ea77d0bec9c479e",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.0.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.0.4/lively_setup_x86_full_v1704.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1704.exe",
+          "sha256": "d0a2ad431b600072dda90c462bf4cd00786bd3d1522ee1424b2061d6ba144af1",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.0.4/lively_setup_x86_full_v1704.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1704.exe",
+          "sha256": "d0a2ad431b600072dda90c462bf4cd00786bd3d1522ee1424b2061d6ba144af1",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.0.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.0.2/lively_setup_x86_full_v1702.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1702.exe",
+          "sha256": "ed86b09beaafe06e18095f617cee920af61fd5220f256c6866b254bb1db10d3a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.0.2/lively_setup_x86_full_v1702.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1702.exe",
+          "sha256": "ed86b09beaafe06e18095f617cee920af61fd5220f256c6866b254bb1db10d3a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /NODEPENDENCIES"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x86",
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.7.0.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.7.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.0.0/lively_setup_x86_full_v1700.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1700.exe",
+          "sha256": "a4fa1c2d2a61230af81a5633f06b77896ec3449d5c4b50cef41ad16d6746e21c",
+          "switches": {
+            "custom": "/NORESTART /NOAUTOLAUNCH /NODEPENDENCIES /CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.7.0.0/lively_setup_x86_full_v1700.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1700.exe",
+          "sha256": "a4fa1c2d2a61230af81a5633f06b77896ec3449d5c4b50cef41ad16d6746e21c",
+          "switches": {
+            "custom": "/NORESTART /NOAUTOLAUNCH /NODEPENDENCIES /ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.0.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.6.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.6.0.4/lively_setup_x86_full_v1604.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1604.exe",
+          "sha256": "706f9e7176e1db242b79583aeeedcd3bad199e7d05da29775a678891601c0238",
+          "switches": {
+            "custom": "/NORESTART /NOAUTOLAUNCH /NODEPENDENCIES /CURRENTUSER"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.6.0.4/lively_setup_x86_full_v1604.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1604.exe",
+          "sha256": "706f9e7176e1db242b79583aeeedcd3bad199e7d05da29775a678891601c0238",
+          "switches": {
+            "custom": "/NORESTART /NOAUTOLAUNCH /NODEPENDENCIES /ALLUSERS"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.6.0.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/r/rocksdanister/LivelyWallpaper/1.6.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/rocksdanister/lively/releases/download/v1.6.0.2/lively_setup_x86_full_v1602.exe",
+          "host": "github.com",
+          "filename": "lively_setup_x86_full_v1602.exe",
+          "sha256": "112f8c2587d97e57096705336ace649fe3e12e0f25b010bcc3f625a072fb9420",
+          "switches": {
+            "custom": "/NORESTART /NOAUTOLAUNCH /NODEPENDENCIES /ALLUSERS"
+          }
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "f6b3861bc0b6c894cd7cce0d65b748431268e9e4",
+      "retrieved_at": "2026-11-17T23:57:49.272Z",
+      "path": "manifests/r/rocksdanister/LivelyWallpaper"
+    }
+  ]
+}
