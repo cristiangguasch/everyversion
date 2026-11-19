@@ -2,7 +2,7 @@
   "schema_version": 2,
   "slug": "openscad",
   "name": "OpenSCAD",
-  "publisher": "OpenSCAD",
+  "publisher": "The OpenSCAD Developers",
   "ids": {
     "winget": "OpenSCAD.OpenSCAD",
     "moniker": "openscad",
@@ -15,7 +15,7 @@
     "linux"
   ],
   "summary": "OpenSCAD is software for creating solid 3D CAD objects.",
-  "description": "OpenSCAD is a software for creating solid 3D CAD models. It is free software and available for Linux/UNIX, Windows and Mac OS X. Unlike most free software for creating 3D models (such as Blender) it does not focus on the artistic aspects of 3D modelling but instead on the CAD aspects. Thus it might be the application you are looking for when you are planning to create 3D models of machine parts but pretty sure is not what you are looking for when you are more interested in creating computer-animated movies.",
+  "description": "OpenSCAD is software for creating solid 3D CAD models. It is free software and available for Linux/UNIX, Windows and Mac OS X. Unlike most free software for creating 3D models (such as Blender) it does not focus on the artistic aspects of 3D modelling but instead on the CAD aspects. Thus it might be the application you are looking for when you are planning to create 3D models of machine parts but pretty sure is not what you are looking for when you are more interested in creating computer-animated movies.\n\nOpenSCAD is not an interactive modeller. Instead it is something like a 3D-compiler that reads in a script file that describes the object and renders the 3D model from this script file. This gives you (the designer) full control over the modelling process and enables you to easily change any step in the modelling process or make designs that are defined by configurable parameters.\n\nOpenSCAD provides two main modelling techniques: First there is constructive solid geometry (aka CSG) and second there is extrusion of 2D outlines. Autocad DXF files can be used as the data exchange format for such 2D outlines. In addition to 2D paths for extrusion it is also possible to read design parameters from DXF files. Besides DXF files OpenSCAD can read and create 3D models in the STL and OFF file formats.",
   "tags": [
     "3d",
     "3d-graphics",
@@ -25,11 +25,27 @@
   ],
   "locale": "en-US",
   "urls": {
-    "homepage": "https://www.openscad.org/"
+    "homepage": "https://openscad.org/",
+    "publisher": "https://openscad.org/",
+    "documentation": [
+      {
+        "label": "Cheatsheet",
+        "url": "https://openscad.org/cheatsheet/index.html"
+      },
+      {
+        "label": "Docs",
+        "url": "https://openscad.org/documentation.html"
+      },
+      {
+        "label": "Libraries",
+        "url": "https://openscad.org/libraries.html"
+      }
+    ]
   },
   "license": {
-    "name": "GNU GPLv2",
-    "url": "https://raw.githubusercontent.com/openscad/openscad/openscad-2021.01/COPYING"
+    "name": "GPL-2.0-or-later",
+    "url": "https://github.com/openscad/openscad/blob/HEAD/COPYING",
+    "spdx": "GPL-2.0-or-later"
   },
   "pricing": {
     "status": "open-source",
@@ -40,6 +56,7 @@
     "macos": "2021.01",
     "linux": "2021.01"
   },
+  "last_updated": "2021-01-31",
   "versions_total": {
     "windows": 2,
     "macos": 1,
@@ -49,18 +66,25 @@
     {
       "platform": "windows",
       "version": "2021.01",
-      "manifest_version": "1.1.0",
+      "release_date": "2021-01-31",
+      "manifest_version": "1.28.0",
       "manifest_dir": "manifests/o/OpenSCAD/OpenSCAD/2021.01",
       "installers": [
         {
           "platform": "windows",
           "architecture": "x64",
           "type": "nullsoft",
+          "scope": "machine",
           "url": "https://files.openscad.org/OpenSCAD-2021.01-x86-64-Installer.exe",
           "host": "files.openscad.org",
           "filename": "OpenSCAD-2021.01-x86-64-Installer.exe",
           "sha256": "fbe1e590e1af2af863f5d92bd263eb4644d0ee29352e3ab566366e87a8f6ed12",
-          "min_os_version": "10.0.0.0"
+          "product_code": "OpenSCAD",
+          "apps_and_features": [
+            {
+              "product_code": "OpenSCAD"
+            }
+          ]
         }
       ]
     },
@@ -148,8 +172,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
-      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "commit": "9a6f025838a24430a00bf70fdf00405980b029c3",
+      "retrieved_at": "2026-11-18T23:29:43.113Z",
       "path": "manifests/o/OpenSCAD/OpenSCAD"
     },
     {

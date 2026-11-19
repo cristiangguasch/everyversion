@@ -30,7 +30,7 @@
     "support": "https://zed.dev/support",
     "privacy": "https://zed.dev/privacy-policy",
     "purchase": "https://zed.dev/pricing",
-    "release_notes": "https://github.com/zed-industries/zed/releases/tag/v1.28.1",
+    "release_notes": "https://github.com/zed-industries/zed/releases/tag/v1.29.1",
     "documentation": [
       {
         "label": "Community Links",
@@ -53,17 +53,76 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "1.28.1",
-    "macos": "1.28.1",
+    "windows": "1.29.1",
+    "macos": "1.29.1",
     "linux": "v1.28.1"
   },
-  "last_updated": "2026-11-11",
+  "last_updated": "2026-11-18",
   "versions_total": {
-    "windows": 6,
+    "windows": 4,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "1.29.1",
+      "release_date": "2026-11-18",
+      "release_notes": "This week's release includes a Git Panel branch mode that lists every file changed since a base branch, a bookmark picker, configurable Git date formats, support for Claude Fable 5.2 for Anthropic BYOK users (plus Claude Mythos 5.2 if your organization has access), and a setting to turn off automatic agent thread titles.\nFeatures\nAI\n- Added an agent.auto_generate_thread_titles setting (default true) that can be set to false to disable automatic title generation for Zed Agent threads. (#63998; thanks FrederickGeek8)\n- Added support for Claude Fable 5.2 for Anthropic BYOK users, plus Claude Mythos 5.2 if your organization has access. (#66760)\n- Improved the copy button on agent responses to briefly show a checkmark confirming the copy. (#64664; thanks itsfuad)\n- Improved the ordering of ACP agent config options in the message editor so the first option the agent provides appears next to the send button. (#66733)\nGit\n- Added a branch mode to the Git Panel that lists all files changed since a base branch, such as origin/main. Choose \"Compare Against Base\" from the new menu at the top of the Changes tab to pick the base branch, or run git panel: show branch changes to compare against the default branch. Files in this mode can be opened as diffs but not staged or restored. (#66482)\n- Added a git.date_format setting (\"locale\", \"iso\", or a strftime format such as \"%Y-%m-%d %H:%M\") for absolute Git dates, and date_style settings (\"relative\" or \"absolute\") to choose how dates are shown in each view: git.blame.date_style, git.inline_blame.date_style, git.branch_picker.date_style, git.stash_picker.date_style, git_panel.date_style, and git_graph.date_style. (#66533; thanks scarf005)\n- Added git.commit_view.expand_description and git.commit_view.expand_files settings to control whether the commit view opens with the full commit message shown and the changed files expanded. (#66331; thanks mmatczuk)\n- Improved opening a commit from Git blame to scroll the commit view to the blamed file instead of the top of the diff. (#65237; thanks seongheum-choi)\n- Improved Git status refresh performance in very large repositories when many files change at once. (#66242; thanks ambyjkl)\n- Improved git: rename branch to trim the new branch name and replace spaces with dashes, matching branch creation, and to preview the resulting name in the rename modal. (#65734; thanks Sha1rholder)\n- Improved the Git Panel's repository selector to distinguish repositories that share the same directory name. (#62800; thanks BirknerAlex)\nOther\n- Added a bookmark picker for browsing, searching, and previewing all bookmarks in the current workspace, opened with project bookmarks: toggle. (#60005; thanks guopenghui)\n- Improved dev: open key context view by adding horizontal scrolling, so long context predicates are no longer cut off. (#66528)\nBug Fixes\n- Fixed a bug where opening a file through the Open dialog (workspace: open) replaced the current project with one containing only that file instead of opening it as a tab in the current project. (#66103)\n- Fixed a bug where switching branches in a remote project resent the full Git history over SSH, stalling the terminal and file opening until the transfer finished. (#65436; thanks azeemshaik025)\n- Fixed Helix mode ignoring the vim.use_system_clipboard setting. Yank, delete and paste in Helix mode use the system clipboard by default again, as they did before 1.28. If you wish to keep the 1.28 behavior, set \"vim\": { \"use_system_clipboard\": \"never\" } to keep using the internal register. (#66906; thanks sandr01d)\n- Fixed the file finder not showing files outside the project when searching by absolute path, and files matching file_scan_exclusions when searching by their exact path. (#66227)\n- Fixed a bug where the copy button at the bottom of an agent thread could copy a response from an earlier turn when the latest turn had no response text. (#64664; thanks itsfuad)\n- Fixed a bug where the read-only toggle icon and action were shown on tabs that do not support toggling read-only. (#66650)\n- Fixed a crash when moving a project with a split diff to a new window. (#67128; thanks Stiven-Gjekaj)\n- Fixed an empty strip at the bottom of the commit modal. (#67090; thanks keantx)\n- Fixed animated WebP files only displaying their first frame when opened in the image viewer. (#66459; thanks jorge1b3)\n- Fixed bold text using the wrong theme colors in Markdown previews. (#63940; thanks IbrahimKhan12)\n- Fixed cmd-o opening the file dialog instead of project symbol search when using the JetBrains keymap on macOS. (#66137; thanks dmytrodanilenkov)\n- Fixed combining marks such as v̄ rendering to the right of their base glyph on Linux. (#66799; thanks ItsGlucose)\n- Fixed commit messages losing their line breaks in the commit view. (#66608; thanks mmatczuk)\n- Fixed cmd-k (macOS) and ctrl-k (Linux/Windows) in the JetBrains keymap not focusing the commit message, including when the Git Panel was closed or showing its History tab. Pressing the key again no longer returns focus to the editor; use cmd-0 (macOS) or alt-0 (Linux/Windows) to toggle Git Panel focus. (#66330; thanks mmatczuk)\n- Fixed entry icons overlapping diff stats in a narrow Git Panel. (#66278; thanks lingyaochu)\n- Fixed extension snippets being duplicated each time an extension is reloaded. (#66798; thanks IbrahimKhan12)\n- Fixed LM Studio and llama.cpp model discovery requests being sent at startup despite disable_ai being true. (#66842; thanks Pixelrick420)\n- Fixed terminal links to absolute paths outside the project not opening when the remote's OS differs from the local one (e.g. WSL on Windows). (#66594; thanks brunocordioli072)\n- Fixed the end of the Markdown preview being cut off when the file starts with a blank line or an HTML comment. (#66467; thanks yyq1025)\n- Fixed the Threads Sidebar not showing a waiting indicator for threads with unanswered agent input forms. (#66708; thanks daejey)\n- Fixed the zed CLI rejecting multiple ssh:// paths on the same host in a single command. (#66568; thanks kawadeomkar)\n- Fixed Vim :s and :%s commands not recognizing \\+ and \\{n\\} repetition operators in search patterns. (#66515; thanks akramcodez)\n- Fixed Vim's :s without the g flag replacing the wrong matches when used after the first line. (#67015; thanks ptweezy)\n- Fixed which-key closing the commit editor and pickers when a multi-key binding was pending. (#66630; thanks divyanshus2404)\n- Fixed worktree index corruption when excluding symlinks that point inside a project. (#64818; thanks porada)\n- Fixed zed --add --diff adding the working directory as a project folder in the focused window. (#66386; thanks abdelq)\n- Fixed zed --add choosing the wrong window or project when several open projects matched equally or none matched, now preferring the focused window and its active project. (#66386; thanks abdelq)\n- Fixed Zed.exe path:line being ignored on Windows when Zed is already running. (#66501; thanks h4nz4)\n- Fixed zed://file and file:// links with a drive letter (for example zed://file/C:/project/main.rs:12) opening an empty window on Windows. (#66497; thanks h4nz4)",
+      "release_notes_url": "https://github.com/zed-industries/zed/releases/tag/v1.29.1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/z/ZedIndustries/Zed/1.29.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.29.1/Zed-x86_64.exe",
+          "host": "github.com",
+          "filename": "Zed-x86_64.exe",
+          "sha256": "cedc5a3a5e35fdea994a17071f273222c1eec88e995d9e19c9891c1d6c1e03aa",
+          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.29.1",
+              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.29.1/Zed-aarch64.exe",
+          "host": "github.com",
+          "filename": "Zed-aarch64.exe",
+          "sha256": "4608b797abc7acb61d739928e64e01734501b2f75dcad2ceb98d2690eeb4ca8b",
+          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.29.1",
+              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "1.28.1",
@@ -242,204 +301,27 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "1.25.3",
-      "release_date": "2026-10-23",
-      "release_notes": "- Updated dependencies to address recent software ecosystem vulnerabilities. (#66023, #65963)",
-      "release_notes_url": "https://github.com/zed-industries/zed/releases/tag/v1.25.3",
-      "manifest_version": "1.12.0",
-      "manifest_dir": "manifests/z/ZedIndustries/Zed/1.25.3",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.25.3/Zed-x86_64.exe",
-          "host": "github.com",
-          "filename": "Zed-x86_64.exe",
-          "sha256": "f0188d5e8144caf82f0e2c80914527c0b0f4c6d75121c2a6bacb332c65054704",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.25.3",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.25.3/Zed-aarch64.exe",
-          "host": "github.com",
-          "filename": "Zed-aarch64.exe",
-          "sha256": "af77756e8c484e019e030724ff31f6f5debd6fe6543135ec4e2b7c8e273da2a4",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.25.3",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "platform": "windows",
-      "version": "1.25.2",
-      "release_date": "2026-10-21",
-      "release_notes": "This week's release includes smaller Zed binaries across macOS, Windows, and Linux, the ability to apply inlay hint text edits by double-clicking, context compaction and session notices for external agents, and new GPT-6 Astra, Claude Fable 5.1, and Claude Opus 5.5 models on Amazon Bedrock.\nFeatures\nAI\n- Added GPT-6 Astra, Claude Fable 5.1, and Claude Opus 5.5 to the Amazon Bedrock provider. (#64201, #64685; thanks IbrahimKhan12 and alexandergunnarson)\n- Enabled session notices and context compaction for external agents using ACP. (#65414)\nGit\n- Improved the branch picker to make clear that deleting a remote-tracking branch only removes the local ref, and removed the force delete option for remote-tracking branches, since it had no effect. (#61793; thanks lld4n)\nLanguages\n- Added support for applying inlay hint text edits by double-clicking a hint, or by running editor: accept inlay hint with the cursor at the hint. (#64789)\n- Added HTML syntax highlighting for svg, mathml and raw tagged templates, and CSS syntax highlighting for template literals in css({ ... }) objects, in JavaScript and TypeScript. (#65688)\nRemote Development\n- Improved SSH remote connection time by detecting the remote shell, platform, and OS version in one command instead of three, which helps most when connecting from Windows. (#65065; thanks Huliiiiii)\nOther\n- Added automatic unfolding of folded sections when jumping to a location via go to line, go to definition/declaration/implementation/type definition, symbol navigation, the outline and project symbol pickers, multibuffer location results, and navigation history. (#65217; thanks henne90gen)\n- Added an \"Open SVG Preview\" option to the Project Panel's context menu for SVG files. (#65539; thanks skmanoj322)\n- Added the tab_switcher.show_file_preview setting, which controls whether files are previewed in the editor while cycling through the tab switcher (defaults to true). (#56235; thanks sebascadpi)\n- Improved the tab switcher so it no longer changes selection on mouse hover and no longer delays showing its popover; you can still click entries to switch tabs. (#65546)\n- Improved startup time when restoring hundreds of editor selections. (#65171)\n- Improved startup time when using custom icon themes. (#65173)\n- Reduced Zed's binary size by about 33% on macOS, 28% on Windows, and 7% on Linux. (#65168)\nBug Fixes\n- Fixed a bug where environment variables, including secrets, passed to external agents and MCP servers in remote projects were visible in the local machine's process list. (#65174)\n- Fixed prompts to external agents being slow to send, or never sending, because of unneeded Git checkpoints. (#65304)\n- Fixed the remote server failing to start when connecting to a Windows host over SSH. (#55292; thanks sergio-u)\n- Fixed ctrl-o and ctrl-i in Vim mode not navigating back and forward when a Markdown preview was focused. (#65299; thanks gitKashish)\n- Fixed a bug where archiving an agent thread did nothing and kept a CPU core busy when the thread's linked worktree folder had been deleted. (#65578)\n- Fixed a bug where case conversion and other text transformation commands duplicated the word when multiple cursors were inside it. (#65291; thanks gitKashish)\n- Fixed a bug where navigating back skipped a Markdown preview tab after switching to another file. (#65299; thanks gitKashish)\n- Fixed a bug where notification sounds could stop playing after an audio output error, and on Linux an audio thread could keep using a full CPU core until Zed restarted. (#65158)\n- Fixed a bug where the Git Panel's commit editor buttons changed opacity when hovering over empty space. (#65448; thanks shuvroroy)\n- Fixed a bug where the Project Panel's \"Open Markdown Preview\" option did not appear for files opened on their own (e.g. zed README.md). (#65539; thanks skmanoj322)\n- Fixed a bug where the Settings UI sidebar did not highlight the subsection being scrolled through, including the last short subsections of a page. (#65172; thanks mayurathavale18)\n- Fixed a visual artifact at the corners of scrollable code blocks when hovered. (#64978)\n- Fixed blurred window backgrounds not blurring on macOS 27. (#65361; thanks biw)\n- Fixed edit predictions showing an unlimited allowance and available controls when a team organization with no active subscription was selected. (#65301)\n- Fixed external agents' first updates in a new thread sometimes being dropped, and agent error output being missing when an agent exited during startup. (#65339)\n- Fixed extra space between the scrollbar and the header of terminals in the Agent Panel. (#65358; thanks chrisdrackett)\n- Fixed Gemini models failing with an error after a tool call returned an image. (#65576)\n- Fixed hover popovers flickering or closing too early on mouse movement with language servers that omit range information. (#64032; thanks daydalek)\n- Fixed images inside center- or right-aligned HTML blocks rendering left-aligned in Markdown Preview. (#63166; thanks pray3m)\n- Fixed OpenAI-compatible edit predictions failing on servers that limit stop sequences to 4. (#65360; thanks mischah)\n- Fixed search not working in the debugger's terminal, opened with cmd-f (macOS) or ctrl-shift-f (Linux/Windows). (#56863; thanks iamsushank)\n- Fixed text finder queries filled in from the current selection being treated as a regular expression instead of literal text when regex mode was on. (#65321; thanks Syozik)\n- Fixed the Collab Panel's empty-state styling not matching the Git Panel. (#65290; thanks arondubovszky)\n- Fixed window controls being misaligned in the threads sidebar header when no project is open. (#65651)\n- Fixed wrapped links in Markdown tables being partially unclickable in Markdown previews and agent responses. (#65366; thanks julian-bruyers)",
-      "release_notes_url": "https://github.com/zed-industries/zed/releases/tag/v1.25.2",
-      "manifest_version": "1.12.0",
-      "manifest_dir": "manifests/z/ZedIndustries/Zed/1.25.2",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.25.2/Zed-x86_64.exe",
-          "host": "github.com",
-          "filename": "Zed-x86_64.exe",
-          "sha256": "a610ed6f9246c68387b25bcf86c694d4a4a714c4c29f1b38de2240e44665ef25",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.25.2",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.25.2/Zed-aarch64.exe",
-          "host": "github.com",
-          "filename": "Zed-aarch64.exe",
-          "sha256": "efc7d152ed45e17112dfd0743868f6c15d9c852c67d08d9f53fb14e6c43852bd",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.25.2",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "platform": "windows",
-      "version": "1.24.4",
-      "release_date": "2026-10-20",
-      "release_notes": "- Fixed OpenCode models failing to load with a missing field npm error. (#65875)",
-      "release_notes_url": "https://github.com/zed-industries/zed/releases/tag/v1.24.4",
-      "manifest_version": "1.12.0",
-      "manifest_dir": "manifests/z/ZedIndustries/Zed/1.24.4",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.24.4/Zed-x86_64.exe",
-          "host": "github.com",
-          "filename": "Zed-x86_64.exe",
-          "sha256": "29fead14efa19feb30e2d17903b9665236e4456f54316918f108ea9a798af170",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.24.4",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.24.4/Zed-aarch64.exe",
-          "host": "github.com",
-          "filename": "Zed-aarch64.exe",
-          "sha256": "9959601d8047db1516e9f1bd86282e3ad66d8b9524ae30e2a8d392741a366b4b",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.24.4",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "1.28.1",
+      "version": "1.29.1",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.28.1/Zed-x86_64.dmg",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.29.1/Zed-x86_64.dmg",
           "host": "github.com",
           "filename": "Zed-x86_64.dmg",
-          "sha256": "e6e1a385f7289d667f730f11c948161ca462fe2679488b0d72848173638d6749",
+          "sha256": "0bba5a103e091144fd1d4f5833b512defb12fcb734ccef92c127fc6b7a325c4f",
           "min_os_version": "12"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.28.1/Zed-aarch64.dmg",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.29.1/Zed-aarch64.dmg",
           "host": "github.com",
           "filename": "Zed-aarch64.dmg",
-          "sha256": "0ca1a4f1e89e3825f49af26fa31afcf0cc3e50da1f4ba9889f0735f5f0beffe4",
+          "sha256": "860c60861efbe5bac3552c2ecc518bc9664db08844b6e656e0ced4fb6711dff8",
           "min_os_version": "12"
         }
       ],
@@ -511,16 +393,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
+      "commit": "9a6f025838a24430a00bf70fdf00405980b029c3",
+      "retrieved_at": "2026-11-18T23:29:43.113Z",
       "path": "manifests/z/ZedIndustries/Zed"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "011c91bc5ede5c6aeb118fc34d57d2a4717d4b6e",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
+      "commit": "a04abd772d9b0d424308290602992e5b56577c04",
+      "retrieved_at": "2026-11-18T23:29:43.113Z",
       "path": "Casks/z/zed.rb",
       "api_url": "https://formulae.brew.sh/api/cask/zed.json"
     },
