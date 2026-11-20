@@ -1,0 +1,719 @@
+{
+  "schema_version": 2,
+  "slug": "activitywatch",
+  "name": "ActivityWatch",
+  "publisher": "ActivityWatch Contributors",
+  "author": "ActivityWatch Contributors",
+  "ids": {
+    "winget": "ActivityWatch.ActivityWatch",
+    "moniker": "activitywatch",
+    "homebrew_cask": "activitywatch"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "ActivityWatch is an app that automatically tracks how you spend time on your devices.",
+  "description": "The goal of ActivityWatch is simple, Enable the collection of as much valuable lifedata as possible without compromising user privacy.",
+  "tags": [
+    "cross-platform",
+    "foss",
+    "open-source",
+    "privacy",
+    "productivity",
+    "quantified-self",
+    "time-tracker",
+    "timetracker"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://activitywatch.net/",
+    "publisher": "https://github.com/ActivityWatch/activitywatch",
+    "support": "https://github.com/ActivityWatch/activitywatch/issues",
+    "bug_tracker": "https://github.com/ActivityWatch/activitywatch/issues",
+    "release_notes": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.3"
+  },
+  "license": {
+    "name": "MPL-2.0",
+    "url": "https://github.com/ActivityWatch/activitywatch/blob/HEAD/LICENSE.txt",
+    "spdx": "MPL-2.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.14.3",
+    "macos": "0.14.3"
+  },
+  "last_updated": "2026-11-15",
+  "versions_total": {
+    "windows": 10,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.14.3",
+      "release_date": "2026-11-15",
+      "release_notes": "These are the release notes for ActivityWatch version v0.14.3.\nNew to ActivityWatch? Check out the website and the README.\nInstallation\nSee the getting started guide in the documentation.\nDownloads\nClassic distribution\n- Windows (.exe installer)\n- macOS: Intel | Apple Silicon (.dmg)\n- Linux: .zip | .AppImage | .deb\nTauri distribution (experimental — native Wayland support on Linux)\n- Windows (.exe installer)\n- macOS: Intel | Apple Silicon (.dmg)\n- Linux: .AppImage | .zip\nSupport ActivityWatch\nActivityWatch is free and open source, with no feature gates. If it is useful to you, AW Pro is an optional subscription that funds ongoing development.\nContributors\nThanks to everyone who contributed to this release:\n@0xbrayo, @ErikBjare, @TimeToBuildBob\nChangelog\nChanges since v0.14.2:\n📦 activitywatch\n(excluded 2 less relevant commits)\n📦 aw-server\n🐛 Fixes (2)\n- fix(api): cache the inserted heartbeat with its id (#223) (79e8ac5)\n- fix(ci): preserve explicit Ruff lint baseline after upgrade (#224) (90fc21d)\n📦 aw-server-rust\n🐛 Fixes (2)\n- fix(datastore): reject events outside the storable time range (#862) (113752d)\n- fix(test): initialize disposable user profile via schtasks before server launch (#860) (1bde448)\n🔨 Misc (1)\n- test(server): prove disposable Windows profile isolation for recovery tests (#859) (bf15a0b)\n📦 aw-webui\n✨ Features (6)\n- feat(timeline): optional time inputs for exact sub-day bounds (#1274) (b5bb8c7)\n- feat(i18n): translate default category names at display time (#1268) (332b28f)\n- feat(settings): server-stored supporter flag to hide support prompts (#1263) (e64e648)\n- feat(event-list): add 'Show more' paging past the first 100 events (#1032) (0a00cb1)\n- feat(settings): persist independent text size and content width (#1199) (3412fcf)\n- feat(timeline): add a read-only List mode for the filtered events (#1269) (9dcfac4)\n🐛 Fixes (6)\n- fix(periodusage): keep the Today label beside its bar, drawn on top (#1277) (911288b)\n- fix(validate): guard validateRegex against non-string input (#1276) (2666b6c)\n- fix(event-list): guard Show more footer against non-array events (#1271) (147620d)\n- fix(query): render non-event Query Explorer results without EventList crashes (#1244) (7652c39)\n- fix(ci): link screenshot artifacts without deprecated CML publish (#1264) (f424d1e)\n- fix(stopwatch): clear the clock interval when the view is destroyed (#1270) (78c2519)\n📦 aw-qt\n✨ Features (1)\n- feat(tray): hide the support item when the server says the user supports us (#149) (c31456c)\n🐛 Fixes (1)\n- fix(deps): bump PyQt6/Qt6 6.5.3 → 6.10.2 to fix macOS 26/27 tray crash (#151) (50bb39f)\n📦 aw-tauri\n✨ Features (1)\n- feat(tray): hide the support item when the user already supports us (#308) (0006ef1)\n🐛 Fixes (4)\n- fix(autostart): preserve disabled intent and retry failed migrations (#300) (05ecf95)\n- fix(notify): update the aw-notify enabled field atomically in the server worker (#305) (a30a08a)\n- fix(webview): skip javascript: pseudo-links in the external URL interceptor (#310) (b87ab14)\n- fix(version): report the enclosing ActivityWatch bundle release (#293) (fe4fc73)\n(excluded 2 less relevant commits)\n📦 aw-client\n🐛 Fixes (4)\n- fix(singleinstance): acquire Windows locks on fresh paths (#152) (0fe5464)\n- fix(examples): UTC-aware index and timedelta duration for empty dataframe results (#169) (cdb4b79)\n- fix(examples): handle empty dataframe query results (#165) (312a669)\n- fix(deps): require tzdata at runtime on Windows (#167) (c90621d)\nFull Changelog: v0.14.2...v0.14.3",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.3",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.14.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-v0.14.3-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.3-windows-x86_64-setup.exe",
+          "sha256": "6ce8b3d3b0e5a143047d56489c56423d234b90a41681f3a42724902a7e9653c1",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "0.14.3",
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-v0.14.3-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.3-windows-x86_64-setup.exe",
+          "sha256": "6ce8b3d3b0e5a143047d56489c56423d234b90a41681f3a42724902a7e9653c1",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "0.14.3",
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.2",
+      "release_date": "2026-11-09",
+      "release_notes": "These are the release notes for ActivityWatch version v0.14.2.\nNew to ActivityWatch? Check out the website and the README.\nInstallation\nSee the getting started guide in the documentation.\nDownloads\nClassic distribution\n- Windows (.exe installer)\n- macOS: Intel | Apple Silicon (.dmg)\n- Linux: .zip | .AppImage | .deb\nTauri distribution (experimental — native Wayland support on Linux)\n- Windows (.exe installer)\n- macOS: Intel | Apple Silicon (.dmg)\n- Linux: .AppImage | .zip\nSupport ActivityWatch\nActivityWatch is free and open source, with no feature gates. If it is useful to you, AW Pro is an optional subscription that funds ongoing development.\nContributors\nThanks to everyone who contributed to this release:\n@0xbrayo, @andreivince, @ErikBjare, @fanxing11, @kvnloo, @RaoufGhrissi, @TimeToBuildBob, @Yarish652, @zachsplat\nChangelog\nChanges since v0.14.1:\n📦 activitywatch\n✨ Features (1)\n- feat(packaging): ship awatcher in the non-Tauri Linux bundle (#1531) (c8b9203)\n🐛 Fixes (5)\n- fix(release): harvest signed Linux deb/rpm updater artifacts (#1542) (b4b3bd3)\n- fix(release): pass bundle version to the Tauri compilation (#1535) (71cdc78)\n- fix(packaging): pin Qt Wayland watcher substitution (#1532) (5f54ca2)\n- fix(issue-forms): remove invalid empty title keys (#1524) (33f667d)\n- fix(package): don't trust uname -m for Windows zip arch (#1520) (e0d283f)\n🔨 Misc (2)\n- docs(readme): link AW Pro support with attribution; drop stale budget badge (#1543) (0d114d7)\n- docs(README): update architecture diagram (34c7e61)\n(excluded 13 less relevant commits)\n📦 aw-server\n✨ Features (1)\n- feat(api): bulk event delete endpoint (aw-server-rust parity) (#189) (0b36a59)\n🐛 Fixes (8)\nClick to expand\n- fix(api): reject nonfinite heartbeat pulse windows (#207) (7af1920)\n- fix(export): serialize WSGI-safe attachment filenames (#212) (b298f74)\n- fix(export): prefix CSV data keys that collide with id/timestamp/duration (#184) (c1ea4ee)\n- fix(settings): preserve saved state on persistence errors (#198) (05bc762)\n- fix(config): use [server] in isolated profile roots (#170) (991fa6e)\n- fix(ci): drop brittle PAT-based dependabot automerge (#196) (be99fec)\n- fix(storage): close request database connections (#171) (6356feb)\n- fix(http): accept IPv6 loopback Host headers (#172) (f8a352c)\n(excluded 17 less relevant commits)\n📦 aw-server-rust\n✨ Features (7)\n- feat(transform): add merge_subwatcher_fields query function (#824) (1d101d4)\n- feat(aw-sync): status --clean-legacy prunes re-exported buckets from own staging (#723) (b1d7976)\n- feat(aw-sync): add Android JNI resetStaging for own-device staging db (#815) (82995ea)\n- feat(android): add setSetting JNI binding (#816) (919cbff)\n- feat(server): bulk event delete endpoint (#781) (ce65045)\n- feat(server): serve query reads from a read-only datastore handle (#807) (af70e58)\n- feat(query): per-request time budget and slow-query logging (#806) (6f4204f)\n🐛 Fixes (15)\nClick to expand\n- fix(transform): parse scheme-less Android browser domains (#852) (67432e6)\n- fix(datastore): invalidate heartbeat cache on delete and rename (#826) (fe353a6)\n- fix(android): invalidate the query cache on JNI writes (#831) (92631a3)\n- fix(transform): sort union_no_overlap inputs by timestamp (#838) (c684083)\n- fix(datastore): update JSON settings fields atomically (#834) (cfccd10)\n- fix(query): parse negative number literals in the query language (#832) (c58b49d)\n- fix(sync): migrate staging database name (#800) (69e0ac4)\n- fix(server): make bucket_list_changed non-blocking — drop reader.reload_buckets() (#821) (9bedc57)\n- fix(android): let /api/0/info report the device hostname (#823) (db85090)\n- fix(legacy-import): propagate insert_events/create_bucket errors instead of panicking (#822) (c883054)\n- fix(recovery): restart-safe union of Windows Local and Roaming histories (#813) (fe558c4)\n- fix(datastore): detect a corrupt database at startup, checkpoint WAL on close (#778) (4f955b0)\n- fix(aw-server): detect if ActivityWatch is already running on AddrInUse (#773) (efad1f0)\n- fix(android): force-commit setSetting before reporting ok (#817) (d0f5074)\n- fix(query_cache): bound pending_flush to write_log_size, skip when no reader (#818) (84a26e1)\n🔨 Misc (3)\n- test(client): fix Windows CI flake in test_wait_for_start_retries_without_blocking_executor (#819) (6de27c9)\n- test(sync): pin PeerReport visibility contract for record_peers=true (#787) (ccf07c5)\n- test(server): verify stopwatch acknowledgements survive process restart (#814) (18fb62e)\n(excluded 18 less relevant commits)\n📦 aw-webui\n✨ Features (30)\n- feat(i18n): explain translation quality and invite native-speaker corrections (#1163) (c933686)\n- feat(trends): group the time chart by day or week (#1194) (1805832)\n- feat(activity): per-device active time in the multi-device view (#1170) (a226d13)\n- feat(categories): carry common app defaults from #495 (#1166) (283305e)\n- feat(timeline): group consecutive short events into expandable composites (#1181) (d7f874b)\n- feat(activity): select exact sub-day intervals (#1168) (dba35d3)\n- feat(trends): filter category history and comparisons (#1182) (519c6ff)\n- feat(home): tag Android subscribe CTA as inapp-home-android (#1185) (1f56021)\n- feat(i18n): add Indonesian (id) locale (#1155) (d7d45cd)\n- feat(i18n): add Swahili (sw) locale (#1158) (86178ef)\n- feat(i18n): add Bengali (bn) locale (#1156) (244e7ec)\n- feat(i18n): add Urdu (ur) locale with RTL direction (#1157) (360dd13)\n- feat(i18n): add Brazilian Portuguese (pt-BR) locale (#1150) (fb8e824)\n- feat(i18n): add French (fr) locale (#1149) (efcfbcc)\n- feat(i18n): add Japanese (ja) locale (#1154) (f3c86db)\n- feat(i18n): add Hindi (hi) locale (#1151) (db9e22d)\n- feat(i18n): add Arabic (ar) locale with rtl document direction (#1152) (b1541fd)\n- feat(i18n): localize remaining screens in Simplified Chinese (#1147) (78ad8ce)\n- feat(i18n): add Spanish (es) locale (#1145) (f54fa2f)\n- feat(i18n): complete uk/de/ru/sv/zh-CN coverage and report translation % per locale (#1143) (001921b)\n- feat(i18n): complete Simplified Chinese UI coverage (#1134) (ac8a180)\n- feat(activity): show banner when core watcher bucket is stale (#1083) (a3559fa)\n- feat(timeline): add merged final-category row (#1129) (8557c08)\n- feat(timeline): add date shift buttons and preserve query params on period nav (#1128) (7e3347f)\n- feat(search): include browser URL/title results alongside window events (#1025) (d678505)\n- feat(android): blend browser URL data when aw-watcher-web is present (#1091) (65ac42e)\n- feat(nav): add Category Builder to the tools menu as a standalone page (#1117) (195d168)\n- feat(nav): add Category Builder to the tools menu as a standalone page (#1114) (49d2091)\n- feat(buckets): list buckets as rows instead of a button table (#1092) (375c135)\n- feat(ui): open phone navigation in a side drawer (#1102) (e11ddab)\n🐛 Fixes (66)\nClick to expand\n- fix(report): export successful calculation inputs with results (#1257) (d6d1f21)\n- fix(transforms): enumerate every overlapping pair (#1144) (50f6b74)\n- fix(sunburst): align reporting-day arcs with wall-clock ticks (#1240) (5c6b36f)\n- fix(settings): keep the confirmed privacy-filter baseline when a save fails (#1136) (4c85178)\n- fix(time): preserve relative intervals and validate inclusive range bounds (#1204) (6b69113)\n- fix(bucket): bind merge inputs to current selection loads (#1211) (c3a1f26)\n- fix(query): bind preset confirmations to invocation snapshots (#1218) (bbf2fe5)\n- fix(reports): anchor query windows to the configured logical day (#1201) (e174ede)\n- fix(graph): preserve structural category identities (#1219) (3b898d8)\n- fix(categories): preserve structural hierarchy and tree expansion (#1220) (3ebeadc)\n- fix(buckets): retry only pending confirmed host deletions (#1212) (16aff47)\n- fix(categories): preserve structural paths through category selectors (#1226) (3f8e326)\n- fix(categories): preserve complete paths during enumeration (#1232) (f39df23)\n- fix(ai-summary): bind activity and inference to one invocation (#1237) (fa2faee)\n- fix(views): isolate layout drafts and await confirmed saves (#1222) (4176400)\n- fix(categories): avoid empty alternative when appending first pattern (#1230) (2213244)\n- fix(top-bucket): preserve typed value identity in grouping (#1242) (82f6ef6)\n- fix(categories): acknowledge only the saved category snapshot (#1228) (2fc61ef)\n- fix(settings): persist only intentionally updated keys (#1223) (ab82878)\n- fix(categories): reject malformed imports before live mutation (#1239) (fd1c979)\n- fix(alerts): preserve category paths and compare goal units (#1216) (034c919)\n- fix(top-bucket): keep async results owned by the latest load (#1234) (c9e4cee)\n- fix(ai-summary): aggregate literal application and domain keys (#1238) (68ac353)\n- fix(summary): redraw when the selected data key changes (#1245) (ab97aa7)\n- fix(graph): keep Generate results owned by the current invocation (#1248) (e2f3fa7)\n- fix(editor): bind drafts and mutations to selection identity (#1208) (abbd592)\n- fix(bucket): reconcile confirmed event deletions (#1207) (4b58484)\n- fix(reports): bind chart data to the successful report query (#1205) (c3a1014)\n- fix(buckets): keep import status owned by the current selection (#1210) (4fe9d20)\n- fix(query): keep results owned by the latest submission (#1217) (bfc798b)\n- fix(notifications): persist preferences and backoff explicitly (#1224) (18c276d)\n- fix(search): keep results owned by latest submission (#1206) (5c50b93)\n- fix(ci): reject failed screenshot publication (#1236) (de58c19)\n- fix(activity): open per-device breakdown as floating popover (#1197) (0b73e83)\n- fix(categories): match default Kate alternative as a whole field (#1184) (628a447)\n- fix(sunburst): use configured category colors for window arcs (#1183) (d9a3386)\n- fix(export): neutralize spreadsheet formulas in client-side CSV exports (#1192) (a3f9ed5)\n- fix(ai-summary): count app changes independently of idle gaps (#1180) (8d662f8)",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.2",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.14.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.2/activitywatch-v0.14.2-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.2-windows-x86_64-setup.exe",
+          "sha256": "86f2cd3c8eb8df1da30706bddee677e2af541a943ae32fbdc7de09135485a054",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "0.14.2",
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.2/activitywatch-v0.14.2-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.2-windows-x86_64-setup.exe",
+          "sha256": "86f2cd3c8eb8df1da30706bddee677e2af541a943ae32fbdc7de09135485a054",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "0.14.2",
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.1",
+      "release_date": "2026-10-10",
+      "release_notes": "These are the release notes for ActivityWatch version v0.14.1.\n\n**New to ActivityWatch?** Check out the [website](https://activitywatch.net) and the [README](https://github.com/ActivityWatch/activitywatch/blob/master/README.md).\n\n# Installation\n\nSee the [getting started guide in the documentation](https://docs.activitywatch.net/en/latest/getting-started.html).\n\n# Downloads\n\n## Classic distribution\n\n • [**Windows**](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-v0.14.1-windows-x86_64-setup.exe) (.exe installer)\n • **macOS**：[Intel](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-v0.14.1-macos-x86_64.dmg) | [Apple Silicon](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-v0.14.1-macos-arm64.dmg) (.dmg)\n • **Linux**：[.zip](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-v0.14.1-linux-x86_64.zip) | [.AppImage](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-linux-x86_64.AppImage) | [.deb](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-v0.14.1-linux-x86_64.deb)\n\n## Tauri distribution (experimental — native Wayland support on Linux)\n\n • [**Windows**](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-tauri-v0.14.1-windows-x86_64-setup.exe) (.exe installer)\n • **macOS**：[Intel](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-tauri-v0.14.1-macos-x86_64.dmg) | [Apple Silicon](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-tauri-v0.14.1-macos-arm64.dmg) (.dmg)\n • **Linux**：[.AppImage](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-tauri-0.14.1-linux-x86_64.AppImage) | [.zip](https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-tauri-v0.14.1-linux-x86_64.zip)\n\n# Support ActivityWatch\n\nActivityWatch is free and open source, with no feature gates. If it is useful to you, [AW Pro](https://activitywatch.net/subscribe/) is an optional subscription that funds ongoing development.\n\n# Contributors\n\nThanks to everyone who contributed to this release:\n\n@0xbrayo, @AbdulGoodLooks, @erikbjare, @Gabriel-Dalton, @kvnloo, @TimeToBuildBob\n\n# Changelog\n\nChanges since [v0.14.0](https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0):\n\n\n## 📦 activitywatch\n\n### ✨ Features (3)\n\n • feat(research)：ship an optional geography-free category preset ([#1474](https://github.com/ActivityWatch/activitywatch/issues/1474)) ([`21142d0`](https://github.com/ActivityWatch/activitywatch/commit/21142d0))\n • feat(scripts)：automated screenshots with realistic demo data ([#1500](https://github.com/ActivityWatch/activitywatch/issues/1500)) ([`bbcc9b8`](https://github.com/ActivityWatch/activitywatch/commit/bbcc9b8))\n • feat(changelog)：add a Support ActivityWatch section to bundle release notes ([#1486](https://github.com/ActivityWatch/activitywatch/issues/1486)) ([`45ae1c8`](https://github.com/ActivityWatch/activitywatch/commit/45ae1c8))\n\n### 🐛 Fixes (7)\n<details><summary>Click to expand</summary>\n<p>\n\n • fix(release)：don't bundle libwayland into the Tauri AppImage, and gate it ([#1509](https://github.com/ActivityWatch/activitywatch/issues/1509)) ([`2251b6e`](https://github.com/ActivityWatch/activitywatch/commit/2251b6e))\n • fix(build)：drop stale Tauri bundles, and stop packaging from failing silently ([#1512](https://github.com/ActivityWatch/activitywatch/issues/1512)) ([`df22b2e`](https://github.com/ActivityWatch/activitywatch/commit/df22b2e))\n • fix(package)：Linux Tauri zip: drop move-to-aw-modules.sh and the loose awatcher, rewrite README ([#1508](https://github.com/ActivityWatch/activitywatch/issues/1508)) ([`ed54fd7`](https://github.com/ActivityWatch/activitywatch/commit/ed54fd7))\n • fix(make)：use pip's freeze format in the uninstall target ([#1505](https://github.com/ActivityWatch/activitywatch/issues/1505)) ([`017d703`](https://github.com/ActivityWatch/activitywatch/commit/017d703))\n • fix(linux)：stop bundling host-ABI libraries in the Qt bundle ([#1484](https://github.com/ActivityWatch/activitywatch/issues/1484)) ([`0ef9191`](https://github.com/ActivityWatch/activitywatch/commit/0ef9191))\n • fix(changelog)：use /commits/`<tip>` when submodule is new to the release ([#1504](https://github.com/ActivityWatch/activitywatch/issues/1504)) ([`81885e2`](https://github.com/ActivityWatch/activitywatch/commit/81885e2))\n • fix(changelog)：use /commits/`<tip>` when submodule is new to the release ([#1496](https://github.com/ActivityWatch/activitywatch/issues/1496)) ([`d02cc21`](https://github.com/ActivityWatch/activitywatch/commit/d02cc21))\n\n</p>\n</details>\n\n### 🔨 Misc (6)\n\n • chore：migrate issue templates to issue forms ([#1482](https://github.com/ActivityWatch/activitywatch/issues/1482)) ([`0c4c185`](https://github.com/ActivityWatch/activitywatch/commit/0c4c185))\n • docs(contributing)：remove the dead GitPOAP section ([#1513](https://github.com/ActivityWatch/activitywatch/issues/1513)) ([`6a00b79`](https://github.com/ActivityWatch/activitywatch/commit/6a00b79))\n • docs(citation)：update to v0.14.0 and 2026 ([#1514](https://github.com/ActivityWatch/activitywatch/issues/1514)) ([`94eceed`](https://github.com/ActivityWatch/activitywatch/commit/94eceed))\n • test(query-parity)：assert the startup poll actually retried ([#1472](https://github.com/ActivityWatch/activitywatch/issues/1472)) ([`17d0088`](https://github.com/ActivityWatch/activitywatch/commit/17d0088))\n • docs(readme)：repair release workflow badge URL ([#1489](https://github.com/ActivityWatch/activitywatch/issues/1489)) ([`46c8ca8`](https://github.com/ActivityWatch/activitywatch/commit/46c8ca8))\n • docs(readme)：v0.14.0 screenshots ([#1501](https://github.com/ActivityWatch/activitywatch/issues/1501)) ([`97db8ff`](https://github.com/ActivityWatch/activitywatch/commit/97db8ff))\n\n*(excluded 10 less relevant [commits](https://github.com/ActivityWatch/activitywatch/compare/v0.14.0...v0.14.1))*\n\n## 📦 aw-server\n\n### ✨ Features (1)\n\n • feat(auth)：optional API key authentication, matching aw-server-rust ([#182](https://github.com/ActivityWatch/aw-server/issues/182)) ([`fc2f28c`](https://github.com/ActivityWatch/aw-server/commit/fc2f28c))\n\n### 🐛 Fixes (5)\n\n • fix(api)：invalidate the heartbeat cache when events are inserted ([#178](https://github.com/ActivityWatch/aw-server/issues/178)) ([`384b122`](https://github.com/ActivityWatch/aw-server/commit/384b122))\n • fix(import)：return descriptive error messages and roll back failed imports ([#176](https://github.com/ActivityWatch/aw-server/issues/176)) ([`72e3007`](https://github.com/ActivityWatch/aw-server/commit/72e3007))\n • fix(api)：replace the merged heartbeat event by id, not the latest by timestamp ([#177](https://github.com/ActivityWatch/aw-server/issues/177)) ([`ce55bbd`](https://github.com/ActivityWatch/aw-server/commit/ce55bbd))\n • fix(rest)：return 400 instead of 500 for malformed client input ([#175](https://github.com/ActivityWatch/aw-server/issues/175)) ([`5e3c0de`](https://github.com/ActivityWatch/aw-server/commit/5e3c0de))\n • fix(api)：keep created and data when creating a bucket over REST ([#180](https://github.com/ActivityWatch/aw-server/issues/180)) ([`4851fea`](https://github.com/ActivityWatch/aw-server/commit/4851fea))\n\n### 🔨 Misc (1)\n\n • test(import)：undo monkeypatches before cleanup deletes buckets ([#186](https://github.com/ActivityWatch/aw-server/issues/186)) ([`511639b`](https://github.com/ActivityWatch/aw-server/commit/511639b))\n\n*(excluded 2 less relevant [commits](https://github.com/ActivityWatch/aw-server/compare/5bf925f...511639b))*\n\n## 📦 aw-server-rust\n\n### 🐛 Fixes (16)\n<details><summary>Click to expand</summary>\n<p>\n\n • fix(android)：open the JNI datastore exactly once ([#801](https://github.com/ActivityWatch/aw-server-rust/issues/801)) ([`faeded2`](https://github.com/ActivityWatch/aw-server-rust/commit/faeded2))\n • fix(query-cache)：charge timestamps-only in key weight, not query text ([#799](https://github.com/ActivityWatch/aw-server-rust/issues/799)) ([`4c1cda9`](https://github.com/ActivityWatch/aw-server-rust/commit/4c1cda9))\n • fix(aw-server)：dedup re-imports against the privacy-filtered form of events ([#768](https://github.com/ActivityWatch/aw-server-rust/issues/768)) ([`9793c91`](https://github.com/ActivityWatch/aw-server-rust/commit/9793c91))\n • fix(datastore)：infer schema version when a restored DB has user_version 0 ([#776](https://github.com/ActivityWatch/aw-server-rust/issues/776)) ([`96f4113`](https://github.com/ActivityWatch/aw-server-rust/commit/96f4113))\n • fix(export)：prefix CSV data keys that collide with id/timestamp/duration ([#795](https://github.com/ActivityWatch/aw-server-rust/issues/795)) ([`344f476`](https://github.com/ActivityWatch/aw-server-rust/commit/344f476))\n • fix(dirs)：restore %LOCALAPPDATA% on Windows, migrate v0.14.0 Roaming data, pin paths ([#791](https://github.com/ActivityWatch/aw-server-rust/issues/791)) ([`dc01d74`](https://github.com/ActivityWatch/aw-server-rust/commit/dc01d74))\n • fix(server)：warn at startup when the web UI has no index.html ([#794](https://github.com/ActivityWatch/aw-server-rust/issues/794)) ([`d059a4c`](https://github.com/ActivityWatch/aw-server-rust/commit/d059a4c))\n • fix(aw-server)：re-importing an updated export replaces events in place ([#766](https://github.com/ActivityWatch/aw-server-rust/issues/766)) ([`bb7f769`](https://github.com/ActivityWatch/aw-server-rust/commit/bb7f769))\n • fix(query)：remove duplicate clippy allow attributes on parser module ([#779](https://github.com/ActivityWatch/aw-server-rust/issues/779)) ([`22a77dc`](https://github.com/ActivityWatch/aw-server-rust/commit/22a77dc))\n • fix(datastore):",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.14.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-v0.14.1-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.1-windows-x86_64-setup.exe",
+          "sha256": "190bc1fb82194e20d52619dbf884751d7b6ae044477623a384069bc3ea85a64d",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /norestart /closeapplications"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.1/activitywatch-v0.14.1-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.1-windows-x86_64-setup.exe",
+          "sha256": "190bc1fb82194e20d52619dbf884751d7b6ae044477623a384069bc3ea85a64d",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /norestart /closeapplications"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.14.0",
+      "release_date": "2026-10-06",
+      "release_notes": "Huzzah! v0.14.0 is finally here! 🎉\nAlmost two years since v0.13.2, and eight betas later. This is a big one: faster, steadier, a new desktop app, and an Android app that has caught up. And syncing between your devices works, local-first, with whatever sync tool you already use: it's still early and opt-in, with a few rough edges (see Sync below, or the announcement). More than 30 people contributed.\nSince the last stable release, ActivityWatch also passed 1 million downloads, and it's now downloaded over 10,000 times a week. Thank you!\nRead more: the announcement · the full changelog (about 1,000 changes, too long for this page)\nSummary\n- ⚡ Much faster, especially once you have years of data: dashboards load day by day and cache finished days, so long ranges no longer time out and repeat visits are near instant\n- 🐛 Steadier all round: crashed watchers restart on their own, a macOS memory leak and crash are fixed, and a long tail of annoyances is gone\n- 🔄 Sync between your devices works. It is local-first: no ActivityWatch server, no account. Point it at a folder you already sync with Syncthing, Dropbox or anything else, and each device's data shows up on the others. It is still rough in places (it takes more disk space than it should, and setup is manual), so it is opt-in (how to set it up)\n- 👀 See all your devices together: the Activity view can now merge any set of devices into one view\n- 📱 Android caught up: ActivityWatch for Android 0.14 shipped last month, its first stable release since 2023, with far fewer crashes and the same sync built in\n- 🖥️ A new desktop app built on Tauri: same features as the classic one and lighter, but less battle-tested so far, so the classic app ships too and stays the default\n- 🌐 A refreshed web UI: a better timeline, custom date ranges, a work-time report, billable hours export, and category sets for switching between rule profiles\n- 🌍 ActivityWatch now speaks Swedish, German, Ukrainian, Russian and Chinese\n- 🔒 More control over what gets stored: filter sensitive window titles before they ever reach the database\n- 🛡️ For those who want it: put an API key on the server\n- 🍎 macOS: signed and notarized builds for Apple Silicon and Intel, and browser URLs are tracked properly again\n- 🐧 Linux: Wayland support out of the box in the new app, and arm64 builds\n- 🤖 For the AI crowd: one canonical query that returns clean, categorized events, so an assistant can answer questions about your time without a custom integration (agents and AI)\n- And a lot more...\nHonorable mentions\nMany of this release's features came from the community. Thank you:\n- @0xbrayo for aw-tauri, from prototype to a release-ready app, and for aw-notify-rs and the Rust side of Android sync\n- @BohdanRykush for the Ukrainian, German and Russian translations, and the original i18n setup and language picker (ActivityWatch/aw-webui#855)\n- @JhihJian for the Simplified Chinese translation (ActivityWatch/aw-webui#865)\n- @NickWick13 for the Swedish translation (ActivityWatch/aw-webui#947)\n- @BelKed for rewriting the browser extension for Manifest V3 (ActivityWatch/aw-watcher-web#152), plus theme detection and top browser titles in the web UI\n- @2e3s for awatcher, which gives the new app native Wayland support\n- @nerumo for timeline swimlanes and the duration filter (ActivityWatch/aw-webui#679)\n- @rrogerc for capturing URLs from Firefox-based browsers on macOS (ActivityWatch/aw-watcher-window#134)\n- @hawai-i for the macOS Apple Events entitlement, which brought native browser URL capture back (#1411)\n- @FractalMachinist for browser tracking on Android (ActivityWatch/aw-android#151)\n- @Lorite for fixes to Android's folder-picker sync (ActivityWatch/aw-android#221, ActivityWatch/aw-android#222)\n- @wind-mask for the Tauri app's headless --daemon and --mini modes\n- @Q-Ze for fixing the multi-device view with synced data (ActivityWatch/aw-webui#969)\n- @RTnhN for the universal columns visualization (ActivityWatch/aw-webui#733)\n- @behdadmansouri for clearer import feedback (ActivityWatch/aw-webui#874)\n- @fanxing11 for a string of fixes across the watchers, client and notifications\nInstallation\nSee the getting started guide in the documentation.\nDownloads\nClassic distribution\n- Windows (.exe installer)\n- macOS: Intel | Apple Silicon (.dmg)\n- Linux: .zip | .AppImage | .deb\nTauri distribution (experimental — native Wayland support on Linux)\n- Windows (.exe installer)\n- macOS: Intel | Apple Silicon (.dmg)\n- Linux: .AppImage | .zip\nContributors\nThanks to everyone who contributed to this release:\n@0xbrayo, @2e3s, @almirb, @amsam0, @BelKed, @deancureton, @ErikBjare, @fanxing11, @Game4Move78, @hawai-i, @HomeArchbishop, @istudyatuni, @kenoma-hld, @luisgerhorst, @matt-seb-ho, @MBK-fr, @moodyhunter, @musicinmybrain, @nerumo, @NickWick13, @Noorts, @petrroll, @powellnorma, @Q-Ze, @reddaisyy, @rrogerc, @RTnhN, @Senophyx, @TiberiusNemesis, @TimeToBuildBob, @vdonich, @yuhldr\nMore detail\nFaster\nMeasured on a real 9-year database (9.2 million events, 1.8 GB) on an M2 Mac, with each version's own dashboard queries. The new dashboard asks for long ranges one day at a time, so the servers are compared on that same workload:\n────────────────────────────┬───────┬────────────────┬─────────────────\nYear view, 365 daily queries│v0.13.2│v0.14 first load│v0.14 repeat load\n────────────────────────────┼───────┼────────────────┼─────────────────\nClassic app (Python server) │120 s  │41 s            │0.6 s\n────────────────────────────┼───────┼────────────────┼─────────────────\nTauri app (Rust server)     │139 s  │32 s            │0.2 s\n────────────────────────────┴───────┴────────────────┴─────────────────\nThe v0.13.2 dashboard fetched a Year as a single request instead. That took 120 s on the Python server (past the default 30 s timeout, so it failed) and 19 s on the Rust server. Asking day by day is what makes caching, progress and per-day charts possible. All time across nine years reopens in 5 s on the classic app; the Tauri app doesn't cache All time yet (aw-server-rust#784). Under the hood: new database indexes, SQLite WAL mode, cached category rules (categorizing a year of window titles went from 53 s to 10 s) and streaming exports.\nSync\naw-sync copies each device's data into a sync folder (~/ActivityWatchSync by default). You choose how that folder moves between devices: Syncthing, Dropbox, a network drive, anything that syncs files. Your data never touches a server of ours. Each device only writes its own files and opens everyone else's read-only, so devices can't corrupt each other, and synced data shows up as -synced-from- buckets that you can query, merge in the Activity view, or ignore.\nThis cycle we ran it on our own desktops and phones and fixed what we hit: duplicate events after a resume, one broken device aborting a whole sync, phone data not being picked up, and a new aw-sync status that tells you what each device has synced. Known rough edges: every device keeps a full copy of every other device's data, so it uses more disk than it should (a much more compact format is in the works), settings and deletions don't sync, and setup is manual. It isn't started by default: turn it on in the app's modules menu, or run aw-sync.\nAndroid\nActivityWatch for Android 0.14 (v0.14.0 to v0.14.2, September) is the first stable Android release since 2023. User-perceived crashes went from about 7.8% to under 1%. It adds alerts, a home-screen widget, Firefox and Chrome tracking, CSV and JSON export, and the same sync: pick a folder, and your phone's data shows up on your desktop.\nMore reliable\n- Crashed watchers restart automatically, with crash logs, in both apps; only one instance runs at a time\n- macOS window watcher: fixed a crash on unusual window titles and a leak of up to ~359 MB of memory per day on busy machines\n- AFK: locking the screen counts as AFK on macOS, held keys count once, gamepads count on Linux, recovery after an X server restart, and a Windows idle-time overflow after 49.7 days is fixed\n- Data safety: heartbeats are rejected cleanly under load instead of risking corruption, a damaged database recovers on startup, and imports merge into existing buckets instead of failing\n- The Python and Rust servers now return the same query results, checked by a new parity test suite (server comparison)\nThe new app (Tauri)\naw-tauri ships alongside the classic aw-qt app for Windows, macOS (Apple Silicon and Intel) and Linux (x86_64 and arm64). It has its own window, runs the Rust server inside the app, is smaller to download, supports Wayland on Linux, and updates itself on macOS and Linux (on Windows, install new versions manually for now). The story: A lighter, faster ActivityWatch with Tauri.\nAlso new\n- Web UI: timeline swimlanes and AFK/category/duration filters, \"merge by app\", keyboard and scroll panning, rule priority and field-scoped regex rules, top browser titles, top stopwatch events, CSV export that streams large buckets, and bulk delete of a device's buckets\n- Browsers: Arc, Dia, Zen, Helium, Floorp, Firefox ESR and more Chromium variants; URLs from Firefox-based browsers on macOS\n- Notifications rewritten in Rust (aw-notify-rs), with a settings panel. They are now off until you enable them\n- Start at login is a toggle in the app\n- iOS: Screen Time data imported with aw-import-screentime shows up correctly\nUpgrade notes\n- The first start after upgrading updates the database indexes once. Your data isn't changed. On large databases this takes a while (about 30 s for the classic app and a minute for the Tauri app on a 1.8 GB database), and the dashboard may not connect until it's done. Leave ActivityWatch running and reload.\n- Notifications (aw-notify) are now opt-in. Enable them in Settings if you used them before.\n- macOS 12 or newer is required.\nSupporting ActivityWatch",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0/activitywatch-v0.14.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.0-windows-x86_64-setup.exe",
+          "sha256": "7e9374cc133f71e12622ed7ab6644899d3ecf6b8c54257bc776acfe157270fda",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/CURRENTUSER /norestart /closeapplications"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.0/activitywatch-v0.14.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.0-windows-x86_64-setup.exe",
+          "sha256": "7e9374cc133f71e12622ed7ab6644899d3ecf6b8c54257bc776acfe157270fda",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/ALLUSERS /norestart /closeapplications"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.2",
+      "release_date": "2024-10-05",
+      "release_notes": "These are the release notes for ActivityWatch version v0.13.2.New to ActivityWatch? Check out the website and the README.Installation\nSee the getting started guide in the documentation.Downloads\n- Windows (.exe, installer)\n- macOS (.dmg)\n- Linux (.zip)\nContributors\nThanks to everyone who contributed to this release:@2e3s, @BasileusErwin, @BelKed, @brayo-pip, @davidfraser, @erikbjare, @Shi-SoulChangelog\nChanges since v0.13.1:📦 activitywatch\n🔨 Misc (7)\n- chore: bump version to 0.13.2 (839d99f)\n- chore: updated changelog contributors cache (78d2b9d)\n- docs: fix mermaid architecture diagram (0951338)\n- docs: added links to the mermaid architecture diagram (cdc8d5e)\n- docs: added mermaid-diagram for visualization of architecture (#1086) (43cbad1)\n- chore: updated changelog_contributors.csv cache (26fe779)\n- chore: bumped version to v0.13.1 in various places, including in submodules (6f0518a)\n(excluded 5 less relevant commits)📦 aw-server\n🔨 Misc (1)\n- chore: bumped version to 0.13.1 (72108cd)\n(excluded 3 less relevant commits)📦 aw-webui\n✨ Features (3)\n- feat(ux): improve timeline usability (#610) (291da6f)\n- feat: revert to the default coloring for non-standard watchers (#613) (85c007e)\n- feat: use category colors in the timeline view (#609) (0cf7831)\n🐛 Fixes (3)\n- fix: correctly invert colors of alerts in dark mode (#591) (e6ad4cd)\n- fix: add a default color for Media category (#593) (6ed3e83)\n- fix: add browser app name Microsoft Edge Beta on macOS (#595) (ba1305d)\n📦 aw-server-rust\n🐛 Fixes (2)\n- fix(sync): remove bug-causing workaround for spurious small db files (fixes #466) (#492) (5738246)\n- fix(linux): add sd-notify for better systemd interop (#489) (8d7ce89)\n🔨 Misc (1)\n- chore: bumped aw-server version to 0.13.1 (b8330f1)\n(excluded 6 less relevant commits)📦 aw-webui\n✨ Features (3)\n- feat(ux): improve timeline usability (#610) (291da6f)\n- feat: revert to the default coloring for non-standard watchers (#613) (85c007e)\n- feat: use category colors in the timeline view (#609) (0cf7831)\n🐛 Fixes (3)\n- fix: correctly invert colors of alerts in dark mode (#591) (e6ad4cd)\n- fix: add a default color for Media category (#593) (6ed3e83)\n- fix: add browser app name Microsoft Edge Beta on macOS (#595) (ba1305d)\n📦 aw-watcher-window\n✨ Features (1)\n- feat: add exclude_titles config & CLI option for excluding window titles by regex (#99) (76c85c6)\n🐛 Fixes (1)\n- fix: added exception handling for Xlib.error.BadWindow (#97) (7a89db4)\n📦 aw-core\n🔨 Misc (1)\n- chore: bump version to 0.5.17 (6a58ec5)\n📦 aw-client\n🐛 Fixes (4)\n- fix: fixed lints and type issues (ece2b4c)\n- fix: fixed operator precedence bug in query (#86) (292b235)\n- fix(example): fixed tz-naive datetimes in time_spent_today.py (ff61703)\n- fix(example): replace single quotes with double quotes in query (#83) (c699f43)\n🔨 Misc (1)\n- format: formatted with black (38acb84)\n(excluded 2 less relevant commits)Full Changelog: https://github.com/ActivityWatch/activitywatch/compare/v0.13.1...v0.13.2",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.13.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.13.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.13.2-windows-x86_64-setup.exe",
+          "sha256": "666c4d7a7bd9346d9d714bedd17b7dee5ed98e66fb277de3c026c088de6d6627",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /currentuser"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "ActivityWatch",
+              "publisher": "ActivityWatch Contributors",
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.2/activitywatch-v0.13.2-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.13.2-windows-x86_64-setup.exe",
+          "sha256": "666c4d7a7bd9346d9d714bedd17b7dee5ed98e66fb277de3c026c088de6d6627",
+          "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /allusers"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "ActivityWatch",
+              "publisher": "ActivityWatch Contributors",
+              "product_code": "{F226B8F4-3244-46E6-901D-0CE8035423E4}_is1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.1",
+      "release_date": "2024-06-10",
+      "release_notes": "These are the release notes for ActivityWatch version v0.13.1.New to ActivityWatch? Check out the website and the README.Installation\nSee the getting started guide in the documentation.Downloads\n- Windows (.exe, installer)\n- macOS (.dmg)\n- Linux (.zip)\nContributors\nThanks to everyone who contributed to this release:@BelKed, @erikbjareChangelog\nChanges since v0.13.0:📦 aw-server-rust\n(excluded 3 less relevant commits)📦 aw-webui\n🐛 Fixes (4)\n- fix: fixed extra space before punctuation in Home view on desktop (2f3d1e8)\n- fix: fixes issue with migrating category settings to the server (#583) (54769b7)\n- fix: dark mode (Timeline, Activity, Raw Data) (#575) (05c25c9)\n- fix: add saturday as option for 'start of week' setting (80db006)\nFull Changelog: https://github.com/ActivityWatch/activitywatch/compare/v0.13.0...v0.13.1",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.13.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.13.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-v0.13.1-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.13.1-windows-x86_64-setup.exe",
+          "sha256": "c4c73c51018e7b91147f105af2d8278216a29cd086269c6376dc148a30cb9f76",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.1/activitywatch-v0.13.1-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.13.1-windows-x86_64-setup.exe",
+          "sha256": "c4c73c51018e7b91147f105af2d8278216a29cd086269c6376dc148a30cb9f76",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.13.0",
+      "release_date": "2024-06-04",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.13.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.0/activitywatch-v0.13.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.13.0-windows-x86_64-setup.exe",
+          "sha256": "19d77837d32ff75da2e8e1618c3593925b7b8c9f79e5191876c6ccf5cb1f2ff5",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.13.0/activitywatch-v0.13.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.13.0-windows-x86_64-setup.exe",
+          "sha256": "19d77837d32ff75da2e8e1618c3593925b7b8c9f79e5191876c6ccf5cb1f2ff5",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.2",
+      "release_date": "2023-03-22",
+      "release_notes_url": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.12.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.12.2-windows-x86_64-setup.exe",
+          "sha256": "62a86bea86f1e0dfc96e5f0861988f949a5f6a36d6144e931a24b04dfbfd92aa",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.2/activitywatch-v0.12.2-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.12.2-windows-x86_64-setup.exe",
+          "sha256": "62a86bea86f1e0dfc96e5f0861988f949a5f6a36d6144e931a24b04dfbfd92aa",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.0/activitywatch-v0.12.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.12.0-windows-x86_64-setup.exe",
+          "sha256": "dee81128c4da2e0649b3ec6bfcdcfdf3556e44e5ea14ca6bfb8b87d0eb92f48f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.12.0/activitywatch-v0.12.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.12.0-windows-x86_64-setup.exe",
+          "sha256": "dee81128c4da2e0649b3ec6bfcdcfdf3556e44e5ea14ca6bfb8b87d0eb92f48f",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.11.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/a/ActivityWatch/ActivityWatch/0.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.11.0-windows-x86_64-setup.exe",
+          "sha256": "00a6f5cf0bb7d75924387f4cc0c9cf5be563275d7f23df2af04a86d162aca327",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-windows-x86_64-setup.exe",
+          "host": "github.com",
+          "filename": "activitywatch-v0.11.0-windows-x86_64-setup.exe",
+          "sha256": "00a6f5cf0bb7d75924387f4cc0c9cf5be563275d7f23df2af04a86d162aca327",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "/norestart /closeapplications /allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.14.3",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-v0.14.3-macos-x86_64.dmg",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.3-macos-x86_64.dmg",
+          "sha256": "6560ab224e21f004cc8b1b9cf0db523810cf00477a04aab9d5baf831076d18fe"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-v0.14.3-macos-arm64.dmg",
+          "host": "github.com",
+          "filename": "activitywatch-v0.14.3-macos-arm64.dmg",
+          "sha256": "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "ActivityWatch.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "net.activitywatch.ActivityWatch"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/activitywatch",
+            "~/Library/Caches/activitywatch",
+            "~/Library/Logs/activitywatch"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b7b8eee446e98255ff01080cede5642c71c8ef93",
+      "retrieved_at": "2026-11-20T13:21:47.759Z",
+      "path": "manifests/a/ActivityWatch/ActivityWatch"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "eb30e54fc76f3b6d6b6cb026df6fef44718ed7f7",
+      "retrieved_at": "2026-11-20T13:21:47.759Z",
+      "path": "Casks/a/activitywatch.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/activitywatch.json"
+    }
+  ]
+}

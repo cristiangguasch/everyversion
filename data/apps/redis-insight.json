@@ -1,0 +1,247 @@
+{
+  "schema_version": 2,
+  "slug": "redis-insight",
+  "name": "Redis Insight",
+  "publisher": "Redis Ltd.",
+  "ids": {
+    "winget": "RedisInsight.RedisInsight",
+    "homebrew_cask": "redis-insight",
+    "flathub": "com.redis.RedisInsight"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Visualize and optimize Redis data, connect to RDI, and more.",
+  "description": "Redis Insight is a powerful tool for visualizing and optimizing data in Redis, making real-time application development easier and more fun than ever before. Redis Insight lets you do both GUI- and CLI-based interactions in a fully-featured desktop GUI client.",
+  "tags": [
+    "database-gui",
+    "redis",
+    "redis-gui",
+    "redis-gui-client"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://redis.io/insight/",
+    "publisher": "https://redis.io/company/",
+    "support": "https://redis.io/support/",
+    "privacy": "https://redis.io/legal/privacy-policy/"
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://www.redis.io/legal/redis-insight-license-terms/",
+    "copyright": "Copyright © 2024 Redis Ltd.",
+    "copyright_url": "https://redis-doc-test.readthedocs.io/en/latest/topics/trademark/"
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "3.4.2",
+    "macos": "3.10.0",
+    "linux": "3.8.0"
+  },
+  "versions_total": {
+    "windows": 2,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "3.4.2",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/r/RedisInsight/RedisInsight/3.4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://github.com/redis/RedisInsight/releases/download/3.4.2/Redis-Insight-win-installer.exe",
+          "host": "github.com",
+          "filename": "Redis-Insight-win-installer.exe",
+          "sha256": "ae5eeea495c69e7476972f4b9998ded21d31d05e76197dd72cba765fb0032f36",
+          "product_code": "35443657-9fe0-5c86-a3fe-135cfbd99cbb",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Redis Insight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.70.1",
+      "release_date": "2025-04-02",
+      "release_notes_url": "https://redis.io/docs/latest/develop/tools/insight/release-notes/v.2.70.0/",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/r/RedisInsight/RedisInsight/2.70.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "locale": "en-US",
+          "url": "https://s3.amazonaws.com/redisinsight.download/public/latest/Redis-Insight-win-installer.exe",
+          "host": "s3.amazonaws.com",
+          "filename": "Redis-Insight-win-installer.exe",
+          "sha256": "2469d275e93faa6d1af0338265cf60cfe44b2f63dcedd73f9fae798189692df4",
+          "product_code": "35443657-9fe0-5c86-a3fe-135cfbd99cbb",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Redis Insight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "3.10.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://s3.amazonaws.com/redisinsight.download/public/releases/3.10.0/Redis-Insight-mac-x64.dmg",
+          "host": "s3.amazonaws.com",
+          "filename": "Redis-Insight-mac-x64.dmg",
+          "sha256": "e9f1662f1436c04c4dfe7b2a9f81096172276ec21f76821cf00facc0111d459c",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://s3.amazonaws.com/redisinsight.download/public/releases/3.10.0/Redis-Insight-mac-arm64.dmg",
+          "host": "s3.amazonaws.com",
+          "filename": "Redis-Insight-mac-arm64.dmg",
+          "sha256": "9d78d4cebca92578ce764afc573f2c4f2aa493a8817451883b9d9d2c96ce3596",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Redis Insight.app"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "zap_paths": [
+            "~/.redisinsight-app",
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.redislabs.redisinsight-v*.sfl*",
+            "~/Library/Application Support/RedisInsight",
+            "~/Library/Caches/org.RedisLabs.RedisInsight-V*",
+            "~/Library/Caches/org.RedisLabs.RedisInsight-V*.ShipIt",
+            "~/Library/HTTPStorages/org.RedisLabs.RedisInsight-V*",
+            "~/Library/Logs/RedisInsight",
+            "~/Library/Preferences/org.RedisLabs.RedisInsight-V*.plist",
+            "~/Library/Saved Application State/org.RedisLabs.RedisInsight-V*.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "3.8.0",
+      "release_date": "2026-07-21",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.redis.RedisInsight.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.redis.RedisInsight.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/com.redis.RedisInsight.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "com.redis.RedisInsight.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "b7b8eee446e98255ff01080cede5642c71c8ef93",
+      "retrieved_at": "2026-11-20T13:21:47.759Z",
+      "path": "manifests/r/RedisInsight/RedisInsight"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "eb30e54fc76f3b6d6b6cb026df6fef44718ed7f7",
+      "retrieved_at": "2026-11-20T13:21:47.759Z",
+      "path": "Casks/r/redis-insight.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/redis-insight.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.redis.RedisInsight",
+      "retrieved_at": "2026-11-20T13:21:51.600Z",
+      "path": "api/v2/appstream/com.redis.RedisInsight",
+      "api_url": "https://flathub.org/api/v2/appstream/com.redis.RedisInsight",
+      "content_sha256": "69cd5c9b7f071089c50b5c62497b497bda5b68ca4e82ec71217ce05507a3309e"
+    }
+  ],
+  "flathub": {
+    "app_id": "com.redis.RedisInsight",
+    "page_url": "https://flathub.org/apps/com.redis.RedisInsight",
+    "repo_url": "https://github.com/flathub/com.redis.RedisInsight",
+    "install_command": "flatpak install flathub com.redis.RedisInsight",
+    "run_command": "flatpak run com.redis.RedisInsight",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "redis.com",
+      "verified_on": "2024-05-22"
+    },
+    "license": "SSPL-1.0",
+    "free_license": false,
+    "developer_name": "Redis, Inc",
+    "categories": [
+      "Development"
+    ],
+    "download_size": 146806760,
+    "installed_size": 404480000,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}
