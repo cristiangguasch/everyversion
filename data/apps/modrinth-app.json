@@ -26,6 +26,7 @@
     "publisher": "https://modrinth.com/",
     "support": "https://support.modrinth.com/en/",
     "privacy": "https://modrinth.com/legal/privacy",
+    "release_notes": "https://github.com/modrinth/code/releases/tag/v0.23.4",
     "documentation": [
       {
         "label": "Docs",
@@ -43,17 +44,45 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "0.23.3",
+    "windows": "0.23.4",
     "macos": "0.23.4",
     "linux": "0.23.1"
   },
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-18",
   "versions_total": {
-    "windows": 144,
+    "windows": 145,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "0.23.4",
+      "release_date": "2026-11-18",
+      "release_notes": "Changed\n- Skin previews on the Skins page now load faster, at about 20-30 ms per skin.\n- Replaced the username field in Profile settings with a Change username button that opens the website, and added a Refresh profile button.\n- Raised the shared instance limits to 16,384 files and 2 GB per version.\n- Use paste.modrinth.com for app logs and errors to make support easier.\n\nFixed\n- Fixed modpacks failing to install when an override file has a name that Windows does not allow, such as `CON.txt`.\n- Fixed shared instances failing to install a file after you chose to continue past the external files warning.\n- Fixed instance icons larger than 8192 pixels failing to load.\n- Fixed instance creation failing when the instance icon can't be downloaded.\n- Fixed Java 16 and 18 failing to install on macOS and Linux.\n- Fixed local NeoForge mods showing their banner instead of their icon in the instance content list.\n- Fixed game settings changed while Modrinth App was closed being overwritten on the next launch when Sync game settings is on.\n- Fixes some issues with importing instances from CurseForge, Prism and MultiMC.\n\nSecurity\n- Disabled base64 intrinsics to prevent java4shell.\n- Fixed \"Export debug info\" in Troubleshooting settings including sensitive information.\n- IP addresses, computer usernames in file paths, and other sensitive information is now censored in instance logs and debug info exports.\n- Modrinth Hosting: Fixed payments accepting a charge that belongs to another account.",
+      "release_notes_url": "https://github.com/modrinth/code/releases/tag/v0.23.4",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/m/Modrinth/ModrinthApp/0.23.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://launcher-files.modrinth.com/versions/0.23.4/windows/Modrinth%20App_0.23.4_x64-setup.exe",
+          "host": "launcher-files.modrinth.com",
+          "filename": "Modrinth App_0.23.4_x64-setup.exe",
+          "sha256": "982c0275cacb6d50fecdd45bfcff434988f486de1486102b3538ebc23c376af8",
+          "product_code": "Modrinth App",
+          "apps_and_features": [
+            {
+              "publisher": "ModrinthApp",
+              "product_code": "Modrinth App"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "0.23.3",
@@ -1426,34 +1455,6 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "0.15.10",
-      "release_date": "2026-07-10",
-      "release_notes": "Added\n- Added new advanced filter category to Discover content.\n- Added options to exclude plugins and data packs from mod search\n- Added options to exclude mods and plugins from data pack search\n\nFixed\n- Instance edits not appearing to be immediately saved.\n- Fixed search cache being way longer than intended. Search results should now be cached for no more than 10 minutes, making it more possible to find newer or more recently updated content.\n- Fixed it being impossible to respond to the ad consent banner.\n- Improved installation issues\n  - Added better error handling, with a \"Copy details\" button on the frontend for the failure notifications + shows up after 30 seconds of no recorded progress - so support can investigate failures and pass it on to us\n  - Changed \"preparing instance\" stage -> \"Queued to install\" - now handles maximum three install jobs at a time to prevent install jobs from being bricked.\n  - Improves download tracking by reporting download progress live rather than after each modpack content file is downloaded",
-      "release_notes_url": "https://github.com/modrinth/code/releases/tag/v0.15.10",
-      "manifest_version": "1.12.0",
-      "manifest_dir": "manifests/m/Modrinth/ModrinthApp/0.15.10",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "user",
-          "url": "https://launcher-files.modrinth.com/versions/0.15.10/windows/Modrinth%20App_0.15.10_x64-setup.exe",
-          "host": "launcher-files.modrinth.com",
-          "filename": "Modrinth App_0.15.10_x64-setup.exe",
-          "sha256": "6064738c3cc5e15b4e634edd9b0acffbe68c1e185751eb21ba2044884b5ca2e9",
-          "product_code": "Modrinth App",
-          "apps_and_features": [
-            {
-              "publisher": "ModrinthApp",
-              "product_code": "Modrinth App"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
       "version": "0.23.4",
       "installers": [
@@ -1529,8 +1530,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "a2bf4af82349e2f9c643fe5acd61c84a7a132216",
-      "retrieved_at": "2026-11-13T14:56:34.531Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/m/Modrinth/ModrinthApp"
     },
     {
@@ -1546,10 +1547,10 @@
       "source": "flathub",
       "platform": "linux",
       "repo": "https://github.com/flathub/com.modrinth.ModrinthApp",
-      "retrieved_at": "2026-11-14T22:02:42.239Z",
+      "retrieved_at": "2026-11-20T12:26:15.098Z",
       "path": "api/v2/appstream/com.modrinth.ModrinthApp",
       "api_url": "https://flathub.org/api/v2/appstream/com.modrinth.ModrinthApp",
-      "content_sha256": "497f27da142a6bb152d81da726569099c727224f85518e6f3d18243e1d070bdd"
+      "content_sha256": "ffa76955185363d342534fd357b973956a055da1e43810893147fd4f462c1510"
     }
   ],
   "flathub": {
@@ -1573,8 +1574,8 @@
       "AdventureGame",
       "Simulation"
     ],
-    "download_size": 55337059,
-    "installed_size": 89023488,
+    "download_size": 55844883,
+    "installed_size": 90407936,
     "arches": [
       "arm64",
       "x64"

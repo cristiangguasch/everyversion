@@ -28,7 +28,7 @@
     "publisher": "https://www.mongodb.com/",
     "support": "https://support.mongodb.com/",
     "privacy": "https://www.mongodb.com/legal/privacy-policy",
-    "release_notes": "https://github.com/mongodb-js/compass/releases/tag/v1.53.2"
+    "release_notes": "https://github.com/mongodb-js/compass/releases/tag/v1.53.3"
   },
   "license": {
     "name": "Proprietary",
@@ -40,17 +40,51 @@
     "source": "none"
   },
   "latest_versions": {
-    "windows": "1.53.2.0",
-    "macos": "1.53.2",
+    "windows": "1.53.3.0",
+    "macos": "1.53.3",
     "linux": "1.53.2"
   },
-  "last_updated": "2026-10-27",
+  "last_updated": "2026-11-20",
   "versions_total": {
-    "windows": 102,
+    "windows": 103,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "1.53.3.0",
+      "release_date": "2026-11-20",
+      "release_notes": "Release v1.53.3\nWhat's Changed\nNew Features\n- feat(parsing): sandboxed parsing COMPASS-11281\n- feat(utility): create an utility for the ai assistant COMPASS-11269\nBug Fixes\n- chore(deps): bump devtools-proxy-support to 0.7.29 COMPASS-9694\n- fix(generative-ai): don't require parsing query in generated query COMPASS-11294\n- fix(ci): bump oidc-plugin COMPASS-11362\n- fix(deps): bump @mongodb-js/shell-bson-parser to ^2.2.3 COMPASS-11375\n- fix: errors for expired certificates are present on compass log file COMPASS-9694\n- fix(field-store): escape field types used as autocomplete descriptions COMPASS-11379\n- fix(generative-ai): match mongodb-mcp-server tool approval defaults COMPASS-11386\n- fix(compass-assistant): resend after auto-run tool calls complete COMPASS-11386\nFull Changelog: v1.53.2...v1.53.3",
+      "release_notes_url": "https://github.com/mongodb-js/compass/releases/tag/v1.53.3",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/m/MongoDB/Compass/Full/1.53.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/mongodb-js/compass/releases/download/v1.53.3/mongodb-compass-1.53.3-win32-x64.msi",
+          "host": "github.com",
+          "filename": "mongodb-compass-1.53.3-win32-x64.msi",
+          "sha256": "5a9d8452eea1dd2a8a66d4d3dcb6fa53f965f9c24437a99a915c235057a0e786",
+          "product_code": "{EDBC3612-ED1C-441C-B006-34D12240C52B}",
+          "switches": {
+            "install_location": "APPLICATIONROOTDIRECTORY=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.53.3.0",
+              "product_code": "{EDBC3612-ED1C-441C-B006-34D12240C52B}",
+              "upgrade_code": "{0152273D-2F9F-4913-B67F-0FCD3557FFD1}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "1.53.2.0",
@@ -1492,49 +1526,27 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "1.44.3.0",
-      "release_notes_url": "https://github.com/mongodb-js/compass/releases/tag/v1.44.3",
-      "manifest_version": "1.6.0",
-      "manifest_dir": "manifests/m/MongoDB/Compass/Full/1.44.3.0",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "wix",
-          "scope": "machine",
-          "url": "https://github.com/mongodb-js/compass/releases/download/v1.44.3/mongodb-compass-1.44.3-win32-x64.msi",
-          "host": "github.com",
-          "filename": "mongodb-compass-1.44.3-win32-x64.msi",
-          "sha256": "d79e869b856f23d88c3892d11eba158cafe1e18060eac577c7a0b90a38678389",
-          "product_code": "{6CBB2D71-3565-428D-80F1-DA46E58F78BE}",
-          "min_os_version": "10.0.0.0",
-          "upgrade_behavior": "install"
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "1.53.2",
+      "version": "1.53.3",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://downloads.mongodb.com/compass/mongodb-compass-1.53.2-darwin-x64.dmg",
+          "url": "https://downloads.mongodb.com/compass/mongodb-compass-1.53.3-darwin-x64.dmg",
           "host": "downloads.mongodb.com",
-          "filename": "mongodb-compass-1.53.2-darwin-x64.dmg",
-          "sha256": "40c6270749201f0879bb6d1c2bfb1af28489ad35ce74bb2a3fe80000f9191cc1",
+          "filename": "mongodb-compass-1.53.3-darwin-x64.dmg",
+          "sha256": "28bb06d3c60b46e78f78811df3265444d48a9dc6e01da7bd739c3797cba169f1",
           "min_os_version": "13"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://downloads.mongodb.com/compass/mongodb-compass-1.53.2-darwin-arm64.dmg",
+          "url": "https://downloads.mongodb.com/compass/mongodb-compass-1.53.3-darwin-arm64.dmg",
           "host": "downloads.mongodb.com",
-          "filename": "mongodb-compass-1.53.2-darwin-arm64.dmg",
-          "sha256": "2eea9b08bee3eea3e0fe49dd0be7b7e1e3c1e904f71eb2230348a28485927de2",
+          "filename": "mongodb-compass-1.53.3-darwin-arm64.dmg",
+          "sha256": "378653915d2138be3055802a7b1409d299edf731849aedda864ad143c9d1f832",
           "min_os_version": "13"
         }
       ],
@@ -1588,16 +1600,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "7a9b34a267ed1ac18e4d30d41bd8308c72ad8e9e",
-      "retrieved_at": "2026-11-06T12:14:36.662Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/m/MongoDB/Compass/Full"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "a77de142f12aa96546949db1c269401e81d34e4a",
-      "retrieved_at": "2026-11-06T12:14:36.662Z",
+      "commit": "a1abea2c78e800bb0d34e7ab1c54746733794b33",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "Casks/m/mongodb-compass.rb",
       "api_url": "https://formulae.brew.sh/api/cask/mongodb-compass.json"
     },

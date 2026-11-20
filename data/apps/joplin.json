@@ -33,7 +33,7 @@
     "publisher": "https://joplinapp.org/",
     "support": "https://joplinapp.org/help/",
     "privacy": "https://joplinapp.org/privacy/",
-    "release_notes": "https://github.com/laurent22/joplin/releases/tag/v3.7.22"
+    "release_notes": "https://github.com/laurent22/joplin/releases/tag/v3.7.24"
   },
   "license": {
     "name": "AGPL-3.0-or-later",
@@ -47,17 +47,66 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "3.7.22",
-    "macos": "3.7.22",
+    "windows": "3.7.24",
+    "macos": "3.7.24",
     "linux": "3.7.21"
   },
-  "last_updated": "2026-10-28",
+  "last_updated": "2026-11-19",
   "versions_total": {
-    "windows": 77,
+    "windows": 78,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "3.7.24",
+      "release_date": "2026-11-19",
+      "release_notes": "- Improved: Add a first-class OpenAI provider using the Responses API (#16864) (#16450 by @Rygaa)\n- Improved: Create the application authorisation ID in one place (79d954a)\n- Improved: Prioritize local changes to sync info over values with unchanged far-future remote timestamps (2624b35 by Henry Heino)\n- Improved: Sync/E2EE: Avoid propagating share/publish status until an item has decrypted (b6692eb by Henry Heino)\n- Fixed: Fix ENEX import failing when an unescaped ampersand is directly followed by a tag (e5ed69a)\n- Fixed: Fix crash when a semantic search result is open in a secondary window (#17085)\n- Security: Add UI to allow validating public key fingerprints when sharing notebooks (3fd2f2f by Henry Heino)\n- Security: Ask for confirmation before disabling E2EE (f4447dd by Henry Heino)\n- Security: Detect and allow recovering from invalid public-private key pairs (27944cf by Henry Heino)\n- Security: Disable unencrypted uploads by default when E2EE is enabled (cfce373 by Henry Heino)\n- Security: Fix SQL injection in data API (64522e0 by Henry Heino)\n- Security: Harden master key loading, add new encryption method forward compatibility (46c5442 by Henry Heino)\n- Security: Harden server share API response handling (64d513a by Henry Heino)\n- Security: Prevent OneNote import from reading files outside the import directory (86250d4)\n- Security: Sync/E2EE: Do not mark items as published based on the list of shares returned by the server (2d1a179 by Henry Heino)\n- Security: Sync/E2EE: Harden marking items as published/shared (3cf1c1a by Henry Heino)\n- Security: Sync: Do not allow a remote item to decrypt/deserialize to an item with a different ID (b61ef1e by Henry Heino)",
+      "release_notes_url": "https://github.com/laurent22/joplin/releases/tag/v3.7.24",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/j/Joplin/Joplin/3.7.24",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-Setup-3.7.24.exe",
+          "host": "github.com",
+          "filename": "Joplin-Setup-3.7.24.exe",
+          "sha256": "9b528527bf24c4657c35052309437d2798c2ab38f80e32b66f0dedb8daeb3ec9",
+          "product_code": "499c114e-8890-5040-9c02-24abe7d3ebe9",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "joplin"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-Setup-3.7.24.exe",
+          "host": "github.com",
+          "filename": "Joplin-Setup-3.7.24.exe",
+          "sha256": "9b528527bf24c4657c35052309437d2798c2ab38f80e32b66f0dedb8daeb3ec9",
+          "product_code": "499c114e-8890-5040-9c02-24abe7d3ebe9",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "joplin"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "3.7.22",
@@ -3212,115 +3261,27 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "2.10.16",
-      "manifest_version": "1.4.0",
-      "manifest_dir": "manifests/j/Joplin/Joplin/2.10.16",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/laurent22/joplin/releases/download/v2.10.16/Joplin-Setup-2.10.16.exe",
-          "host": "github.com",
-          "filename": "Joplin-Setup-2.10.16.exe",
-          "sha256": "459125592b2624c2201991ad6e17b82c5d919be283099226dc917b68f6a7d488",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/CURRENTUSER /RESTARTAPPLICATIONS"
-          },
-          "upgrade_behavior": "install"
-        },
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/laurent22/joplin/releases/download/v2.10.16/Joplin-Setup-2.10.16.exe",
-          "host": "github.com",
-          "filename": "Joplin-Setup-2.10.16.exe",
-          "sha256": "459125592b2624c2201991ad6e17b82c5d919be283099226dc917b68f6a7d488",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/CURRENTUSER /RESTARTAPPLICATIONS"
-          },
-          "upgrade_behavior": "install"
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "locale": "en-US",
-          "url": "https://github.com/laurent22/joplin/releases/download/v2.10.16/Joplin-Setup-2.10.16.exe",
-          "host": "github.com",
-          "filename": "Joplin-Setup-2.10.16.exe",
-          "sha256": "459125592b2624c2201991ad6e17b82c5d919be283099226dc917b68f6a7d488",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/ALLUSERS /RESTARTAPPLICATIONS"
-          },
-          "upgrade_behavior": "install"
-        },
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "nullsoft",
-          "scope": "machine",
-          "locale": "en-US",
-          "url": "https://github.com/laurent22/joplin/releases/download/v2.10.16/Joplin-Setup-2.10.16.exe",
-          "host": "github.com",
-          "filename": "Joplin-Setup-2.10.16.exe",
-          "sha256": "459125592b2624c2201991ad6e17b82c5d919be283099226dc917b68f6a7d488",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/ALLUSERS /RESTARTAPPLICATIONS"
-          },
-          "upgrade_behavior": "install"
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "3.7.22",
+      "version": "3.7.24",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://github.com/laurent22/joplin/releases/download/v3.7.22/Joplin-3.7.22.DMG",
+          "url": "https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-3.7.24.DMG",
           "host": "github.com",
-          "filename": "Joplin-3.7.22.DMG",
-          "sha256": "5718f0e30ca4bacebb5f03822f2963433d1120e3581258772f2d9eba1d53633f",
+          "filename": "Joplin-3.7.24.DMG",
+          "sha256": "62a567c1101d0dc9db64625987265026f36217ae163e851bfe7b687dca314d02",
           "min_os_version": "12"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://github.com/laurent22/joplin/releases/download/v3.7.22/Joplin-3.7.22-arm64.DMG",
+          "url": "https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-3.7.24-arm64.DMG",
           "host": "github.com",
-          "filename": "Joplin-3.7.22-arm64.DMG",
-          "sha256": "185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8",
+          "filename": "Joplin-3.7.24-arm64.DMG",
+          "sha256": "d95c2376035c7630dfb94f6eecca2f6edb3a27531626553a344f2b2308a5830e",
           "min_os_version": "12"
         }
       ],
@@ -3380,16 +3341,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "daa8e01ceef83af56e6a91c8cb96a24bf9cef073",
-      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/j/Joplin/Joplin"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
-      "retrieved_at": "2026-11-04T20:35:48.319Z",
+      "commit": "a1abea2c78e800bb0d34e7ab1c54746733794b33",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "Casks/j/joplin.rb",
       "api_url": "https://formulae.brew.sh/api/cask/joplin.json"
     },
@@ -3397,10 +3358,10 @@
       "source": "flathub",
       "platform": "linux",
       "repo": "https://github.com/flathub/net.cozic.joplin_desktop",
-      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "retrieved_at": "2026-11-20T12:26:15.098Z",
       "path": "api/v2/appstream/net.cozic.joplin_desktop",
       "api_url": "https://flathub.org/api/v2/appstream/net.cozic.joplin_desktop",
-      "content_sha256": "565259168701a1c8e2b39166b9c1ae4125cb2b7ce1b2806d88206d6cc812f8b3"
+      "content_sha256": "284b4bfa4d4bf0e118948d625c3d4e12cf219ff597ec4df91e3e7007dfd0b844"
     }
   ],
   "flathub": {
@@ -3416,8 +3377,8 @@
     "categories": [
       "Office"
     ],
-    "download_size": 231589007,
-    "installed_size": 677705728,
+    "download_size": 238402088,
+    "installed_size": 688302080,
     "arches": [
       "arm64",
       "x64"

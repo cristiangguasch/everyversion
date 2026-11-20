@@ -33,6 +33,7 @@
     "support": "https://gitlab.com/wireshark/wireshark/-/issues",
     "bug_tracker": "https://gitlab.com/wireshark/wireshark/-/issues",
     "privacy": "https://wiresharkfoundation.org/privacy-policy/",
+    "release_notes": "https://www.wireshark.org/update/relnotes/wireshark-4.6.10.html",
     "documentation": [
       {
         "label": "Documentation",
@@ -64,17 +65,128 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "4.6.9",
-    "macos": "4.6.9",
+    "windows": "4.6.10",
+    "macos": "4.6.10",
     "linux": "4.6.9"
   },
-  "last_updated": "2026-09-23",
+  "last_updated": "2026-11-18",
   "versions_total": {
-    "windows": 45,
+    "windows": 46,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "4.6.10",
+      "release_date": "2026-11-18",
+      "release_notes": "Bug Fixes\nThis release fixes quite a few vulnerabiliteis. This is due to an internal review and a recent trend in AI-assisted vulnerability reports from outside researchers. See issue 21638 for details.\n- wnpa-sec-2026-111 RTSE protocol dissector crash. Issue 21585. CVE-2026-130469.\n- wnpa-sec-2026-112 NBAP protocol dissector crash. Issue 21630, Issue 21632. CVE-2026-130468.\n- wnpa-sec-2026-113 PEAK CAN TRC file parser crash when built with older versions of GLib. Issue 21500, Issue 21609. CVE-2026-130467.\n- wnpa-sec-2026-114 ERF file parser crash. Issue 21635. CVE-2026-130466.\n- wnpa-sec-2026-115 Ascend file parser large loop. CVE-2026-130465.\n- wnpa-sec-2026-116 MsgPack and NNTP protocol dissector crashes. Issue 21746. CVE-2026-130464.\n- wnpa-sec-2026-117 Android Logcat file parser crash. Issue 21639. CVE-2026-130463.\n- wnpa-sec-2026-118 Multiple protocol dissector and file parser hangs. Issue 21747. CVE-2026-130462.\n- wnpa-sec-2026-119 IEEE 1609.2 protocol dissector crash. Issue 21640. CVE-2026-130461.\n- wnpa-sec-2026-120 Multiple protocol dissector crashes. Issue 21749. CVE-2026-130460.\n- wnpa-sec-2026-121 Tektronix K12xx file parser large loop. CVE-2026-130459.\n- wnpa-sec-2026-122 IrDA protocol dissector crash. Issue 21658. CVE-2026-130458.\n- wnpa-sec-2026-123 Matter protocol dissector crash. Issue 21675. CVE-2026-130457.\n- wnpa-sec-2026-124 ERF file parser crash. Issue 21682. CVE-2026-130456.\n- wnpa-sec-2026-125 Kafka protocol dissector infinite loop. Issue 21684. CVE-2026-130455.\n- wnpa-sec-2026-126 IEEE 1905 protocol dissector crash. Issue 21683. CVE-2026-130454.\n- wnpa-sec-2026-127 OpenWire protocol dissector crash. Issue 21676. CVE-2026-130453.\n- wnpa-sec-2026-128 USB-PTP protocol dissector crash. CVE-2026-130452.\n- wnpa-sec-2026-129 Multiple protocol dissector infinite loops. Issue 21752. CVE-2026-130451.\n- wnpa-sec-2026-130 Multiple protocol dissector crashes. Issue 21753. CVE-2026-130450.\n- wnpa-sec-2026-131 TLS protocol dissector memory leak. Issue 21693. CVE-2026-130449.\n- wnpa-sec-2026-132 Exported PDU protocol dissector crash. Issue 21695. CVE-2026-130448.\n- wnpa-sec-2026-133 Exported PDU protocol dissector crash. Issue 21702. CVE-2026-130447.\n- wnpa-sec-2026-134 ACN protocol dissector crash. Issue 21754. CVE-2026-130446.\n- wnpa-sec-2026-135 Multiple protocol dissector crashes and infinite loops, and memory leaks. Issue 21755. CVE-2026-130445.\n- wnpa-sec-2026-136 Multiple protocol dissector crashes. Issue 21757. CVE-2026-130442.\n- wnpa-sec-2026-137 Multiple protocol dissector crashes. Issue 21758. CVE-2026-130443.\n- wnpa-sec-2026-138 Multiple protocol dissector crashes. Issue 21759. CVE-2026-130440.\n- wnpa-sec-2026-139 Multiple protocol dissector crashes. Issue 21760. CVE-2026-130439.\n- wnpa-sec-2026-140 Dissection engine crash. Issue 21726. CVE-2026-130441.\n- wnpa-sec-2026-141 Multiple protocol dissector crashes. Issue 21762. CVE-2026-130438.\n- wnpa-sec-2026-142 PROFINET protocol dissector crash. Issue 21745. CVE-2026-130444.\n- wnpa-sec-2026-143 Multiple protocol dissector crashes. Issue 21763. CVE-2026-130437.\n- wnpa-sec-2026-144 Multiple protocol dissector memory leaks. Issue 21764. CVE-2026-130436.\n- wnpa-sec-2026-145 SDP protocol dissector crash. Issue 21696. CVE-2026-130435.\n- wnpa-sec-2026-146 Protocol dissector crashes. Issue 21768. CVE-2026-130434.\n- wnpa-sec-2026-147 SCTP protocol dissector heap disclosure. Issue 21712.\n- wnpa-sec-2026-148 iLBC audio codec crash. Issue 21779.\n- wnpa-sec-2026-149 AMR audio codec crash. Issue 21772.\nThe Windows and macOS installers now ship with brotli 1.2.1, which fixes CVE-2026-111497.\nThe following bugs have been fixed:\n- Lua exception handling crash. Issue 20767.\n- There’s a mismatch between what FindSinsp.cmake does and how code that includes sinsp.h includes that header. Issue 20792.\n- make-enums.py breaks the Lua FPM test on Windows. Issue 20963.\n- Falco Events plugin shouldn’t open the capture file in parallel. Issue 21014.\n- ZDI-CAN-32851: Wireshark LoRaWAN Decryption Numeric Truncation Error Remote Code Execution Vulnerability. Issue 21520.\n- Endpoint map now requires API key. Issue 21578.\n- NRPPA: Id-TRP-MeasurementReportList (43) Open Type value not dissect although IE is identified. Issue 21615.\n- IKEv2 dissector does not display field names for Additional Key Exchanges from RFC 9370. Issue 21616.\n- E2AP: Assignment used where equality comparison meant. Issue 21646.\n- Wiretap Aethra reader stores skipped records in packet buffer on first pass. Issue 21654.\n- NAS-EPS: ciphered messages are dissected as plaintext when no EEA2 key is set (regression since ae7dfd0e) Issue 21671.\n- BLF reading out of canfdmessage and canfdmessage64. Issue 21714.\n- BLF: 802.1p tag with all 0 is lost. Issue 21717.\n- Packet list: KDE Breeze style always draws packet separator, vertical alignment not centered. Issue 21735.\nNew and Updated Features\n- The Windows installers now ship with Npcap 1.89. They previously shipped with Npcap 1.88.\nNew Protocol Support\nThere are no new protocols in this release.\nUpdated Protocol Support\nToo many protocols have been updated to list here.\nNew and Updated Capture File Support\nToo many capture file formats have been updated to list here.\nNew and Updated File Format Decoding Support\nThere is no new or updated file format support in this release.\nPlugin Development Changes\nOn UN*X systems (excluding macOS when running from an app bundle, as with the official installer) extcap binaries are now searched for under the libexec directory by default, e.g., /usr/libexec/wireshark/extcap instead of /usr/lib64/wireshark/extcap or similar. This is the customary place for helper binaries, which as opposed to libraries do not need multiarch support. The location can be overridden via the environment variable WIRESHARK_EXTCAP_DIR. The extcap binaries shipped with Wireshark are installed in the new location, but third party extcaps may need packaging changes. This change was effective in version 4.6.0, but was not explicitly noted in the release notes previously. Note that some distributions do not use a libexec directory, such as Alpine Linux, which does not have multilib support. On such systems extcap binaries should be in the same location as before.",
+      "release_notes_url": "https://www.wireshark.org/update/relnotes/wireshark-4.6.10.html",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/w/WiresharkFoundation/Wireshark/4.6.10",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://2.na.dl.wireshark.org/win64/all-versions/Wireshark-4.6.10-x64.exe",
+          "host": "2.na.dl.wireshark.org",
+          "filename": "Wireshark-4.6.10-x64.exe",
+          "sha256": "c3bd915305aef0cfaffb29981790623f97b8aa673fb5c790b1c64a3fd85c1e94",
+          "product_code": "Wireshark",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "5vw",
+            "acp",
+            "apc",
+            "atc",
+            "bfr",
+            "cap",
+            "ems",
+            "enc",
+            "erf",
+            "fdc",
+            "ipfix",
+            "lcap",
+            "mplog",
+            "ntar",
+            "out",
+            "pcap",
+            "pcapng",
+            "pklg",
+            "pkt",
+            "rf5",
+            "rtp",
+            "scap",
+            "snoop",
+            "syc",
+            "tpc",
+            "tr1",
+            "trace",
+            "trc",
+            "vwr",
+            "wpc",
+            "wpz"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://2.na.dl.wireshark.org/win64/all-versions/Wireshark-4.6.10-x64.msi",
+          "host": "2.na.dl.wireshark.org",
+          "filename": "Wireshark-4.6.10-x64.msi",
+          "sha256": "dbcfc374215c48f12f16bf059943be59d1f17c68a22e58f7ab6d84c131b42006",
+          "product_code": "{82C71234-9F5B-4E85-A94B-3E35336B4DF9}",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "5vw",
+            "acp",
+            "apc",
+            "atc",
+            "bfr",
+            "cap",
+            "ems",
+            "enc",
+            "erf",
+            "fdc",
+            "ipfix",
+            "lcap",
+            "mplog",
+            "ntar",
+            "out",
+            "pcap",
+            "pcapng",
+            "pklg",
+            "pkt",
+            "rf5",
+            "rtp",
+            "scap",
+            "snoop",
+            "syc",
+            "tpc",
+            "tr1",
+            "trace",
+            "trc",
+            "vwr",
+            "wpc",
+            "wpz"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{0D67AACE-269A-4264-81A3-DA8055C1C79C}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "4.6.9",
@@ -4153,16 +4265,16 @@
     },
     {
       "platform": "macos",
-      "version": "4.6.9",
+      "version": "4.6.10",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://www.wireshark.org/download/osx/all-versions/Wireshark%204.6.9.dmg",
+          "url": "https://www.wireshark.org/download/osx/all-versions/Wireshark%204.6.10.dmg",
           "host": "www.wireshark.org",
-          "filename": "Wireshark 4.6.9.dmg",
-          "sha256": "10bd54ccdc3f40457f6a1f0c517bc93703fcb327c4cd4b93002e7a623dacbf38"
+          "filename": "Wireshark 4.6.10.dmg",
+          "sha256": "1fa2b3cca5da747eedb83cb023f46b876edbf54dcc234b7d2a80863f417f036b"
         }
       ],
       "cask": {
@@ -4258,16 +4370,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/w/WiresharkFoundation/Wireshark"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "a1abea2c78e800bb0d34e7ab1c54746733794b33",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "Casks/w/wireshark-app.rb",
       "api_url": "https://formulae.brew.sh/api/cask/wireshark-app.json"
     },
@@ -4275,10 +4387,10 @@
       "source": "flathub",
       "platform": "linux",
       "repo": "https://github.com/flathub/org.wireshark.Wireshark",
-      "retrieved_at": "2026-11-11T13:29:04.150Z",
+      "retrieved_at": "2026-11-20T12:26:15.098Z",
       "path": "api/v2/appstream/org.wireshark.Wireshark",
       "api_url": "https://flathub.org/api/v2/appstream/org.wireshark.Wireshark",
-      "content_sha256": "dc1b61e8cd3e5a6c1eef4f5dc75e5749e6cf1386a18b71973c4a6388dac62745"
+      "content_sha256": "dddaae951dcb2c6511645e241c277d7a87ed61493626f8622ce978ab12b0a900"
     }
   ],
   "flathub": {
@@ -4295,8 +4407,8 @@
       "Network",
       "Monitor"
     ],
-    "download_size": 56466970,
-    "installed_size": 185180160,
+    "download_size": 56627435,
+    "installed_size": 185600512,
     "arches": [
       "arm64",
       "x64"

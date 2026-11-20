@@ -4,10 +4,12 @@
   "name": "DuckStation",
   "publisher": "Stenzek",
   "ids": {
-    "winget": "Stenzek.DuckStation"
+    "winget": "Stenzek.DuckStation",
+    "flathub": "org.duckstation.DuckStation"
   },
   "platforms": [
-    "windows"
+    "windows",
+    "linux"
   ],
   "summary": "Fast PlayStation 1 emulator for x86-64/AArch64.",
   "tags": [
@@ -45,11 +47,13 @@
     "source": "none"
   },
   "latest_versions": {
-    "windows": "0.1.11894"
+    "windows": "0.1.11894",
+    "linux": "v0.1-12640"
   },
   "last_updated": "2026-09-12",
   "versions_total": {
-    "windows": 6
+    "windows": 6,
+    "linux": 1
   },
   "versions": [
     {
@@ -404,11 +408,37 @@
           }
         }
       ]
+    },
+    {
+      "platform": "linux",
+      "version": "v0.1-12640",
+      "release_date": "2026-11-19",
+      "release_notes_url": "https://github.com/stenzek/duckstation/releases/tag/v0.1-12640",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.duckstation.DuckStation.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.duckstation.DuckStation.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.duckstation.DuckStation.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.duckstation.DuckStation.flatpakref",
+          "no_checksum": true
+        }
+      ]
     }
   ],
   "verification": {
     "level": 0,
-    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
     "checks": {
       "hash_in_manifest": true,
       "hash_recomputed": false,
@@ -423,6 +453,41 @@
       "commit": "615b69b21b30191d28d575b8573292efbfcd10f6",
       "retrieved_at": "2026-11-10T00:19:10.008Z",
       "path": "manifests/s/Stenzek/DuckStation"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.duckstation.DuckStation",
+      "retrieved_at": "2026-11-20T12:26:15.098Z",
+      "path": "api/v2/appstream/org.duckstation.DuckStation",
+      "api_url": "https://flathub.org/api/v2/appstream/org.duckstation.DuckStation",
+      "content_sha256": "f6cb4af949d81fb515e365b63c50f112cbdead98a15836fd1787d8d4a1215d0e"
     }
-  ]
+  ],
+  "flathub": {
+    "app_id": "org.duckstation.DuckStation",
+    "page_url": "https://flathub.org/apps/org.duckstation.DuckStation",
+    "repo_url": "https://github.com/flathub/org.duckstation.DuckStation",
+    "install_command": "flatpak install flathub org.duckstation.DuckStation",
+    "run_command": "flatpak run org.duckstation.DuckStation",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "duckstation.org",
+      "verified_on": "2023-09-28"
+    },
+    "license": "CC-BY-NC-ND-4.0",
+    "free_license": false,
+    "developer_name": "Stenzek",
+    "categories": [
+      "Game",
+      "Emulator"
+    ],
+    "download_size": 96790598,
+    "installed_size": 229857792,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
 }

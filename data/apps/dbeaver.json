@@ -39,7 +39,7 @@
     "publisher": "https://dbeaver.io/",
     "support": "https://github.com/dbeaver/dbeaver/issues",
     "bug_tracker": "https://github.com/dbeaver/dbeaver/issues",
-    "release_notes": "https://github.com/dbeaver/dbeaver/releases/tag/26.2.4",
+    "release_notes": "https://github.com/dbeaver/dbeaver/releases/tag/26.2.5",
     "documentation": [
       {
         "label": "Documentation",
@@ -62,15 +62,94 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "26.2.4",
+    "windows": "26.2.5",
     "macos": "26.2.5"
   },
-  "last_updated": "2026-11-01",
+  "last_updated": "2026-11-15",
   "versions_total": {
-    "windows": 194,
+    "windows": 196,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "26.2.5",
+      "release_date": "2026-11-15",
+      "release_notes": "- AI Assistant:\n    - Added Ollama support for running local AI models\n    - Selecting an AI profile in chat now saves it as the user's default for new conversations\n    - Canceled responses now retain reported token usage and show N/A when usage is unavailable instead of zero counts\n    - Fixed AI Chat remaining blank or waiting indefinitely when chat history initialization fails\n    - Fixed conversation timestamps shifting after restarting DBeaver\n    - Clearing Temperature now uses the AI provider's server default instead of sending a numeric value\n    - Fixed AI Chat remaining on \"Waiting for response...\" after a tool or follow-up request fails\n    - Generated AI metadata now filters out objects and relationships outside the configured context scope\n    - Added per-connection AI metadata consent and scope settings\n    - Added a connection picker to AI Chat, including disconnected connections without chat history\n- SQL Editor:\n    - Added syntax analysis, autocomplete, and symbol information for supported procedure, function, trigger, and anonymous-block definitions\n    - Added explicit panel placement choices to tab context menus and the Panels menu\n    - Fixed empty detached result tabs when a statement returns multiple result sets (thanks to @fizzbeom)\n    - Restored foreign-key join conditions and column suggestions after an empty JOIN ON clause followed by WHERE, GROUP BY, or another JOIN\n    - Fixed autocomplete requests being lost while background parsing is still running\n    - Fixed text zoom in block selection mode (thanks to @Antoine2oo5)\n    - Reduced memory use when processing SQL scripts with positional parameters and dollar-quoted strings (thanks to @cypherbits)\n    - Fixed an intermittent error when selecting autocomplete suggestions after their information popup closes\n- Data Editor:\n    - Calculation panel results now follow Data Formats settings instead of always rounding to three decimal places (thanks to @yuki-nakano-520)\n    - Restoring a cell's original value before saving now clears its pending change (thanks to @yuki-nakano-520)\n    - Fixed expanded arrays being truncated in multi-record mode when selected rows contain arrays of different lengths\n- Diagram:\n    - Corrected Crow's Foot notation to show 0..n on the many side of non-unique foreign-key relationships (thanks to @adi567sin-beep)\n- Data transfer:\n    - Added independent CSV header quoting options: always, when necessary, and never\n    - Improved target-table mapping performance for schemas containing many objects\n- Connectivity:\n    - Connection names can now be edited directly on the main connection settings page\n    - Fixed an error when selecting a CData driver without an internet connection on Windows\n    - Fixed a secondary error hiding the original failure when connection settings cannot be initialized\n    - Aligned connection wizard sections and moved network configuration hints inside their corresponding sections\n    - Fixed the first character of connection names being clipped in the Windows dark theme\n- Task Management:\n    - Added project-reference remapping for additional task types when importing a project under a different name\n- Navigator:\n    - Database object search now connects to a data source only when its node is expanded, avoiding connection and driver-download prompts while browsing the list\n- Security:\n    - Added an optional, remembered \"Sanitize logs\" setting when collecting diagnostic information, without changing the original logs\n    - AI account tokens now use OS-native secure storage when an available provider can be selected\n    - Hardened driver and launcher archive extraction against files being written outside their intended directories (CWE-22)\n    - Fixed selection of native secure storage providers on Windows and Linux\n- Product configuration:\n    - Added Product Configuration to Preferences, with access to settings for hidden optional features\n- Miscellaneous:\n    - Replaced low-resolution overlay icons with scalable vector icons\n    - Fixed first-launch workspace initialization when the application's working directory is not writable\n    - Fixed tree headers and scrollbar areas retaining the previous theme's colors on Windows\n    - Added background cleanup of installation caches from previous versions that have not been modified for more than a week\n    - Fixed clipped text in the Tip of the Day dialog on macOS\n    - Updated remaining Eclipse-provided menu and view icons to use DBeaver icons\n    - Fixed vertical dialog tab backgrounds in the light theme\n    - The splash screen now displays startup progress details\n    - Applied the configured desktop font consistently across additional controls and prevented packed table and tree headers from being truncated\n- New drivers:\n    - Added Cloudflare D1 support\n- Databases:\n    - ClickHouse:\n        - Added support for editing nested Map, Tuple, and Array values\n        - Restored value-based filters for Nullable and LowCardinality columns (thanks to @guishiw)\n    - CUBRID: Restored incoming foreign-key references in parent-table properties and diagrams for multi-schema databases (thanks to @zsewasdsdsd)\n    - Databricks: Updated the JDBC driver to version 3.4.4\n    - Firebird: Fixed a freeze when opening column properties in databases with many internal domains (thanks to @seonwooj0810)\n    - MariaDB: Updated Connector/J to version 3.5.11 to address CVE-2026-119276, CVE-2026-119281, CVE-2026-119210, and CVE-2026-119277\n    - MySQL:\n        - Added multiple-row selection to the database dump object chooser\n        - Fixed false SQL validation errors for column type modifiers such as UNSIGNED\n        - Native script execution is now disabled until a database is selected\n    - Oracle:\n        - Fixed timestamp SQL literals preserving fractional seconds and time-zone offsets when dragging cells into SQL Editor or exporting fetched rows (thanks to @fizzbeom)\n        - Removed duplicate package results from database object searches\n        - Reorganized connection settings and local-client selection\n    - PostgreSQL:\n        - Added publication and subscription management for PostgreSQL 14 and later\n        - Fixed invalid target-column aliases in generated MERGE statements (thanks to @brankoradovanovic-mcom)\n        - Fixed SSL connections failing because converted private-key files had overly permissive permissions (thanks to @zsewasdsdsd)\n        - Improved SQL script tokenization performance (thanks to @cypherbits)\n        - Updated the JDBC driver to version 42.7.14 to address CVE-2026-107314\n    - Redshift: Fixed IAM Identity Center browser sign-in failing because a required driver dependency was missing (thanks to @gururagavan2008)\n    - SQL Server: Fixed repeated rows and endless data transfers when using multiple-query extraction with SQL-based row limits\n    - SQLite: Restored network and SSH tunnel settings for remote connections\n- Localization:\n    - Completed missing translations and corrected localized UI text across supported languages",
+      "release_notes_url": "https://github.com/dbeaver/dbeaver/releases/tag/26.2.5",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/d/DBeaver/DBeaver/Community/26.2.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.5/dbeaver-ce-26.2.5-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.5-windows-x86_64.exe",
+          "sha256": "8cce0a921ef3e0f43dd13357304bd0c18eff1cfcbf52f848db8f854af469cce3",
+          "product_code": "DBeaver (current user)",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.5/dbeaver-ce-26.2.5-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.5-windows-x86_64.exe",
+          "sha256": "8cce0a921ef3e0f43dd13357304bd0c18eff1cfcbf52f848db8f854af469cce3",
+          "product_code": "DBeaver",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.5/dbeaver-ce-26.2.5-windows-aarch64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.5-windows-aarch64.exe",
+          "sha256": "f3e428c7f32065bf4af277fc85b91664b77b6a6afe1df0d945a78453d2195fb2",
+          "product_code": "DBeaver (current user)",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.5/dbeaver-ce-26.2.5-windows-aarch64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.5-windows-aarch64.exe",
+          "sha256": "f3e428c7f32065bf4af277fc85b91664b77b6a6afe1df0d945a78453d2195fb2",
+          "product_code": "DBeaver",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "26.2.4",
@@ -219,6 +298,85 @@
           "host": "github.com",
           "filename": "dbeaver-ce-26.2.3-windows-aarch64.exe",
           "sha256": "1c92c0f0caf046724570428a6362814c3f32efafed6833e41d0ff979ceaa943f",
+          "product_code": "DBeaver",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.2.1",
+      "release_date": "2026-09-21",
+      "release_notes": "- Product configuration:\n    - Fixed an issue where toolbars for disabled tools remained visible\n- AI Assistant:\n    - Added profile and model selectors to AI Chat\n    - Fixed a white flash when opening AI Chat in the dark theme\n    - Improved AI Chat prompt caching, reducing repeated input-token processing in multi-turn conversations\n- SQL Editor:\n    - Detached query result tabs now preserve the original result tab name and tooltip\n    - Disconnecting a data source no longer prompts to save or automatically saves an open SQL script (thanks to @gsastraw)\n    - User-defined Escape key bindings now work when no inline suggestion is visible (thanks to @danielpallettfr)\n    - Fixed default formatting of column lists in CREATE TABLE constraints\n    - Fixed intermittent errors in the Error Log when editing INSERT statements\n    - Fixed an error that could occur when editing or moving the caret quickly while code completion was open\n- Metadata Editor:\n    - Added a tooltip explaining that object names are transformed according to database naming conventions\n- Data Editor:\n    - Added an option to display very small numbers in scientific notation instead of rounding them to zero\n    - Fixed dictionary lookups for columns with composite foreign keys (thanks to @gsastraw)\n    - Fixed an issue where hiding a column reset manually adjusted widths for other columns (thanks to @gsastraw)\n    - Fixed incorrect row filtering when navigating composite foreign-key references\n    - Improved performance when pasting a large number of cells\n    - Improved Value panel performance when navigating between text columns\n    - Fixed an issue where Advanced Paste could make the application unresponsive when inserting a large number of rows\n- Data transfer:\n    - Fixed invalid exported DDL when apostrophes in inline column comments caused separator commas to be misplaced (thanks to @MicBun)\n- Connectivity:\n    - Connection URLs can now be selected and copied while using host-based connection settings\n    - Added support for specifying a custom SSH agent socket for SSH tunnel authentication on macOS (thanks to @LystranG)\n    - Fixed importing connections from custom CSV files when optional URL parameters were missing\n    - Network profiles are now sorted alphabetically\n- Navigator:\n    - Fixed object filtering in Database Navigator folders when the \"Connected only\" filter was enabled\n    - Connection type color changes are now applied immediately in Database Navigator (thanks to @sernopay)\n    - Fixed an issue where the active project disappeared from the Projects view after being renamed (thanks to @anton-erofeev)\n    - Fixed an issue where changing connection view settings without reconnecting could leave the connection tree empty\n    - Fixed an issue where connections were not displayed in Database Navigator after switching workspaces in the Eclipse plugin\n- Miscellaneous:\n    - Version updates are now shown in the toolbar instead of a pop-up dialog, and update download progress was improved\n    - Added a \"Run DBeaver\" option to the Windows installer\n    - Improved editor tab highlighting for colored connections: active tabs now use the connection color, while inactive tabs use a lighter shade\n    - Fixed UNC path handling for DBeaver data directories on Windows (thanks to @gsastraw)\n    - Fixed low-contrast text in read-only dropdown menus when using the dark theme on macOS\n    - Improved dark theme colors for progress bars and embedded SQL editors\n    - Fixed an issue where log rotation failures could interrupt tasks and data transfers\n    - Windows ARM: Fixed a startup crash\n    - Fixed excessive CPU usage when the update notification appeared over the master password prompt\n    - Reorganized standard preference pages for easier navigation\n    - Windows: Restored the splash screen when DBeaver is installed in Program Files\n- New drivers:\n    - Added the Manticore Search driver (thanks to @akmalsyrf)\n    - Added the TiDB Cloud Lake driver (thanks to @hantmac)\n- Databases:\n    - Apache Doris: Fixed SQL query execution in the default schema without requiring the database and schema to be reselected\n    - Apache IoTDB: Fixed changing the active database in the SQL Editor (thanks to @LJW21-02)\n    - DuckDB:\n        - Added SQL LIMIT clauses to Data Editor queries to prevent excessive memory use with large tables\n        - Added support for connections on Windows ARM64\n    - Firebird: Fixed function DDL generation to preserve parameter and return types, nullability, and SQL security mode (thanks to @sakshichitnis27)\n    - GBase 8s: Fixed loading large CLOB and TEXT values when DBeaver is installed for all users on Windows (thanks to @Downstream1998)\n    - MariaDB:\n        - Fixed an issue where the Constraints tab could show a CHECK expression from another table (thanks to @zanlucathiago)\n        - Named CHECK constraints are now shown in the Constraints tab for users with SELECT-only access (thanks to @zanlucathiago)\n    - MySQL: Fixed execution of the SOURCE command in SQL scripts (thanks to @gsastraw)\n    - Oracle: Standalone indexes used by constraints are now preserved in generated DDL\n    - PostgreSQL:\n        - Fixed active schema changes in manual commit mode by prompting users to commit the current transaction and updating the schema indicator\n        - Fixed errors when displaying curved PostGIS geometries in the Spatial data viewer\n        - Fixed the ability to backup selected tables\n    - SQL Server: Added support for selecting target column collations during data transfer\n    - Timeplus: Fixed data transfer and CSV import by generating STREAM DDL for target objects (thanks to @EastLord)\n    - VeloDB: Fixed an issue where Describe object failed for VeloDB\n- Localization:\n    - Windows installer: Restored the language selector",
+      "release_notes_url": "https://github.com/dbeaver/dbeaver/releases/tag/26.2.1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/d/DBeaver/DBeaver/Community/26.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.1/dbeaver-ce-26.2.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.1-windows-x86_64.exe",
+          "sha256": "7c2e5b957f415335484ab23db2807b548eea49dbd02c844450d425de227cb455",
+          "product_code": "DBeaver (current user)",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.1/dbeaver-ce-26.2.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.1-windows-x86_64.exe",
+          "sha256": "7c2e5b957f415335484ab23db2807b548eea49dbd02c844450d425de227cb455",
+          "product_code": "DBeaver",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.1/dbeaver-ce-26.2.1-windows-aarch64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.1-windows-aarch64.exe",
+          "sha256": "69efa5c40bd39ae71b4e1e131234e2b265ec459c35dc38273a16f89705b6b1c3",
+          "product_code": "DBeaver (current user)",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "file_extensions": [
+            "sql"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/dbeaver/dbeaver/releases/download/26.2.1/dbeaver-ce-26.2.1-windows-aarch64.exe",
+          "host": "github.com",
+          "filename": "dbeaver-ce-26.2.1-windows-aarch64.exe",
+          "sha256": "69efa5c40bd39ae71b4e1e131234e2b265ec459c35dc38273a16f89705b6b1c3",
           "product_code": "DBeaver",
           "switches": {
             "custom": "/allusers"
@@ -2759,116 +2917,6 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "24.2.2",
-      "release_date": "2024-10-06",
-      "release_notes": "- SQL Editor:\n                - 'Cmd+Enter' shortcut was added in addition to 'Ctrl+Enter' on macOS due to the conflict with new system hot keys in Sequoia\n                - Fixed an error in multiple tab mode execution when the new execution results replaced old ones\n                - The amount of problems being displayed per script query was limited\n                - Complicated table qualifiers (database.catalog.schema.user) are now supported\n                - Fixed incorrect highlighting after the database disconnect\n                - Query execution time is now displayed in seconds/minutes\n                - Added an ability to select the text between brackets using 'Ctrl+Shift+]' hot key\n                - Background Tasks view now shows progress of autocompletion engine\n            - Data Editor:\n                - Presentation and editing of struct and array data types was significantly improved\n                - DBeaver can now correctly display negative dates in MySQL databases\n            - Data Transfer: changed icons for collapsed sections to improve the interface readability\n            - Connectivity: fixed error handling when a user loads a driver and has an error with certificates\n            - Navigator:\n                - Table filters in Simple view were fixed\n                - Disabled the ability to delete the currently active project\n            - Miscellaneous\n                - Incorrect sorting in Execution log was fixed\n                - Issue with not working boolean setting editor was fixed\n            - Databases\n                - Altibase: added display of the list of tables and indexes within a tablespace (thanks to @zennken)\n                - CUBRID:\n                    - Added the ability to create, edit, and drop Server via UI (thanks to @longhaseng52)\n                    - Added an ability to create, update, and delete users. (thanks to @rathana-pvs)\n                - Oracle:\n                    - Added highlighting and validation of public synonyms\n                    - Table autocompletion was fixed\n                - Virtuoso: replaced static jar file with Maven artifact",
-      "release_notes_url": "https://github.com/dbeaver/dbeaver/releases/tag/24.2.2",
-      "manifest_version": "1.10.0",
-      "manifest_dir": "manifests/d/DBeaver/DBeaver/Community/24.2.2",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/dbeaver/dbeaver/releases/download/24.2.2/dbeaver-ce-24.2.2-x86_64-setup.exe",
-          "host": "github.com",
-          "filename": "dbeaver-ce-24.2.2-x86_64-setup.exe",
-          "sha256": "185ddebe9bdcba8d529522194015d5d749193a2f5921d731bda0fbdad2a70f8b",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/CURRENTUSER"
-          },
-          "upgrade_behavior": "install",
-          "file_extensions": [
-            "sql"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "locale": "en-US",
-          "url": "https://github.com/dbeaver/dbeaver/releases/download/24.2.2/dbeaver-ce-24.2.2-x86_64-setup.exe",
-          "host": "github.com",
-          "filename": "dbeaver-ce-24.2.2-x86_64-setup.exe",
-          "sha256": "185ddebe9bdcba8d529522194015d5d749193a2f5921d731bda0fbdad2a70f8b",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/ALLUSERS"
-          },
-          "upgrade_behavior": "install",
-          "file_extensions": [
-            "sql"
-          ]
-        }
-      ]
-    },
-    {
-      "platform": "windows",
-      "version": "24.2.1",
-      "release_date": "2024-09-22",
-      "release_notes": "- SQL Editor:\n                - Smart syntax highlighting was significantly improved\n                - Pseudo columns highlighting was improved\n                - Table aliases were fixed in smart completion\n                - Issue with pinned tabs was resolved\n                - Syntax highlighting fixed for single quoted strings (thanks to @tlm365)\n                - SQL console save was redesigned (it now asks for confirmation)\n            - Data editor:\n                - Commit/rollback buttons now enabled only when transactions are applicable\n                - Column description rendering was improved for dark theme\n            - Database navigator: horizontal scrolling was fixed, now action icons are always visible\n            - Object editor: bottom toolbar layout was unified for all tabs\n            - Data transfer:\n                - CSV parameters documentation was added\n                - Database backup/restore dialog layout ws fixed\n            - General:\n                - Snapcraft image now includes additional fonts\n                - Embedded browser support was added for Linux/GTK\n                - App command line parameters logging was was disabled because of security concerns\n                - Issue with splash screen and error message overlapping was resolved\n                - Resource leak detection logging was added by default\n                - We migrated to Eclipse 2024-09 platform\n            - Databases:\n                - Altibase: database replication metadata was supported (thaks to @zennken)\n                - Azure SQL: \"show all databases\" option was removed\n                - CUBRID:\n                    - Index drop command generation wad fixed (thanks to @longhaseng52)\n                    - Procedure create dialog was added (thanks to @longhaseng52)\n                    - List of reserved keywords was updated (thanks to @rathana-pvs)\n                - DolphinDB driver was added (thanks to @peeyee)\n                - MySQL: NULL geometry values handle was fixed (thanks to @EastLord)\n                - Salesforce CDP: connection dialog layout was fixed\n                - SAP HANA:\n                    - Connection dialog was improved for HANA Cloud (thanks to @kai-morich)\n                    - Expired password change feature was added (thanks to @kai-morich)\n                - Trino: issue with long cursor reading was fixed (thanks to @schaffino)\n            - Localization:\n                - Arabic localization was added (thanks to @AliElamir)\n                - Brazilian Portuguese localization was updated (thanks to @brlarini)",
-      "release_notes_url": "https://github.com/dbeaver/dbeaver/releases/tag/24.2.1",
-      "manifest_version": "1.10.0",
-      "manifest_dir": "manifests/d/DBeaver/DBeaver/Community/24.2.1",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/dbeaver/dbeaver/releases/download/24.2.1/dbeaver-ce-24.2.1-x86_64-setup.exe",
-          "host": "github.com",
-          "filename": "dbeaver-ce-24.2.1-x86_64-setup.exe",
-          "sha256": "3b7ec83f712524022f91144033127770baf05066af989d1205e140a79679c0bf",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/CURRENTUSER"
-          },
-          "upgrade_behavior": "install",
-          "file_extensions": [
-            "sql"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "scope": "machine",
-          "locale": "en-US",
-          "url": "https://github.com/dbeaver/dbeaver/releases/download/24.2.1/dbeaver-ce-24.2.1-x86_64-setup.exe",
-          "host": "github.com",
-          "filename": "dbeaver-ce-24.2.1-x86_64-setup.exe",
-          "sha256": "3b7ec83f712524022f91144033127770baf05066af989d1205e140a79679c0bf",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "custom": "/ALLUSERS"
-          },
-          "upgrade_behavior": "install",
-          "file_extensions": [
-            "sql"
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
       "version": "26.2.5",
       "installers": [
@@ -2925,8 +2973,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/d/DBeaver/DBeaver/Community"
     },
     {

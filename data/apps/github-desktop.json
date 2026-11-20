@@ -47,17 +47,123 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "3.6.11",
-    "macos": "3.6.11-0102f49a",
+    "windows": "3.7.0",
+    "macos": "3.7.0-f13859b6",
     "linux": "3.4.13-linux1"
   },
-  "last_updated": "2026-11-11",
+  "last_updated": "2026-11-19",
   "versions_total": {
-    "windows": 77,
+    "windows": 78,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "3.7.0",
+      "release_date": "2026-11-19",
+      "release_notes": "[New] Work with personal and work accounts side by side without signing out, with support for multiple accounts on GitHub.com and on the same GitHub Enterprise server - #3707\n[New] Open repositories in the GitHub Copilot app from the Repository menu - #23185\n[Added] Automatically push after a commit - #23135\n[Fixed] Keep operations on selected files scoped to their exact filenames when names contain wildcard or Git pathspec syntax - #23123\n[Fixed] Reduce response-format failures when generating commit messages and resolving conflicts with Copilot - #23170\n[Fixed] Support custom Copilot providers with a model named `auto` - #23059\n[Fixed] Pull request preview for forks compares against the parent repository's default branch - #23151. Thanks @DylanDevelops!\n[Fixed] Accept local repository paths copied with surrounding quotes - #23108\n[Fixed] Disable the Switch branch button while stashing changes and switching branches - #23028. Thanks @SnakyBeaky!\n[Fixed] Highlighted names and paths in dialogs no longer break in the middle of short words - #23152. Thanks @DylanDevelops!\n[Fixed] Keep the repository list's uncommitted-changes indicator in sync when refreshing the Changes tab - #23089\n[Improved] Clone Repository has a single GitHub tab with an account picker covering all signed-in accounts - #23044\n[Improved] Publish Repository lets you pick from all signed-in accounts on GitHub.com and GitHub Enterprise in a single list - #23024\n[Improved] Repositories are grouped by their assigned account when multiple GitHub accounts are used on the same host - #23186\n[Improved] Keep Copilot commit-message generation and conflict resolution focused on their supplied context and custom instructions - #23112",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/g/GitHub/GitHubDesktop/3.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://desktop.githubusercontent.com/releases/3.7.0-f13859b6/GitHubDesktopSetup-x64.exe",
+          "host": "desktop.githubusercontent.com",
+          "filename": "GitHubDesktopSetup-x64.exe",
+          "sha256": "2e49e219c6f6e06fedeb2a7a14d357bf43b701efe29ad6963e84cf326b1c9fca",
+          "product_code": "GitHubDesktop",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "github-windows",
+            "x-github-client",
+            "x-github-desktop-auth"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://desktop.githubusercontent.com/releases/3.7.0-f13859b6/GitHubDesktopSetup-x64.msi",
+          "host": "desktop.githubusercontent.com",
+          "filename": "GitHubDesktopSetup-x64.msi",
+          "sha256": "a8fa288473c618fba1049e89d220a6a12b444b4bd388d86b35a6da261ef4577c",
+          "product_code": "{A192D2C0-E313-4E4B-9637-EA9078306DF0}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "github-windows",
+            "x-github-client",
+            "x-github-desktop-auth"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "GitHub Desktop Deployment Tool",
+              "upgrade_code": "{00D8E2EE-13EA-5BEB-87F0-70EFC46A7D4A}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "scope": "user",
+          "url": "https://desktop.githubusercontent.com/releases/3.7.0-f13859b6/GitHubDesktopSetup-arm64.exe",
+          "host": "desktop.githubusercontent.com",
+          "filename": "GitHubDesktopSetup-arm64.exe",
+          "sha256": "deb73d5f969091169c7504f0ab8e506dfcda5a09352d0b01d40256f66dd9594e",
+          "product_code": "GitHubDesktop",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "github-windows",
+            "x-github-client",
+            "x-github-desktop-auth"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://desktop.githubusercontent.com/releases/3.7.0-f13859b6/GitHubDesktopSetup-arm64.msi",
+          "host": "desktop.githubusercontent.com",
+          "filename": "GitHubDesktopSetup-arm64.msi",
+          "sha256": "c082c96ce443276e0cec8b64e4071f23323273f264e7c78b22e4624dc0d2aeea",
+          "product_code": "{01751250-EC96-4D33-BBD4-215A14666033}",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "github-windows",
+            "x-github-client",
+            "x-github-desktop-auth"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "GitHub Desktop Deployment Tool",
+              "upgrade_code": "{00D8E2EE-13EA-5BEB-87F0-70EFC46A7D4A}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "3.6.11",
@@ -4127,80 +4233,27 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "3.3.12",
-      "manifest_version": "1.6.0",
-      "manifest_dir": "manifests/g/GitHub/GitHubDesktop/3.3.12",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "exe",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://desktop.githubusercontent.com/releases/3.3.12-a21e55b3/GitHubDesktopSetup-x64.exe",
-          "host": "desktop.githubusercontent.com",
-          "filename": "GitHubDesktopSetup-x64.exe",
-          "sha256": "cdb26d4073df80904e3a1ea9979cf410d9f5a530d9477b4e7421ed7f769e4612",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "switches": {
-            "silent": "/s",
-            "silent_with_progress": "/s"
-          },
-          "upgrade_behavior": "install"
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "wix",
-          "scope": "machine",
-          "locale": "en-US",
-          "url": "https://desktop.githubusercontent.com/releases/3.3.12-a21e55b3/GitHubDesktopSetup-x64.msi",
-          "host": "desktop.githubusercontent.com",
-          "filename": "GitHubDesktopSetup-x64.msi",
-          "sha256": "a68df0ebb21b20cfa927efa314baaf0b1123f41b82730dbd8b19400b4e56247c",
-          "product_code": "{73DDE5D2-79DC-432F-9309-6B4BEF09D04B}",
-          "install_modes": [
-            "interactive",
-            "silent"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_name": "GitHub Desktop Deployment Tool",
-              "product_code": "{73DDE5D2-79DC-432F-9309-6B4BEF09D04B}",
-              "upgrade_code": "{00D8E2EE-13EA-5BEB-87F0-70EFC46A7D4A}",
-              "installer_type": "msi"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "3.6.11-0102f49a",
+      "version": "3.7.0-f13859b6",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "zip",
-          "url": "https://desktop.githubusercontent.com/releases/3.6.11-0102f49a/GitHubDesktop-x64.zip",
+          "url": "https://desktop.githubusercontent.com/releases/3.7.0-f13859b6/GitHubDesktop-x64.zip",
           "host": "desktop.githubusercontent.com",
           "filename": "GitHubDesktop-x64.zip",
-          "sha256": "e87043eeb689af56407e9e1a95dcbac7f7635ffcf0f11e61df074957302afe9e",
+          "sha256": "1e0523e00c07678d792f9dd4771fa7c361abbc05bcaa30130ea17616b17ca22e",
           "min_os_version": "13"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "zip",
-          "url": "https://desktop.githubusercontent.com/releases/3.6.11-0102f49a/GitHubDesktop-arm64.zip",
+          "url": "https://desktop.githubusercontent.com/releases/3.7.0-f13859b6/GitHubDesktop-arm64.zip",
           "host": "desktop.githubusercontent.com",
           "filename": "GitHubDesktop-arm64.zip",
-          "sha256": "e91f58aaf88a1f2ba287fd8d33f86e7d550da322ea6b295ec58463a90c178d39",
+          "sha256": "cc41c3cfdae2eaa332ef6547f82c6e672b5a11b0bf637aada2bf2796921eb1a5",
           "min_os_version": "13"
         }
       ],
@@ -4274,16 +4327,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/g/GitHub/GitHubDesktop"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "011c91bc5ede5c6aeb118fc34d57d2a4717d4b6e",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
+      "commit": "a1abea2c78e800bb0d34e7ab1c54746733794b33",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "Casks/g/github.rb",
       "api_url": "https://formulae.brew.sh/api/cask/github.json"
     },

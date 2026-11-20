@@ -25,7 +25,7 @@
     "homepage": "https://www.naps2.com/",
     "publisher": "https://www.naps2.com/",
     "support": "https://www.naps2.com/support",
-    "release_notes": "https://github.com/cyanfish/naps2/releases/tag/v8.6.0",
+    "release_notes": "https://github.com/cyanfish/naps2/releases/tag/v8.6.1",
     "documentation": [
       {
         "label": "Wiki",
@@ -45,15 +45,80 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "8.6.0",
-    "macos": "8.6.0"
+    "windows": "8.6.1",
+    "macos": "8.6.1"
   },
-  "last_updated": "2026-10-25",
+  "last_updated": "2026-11-19",
   "versions_total": {
-    "windows": 32,
+    "windows": 33,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "8.6.1",
+      "release_date": "2026-11-19",
+      "release_notes": "Changes in 8.6.1:\n- Added an option to disable JBIG2 compression in PDF settings\n- OCR: Upgraded to Tesseract 5.5.4\n- Bug fixes:\n  - Auto Save: Fixed \".1\" being added to file names with date placeholders when only one file is saved\n  - Edit with: Fixed edits not applying when editing multiple pages or with some editors\n  - PDF: Fixed rotated or cropped images in imported PDFs\n  - OCR: Fixed wrong OCR results with duplex scanning + \"Flip duplexed pages\"\n  - OCR: Fixed OCR not working for paths with non-English characters\n  - Windows: Auto-update now installs the ARM64 version on ARM64 PCs\n  - Windows: Fixed window padding on hidpi screens\n  - Mac: Fixed the main window not reopening after being closed\n  - Mac: Fixed the app not being focused when launched\n  - Mac: Fixed icon button styles\n  - Linux: Fixed some layout errors\n  - Console: Show an error when using OCR components that aren't installed",
+      "release_notes_url": "https://github.com/cyanfish/naps2/releases/tag/v8.6.1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/c/Cyanfish/NAPS2/8.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "naps2-8.6.1-win-x64.exe",
+          "sha256": "0aa5ab6797367a10e01063deff0e4e34c2163480038ec6570742e5cd213ee57d",
+          "product_code": "NAPS2 - Not Another PDF Scanner_is1",
+          "elevation_requirement": "elevatesSelf"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-win-arm64.exe",
+          "host": "github.com",
+          "filename": "naps2-8.6.1-win-arm64.exe",
+          "sha256": "39aff569dbd42d23a9833a023846f060edec0b1cad6639dc5b26e5b796c45a8a",
+          "product_code": "NAPS2 - Not Another PDF Scanner_is1",
+          "elevation_requirement": "elevatesSelf"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-win-x64.msi",
+          "host": "github.com",
+          "filename": "naps2-8.6.1-win-x64.msi",
+          "sha256": "db9768a748cc3de5b21a4fbab468deca900eec9acf7b2b52a8d257da996e9aa2",
+          "product_code": "{30145F95-2A07-4839-9996-0D20799E2F15}",
+          "switches": {
+            "install_location": "INSTALLFOLDER=\"<INSTALLPATH>\""
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{FEB82971-B3E6-4F19-9684-1D543E644D73}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msix",
+          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-win-x64.msix",
+          "host": "github.com",
+          "filename": "naps2-8.6.1-win-x64.msix",
+          "sha256": "286c9139559cb4a7efc3e2567c1777030e961d941569bbcf025dba5df7a24844",
+          "signature_sha256": "0e96b10fe0e4a65bce20db39e5be320f8a01594a85314ec471eb425dcab8d5e4",
+          "min_os_version": "10.0.19041.0"
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "8.6.0",
@@ -1652,32 +1717,32 @@
     },
     {
       "platform": "macos",
-      "version": "8.6.0",
+      "version": "8.6.1",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "pkg",
-          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.0/naps2-8.6.0-mac-x64.pkg",
+          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-mac-x64.pkg",
           "host": "github.com",
-          "filename": "naps2-8.6.0-mac-x64.pkg",
-          "sha256": "d46c9710eaa059dc9a9437f807e1987aceb1c4626d08e5fd4265aaa326ed0b43",
+          "filename": "naps2-8.6.1-mac-x64.pkg",
+          "sha256": "359facbc26b65d18b0ad9f9d1367eb8c18319ba4d8a9acaeb2b9da6171aa35b2",
           "min_os_version": "12"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "pkg",
-          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.0/naps2-8.6.0-mac-arm64.pkg",
+          "url": "https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-mac-arm64.pkg",
           "host": "github.com",
-          "filename": "naps2-8.6.0-mac-arm64.pkg",
-          "sha256": "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc",
+          "filename": "naps2-8.6.1-mac-arm64.pkg",
+          "sha256": "94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601",
           "min_os_version": "12"
         }
       ],
       "cask": {
         "pkgs": [
-          "naps2-8.6.0-mac-arm64.pkg"
+          "naps2-8.6.1-mac-arm64.pkg"
         ],
         "cleanup": {
           "pkgutil": [
@@ -1706,16 +1771,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "df9cc21aefcf4a27b44221672e02d53b50c7bd81",
-      "retrieved_at": "2026-11-12T13:54:44.292Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/c/Cyanfish/NAPS2"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "13c9a1d8f5010cb9c9191d729e13c645c8afb45f",
-      "retrieved_at": "2026-11-12T13:54:44.292Z",
+      "commit": "a1abea2c78e800bb0d34e7ab1c54746733794b33",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "Casks/n/naps2.rb",
       "api_url": "https://formulae.brew.sh/api/cask/naps2.json"
     }

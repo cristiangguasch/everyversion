@@ -24,7 +24,7 @@
     "support": "https://github.com/torakiki/pdfsam/issues",
     "bug_tracker": "https://github.com/torakiki/pdfsam/issues",
     "privacy": "https://pdfsam.org/privacy-policy/",
-    "release_notes": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.10",
+    "release_notes": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.11",
     "documentation": [
       {
         "label": "Documentation",
@@ -52,15 +52,48 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "6.0.10.0",
-    "macos": "6.0.10"
+    "windows": "6.0.11.0",
+    "macos": "6.0.11"
   },
-  "last_updated": "2026-11-04",
+  "last_updated": "2026-11-19",
   "versions_total": {
-    "windows": 41,
+    "windows": 42,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "6.0.11.0",
+      "release_date": "2026-11-19",
+      "release_notes": "- Upgraded dependencies with fixes for known vulnerabilities (Bouncy Castle CVE-2026-103605 through CVE-2026-103617)\n- JDK 25.0.5.1 with the fix for CVE-2026-114938 (Java4Shell)\n- Sejda 6.0.0.M9\n- Fixed PDF names with non UTF-8 characters being changed on save, which could leave fonts or images missing in the output and rename radio button states\n- Split by size: fixed output files missing fonts or images that are shared with pages already processed\n- Merge: fixed form fields with garbled text, or text of the wrong size or position, when using Flatten\n- Merge: fixed Flatten failing on text fields whose value ends with a line break\n- Merge: Flatten no longer fails on form fields without a valid rectangle or using a font with no name\n- A corrupt compressed inline image no longer stops processing the rest of the page",
+      "release_notes_url": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.11",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/PDFsam/PDFsam/6.0.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.11/pdfsam-basic-6.0.11-windows-x64.msi",
+          "host": "github.com",
+          "filename": "pdfsam-basic-6.0.11-windows-x64.msi",
+          "sha256": "0367f3afeeeea4b61750c06ded90b9df7059d3cd85b4d457e01cf9cf14689730",
+          "product_code": "{3D8AFCE1-83F0-427D-9C5C-203B74AA9C23}",
+          "switches": {
+            "silent": "/quiet /norestart SKIPTHANKSPAGE=Yes",
+            "silent_with_progress": "/passive /norestart SKIPTHANKSPAGE=Yes",
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{DB40FA48-1629-11E2-9401-2F676188709B}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "6.0.10.0",
@@ -1318,25 +1351,25 @@
     },
     {
       "platform": "macos",
-      "version": "6.0.10",
+      "version": "6.0.11",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.10/pdfsam-basic-6.0.10-macos-x64.dmg",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.11/pdfsam-basic-6.0.11-macos-x64.dmg",
           "host": "github.com",
-          "filename": "pdfsam-basic-6.0.10-macos-x64.dmg",
-          "sha256": "5c9a68009b0faab5dc79b031134529897d897cd48dbd69155a8f131f461328bc"
+          "filename": "pdfsam-basic-6.0.11-macos-x64.dmg",
+          "sha256": "0fc16b250f7b10e3b47263c2b61720c61306ba06d37bb71e90ec8287eb6f0bac"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.10/pdfsam-basic-6.0.10-macos-arm64.dmg",
+          "url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.11/pdfsam-basic-6.0.11-macos-arm64.dmg",
           "host": "github.com",
-          "filename": "pdfsam-basic-6.0.10-macos-arm64.dmg",
-          "sha256": "8fec99e79f4650a6112bd756403ff6d875b46963b99c5bcb7b422c39310405a9"
+          "filename": "pdfsam-basic-6.0.11-macos-arm64.dmg",
+          "sha256": "2c8516290cf0d3fcbaa3f55db9e40667811178c7f5f83c2869e6d594ceb036f0"
         }
       ],
       "cask": {
@@ -1368,16 +1401,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "df9cc21aefcf4a27b44221672e02d53b50c7bd81",
-      "retrieved_at": "2026-11-12T13:54:44.292Z",
+      "commit": "bbed5ec1554c9c57434f8e2bc2a2f36b570772fe",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "manifests/p/PDFsam/PDFsam"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "13c9a1d8f5010cb9c9191d729e13c645c8afb45f",
-      "retrieved_at": "2026-11-12T13:54:44.292Z",
+      "commit": "a1abea2c78e800bb0d34e7ab1c54746733794b33",
+      "retrieved_at": "2026-11-20T12:25:53.607Z",
       "path": "Casks/p/pdfsam-basic.rb",
       "api_url": "https://formulae.brew.sh/api/cask/pdfsam-basic.json"
     }
