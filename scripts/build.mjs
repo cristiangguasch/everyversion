@@ -1395,18 +1395,35 @@ ${cats.map((c) => `<li><a class="item" href="${catPath(c.slug)}"><span class="tx
 // ------------------------------------------------------------------ home
 
 function homePage(recs) {
-  // The grid lists only apps whose newest release is from the last 30 days (counted from the build date), newest first.
-  // Search covers every app, and every app is linked from its category page and the Windows / Mac listings.
-  const RECENT_DAYS = 30;
-  const today = new Date().toISOString().slice(0, 10);
-  const cutoff = new Date(Date.parse(today) - RECENT_DAYS * 86400000).toISOString().slice(0, 10);
+  // Two grids of HOME_GRID apps each: the most recently updated (newest release first), then the newest additions
+  // to the catalog that are not already in the first grid. Search covers every app, and every app is linked from
+  // its category page and the Windows / Mac listings.
+  const HOME_GRID = 9;
   const releasedOn = (r) => r.versions.map((v) => v.release_date).filter(Boolean).sort().at(-1) || r.last_updated || null;
   const shortDay = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   const recent = recs
     .map((r) => ({ r, d: releasedOn(r) }))
-    .filter((x) => x.d && x.d >= cutoff)
-    .sort((x, y) => y.d.localeCompare(x.d) || x.r.name.localeCompare(y.r.name));
+    .filter((x) => x.d)
+    .sort((x, y) => y.d.localeCompare(x.d) || x.r.name.localeCompare(y.r.name))
+    .slice(0, HOME_GRID);
   const items = recent.map(({ r, d }) => appCard(r, platsOf(r), `Updated ${esc(shortDay(d))}`)).join('\n');
+  // Newest additions: config/apps.txt is appended to in the order apps are added, under "# added YYYY-MM-DD" lines.
+  const shown = new Set(recent.map((x) => x.r.slug));
+  const byWinget = new Map(recs.filter((r) => r.ids.winget).map((r) => [r.ids.winget, r]));
+  const addedOrder = [];
+  let addedOn = null;
+  for (const line of readFileSync(join(ROOT, 'config', 'apps.txt'), 'utf8').split('\n')) {
+    const t = line.trim();
+    const m = t.match(/^#\s*added\s+(\d{4}-\d{2}-\d{2})/);
+    if (m) addedOn = m[1];
+    else if (t && !t.startsWith('#')) addedOrder.push({ id: t.split(/\s+/)[0], d: addedOn });
+  }
+  const fresh = addedOrder
+    .reverse()
+    .map((x) => ({ r: byWinget.get(x.id), d: x.d }))
+    .filter((x) => x.r && !shown.has(x.r.slug))
+    .slice(0, HOME_GRID);
+  const freshItems = fresh.map(({ r, d }) => appCard(r, platsOf(r), d ? `Added ${esc(shortDay(d))}` : '')).join('\n');
   // Search index for the live suggestions: every app, small fields only.
   const searchIndex = JSON.stringify(searchIndexOf(recs)).replace(/</g, '\\u003c');
 
@@ -1465,11 +1482,22 @@ ${AGENTS_HTML}
 </section>
 
 ${browseHtml}<section id="apps" aria-labelledby="h-apps">
-<h2 id="h-apps">Updated in the last 30 days</h2>
-<p class="pin">${recent.length} of ${recs.length} apps released a new version since ${esc(shortDay(cutoff))}, newest first. Search above finds every app.</p>
+<h2 id="h-apps">Recently updated</h2>
+<p class="pin">The ${recent.length} apps with the newest releases, newest first. Search above finds all ${recs.length} apps.</p>
 <ul class="grid" id="list">
 ${items}
 </ul>
+</section>
+${freshItems ? `
+<section id="new-apps" aria-labelledby="h-new">
+<h2 id="h-new">New in the catalog</h2>
+<p class="pin">The latest apps added to Everyversion, newest first.</p>
+<ul class="grid">
+${freshItems}
+</ul>
+</section>
+` : ''}
+<section aria-label="Request an app">
 <aside class="req-cta" aria-labelledby="h-cta">
 <div><h2 id="h-cta">Don’t see yours?</h2>
 <p>Tell me which app you need. The list grows from your requests.</p></div>
