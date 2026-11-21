@@ -1,0 +1,318 @@
+{
+  "schema_version": 2,
+  "slug": "speedcrunch",
+  "name": "SpeedCrunch",
+  "publisher": "SpeedCrunch",
+  "author": "Helder Correia",
+  "ids": {
+    "winget": "SpeedCrunch.SpeedCrunch",
+    "moniker": "speedcrunch",
+    "homebrew_cask": "speedcrunch",
+    "flathub": "org.speedcrunch.SpeedCrunch"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "A high-precision scientific calculator featuring a fast, keyboard-driven user interface.",
+  "description": "SpeedCrunch is a high-precision scientific calculator.\nIt features a syntax-highlighted scrollable display and is designed to be fully used via keyboard.\nSome distinctive features are auto-completion of functions and variables, a formula book, and quick insertion of constants from various fields of knowledge.\nIt is available for Windows, OS X, and Linux in a number of languages.",
+  "tags": [
+    "calculator",
+    "scientific calculator",
+    "speedcrunch"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://speedcrunch.org/",
+    "publisher": "https://github.com/heldercorreia",
+    "support": "https://support.atlassian.com/help/#/bitbucket",
+    "privacy": "https://www.atlassian.com/legal/privacy-policy",
+    "release_notes": "https://github.com/heldercorreia/speedcrunch/releases/tag/v1.2.0"
+  },
+  "license": {
+    "name": "GPL-2.0",
+    "url": "https://github.com/heldercorreia/speedcrunch/blob/HEAD/LICENSE",
+    "spdx": "GPL-2.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "1.2.0",
+    "macos": "1.2.0",
+    "linux": "1.2.0"
+  },
+  "last_updated": "2026-11-17",
+  "versions_total": {
+    "windows": 4,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "1.2.0",
+      "release_date": "2026-11-17",
+      "release_notes": "Highlights\n- SpeedCrunch starts much faster on Windows, even with many saved tabs.\n- Set your own keyboard shortcuts for common actions.\n- Change the app's look in one step with the Classic, Modern, and Hybrid presets.\n- Choose what happens when you launch SpeedCrunch while it's already running. Bring an open window forward, open a new window, or add a tab.\n- Find answers to common questions in the new FAQ.\nWhat's new in 1.2\n- Constants and units\n- Input\n- Results\n- Sessions and settings\n- Appearance and panels\n- Keypad\n- Other improvements\nConstants and units\n- Search constants with Ctrl+K (Cmd+K on macOS) by default.\n- Correct the values shown when multiplying or dividing quantities with prefixed units, including angular rates.\n- Fix unit grouping in division when the first value has a unit. For example, 299792458[m/s] / 10[MHz] gives 29.9792458 m. This also works when the first value comes from a variable or function.\n- Cancel matching units correctly and display durations in time units. For example, 1[J] / 1[W] gives 1 s.\n- Preserve the case of unit symbols, so kT (kilotesla) and kt (knot) stay distinct.\nInput\n- Read decimal and grouping marks according to the selected number format, even when grouping is off for display.\n- Preserve commas and dots when you type or paste numbers, and fix grouped hexadecimal input such as 0xAB CD.\n- Report an error for invalid digit groups such as 1,2,3 or 1,,234.\n- Allow negative numbers after +, ×, and /. 3--2 now gives 5. The -- shortcut for unit conversion has been removed. Use -> or in to convert between units.\n- Return focus to the correct input pane after searching a panel or inserting a constant.\nResults\n- Show the correct decimal values in the interpreted expression.\n- Keep the scroll-to-bottom button clear of scrollbars.\n- Shorten the Complex Form menu labels and give rounding up and down clearer names in Results settings.\nSessions and settings\n- Use Settings → Keyboard Shortcuts to set shortcuts, including sequences of key combinations. SpeedCrunch checks for conflicts and saves your choices across all windows.\n- Use Edit → Clear History, or press Ctrl+L (Cmd+L on macOS), to clear the active session's calculations and unfinished input while keeping its definitions. You can turn off the confirmation prompt in Results settings.\n- Use Session → Reset to also clear variables, functions, and units defined in the session. Global user definitions stay available.\n- Under Settings → Window → On Subsequent Launch, choose whether to bring an existing window forward, open a new window, or add a tab when SpeedCrunch is already running.\n- Close windows individually and quit when the last window closes. Closing a window's last tab also closes that window if another window is open.\n- Give new tabs unique names across all open windows.\n- Keep saved functions that use custom units after a restart.\n- Fix window size resets on Wayland and a crash when resetting panel layouts.\nAppearance and panels\n- Switch between Classic, Modern, and Hybrid style presets. Classic is the default on first launch and after resetting settings. Upgrades keep your saved appearance.\n- Use One Dark as the default color theme.\n- Choose Follow System, Light, or Dark under System Color Mode.\n- Use either the system style or the SpeedCrunch theme for tooltips and popup lists.\n- Fix dark mode for dialogs and title bars on Windows 10.\n- Fix missing symbols and text on Windows and make units easier to read in the constants popup.\n- Allow bold and italic text styles even when a font has only a regular style.\n- Keep the text cursor visible in User Definitions with any theme.\n- Remember panel widths across restarts and preserve window and panel sizes when changing the layout.\n- Open the Constants, Functions, and Formula Book panels wide enough to show their contents when screen space allows.\n- Fit Bitfield bits and buttons into narrow panels without overlapping rows.\n- Fix menu spacing and show the overflow button when the menu runs out of room.\nKeypad\n- Use Scientific (wide) by default on first launch and after resetting settings.\n- Add a 75% keypad zoom level.\n- Open Edit Custom Keypad from Settings or the keypad's right-click menu. Choose Custom to switch to your saved layout.\n- Fix a crash when shrinking a custom grid and make long button labels easier to edit.\n- Preserve Unicode labels and inserted text when saving custom layouts.\n- Use DEL, C, x^y, and root to avoid missing symbols. Older custom layouts pick up these labels automatically.\nOther improvements\n- Speed up startup and history display, especially when you have many saved tabs.\n- Check for updates automatically at most once a week. You can still use Help → Check for Updates at any time.\n- Fix a crash when updating menus.\n- Add a FAQ to the user manual.\nContributors\nThanks to everyone who contributed to this release:\nChristophe Meriaux, Daniel Demmler, @drewtato, Fabian Schwartau, @FrankMountainFace, @glu8716, @jasttw, @jcd-pcre, @klangme1ster, @kzshantonu, Marko Kohtala, Matt Cowell, @Matth7878, Muhammad Usama, @Newtomic, Pedro Montes Alcalde, Piotr Halama, Riccardo Belli, Rodrigo Pedra, Simo Nikula, Vitaly Zaitsev",
+      "release_notes_url": "https://github.com/heldercorreia/speedcrunch/releases/tag/v1.2.0",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/s/SpeedCrunch/SpeedCrunch/1.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/heldercorreia/speedcrunch/releases/download/v1.2.0/SpeedCrunch-1.2.0-windows-x64.exe",
+          "host": "github.com",
+          "filename": "SpeedCrunch-1.2.0-windows-x64.exe",
+          "sha256": "3220ca6294e0307c75398169df51872a083cb64838e307d608586dd0990119d7",
+          "product_code": "SpeedCrunch",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_version": "1.2.0",
+              "product_code": "SpeedCrunch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.1",
+      "release_date": "2026-10-20",
+      "release_notes": "What's new in 1.1\n- Functions\n- Constants and units\n- Input\n- Results\n- Sessions and settings\n- Appearance and panels\n- Keypad\n- Other improvements\nFunctions\n- Add root(n; x) for nth roots, including negative values and quantities with units. For example, root(5; -32) returns -2.\n- Fix factorials in user-defined functions, such as f(n) = n!.\nConstants and units\n- Search constants by name or unit with Ctrl+Space. Select a result with the arrow keys and insert it with Enter, Tab, or a click.\n- Improve searching and keyboard selection in the Constants panel.\n- Correct the units of the muon, proton, and neutron energy equivalents.\n- Allow powers of grouped quantities, such as (2[m])^2.\n- Correct results shown in J/m² and J/m³ when using prefixed units.\nInput\n- Fix undo and redo, and copy and paste.\n- Fix clipped text and excess space in wrapped input with different fonts.\n- Fix crashes when typing operators in long, wrapped expressions.\n- Restore digit grouping while typing, following the selected number format.\n- Add an option to turn off automatic input adjustments, such as operator replacements and closing brackets.\n- Add optional Enter-to-accept autocomplete and Escape-to-clear behavior.\n- Add an option to use a steady cursor instead of a blinking one.\n- Preserve comments as written and prevent them from affecting result formatting.\n- Improve recalling expressions from history and focus the editor after startup.\n- Remove the empty-history hint.\nResults\n- Restore free copying.\n- Copy a whole calculation, including all displayed result formats, either across multiple lines or as a single line.\n- Add optional removal of trailing decimal zeroes.\n- Simplify live previews to show just the results.\n- Keep live result previews above the editor when recalling long expressions from history.\n- Avoid unnecessary extra simplification lines.\n- Restore the F2-F5 and F7-F10 notation shortcuts.\nSessions and settings\n- Add private tabs that discard their contents when closed and are not restored on the next launch. Use Ctrl+Shift+N (Cmd+Shift+N on macOS) to open one.\n- Allow switching between private and saved sessions, and optionally open a private tab at startup.\n- Add Reset All Settings..., keeping sessions, history, and user definitions.\n- Fix global user definitions missing from restored sessions.\n- Make session renaming, cloning, closed-tab recovery, and pane controls easier to find in the menus. Cloning also copies unfinished input.\n- Organize the result context menu into Copy, Remove, Split, and Session groups.\n- Move Number Format... directly under Settings and simplify the result and appearance menus.\n- Apply font changes across all windows and fix font selection on macOS 27 and later.\n- Fix commands acting on the wrong window when used from a floating panel.\nAppearance and panels\n- Add separate system and SpeedCrunch theme choices for menus, panels, and the status bar.\n- Add a compact Classic layout for input and results. Modern remains the default.\n- Improve text contrast, menu readability, and panel button visibility.\n- Match menu icons to the theme and dim disabled menu items and shortcuts.\n- Tidy panel spacing, borders, and rounded corners.\n- Keep side panels at full height and remember table column order.\n- Preserve floating panel positions and visibility across restarts, and prevent floating panels from being grouped unexpectedly.\nKeypad\n- Add a compact Classic keypad appearance and 50% zoom.\n- Restore Zoom in the keypad's right-click menu and fix inconsistent sizing when changing zoom levels.\n- Update scientific layouts with nth-root, square, and argument-separator buttons, and group related operations together.\n- Replace the obsolete lg button with log10.\nOther improvements\n- Reduce startup delays when restoring sessions, history, and panels.\n- Make update checks more responsive and prevent them from delaying window closure.\n- Add Help > App Diagnostics with a report that can be copied when asking for help. Show operating system details in About SpeedCrunch.\n- Fix a crash when closing windows with certain panels open.\n- Add portable macOS ZIP packages that keep settings and sessions beside the app in a SpeedCrunch-data folder.\n- Set the default macOS minimum version to 14.4 on Apple Silicon.",
+      "release_notes_url": "https://github.com/heldercorreia/speedcrunch/releases/tag/v1.1.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SpeedCrunch/SpeedCrunch/1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/heldercorreia/speedcrunch/releases/download/v1.1.0/SpeedCrunch-1.1-windows-x64.exe",
+          "host": "github.com",
+          "filename": "SpeedCrunch-1.1-windows-x64.exe",
+          "sha256": "d616461439702703e6600b50d06b30de93e94201a40257cb7739c54a2ed1b0d5",
+          "product_code": "SpeedCrunch",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_version": "1.1",
+              "product_code": "SpeedCrunch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0",
+      "release_date": "2026-10-04",
+      "release_notes": "What's new in 1.0\n- Workspace and history\n- Expressions and editing\n- Results and formatting\n- New functions\n- Units\n- Appearance and settings\nWorkspace and history\n- Work in tabs and split panes to keep several calculations open side by side.\n- Save calculation history between launches and set a history size limit.\n- Load your own functions and variables at startup.\n- Choose a keypad preset or build a custom keypad.\n- Show or hide the main menu. The result display now has a right-click context menu with an entry for the main menu.\n- Re-edit an earlier expression and recalculate all the expressions below it.\n- Check for updates from within the app.\nExpressions and editing\n- Use lists and matrices in expressions.\n- See the interpreted expression alongside the result, with implicit multiplication made explicit.\n- Write integer powers with superscript digits.\n- Use √, ∛, Σ (summation), and π as aliases. The ~ operator is an alias for not().\n- More symbol aliases are accepted for addition, subtraction, multiplication, and division.\n- Autocomplete suggestions now show category icons.\n- Pasted numbers are automatically formatted to match the global Number Format setting.\n- Insert constants and formula book entries with their units included.\nResults and formatting\n- Show a calculation in several result formats at once. Number-format choices include Indian 3-2-2 digit grouping.\n- Show rational results as fractions, or use sexagesimal notation for angles and time.\n- Show angles as multiples of pi in radian mode or through an explicit conversion.\n- Choose how complex numbers are displayed, with polar forms and options for the imaginary unit.\n- Set a custom precision with the Custom... option.\n- Choose from five rounding modes.\n- Changing the primary result format updates only the last expression. Earlier history entries keep their formatting.\nNew functions\n- Integer arithmetic: powmod for modular exponentiation, emod for Euclidean modulo, lcm for least common multiples, and popcount for counting set bits.\n- Number formatting: binpad, octpad, and hexpad for padded binary, octal, and hexadecimal output. Use sci and eng for scientific and engineering notation.\n- Random numbers: rand and randint generate random decimals and integers.\n- Dates and time: datetime and epoch convert between date/time values and Unix timestamps.\n- Summation: sigma, also written as Σ.\n- Complex numbers: conj for complex conjugates and cis for constructing a complex number from an angle. Choose rectangular, exponential, or phasor output with rectform, expform, and phasorform.\n- IEEE 754: ieee754_round_* rounds to a floating-point format, and ieee754_*_residual(x) returns the rounding residual. Both families support half, float, double, and quad.\n- Chemistry: molmass, mass, and molarity for molar mass, mass from an amount of substance, and solution molarity.\n- Linear algebra and data: List and matrix support with cols, corrp, corrs, covp, covs, cross, det, dot, flatten, inv, norm, rank, rows, shape, trace, and transpose.\n- Statistics: stdevp, stdevs, varp, vars, and mad, with list and matrix support.\nUnits\nUse square brackets to identify units explicitly in expressions, such as [m] or [s]. New units and aliases include:\n- Angles: gradian (gon), turn (tr, pla), revolution (rev), degree (°), arcmin (′), and arcsec (″).\n- Time: Julian century (cy_jul).\n- Area and mass: hectare and tonne.\n- Speed: kph and mph.\n- Energy: quad, equal to 10¹⁵ [Btu].\nAppearance and settings\n- Choose from more built-in themes or create a custom theme.\n- Interface scaling now applies to the expression editor too.",
+      "release_notes_url": "https://github.com/heldercorreia/speedcrunch/releases/tag/v1.0.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SpeedCrunch/SpeedCrunch/1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/heldercorreia/speedcrunch/releases/download/v1.0.0/speedcrunch-1.0-win64.exe",
+          "host": "github.com",
+          "filename": "speedcrunch-1.0-win64.exe",
+          "sha256": "3d90b2a90cd209e21ad06b300d3f15025eb5c4f73e1dfb51e68f9aa10ace8453",
+          "product_code": "SpeedCrunch",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "product_code": "SpeedCrunch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.12",
+      "release_date": "2016-11-28",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/s/SpeedCrunch/SpeedCrunch/0.12",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://bitbucket.org/heldercorreia/speedcrunch/downloads/SpeedCrunch-0.12-win32.exe",
+          "host": "bitbucket.org",
+          "filename": "SpeedCrunch-0.12-win32.exe",
+          "sha256": "702c362c9a02c3a79d018a4d68428dc80fad311adad506cc47b69927e47dbf89",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "json"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "1.2.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/heldercorreia/speedcrunch/releases/download/v1.2.0/SpeedCrunch-1.2.0-macos-arm64.dmg",
+          "host": "github.com",
+          "filename": "SpeedCrunch-1.2.0-macos-arm64.dmg",
+          "sha256": "63eec4217498234dd5bc240ec0c08a3359ede110e1af0afc7fc0d577921fc44c",
+          "min_os_version": "14"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "SpeedCrunch.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "org.speedcrunch"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/SpeedCrunch",
+            "~/Library/Caches/SpeedCrunch",
+            "~/Library/Preferences/org.speedcrunch.plist",
+            "~/Library/Preferences/org.speedcrunch.SpeedCrunch.plist",
+            "~/Library/Preferences/SpeedCrunch"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "1.2.0",
+      "release_date": "2026-11-17",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.speedcrunch.SpeedCrunch.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.speedcrunch.SpeedCrunch.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.speedcrunch.SpeedCrunch.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.speedcrunch.SpeedCrunch.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "c45680c8bf6510bd9cef8940647e18b5b92e4172",
+      "retrieved_at": "2026-11-21T14:04:23.981Z",
+      "path": "manifests/s/SpeedCrunch/SpeedCrunch"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "80d0140d66da2caedb81a79a21e6bf2be6e6cb88",
+      "retrieved_at": "2026-11-21T14:04:23.981Z",
+      "path": "Casks/s/speedcrunch.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/speedcrunch.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.speedcrunch.SpeedCrunch",
+      "retrieved_at": "2026-11-21T14:04:27.772Z",
+      "path": "api/v2/appstream/org.speedcrunch.SpeedCrunch",
+      "api_url": "https://flathub.org/api/v2/appstream/org.speedcrunch.SpeedCrunch",
+      "content_sha256": "8904ee68d8d293b74e2c4af80d146ba0f6bd774e3e1b9d9c8a74c9757a22ee55"
+    }
+  ],
+  "flathub": {
+    "app_id": "org.speedcrunch.SpeedCrunch",
+    "page_url": "https://flathub.org/apps/org.speedcrunch.SpeedCrunch",
+    "repo_url": "https://github.com/flathub/org.speedcrunch.SpeedCrunch",
+    "install_command": "flatpak install flathub org.speedcrunch.SpeedCrunch",
+    "run_command": "flatpak run org.speedcrunch.SpeedCrunch",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "speedcrunch.org",
+      "verified_on": "2026-10-22"
+    },
+    "license": "GPL-2.0+",
+    "free_license": true,
+    "developer_name": "The SpeedCrunch Developers",
+    "categories": [
+      "Utility",
+      "Calculator"
+    ],
+    "download_size": 5641677,
+    "installed_size": 9243648,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

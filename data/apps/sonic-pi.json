@@ -1,0 +1,800 @@
+{
+  "schema_version": 2,
+  "slug": "sonic-pi",
+  "name": "Sonic Pi",
+  "publisher": "Sonic Pi",
+  "author": "Sam Aaron",
+  "ids": {
+    "winget": "SonicPi.SonicPi",
+    "moniker": "sonic-pi",
+    "homebrew_cask": "sonic-pi",
+    "flathub": "net.sonic_pi.SonicPi"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Free code-based music creation and performance tool.",
+  "description": "Sonic Pi is your free code-based music creation and performance tool.\nPowerful for professional musicians and DJs.\nExpressive for composition and performance.\nAccessible for blind and partially sighted people.\nSimple for computing and music lessons.\nLearn to code creatively by composing or performing music in an incredible range of styles from Classical & Jazz to Hip hop & EDM.",
+  "tags": [
+    "audio",
+    "code",
+    "coding",
+    "music",
+    "sound",
+    "synth"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://sonic-pi.net/",
+    "publisher": "https://sonic-pi.net/",
+    "support": "https://in-thread.sonic-pi.net/",
+    "release_notes": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v5.0.0",
+    "documentation": [
+      {
+        "label": "Tutorial",
+        "url": "https://sonic-pi.net/tutorial.html"
+      }
+    ]
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/sonic-pi-net/sonic-pi/blob/HEAD/LICENSE.md",
+    "spdx": "MIT",
+    "copyright": "Copyright (c) 2012 - 2026 Samuel Aaron and contributors (sam@sonic-pi.net)"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "5.0.0",
+    "macos": "5.0.0",
+    "linux": "5.0.0"
+  },
+  "last_updated": "2026-08-07",
+  "versions_total": {
+    "windows": 19,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "5.0.0",
+      "release_date": "2026-08-07",
+      "release_notes_url": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v5.0.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/5.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://sonic-pi.net/files/releases/v5.0.0/Sonic-Pi-for-Win-x64-v5.0.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-x64-v5.0.0.msi",
+          "sha256": "58c12ba5f66894dfdde3f62ca12649530b6fe80a6cc4f15af70b9349d76fdb48",
+          "product_code": "{8BDA3577-D98A-40C5-88C8-EC65F4EE9AB1}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{ECA5D03B-CEBD-4672-A0A2-176CBCBA4429}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://sonic-pi.net/files/releases/v5.0.0/Sonic-Pi-for-Win-arm64-v5.0.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-arm64-v5.0.0.msi",
+          "sha256": "256e0281567f9f8dc4c187ce739d35866ab76e3439df20f74e645b899edf90bf",
+          "product_code": "{2B64F62D-11EF-48AF-83F4-9C38348B1C0B}",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "upgrade_code": "{ECA5D03B-CEBD-4672-A0A2-176CBCBA4429}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6.0",
+      "release_date": "2025-06-26",
+      "release_notes": "Welcome to v4.6 of Sonic Pi. This new release introduces a significant overhaul of the GUI shortcuts. You can now choose between the default (called Emacs Live), Windows or Mac modes. There's also a wonderful new function for working with tuplets designed by Dago Sondervan. We've also added some beautiful new samples created by Sheffield techno legends The Black Dog. These came from the experimental sister live-coding platform \"Bleep\" developed by Sam Aaron and Guy Brown at the University of Sheffield (https://bleep.sheffield.ac.uk).\nAll dependencies have been updated and there are many, many bug fixes and internal improvements from a wide range of contributors - thank-you!\nGUI\n- Complete overhaul of the shortcut system.\nImprovements\n- Where supported, you can now independently specify different input and output sound cards in the audio-settings.toml config file. This is done with the new options input_sound_card_name = \"\" and output_sound_card_name = \"\". Note, you still have to ensure that the sample rate is the same for input and output.\n- Incoming OSC bundles are now supported. Timestamps are ignored (if OSC scheduling is a commonly requested feature this could be added in the future). This increases compatibility with software which exclusively sends OSC in bundle format such as TouchDesigner.\nNew Fns\n- tuplets - Run a block with tuplet timing and optional swing. Lets you supply a nested list such as [70, 72, [73, 74], 76] and a block. It will run the block passing in each element of the list and the sleep time between block calls will be automatically calculated depending on the length of the tuplet. Non-nested values e.g. 70, 72 and 76 will take one beat each and nested values 73, and 74 will change the time density depending on the length of the nested list. So, a nested [73, 74] will be with density 2 (all time values are halved) and a nested [73, 74, 75] will be with a density of 3 which creates triplets. There are also options to add swing and set the duration of one tuplet beat (defaults to 1).\nSamples\n- New CC0-licensed samples by Sheffield techno legends The Black Dog: :tbd_fxbed_loop, :tbd_highkey_c4, :tbd_pad_1, :tbd_pad_2, :tbd_pad_3, :tbd_pad_4, :tbd_perc_blip, :tbd_perc_hat, :tbd_perc_tap_1, :tbd_perc_tap_2, :tbd_voctone\n- Two new ride cymbals :ride_tri and ride_via.\n- New hi-hat :hat_len.\nTranslations\n- Improvements to the French, German, Korean, Polish, Portuguese, Portuguese (Brazil), Russian and Turkish translations.",
+      "release_notes_url": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v4.6.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/4.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://sonic-pi.net/files/releases/v4.6.0/Sonic-Pi-for-Win-x64-v4-6-0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-x64-v4-6-0.msi",
+          "sha256": "d9822f30c63680fa0a71ad2c1e5627b9e36771870d2beaff10457e9e9135eb7a",
+          "product_code": "{4B156F2B-8D17-459A-BDC0-233C83D890D7}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{ECA5D03B-CEBD-4672-A0A2-176CBCBA4429}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.3.0",
+      "release_date": "2022-09-30",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/4.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v4.3.0/Sonic-Pi-for-Win-x64-v4-3-0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-x64-v4-3-0.msi",
+          "sha256": "86074ea63392c145d037eae54567311f0a8178906a3e2fe809746ce966c612cc",
+          "product_code": "{5913E1D0-D78F-40AB-9379-F157CF5BC316}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{ECA5D03B-CEBD-4672-A0A2-176CBCBA4429}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.1",
+      "release_date": "2021-02-01",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/3.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v3.3.1/Sonic-Pi-for-Win-x64-v3.3.1.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-x64-v3.3.1.msi",
+          "sha256": "b9ee2605333b01feb6ce973e5918f04f489de83b971a46890e1313eae7c04b79",
+          "product_code": "{5E6D24D8-32B5-4516-B266-A7C20D3347E3}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/3.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v3.3.0/Sonic-Pi-for-Win-x64-v3.3.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-x64-v3.3.0.msi",
+          "sha256": "7f1b967ae661b446cdfc9327126ae8449fbf9ba1f49fb8a0b5ef9f00b0dbb12c",
+          "product_code": "{9F607910-1370-46C9-A977-47A6B9E21840}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/3.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v3.2.2/sonic-pi-for-win-x64-v3.2.2.msi",
+          "host": "sonic-pi.net",
+          "filename": "sonic-pi-for-win-x64-v3.2.2.msi",
+          "sha256": "0b585382fdfa238d38bd37823f63e61be009a0424284a1441803d70c64b8bc70",
+          "product_code": "{AC2BDD45-35FB-4ABE-ADFB-607D5EFEF540}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/3.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v3.2.1/sonic-pi-for-win-x64-v3.2.1.msi",
+          "host": "sonic-pi.net",
+          "filename": "sonic-pi-for-win-x64-v3.2.1.msi",
+          "sha256": "9e5400ce1f3c71c27e7d211251a78e54ccd9adc653e091019efd24ec0a218e25",
+          "product_code": "{00AE6415-8407-448B-AF6C-7A68F871E8BD}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/3.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v3.2.0/sonic-pi-for-win-x64-v3.2.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "sonic-pi-for-win-x64-v3.2.0.msi",
+          "sha256": "d7d42f7fe95d8411ba951fa221b3259604de6cbc557c5a511671e6d531476b33",
+          "product_code": "{BA51A83B-B42B-4D64-9628-C701D3F5EA15}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/3.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v3.1.0/Sonic-Pi-for-Win-v3.1.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v3.1.0.msi",
+          "sha256": "bb714a37bbae9e469a0e793e28fc2cc00b05885de64cfcc70224fda30f731cc3",
+          "product_code": "{A1C5EEC1-A4D0-4DCB-BAF3-5D2A4F3DADD8}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.10.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.10.0/Sonic-Pi-for-Win-v2.10.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.10.0.msi",
+          "sha256": "b79e7c20a20cc83aa752a12c2b5b7ab497c9dc4c3db3024ddce0b5ac73328e99",
+          "product_code": "{8908DE20-81C2-4ECE-B228-D3355DF532B1}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.9",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.9",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.9.0/Sonic-Pi-for-Win-v2.9.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.9.0.msi",
+          "sha256": "392fe3b1d5b8b651c86af2526e8add0b44e806207ee2ca90871fa6bbb7705b9c",
+          "product_code": "{B1F99D10-2791-415A-B727-95511CC72687}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.8",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.8",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.8.0/Sonic-Pi-for-Win-v2.8.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.8.0.msi",
+          "sha256": "6c427110af73ca396a274f5f5dbcab682634694daef9d7a99fca2fa22ab8c226",
+          "product_code": "{CC7FE4E4-967F-430C-B391-0E24F89C4F89}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.7",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.7.0/Sonic-Pi-for-Win-v2.7.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.7.0.msi",
+          "sha256": "8d3cd925f73d2a6159a757ea9c0d21697a16b3a921ed70b377317fae7e43e9f2",
+          "product_code": "{BD1C7CCA-8B4B-405C-8449-3FED1E108281}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.6.0/Sonic-Pi-for-Win-v2.6.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.6.0.msi",
+          "sha256": "f5de95575fe190e12d180bf83ec26ea06a36e2b023a5d9aa0bf0467b8a2c139a",
+          "product_code": "{BF4C4891-FAF1-442D-8BB8-EA0EE1C19839}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.5",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.5.0/Sonic-Pi-for-Win-v2.5.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.5.0.msi",
+          "sha256": "7cc13810e49e291b08718914911c24af23e165262679189f4e239578d64d50b2",
+          "product_code": "{83AE8B6D-038F-40CA-9BF7-BFD513FD2A6E}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.4",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.4.0/Sonic-Pi-for-Win-v2.4.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.4.0.msi",
+          "sha256": "43a1f357e77716f5b75f8affaedd62194d0b82fb49c3e6d98992a15d71e31bdc",
+          "product_code": "{14D64360-3ECE-4EA7-8707-7977BD49AD69}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.3",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.3.0/Sonic-Pi-for-Win-v2.3.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.3.0.msi",
+          "sha256": "3f95e899eca5e727b5e8fae07889beeee1c6dfef32160ed9e3b493e084bf5f40",
+          "product_code": "{943450A9-1DBA-4160-ABE7-90CB50770D9C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.1.1/Sonic-Pi-for-Win-v2.1.1.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.1.1.msi",
+          "sha256": "54e155b12d583fd2116e5ee03e8246b445c25a46e8e9d0db4af8a53de9e708a2",
+          "product_code": "{168F000C-AF30-475E-B1F9-AAAEF73497D9}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.1",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/s/SonicPi/SonicPi/2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "msi",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://sonic-pi.net/files/releases/v2.1.0/Sonic-Pi-for-Win-v2.1.0.msi",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Win-v2.1.0.msi",
+          "sha256": "25dd2dad75c7c78067ac0e8f1fe3d147d843a1e1f4d23e14de52d32002b639cb",
+          "product_code": "{5F59DD43-45A5-4592-96AF-0ADE65C3096A}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "rb",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "5.0.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://sonic-pi.net/files/releases/v5.0.0/Sonic-Pi-for-Mac-x64-v5.0.0.dmg",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Mac-x64-v5.0.0.dmg",
+          "sha256": "5a2634924646f85f410c8b7c51aca5b15b4cf3f1705c4771f3174d7762b1d20a"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://sonic-pi.net/files/releases/v5.0.0/Sonic-Pi-for-Mac-arm64-v5.0.0.dmg",
+          "host": "sonic-pi.net",
+          "filename": "Sonic-Pi-for-Mac-arm64-v5.0.0.dmg",
+          "sha256": "3dd0b9873a74aa274d3723be098622fdea73896ceba29a1423af9e7b46a7c291"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Sonic Pi.app"
+        ],
+        "cleanup": {
+          "zap_paths": [
+            "~/.config/sonic-pi.net",
+            "~/.sonic-pi",
+            "~/Library/Preferences/net.sonic-pi.app.plist",
+            "~/Library/Saved Application State/net.sonic-pi.app.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "5.0.0",
+      "release_date": "2026-08-07",
+      "release_notes_url": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v5.0.0",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/net.sonic_pi.SonicPi.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "net.sonic_pi.SonicPi.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/net.sonic_pi.SonicPi.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "net.sonic_pi.SonicPi.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "c45680c8bf6510bd9cef8940647e18b5b92e4172",
+      "retrieved_at": "2026-11-21T14:04:23.981Z",
+      "path": "manifests/s/SonicPi/SonicPi"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "80d0140d66da2caedb81a79a21e6bf2be6e6cb88",
+      "retrieved_at": "2026-11-21T14:04:23.981Z",
+      "path": "Casks/s/sonic-pi.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/sonic-pi.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/net.sonic_pi.SonicPi",
+      "retrieved_at": "2026-11-21T14:04:27.772Z",
+      "path": "api/v2/appstream/net.sonic_pi.SonicPi",
+      "api_url": "https://flathub.org/api/v2/appstream/net.sonic_pi.SonicPi",
+      "content_sha256": "ab8832513790cf2eb59a5ae721ed48e3cda7f5baaeac9f1d3086e0145a51f8ee"
+    }
+  ],
+  "flathub": {
+    "app_id": "net.sonic_pi.SonicPi",
+    "page_url": "https://flathub.org/apps/net.sonic_pi.SonicPi",
+    "repo_url": "https://github.com/flathub/net.sonic_pi.SonicPi",
+    "install_command": "flatpak install flathub net.sonic_pi.SonicPi",
+    "run_command": "flatpak run net.sonic_pi.SonicPi",
+    "verified": false,
+    "license": "MIT and CC-BY-SA-4.0+",
+    "free_license": true,
+    "developer_name": "Soni Pi Developers",
+    "categories": [
+      "Music",
+      "Education"
+    ],
+    "download_size": 76556433,
+    "installed_size": 131608064,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}
