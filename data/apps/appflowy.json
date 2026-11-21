@@ -38,7 +38,7 @@
     "support": "https://github.com/AppFlowy-IO/AppFlowy/issues",
     "bug_tracker": "https://github.com/AppFlowy-IO/AppFlowy/issues",
     "purchase": "https://ko-fi.com/appflowy",
-    "release_notes": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.15.0"
+    "release_notes": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.15.1"
   },
   "license": {
     "name": "AGPL-3.0",
@@ -52,15 +52,53 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "0.15.0",
+    "windows": "0.15.1",
     "macos": "0.15.1"
   },
-  "last_updated": "2026-11-02",
+  "last_updated": "2026-11-15",
   "versions_total": {
-    "windows": 104,
+    "windows": 105,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "0.15.1",
+      "release_date": "2026-11-15",
+      "release_notes": "### 🚀 v0.15.1\n\n#### Improvements\n\n• **Feed discussions** — Opened comment threads in a popover on the card, with replies and drafts retained when the popover was dismissed.\n• **Database row actions** — Enabled row creation from List and Gallery group headers, added Copy link to Gallery cards in cloud and self-hosted workspaces, and kept peek navigation in grouped List order.\n• **Database history** — Clarified that row counts covered the whole saved database and that row-page content had its own history. Kept preview tabs and names tied to the saved version, excluding linked views embedded elsewhere.\n\n#### Bug Fixes\n\n• Fixed missing Gallery groups, empty-group visibility, and loading additional cards within large groups. Corrected List property alignment and gaps around empty Gallery and Feed properties.\n• Preserved pending text, number, and rollup filter values when closing their editors, and prevented blank checklist tasks.\n• Corrected date-only formula comparisons to use calendar days, while retaining precise comparisons when either date included a time.\n• Restored reciprocal relation links when duplicating database rows.\n• Preserved embedded databases and linked views in row templates opened and edited across Web and Desktop.\n• Restored Person names in database history, row properties, and group headers.\n• Recovered page references from outdated access denials and kept copied subpages visible after duplication completed.\n• Fixed restored tabs that stayed blank after another tab was closed, and corrected row highlights and navigation between peek surfaces.\n• Prevented reopened database views from staying in a loading state after their rows had finished loading. Suspended repeated upload and restore checks for unavailable databases while retaining recovery data for a later retry.\n• Fixed stuck image-upload progress and recovery when selecting the same file again. Prevented incomplete uploads from being marked successful, waited for comment attachments to finish uploading before publishing them, and reduced repeated downloads of missing images.\n• Kept notification lists readable when a newer server returned an unfamiliar notification type, and prevented malformed document block data from hanging reads or producing incomplete exports.\n• Fixed missing PDF preview libraries in Windows packages and Windows native-updater registration. Fixed Linux shortcut errors caused by delayed key events after unregistration.\n\nThe minimum self-hosted server version remained **AppFlowy Cloud v0.19.10**.",
+      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.15.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.15.1/AppFlowy-0.15.1-windows-x86_64.exe",
+          "host": "github.com",
+          "filename": "AppFlowy-0.15.1-windows-x86_64.exe",
+          "sha256": "7ca3952d876b2226b506156131ef390c5130c9372e974011649d90ac15094721",
+          "product_code": "AppFlowy_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/sp- /verysilent /norestart",
+            "silent_with_progress": "/sp- /silent /norestart"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "product_code": "AppFlowy_is1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "0.15.0",
@@ -1922,44 +1960,6 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "0.8.7",
-      "release_date": "2025-03-19",
-      "release_notes": "Release Notes\nVersion 0.8.7 - 18/03/2025\nNew Features\n- Made local AI free and integrated with Ollama\n- Supported nested lists within callout and quote blocks\n- Revamped the document's floating toolbar and added Turn Into\n- Enabled custom icons in callout blocks\nBug Fixes\n- Fixed occasional incorrect positioning of the slash menu\n- Improved AI Chat and AI Writers with various bug fixes\n- Adjusted the columns block to match the width of the editor\n- Fixed a potential segfault caused by infinite recursion in the trash view\n- Resolved an issue where the first added cover might be invisible\n- Fixed adding cover images via Unsplash",
-      "release_notes_url": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.8.7",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/a/AppFlowy/AppFlowy/0.8.7",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "machine",
-          "locale": "en-US",
-          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.8.7/AppFlowy-0.8.7-windows-x86_64.exe",
-          "host": "github.com",
-          "filename": "AppFlowy-0.8.7-windows-x86_64.exe",
-          "sha256": "07c8c99804cc5278e857e8d20ecc51bf4b80947c4378d6b87ce3f5c8a984697b",
-          "product_code": "AppFlowy_is1",
-          "elevation_requirement": "elevatesSelf",
-          "switches": {
-            "silent": "/sp- /verysilent /norestart",
-            "silent_with_progress": "/sp- /silent /norestart"
-          },
-          "dependencies": {
-            "packages": [
-              "Microsoft.VCRedist.2015+.x64"
-            ]
-          },
-          "apps_and_features": [
-            {
-              "product_code": "AppFlowy_is1"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
       "version": "0.15.1",
       "installers": [
@@ -2003,8 +2003,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "cfb57c8683c26a093b5e5463176d73278d64bf0b",
-      "retrieved_at": "2026-11-06T23:18:56.450Z",
+      "commit": "a3521d58a2ae914c6b621b42e99d1c3202f71b10",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "manifests/a/AppFlowy/AppFlowy"
     },
     {

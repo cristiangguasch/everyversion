@@ -23,7 +23,7 @@
     "publisher": "https://gitforwindows.org/",
     "support": "https://github.com/git-for-windows/git/issues",
     "bug_tracker": "https://github.com/git-for-windows/git/issues",
-    "release_notes": "https://github.com/git-for-windows/git/releases/tag/v2.56.0.windows.4",
+    "release_notes": "https://github.com/git-for-windows/git/releases/tag/v2.56.1.windows.1",
     "documentation": [
       {
         "label": "Wiki",
@@ -43,13 +43,124 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "2.56.0.4"
+    "windows": "2.56.1"
   },
-  "last_updated": "2026-10-26",
+  "last_updated": "2026-11-10",
   "versions_total": {
-    "windows": 79
+    "windows": 80
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "2.56.1",
+      "release_date": "2026-11-10",
+      "release_notes": "Changes since Git for Windows v2.56.0(4) (October 26th 2026)\nThis addresses the security issues CVE-2026-111760, CVE-2026-113408, CVE-2026-114466, CVE-2026-114467, CVE-2026-114469 and CVE-2026-105437.\nSecurity bug fixes\n- CVE-2026-111760:\n  Recursive clones are susceptible to Remote Code Execution: an attacker-controlled repository can be crafted in a way that exploits a bug in Git whereby Git can be fooled into overwriting a gitfile (used for submodules) with a symbolic link that then points to a directory with malicious config or hooks. The config or hooks may have attacker-specified code.\n- CVE-2026-113408:\n  It is possible for a server to advertise an unborn HEAD that contains path-traversal characters (e.g., refs/heads/../../../TARGET). With the files ref backend that can lead to ref-updating actions to write to unwanted files.\n- CVE-2026-114467:\n  When Git strips the GPG signatures from a commit message, it only accounts for two signatures. A commit message containing more than two signatures therefore causes a stack memory corruption.\n  This can be triggered when using git merge with a tag which contains more than two signatures. As such, this makes way for a DoS attack which can potentially also affect forges when such a tag is pushed to a remote and a merge action is initiated.\n- CVE-2026-114469:\n  Git rejects patches larger than ~1 GiB, because its patch application code does not work well with large files. That check, however, only considered the size of the patch as it appears in the input, which for binary patches is much smaller than the size of the file the patch describes, as binary patches are compressed and encoded. A binary patch that inflates to a very large size therefore slipped past the check and crashed Git with an out-of-bounds read.\n- CVE-2026-105437:\n  When merging, Git computes the size of the buffer holding the merge result in a way that can overflow for very large merges, which can be triggered by a large number of conflicts combined with a large conflict-marker-size. The resulting buffer can then be too small, and Git writes past its end (and, before and after that, before its start), corrupting the heap.\n- CVE-2026-114466:\n  In response to CVE-2019-1348, fast-import disallows the export-marks feature by default. The features rewrite-submodules-to and rewrite-submodules-from as well as the option export-pack-edges that were introduced in the meantime also allow reading from arbitrary paths, and are therefore now also disallowed by default.\nNew Features\n- Comes with Git v2.56.1.",
+      "release_notes_url": "https://github.com/git-for-windows/git/releases/tag/v2.56.1.windows.1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/g/Git/Git/2.56.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/git-for-windows/git/releases/download/v2.56.1.windows.1/Git-2.56.1-64-bit.exe",
+          "host": "github.com",
+          "filename": "Git-2.56.1-64-bit.exe",
+          "sha256": "c330c72e10b408cc39994bfefdb63542b0d93d21699325c3e0bd874af8a5a559",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
+            "silent_with_progress": "/SP- /SILENT /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gitattributes",
+            "gitignore",
+            "gitmodules",
+            "sh"
+          ],
+          "commands": [
+            "git"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/git-for-windows/git/releases/download/v2.56.1.windows.1/Git-2.56.1-64-bit.exe",
+          "host": "github.com",
+          "filename": "Git-2.56.1-64-bit.exe",
+          "sha256": "c330c72e10b408cc39994bfefdb63542b0d93d21699325c3e0bd874af8a5a559",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
+            "silent_with_progress": "/SP- /SILENT /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gitattributes",
+            "gitignore",
+            "gitmodules",
+            "sh"
+          ],
+          "commands": [
+            "git"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/git-for-windows/git/releases/download/v2.56.1.windows.1/Git-2.56.1-arm64.exe",
+          "host": "github.com",
+          "filename": "Git-2.56.1-arm64.exe",
+          "sha256": "6fe770b534a459d1158011e6ec0cd8390a3bcf44e542bee9e9a650310e111234",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
+            "silent_with_progress": "/SP- /SILENT /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gitattributes",
+            "gitignore",
+            "gitmodules",
+            "sh"
+          ],
+          "commands": [
+            "git"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/git-for-windows/git/releases/download/v2.56.1.windows.1/Git-2.56.1-arm64.exe",
+          "host": "github.com",
+          "filename": "Git-2.56.1-arm64.exe",
+          "sha256": "6fe770b534a459d1158011e6ec0cd8390a3bcf44e542bee9e9a650310e111234",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "silent": "/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
+            "silent_with_progress": "/SP- /SILENT /SUPPRESSMSGBOXES /NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "gitattributes",
+            "gitignore",
+            "gitmodules",
+            "sh"
+          ],
+          "commands": [
+            "git"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "2.56.0.4",
@@ -5119,96 +5230,6 @@
           ]
         }
       ]
-    },
-    {
-      "platform": "windows",
-      "version": "2.37.2.2",
-      "release_date": "2022-08-12",
-      "release_notes_url": "https://github.com/git-for-windows/git/releases/tag/v2.37.2.windows.2",
-      "manifest_version": "1.9.0",
-      "manifest_dir": "manifests/g/Git/Git/2.37.2.2",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "inno",
-          "scope": "machine",
-          "url": "https://github.com/git-for-windows/git/releases/download/v2.37.2.windows.2/Git-2.37.2.2-32-bit.exe",
-          "host": "github.com",
-          "filename": "Git-2.37.2.2-32-bit.exe",
-          "sha256": "672569b7041024b1fdb5c29cc9a775658be78f7d3afea025973e07954f5070fa",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "commands": [
-            "git"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "inno",
-          "scope": "user",
-          "url": "https://github.com/git-for-windows/git/releases/download/v2.37.2.windows.2/Git-2.37.2.2-32-bit.exe",
-          "host": "github.com",
-          "filename": "Git-2.37.2.2-32-bit.exe",
-          "sha256": "672569b7041024b1fdb5c29cc9a775658be78f7d3afea025973e07954f5070fa",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "commands": [
-            "git"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "machine",
-          "url": "https://github.com/git-for-windows/git/releases/download/v2.37.2.windows.2/Git-2.37.2.2-64-bit.exe",
-          "host": "github.com",
-          "filename": "Git-2.37.2.2-64-bit.exe",
-          "sha256": "6f91f1bb28b222f30c13f905a5e9b0ad491e67c28a37a238000def19f86e0a2f",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "commands": [
-            "git"
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "user",
-          "url": "https://github.com/git-for-windows/git/releases/download/v2.37.2.windows.2/Git-2.37.2.2-64-bit.exe",
-          "host": "github.com",
-          "filename": "Git-2.37.2.2-64-bit.exe",
-          "sha256": "6f91f1bb28b222f30c13f905a5e9b0ad491e67c28a37a238000def19f86e0a2f",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "commands": [
-            "git"
-          ]
-        }
-      ]
     }
   ],
   "verification": {
@@ -5225,8 +5246,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "a3521d58a2ae914c6b621b42e99d1c3202f71b10",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "manifests/g/Git/Git"
     }
   ]

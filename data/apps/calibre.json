@@ -48,17 +48,90 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "9.18.0",
-    "macos": "9.18.0",
+    "windows": "9.19.0",
+    "macos": "9.19.0",
     "linux": "9.18.0"
   },
-  "last_updated": "2026-11-06",
+  "last_updated": "2026-11-21",
   "versions_total": {
-    "windows": 111,
+    "windows": 112,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "9.19.0",
+      "release_date": "2026-11-21",
+      "release_notes": "New features\n- Edit book: Add grammar checking and suggestions for rewriting sentences\n  Grammar, style and typography issues are underlined in the code view as you edit, with suggested corrections available by right clicking. Tools->Check grammar lists the issues in the whole book, allowing them to be corrected, ignored or their rules disabled. For English text, a neural network can also suggest rewrites of sentences for grammar, fluency, clarity, simplicity, formality or paraphrasing. The data needed for checking a language is downloaded, with confirmation, when first needed. All processing is local to your computer and no AI is used.\n- PDF Input: Greatly improve detection of paragraphs, headings and columns\n  Paragraphs that continue across columns and pages are joined, headings wrapped onto several lines are joined, words split over two lines are de-hyphenated, columns with narrow gutters are detected and running heads such as chapter titles are removed.\n- Content server: Allow downloading metadata and covers in the book metadata editor\n- Content server and E-book viewer: Many more accessibility improvements for keyboard and screen reader users, including dialogs, the footnote popup, the Read aloud and audio ebook controls, the color scheme and selection bar settings and rating books at their end\n- Content server: Allow non-ASCII passwords\n  Closes tickets: 2173690\n- Get books: Use a browser to search the Amazon stores, so that stores other than Amazon US return results\n  Closes tickets: 2173873\n- Conversion: Speed up building large Tables of Contents and splitting large HTML files for EPUB output\n- Edit book: Check book: Speed up fixing many link and id errors\n- Auto-add: Improve detection of files that are still being downloaded\n  Closes tickets: 2173688\nBug fixes\n- Fix a regression in 9.16 that broke restoring the sort of the book list when it included fields that cannot be sorted on\n  Closes tickets: 2173593\n- RTF Output: Fix nested lists and other nested block elements being run together into a single paragraph\n  Closes tickets: 2173530\n- RTF Input: Fix conversion of files using East Asian, Thai and Vietnamese code pages\n- ebook-meta/ebook-convert: Fix the --rating option being interpreted as out of ten instead of a number of stars\n- Edit metadata dialog: Fix setting metadata from a format doubling the rating\n- Edit book: Check book: Fix case mismatches in the OPF manifest causing the auto-fix to delete the file\n  Closes tickets: 2173877\n- Polish book: Fix updating the cover adding a new cover page each time\n- Fix extracting the cover from calibre generated SVG cover pages\n- Fix setting the title of EPUB 3 books whose first title is a subtitle\n- Conversion: Generate valid ids for non-ASCII Markdown headings\n- PDF Input: Fix Table of Contents entries that link via JavaScript actions\n- Heuristics: Preserve page anchors when dehyphenating across pages\n- Fix reading damaged ZIP files whose data descriptors lack a signature\n- PDF metadata: Fix escaped strings being carried over from corrupted XMP metadata\n- Decode numeric HTML entities as specified by HTML5\n- Kobo driver: Handle boolean columns stored as either text or integers\n  Closes tickets: 2173828\n- MTP driver: Show a clearer error message on Windows when the device stops responding\n- Fix icons in the system tray menu showing as missing on some Linux desktops\n  Closes tickets: 2174504\n- E-book viewer/Edit book: Fix the close button in the Inspector toolbar not working\n  Closes tickets: 2174668\n- Content server: Fix changed covers not being shown until the page is reloaded\n- Content server: Fix an error when pressing OK while editing a rating or enumeration whose value is not one of the choices\n- Metadata download: Fix camoufox being downloaded over and over when installing it fails\nNew news sources\n- Various Swedish, Finnish, Sami, Meänkieli, Romani and Yiddish news sources by Jonatan Nyberg\nImproved news sources\n- Dagens Nyheter\n- Dagens Industri\n- Ekot\n- Fokus\n- Live Law",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/c/calibre/calibre/9.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/9.19.0/calibre-64bit-9.19.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-9.19.0.msi",
+          "sha256": "241193d5045bdcbc3e7ec000c22ede0b5da1fd2e91e83fa0b17f0e1f67174480",
+          "product_code": "{C36AB11A-6239-42F9-80AF-25239F472C86}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "9.18.0",
@@ -3744,93 +3817,17 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "7.22.0",
-      "release_date": "2024-11-29",
-      "release_notes": "New features\n- E-book viewer: Read Aloud: Add an option to control the position of the popup control bar. It can now be placed along the top or bottom edges so as to overlap less with text.\n- System tray menu: Add action to restart calibre\n  Closes tickets: 2087754\n- Tolino driver: Support new firmware\nBug fixes\n- Windows: Enable popup OS notifications even when system tray icon is disabled to match behavior on other platforms. Notifications can be disabled via Preferences->Look & feel->Disable notifications on job completion\n- Fix a regression that caused incorrect English transliteration of Japanese text even when the UI language is set to Japanese\n  Closes tickets: 2087850\n- macOS: Dark mode: Fix a regression that caused the scrollbar to no longer be transient\n  Closes tickets: 2088153\n- DOCX Input: When some text has multiple footnotes insert a space between the consecutive foot note numbers so that they are distinct\n  Closes tickets: 2089433\n- DOCX Input: Fix ToC nesting not working if the styles for the ToC levels dont use integer margins\n- E-book viewer: Fix spurious chapter transition after configuring Read aloud\n- PDF Input: Fix reflow of lines in files with little text not working\n  Closes tickets: 2089436\nNew news sources\n- Economist News by unkn0wn\nImproved news sources\n- Economist\n- Indian Express\n- Economist World Ahead\n- Frontline\n- Infobae",
-      "release_notes_url": "https://calibre-ebook.com/whats-new",
-      "manifest_version": "1.6.0",
-      "manifest_dir": "manifests/c/calibre/calibre/7.22.0",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "wix",
-          "scope": "machine",
-          "url": "https://download.calibre-ebook.com/7.22.0/calibre-64bit-7.22.0.msi",
-          "host": "download.calibre-ebook.com",
-          "filename": "calibre-64bit-7.22.0.msi",
-          "sha256": "e5f2653f4f97d8a4f92048125cec23e30b8dcb04d1b452b31b13ef0f17400050",
-          "product_code": "{1E97B5F3-1500-42BF-B7B7-C1DA92D42C2C}",
-          "switches": {
-            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
-          },
-          "upgrade_behavior": "install",
-          "protocols": [
-            "calibre"
-          ],
-          "file_extensions": [
-            "azw",
-            "azw1",
-            "azw3",
-            "book",
-            "cb7",
-            "cbc",
-            "cbr",
-            "cbz",
-            "chm",
-            "djv",
-            "djvu",
-            "doc",
-            "docm",
-            "docx",
-            "epub",
-            "fb2",
-            "ibook",
-            "ibooks",
-            "imp",
-            "lrf",
-            "lrx",
-            "markdown",
-            "md",
-            "mobi",
-            "odt",
-            "opf",
-            "pdb",
-            "pml",
-            "pobi",
-            "prc",
-            "ps",
-            "rtf",
-            "shtml",
-            "text",
-            "tpz",
-            "txt",
-            "xhtml",
-            "xps"
-          ],
-          "apps_and_features": [
-            {
-              "display_name": "calibre 64bit",
-              "product_code": "{1E97B5F3-1500-42BF-B7B7-C1DA92D42C2C}",
-              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "9.18.0",
+      "version": "9.19.0",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://download.calibre-ebook.com/9.18.0/calibre-9.18.0.dmg",
+          "url": "https://download.calibre-ebook.com/9.19.0/calibre-9.19.0.dmg",
           "host": "download.calibre-ebook.com",
-          "filename": "calibre-9.18.0.dmg",
-          "sha256": "b4b8000433b6e4d0fdfb3bd0283cd76b7525c65daf5af027ec4dc1e629ef3d0c"
+          "filename": "calibre-9.19.0.dmg",
+          "sha256": "207c80d80ace59cb21a4c52fa1c40843a8e860de100304e590da664db3abfb3f"
         }
       ],
       "cask": {
@@ -3912,16 +3909,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
-      "retrieved_at": "2026-11-08T21:59:01.347Z",
+      "commit": "a3521d58a2ae914c6b621b42e99d1c3202f71b10",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "manifests/c/calibre/calibre"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "7397801fbe3ada511d5ac422b78730f4735af8f9",
-      "retrieved_at": "2026-11-13T14:56:34.531Z",
+      "commit": "46014d94e70608af17c2942a3a1737ae2633dd38",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "Casks/c/calibre.rb",
       "api_url": "https://formulae.brew.sh/api/cask/calibre.json"
     },

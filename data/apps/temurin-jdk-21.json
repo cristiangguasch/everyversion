@@ -28,7 +28,7 @@
     "publisher": "https://adoptium.net/",
     "support": "https://adoptium.net/support/",
     "privacy": "https://www.eclipse.org/legal/privacy.php",
-    "release_notes": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.13+9",
+    "release_notes": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.13.1+2",
     "documentation": [
       {
         "label": "Docs",
@@ -51,15 +51,71 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "21.0.13.9",
-    "macos": "21.0.13"
+    "windows": "21.0.13.102",
+    "macos": "21.0.13.1"
   },
-  "last_updated": "2026-10-29",
+  "last_updated": "2026-11-20",
   "versions_total": {
-    "windows": 15,
+    "windows": 16,
     "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "21.0.13.102",
+      "release_date": "2026-11-20",
+      "release_notes_url": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.13.1+2",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/e/EclipseAdoptium/Temurin/21/JDK/21.0.13.102",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1+2/OpenJDK21U-jdk_x64_windows_hotspot_21.0.13.1_2.msi",
+          "host": "github.com",
+          "filename": "OpenJDK21U-jdk_x64_windows_hotspot_21.0.13.1_2.msi",
+          "sha256": "24742e4539f122f0427e33b195c96c93a5369da1f5da95f642825ce3813ff815",
+          "product_code": "{EDA66F05-1E77-48BF-96D1-D74358434223}",
+          "switches": {
+            "install_location": "INSTALLDIR=\"<INSTALLPATH>\"",
+            "custom": "ADDLOCAL=ALL"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "class",
+            "jar",
+            "java",
+            "jsp"
+          ],
+          "commands": [
+            "jar",
+            "jarsigner",
+            "java",
+            "javac",
+            "javadoc",
+            "javap",
+            "javaw",
+            "jconsole",
+            "jdeprscan",
+            "jdeps",
+            "jlink",
+            "jmod",
+            "jps",
+            "jshell",
+            "jstat",
+            "keytool"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Eclipse Temurin JDK with Hotspot 21.0.13.1+2 (x64)",
+              "upgrade_code": "{C7371D5C-29EB-0885-C0E4-F8E3B955271F}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "21.0.13.9",
@@ -1172,31 +1228,31 @@
     },
     {
       "platform": "macos",
-      "version": "21.0.13",
-      "source_version": "21.0.13,9",
+      "version": "21.0.13.1",
+      "source_version": "21.0.13.1,2",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "pkg",
-          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_mac_hotspot_21.0.13_9.pkg",
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1%2B2/OpenJDK21U-jdk_x64_mac_hotspot_21.0.13.1_2.pkg",
           "host": "github.com",
-          "filename": "OpenJDK21U-jdk_x64_mac_hotspot_21.0.13_9.pkg",
-          "sha256": "68d7316cf7afc2cd57b58b9cf4db2e8a709f7f23f8f67d1c782507fe2d9dc79b"
+          "filename": "OpenJDK21U-jdk_x64_mac_hotspot_21.0.13.1_2.pkg",
+          "sha256": "a6d77735ff6bcac4b3c5a44607de34cb40a895f4085caeb8eb3dd0449787e7ea"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "pkg",
-          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.pkg",
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1%2B2/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13.1_2.pkg",
           "host": "github.com",
-          "filename": "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.pkg",
-          "sha256": "7c4cd71ec227fcff5e30d35816c2fe7d82ce2808b9ac6cc7adbd3272af3d9182"
+          "filename": "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13.1_2.pkg",
+          "sha256": "efaa8da42730b7128a0876bfffa9402e329ad54c66395a2ab34daacedb069321"
         }
       ],
       "cask": {
         "pkgs": [
-          "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.pkg"
+          "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13.1_2.pkg"
         ],
         "cleanup": {
           "pkgutil": [
@@ -1220,16 +1276,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "a3521d58a2ae914c6b621b42e99d1c3202f71b10",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "manifests/e/EclipseAdoptium/Temurin/21/JDK"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:54.374Z",
+      "commit": "46014d94e70608af17c2942a3a1737ae2633dd38",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "Casks/t/temurin@21.rb",
       "api_url": "https://formulae.brew.sh/api/cask/temurin%4021.json"
     }

@@ -31,7 +31,7 @@
     "homepage": "https://obsproject.com/",
     "publisher": "https://obsproject.com/",
     "support": "https://obsproject.com/help",
-    "release_notes": "https://github.com/obsproject/obs-studio/releases/tag/33.0.0",
+    "release_notes": "https://github.com/obsproject/obs-studio/releases/tag/33.0.1",
     "documentation": [
       {
         "label": "Knowledge Base",
@@ -50,17 +50,77 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "33.0.0",
-    "macos": "33.0.1",
-    "linux": "33.0.1"
+    "windows": "33.0.1",
+    "macos": "33.0.2",
+    "linux": "33.0.2"
   },
-  "last_updated": "2026-10-23",
+  "last_updated": "2026-10-29",
   "versions_total": {
-    "windows": 47,
+    "windows": 48,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "33.0.1",
+      "release_date": "2026-10-29",
+      "release_notes": "Hotfix Changes\n- Fixed a crash on startup when logged into a service integration [WizardCM] (#554)\n- Fixed a crash when logging into the Twitch integration [WizardCM] (#14072)\n- Fixed a deadlock when logging into the YouTube integration [WizardCM] (#556)\n- Fixed a race condition where browser panels could end up with incorrectly sized content [WizardCM] (#558)\n- Fixed a memory leak when using the image slideshow source [prgmitchell] (#14078)\n- Fixed plugins failing to load on Flatpak [FiniteSingularity] (#14103)\n- Fixed Plugin Manager not prompting for save after a change until the dialog is re-opened [Warchamp7] (#14112)\n\nNew Features\n- Updated CEF from 127/6533 to 150/7871 [WizardCM] (#13900)\n  - This is a massive update to the underlying framework used for browser sources and docks from the July 2024 release to September 2026\n  - All of this work is on the backend and should be invisible to users. Please be sure to report any new weirdness or problems you run into with browser sources!\n- Complete overhaul to plugin loading [FiniteSingularity/PatTheMav] (#13594)\n  - First-party plugins are now in a new folder named core\n  - Third-party plugins have an updated installation location and folder structure\n  - Existing third-party plugins will continue to load from the legacy locations until OBS Studio 34.0\n  - More information is available in our knowledge base article\n- Improved how source snapping works in the preview [Warchamp7] (#12298)\n  - New visual indicator added\n  - Sources now snap along the entire axis instead of only when directly touching\n  - Sources no longer snap to hidden sources\n- Improved behavior of spinboxes for number values [Warchamp7] (#12337)\n  - Typing is no longer mysteriously blocked in some situations\n  - Numbers are no longer cut off in some situations\n  - Values now update only after pressing Enter and Enter does not close the window\n  - Holding Shift + Up/Down now advances multiple steps at a time\n  - Dragging the cursor inside the input but outside the text itself now works properly\n- Enabled NVENC on Arm64 [RytoEX] (#13827)\n\nChanges\n- Added a check for encoders being missing when loading a profile [derrod] (#11340)\n- Added support for newest NVIDIA Broadcast SDKs for NVIDIA Audio Effects and Video Effects [pkviet] (#13838)\n- Added hotkeys for controlling audio monitoring of a source [Warchamp7] (#13599)\n- Changed Safe Mode to not start WebSocket Server [FiniteSingularity/RytoEX] (#13984)\n- Fixed issues with groups in Studio Mode [Warchamp7] (#11092)\n  - Fixed moving sources inside a group causing them to glitch out in Program\n  - Fixed moving sources inside a group showing up live in Program\n- Adjusted naming of Window Capture methods on Windows [Penwy] (#12047)\n- Improved detection of fullscreen games for Game Capture [Kira-NT] (#10880)\n- Improved transparency handling for macOS Screen Capture [jcm93] (#13030)\n- Scaled simple output recording audio bitrate by channel count [nickvonkaenel] (#13311)\n- Removed support for Ubuntu 24.04\n\nBug Fixes\n- Added a startup error if obs-transitions failed to load [notr1ch] (#13321)\n- Improved file splitting for Hybrid MP4/MOV [derrod] (#13386)\n- Fixed outputs getting stuck running when a bad rescale output resolution is set [suogesi] (#13375)\n- Fixed monitoring icon state getting desynced when using third-party tools or websockets [prgmitchell] (#13822)\n- Fixed a crash on macOS 27.2 when starting OBS Studio [RytoEX] (#14070)\n- Fixed potential crash when shader cache file is invalid [notr1ch] (#13538)\n- Fixed a potential crash on Linux when USB mic is removed [R0te/RytoEX] (#13922)\n- Fixed a potential crash when renaming a source with the Add Source window open [Warchamp7] (#13800)\n- Fixed a potential deadlock during video/audio tasks [exeldro] (#13579)\n- Fixed an issue with B-frame offset calculation in AMF that could cause streams to disconnect [lexano-ivs] (#13762)\n- Fixed PipeWire screencast sources being duplicated in studio mode [tytan652] (#13673)\n- Fixed a potential crash when switching off a newly created profile [Warchamp7] (#13182)\n- Fixed a source toolbar crash when source type is missing [Penwy] (#13539)\n- Fixed profile import failing on paths with a trailing slash [Ushkalovk] (#13863)\n\nDeveloper Information\n- Added frontend event and output signal for replay buffer saving [Penwy] (#8955)\n- Added guidance regarding the theme system to the top of all theme files [Warchamp7] (#13733)\n- Added ability to set a file extension filter for OBS_PATH_FILE_SAVE path types [FiniteSingularity] (#10190)\n- Added obs_frontend_is_safe_mode for first-party plugins\n  - Third-party plugins are not loaded at all in Safe Mode\n- Added versions to Flatpak plugin extension point [tytan652] (#13735)\n- Added obs_canvas_video_active() to check if the video of a canvas is active [exeldro] (#13110)\n- The minimum supported versions of Visual Studio, Windows SDK, and clang-format have been increased. Previous versions may continue to work, but will no longer be tested/supported. It is recommended that build environments are kept up-to-date with the project's toolchain.\n  - Changed Windows builds to use Visual Studio 2026 and SDK 26100 [RytoEX] (#13543)\n  - Changed clang-format version used to 22.1.3 [PatTheMav] (#13549)\n- Changed obs_canvas_reset_video() to allow resetting a canvas's video when any other canvas's video is active, but not its own video [exeldro] (#13110)\n- Updated libnsgif to 1.0.0 [RytoEX] (#11178)\n  - This is a breaking change for any plugins using libobs/graphics gs_image_file\n- Clarified documentation for obs_module_unload [notr1ch] (#13327)\n- Required MbedTLS 3 and exclude 4 or later [tytan652] (#13799)\n- Removed support for FFmpeg 6.x and 7.x [RytoEX] (#13964)\n- Removed support for Qt 6.4-6.9 [RytoEX] (#13969)\n- Fixed repeated preview enable/disables not working [WarmUpTill] (#12580)\n- Only emit core signal handlers for public canvases [tt2468] (#13574)\n- Deprecated unused hidden API for sources [derrod] (#13122)\n- Deprecated APIs for audio source monitoring_type [Warchamp7] (#13599)\n  - This is replaced by a new monitoring_enabled boolean",
+      "release_notes_url": "https://github.com/obsproject/obs-studio/releases/tag/33.0.1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/o/OBSProject/OBSStudio/33.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/obsproject/obs-studio/releases/download/33.0.1/OBS-Studio-33.0.1-Windows-x64-Installer.exe",
+          "host": "github.com",
+          "filename": "OBS-Studio-33.0.1-Windows-x64-Installer.exe",
+          "sha256": "37ecde4d9a28e8aeeb07623c8469b5d558eb264e02ccf435bb859891c401758b",
+          "product_code": "OBS Studio",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "OBS Studio"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/obsproject/obs-studio/releases/download/33.0.1/OBS-Studio-33.0.1-Windows-x64.zip",
+          "host": "github.com",
+          "filename": "OBS-Studio-33.0.1-Windows-x64.zip",
+          "sha256": "0d9436451c2d772b33428e3fdae9776f071895c335de17283176306fb72651d3",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.x64"
+            ]
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/obsproject/obs-studio/releases/download/33.0.1/OBS-Studio-33.0.1-Windows-arm64.zip",
+          "host": "github.com",
+          "filename": "OBS-Studio-33.0.1-Windows-arm64.zip",
+          "sha256": "5bee731f6a9ce843ac670b4ccf048a54cdccb8b06acb3fd1c7928b9705f11100",
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.VCRedist.2015+.arm64"
+            ]
+          }
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "33.0.0",
@@ -1929,26 +1989,26 @@
     },
     {
       "platform": "macos",
-      "version": "33.0.1",
+      "version": "33.0.2",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://cdn-fastly.obsproject.com/downloads/obs-studio-33.0.1-macos-intel.dmg",
+          "url": "https://cdn-fastly.obsproject.com/downloads/obs-studio-33.0.2-macos-intel.dmg",
           "host": "cdn-fastly.obsproject.com",
-          "filename": "obs-studio-33.0.1-macos-intel.dmg",
-          "sha256": "745257d65e06eb0f784af229659223a863ad50d036464bb2b52f8a2d9278c2b1",
+          "filename": "obs-studio-33.0.2-macos-intel.dmg",
+          "sha256": "84eb584a89cdef83f3385655e348496dbb0715459be249afa1c6787d60d2cc33",
           "min_os_version": "13"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://cdn-fastly.obsproject.com/downloads/obs-studio-33.0.1-macos-apple.dmg",
+          "url": "https://cdn-fastly.obsproject.com/downloads/obs-studio-33.0.2-macos-apple.dmg",
           "host": "cdn-fastly.obsproject.com",
-          "filename": "obs-studio-33.0.1-macos-apple.dmg",
-          "sha256": "3d6b2eedeb56416602af635adaba32327fdf11ff9d2806a4ce7d5b608de73238",
+          "filename": "obs-studio-33.0.2-macos-apple.dmg",
+          "sha256": "f9cd96511c5efdd3ffd9a0068e3bbc276c61fc451d1004e3eea5658a9cb70488",
           "min_os_version": "13"
         }
       ],
@@ -1975,9 +2035,9 @@
     },
     {
       "platform": "linux",
-      "version": "33.0.1",
-      "release_date": "2026-10-29",
-      "release_notes_url": "https://github.com/obsproject/obs-studio/releases/tag/33.0.1",
+      "version": "33.0.2",
+      "release_date": "2026-11-20",
+      "release_notes_url": "https://github.com/obsproject/obs-studio/releases/tag/33.0.2",
       "installers": [
         {
           "platform": "linux",
@@ -2005,16 +2065,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "a3521d58a2ae914c6b621b42e99d1c3202f71b10",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "manifests/o/OBSProject/OBSStudio"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:54.374Z",
+      "commit": "46014d94e70608af17c2942a3a1737ae2633dd38",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "Casks/o/obs.rb",
       "api_url": "https://formulae.brew.sh/api/cask/obs.json"
     },
@@ -2022,10 +2082,10 @@
       "source": "flathub",
       "platform": "linux",
       "repo": "https://github.com/flathub/com.obsproject.Studio",
-      "retrieved_at": "2026-11-08T14:04:57.687Z",
+      "retrieved_at": "2026-11-21T13:25:16.805Z",
       "path": "api/v2/appstream/com.obsproject.Studio",
       "api_url": "https://flathub.org/api/v2/appstream/com.obsproject.Studio",
-      "content_sha256": "d0c2631372edf14d29cc9d4baf06d008b6587b9b9bbd19d6a7b816aa4ada9328"
+      "content_sha256": "a3299ae8dcdee44b82754c5cfb5e254252e7a43dcba06df9120dc36006a2f8ee"
     }
   ],
   "flathub": {
@@ -2047,8 +2107,8 @@
       "AudioVideo",
       "Recorder"
     ],
-    "download_size": 224884123,
-    "installed_size": 593505792,
+    "download_size": 224814188,
+    "installed_size": 593335808,
     "arches": [
       "x64"
     ]

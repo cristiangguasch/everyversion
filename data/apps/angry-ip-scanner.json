@@ -29,7 +29,7 @@
     "publisher": "https://angryip.org/",
     "support": "https://github.com/angryip/ipscan/issues",
     "bug_tracker": "https://github.com/angryip/ipscan/issues",
-    "release_notes": "https://github.com/angryip/ipscan/releases/tag/3.10.0"
+    "release_notes": "https://github.com/angryip/ipscan/releases/tag/3.12.2"
   },
   "license": {
     "name": "GPL-2.0",
@@ -41,17 +41,50 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "3.10.0",
+    "windows": "3.12.2",
     "macos": "3.9.3",
     "linux": "3.10.0"
   },
-  "last_updated": "2026-08-31",
+  "last_updated": "2026-11-16",
   "versions_total": {
-    "windows": 6,
+    "windows": 7,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "3.12.2",
+      "release_date": "2026-11-16",
+      "release_notes": "- Windows installer: Italian and Spanish translations and file properties #562\n- Windows: default silent install and uninstall to the current user when no install mode is specified #561\n- Windows: rebuild launcher to avoid concatenation in the installer, hopefully flagging less virus heuristics #565\n- Enable Comments fetcher by default for new users\n- Fix loading of results exported from other feeders than IP Range #387\n- Open dialogs on the same monitor as the main window, even if it is above or to the left of the primary one #346\n- Do not restore the main window outside of the visible area, e.g. after disconnecting an external screen #393\n- Show comments stored by MAC address regardless of the order of columns #419\n- Windows: pass IPv4 addresses to ICMP and ARP APIs as plain integers, which may fix bogus alive hosts and MAC addresses #337 #395 #488\n- Fix reverse IP ranges (start > end) scanning past the end when crossing a byte boundary\n- IP List File feeder: detect the network interface for all hosts, not only the first one\n- Linux: fix leaking of file descriptors when reading the ARP table\n- TCP pinger: fix possible hanging after a very fast reply and keep probing the port that has responded\n- UDP pinger: count actual UDP replies as alive\n- Hostname fetcher: accept hostnames that resolve to multiple addresses, e.g. both IPv4 and IPv6\n- Do not use 100% of a CPU core while waiting for a free thread if thread delay is 0\n- Updated translations for all languages",
+      "release_notes_url": "https://github.com/angryip/ipscan/releases/tag/3.12.2",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/a/angryziber/AngryIPScanner/3.12.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/angryip/ipscan/releases/download/3.12.2/ipscan-3.12.2-setup.exe",
+          "host": "github.com",
+          "filename": "ipscan-3.12.2-setup.exe",
+          "sha256": "ed6daf48d8648f722900b9eee5d60a73f28715f7b4558050a09e0690aa324c04",
+          "product_code": "Angry IP Scanner",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_version": "3.12.2",
+              "product_code": "Angry IP Scanner"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "3.10.0",
@@ -277,8 +310,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "df9cc21aefcf4a27b44221672e02d53b50c7bd81",
-      "retrieved_at": "2026-11-12T13:54:44.292Z",
+      "commit": "a3521d58a2ae914c6b621b42e99d1c3202f71b10",
+      "retrieved_at": "2026-11-21T13:24:55.658Z",
       "path": "manifests/a/angryziber/AngryIPScanner"
     },
     {
