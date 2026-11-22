@@ -28,7 +28,7 @@
     "publisher": "https://transmissionbt.com/",
     "support": "https://github.com/transmission/transmission/issues",
     "bug_tracker": "https://github.com/transmission/transmission/issues",
-    "release_notes": "https://github.com/transmission/transmission/releases/tag/4.1.3",
+    "release_notes": "https://github.com/transmission/transmission/releases/tag/4.1.4",
     "documentation": [
       {
         "label": "Developer & Contributor Discussions",
@@ -51,17 +51,86 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "4.1.3",
+    "windows": "4.1.4",
     "macos": "4.1.4",
     "linux": "4.1.4"
   },
-  "last_updated": "2026-06-30",
+  "last_updated": "2026-10-23",
   "versions_total": {
-    "windows": 10,
+    "windows": 11,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "4.1.4",
+      "release_date": "2026-10-23",
+      "release_notes": "Transmission 4.1.4\nThis is Transmission 4.1.4, a bugfix release. It fixes a security vulnerability in the macOS client and has other small bugfixes. Users are encouraged to upgrade to this version.\nWhat's New in 4.1.4\nAll Platforms\n- Fixed a Transmission 4.1.0 regression that could cause torrents with zero-byte files to be handled incorrectly, sometimes losing downloaded progress (#9165)\n- Hardened the torrent-add RPC method against malformed requests. (#9158)\n- Unified launch and delegation between the Qt and GTK clients: If either is already running and then you or a browser's mime-type handler tries to start the other to add a new torrent, that new torrent will get handed off to the pre-existing session. (#9032)\n- Fixed a build failure that happened when building Transmission with -Wnull-dereference -Werror in gcc 12.15. (#9057)\n- Fixed a rare bug could leave Transmission hung but running on shutdown. (#9058)\n- Fixed a rare bug that could prevent downloading webseeds from finishing. (#9146)\n- Fixed a bug where setting TR_CURL_PROXY_SSL_NO_VERIFY broke origin server SSL verification. (#9153)\n- Fixed per-torrent session speed-limit overrides so they apply to both downloads and uploads. (#9154)\nmacOS Client\n- Fixed a potential RCE vulnerability in the macOS client. It requires local write access to the user's preferences, so it is not remotely exploitable. (GHSA-v7mp-fpv3-jf5r)\n- Minimum supported version increased to macOS 12 (#9166)\n- Fixed a bug that prevented some magnet links from being added correctly. (#9062)\n- Migrate Sparkle update signing from DSA to EdDSA. (#9065)\nQt Client\n- On Windows builds, change to zlib 1.3.2 from 1.3.1 to pick up 7ASecurity audit fixes. (#9025)\n- On Windows 10+ builds, change to Qt 6.10.3 from 6.10.1 to pick up Qt bugfixes. (#9030)\n- On Windows 7 builds, change to Qt 5.15.19 from 5.15.17 to pick up Qt bugfixes. (#9030)\n- Improved UI code to use less CPU. (#9161)\nGTK Client\n- The torrent list now re-sorts and re-applies its filter when the torrent's top folder's name changes, eg after a rename or after a magnet link's metadata arrives. (#9159)\n- Opening a torrent's folder now opens the correct folder when a single-file torrent uses a directory structure. (#9160)\n- Fixed a bug that prevented transmission-gtk's app icon from being found on some desktops. (#9032)\nWeb Client\n- Fixed a display bug that sometimes listed torrent names as 'Unknown'. (#9135)\ntransmission-remote\n- Fixed a 4.0.0 bug that broke transmission-remote --list-groups. (#9157)\nThank You!\nLast but certainly not least, a big Thank You to these people who contributed to this release:\n- @danudey (Daniel Fox): Code review. (#9032)\n- @jgalat (Jorge Galat): Fixed per-torrent session speed-limit overrides so they apply to both downloads and uploads. (#9154)\n- @h1de0x (Kirill Shtumf): Opening a torrent's folder now opens the correct folder when a single-file torrent uses a directory structure. (#9160)",
+      "release_notes_url": "https://github.com/transmission/transmission/releases/tag/4.1.4",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/t/Transmission/Transmission/4.1.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/transmission/transmission/releases/download/4.1.4/transmission-4.1.4-x86.msi",
+          "host": "github.com",
+          "filename": "transmission-4.1.4-x86.msi",
+          "sha256": "6721e8c8bc33e59e34bf6d2fd8abd608a2af826a4c96d4f02cf86542d582fbed",
+          "product_code": "{2DE81337-B209-42D1-A502-501C127EEE7B}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "torrent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Transmission 4.1.4 (a6d907d9ea)",
+              "display_version": "4.1.4",
+              "product_code": "{2DE81337-B209-42D1-A502-501C127EEE7B}",
+              "upgrade_code": "{1FB3C295-9BD4-4248-8C8B-B85CD11FE7C4}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/transmission/transmission/releases/download/4.1.4/transmission-4.1.4-x64.msi",
+          "host": "github.com",
+          "filename": "transmission-4.1.4-x64.msi",
+          "sha256": "cf51e5772f39a3ead3c8f763b689399b9b4b8b016a4c0ca68ab5d6c634be2e1c",
+          "product_code": "{2E2CAC73-C12A-4807-9524-2640DCD21328}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "torrent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Transmission 4.1.4 (a6d907d9ea) (x64)",
+              "display_version": "4.1.4",
+              "product_code": "{2E2CAC73-C12A-4807-9524-2640DCD21328}",
+              "upgrade_code": "{1FB3C295-9BD4-4248-8C8B-B85CD11FE7C4}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "4.1.3",
@@ -836,8 +905,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "1464d41576767dbac3497f1cf70f79561fd0e7b6",
-      "retrieved_at": "2026-11-08T14:58:14.781Z",
+      "commit": "d5c6920930cc5831c2bec8782510ca2943d68f04",
+      "retrieved_at": "2026-11-22T14:24:44.599Z",
       "path": "manifests/t/Transmission/Transmission"
     },
     {
