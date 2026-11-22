@@ -1,0 +1,33 @@
+{
+  "slug": "mem-reduct",
+  "reviewed": "2026-11-21",
+  "best_for": "Windows users on low-RAM laptops and older PCs who want to watch memory use from the tray and free cached memory by hand before a heavy task.",
+  "points": [
+    {
+      "title": "What it clears",
+      "text": "Mem Reduct trims the system and process working sets and empties the standby and modified page lists. The author puts the typical result at 10 to 50% of memory, and it varies by machine."
+    },
+    {
+      "title": "Relies on undocumented Windows calls",
+      "text": "The cleaning uses internal Native API functions that Microsoft does not document. That is how it reaches the standby list, but behavior can change between Windows releases."
+    },
+    {
+      "title": "Needs administrator rights",
+      "text": "The project says it needs admin rights to work correctly, and the installer here sets it up for all users on x64."
+    },
+    {
+      "title": "Portable if you want it",
+      "text": "Put a `memreduct.ini` file next to the program, or move the one from `%APPDATA%\\Henry++\\Mem Reduct`, and it keeps its settings in its own folder."
+    },
+    {
+      "title": "Free, signed, Windows only",
+      "text": "It is GPLv3 and supports Windows 7 through 11 on 64-bit and Arm64. Releases carry a GPG signature you can check. There is no Mac or Linux version, and the Windows listing keeps 3 versions."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Mem Reduct on GitHub",
+      "url": "https://github.com/henrypp/memreduct"
+    }
+  ]
+}

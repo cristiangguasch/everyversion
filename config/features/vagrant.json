@@ -1,0 +1,53 @@
+{
+  "slug": "vagrant",
+  "reviewed": "2026-11-21",
+  "best_for": "Developers and ops people who want every teammate to start the same throwaway VM from one Vagrantfile, and who already run VirtualBox, Hyper-V, Docker or VMware.",
+  "points": [
+    {
+      "title": "You still need a hypervisor",
+      "text": "Vagrant only drives the virtual machines. VirtualBox, Hyper-V and Docker work as providers out of the box; VMware and others are added as plugins first. Install one of them before your first `vagrant up`."
+    },
+    {
+      "title": "One file rebuilds the box",
+      "text": "A Vagrantfile names the base box and how to set it up, so a broken environment is a delete and a rebuild away. New hires get the same machine as everyone else instead of a setup wiki."
+    },
+    {
+      "title": "Hyper-V and VirtualBox clash on Windows",
+      "text": "HashiCorp's install guide warns that VirtualBox VMs can crash Windows to a blue screen while Hyper-V is on, and gives the PowerShell or `bcdedit` commands to turn it off. On Linux, KVM can block VirtualBox in a similar way."
+    },
+    {
+      "title": "Box hosting is changing",
+      "text": "The docs say HCP Vagrant is being deprecated: no new boxes there after October 1, 2026, and existing deployments run until December 31, 2026. Public boxes are listed on Vagrant Cloud, so check where your team's boxes live."
+    },
+    {
+      "title": "Check the license for your version",
+      "text": "The license file on the main branch of the GitHub repo now carries MIT terms, while the packaged 2.4.x releases listed here are marked BUSL 1.1. If your company has rules on source-available licenses, read the file that ships with the version you install."
+    },
+    {
+      "title": "Install it from the package",
+      "text": "The docs say installing through RubyGems is not supported, and an old 1.0.x gem should be removed first. If `vagrant` is not found after installing on Windows, signing out and back in usually fixes the PATH."
+    },
+    {
+      "title": "Downgrades live on Windows",
+      "text": "The Windows listing keeps 23 versions, as 32-bit and 64-bit installers for the whole machine. macOS lists only the current release, in Intel and Apple silicon builds, so an older Mac version needs another source."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Installing Vagrant",
+      "url": "https://developer.hashicorp.com/vagrant/docs/installation"
+    },
+    {
+      "label": "Providers",
+      "url": "https://developer.hashicorp.com/vagrant/docs/providers"
+    },
+    {
+      "label": "Boxes",
+      "url": "https://developer.hashicorp.com/vagrant/docs/boxes"
+    },
+    {
+      "label": "Vagrant license file",
+      "url": "https://github.com/hashicorp/vagrant/blob/main/LICENSE"
+    }
+  ]
+}

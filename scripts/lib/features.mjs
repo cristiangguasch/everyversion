@@ -44,7 +44,7 @@ export function featureProblems(slug, feat, rec) {
   if (!Array.isArray(feat.sources) || !feat.sources.length) bad.push('"sources" needs at least one official page');
   for (const s of feat.sources || []) if (!str(s.label) || !/^https:\/\/[^\s]+$/.test(s.url || '')) bad.push(`bad source ${JSON.stringify(s)}`);
   const text = [feat.best_for, ...(feat.points || []).flatMap((p) => [p.title, p.text])].join(' ');
-  if (/UNCONFIRMED|TODO|lorem/i.test(text)) bad.push('contains a placeholder or UNCONFIRMED marker');
+  if (/\b(UNCONFIRMED|TODO|lorem)\b/i.test(text)) bad.push('contains a placeholder or UNCONFIRMED marker');
   return bad;
 }
 

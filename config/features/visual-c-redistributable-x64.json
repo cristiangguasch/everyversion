@@ -1,0 +1,41 @@
+{
+  "slug": "visual-c-redistributable-x64",
+  "reviewed": "2026-11-21",
+  "best_for": "Windows users whose game or app reports a missing `MSVCP140.dll` or `VCRUNTIME140.dll`, and developers who ship apps built with Visual Studio 2017 or later.",
+  "points": [
+    {
+      "title": "One package covers 2015 to 2026",
+      "text": "Apps built with Visual Studio 2017, 2019, 2022 or 2026 share the same v14 runtime files. Microsoft recommends the latest one for all of them and treats it as an in-place upgrade of the 2015 runtime, so you do not need a stack of separate versions."
+    },
+    {
+      "title": "Newer is required, not optional",
+      "text": "The installed runtime must be the same as or newer than the build tools the app was compiled with. An app built last month may refuse to start on a PC with an older runtime, so update rather than downgrade."
+    },
+    {
+      "title": "Match the app, not just Windows",
+      "text": "The runtime must match the app's architecture. A 32-bit app needs the x86 package even on 64-bit Windows, so many PCs need both. On ARM64 PCs, the x64 package also installs the ARM64 files."
+    },
+    {
+      "title": "Older runtimes are separate",
+      "text": "Apps built with Visual Studio 2013 or earlier need their own redistributables, which install side by side and are no longer supported by Microsoft."
+    },
+    {
+      "title": "Windows 10 and later only",
+      "text": "The latest build, shipped with Visual Studio 2026, supports Windows 10 and 11 and Windows Server 2016 through 2025. Older Windows needs an older build, and this site keeps 43 versions of the machine-wide installer."
+    },
+    {
+      "title": "Free, but not open source",
+      "text": "The runtime is free to install. Microsoft says only licensed Visual Studio users may redistribute it with their own apps."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Latest supported Visual C++ Redistributable",
+      "url": "https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist"
+    },
+    {
+      "label": "Visual Studio lifecycle and servicing",
+      "url": "https://learn.microsoft.com/visualstudio/productinfo/vs-servicing"
+    }
+  ]
+}

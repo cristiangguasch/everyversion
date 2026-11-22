@@ -1,0 +1,57 @@
+{
+  "slug": "rustup",
+  "reviewed": "2026-11-21",
+  "best_for": "Windows developers starting with Rust, or juggling stable and nightly across projects, who want the official installer that keeps the compiler and Cargo up to date.",
+  "points": [
+    {
+      "title": "The official way to get Rust",
+      "text": "The Rust project calls rustup the preferred install method. It installs rustc, cargo and the other tools, switches between stable, beta and nightly, and updates them with `rustup update`."
+    },
+    {
+      "title": "You may need Visual Studio's build tools",
+      "text": "The default Windows toolchain links with Microsoft's tools, so the installer may ask you to install the Visual Studio C++ Build Tools. A GNU toolchain is the alternative, but many crates then need a full MSYS2 and MinGW setup."
+    },
+    {
+      "title": "Per-project versions",
+      "text": "A `rust-toolchain.toml` file in a repository pins its toolchain, components and targets. `rustup override set` does the same for a folder without touching the repo."
+    },
+    {
+      "title": "Cross-compiling targets",
+      "text": "`rustup target add` downloads prebuilt standard libraries for other platforms. One Windows toolchain can build for all four x86 Windows targets."
+    },
+    {
+      "title": "Lives in your profile",
+      "text": "Tools go into `%USERPROFILE%\\.cargo\\bin`, which is added to your PATH. To use other folders, set `CARGO_HOME` and `RUSTUP_HOME` before running the installer and keep them set."
+    },
+    {
+      "title": "Removing it",
+      "text": "`rustup self uninstall` removes Rust and rustup completely."
+    },
+    {
+      "title": "Windows only here",
+      "text": "This page lists `rustup-init.exe` for x86, x64 and Arm64 and keeps 12 versions. On macOS and Linux the project installs rustup with a one-line `curl` script instead."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Install Rust",
+      "url": "https://www.rust-lang.org/tools/install"
+    },
+    {
+      "label": "The rustup book",
+      "url": "https://rust-lang.github.io/rustup/"
+    },
+    {
+      "label": "rustup on Windows",
+      "url": "https://rust-lang.github.io/rustup/installation/windows.html"
+    },
+    {
+      "label": "rustup installation",
+      "url": "https://rust-lang.github.io/rustup/installation/index.html"
+    },
+    {
+      "label": "Overrides",
+      "url": "https://rust-lang.github.io/rustup/overrides.html"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "powershell",
+  "reviewed": "2026-11-21",
+  "best_for": "Windows admins and developers who want the current, cross-platform PowerShell 7 alongside the built-in Windows PowerShell 5.1, installed and updated through winget or the Store.",
+  "points": [
+    {
+      "title": "It does not replace Windows PowerShell",
+      "text": "PowerShell 7 installs to its own folder and runs as `pwsh`, next to Windows PowerShell 5.1. Not every Windows PowerShell module runs in 7, so keeping both is normal."
+    },
+    {
+      "title": "Free and open source",
+      "text": "PowerShell is MIT-licensed and built on .NET. The same shell runs on Windows, macOS and Linux, so scripts can move between them."
+    },
+    {
+      "title": "From 7.7, MSIX only",
+      "text": "Starting with 7.7.0 there is no MSI package, and winget installs the MSIX bundle. This listing carries x64, x86 and Arm64 MSIX packages and needs Windows 10 version 1809 (build 17763) or later. MSI installers are still published for the 7.6 line."
+    },
+    {
+      "title": "What the MSIX cannot do",
+      "text": "MSIX installs are per user only. Incoming WSMan remoting does not work, and commands that write to `$PSHOME`, such as `Set-ExecutionPolicy -Scope LocalMachine`, fail. All-users profile scripts are not possible. Servers and fleets that need these are better on a 7.6 MSI or the zip."
+    },
+    {
+      "title": "LTS or newest",
+      "text": "Microsoft marks some releases as Long Term Servicing, which follow .NET LTS and get fixes for longer. The docs list 7.6 as the current LTS line; other stable releases are supported for a shorter window."
+    },
+    {
+      "title": "Telemetry you can switch off",
+      "text": "PowerShell sends basic telemetry. Set the `POWERSHELL_TELEMETRY_OPTOUT` environment variable to turn it off; the MSI has a matching install option."
+    },
+    {
+      "title": "Versions kept here",
+      "text": "The Windows listing keeps 114 versions, which helps when a script or module breaks on a newer release."
+    }
+  ],
+  "sources": [
+    {
+      "label": "PowerShell support lifecycle",
+      "url": "https://learn.microsoft.com/en-us/powershell/scripting/install/powershell-support-lifecycle"
+    },
+    {
+      "label": "Install PowerShell on Windows",
+      "url": "https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows"
+    },
+    {
+      "label": "PowerShell releases",
+      "url": "https://github.com/PowerShell/PowerShell/releases"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "yubico-authenticator",
+  "reviewed": "2026-11-21",
+  "best_for": "YubiKey owners who want their two-step codes stored on the key instead of a phone, and IT staff who set up PINs and certificates on those keys.",
+  "points": [
+    {
+      "title": "Codes live on the key",
+      "text": "Your one-time code secrets sit on the YubiKey and cannot be pulled off it. Plug the key into another computer with the app and the same codes show up, with nothing to back up or sync."
+    },
+    {
+      "title": "No YubiKey, no use",
+      "text": "The app stores nothing itself, so you need a YubiKey with USB or NFC. It is free and open source under Apache-2.0, with no account."
+    },
+    {
+      "title": "Set a password",
+      "text": "Yubico recommends an OATH password so a lost key does not hand out codes. If you forget it, the only fix is a reset that wipes every account on the key."
+    },
+    {
+      "title": "Manages the whole key",
+      "text": "Besides codes, it sets FIDO PINs, fingerprints and passkeys, PIV PINs and certificates, and the OTP slots. It also shows serial number and firmware."
+    },
+    {
+      "title": "Linux needs pcscd",
+      "text": "On Linux the smart card service `pcscd` must be running for codes and PIV. Yubico's own Linux download is a tar.gz; the Flatpak listed here is a Flathub build that Flathub does not mark as verified."
+    },
+    {
+      "title": "macOS asks for permissions",
+      "text": "On macOS, scanning a QR code from the screen needs screen-recording permission, and the OTP slot features need Input Monitoring."
+    },
+    {
+      "title": "Windows is a machine-wide MSI",
+      "text": "The Windows installer is a machine-wide MSI (x64) and may need admin rights, and the Windows listing keeps 19 versions. macOS (universal) and Linux list only the current release, currently 7.4.1 against 7.4.2 on Windows."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Yubico Authenticator",
+      "url": "https://www.yubico.com/products/yubico-authenticator/"
+    },
+    {
+      "label": "yubioath-flutter on GitHub",
+      "url": "https://github.com/Yubico/yubioath-flutter"
+    },
+    {
+      "label": "User guide: installation",
+      "url": "https://docs.yubico.com/software/yubikey/tools/authenticator/auth-guide/installation.html"
+    },
+    {
+      "label": "User guide: OATH accounts",
+      "url": "https://docs.yubico.com/software/yubikey/tools/authenticator/auth-guide/oath.html"
+    }
+  ]
+}
