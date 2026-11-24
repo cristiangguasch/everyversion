@@ -1,0 +1,1260 @@
+{
+  "schema_version": 2,
+  "slug": "headlamp",
+  "name": "Headlamp",
+  "publisher": "Headlamp",
+  "ids": {
+    "winget": "Headlamp.Headlamp",
+    "homebrew_cask": "headlamp",
+    "flathub": "io.kinvolk.Headlamp"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "Kubernetes web UI.",
+  "description": "A Kubernetes web UI that is fully-featured, user-friendly and extensible.",
+  "tags": [
+    "cncf",
+    "dashboard",
+    "headlamp",
+    "kinvolk",
+    "kubernetes",
+    "logging",
+    "monitoring",
+    "plugins",
+    "ui",
+    "web"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/kubernetes-sigs/headlamp",
+    "publisher": "https://headlamp.dev/",
+    "support": "https://github.com/kubernetes-sigs/headlamp/issues",
+    "bug_tracker": "https://github.com/kubernetes-sigs/headlamp/issues",
+    "release_notes": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.46.0",
+    "documentation": [
+      {
+        "label": "Headlamp Documentation",
+        "url": "https://headlamp.dev/docs/latest"
+      }
+    ]
+  },
+  "license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/kubernetes-sigs/headlamp/blob/HEAD/LICENSE",
+    "spdx": "Apache-2.0"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "0.46.0",
+    "macos": "0.46.0",
+    "linux": "0.46.0"
+  },
+  "last_updated": "2026-10-15",
+  "versions_total": {
+    "windows": 34,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "0.46.0",
+      "release_date": "2026-10-15",
+      "release_notes": "Headlamp 0.46.0 introduces alpha support for Kubernetes Dynamic Resource Allocation, making device classes, GPU claims, and claim templates visible in the dashboard. New hierarchical workload views, Job suspend and resume actions, a configurable details drawer, and a guided Endpoints form simplify everyday cluster work, while service port-forwards reconnect automatically after pod restarts. The release also improves OIDC login and logout, strengthens plugin credential isolation and release signing, and expands integration points for desktop products. Accessibility, localization, frontend build tooling, and reliability improvements round out the release across web and desktop.\n🌟 Dynamic Resource Allocation (alpha): see how workloads get GPUs and other devices\nHeadlamp now shows Kubernetes Dynamic Resource Allocation (DRA), the Kubernetes API that workloads use to request GPUs and other devices. A new Devices section appears on clusters that serve resource.k8s.io/v1 (Kubernetes 1.34+). DRA support is in alpha.\n\nDevices section and Device Classes\nBrowse the device classes your cluster offers, with their CEL selectors, driver settings, and extended resource names, in a Devices section that only appears where DRA is served.\n\nDevice Class details\nSee the CEL selectors a class uses to pick devices, shown exactly as written, along with its extended resource name and driver settings.\n\nResource Claims\nSee whether each claim is waiting for a device, allocated, or in use, along with the devices it was granted and the node they are on.\n\nResource Claim Templates\nTemplates describe the devices a Pod asks for, and Kubernetes makes a new claim from them for every Pod. See each template's namespace, how many requests it makes, and which device classes it uses.\nImplemented across #7724, #7820, and #7971. Thanks to @Anjali-Chauhan1. Feedback is welcome on #4831.\n\n✨ Enhancements (part 1)\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────\nAdds an OIDC auto-login server flag and Helm setting so users are redirected straight to the identity provider without clicking a login button, fixing post-login redirect bugs along the way.                             │Thanks to:\n                                                                                                                                                                                                                           │@Suyog241005\n                                                                                                                                                                                                                           │@mudit06mah.\n                                                                                                                                                                                                                           │Thanks to @menardorama for reporting.\n                                                                                                                                                                                                                           │#7071\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────\nAdds Suspend and Resume actions for Jobs in the details header and table row menu, so users can toggle spec.suspend without editing YAML or using kubectl.                                                                 │Thanks to @PixelRobots.\n                                                                                                                                                                                                                           │#7698\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────\nAdds a setting to open the details drawer on the right, left, or bottom instead of a hardcoded right side, letting users place the panel where they prefer, with the choice saved locally.                                 │Thanks to @WasThatRudy.\n                                                                                                                                                                                                                           │Thanks to @jasoncologix for reporting.\n                                                                                                                                                                                                                           │#7126\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────\nAdded French translations for 75 missing strings, mostly in the new create forms and address validation messages, so French-speaking users see these forms in their language while Kubernetes API values stay untranslated.│Thanks to @berlewis.\n                                                                                                                                                                                                                           │#7902\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────\nThe desktop build manifest now accepts a product-owned company name and a separate Linux maintainer contact, mapped to Electron Builder metadata, so branded products can set their own publisher details.                 │Thanks to @illume.\n                                                                                                                                                                                                                           │#7746\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────\nProducts can now declare an explicit approvedCommands list separate from plugin-authorized commands, giving product-owned defaults without seeding user settings or auto-approving every shipped plugin command.           │Thanks to @illume.\n                                                                                                                                                                                                                           │#7685\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────\nAdded a guided create form for Endpoints that edits subsets, addresses and ports and validates them like the API server, so users avoid hand-writing YAML and catch errors such as loopback IPs before submitting.         │Thanks to @vyncent-t.\n                                                                                                                                                                                                                           │#7666\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────\n\nAdds Suspend and Resume actions for Jobs in the details header and table row menu, so users can toggle spec.suspend without editing YAML or using kubectl.\n\n✨ Enhancements (part 2)\n──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬──────────────────────────────────────────────────────────────\nAdded CompositePodGroup views for hierarchical gang scheduling, so users can see the nested pod group tree and tell which part of a nested workload failed to schedule.                                       │Thanks to @Anjali-Chauhan1.\n                                                                                                                                                                                                              │#7542\n──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────────────────────────────────────────────────────────",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.46.0",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.46.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.46.0/Headlamp-0.46.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.46.0-win-x64.exe",
+          "sha256": "8169fadd6291c125266182e8566ecdef835d6e0e7b0a7c9ec16be660ee02c67a",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "apps_and_features": [
+            {
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.46.0/Headlamp-0.46.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "Headlamp-0.46.0-win-x64.msi",
+          "sha256": "595e97a2046bd29faba0c2ffdab6679e030d6b44e1bba79f1d24120a989d8667",
+          "product_code": "{E24D28A4-D933-471A-B56E-C58582B138C9}",
+          "elevation_requirement": "elevatesSelf",
+          "apps_and_features": [
+            {
+              "publisher": "Kinvolk",
+              "product_code": "{E24D28A4-D933-471A-B56E-C58582B138C9}",
+              "upgrade_code": "{B5678886-26A5-4A15-8513-17D67AAEAF68}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.46.0/Headlamp-0.46.0-win-arm64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.46.0-win-arm64.exe",
+          "sha256": "eab7bff734b3cafdbc8c2a4525bd0be6aefed6a66b1e4f4ea870f1fa7159c817",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "apps_and_features": [
+            {
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.0",
+      "release_date": "2026-08-20",
+      "release_notes": "Headlamp 0.45.0 reduces desktop startup memory and unnecessary background requests, while adding new scheduling and Gateway API views, guided resource creation forms, and more flexible plugin and product customization. Security updates protect desktop APIs, verify external plugin archives, and close command-consent and dependency vulnerabilities. Accessibility improvements make high-zoom layouts, keyboard controls, and custom theme contrast more usable, alongside 31 bug fixes across authentication, port forwarding, Resource Map, tables, and the desktop app.\n⚡ Performance\n──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────────────────────────────────────────────────────────────────────────────────────────────\nPlugin i18n now fetches only the active locale's translation file instead of all declared locales, preventing a flood of 404 requests when a plugin declares multiple languages.                      │Thanks to:\n                                                                                                                                                                                                      │@YousufFFFF\n                                                                                                                                                                                                      │@r0hansaxena.\n                                                                                                                                                                                                      │Thanks to @mjeanrichard for reporting.\n                                                                                                                                                                                                      │#7363\n──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────\nDesktop startup now defers optional work, retains smaller Kubernetes objects, and tunes garbage collection, reducing memory by about 60 MiB RSS across combined isolated measurements.                │Thanks to @illume.\n                                                                                                                                                                                                      │#7358\n──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────\nReplaced the manual setInterval in useClustersVersion with React Query's useQueries, so polling pauses when the browser tab is hidden and unnecessary network requests to connected clusters are      │Thanks to:\navoided.                                                                                                                                                                                              │@shreyas-acharya\n                                                                                                                                                                                                      │@illume.\n                                                                                                                                                                                                      │#6707\n──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────\n\n✨ Enhancements (part 1)\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────\nAdded target container selection for ephemeral debug containers, allowing users to share the process namespace and filesystem of a specific container in multi-container pods during debugging.             │Thanks to:\n                                                                                                                                                                                                            │@Suyog241005\n                                                                                                                                                                                                            │@yush-1018.\n                                                                                                                                                                                                            │Thanks to @eightfourseventwo for reporting.\n                                                                                                                                                                                                            │#7245\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────\nAdded a 'Keep Large Graph Groups Expanded' setting that persists namespace group expansion state across sessions, eliminating repetitive manual expansion clicks on large cluster resource maps.            │Thanks to:\n                                                                                                                                                                                                            │@Suyog241005\n                                                                                                                                                                                                            │@mudit06mah.\n                                                                                                                                                                                                            │Thanks to @syorito-hatsuki for reporting.\n                                                                                                                                                                                                            │#7156\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────\nA right-click context menu with copy and paste options has been added to the pod terminal, so users can copy and paste text without workarounds.                                                            │Thanks to @rootp1.\n                                                                                                                                                                                                            │Thanks to @jimmyjones2 for reporting.\n                                                                                                                                                                                                            │#7121\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────\nAdded a form-based UI for creating PersistentVolumeClaims, including multi-select access mode support, so users can provision storage directly from the Storage section without writing raw YAML.           │Thanks to @anoopw3bdev.\n                                                                                                                                                                                                            │#5333\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────\nValidated legal documents from the build manifest now appear in About and Legal tabs, letting desktop products present licenses and third-party notices in the app.                                         │Thanks to:\n                                                                                                                                                                                                            │@illume\n                                                                                                                                                                                                            │@joaquimrocha.\n                                                                                                                                                                                                            │#7299",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.45.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.45.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msi",
+          "scope": "machine",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.45.0/Headlamp-0.45.0-win-x64.msi",
+          "host": "github.com",
+          "filename": "Headlamp-0.45.0-win-x64.msi",
+          "sha256": "33dc5c69d74104dbfc0a58629750674c25a599d7f25ac354f9f2d2403b193886",
+          "product_code": "{D473415D-2483-43E7-92A7-08B8358698A7}",
+          "elevation_requirement": "elevatesSelf"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.45.0/Headlamp-0.45.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.45.0-win-x64.exe",
+          "sha256": "c8733a8c0d246abb4ff4cc76066002b35a72a67a83dd754ddef7b7229d6bc799",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.45.0/Headlamp-0.45.0-win-arm64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.45.0-win-arm64.exe",
+          "sha256": "c02bf0dfd3e1be7aef4d7f4dfc701e5791884338553e2b1eac58021338b9f20c",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.44.0",
+      "release_date": "2026-07-29",
+      "release_notes": "Need for speed! 🏎️ 💨  Headlamp 0.44.0 extends practical cluster support beyond 30,000 pods. Resource Map remains usable at this scale, Pod lists fetch 1,000 items at a time, Cluster Overview avoids unbounded watch traffic, and Brotli pre-compression reduces typical JavaScript and CSS transfers by 75-80% and server load for compression to 0%. Got dozens of clusters? Headlamp doesn't try to connect to all of them at startup anymore (potentially opening several browser login windows). Four new structured forms cover DaemonSets, CronJobs, Jobs, and ReplicaSets, while ConfigMap binaryData, ServiceAccount permission visibility, Gateway API v1.5.1, and new plugin controls expand day-to-day capabilities. The release includes 99+ bug fixes, including protections against white-screen startup failures when developing Headlamp on Windows, more accurate workload health reporting, stable large-manifest editing on large busy clusters, and actionable cluster connection errors. Accessibility work restores macOS zoom, improves WCAG AA contrast in a few spots, and broadens automated a11y checks. Security and documentation updates add github cosign of release checksums, safer redirects, tested in-cluster kubeconfig examples, and ready-to-use MCP configurations.\nThese changes were contributed by over 100+ people. Thanks! 🎉\n⚡ Performance\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────────────────\nResourceMap performance improved with iterative BFS, graph simplification, and incremental WebSocket updates — 59% faster initial load and 86% faster updates at 2,000 pods, and clusters with 20,000+ pods are now usable where they previously crashed the browser.│Thanks to @illume. Also thanks to @itpick for reporting the issue. #4991\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nCluster overview now polls pod, node, and event data every minute instead of using persistent watch streams, preventing browser OOMs on large clusters.                                                                                                              │Thanks to @Aamod007. Also thanks to @lucas-jackson for reporting the issue. #6021\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nOptimized sidebar rendering to eliminate UI lag and main thread blocking caused by unnecessary DOM nodes and layout thrashing during CSS transitions.                                                                                                                │Thanks to @Psykii22. #6233\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nFrontend and plugin static assets are now precompressed with Brotli and served as .br sidecars — JS/CSS bundles are 75–80% smaller over the wire, WASM assets ~60% smaller, and runtime CPU compression overhead drops to zero.                                      │Thanks to @illume. #6004\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nFixed a memory leak where Backstage receiver event listeners accumulated on each remount of the Home component, improving stability during navigation.                                                                                                               │Thanks to @Rohith-Saran. #5775\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nFixed unbounded memory growth in OIDC login by evicting abandoned state tokens that were never cleaned up when users left the login flow.                                                                                                                            │Thanks to @ayushmaan-16. #5866\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nReduced per-message memory allocations in the WebSocket multiplexer hot path by replacing reflection-based decoding and fmt.Sprintf with typed structs and string concatenation.                                                                                     │Thanks to @Slambot01. #6294\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nReduced memory allocations in the k8cache hot path by checking error status before marshalling and replacing fmt.Sprintf with string concatenation, improving cache performance.                                                                                     │Thanks to @Slambot01. #6420\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nReplaced repeated linear metrics searches with a memoized namespace/name-keyed Map in the Pod List, reducing CPU overhead during metric lookups.                                                                                                                     │Thanks to @skools-here. #6011\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────\nAdded pagination to the Pods list with a 1000-item budget and a load-more button, preventing out-of-memory crashes on clusters with tens of thousands of pods.                                                                                                       │Thanks to @drewbailey. #5660\n─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────\n\nResourceMap performance improved with iterative BFS, graph simplification, and incremental WebSocket updates.\n20,000+ pods — all operations under 37ms, where previously the browser would crash:\n\nAdded pagination to the Pods list with a 1,000-item budget and a load-more button, preventing out-of-memory crashes on clusters with tens of thousands of pods.\n\n📱 Mobile\nA mobile audit was done, and a number of improvements were made.\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────────────────────────\nTables now hide least-important columns first on narrow viewports instead of squashing them, keeping visible data readable at high zoom levels.                        │Thanks to @skoeva. #6468\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────────────────\nFixed several mobile UI issues including overflow-menu, dialog, terminal, editor, and temporary-sidebar behaviour, making the interface more reliable on small screens.│Thanks to @illume. #5739\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────\n\nTables now hide least-important columns first on narrow viewports instead of squashing them.\n\nMobile overflow menus and terminal dialogs now use the available screen space more effectively.\n\n✨ Enhancements (part 1 of 2)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.44.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.44.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.44.0/Headlamp-0.44.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.44.0-win-x64.exe",
+          "sha256": "57038c256dab3936f7a0a2dc83794378f182bbd29dc749a6f02a110e6c93a4e3",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.44.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.43.0",
+      "release_date": "2026-06-16",
+      "release_notes": "✨ Enhancements\n- Added opt-in service account token auth for in-cluster deployments, enabling Headlamp to work behind OIDC or other external auth proxies. Thanks to @0xMH and @unixpariah. Also thanks to @yolossn for reporting the issue.\n- Helm chart probes now support a configurable scheme (HTTP/HTTPS) and full timing settings, enabling correct probe behavior when backend TLS is enabled. Thanks to @gambtho. Also thanks to @mbasha86 for reporting the issue.\n- Added alpha support for ClusterProfile discovery via the Cluster Inventory API, enabling automatic multi-cluster registration without manual kubeconfig setup. Thanks to @kahirokunn.\n- Added hostAliases support to the Helm chart pod template, allowing custom host-to-IP mappings to be configured via chart values. Thanks to @VijayabaskarR-06. Also thanks to @geochip for reporting the issue.\n- Added Russian language support to the frontend, making Headlamp more accessible for Russian-speaking users. Thanks to @Future998.\n- Added proxy auth support so Headlamp can read authentication headers injected by middleware proxies for seamless cluster access. Thanks to @ageekymonk.\n- Added dry-run preview for rollbacks, letting users inspect the resulting resource YAML before applying a rollout undo. Thanks to @alokdangre. Also thanks to @illume for reporting the issue.\n- Added an AKS node upgrade visualization panel showing Cordon, Drain, Delete, Reimage, Complete progress for managed nodes. Thanks to @Jenniferyingni.\n- Added RTL layout support and new locales for Arabic, Urdu, and Hebrew, with the UI direction switching automatically based on the selected language. Thanks to @mahmoodalisha.\n- Completed missing Hindi translations for UI strings, ensuring users with a Hindi locale see a fully translated interface. Thanks to @mahmoodalisha.\n- Added a batch scale action to the multi-select toolbar, letting users scale multiple Deployments, StatefulSets, or ReplicaSets at once. Thanks to @RajPrakash681.\n- Added registerProjectApiResource() to the plugin API, enabling plugins to include custom CRDs in Project resource fetching. Thanks to @NAME-ASHWANIYADAV.\n- Added a diagnostics section to Pod and workload detail pages that surfaces deterministic troubleshooting hints from Kubernetes status, events, and container data. Thanks to @Utkarshpandey0001.\n- Added a Dry Run option to the YAML editor, letting users validate manifests against the Kubernetes API before applying them. Thanks to @Vikaspal8923.\n- Made the Back button on the cluster authentication chooser keyboard-accessible by adding tab focus and Enter/Space key handling. Thanks to @YadavAkhileshh.\n- Added missing French translations, improving UI localization coverage and keeping Kubernetes terms like \"cluster\" technically accurate. Thanks to @codeurluce.\n- Integrated @typescript/native-preview for frontend type checking, cutting type-check time from ~18-20 seconds down to ~3-4 seconds. Thanks to @sniok.\n- Advanced Search queries can now be saved to browser local storage and restored, renamed, or deleted from the toolbar. Thanks to @Utkarshpandey0001.\n- Added a dedicated Job details view surfacing completions, parallelism, backoff limit, active/succeeded/failed counts, and more, replacing the generic workload view. Thanks to @beep-boopp.\n- Added remark-gfm to the headlamp-plugin do-not-copy list to prevent it from being incorrectly bundled into plugin builds. Thanks to @illume.\n- Added ReadHeaderTimeout and IdleTimeout to the backend HTTP server, reducing slow-request attack risk while keeping logs and WebSockets unaffected. Thanks to @ayushmaan-16.\n- Helm chart now supports setting a default pod debug image via values, used as the fallback when no per-cluster override is configured. Thanks to @harrshita123.\n- Events table on the cluster overview page now includes a Node column showing which node emitted each event. Thanks to @VijayabaskarR-06. Also thanks to @trashhead for reporting the issue.\n- Job details view now includes a Logs button, letting you view logs from related pods without leaving the Job page. Thanks to @ChunyiLyu.\n- Added a container query parameter to pod log and exec deep-links, letting users link directly to a specific container's logs or terminal. Thanks to @jordanly.\n- Resource detail views now show additional fields matching kubectl describe output, including port info for NodePort services. Thanks to @joaquimrocha.\n- Added a Create Deployment form to the UI, letting users create Deployments directly alongside the existing Pod creation workflow. Thanks to @vyncent-t.\n- Helm repository add and update operations now support authentication fields including username, password, and TLS options for private repositories. Thanks to @Athang69.\n- Added --default-light-theme and related CLI flags so administrators can configure the default UI theme at runtime based on OS preference. Thanks to @guillaumebernard84.\n- Added Windows Arm64 desktop builds, expanding native platform coverage to Arm-based Windows devices. Thanks to @illume.\n- Added Bengali language support to the frontend and translated technical Kubernetes jargon, improving localization for Bengali-speaking users. Thanks to @Pratik-050.\n- Node List and Details views now show the node pool, with a new getNodePool() method on the node model and Nodes added as a source to the Cluster group in the resource map. Thanks to @illume.\n- Added an opt-in Chromium remote debugging port to the Electron app, enabling devtools and MCP integrations. Thanks to @yolossn\n- Added a kubeconfig secretreader example to the Helm chart, pinned the Cluster Inventory provider images, and allowed Cluster Inventory commands to run under plugin mounts. Thanks to @kahirokunn.\n\nAdded alpha support for ClusterProfile discovery via the Cluster Inventory API\n\nAdded RTL layout support and new locales for Arabic, Urdu, and Hebrew\n\nAdded an AKS node upgrade visualization panel\n\nAdded Russian language support to the frontend\n\nAdded proxy auth support for middleware proxies\n\nAdded a diagnostics section to Pod and workload detail pages\n\nJob details view now includes a Logs button\n\nAdded a Create Deployment form to the UI\n\nAdded a dedicated Job details view\n\n🐞 Bug Fixes\n- Switched macOS notarization back to electron-builder, combining codesign, notarize, and staple into a single step using APPLEID credentials. Thanks to @joaquimrocha.\n- Fixed OIDC login failures when no custom CA cert is configured, so public providers like Entra ID, Okta, and Google now work correctly. Thanks to @beep-boopp. Also thanks to @muhammad9970 for reporting the issue.\n- Fixed parseRam and parseDiskSpace silently dropping decimal portions (e.g., '289.9Mi'), so memory and disk quantities are now parsed accurately. Thanks to @WasThatRudy. Also thanks to @thehandsomezebra for reporting the issue.\n- Fixed the Electron app on Linux and Windows to fully quit when the window is closed instead of continuing to run in the background. Thanks to @Mohammed-Thaha. Also thanks to @Hronom for reporting the issue.\n- Fixed stale Pod status icons in the list view that stayed yellow/warning even after a Pod had passed its readiness checks. Thanks to @RustamSheoran. Also thanks to @vikash7485 for reporting the issue.\n- Fixed the Helm chart release workflow failing when it attempted to push provenance files as gzipped archives. Thanks to @onedr0p. Also thanks to @joryirving for reporting the issue.\n- Table rows-per-page selection is now saved to localStorage, so the preference persists across page refreshes. Thanks to @ChayanDass. Also thanks to @illume for reporting the issue.\n- Fixed missing edges in the resource map when nodes move between cloud and namespace-specific views. Thanks to @gattytto.\n- Fixed a crash that prevented Headlamp from loading on Firefox browsers by removing problematic i18n normalisation. Thanks to @DhairyaMajmudar.\n- Fixed a data race on the portforward Status and Error fields by introducing a mutex and thread-safe accessors, improving port-forwarding stability. Thanks to @NAME-ASHWANIYADAV.\n- Fixed broken plugin tests caused by removed ArtifactHub packages and a macOS-incompatible shebang, restoring reliable CI runs. Thanks to @skoeva.\n- Helm chart now warns when image.tag is pinned during upgrades, preventing users from unknowingly running an outdated image after a chart update. Thanks to @ManthanNimodiya. Also thanks to @lyc0221 for reporting the issue.\n- Backend HTTP transports now clone DefaultTransport when customizing TLS, preserving proxy support and connection timeouts that were previously silently dropped. Thanks to @beep-boopp.\n- Fixed backend test failures on Windows by consistently using filepath.Join for all filesystem path operations. Thanks to @PrakharJain345.\n- Fixed a React rules-of-hooks violation in ContainerEnvironmentVariables by moving hooks before the early return, eliminating potential rendering bugs. Thanks to @nidhi-9900. Also thanks to @illume for reporting the issue.\n- Fixed failing daemonset snapshot tests in main to restore a passing CI build. Thanks to @illume.\n- Fixed missing az and gh command support in runPlugin and added proper handling of child process error events. Thanks to @illume.\n- Added unit tests for OpenTelemetry metrics initialization to verify that core metrics like RequestCounter and PluginLoadCount are correctly instantiated. Thanks to @CygnusMaximillian.\n- Fixed the website trigger workflow to authenticate using GH_TOKEN, resolving failures in the gh api dispatch call. Thanks to @skoeva.\n- Fixed useKubeObjectList to strip only the List suffix from kind names, preventing garbled names for resource types like Tekton's EventListener. Thanks to @sniok.\n- Fixed a crash when typing partial YAML (e.g., a lone '-') under containers: in the Create Resource dialog, preventing a TypeError from taking down the whole app. Thanks to @WasThatRudy. Also thanks to @lucasgolino for reporting the issue.",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.43.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.43.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.43.0/Headlamp-0.43.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.43.0-win-x64.exe",
+          "sha256": "922ca8b7e419c159c94eb196fa248fffab8f8caca0517e5e34f648c73c10ddaa",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.43.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.42.0",
+      "release_date": "2026-05-07",
+      "release_notes": "Hitch hikers guide to Headlamp 0.42.0\nDeep-link support was added for pod terminals (?view=exec) and log views (?view=logs), letting users bookmark or share direct links to specific UI states. Resources can now be searched by label in all list views, the Log Viewer gains a severity filter dropdown, and a delete button has been added directly to the plugins list. Node Details received two new sections for pod capacity usage and resource allocation, and the Resource Map now renders status badges on plugin-provided nodes and includes previously missing configuration resources. GRPCRoute details reach full parity with HTTPRoute, and a guided form-based resource creation UI (starting with Pods) is now available alongside the YAML editor.\nOn the reliability side, a silent cache desync that caused permanently stale cluster data was fixed, along with a lock-order inversion deadlock that could freeze WebSocket connections under load, and a wave of React hooks rule violations across more than a dozen frontend components. Several backend panics were fixed in port-forwarding, kubeconfig parsing, cache key generation, and Helm chart type handling, alongside debounced log aggregation to prevent UI freezes in All Pods mode. Security hardening includes path traversal prevention in the service proxy and dependency bumps.\n\n✨ Enhancements (part 1)\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────\nEnhancements                                                                                                                                                       │\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded deep-link support for pod exec via ?view=exec query parameter, letting users bookmark or share direct links to open a terminal into a specific pod.          │Thanks to @justinas-wix. #4941\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded a hidden 'labels' column to all resource list views so users can search resources by label (e.g. app=test) using the existing search bar.                    │Thanks to @sniok. Also thanks to @illume for reporting the issue. #5035\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nResource map graph nodes now support optional status metadata, allowing plugin-provided nodes to display warning and error badges like built-in resources.         │Thanks to @mahmoudmagdy1-1. #5349\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded a pod capacity usage tile to the node details view so users can see how many pods are scheduled versus the node's allocatable pod limit.                     │Thanks to @Vikaspal8923. Also thanks to @jimmyjones2 for reporting the issue. #5039\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nExtended a8r.io annotation support from Services to all Kubernetes resources, letting users see human-readable service discovery metadata on any annotated         │Thanks to @mastermaxx03. #5007\nresource.                                                                                                                                                          │\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded a severity filter dropdown to the Log Viewer, letting users quickly filter logs by level (ERROR, WARN, INFO, DEBUG) to cut through noisy streams.            │Thanks to @Utkarshpandey0001. #5338\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded a delete button directly to the plugins list page, so users can remove plugins without navigating to the detail page first.                                  │Thanks to @rickbrouwer. #5314\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded ?view=logs deep-link support on Deployment, ReplicaSet, DaemonSet, and StatefulSet detail pages, letting users open the logs view directly from a URL.       │Thanks to @bhat-ganesh. #5312\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded missing configuration resources to the Resource Map graph so they are now fully visible in the Configuration group.                                          │Thanks to @vishnukothakapu. #5223\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────\n\nAdded a hidden 'labels' column to all resource list views so users can search resources by label (e.g. app=test) using the existing search bar.\n\nAdded a delete button directly to the plugins list page, so users can remove plugins without navigating to the detail page first.\n\nAdded a guided form-based UI for creating Kubernetes resources (starting with Pods), accessible from the sidebar and Pod list page alongside the existing YAML editor workflow.\n\n✨ Enhancements (part 2)\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────\nEnhancements                                                                                                                                        │\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded ephemeral storage usage chart to the Node Details view, giving users visibility into ephemeral storage consumption alongside other node stats.│Thanks to @Vikaspal8923. Also thanks to @jimmyjones2 for reporting the issue. #5169\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded a 'Review changes' tab to the resource editor dialog so users can diff the original manifest against their edits before applying.             │Thanks to @Vikaspal8923. #5018\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nAdded a background janitor to evict expired Kubernetes clientsets, fixing an unbounded memory leak that could cause OOM crashes on busy clusters.   │Thanks to @Joshna907. #5286\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nWrapped the Reconnect button label in LogViewer with the translation function and added the key to all 12 locale files, enabling full i18n support. │Thanks to @NAME-ASHWANIYADAV. #5176\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────\nGRPCRoute details view now shows rules, hostnames, matches, backendRefs, and filters, bringing it to full parity with HTTPRoute details.            │Thanks to @NAME-ASHWANIYADAV. #5174\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────\n\nResource map graph nodes now support optional status metadata, allowing plugin-provided nodes to display warning and error badges like built-in resources.",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.42.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.42.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.42.0/Headlamp-0.42.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.42.0-win-x64.exe",
+          "sha256": "05a8c63a9367c13f57951e7872ab26192b4855cd8609b5d7142f739c00791795",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.42.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.41.0",
+      "release_date": "2026-03-23",
+      "release_notes": "✨ Enhancements\n- Implement rollback for Deployment, DaemonSet, StatefulSet. Including to specific revision and Revision history view. Thanks to @alokdangre\n- Add multi-cluster user logout. Thanks to @alokdangre\n- Enable cluster deletion in browser. Thanks to @alokdangre\n- Display environment variables for containers in pod details views. Thanks to @gambtho\n- Added Toggle Switch to filter helm secrets. Thanks to @mudit06mah\n- Add session-ttl flag and logic. Thanks to @mudit06mah\n- Allow OIDC cookies when in-cluster is false via flag. Thanks to @beep-boopp\n- Add MCP server support for plugins including the ai-assistant. Thanks to @illume\n- Add support for traefik or any reverse proxy handling auth through middlewares. Thanks to @ageekymonk\n\n🐞 Bug Fixes\n- Fix flaky PodDetailsView Storybook test. Thanks to @mahmoudmagdy1-1\n- Fix ARIA menu role in ClusterChooserPopup. Thanks to @mahmoudmagdy1-1\n- Correct aria attributes in ShowHideLabel component. Thanks to @greedy-wudpeckr\n- Fix PluginSettings heading hierarchy. Thanks to @greedy-wudpeckr\n- Fix a11y roles in ClusterChooserPopup for screen readers. Thanks to @mahmoudmagdy1-1\n- Fix alignment in narrow layouts for NameValueTable. Thanks to @mahmoudmagdy1-1\n- Fixed ignored k8cache error handling. Thanks to @greedy-wudpeckr\n- Add crossorigin to manifest link. Thanks to @zyzzmohit\n- Fix age column sorting in ObjectEventList. Thanks to @greedy-wudpeckr\n- Auto-detect platform for Apple Silicon Macs. Thanks to @Mandalorian7773\n- Add translatable aria-label fallback to Loader for screen readers. Thanks to @mastermaxx03\n- Ensure complementary landmark has valid label in Activity. Thanks to @mastermaxx03\n- Fix new project heading a11y issue. Thanks to @vyncent-t\n- Default to init container if main container not yet running. Thanks to @mastermaxx03\n- Add responsive width to ConfirmDialog. Thanks to @ChayanDass\n- Fix alignment name and button in clusterRename. Thanks to @ChayanDass\n- Remove inert property from Sidebar. Thanks to @sniok\n- Populate empty DialogTitle in AuthTypeoidc story. Thanks to @CODEAbhinav-art\n- Wrap MenuItem in MenuList for RestartMultipleButton. Thanks to @Vaishnav-Dhaval\n- Add dialog title to HaveClusters story. Thanks to @CODEAbhinav-art\n- Add missing properties to HeadlampTables interface. Thanks to @pallava-joshi\n- Correct broken cluster settings navigation. Thanks to @emmanuel-ferdman\n- Remove empty h1 from ClusterDialog. Thanks to @aravind4799\n- Fix narration for Default Namespace in SettingsCluster. Thanks to @vyncent-t\n- Disable close on select in PureNamespaceAutocomplete. Thanks to @YotamKorah\n- Cascade delete Pods when deleting Jobs. Thanks to @beep-boopp\n- Fix cluster rename bug for clusters with special characters. Thanks to @StevenPG\n- Avoid invalid field selector for pod metrics. Thanks to @wingerx\n- Persist rows-per-page selection to localStorage on change in Table. Thanks to @Trulsaa\n- Preserve original URL after OIDC authentication. Thanks to @justinas-wix\n- Fix scheme conversion and logging in multiplexer. Thanks to @illume\n- Stop watcher goroutines on server shutdown. Thanks to @zyzzmohit\n- Fix picking the hash for chocolatey version bump. Thanks to @joaquimrocha\n- Fix showing corrupt file on Mac. Thanks to @mastermaxx03\n- Add make cluster list scrollable to improve usability for keyboard users. Thanks to @mahmoudmagdy1-1\n\n💻 Development\n- Support apiGroup + kind for registerKindIcon. Thanks to @aadhil2k4\n- Update app, backend, frontend, headlamp-plugin dependencies. Thanks to @skoeva\n- Move HeadlampConfig to headlampconfig package. Thanks to @krrish-sehgal\n- Add update and delete coverage to informer tests for k8cache. Thanks to @ChayanDass\n- Refactor ts: made customResourceDefinition optional in CRClassArgs. Thanks to @pallava-joshi\n- Lift up tableSettings helpers and add localStorage to ClusterTable. Thanks to @StevenPG\n- Fix translations by using fs-backend with frontend locales path. Thanks to @sniok\n- Replace execSync with execFileSync in headlamp-plugin/scripts. Thanks to @skoeva\n- Fix delete error handling to show correct success/failure messages. Thanks to @gambtho\n- Bundle source with esbuild, upgrade to vitest. Thanks to @sniok\n- Refactor NavigationTabs component so it doesn't require cloning. Thanks to @sniok\n- Add .cmd shim for Windows to headlamp-plugin. Thanks to @skoeva\n- Add tests and stories for AuthToken Component. Thanks to @aravind4799\n- Add test for terminal.tsx file. Thanks to @ChayanDass\n- Add Storybook stories for ResourceTableColumnChooser. Thanks to @mastermaxx03\n- Add stories for SettingsClusters and SettingsCluster. Thanks to @greedy-wudpeckr\n- Add test for LogsButton.tsx file. Thanks to @aravind4799\n- Provide automatic aria-labelledby for Dialog accessibility. Thanks to @mastermaxx03\n- Update Terminal snapshots. Thanks to @mastermaxx03\n- headlamp-plugin: Bump to 0.13.1\n\n📖 Documentation\n- Add documentation for Oracle K8s Engine support. Thanks to @jaiakash\n- Add OpenUnison configuration guide. Thanks to @mlbiam\n- Add many more plugin development tutorials including for List and Detail views. Thanks to @yolossn\n- Fix some typos in contributing guide. Thanks to @gmarav05",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.41.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.41.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.41.0/Headlamp-0.41.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.41.0-win-x64.exe",
+          "sha256": "40f4a68fb6d201ee9efc3b18602e6e2c429772bb9780459f7f7569f2f8b45f73",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.41.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.1",
+      "release_date": "2026-02-10",
+      "release_notes": "🐞 Bug fixes\n- Fix sidebar becoming inaccessible after collapse\n- Fix age column sorting on events\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.40.1\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.40.1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.40.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.40.1/Headlamp-0.40.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.40.1-win-x64.exe",
+          "sha256": "ea8172a5d5902b75019319d86891135295c18366e0148ddabe12917232748f2c",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.40.1",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.40.0",
+      "release_date": "2026-02-05",
+      "release_notes": "✨ Enhancements:\n- Add icon and color configuration to clusters. Thanks to @alexmathieu22\n- Allow saving selected namespaces per cluster. Thanks to @mudit06mah\n- Add configurable keyboard shortcuts Thanks to @alokdangre\n- Add HTTPRoute support for Gateway API via new values and template. Thanks to @hxrshxz\n- Display a8r.io service metadata in service views. Thanks to @mastermaxx03\n- Make in-cluster context name configurable. Thanks to @iamhalje\n- Minimize activities blocking the main content when needed Thanks to @joaquimrocha\n- Add extraContainers field to Helm chart. Thanks to @lszczepaniak-XM\n- Add add ability to specify topologySpreadConstraints in Helm chart. Thanks to @irasnyd\n- Add volume mounts on plugin helper sidecar. Thanks to @martinbfrey\n- Add meUserInfoURL to secrets template. Thanks to @mudit06mah\n- Hide empty top bar overflow menu on small screens. Thanks to @d1vyanshu-kumar\n- Improve French translation. Thanks to @arthurphilippe\n- Allow configuring log level via command line arg and environment variable. Thanks to @aadhil2k4\n- Add vertical snap positions for activities. Thanks to @kahirokunn\n- Add deeplink compatibility for viewing Pod logs. Thanks to @mudit06mah\n- Unauthenticated users can now follow deeplinks. Thanks to @mudit06mah\n- Add debugging ephemeral container support. Thanks to @alexmathieu22\nAppearance Configuration per cluster\nIcon for cluster Appearance Configuration per cluster\nAdd service info from a8r.io metadata\nAdd service info from a8r.io metadata\n🧩 Shipped Plugins\n- Update shipped plugin Prometheus\n  - Settings: Added a test connection button\n  - Add i18n support\n  - Upgrade kinvolk/headlamp-plugin to 0.13.1\n🐞 Bug fixes\n- Fix showing corrupt file on Mac. Thanks to @mastermaxx03\n- Fix checking for existing project names. Thanks to @pallava-joshi\n- Fix focus trapping when resource drawer is open. Thanks to @pallava-joshi\n- Fix MaxListenersExceededWarning. Thanks to @greedy-wudpeckr\n- Fix getMainAPIGroup undefined error. Thanks to @mudit06mah\n- Fix headlamp-plugin package failing on dist subdirectories. Thanks to @skoeva\n- Fix Deployment.yaml template. Thanks to @mudit06mah\n- Fix NameValueTable spacing issue. Thanks to @alokdangre\n- Fix ARIA labels for input fields. Thanks to @vyncent-t\n- Fix warning label color contrast. Thanks to @vyncent-t\n- Fix many a11y issues. Thanks to @illume\n- Implement ad-hoc signing for macOS arm64 to fix damaged app error. Thanks to @mastermaxx03\n- Quote OIDC_USE_PKCE value to ensure it's a string. Thanks to @dihmandrake\n- Fix package pattern in Helm chart release workflow. Thanks to @onedr0p\n- Fix CI failures. Thanks to @skoeva\n💻 Development\n- Add AGENTS.md for AI-assisted development. Thanks to @illume\n- Add AGENTS.md to created plugins and bundle examples. Thanks to @illume\n- Add app/ development documentation and linting/formatting scripts. Thanks to @illume\n- Move yolossn from headlamp-reviewers to headlamp-maintainers. Thanks to @yolossn\n- Bump headlamp-plugin to 0.13.0 in example plugins. Thanks to @skoeva\n- Bump Storybook version in frontend plugins. Thanks to @skoeva\n- Bump tar to 7.5.7. Thanks to @skoeva\n- Update dependencies. Thanks to @skoeva\n- Add fast-check property tests for unit parsers. Thanks to @illume\n- Pin GitHub Actions by hash in draft-release workflow. Thanks to @skoeva\n- Skip chart release if it already exists. Thanks to @sniok\n- Remove unused frontend code. Thanks to @skoeva\n📖 Documentation\n- Add ingress basic auth guide for in-cluster deployments. Thanks to @aaryan359\n- Add Quick Start for Contributors section to README. Thanks to @TRIVENI206\n- Add Talos to supported platforms. Thanks to @alexmathieu22\n- Fix Dex OIDC block indentation in values.yaml snippet. Thanks to @archups\n🛡️ Security\n- Add @illume and @yolossn to SECURITY_CONTACTS. Thanks to @illume\nFull Changelog: v0.39.0...v0.40.0\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.40.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.40.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.40.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.40.0/Headlamp-0.40.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.40.0-win-x64.exe",
+          "sha256": "df348dd856fa9c52cd6c38a556224989dd2fc4d836eb70f56176594ce425e2d1",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.40.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.39.0",
+      "release_date": "2025-12-17",
+      "release_notes": "✨ Enhancements:\n- Add cluster column to CRD list. Thanks to @kahirokunn\n- Add attach-based node debugger workflow that mirrors kubectl debug-node. Thanks to @dorser\n- Add count column to events list view\n- Display Node and Loadbalancer ports in Service list view. Thanks to @jaehanbyun\n- Add missing details to Pod, ReplicaSet, NetworkPolicy, Namespace, Services and DaemonSets\n- Open headlamp address in default browser when running in Headless mode\n- Add support for adding custom header actions to project detail view\nThe CRD list view with cluster column\nScreenshot showing Custom Resource Instances table with highlighted Cluster column in Headlamp dashboard\nAttach-based node debugger in Node detail view\nScreenshot showing Headlamp node details page with Debug Node button highlighted\nThe events list view with the event count column\nScreenshot showing Headlamp Events table with highlighted Count column displaying event occurrence numbers\n🐞 Bug fixes\n- Deduplicate CRDs in sidebar items. Thanks to @kahirokunn\n- Deduplicate namespaces from multi-cluster list in autocomplete. Thanks to @kahirokunn\n- Allow templating in Helm chart pod labels. Thanks to @rickliujh\n- Fix tooltip jittering issue. Thanks to @jaehanbyun\n- Fix image digests in Dockerfiles\n- Replace custom contains with slices.Contains in Backend. Thanks to @jongwooo\n- Fix wrong apiVersion used when CRUDing a CustomResource. Thanks to @damsien\n- Fix Custom CA not being used when refreshing token. Thanks to @mlbiam\n- Fix useKubeObject to use standard websocket connection instead of multiplexed\n- Fix the runCommand to properly take into account user and static plugins\n- Fix errors caused due to null resource in Header actions. Thanks to @kahirokunn\n- Fix ReplicaSetGlance props to include Statefulset\n- Fix ID and kind clashes in Map component\n- Fix plugin watch doing a loop on mac\n- Fix uninstalling plugins to use user's plugin directory instead of default plugins directory\n🌍 Internationalization\n- Update chinese translations. Thanks to @lou-lan and @hsiangjenli\n- Add i18n helper tools for extracting and copying translations\n🧩 Shipped Plugins\n- Update shipped plugin Prometheus\n  - Update headlamp-plugin to 0.13.0\n- Update shipped plugin Plugin Catalog (Desktop only)\n  - Update headlamp-plugin to 0.13.0\n- Update shipped plugin App catalog (Desktop only)\n  - Fix artifacthub charts searching in App catalog plugin. Thanks to @xqm32\n  - Update headlamp-plugin to 0.13.0\n💻 Development\n- Update dependencies on plugins examples, app, pluginctl and frontend\n- Add verify-image-digests make recipe for verifying image digests\n- Update releaser cli to handle triggering app builds\n- Add e2e test for in-cluster deployment\n- Remove unused deps from headlamp-plugin\n- Add Activity to pluginLib\n📖 Documentation\n- Fix typo and missing links in docs. Thanks to @BublikTV, @SinghaAnirban005, and @SQLJames\n- Add User Guides, Development Guides, Learn and Develop sections to docs\n- Add documentation and example for Activitiy feature that allows devs to create resizeable popup windows\n- Add example showcasing how to register header functions to projects\nFull Changelog: v0.38.0...v0.39.0\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.39.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.39.0",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.39.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.39.0/Headlamp-0.39.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.39.0-win-x64.exe",
+          "sha256": "680d829d15a3226dfce7f17650f44d3325654581bcc753bc4747cca3cc57e246",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.39.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.38.0",
+      "release_date": "2025-11-11",
+      "release_notes": "✨ Enhancements:\n- Add custom local port input dialog for port forwarding. Thanks @jaehanbyun\n- Add concept of \"shipped\", \"user-installed\", and \"dev\" plugin types\n- Add ability to specify priorityClassName in the Headlamp Helm chart. This allows setting the relative priority of Headlamp compared to other Pods when Headlamp is deployed in a cluster. Thanks @mcg1024\nCustom Local Port Forwarding Dialog\nA custom local port selection dialog for port forwarding was added. Allowing people to specify their preferred local ports (e.g., 8080) instead of only using auto-assigned ports.\nScreen.Recording.2025-11-08.at.10.41.28.PM.mov\nEnhanced Plugin System to Handle Different Types of Plugins Better\nThe plugin loading system has been enhanced. It now differentiates plugins by type (shipped with app/user-installed/development) and loads them according to a priority-based system. Development plugins have the highest priority, followed by user-installed, then shipped plugins. When multiple versions of the same plugin exist, only the highest priority enabled version is loaded.\nThe UI has been enhanced to show the different types of plugins. To also make finding where they are easier.\nNew Plugins setting view showing the different types of plugins. It shows if they are loaded, if they are user, dev, or shipped plugins.\n🐞 Bug fixes\n- Fix useAccessToken arg not set when using external secrets in Helm chart. Thanks @rickliujh\n- Fix missing PKCE arg in Helm charts. Thanks @rayshoo\n- Fix Add Local Cluster Provider link on Add Cluster view\n- Fix so username is displayed in Top Bar for when Headlamp is behind an Oauth2Proxy\n- Remove extra 1px border on top of the Side Bar\n- Improve headlamp port clashes for the Headlamp app when it is starting and ports are already used\n- Fix reloading of app after plugin install when using Windows app\nPort Clashes Fixed in Headlamp Desktop App\nBefore Headlamp tried to listen on port 4466 with the desktop app. If that port was already used then Headlamp would just try to use that existing port. This was problematic of course if there are other apps using that port, or other users on the same machine using that port. Now Headlamp will use another port if that port is already used.\n💻 Development\n- Remove our homebrew and winget package creation automation, because they are handled by them now\n- Add action to push chocolatey package automatically\n- Update dependencies for security updates\n- Fix storybook theme for plugins, and use correct new logo in storybook for plugins\nFor Plugin Developers: Find Plugin Folder in the UI\nTo make it easier for plugin developers to find where on the local file system plugins are there is an open plugin folder button. In Plugin Settings select the plugin being developed, and then click the open folder icon to open the plugin path with the Desktop file Finder.\nShows the UI for finding the plugin folder and the open folder where the plugin is\n📖 Documentation\n- Improve Projects Learn section in docs\n- Add Local Cluster Learn section to docs\n- Fix missing commas in OIDC scopes in some OIDC installation tutorials\nFull Changelog: v0.37.0...v0.38.0\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.38.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.38.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.38.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.38.0/Headlamp-0.38.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.38.0-win-x64.exe",
+          "sha256": "387e307e66616eea4beb2b22f7c70923a57e740ccac5519547c036a061635838",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.38.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.37.0",
+      "release_date": "2025-10-30",
+      "release_notes": "✨ Enhancements:\n- Load time of Desktop app up to 60% faster\n- Add Default and Parameters columns to Ingress Class List. Thanks to @jaehanbyun\n- Add cluster links to project details status section\n- Add default indicator column to StorageClassesTable. Thanks to @jaehanbyun\n- Set namespace from search\n- Enabled Helm support in the backend via --enable-helm flag. Thanks to @muraliinformal\n- Add Helm support to in-cluster Headlamp with vanilla Helm repos. Thanks to @shahvrushali22 and @muraliinformal from Oracle\n- Add an authenticated \"service proxy\" used by the new helm repo support. Thanks to @shahvrushali22 and @muraliinformal from Oracle\n- Add missing fields and subsection to Network Policy\n- Implement kebab menu for table row actions. There is now a consistent kebab menu (vertical dots) for all table row actions across the application, replacing the previous horizontal dots icon. Thanks to @jaehanbyun\n- Add Headlamp user agent and Headlamp version to Kubernetes API requests\n- Show user information in OIDC authenticated clusters users per cluster-scoped user info via endpoint\n- Add PKCE OIDC support to improve OIDC security. Off by default. To enable with helm add config.oidc.usePKCE: true. Or add -oidc-use-pkce=true to headlamp-server flags.\nUser information for OIDC Clusters Displayed\nThe user that is logged in is displayed in the top bar for clusters configured with OIDC.\nScreenshot of username in the top bar of headlamp\nNetwork Policy now with all the missing fields\nSome of the fields were reported missing, and now they are shown.\nScreenshot of some fields in the Network Policy section of Headlamp\nSetting the namespace from search\nIn the global search there is a shortcut for setting up the current namespace. This is to avoid having to select the namespace from the dropdown.\nScreenshot of the search field with a namespace in it\n🐞 Bug fixes\n- Fix Monaco Editor with custom base url. Thanks to @DanielLeone\n- Include baseURL in Cookie Path. Thanks to @appare45\n- Fix baseURL handling in embedded spa handler\n- Fix Release Notes rendering in the app of img tags that github now uses\n- Fix isDrawerMode fetch when state not there\n- Align Actions column and disable sorting/filtering in Cluster Table. Thanks to @jaehanbyun\n- Fix status color for labels on Deployments List\n- Align PortForward table with Cluster Table pattern. Thanks to @jaehanbyun\n- Display valid dates on map view for events\n- Fix loadBalancerSourceRanges formatting in the headlamp helm chart. Thanks to @caymard\n- If there is an empty cluster list on the home view show the \"Add Cluster\" link\n💻 Development\n- Add e2e-tests for react-hotkeys dependency. Thanks to @adwait-godbole\n- Extract RefreshAndCacheNewToken from headlamp.go and add tests\n- Improve app in development to start up to 8.3x faster\n- Add stories for NetworkPolicy\n- Add root npm build scripts as an alternative to Make to reduce requirements for developers\n- Fix on-hover display of documentation and types for some plugin APIs for plugin developers\n- Fix for container test check on github to cleanup disk space to avoid running out\n- Small fixes to projects and KubeMetadata types so plugins using them don't raise type errors\n- Add storybook stories for Layout component with various states. Thanks to @hxrshxz\n- Add isScalable attribute for resources, if true ScaleButton will show for these resources\n📖 Documentation\n- Add instructions for people who want to install headlamp plugins in the desktop app docs/installation/desktop/plugins-install-desktop.md\n- Add page showing people wanting to use plugins some of the plugins\n- Improve Plugin Manager related instructions to help with issues people were reporting\nPlugins showcase\nTo go along with the new docs on installing plugins, there is now a page dedicated to showing off some of the plugins. To give people a bit of an idea about what plugins are available.\nA screenshot of a page showing some plugins that are available\nLearn section in docs\nA new section was added within Headlamp official docs, aimed to help users learn how to navigate Headlamp. Available at Headlamp docs. The first section in there describes how to use the new \"Projects\" feature. More documentation on how to use different Headlamp features will go into the Learn section of the docs in the future.\nScreen shot of some documentation describing how to use the Projects feature\n🧩 Shipped Plugins\n- Update shipped plugin plugin-catalog 0.4.2 (desktop only)\n  - Fixes for a number of display issues\n  - Minor bug fixes found with new type checker config\n- Update shipped plugin app-catalog 0.7.0 (desktop only)\n  - Support for Vanilla Helm repos along with Artifact Hub ones\nFull Changelog: v0.36.0...v0.37.0\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.37.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.37.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.37.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.37.0/Headlamp-0.37.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.37.0-win-x64.exe",
+          "sha256": "c48779c5f7da1eeb0eeef636db61a029519f35219206c727d809d39e79453612",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.37.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.36.0",
+      "release_date": "2025-10-02",
+      "release_notes": "✨ Enhancements:\n- Add support for EndpointSlice resources.\n- Add memory for table sorting column and direction across navigation. Thanks to @krrish-sehgal\n- Enhance global search to support searching by labels and improve multi-term queries.\n- Add a button to copy a resource's name to the clipboard. Thanks to @farodin91\n- Standardize resource naming behavior across all resource types. Thanks to @farodin91\n- Add support for more rule types in HTTPRoute resources. Thanks to @farodin91\n- Fix and improve the log viewer inputs for responsiveness and usability.\n- Add a default security context and allow the plugins manager to use the global security context in Helm charts. Thanks to @jda258\n- Add optional backend TLS termination support.\n- Add support for an optional PodDisruptionBudget in the Helm chart. Thanks to @jcpunk\n- Add the ability to specify custom podLabels in the Helm chart. Thanks to @vnea\n- Add snackbar notifications for plugin deletion actions.\n- Add support for opening external URLs from the sidebar in a new tab. Thanks to @Exar04\n- Add namespaceOverride support to the Helm chart. Thanks to @rstribrn\n- Allow plugins to override default tabs in the project details view.\n- Add an isEnabled method to allow plugins to conditionally render project detail tabs.\n- Add support for HEADLAMP_APP_ and REACT_APP_ environment variables in plugins.\n- Add support for running Headlamp embedded within Backstage.\n- Add the ability for plugins to register a custom delete button for projects.\n- Add a loader and error page for the initial backend connection.\nCopy resource name to clipboard\nimage\nPersistent Table sorting\nTables will now remember your sorting choices\nimage\nSearch improvements\nYou can now search by labels and combine multiple terms by separating them with spaces\nimage\nAdded support of EndpointSlices\nEndpointsSlices are now available in Network sidebar\nimage\n🐞 Bug fixes\n- Fix the text contrast of notification menu items on dark themes.\n- Fix the base URL feature to ensure the application loads correctly when a base URL is configured. Thanks to @DanielLeone\n- Fix an issue where deleting one dynamic cluster removed all clusters from the same kubeconfig.\n- Prevent stale entries from appearing after renaming a dynamic cluster.\n- Fix truncated Chinese text in the resource map's graph view buttons. Thanks to @wingerx\n- Update the \"Type\" column header to \"Kind\" in resource tables for consistency. Thanks to @LinPr\n- Fix bundling for icons to ensure they are visible in offline mode.\n- Add backward compatibility to createRouteURL to accept URL paths for route names.\n- Restore the GetTokenFromCookie call within the ParseClusterAndToken function.\n- Handle cases where routeName is undefined in getRoute to prevent crashes.\n- Correct the positioning of CPU/Memory tooltips in the Nodes table. Thanks to @jaehanbyun\n- Close the actions menu when the \"Edit\" button is clicked. Thanks to @jaehanbyun)\n- Add a fallback for idpIssuerURL to prevent issues with token expiration. Thanks to @lszczepaniak-XM\n- Fix security context rendering in Helm charts for CI jobs.\n- Fix a glob pattern in setup-plugins.js to support Windows paths.\n- Fix createRouteURL to correctly look up routes registered from plugins.\n- Fix project creation when multiple clusters are involved.\n- Prevent dialog checkbox clicks from triggering table row selection. Thanks to @jaehanbyun\n- Disable the backend loader to prevent an error page on application load.\n💻 Development\n- Refactor the GetExpiryUnixTimeUTC function into the auth package.\n- Refactor the configuration parsing function for clarity and reduced complexity.\n- Extract DropZoneBox into its own reusable component.\n- Update application dependencies, removing electron/notarize and adding glob.\n- Replace usages of the deprecated makeKubeObject() function with the KubeObject class.\n- Fix circular dependencies in the lib/k8s folder by using import type.\n- Extract functions from fetch.ts to new files to avoid circular imports.\n- Resolve circular dependencies in the k8s API proxy imports.\n- Refactor the router implementation to untangle module imports.\n- Add Storybook stories for the DateLabel component.\n- Refactor the CacheRefreshedToken function into the auth package.\n- Use import type in more files to separate type and value imports.\n- Bump the Vite dependency to version 6.3.6 in the frontend and plugins.\n- Refactor the IsTokenAboutToExpire function into the auth package.\n- Add logging to the plugin npm start command to show where files are copied.\n- Fix Storybook support for plugins.\n- Export missing functions and types from the headlamp-plugin package.\n- Fix the return type for HeaderActionFuncType to correctly include ReactNode.\n- Refactor the GetNewToken function into the auth package.\n- Fix the Docker extension release process to consistently use the latest tag.\n- Disable the nightly build workflow on forked repositories.\n- Update the failing EndpointSlice snapshot test.\n- Improve the plugin create command's speed and security by using npm ci.\n- Update GitHub issue templates to use correct repository labels. Thanks to @jaehanbyun\n📖 Documentation\n- Enhance the AKS cluster OAuth documentation with clearer steps and Helm-based deployment instructions.\n- Update the project name in the NOTICE file.\n- Add a note about the removal of libgconf-2-4 on newer Ubuntu releases.\n- Add VKS (VMware Kubernetes Service) to the list of supported platforms. Thanks to @papivot\n- Fix a broken link to the architecture page from the plugins documentation.\n🧩 Shipped Plugins\n- Update shipped plugin prometheus 0.8.0\n  - Update dependencies\n- Update shipped plugin plugin-catalog 0.4.1 (desktop only)\n  - Update dependencies\n  - Fix contrast on loading install button\n  - Fix origin link\n- Update shipped plugin app-catalog 0.6.3 (desktop only)\n  - Update dependencies\n  - Add package script\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.36.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.36.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.36.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.36.0/Headlamp-0.36.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.36.0-win-x64.exe",
+          "sha256": "612678fabbc41bac8bae4b14e4cbbb4e888f77d24d97b5f125f44d4154648553",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.36.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.35.0",
+      "release_date": "2025-09-02",
+      "release_notes": "✨ Enhancements:\n- Add Projects feature (namespace-based, a collection of Kubernetes resources for organizing deployed applications or workloads)\n- Gateway API resources can be seen on the map view. Thanks to @userAdityaa\n- Add copy to clipboard button on secrets view\n- Add Kube config upload options by @Exar04\n- Can see more than 20 labels on Nodes and Pods now without clicking edit. Thanks to @shezaan-hashgraph\n- Improvements to local cluster support on Mac, and with display of status on Home Overview\n- Helm Chart is available on GHCR now. Thanks to @onedr0p and @joryirving\n- In the helm chart, ability to specify automountServiceAccountToken in the spec of the pod. Thanks to @vnea\n- Now it is possible to add annotations to services in the helm chart. Thanks to @lszczepaniak-XM\n- Add oidc-callback-url flag to backend and chart\n- Add link to minikube in plugin-catalog on the Add cluster view\n- Add support for custom CA and skipping TLS verification to backend and chart, improving flexibility for users working with self-signed OIDC providers\n- Improvements to filter, to allow filtering for broken pods and multi select. Thanks to @farodin91\n- Handle new k8s feature, native sidecars\n- Add support for i18n in plugins\n- Add support for changing theme font in plugins. Thanks to @kirederik\n- Add experimental cache for k8s API calls to reduce API server load. Thanks to @upsaurav12\n- Expand CRs on sidebar, making installations with lots of CRs much more usable. Thanks to @farodin91\nNew Projects feature\nScreenshot showing the new Project feature\nCustom Resources are now grouped in the sidebar\nFor clusters with many Custom resources installed this makes it much easier to see them grouped in the sidebar.\nScreenshot showing Custom Resources are now grouped in the sidebar\nGateway API resources can be seen on the map view.\nSelecting Gateway API resources on the map view Showing the map view with the relationship between some Gateway API resources\nAdd copy to clipboard button on secrets view\nimage\nAdd Kube config upload options\nNow people can upload kube config files by URL\nDrop multiple files\n🐞 Bug fixes\n- Mac app no longer needs reloading to show plugins on some laptops in cases like when Headlamp was first run\n- Fix for realtime updates because of web socket error when telemetry was enabled. Thanks to @wingerx\n- App no longer needs to wait several seconds longer than necessary for clusters to display\n- Sidebar a11y issue with focus on collapsed items was fixed. Thanks to @andoriyaprashant\n- Make monaco-editor work again in an offline/air-gapped environment and fix localisation. This improves security and i18n functionality. Thanks to @DanielLeone\n- Status Labels are wrapped incorrect (was \"Pendin\" on one line, \"g\" on the next)\n- Fix for activity bar close button styling. Thanks to @Exar04\n- Contrast fix for actions notifier (cancel button was not visible)\n- Cookies are used for token rather than local storage improving security\n- The plugin settings works again to allow disabling/enabling plugins\n- Fix on the cluster context menu on the Home Overview page to not show multiple delete actions when a plugin defines a delete action\n- Fix for the network icon in map\n- A number of now unused dependencies were trimmed from the frontend and from headlamp-plugin\n- Fixes for shell escaping in script used for signing some binaries. Thanks to @odaysec\n- Fix display of accessModes on VolumeList detail view\n- Fix fetchConfig to return a proper value removing error in web dev console. Thanks to @wingerx\n- Fix for overflow on logs view Thanks to @greedy-wudpeckr\n- A11y fix for Alert contrast in dark-mode\n- Refactor CRs to use existing components. Thanks @farodin91\n- Fix so plugins can be deleted again in Plugin settings\n- Fix warnings, and bump node to 22 in Dockerfile. Thanks to @LinPr\n💻 Development\n- From 5x to 60x faster app load in development with cd app && npm run star\n- Fix for running app on Windows with cd app && npm start\n- Improved \"releaser check\" tool to so we can see which external release artefacts released correctly\n- Remove unnecessary loop assignments which is possible in newer versions of golang. Thanks to @LinPr\n- Clean up some parse tests. Thanks to @andoriyaprashant\n- Fix bug in app for running long running javascripts use by minikube plugin\n- Plugin manager can now download non tar.gz extra files\n- Add gitignore for mac .DS_Store files\n- Update golang version to 1.24.6. Thanks to @mkm29\n- Stories for the Overview component were added. Thanks to @1012Charan\n- Some unused functionality for plugins was removed \"loadDevPlugins\"\n- Update storybook to 9.1.2\n- Add registerClusterStatus for adding cluster status to the Overview cluster list\n- Extract some auth related methods to new auth package with tests\n- Add projects plugin example, for extending new Namespace Projects feature on Home\nPlugins gain the ability to customise the font-family from a AppTheme. Thanks to @kirederik\nTheme registration:\nimport './index.css'; // where the @font-face is defined\nregisterAppTheme({\n  name: \"My Custom Theme\",\n  base: \"light\",\n  primary: \"#ff0000\",\n  secondary: \"#333\",\n  fontFamily: [\"Asimovian\"],\n})\nHeadlamp with a different font\n📖 Documentation\n- Document some functions in lib/k8s\n- Add note about hack to get around issue installing with brew on Mac whilst binaries are not signed. Thanks to @kierr\n- Add GKE to user tested platform table. Thanks to @eranchetz\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.35.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.35.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.35.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.35.0/Headlamp-0.35.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.35.0-win-x64.exe",
+          "sha256": "e4566a0b0586b156ece4ed54501f1619c3b9c6f0133c639d53349c629c0f2781",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.35.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.34.0",
+      "release_date": "2025-07-31",
+      "release_notes": "✨ Enhancements:\n- Add a close all button to the overview\n- Make the activity overview button sticky and make it a toggle button\n- Allow multiple selection in tables by using Shift+Clicking. Thanks to @krrish-sehgal\n- Add cluster info the activities\n- Improve the security of how plugins are loaded\n- Add tooltip to pods list for displaying requests and limits\n- Add create pod / job buttons to their respective list views. Thanks to @ChayanDass\n- Update the Network icon in the map. Thanks to @blazethunderstorm\n- Persist showing timestamps choice in the log viewer. Thanks to @blazethunderstorm\n🐞 Bug fixes\n- Fix closing an edit/view YAML activity by clicking the close button. Thanks to @ChayanDass\n- Fix height in docs viewer\n- Fix typo in BackendTLSPolicy filenames. Thanks to @userAdityaa\n- Fix multiple a11y issues\n- Exit the activity overview automatically when the last activity in it is closed\n- Fix how Custom Resource Definitions are shown in activities\n- Add token to request only when available\n- Fix the editor closing after a successful apply. Thanks to @ChayanDass\n- Chart: Fix extraManifests example in the. Thanks to @xfrancois\n- Fix portforwarding when not in a cluster view and different portforwarding issues on Mac\n💻 Development\n- Add storybook coverage to NodeShellSettings, AppLogo, and ClusterSelector. Thanks to @mahmoodalisha\n- Fix test scripts to only run .ts tests in electron\n- Enhance click handling in table rows\n- Add Gateway API manifests for local testing. Thanks to @userAdityaa\n- Add app-test target to the Makefile\n- Update misc dependencies\n- Improve the security and flexibility of running commands from plugins\n- Add BackendTrafficPolicy KubeObject model definition and storybook coverage. Thanks to @userAdityaa\n- CI: Add test step to the app workflows\n📖 Documentation\n- Mention the app-test Makefile target in the app README\n- Add gateway.md documentation file. Thanks to @userAdityaa\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.34.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.34.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.34.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.34.0/Headlamp-0.34.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.34.0-win-x64.exe",
+          "sha256": "ce4d0a5c7566ed6c97042b6e3245b91e5a3d8e8169b669a88d4d9386db7650b3",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.34.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.33.0",
+      "release_date": "2025-07-17",
+      "release_notes": "✨ Enhancements:\n- Add new task bar which allows to keep otherwise transient tasks open\n  - This feature allows e.g. opening several logs views and view them side by side\n  - Allows keeping a terminal, logs, details view, etc. open while navigating to other clusters or views\n  - Also allows long-running tasks to be kept around without blocking the navigation\n- Make CRDs views more consistent with the remaining views. Thanks to @farodin91 .\n- Speed up load time and experience for the desktop version\n- Optimize rendering and improve styling of the map\n- Add global filter to tables. Thanks to @userAdityaa .\n- Add BackendTLSPolicy views. Thanks to @userAdityaa .\n- Add create button for more resources\n- Add Tamil locale. Thanks to @fromsaurav .\n- Add hostIPs and podIPs to the Pod's details view\nNew task bar with a terminal and logs open side by side:\nNew task bar with a terminal and logs open side by side\nOverview function for the new taskbar:\nOverview function for the new taskbar\n🐞 Bug fixes\n- Do not use eval for the advanced search\n- Fix spawning job from CronJob\n- Display missing port for default backend\n- Fix checking if the exec'ing into a pod can be done. Thanks to @cavus700 .\n- Use allowed namespaces when getting the Overview's events\n- Fix key-related react warnings. Thanks to @farodin91 .\n- Fix bar chart colors in dark mode\n- Fix chart tooltips in Node list view\n- Move headlampConfig to a pkg in the backend. Thanks to @upsaurav12 .\n- Fix the kind field when creating a CR. Thanks to @ChayanDass .\n💻 Development\n- Update story for AlerNotification. Thanks to @ANIRUDH-SJ .\n- Add story for StatefulSet. Thanks to @SinghaAnirban005\n- Add tests to UI slice (redux). Thanks to @DhairyaMajmudar .\n- Make the ServiceDetails more realistic. Thanks to @farodin91 .\n- Fix misc stories/tests issues\n- Add missing shx development dependency\n- Replace rimraf use by shx\n- Add air config, for auto reload of the backend modules. Thanks to @ChayanDass .\n- Make backend exit with a proper code if the port is in use\n📖 Documentation\n- Revamp plugin development documentation\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.33.0\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.33.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.33.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.33.0/Headlamp-0.33.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.33.0-win-x64.exe",
+          "sha256": "a438191fcb08b82afcc4c5cb203808b341a8117dcd21d921d94f5f01bba19980",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.33.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.32.0",
+      "release_date": "2025-06-26",
+      "release_notes": "✨ Enhancements:\n- Add new advanced search feature (allows searching Kubernetes resources using queries in Js, more languages coming soon)\n- Display Custom Resources in the map (thanks to @faebr, @alexandernorth, @VictorMarcolino)\n- Allow to delete clusters that are coming from local kubeconfigs\n🐞 Bug fixes\n- Reset logs' state on item change\n- Fix OIDC token refresh logic\n- Remove unneeded URL change when closing a details pane\n💻 Development\n- Added releaser tool to help manage and automate the release process\n- Add support for plugins to register a custom map node glance (thanks to @userAdityaa)\n- Update sample ingress URL to use kubernetes-sigs/headlamp (thanks @dorser)\n- Update sample ingress to use ingressClassName instead of deprecated annotation (thanks @dorser)\n- Add more tsdocs to misc functions\n- Add Github pull request template (thanks to @SinghaAnirban005 )\n- Refactor plugin-management into a package (pluginctl) (thanks to @Faakhir30 )\n- Add ReferenceGrant resource and tests (thanks to @userAdityaa )\n- Disable tracing by default in backend's telemetry instrumentation (thanks to @DhairyaMajmudar )\n- Add the possibility for the map's nodes to have weights (thanks to @adwait-godbole )\n- Replace ConfirmDialog's switch with a check box and improve the buttons' labels\n- Add more options to the Dockerfile to make it more flexible when needed to use e.g. push\n- Add cloudbuild.yml for future integration with Kubernetes image publishing infrastructure\n- Misc dependency updates\n🌍 Internationalization\n- Update Hindi (thanks to @SinghaAnirban005)\n- Make NamespaceAutocompletion's placeholder translatable (thanks to @SinghaAnirban005)\n📖 Documentation\n- Document how to use the new registerKubeObjectGlance (thanks to @userAdityaa)\n- Fix typo and broken link to the registerUIPanel docs (thanks to @SinghaAnirban005 )\n- Add architecture section\n- Update the deployment docs to use --dry-run=client (thanks to @MontBlan-c )\n- Add guidance for OIDC's large JWT and ingress header limits",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.32.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.32.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.32.0/Headlamp-0.32.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.32.0-win-x64.exe",
+          "sha256": "9add5bf23325292bdb0caa9dc02e7f57242b3985da7b3d08016602e3c1052d3e",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.32.0",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.31.1",
+      "release_date": "2025-06-05",
+      "release_notes": "🐞 Bug fixes\n- Improve button visibility in the AuthChooser component\n- Revert Headlamp image repository to headlamp-k8s\n- Fix use of authorization header for multiplexed websocket connections\n- Remove unnecessary parameters validator-issuer/client from the chart\n💻 Development\n- Correct the kubectl apply command to use the correct repository URL.\n- Simplify the codeSign command. Thanks to @odaysec\n- CI: Update the GitHub workflows to run make-helm-update-template-version when creating pull requests.\n- CI: Correct target organization for the push-release-assets script.\n- CI: Update windows version to windows-2025\n- Update test templates in the GitHub workflow for chart updates.\n📖 Documentation\n- Update code of conduct link. Thanks to @SinghaAnirban005\nIMPORTANT (UNSIGNED APPS): After the move under the Kubernetes SIG UI, we are still finishing some last details on how to sign new releases. So the Windows and Mac desktop versions are not signed/notarized. When running on Windows, you have to choose \"More > Run Anyway\" when the OS warns you that the application is not signed. On Mac, you have to install the app and then Ctrl+Click it to choose Open from the context menu and then choose to Open the app after the warning. Once we have a way to sign the apps, we will re-upload the assets.\nWe appreciate your patience while we solve this issue.\nContainer image: 🐳 ghcr.io/headlamp-k8s/headlamp:v0.31.1\nDesktop Apps:\n🐧 Flatpak / Linux (AMD64)\n🐧 Linux AppImage AMD64, ARM64, ARMv7l\n🐧 Linux Tarball AMD64, ARM64, ARMv7l\n🐧 Debian / Linux AMD64\n🍏 Mac (AMD64)\n🍏 Mac (ARM/M1)\n🟦 Windows (AMD64)",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.31.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.31.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.31.1/Headlamp-0.31.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.31.1-win-x64.exe",
+          "sha256": "a5d99a9df519b7352de03b6e6e661b5936c3b7575abb3cbf8eb1ec0019d2f9a7",
+          "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "Headlamp 0.31.1",
+              "publisher": "Kinvolk",
+              "product_code": "d24ad94a-d320-5504-bf77-34b71a6f1c7d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.31.0",
+      "release_date": "2025-05-30",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.31.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.31.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.31.0/Headlamp-0.31.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.31.0-win-x64.exe",
+          "sha256": "56059988ea3b923e067d99f728dda6ce22d07df47c1b8188b30f0bcee85a7a89",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.30.0",
+      "release_date": "2025-03-27",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.30.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.30.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.30.0/Headlamp-0.30.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.30.0-win-x64.exe",
+          "sha256": "acbb5a6823b052941465c6bba772399d1e1dee6454f8b119189cc39afeacee12",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.29.0",
+      "release_date": "2025-02-26",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.29.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.29.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.29.0/Headlamp-0.29.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.29.0-win-x64.exe",
+          "sha256": "132c89612c6a7151a0721448203f5c8bfed2897543b33c55e5a73c38829329f0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.28.1",
+      "release_date": "2025-02-07",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.28.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.28.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.28.1/Headlamp-0.28.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.28.1-win-x64.exe",
+          "sha256": "721a6c2ae5ceedb885c00196f76ddd3fe1f44421282286512c3317c712791fc6",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.28.0",
+      "release_date": "2025-01-23",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.28.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.28.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.28.0/Headlamp-0.28.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.28.0-win-x64.exe",
+          "sha256": "2509f362301b7566df07bbe8ae0b892f1b7b43f22fae906a9512da1b833aeaa7",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.27.0",
+      "release_date": "2024-12-12",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.27.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.27.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.27.0/Headlamp-0.27.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.27.0-win-x64.exe",
+          "sha256": "b94dec3f29b0024a694e140ec0a343e8143d147f352fde095eda4908e141035d",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.26.0",
+      "release_date": "2024-11-06",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.26.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.26.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.26.0/Headlamp-0.26.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.26.0-win-x64.exe",
+          "sha256": "e6a61d0beb7680696a4b44ef503f0577586008c6fcdf1cd0a4880be30bfd73db",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.25.1",
+      "release_date": "2024-09-03",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.25.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.25.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.25.1/Headlamp-0.25.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.25.1-win-x64.exe",
+          "sha256": "990f6a020fff1187384f4055771345a084f640c95a3979232fa199e94f5dcc55",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.25.0",
+      "release_date": "2024-07-29",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.25.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.25.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.25.0/Headlamp-0.25.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.25.0-win-x64.exe",
+          "sha256": "aa02df8ca4bc311569460146365d0c8342d7e3e21d16a616aee3d607c700d6f3",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.24.1",
+      "release_date": "2024-06-27",
+      "release_notes": "🐞 Bug fixes\n- Fix viewing the Network > Services page when there are services without ports\n- Fix top bar and sidebar on small screens (thanks to @tazo90 )\n- Fix misc regressions in several components\n- Do not log errors related to OIDC when OIDC is not set up\n- Remove mistakenly added package*.json files from root folder\n- Fix hiding back link when it's set as null\n- charts: Fix wrong OIDC external secret loading\n- charts: Fix config.extraArgs and env values type\n- charts: Fix ingress (thanks to @BlindB0 )\n💻 Development\n- chart: Add schema for values\n- Make KubeService.spec.ports as optional in interface\n- Update some dependencies\n📖 Documentation\n- Fix link to FAQ in README\n- chart: Add example docs for ingress",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.24.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.24.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.24.1/Headlamp-0.24.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.24.1-win-x64.exe",
+          "sha256": "b52d4cfacb991be848864c8fc9b0e388452be1ef003113ff48b25c292ca72fc1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.24.0",
+      "release_date": "2024-05-29",
+      "release_notes": "✨ Enhancements:\n- New table (powered by material-react-table) which supports column filtering and a more comprehensive search by table values\n- Misc improvements to the node views. Thanks to @farodin91 .\n- Add exit code, started/finished dates, and last state details to the containers' view\n- Ships app-catalog plugin version 0.2.0, which displays CNCF, official, and verified badges on charts,\nfor a quicker check for verified versions of charts\n- Add categories to the CustomResourceDefinition's list and details view. Thanks to @Guilamb .\nExample of the new table in the Pods list:\nNew table showing the column menu popover🐞 Bug fixes\n- Fix contrast issue for \"upload kubeconfig\" button. Thanks to @gaojinhua\n- Fix displaying container status for successful containers (they were shown as errors)\n- Fix broken StatefulSet list view (unreleased bug). Thanks to @yuriscott .\n- Fix sudden opening of a URL internal to the app in the system's browser under certain scenarios\n- Fix deleting/editing CustomResourceDefinitions\n- Fix running external auth from kubeconfig (e.g. kubelogin)\n- Fix issue in running certain APIs with older versions of Kubernetes. Thanks to @msuret .\n💻 Development\n- Misc security updates for dependencies\n- Finish porting all the styling to sx for styling components. Thanks to @farodin91 .\n- Fix run-backend/frontend on Windows CLI\n- Add Winget PR automation (through CI)\n- Add chart template tests\n- Add more options to OIDC configuration for charts.\n- Add ingressClassName to Ingress template. Thanks to @ccolic .\n- Add the ability to pass extra args to the chart\n- Change default plugin directory, to not mess up where plugins are read from when running Headlamp in dev mode\n📖 Documentation\n- Update go and node minimum required versions\n- Add FAQ section\n- Include Azure in platforms. Thanks to @shivamagnihotri .\n- Update Playwright docs\n- Add docs on running Headlamp in EKS with Cognito\nContainer image: :whale:  ghcr.io/headlamp-k8s/headlamp:v0.24.0\nDesktop Apps::penguin:  Flatpak / Linux (AMD64)\n:penguin:  Linux AppImage AMD64, ARM64,  ARMv7l\n:penguin: Linux Tarball AMD64, ARM64, ARMv7l\n:penguin: Debian / Linux AMD64\n:green_apple:  Mac (AMD64)\n:green_apple: Mac (ARM/M1)\n:blue_square:  Windows (AMD64)",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.24.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.24.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.24.0/Headlamp-0.24.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.24.0-win-x64.exe",
+          "sha256": "30ed4533d41ba1a86dc87f78dce7474839b217ad8ac311c0a19b0e4ed5b56793",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.23.2",
+      "release_date": "2024-05-02",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.23.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.23.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.23.2/Headlamp-0.23.2-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.23.2-win-x64.exe",
+          "sha256": "628134027a67c37507e1d74b0c8e4d8153fb5e962f8c019c94f21337e1e693fe",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.23.1",
+      "release_date": "2024-03-27",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.23.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.23.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.23.1/Headlamp-0.23.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.23.1-win-x64.exe",
+          "sha256": "2bea7b15597fdd20ba6d2fed28f3626a9b625121369658b97016b71c10ab93b6",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.23.0",
+      "release_date": "2024-03-06",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.23.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.23.0/Headlamp-0.23.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.23.0-win-x64.exe",
+          "sha256": "abd6f11ebf6d4e55c806ebc4c361c51f7d9340548adc2666e98cae828c473c76",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.22.0",
+      "release_date": "2023-12-20",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.22.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.22.0/Headlamp-0.22.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.22.0-win-x64.exe",
+          "sha256": "78a1548a79e2d2b3702b393c5095225c8847eafe853165f8c158dd4538003e14",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.21.0",
+      "release_date": "2023-11-07",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.21.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.21.0/Headlamp-0.21.0-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.21.0-win-x64.exe",
+          "sha256": "841105457d5e877b15da0f2b6830283f0b1a5f52f443d4a349519386a2edb223",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.20.1",
+      "release_date": "2023-10-05",
+      "release_notes_url": "https://github.com/headlamp-k8s/headlamp/releases/tag/v0.20.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/h/Headlamp/Headlamp/0.20.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.20.1/Headlamp-0.20.1-win-x64.exe",
+          "host": "github.com",
+          "filename": "Headlamp-0.20.1-win-x64.exe",
+          "sha256": "ca7ea6d5b5cdf6764f0eca3a24fdf7c368765e3331ea183869eed1fc97c21dd8",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "0.46.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.46.0/Headlamp-0.46.0-mac-x64.dmg",
+          "host": "github.com",
+          "filename": "Headlamp-0.46.0-mac-x64.dmg",
+          "sha256": "946c72185732295fefe48e52efdb210a029eaa3fc443813bc8cbbb81b05f87ac",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/headlamp-k8s/headlamp/releases/download/v0.46.0/Headlamp-0.46.0-mac-arm64.dmg",
+          "host": "github.com",
+          "filename": "Headlamp-0.46.0-mac-arm64.dmg",
+          "sha256": "20294a2f1e92aa98c2a90aa0717b6b8e730ed55a0300c03db18c2f779ed7b564",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Headlamp.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "com.kinvolk.headlamp"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/Headlamp",
+            "~/Library/Logs/Headlamp",
+            "~/Library/Preferences/com.kinvolk.headlamp.plist"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "0.46.0",
+      "release_date": "2026-10-15",
+      "release_notes_url": "https://github.com/kubernetes-sigs/headlamp/releases/tag/v0.46.0",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/io.kinvolk.Headlamp.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "io.kinvolk.Headlamp.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/io.kinvolk.Headlamp.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "io.kinvolk.Headlamp.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "13f03baeadf427f63f340300af40c1fa52c28e81",
+      "retrieved_at": "2026-11-24T02:47:42.576Z",
+      "path": "manifests/h/Headlamp/Headlamp"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "4e66967e1884fe43af3593a5e5113c452e030af6",
+      "retrieved_at": "2026-11-24T02:47:42.576Z",
+      "path": "Casks/h/headlamp.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/headlamp.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/io.kinvolk.Headlamp",
+      "retrieved_at": "2026-11-24T02:47:46.138Z",
+      "path": "api/v2/appstream/io.kinvolk.Headlamp",
+      "api_url": "https://flathub.org/api/v2/appstream/io.kinvolk.Headlamp",
+      "content_sha256": "a8ec0d0aa150e136356f81beee2d6689f1cd1f2e2fc2d9eac569f78109b6427a"
+    }
+  ],
+  "flathub": {
+    "app_id": "io.kinvolk.Headlamp",
+    "page_url": "https://flathub.org/apps/io.kinvolk.Headlamp",
+    "repo_url": "https://github.com/flathub/io.kinvolk.Headlamp",
+    "install_command": "flatpak install flathub io.kinvolk.Headlamp",
+    "run_command": "flatpak run io.kinvolk.Headlamp",
+    "verified": true,
+    "verification": {
+      "method": "website",
+      "website": "kinvolk.io",
+      "verified_on": "2024-04-09"
+    },
+    "license": "Apache-2.0",
+    "free_license": true,
+    "developer_name": "Kinvolk",
+    "categories": [
+      "Building",
+      "Viewer",
+      "IDE",
+      "DataVisualization"
+    ],
+    "download_size": 160602427,
+    "installed_size": 430612992,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}
