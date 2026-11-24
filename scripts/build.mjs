@@ -564,6 +564,17 @@ function appPage(rec) {
     name: rec.name,
     url: canonical,
     ...(ICONS[rec.slug] && ICONS[rec.slug].source !== 'github-project' ? { image: `${SITE.url}/${rec.slug}/icon.${ICONS[rec.slug].ext}` } : {}), // the generic GitHub mark is not the app's own image
+    // Screenshots shown on the page (Linux version, from Flathub), as schema.org ImageObjects
+    ...(shotsOf(rec).length ? { screenshot: shotsOf(rec).map((it, i) => ({
+      '@type': 'ImageObject',
+      contentUrl: `${SITE.url}/${rec.slug}/${it.file}`,
+      url: `${SITE.url}/${rec.slug}/${it.file}`,
+      encodingFormat: 'image/webp',
+      width: it.width,
+      height: it.height,
+      caption: it.caption || `${rec.name} on Linux, screenshot ${i + 1}`,
+      creditText: 'Screenshot from Flathub',
+    })) } : {}),
     description: trunc(rec.description || rec.summary || rec.name, 500),
     operatingSystem: plats.map((p) => OS_NAME[p]).join(', '),
     inLanguage: 'en-US',

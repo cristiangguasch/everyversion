@@ -176,6 +176,12 @@ for (const a of apps) {
   for (const f of files) if (!existsSync(join(DIST, a.slug, f))) bad(a.slug, `${f} missing from dist`);
   if (!/from <a [^>]*href="https:\/\/flathub\.org\/apps\//.test(sec)) bad(a.slug, 'Screenshots section is missing the Flathub credit');
   if (!/<script src="\/gallery\.js\?v=/.test(h)) bad(a.slug, 'Screenshots section without gallery.js');
+  // the same screenshots, in the same order, in the SoftwareApplication structured data
+  const ldShots = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .flatMap((m) => { const d = JSON.parse(m[1]); return d['@graph'] || [d]; })
+    .find((n) => n['@type'] === 'SoftwareApplication')?.screenshot || [];
+  const ldFiles = ldShots.map((s) => s.contentUrl?.split('/').pop());
+  if (ldFiles.join() !== files.join()) bad(a.slug, `structured data screenshots (${ldFiles.length}) differ from the page (${files.length})`);
 }
 
 // share images (scripts/og.mjs): every app page names its own og.png, the file is there, and it is a 1200x630 PNG
