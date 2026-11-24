@@ -1208,9 +1208,9 @@ ${iconHtml}
 <div class="title-row"><h1>${esc(h1)} <span class="h1-ver"${new Set(plats.map((p) => latestOf[p].version)).size > 1 ? ` title="${esc(latestText)}"` : ''}>${esc(latestOf[plats[0]].version)}</span></h1>${safeBadge}</div>
 <p class="dev">Developer: ${u.publisher || u.homepage ? link(u.publisher || u.homepage, rec.publisher) : esc(rec.publisher)}</p>
 ${updatedLine}
-${rec.summary ? `<p class="lead">${esc(rec.summary)}</p>` : ''}
 </div>
 </div>
+${rec.summary ? `<p class="lead app-lead">${esc(rec.summary)}</p>` : ''}
 
 ${shotsHtml(rec)}
 ${sectionsHtml}
