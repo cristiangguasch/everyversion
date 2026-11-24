@@ -319,6 +319,30 @@ let OG = {};
 try {
   OG = JSON.parse(readFileSync(join(ROOT, 'data', 'og.json'), 'utf8'));
 } catch {}
+// Screenshots from Flathub (scripts/screenshots.mjs: data/screenshots/<slug>/screenshot-NN.webp, index in data/screenshots.json).
+let SHOTS = {};
+try {
+  SHOTS = JSON.parse(readFileSync(join(ROOT, 'data', 'screenshots.json'), 'utf8'));
+} catch {}
+const shotsOf = (rec) => (SHOTS[rec.slug]?.items || []).filter((it) => existsSync(join(ROOT, 'data', 'screenshots', rec.slug, it.file)));
+const shotUrl = (rec, it) => `/${rec.slug}/${it.file}?v=${SHOTS[rec.slug].hash.slice(0, 8)}`;
+const CHEVRON = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
+function shotsHtml(rec) {
+  const items = shotsOf(rec);
+  if (!items.length) return '';
+  const n = items.length;
+  return `<section id="screenshots" aria-labelledby="h-screenshots">
+<h2 id="h-screenshots">Screenshots</h2>
+<div class="shots" data-shots>
+<button type="button" class="shots-btn shots-prev" aria-label="Previous screenshots" hidden>${CHEVRON('M15 6l-6 6 6 6')}</button>
+<ul class="shots-track">
+${items.map((it, i) => `<li><a class="shot" href="${shotUrl(rec, it)}"${it.caption ? ` data-caption="${esc(it.caption)}"` : ''}><img src="${shotUrl(rec, it)}" width="${it.width}" height="${it.height}" alt="${esc(it.caption || `${rec.name} screenshot ${i + 1} of ${n}`)}" loading="lazy" decoding="async"></a></li>`).join('\n')}
+</ul>
+<button type="button" class="shots-btn shots-next" aria-label="Next screenshots"${n > 3 ? '' : ' hidden'}>${CHEVRON('M9 6l6 6-6 6')}</button>
+</div>
+<p class="shots-credit">Screenshots of the Linux version, from <a href="${esc(SHOTS[rec.slug].page)}">Flathub</a>.</p>
+</section>`;
+}
 const ogImage = (rec) => OG[rec.slug] && existsSync(join(ROOT, 'data', 'og', `${rec.slug}.png`))
   ? { url: `${SITE.url}/${rec.slug}/og.png?v=${OG[rec.slug].hash.slice(0, 8)}`, alt: `${rec.name} on ${SITE.name}` }
   : null;
@@ -1145,9 +1169,10 @@ ${rec.release_series
   // Sections are separated by <hr>. Empty sections (no description, no changelog) are skipped so no double rules appear.
   const sectionsHtml = [
     `<section id="download" aria-labelledby="h-download">
-<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${hasOld ? '<a href="#versions">Older versions</a>' : ''}${alternativesHtml ? '<a href="#alternatives">Alternatives</a>' : ''}</nav></div>
+<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${shotsOf(rec).length ? '<a href="#screenshots">Screenshots</a>' : ''}${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${hasOld ? '<a href="#versions">Older versions</a>' : ''}${alternativesHtml ? '<a href="#alternatives">Alternatives</a>' : ''}</nav></div>
 ${downloadHtml}
 </section>`,
+    shotsHtml(rec),
     `<section id="installer" aria-labelledby="h-installer">
 <h2 id="h-installer">${allCustom ? 'What the download is' : 'What the installer does'}</h2>
 ${installerHtml}
@@ -1191,7 +1216,7 @@ ${rec.summary ? `<p class="lead">${esc(rec.summary)}</p>` : ''}
 
 ${sectionsHtml}
 </article>
-<script>
+${shotsOf(rec).length ? `<script src="/gallery.js?v=${assetHash('gallery.js')}" defer></script>\n` : ''}<script>
 document.addEventListener('click',(e)=>{const b=e.target.closest('.copy');if(!b)return;const t=b.dataset.copy,done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)},fb=()=>{const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{if(document.execCommand('copy'))done()}catch(_){}a.remove()};
 if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,fb);else fb()});
 document.addEventListener('click',(e)=>{const shut=(m)=>{const p=m.querySelector('.dl-pop');p.hidden=true;m.querySelector('.dl-install').setAttribute('aria-expanded','false')};
@@ -1213,7 +1238,8 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
   });
 
   const unavailable = rec.versions.flatMap((v) => v.installers.filter((i) => deadOf(i)).map((i) => ({ platform: v.platform, version: v.version, filename: i.filename, url: i.url, http_status: deadOf(i).status, checked: deadOf(i).checked })));
-  const twin = { ...rec, derived: { canonical_url: canonical, title, h1, installer_summary: summaries, ...(unavailable.length ? { unavailable_downloads: unavailable } : {}) } };
+  const shots = shotsOf(rec).map((it) => ({ url: `${SITE.url}/${rec.slug}/${it.file}`, width: it.width, height: it.height, ...(it.caption ? { caption: it.caption } : {}), platform: 'linux', source: 'Flathub', source_url: it.source }));
+  const twin = { ...rec, derived: { canonical_url: canonical, title, h1, installer_summary: summaries, ...(shots.length ? { screenshots: shots } : {}), ...(unavailable.length ? { unavailable_downloads: unavailable } : {}) } };
 
   const md = [
     `# ${h1}`,
@@ -1240,6 +1266,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     '',
     rec.description ? `## Description\n\n${rec.description}\n` : '',
     FEATURES.get(rec.slug) ? featuresMd(FEATURES.get(rec.slug)) : '',
+    shots.length ? [`## Screenshots`, '', `Screenshots of the Linux version, from Flathub (${SHOTS[rec.slug].page}).`, '', ...shots.map((s, i) => `- [Screenshot ${i + 1}${s.caption ? `: ${s.caption}` : ''}](${s.url})`), ''].join('\n') : '',
     ...plats.flatMap((p) => [
       `## ${OS_NAME[p]}`,
       '',
@@ -1689,6 +1716,7 @@ function main() {
     write(`${rec.slug}/index.html`, html);
     if (ICONS[rec.slug]) cpSync(join(ROOT, 'data', 'icons', ICONS[rec.slug].file), join(DIST, rec.slug, `icon.${ICONS[rec.slug].ext}`));
     if (ogImage(rec)) cpSync(join(ROOT, 'data', 'og', `${rec.slug}.png`), join(DIST, rec.slug, 'og.png'));
+    for (const it of shotsOf(rec)) cpSync(join(ROOT, 'data', 'screenshots', rec.slug, it.file), join(DIST, rec.slug, it.file));
     write(`${rec.slug}/${rec.slug}.json`, JSON.stringify(twin, null, 2) + '\n');
     write(`${rec.slug}/${rec.slug}.md`, md);
     stats.pages++;
@@ -1745,6 +1773,7 @@ function main() {
   cpSync(join(ROOT, 'assets', 'search.js'), join(DIST, 'search.js'));
   // First-party analytics: the browser script, the stats page script, and the PHP that collects and aggregates (see server/).
   cpSync(join(ROOT, 'assets', 't.js'), join(DIST, 't.js'));
+  cpSync(join(ROOT, 'assets', 'gallery.js'), join(DIST, 'gallery.js'));
   cpSync(join(ROOT, 'assets', 'stats.js'), join(DIST, 'stats.js'));
   for (const f of ['collect.php', 'stats-data.php', 'analytics-lib.php']) cpSync(join(ROOT, 'server', f), join(DIST, f));
   mkdirSync(join(DIST, 'fonts'), { recursive: true });

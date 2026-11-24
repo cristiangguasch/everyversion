@@ -72,6 +72,19 @@ node scripts/og.mjs --only=vlc --force       # remake one app
 node scripts/og.mjs --only=vlc --out=/tmp/og # preview without touching data/og
 ```
 
+## Screenshots (Flathub)
+
+App pages for apps matched to Flathub show a Screenshots section between Downloads and "What the installer does". Flathub is the only source we use that publishes screenshots (winget manifests and Homebrew casks have no screenshot field), so they show the Linux version, and the page says so and credits Flathub with a link to the app's Flathub page.
+
+`scripts/screenshots.mjs` reads `https://flathub.org/api/v2/appstream/<id>`, takes up to 8 screenshots in Flathub's order, downloads the largest size up to 1400px wide, and saves each as WebP (at most 1200px wide, via ImageMagick) in `data/screenshots/<slug>/screenshot-01.webp`, `-02`, … The build copies them into the app folder (`/<slug>/screenshot-01.webp`). They are fetched once: `data/screenshots.json` keeps a hash of the Flathub image URLs, and an app is only fetched again when that list changes (`--force` to refetch). `npm run daily` runs the step; `npm run check` fails when a listed screenshot or the Flathub credit is missing.
+
+On the page the screenshots sit in a row (3 across on desktop, about 1.3 on a phone) that scrolls with arrow buttons, swipe or trackpad; `assets/gallery.js` (loaded only on pages with screenshots) adds the arrows and a lightbox with previous/next, arrow keys and Esc. Without JavaScript each screenshot links to its image file. The `.json` twin lists them under `derived.screenshots`, the `.md` twin under "Screenshots".
+
+```bash
+npm run screenshots                               # fetch new or changed apps
+node scripts/screenshots.mjs --only=vlc --force   # refetch one app
+```
+
 ## Search engines and the .json / .md twins
 
 The per-app `.json` and `.md` files, `/api/v1/*.json` and `/stats-data.php` are for AI agents and tools, not for search results. Two layers keep search engines away: `robots.txt` has a group for the main crawlers (Googlebot, Bingbot, Slurp, DuckDuckBot, Baiduspider, YandexBot, Applebot and others) that disallows `/*.json# Everyversion — MVP

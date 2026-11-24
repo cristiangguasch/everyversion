@@ -166,6 +166,18 @@ for (const a of apps) {
 }
 for (const a of apps) for (const ext of ['json', 'md']) if (!exists(`/${a.slug}/${a.slug}.${ext}`)) bad(a.slug, `missing .${ext} twin`);
 
+// screenshots (scripts/screenshots.mjs): every image the page shows is in the app folder, and the Flathub credit is there
+for (const a of apps) {
+  const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
+  const sec = /<section id="screenshots"[\s\S]*?<\/section>/.exec(h)?.[0];
+  if (!sec) continue;
+  const files = [...sec.matchAll(/<img src="\/[^/]+\/(screenshot-\d\d\.webp)\?v=/g)].map((m) => m[1]);
+  if (!files.length) bad(a.slug, 'Screenshots section has no images');
+  for (const f of files) if (!existsSync(join(DIST, a.slug, f))) bad(a.slug, `${f} missing from dist`);
+  if (!/from <a [^>]*href="https:\/\/flathub\.org\/apps\//.test(sec)) bad(a.slug, 'Screenshots section is missing the Flathub credit');
+  if (!/<script src="\/gallery\.js\?v=/.test(h)) bad(a.slug, 'Screenshots section without gallery.js');
+}
+
 // share images (scripts/og.mjs): every app page names its own og.png, the file is there, and it is a 1200x630 PNG
 for (const a of apps) {
   const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
