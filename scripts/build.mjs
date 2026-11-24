@@ -260,11 +260,12 @@ const imageMeta = (image) => image
 <meta name="twitter:image:alt" content="${esc(image.alt)}">`
   : '<meta name="twitter:card" content="summary">';
 
-function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null }) {
+// `notice` (trusted HTML) puts a grey bar at the top of the sticky header, so it stays in view while scrolling.
+function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null, notice = '' }) {
   const canonical = `${SITE.url}${path}`;
   const isHome = path === '/'; // the home page keeps its own header and its big search box
   return `<!doctype html>
-<html lang="en-US"${isHome ? '' : ' class="has-sticky"'}>
+<html lang="en-US"${isHome ? '' : ` class="has-sticky${notice ? ' has-notice' : ''}"`}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -289,7 +290,7 @@ ${ld.map(jsonLd).join('\n')}
 ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<script src="/t.js?v=${assetHash('t.js')}" defer></script>
 </head>
 <body>
-<header class="site-header${isHome ? '' : ' sticky'}"><div class="wrap">
+<header class="site-header${isHome ? '' : ' sticky'}">${notice && !isHome ? `<div class="notice-bar" role="note"><div class="wrap">${notice}</div></div>` : ''}<div class="wrap">
 <a class="brand" href="/" aria-label="Everyversion home">${LOGO}</a>
 <nav aria-label="Site"><a href="/windows/">Windows</a><a href="/mac/">Mac</a>${HAS_LINUX ? '<a href="/linux/">Linux</a>' : ''}<a href="/categories/">Software</a><a href="/api/">API</a><a href="/about/">About</a><a href="/security/">Security</a><button type="button" class="theme-btn" id="theme-btn" aria-label="Switch between light and dark mode" title="Light / dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></nav>
 </div>${isHome ? '' : `
@@ -331,8 +332,7 @@ function shotsHtml(rec) {
   const items = shotsOf(rec);
   if (!items.length) return '';
   const n = items.length;
-  return `<section id="screenshots" aria-labelledby="h-screenshots">
-<h2 id="h-screenshots">Screenshots</h2>
+  return `<section id="screenshots" aria-label="Screenshots">
 <div class="shots" data-shots>
 <button type="button" class="shots-btn shots-prev" aria-label="Previous screenshots" hidden>${CHEVRON('M15 6l-6 6 6 6')}</button>
 <ul class="shots-track">
@@ -1169,10 +1169,9 @@ ${rec.release_series
   // Sections are separated by <hr>. Empty sections (no description, no changelog) are skipped so no double rules appear.
   const sectionsHtml = [
     `<section id="download" aria-labelledby="h-download">
-<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${shotsOf(rec).length ? '<a href="#screenshots">Screenshots</a>' : ''}${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${hasOld ? '<a href="#versions">Older versions</a>' : ''}${alternativesHtml ? '<a href="#alternatives">Alternatives</a>' : ''}</nav></div>
+<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${hasOld ? '<a href="#versions">Older versions</a>' : ''}${alternativesHtml ? '<a href="#alternatives">Alternatives</a>' : ''}</nav></div>
 ${downloadHtml}
 </section>`,
-    shotsHtml(rec),
     `<section id="installer" aria-labelledby="h-installer">
 <h2 id="h-installer">${allCustom ? 'What the download is' : 'What the installer does'}</h2>
 ${installerHtml}
@@ -1210,10 +1209,10 @@ ${iconHtml}
 <p class="dev">Developer: ${u.publisher || u.homepage ? link(u.publisher || u.homepage, rec.publisher) : esc(rec.publisher)}</p>
 ${updatedLine}
 ${rec.summary ? `<p class="lead">${esc(rec.summary)}</p>` : ''}
-<p class="dl-ok trust-line"><span aria-hidden="true">✓</span> Every download button links to the official download package, we host no files.</p>
 </div>
 </div>
 
+${shotsHtml(rec)}
 ${sectionsHtml}
 </article>
 ${shotsOf(rec).length ? `<script src="/gallery.js?v=${assetHash('gallery.js')}" defer></script>\n` : ''}<script>
@@ -1235,6 +1234,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     ld: [{ '@context': 'https://schema.org', '@graph': [websiteNode, publisherNode, software, crumbs, ...verifiedNodes, faqNode] }],
     alternates: `<link rel="alternate" type="application/json" href="/${rec.slug}/${rec.slug}.json">\n<link rel="alternate" type="text/markdown" href="/${rec.slug}/${rec.slug}.md">\n`,
     image: ogImage(rec),
+    notice: '<span aria-hidden="true">✓</span> Official download links only. We host no files.',
   });
 
   const unavailable = rec.versions.flatMap((v) => v.installers.filter((i) => deadOf(i)).map((i) => ({ platform: v.platform, version: v.version, filename: i.filename, url: i.url, http_status: deadOf(i).status, checked: deadOf(i).checked })));
