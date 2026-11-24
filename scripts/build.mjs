@@ -83,8 +83,15 @@ const PLATFORM_ICON = Object.fromEntries(Object.entries(PLATFORM_PATHS).map(([p,
   `<svg class="plat-icon" viewBox="0 0 24 24" width="22" height="22" ${g.stroke ? 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"' : 'fill="currentColor"'} aria-hidden="true">${g.body}</svg>`]));
 const OS_NAME = { windows: 'Windows', macos: 'macOS', linux: 'Linux' }; // names used in structured data and the Markdown/llms files
 // Header links to the platform listings, drawn as the platform icons (name in aria-label and tooltip). Linux only when some app has it.
+// Each glyph is cropped to its own bounds and drawn 18px tall, so the three icons share the same top and bottom line.
+const NAV_ICON_H = 18;
+const navIcon = (p) => {
+  const g = PLATFORM_PATHS[p], [x, y, w, h] = g.box;
+  const paint = g.stroke ? 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"' : 'fill="currentColor"';
+  return `<svg class="plat-icon" viewBox="${x} ${y} ${w} ${h}" width="${+(NAV_ICON_H * w / h).toFixed(1)}" height="${NAV_ICON_H}" ${paint} aria-hidden="true">${g.body}</svg>`;
+};
 const navPlatforms = () => ['windows', 'macos', ...(HAS_LINUX ? ['linux'] : [])]
-  .map((p) => `<a href="${PLATFORM_PATH[p]}" class="nav-plat" aria-label="${OS_NAME[p]} apps" title="${OS_NAME[p]}">${PLATFORM_ICON[p]}</a>`).join('');
+  .map((p) => `<a href="${PLATFORM_PATH[p]}" class="nav-plat" aria-label="${OS_NAME[p]} apps" title="${OS_NAME[p]}">${navIcon(p)}</a>`).join('');
 const platformList = (ps) => {
   const n = ps.map((p) => PLATFORM[p]);
   return n.length <= 2 ? n.join(' & ') : `${n.slice(0, -1).join(', ')} & ${n.at(-1)}`;
