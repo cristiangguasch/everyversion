@@ -23,7 +23,7 @@
     "publisher": "https://playnite.link/",
     "support": "https://github.com/JosefNemec/Playnite/issues",
     "bug_tracker": "https://github.com/JosefNemec/Playnite/issues",
-    "release_notes": "https://github.com/JosefNemec/Playnite/releases/tag/10.63",
+    "release_notes": "https://github.com/JosefNemec/Playnite/releases/tag/10.65",
     "documentation": [
       {
         "label": "Wiki",
@@ -43,13 +43,50 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "10.63"
+    "windows": "10.65"
   },
-  "last_updated": "2026-10-19",
+  "last_updated": "2026-11-19",
   "versions_total": {
-    "windows": 93
+    "windows": 94
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "10.65",
+      "release_date": "2026-11-19",
+      "release_notes": "Fixed:\n- Updated web view dependency\n- Import exclusion item removal not working when removing using Del key\n- Scrolling not working properly in tray menu\n- Scrolling not working well on some settings views\n- Updated emulator profiles\nSDK:\n- Added StartGameAction method to run specific game actions",
+      "release_notes_url": "https://github.com/JosefNemec/Playnite/releases/tag/10.65",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/Playnite/Playnite/10.65",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/JosefNemec/Playnite/releases/download/10.65/Playnite1065.exe",
+          "host": "github.com",
+          "filename": "Playnite1065.exe",
+          "sha256": "99959aabf2feae11c71b8a4dbd4286f01071ed2a865b02f3c069974acf8244f1",
+          "product_code": "Playnite_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "upgrade": "/NORESTART",
+            "custom": "/NORESTART"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "Playnite_is1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "10.63",
@@ -1604,37 +1641,6 @@
           "upgrade_behavior": "install"
         }
       ]
-    },
-    {
-      "platform": "windows",
-      "version": "9.4",
-      "release_date": "2021-10-15",
-      "release_notes_url": "https://github.com/JosefNemec/Playnite/releases/tag/9.4",
-      "manifest_version": "1.2.0",
-      "manifest_dir": "manifests/p/Playnite/Playnite/9.4",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x86",
-          "type": "inno",
-          "scope": "user",
-          "url": "https://github.com/JosefNemec/Playnite/releases/download/9.4/Playnite94.exe",
-          "host": "github.com",
-          "filename": "Playnite94.exe",
-          "sha256": "d080a74ced32e8b0a7823b9a12845ec7b15f6e6024cecfaa88eddccf096d71fa",
-          "min_os_version": "10.0.0.0",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "switches": {
-            "upgrade": "/NORESTART",
-            "custom": "/NORESTART"
-          },
-          "upgrade_behavior": "install"
-        }
-      ]
     }
   ],
   "verification": {
@@ -1651,8 +1657,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "28c059d95935eba4ba4190fa642ae66e35d361f7",
-      "retrieved_at": "2026-11-15T14:32:32.999Z",
+      "commit": "cb34b40a60c5bd7ce198864235633b8b29761107",
+      "retrieved_at": "2026-11-24T01:13:17.473Z",
       "path": "manifests/p/Playnite/Playnite"
     }
   ]

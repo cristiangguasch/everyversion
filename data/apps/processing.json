@@ -6,11 +6,13 @@
   "author": "Processing Foundation",
   "ids": {
     "winget": "ProcessingFoundation.Processing",
-    "homebrew_cask": "processing"
+    "homebrew_cask": "processing",
+    "flathub": "org.processing.processingide"
   },
   "platforms": [
     "windows",
-    "macos"
+    "macos",
+    "linux"
   ],
   "summary": "A language and environment for creative coding",
   "description": "Processing is a flexible software sketchbook and a language for learning how to code within the context of the visual arts. Since 2001, Processing has promoted software literacy within the visual arts and visual literacy within technology.",
@@ -48,12 +50,14 @@
   },
   "latest_versions": {
     "windows": "4.5.7",
-    "macos": "4.5.7"
+    "macos": "4.5.7",
+    "linux": "4.3"
   },
   "last_updated": "2026-09-24",
   "versions_total": {
     "windows": 2,
-    "macos": 1
+    "macos": 1,
+    "linux": 1
   },
   "versions": [
     {
@@ -158,11 +162,36 @@
           ]
         }
       }
+    },
+    {
+      "platform": "linux",
+      "version": "4.3",
+      "release_date": "2023-07-26",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.processing.processingide.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.processing.processingide.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/org.processing.processingide.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "org.processing.processingide.flatpakref",
+          "no_checksum": true
+        }
+      ]
     }
   ],
   "verification": {
     "level": 0,
-    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
     "checks": {
       "hash_in_manifest": true,
       "hash_recomputed": false,
@@ -186,6 +215,36 @@
       "retrieved_at": "2026-11-18T14:27:13.991Z",
       "path": "Casks/p/processing.rb",
       "api_url": "https://formulae.brew.sh/api/cask/processing.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.processing.processingide",
+      "retrieved_at": "2026-11-24T01:13:40.902Z",
+      "path": "api/v2/appstream/org.processing.processingide",
+      "api_url": "https://flathub.org/api/v2/appstream/org.processing.processingide",
+      "content_sha256": "236aa53c21f1f107c163ffe836a914bd359648a96676171b02b5c0d43ccf77a5"
     }
-  ]
+  ],
+  "flathub": {
+    "app_id": "org.processing.processingide",
+    "page_url": "https://flathub.org/apps/org.processing.processingide",
+    "repo_url": "https://github.com/flathub/org.processing.processingide",
+    "install_command": "flatpak install flathub org.processing.processingide",
+    "run_command": "flatpak run org.processing.processingide",
+    "verified": false,
+    "license": "GPL-2.0",
+    "free_license": true,
+    "developer_name": "Processing Foundation",
+    "categories": [
+      "Development",
+      "IDE"
+    ],
+    "download_size": 236100493,
+    "installed_size": 444664832,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
 }
