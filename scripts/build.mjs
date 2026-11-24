@@ -9,13 +9,14 @@
 // No framework, no runtime JS needed for app pages.
 
 import { createHash } from 'node:crypto';
-import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { summarise } from './lib/summary.mjs';
 import { statsPage } from './lib/stats-page.mjs';
 import { CASK_REPO, caskDisabledSentence } from './lib/cask.mjs';
 import { loadFeatures, featuresHtml, featuresMd } from './lib/features.mjs';
+import { PLATFORM_PATHS } from './lib/platform-icons.mjs';
 import { aboutPage, apiPage, contactPage, legalHub, privacyPage, termsPage, cookiesPage, disclaimerPage, contentPage, securityPage, AUTHOR, AUTHOR_ID, PERSON } from './lib/pages.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -76,12 +77,10 @@ const ICON_EXTERNAL = svg('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2
 // The text behind the homepage "For Agents" menu. All three options use it exactly as written here.
 const AGENT_PROMPT = `Read ${SITE.url}/llms.txt so I can ask you to find software to download.`;
 const PLATFORM_PATH = { windows: '/windows/', macos: '/mac/', linux: '/linux/' }; // one listing page per platform
-// Platform logos (inline SVG, drawn in the text colour) shown next to the download headings.
-const PLATFORM_ICON = {
-  windows: '<svg class="plat-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M2 4.2l8.6-1.2v8.1H2zM11.8 2.8L22 1.4v9.7H11.8zM2 12.2h8.6v8.1L2 19.1zM11.8 12.2H22v9.6l-10.2-1.4z"/></svg>',
-  macos: '<svg class="plat-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>',
-  linux: '<svg class="plat-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 16h5"/></svg>',
-};
+// Platform logos (inline SVG, drawn in the text colour) shown next to the download headings. The glyphs live in
+// scripts/lib/platform-icons.mjs so the share images (scripts/og.mjs) draw the same ones.
+const PLATFORM_ICON = Object.fromEntries(Object.entries(PLATFORM_PATHS).map(([p, g]) => [p,
+  `<svg class="plat-icon" viewBox="0 0 24 24" width="22" height="22" ${g.stroke ? 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"' : 'fill="currentColor"'} aria-hidden="true">${g.body}</svg>`]));
 const OS_NAME = { windows: 'Windows', macos: 'macOS', linux: 'Linux' }; // names used in structured data and the Markdown/llms files
 const platformList = (ps) => {
   const n = ps.map((p) => PLATFORM[p]);
@@ -249,7 +248,19 @@ const openExternalInNewTab = (html) =>
   );
 const layout = (opts) => openExternalInNewTab(layoutRaw(opts));
 
-function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false }) {
+// Share image tags. `image` = { url, alt } (absolute URL, 1200x630 PNG); pages without one keep the small summary card.
+const imageMeta = (image) => image
+  ? `<meta property="og:image" content="${esc(image.url)}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(image.alt)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${esc(image.url)}">
+<meta name="twitter:image:alt" content="${esc(image.alt)}">`
+  : '<meta name="twitter:card" content="summary">';
+
+function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null }) {
   const canonical = `${SITE.url}${path}`;
   const isHome = path === '/'; // the home page keeps its own header and its big search box
   return `<!doctype html>
@@ -266,7 +277,7 @@ ${noindex ? '<meta name="robots" content="noindex,follow">\n' : ''}${alternates}
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(canonical)}">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
+${imageMeta(image)}
 <meta name="color-scheme" content="light dark">
 <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" type="image/x-icon" href="https://everyversion.net/favicon.ico" sizes="48x48">
@@ -303,6 +314,14 @@ let ICONS = {};
 try {
   ICONS = JSON.parse(readFileSync(join(ROOT, 'data', 'icons.json'), 'utf8'));
 } catch {}
+// Share images made by scripts/og.mjs (data/og/<slug>.png, index in data/og.json). Apps without one keep the small card.
+let OG = {};
+try {
+  OG = JSON.parse(readFileSync(join(ROOT, 'data', 'og.json'), 'utf8'));
+} catch {}
+const ogImage = (rec) => OG[rec.slug] && existsSync(join(ROOT, 'data', 'og', `${rec.slug}.png`))
+  ? { url: `${SITE.url}/${rec.slug}/og.png?v=${OG[rec.slug].hash.slice(0, 8)}`, alt: `${rec.name} on ${SITE.name}` }
+  : null;
 // VirusTotal results (scripts/virustotal.mjs). Keyed by SHA-256. Absent = not looked up yet; nothing is ever guessed.
 let VT = {};
 try {
@@ -1190,6 +1209,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     body,
     ld: [{ '@context': 'https://schema.org', '@graph': [websiteNode, publisherNode, software, crumbs, ...verifiedNodes, faqNode] }],
     alternates: `<link rel="alternate" type="application/json" href="/${rec.slug}/${rec.slug}.json">\n<link rel="alternate" type="text/markdown" href="/${rec.slug}/${rec.slug}.md">\n`,
+    image: ogImage(rec),
   });
 
   const unavailable = rec.versions.flatMap((v) => v.installers.filter((i) => deadOf(i)).map((i) => ({ platform: v.platform, version: v.version, filename: i.filename, url: i.url, http_status: deadOf(i).status, checked: deadOf(i).checked })));
@@ -1668,6 +1688,7 @@ function main() {
     const { html, twin, md, title, desc } = appPage(rec);
     write(`${rec.slug}/index.html`, html);
     if (ICONS[rec.slug]) cpSync(join(ROOT, 'data', 'icons', ICONS[rec.slug].file), join(DIST, rec.slug, `icon.${ICONS[rec.slug].ext}`));
+    if (ogImage(rec)) cpSync(join(ROOT, 'data', 'og', `${rec.slug}.png`), join(DIST, rec.slug, 'og.png'));
     write(`${rec.slug}/${rec.slug}.json`, JSON.stringify(twin, null, 2) + '\n');
     write(`${rec.slug}/${rec.slug}.md`, md);
     stats.pages++;

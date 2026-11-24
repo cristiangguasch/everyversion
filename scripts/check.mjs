@@ -166,6 +166,19 @@ for (const a of apps) {
 }
 for (const a of apps) for (const ext of ['json', 'md']) if (!exists(`/${a.slug}/${a.slug}.${ext}`)) bad(a.slug, `missing .${ext} twin`);
 
+// share images (scripts/og.mjs): every app page names its own og.png, the file is there, and it is a 1200x630 PNG
+for (const a of apps) {
+  const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
+  const url = /<meta property="og:image" content="([^"]+)">/.exec(h)?.[1];
+  if (!url) { bad(a.slug, 'no og:image (run node scripts/og.mjs)'); continue; }
+  if (!url.startsWith(`https://everyversion.net/${a.slug}/og.png?v=`)) bad(a.slug, `og:image points elsewhere: ${url}`);
+  if (!/<meta name="twitter:card" content="summary_large_image">/.test(h)) bad(a.slug, 'twitter:card is not summary_large_image');
+  const file = join(DIST, a.slug, 'og.png');
+  if (!existsSync(file)) { bad(a.slug, 'og.png missing from dist'); continue; }
+  const png = readFileSync(file);
+  if (png.toString('ascii', 1, 4) !== 'PNG' || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) bad(a.slug, 'og.png is not a 1200x630 PNG');
+}
+
 if (warn.length) console.warn(`warnings (${warn.length}):\n  ${warn.slice(0, 15).join('\n  ')}`);
 if (problems.length) {
   console.error(`\n✗ ${problems.length} problem(s):\n  ${problems.slice(0, 40).join('\n  ')}`);

@@ -60,6 +60,18 @@ Some app pages carry hand-written notes inside the Description section: a one-li
 
 Rules: write in our own words, never copy sentences; say what the app does not do (plan limits, account needs, platform gaps, per-platform differences); include only what was confirmed on a page, and leave out anything unconfirmed. `sources` and `reviewed` are the audit trail: re-check a file when the app's plans or platforms change and update `reviewed`. `npm run validate` checks each file; `npm run check` checks the notes appear exactly for the apps with a file.
 
+## Share images (og:image)
+
+Every app page has a 1200x630 share image for link previews: the app icon (or its first letter on a blue tile when there is no icon, or only the generic GitHub mark), the app name in Geist Bold, the page's lead line, the Everyversion logo and the icons of the platforms the app is available on. `scripts/og.mjs` draws it with Satori and resvg, using the Geist fonts in `brand/fonts/` and the platform glyphs in `scripts/lib/platform-icons.mjs` (the same ones the pages use).
+
+Each image is made once and kept in `data/og/<slug>.png`. `data/og.json` stores a hash of the app's name and icon file, and an image is only made again when one of those changes. The lead line and the platforms are drawn but do not trigger a remake; use `--force` for that. The build copies each image to `/<slug>/og.png` and links it with `?v=<hash>`, so a remade image never hits a stale cache. `npm run daily` runs the step after icons; `npm run check` fails if an app page has no image or the file is not 1200x630.
+
+```bash
+npm run og                                   # make missing or outdated images
+node scripts/og.mjs --only=vlc --force       # remake one app
+node scripts/og.mjs --only=vlc --out=/tmp/og # preview without touching data/og
+```
+
 ## Search engines and the .json / .md twins
 
 The per-app `.json` and `.md` files, `/api/v1/*.json` and `/stats-data.php` are for AI agents and tools, not for search results. Two layers keep search engines away: `robots.txt` has a group for the main crawlers (Googlebot, Bingbot, Slurp, DuckDuckBot, Baiduspider, YandexBot, Applebot and others) that disallows `/*.json# Everyversion — MVP

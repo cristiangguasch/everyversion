@@ -11,13 +11,14 @@
 //   2. ingest   new winget apps + auto-match their Homebrew cask (same name AND same website domain), then every custom source (config/custom-sources.json), then Flathub (Linux, matched the same way)
 //   3. validate the data
 //   3b. icons   winget manifest icon, else Flathub icon, else the app icon from the Homebrew cask download, else a generic GitHub mark for GitHub projects, else none
+//   3c. share images (og:image) for apps that have none yet, or whose name or icon changed
 //   4. verify   download installers, re-compute SHA-256, check signatures (apps with no or stale results)
 //   4b. link check: new download URLs, plus every URL that was dead last time (404/410 -> the build disables that button)
 //   5. VirusTotal lookup by hash (hashes not stored yet; needs VT_API_KEY or .env)
 //   6. build the site and run the checks
 //   7. print a report of the new apps
 //
-// Options: --refresh  --max-mb=N (optional: leave apps with a bigger installer unchecked; there is no limit by default)  --jobs=3  --no-verify  --no-vt  --no-icons  --no-links  --no-build
+// Options: --refresh  --max-mb=N (optional: leave apps with a bigger installer unchecked; there is no limit by default)  --jobs=3  --no-verify  --no-vt  --no-icons  --no-og  --no-links  --no-build
 
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, appendFileSync, writeFileSync } from 'node:fs';
@@ -106,6 +107,12 @@ if (!flags['no-icons']) {
   // Still no icon (or only the generic GitHub mark)? Take the app's own icon out of its Homebrew cask download.
   if (iconSlugs.length) run('macicons.mjs', ['--missing', ...iconSlugs], { allowFail: true });
   else console.log('  nothing new');
+}
+
+// ---- share images: made once per app, remade only when its name or icon changed (scripts/og.mjs keeps the hashes in data/og.json)
+if (!flags['no-og']) {
+  step('Share images (og:image)');
+  run('og.mjs', [], { allowFail: true });
 }
 
 // ---- 4. verification
