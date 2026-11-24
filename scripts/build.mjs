@@ -82,6 +82,9 @@ const PLATFORM_PATH = { windows: '/windows/', macos: '/mac/', linux: '/linux/' }
 const PLATFORM_ICON = Object.fromEntries(Object.entries(PLATFORM_PATHS).map(([p, g]) => [p,
   `<svg class="plat-icon" viewBox="0 0 24 24" width="22" height="22" ${g.stroke ? 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"' : 'fill="currentColor"'} aria-hidden="true">${g.body}</svg>`]));
 const OS_NAME = { windows: 'Windows', macos: 'macOS', linux: 'Linux' }; // names used in structured data and the Markdown/llms files
+// Header links to the platform listings, drawn as the platform icons (name in aria-label and tooltip). Linux only when some app has it.
+const navPlatforms = () => ['windows', 'macos', ...(HAS_LINUX ? ['linux'] : [])]
+  .map((p) => `<a href="${PLATFORM_PATH[p]}" class="nav-plat" aria-label="${OS_NAME[p]} apps" title="${OS_NAME[p]}">${PLATFORM_ICON[p]}</a>`).join('');
 const platformList = (ps) => {
   const n = ps.map((p) => PLATFORM[p]);
   return n.length <= 2 ? n.join(' & ') : `${n.slice(0, -1).join(', ')} & ${n.at(-1)}`;
@@ -290,20 +293,20 @@ ${ld.map(jsonLd).join('\n')}
 ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<script src="/t.js?v=${assetHash('t.js')}" defer></script>
 </head>
 <body>
-<header class="site-header${isHome ? '' : ' sticky'}">${notice && !isHome ? `<div class="notice-bar" role="note"><div class="wrap">${notice}</div></div>` : ''}<div class="wrap">
-<a class="brand" href="/" aria-label="Everyversion home">${LOGO}</a>
-<nav aria-label="Site"><a href="/windows/">Windows</a><a href="/mac/">Mac</a>${HAS_LINUX ? '<a href="/linux/">Linux</a>' : ''}<a href="/categories/">Software</a><a href="/api/">API</a><a href="/about/">About</a><a href="/security/">Security</a><button type="button" class="theme-btn" id="theme-btn" aria-label="Switch between light and dark mode" title="Light / dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></nav>
-</div>${isHome ? '' : `
-<div class="wrap hs-wrap"><form class="header-search" role="search" action="/">
+<header class="site-header${isHome ? '' : ' sticky'}">${notice && !isHome ? `<div class="notice-bar" role="note"><div class="wrap">${notice}</div></div>` : ''}<div class="wrap hdr">
+<a class="brand" href="/" aria-label="Everyversion home">${LOGO}</a>${isHome ? '' : `
+<form class="header-search" role="search" action="/">
 <label class="sr" for="hq">Search apps</label>
-<input id="hq" type="search" placeholder="Search apps by name, publisher or tag" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="hsuggest" aria-autocomplete="list" aria-haspopup="listbox">
+<input id="hq" type="search" placeholder="Search apps" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="hsuggest" aria-autocomplete="list" aria-haspopup="listbox">
 <ul id="hsuggest" class="suggest" role="listbox" aria-label="Matching apps" hidden></ul>
-</form></div>`}</header>
+</form>`}
+<nav aria-label="Site">${navPlatforms()}<a href="/about/" class="nav-about">About</a><button type="button" class="theme-btn" id="theme-btn" aria-label="Switch between light and dark mode" title="Light / dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></nav>
+</div></header>
 <script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches,n=d?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}})</script>
 <main><div class="wrap">
 ${body}
 </div></main>
-<footer class="site-footer"><div class="wrap"><p>We host no installers, and we’re not affiliated with any software publisher.</p><nav aria-label="Legal"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/statistics/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
+<footer class="site-footer"><div class="wrap"><p>We host no installers, and we’re not affiliated with any software publisher.</p><nav aria-label="More"><a href="/categories/">Software</a><a href="/api/">API</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/statistics/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
 </body>
 </html>
 `;

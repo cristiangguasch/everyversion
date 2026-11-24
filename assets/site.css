@@ -104,7 +104,14 @@ ol.goals li{margin:8px 0}
 .pitch p{margin:0;font-size:.92rem}
 h4{font-size:.9rem;margin:16px 0 4px;color:var(--muted)}
 details>summary .badge{margin-left:8px;font-size:.7rem;padding:0 8px}
-@media (max-width:560px){.site-header .wrap{flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.site-header nav{width:100%;min-width:0;flex-wrap:nowrap;gap:18px;white-space:nowrap;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0}.site-header nav::-webkit-scrollbar{display:none}.site-header nav>*{flex:none}}
+/* Header: logo, search and nav on one row; on phones the search drops to its own row under logo + nav */
+.site-header .hdr .header-search{flex:1 1 auto;max-width:34rem;min-width:0}
+.site-header .header-search .suggest{min-width:min(24rem,calc(100vw - 32px))}
+.site-header nav .nav-plat{display:inline-flex;align-items:center;padding:4px}
+.site-header nav .nav-plat .plat-icon{width:20px;height:20px}
+.site-header nav .nav-about{margin-left:4px}
+@media (max-width:560px){.site-header .hdr{flex-wrap:wrap;gap:8px 10px;padding-top:8px;padding-bottom:10px}.site-header .hdr .header-search{order:3;flex-basis:100%;max-width:none}.site-header nav{gap:10px}.brand .logo{height:22px}}
+@media (max-width:380px){.brand .logo{height:19px}.site-header nav{gap:8px}}
 form.contact{max-width:34rem;margin:16px 0 8px}
 form.contact label{display:block;font-weight:600;margin-bottom:4px}
 form.contact input,form.contact select,form.contact textarea{width:100%;font:inherit;padding:10px 12px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bg);color:var(--text)}
@@ -339,12 +346,11 @@ html{overflow-y:scroll} /* always reserve the scrollbar, so short pages (e.g. /l
 .prose .scroll td code{white-space:nowrap}
 /* Every page except the home page: sticky header with the search row under the nav */
 .site-header.sticky{position:sticky;top:0;z-index:60;background:var(--bg)}
-html.has-sticky{scroll-padding-top:9rem}
-.site-header .hs-wrap{display:block;min-height:0;padding-bottom:10px}
+html.has-sticky{scroll-padding-top:5.5rem}
 .header-search{position:relative}
 .header-search input[type=search]{width:100%;box-sizing:border-box;height:40px;padding:0 14px;font-size:.95rem}
 .header-search .suggest{max-height:min(26rem,calc(100vh - 9rem))}
-@media (max-width:560px){html.has-sticky{scroll-padding-top:11rem}.site-header.sticky .wrap{min-height:44px;padding-top:6px;padding-bottom:0}.site-header .hs-wrap{padding-top:0;padding-bottom:8px}}
+@media (max-width:560px){html.has-sticky{scroll-padding-top:8.5rem}}
 
 /* Linux (Flathub): "Install" dropdown with copy-command options */
 .dl-menu{position:relative;flex:none}
@@ -366,8 +372,8 @@ h1 .h1-ver{font-family:var(--display);font-size:.55em;font-weight:500;color:var(
 .notice-bar{background:var(--surface);border-bottom:1px solid var(--line);color:var(--text);font-size:.86rem;font-weight:600;line-height:1.4}
 .site-header .notice-bar .wrap,.site-header.sticky .notice-bar .wrap{display:block;min-height:0;padding-top:7px;padding-bottom:7px;text-align:center}
 .notice-bar span{color:var(--ok);margin-right:6px}
-html.has-notice{scroll-padding-top:11rem}
-@media (max-width:560px){html.has-notice{scroll-padding-top:12.5rem}.notice-bar{font-size:.8rem}}
+html.has-notice{scroll-padding-top:7.5rem}
+@media (max-width:560px){html.has-notice{scroll-padding-top:10.5rem}.notice-bar{font-size:.8rem}}
 /* Screenshots row first on the page, no heading */
 #screenshots{margin-top:28px}
 
