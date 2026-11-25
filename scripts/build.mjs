@@ -279,6 +279,55 @@ const imageMeta = (image) => image
 const ICON_CLAUDE = '<svg class="ck-ico" viewBox="0 0 24 24" aria-hidden="true"><g stroke="#d97757" stroke-width="2.6" stroke-linecap="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/></g></svg>';
 const ICON_VT = '<svg class="ck-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" fill="#394eff"/><path d="M8 7l6 5-6 5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
+// AI menu on app pages: small monochrome marks for each item (decorative; each item is named in text).
+const aiIco = (inner, fill = false) => `<svg class="ai-s${fill ? ' f' : ''}" viewBox="0 0 24 24" aria-hidden="true">${inner}</svg>`; // stroke and size come from .ai-s in site.css
+const AI_ICON = {
+  copy: aiIco('<rect x="8" y="3" width="8" height="4" rx="1"/><path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>'),
+  md: aiIco('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 15V9l2.5 3L11 9v6M16 9v6M14 13l2 2 2-2"/>'),
+  json: aiIco('<path d="M8 4c-2 0-2 1.5-2 3s0 3-2 5c2 2 2 3.5 2 5s0 3 2 3M16 4c2 0 2 1.5 2 3s0 3 2 5c-2 2-2 3.5-2 5s0 3-2 3"/>'),
+  chatgpt: aiIco('<path d="M12 3.5a4 4 0 0 1 4 4v3l-4 2.3-4-2.3v-3a4 4 0 0 1 4-4zM19.4 8.3a4 4 0 0 1 0 5.6l-2.6 1.5-4-2.3V8.5l2.6-1.5a4 4 0 0 1 4 1.3zM16.8 18.5a4 4 0 0 1-5.6 1.5l-2.6-1.5v-4.6l4-2.3 4 2.3v3a4 4 0 0 1 .2 1.6zM4.6 15.7a4 4 0 0 1 0-5.6l2.6-1.5 4 2.3v4.6l-2.6 1.5a4 4 0 0 1-4-1.3z"/>'),
+  claude: aiIco('<path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>'),
+  perplexity: aiIco('<path d="M12 2v20M5 6h14M5 6v8l7-6 7 6V6M5 14l7 6 7-6M5 14v4M19 14v4"/>'),
+  gemini: aiIco('<path d="M12 2c.6 5.4 4.6 9.4 10 10-5.4.6-9.4 4.6-10 10-.6-5.4-4.6-9.4-10-10 5.4-.6 9.4-4.6 10-10z"/>', true),
+  chevron: aiIco('<path d="M6 9l6 6 6-6"/>'),
+};
+// The "Copy for AI" split button and its menu. Every AI option uses the same prompt: read this app's Markdown file.
+const aiMenu = (rec) => {
+  const md = `${SITE.url}/${rec.slug}/${rec.slug}.md`;
+  const prompt = `Read ${md} so I can ask you questions about ${rec.name}: its versions, downloads, checksums and license.`;
+  const q = encodeURIComponent(prompt);
+  const item = ({ ico, title, desc, href, copy, ext }) => {
+    const inner = `<span class="ai-ico">${AI_ICON[ico]}</span><span class="ai-txt"><span class="ai-t${ext ? ' x' : ''}"><span class="lbl">${esc(title)}</span></span><span class="ai-d">${esc(desc)}</span></span>`;
+    return href
+      ? `<a role="menuitem" class="ai-item" href="${esc(href)}" target="_blank" rel="noopener"${copy ? ' data-copy data-keep' : ''}>${inner}</a>`
+      : `<button type="button" role="menuitem" class="ai-item" data-copy>${inner}</button>`;
+  };
+  return `<div class="ai-menu" data-prompt="${esc(prompt)}">
+<button type="button" class="ai-main" data-copy>${AI_ICON.copy}<span class="lbl">Copy for AI</span></button><button type="button" class="ai-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="ai-pop" aria-label="More ways to use this page with AI">${AI_ICON.chevron}</button>
+<div class="ai-pop" id="ai-pop" role="menu" aria-label="Use this page with AI" hidden>
+${[
+  item({ ico: 'copy', title: 'Copy for AI', desc: 'Copy a prompt that points your AI to this page' }),
+  item({ ico: 'md', title: 'View as Markdown', desc: 'This page as plain text for AI', href: `/${rec.slug}/${rec.slug}.md`, ext: true }),
+  item({ ico: 'json', title: 'View as JSON', desc: 'The full record for tools and scripts', href: `/${rec.slug}/${rec.slug}.json`, ext: true }),
+  item({ ico: 'chatgpt', title: 'Open in ChatGPT', desc: `Ask questions about ${rec.name}`, href: `https://chatgpt.com/?q=${q}`, ext: true }),
+  item({ ico: 'claude', title: 'Open in Claude', desc: `Ask questions about ${rec.name}`, href: `https://claude.ai/new?q=${q}`, ext: true }),
+  item({ ico: 'perplexity', title: 'Open in Perplexity', desc: `Ask questions about ${rec.name}`, href: `https://www.perplexity.ai/search?q=${q}`, ext: true }),
+  // Gemini has no supported way to prefill a prompt from a link, so this copies the prompt and opens Gemini to paste it.
+  item({ ico: 'gemini', title: 'Open in Gemini', desc: 'Copies the prompt; paste it in Gemini', href: 'https://gemini.google.com/app', copy: true, ext: true }),
+].join('\n')}
+</div>
+</div>`;
+};
+// Menu behavior: open/close, arrow keys, Escape, and copying. A copy item that is also a link (Gemini) copies, then opens.
+const AI_MENU_JS = `(()=>{const m=document.querySelector('.ai-menu');if(!m)return;const t=m.querySelector('.ai-toggle'),p=m.querySelector('.ai-pop'),items=()=>[...p.querySelectorAll('.ai-item')];
+const open=(v,focus)=>{p.hidden=!v;t.setAttribute('aria-expanded',String(v));if(v&&focus)items()[0].focus()};
+t.addEventListener('click',(e)=>{e.stopPropagation();open(p.hidden)});
+t.addEventListener('keydown',(e)=>{if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();open(true,true)}});
+document.addEventListener('click',(e)=>{if(!p.hidden&&!m.contains(e.target))open(false)});
+m.addEventListener('keydown',(e)=>{if(p.hidden)return;const l=items(),i=l.indexOf(document.activeElement);if(e.key==='Escape'){open(false);t.focus()}else if(e.key==='ArrowDown'){e.preventDefault();l[(i+1)%l.length].focus()}else if(e.key==='ArrowUp'){e.preventDefault();l[(i-1+l.length)%l.length].focus()}else if(e.key==='Tab')open(false)});
+const copy=(txt,ok)=>{const fb=()=>{const a=document.createElement('textarea');a.value=txt;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{if(document.execCommand('copy'))ok()}catch(_){}a.remove()};if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(txt).then(ok,fb);else fb()};
+m.addEventListener('click',(e)=>{const b=e.target.closest('[data-copy]');if(!b)return;const l=b.querySelector('.lbl'),old=l.textContent;copy(m.dataset.prompt,()=>{l.textContent='Copied';setTimeout(()=>{l.textContent=old;if(!b.hasAttribute('data-keep'))open(false)},1200)})})})();`;
+
 // `notice` (trusted HTML) puts a grey bar at the top of the header (sticky on every page but home), so it stays in view while scrolling.
 const NOTICE = '<span aria-hidden="true">✓</span> Official download links only. We host no files.';
 function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null, notice = NOTICE }) {
@@ -1265,7 +1314,7 @@ ${similarHtml ? '<div class="ov-layout app-layout">\n' : ''}<article data-slug="
 <div class="app-head">
 ${iconHtml}
 <div class="app-head-text">
-<div class="title-row"><h1>${esc(h1)} <span class="h1-ver"${new Set(plats.map((p) => latestOf[p].version)).size > 1 ? ` title="${esc(latestText)}"` : ''}>${esc(latestOf[plats[0]].version)}</span></h1>${safeBadge}</div>
+<div class="title-row"><h1>${esc(h1)} <span class="h1-ver"${new Set(plats.map((p) => latestOf[p].version)).size > 1 ? ` title="${esc(latestText)}"` : ''}>${esc(latestOf[plats[0]].version)}</span></h1>${safeBadge}${aiMenu(rec)}</div>
 <p class="dev">Developer: ${u.publisher || u.homepage ? link(u.publisher || u.homepage, rec.publisher) : esc(rec.publisher)}</p>
 ${updatedLine}
 </div>
@@ -1284,6 +1333,7 @@ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).
 const b=e.target.closest('.dl-install');document.querySelectorAll('.dl-menu').forEach((m)=>{if(!b||m!==b.closest('.dl-menu'))shut(m)});
 if(b){const p=b.closest('.dl-menu').querySelector('.dl-pop'),show=p.hidden;p.hidden=!show;b.setAttribute('aria-expanded',String(show))}});
 document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySelectorAll('.dl-menu').forEach((m)=>{m.querySelector('.dl-pop').hidden=true;m.querySelector('.dl-install').setAttribute('aria-expanded','false')})});
+${AI_MENU_JS}
 </script>`;
 
   // Version anchors from before the split (#windows-1-2-3): old versions moved to the old-versions page, the latest to Downloads.
