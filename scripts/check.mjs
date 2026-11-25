@@ -60,7 +60,7 @@ for (const f of htmlFiles) {
   if (!title) bad(rel, 'missing <title>');
   if (title.length > 90) warn.push(`${rel}: long title (${title.length})`);
   if (desc.length < 50 || desc.length > 165) warn.push(`${rel}: description length ${desc.length}`);
-  if (/\bfor Free\b/.test(title) && rel !== 'index.html' && pricing.get(rel.split('/')[0]) === 'unknown') bad(rel, 'title says Free but pricing unknown');
+  if (/\bfor free\b/i.test(title) && rel !== 'index.html' && ['unknown', 'paid'].includes(pricing.get(rel.split('/')[0]))) bad(rel, `title says free but pricing is ${pricing.get(rel.split('/')[0])}`);
   if ((html.match(/<h1[ >]/g) || []).length !== 1) bad(rel, 'expected exactly one <h1>');
   if (!/<link rel="canonical"/.test(html)) bad(rel, 'no canonical');
 
@@ -69,15 +69,24 @@ for (const f of htmlFiles) {
 }
 
 // sitemap
+// sitemap.xml is an index: sitemap-pages.xml (home, about, listings, categories), sitemap-software.xml (app pages) and
+// sitemap-old-versions.xml. Every child it names must exist; locs below are the pages and software sitemaps together.
+const locsOf = (file) => (existsSync(join(DIST, file)) ? [...readFileSync(join(DIST, file), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].replace('https://everyversion.net', '')) : null);
 const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8');
-const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].replace('https://everyversion.net', ''));
+if (!/<sitemapindex /.test(sitemap)) bad('sitemap.xml', 'is not a sitemap index');
+const children = (locsOf('sitemap.xml') || []).map((l) => l.replace(/^\//, ''));
+for (const c of children) if (!existsSync(join(DIST, c))) bad('sitemap.xml', `names a missing sitemap ${c}`);
+for (const c of ['sitemap-pages.xml', 'sitemap-software.xml']) if (!children.includes(c)) bad('sitemap.xml', `does not name ${c}`);
+const softwareLocs = locsOf('sitemap-software.xml') || [];
+if (softwareLocs.length !== apps.length || softwareLocs.some((l) => !/^\/[^/]+\/$/.test(l))) bad('sitemap-software.xml', `expected the ${apps.length} app pages only, found ${softwareLocs.length} urls`);
+const locs = [...(locsOf('sitemap-pages.xml') || []), ...softwareLocs];
 const STATIC = 6 + (exists('/linux/') ? 1 : 0); // about, contact, security, API, Windows and Mac listings, and the Linux listing when an app has a Linux build (the legal pages and Stats are noindex and not in the sitemap)
 let catPages = [];
 try {
   catPages = JSON.parse(readFileSync(join(DIST, 'api/v1/categories.json'), 'utf8')).categories.filter((c) => c.url);
 } catch {}
 const CATEGORY_PAGES = catPages.length ? catPages.length + 1 : 0; // one page per category with 5+ apps, plus the /categories/ hub
-if (locs.length !== apps.length + 1 + STATIC + CATEGORY_PAGES) bad('sitemap.xml', `expected ${apps.length + 1 + STATIC + CATEGORY_PAGES} urls, found ${locs.length}`);
+if (locs.length !== apps.length + 1 + STATIC + CATEGORY_PAGES) bad('sitemap-pages.xml + sitemap-software.xml', `expected ${apps.length + 1 + STATIC + CATEGORY_PAGES} urls, found ${locs.length}`);
 
 // categories: every page exists with the right number of app links, and app pages never recommend themselves
 for (const c of catPages) {
@@ -95,17 +104,36 @@ for (const a of apps) {
   if (links.includes(a.slug)) bad(a.slug, 'lists itself as an alternative');
   if (links.length < 1 || links.length > 6) bad(a.slug, `alternatives has ${links.length} links`);
 }
-for (const l of locs) if (!exists(l)) bad('sitemap.xml', `missing page ${l}`);
+for (const l of locs) if (!exists(l)) bad('sitemap-pages.xml + sitemap-software.xml', `missing page ${l}`);
+
+// old-versions pages: one per app with more than 25 old versions, in their own sitemap, linked both ways
+const oldFiles = htmlFiles.filter((f) => /-old-versions\.html$/.test(f)).map((f) => f.replace(DIST, ''));
+const oldSitemapPath = join(DIST, 'sitemap-old-versions.xml');
+const oldLocs = existsSync(oldSitemapPath) ? [...readFileSync(oldSitemapPath, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].replace('https://everyversion.net', '')) : [];
+if (oldFiles.length && !children.includes('sitemap-old-versions.xml')) bad('sitemap.xml', 'does not name sitemap-old-versions.xml');
+if (oldLocs.length !== oldFiles.length) bad('sitemap-old-versions.xml', `lists ${oldLocs.length} pages, dist has ${oldFiles.length}`);
+for (const l of oldLocs) if (!exists(l)) bad('sitemap-old-versions.xml', `missing page ${l}`);
+for (const l of locs) if (/-old-versions\.html$/.test(l)) bad('sitemap', `old-versions page belongs in sitemap-old-versions.xml: ${l}`);
+for (const f of oldFiles) {
+  const slug = f.split('/')[1];
+  const o = readFileSync(join(DIST, f), 'utf8');
+  const main = readFileSync(join(DIST, slug, 'index.html'), 'utf8');
+  if (!main.includes(`href="${f}"`)) bad(slug, 'main page does not link to its old-versions page');
+  if (!new RegExp(`<a class="btn ov-latest" href="/${slug}/">Get latest version</a>`).test(o)) bad(f, 'no "Get latest version" link back to the main page');
+  if (!/<aside class="ov-side"/.test(o)) bad(f, 'no sidebar');
+}
 
 // .htaccess: canonical https, no listings, hidden files
 const ht = exists('/.htaccess') || existsSync(join(DIST, '.htaccess')) ? readFileSync(join(DIST, '.htaccess'), 'utf8') : null;
 if (!ht) bad('.htaccess', 'missing from dist/ (the build copies assets/htaccess)');
 else for (const [what, re] of [['https redirect', /RewriteCond %\{HTTPS\} !=on/], ['canonical host', /https:\/\/everyversion\.net\/\$1 \[R=301/], ['no listings', /Options -Indexes/], ['404 for folders without index.html', /REQUEST_FILENAME\}\/index\.html !-f/], ['hidden files', /well-known/]]) if (!re.test(ht)) bad('.htaccess', `missing rule: ${what}`);
-// Search engines must not read or index the .json / .md twins: robots.txt groups for the main crawlers, and a noindex header in .htaccess.
+// robots.txt: one group for everyone and a single Sitemap line (the index). The .json / .md twins stay out of search
+// results through the noindex header in .htaccess, which crawlers can only see because robots.txt lets them fetch the files.
 const robots = existsSync(join(DIST, 'robots.txt')) ? readFileSync(join(DIST, 'robots.txt'), 'utf8') : '';
-const seGroup = /User-Agent: Googlebot\n[\s\S]*?\n\n/i.exec(robots)?.[0] || '';
-for (const [what, re] of [['Googlebot group', /Disallow: \/\*\.json\$/], ['Googlebot group (md)', /Disallow: \/\*\.md\$/], ['Bingbot in the same group', /User-Agent: Bingbot/i]]) if (!re.test(seGroup)) bad('robots.txt', `search-engine group lacks: ${what}`);
 if (!/User-Agent: \*\n[^\n]*\nAllow: \/\n/i.test(robots)) bad('robots.txt', 'the general group must still allow everything (AI agents read the twins)');
+if (/Disallow: \/\*\.(json|md)\$/.test(robots)) bad('robots.txt', 'blocks the .json/.md twins, which hides their noindex header');
+const robotSitemaps = [...robots.matchAll(/^Sitemap: (.+)$/gm)].map((m) => m[1]);
+if (robotSitemaps.join() !== 'https://everyversion.net/sitemap.xml') bad('robots.txt', `should list only the sitemap index, found: ${robotSitemaps.join(', ') || 'none'}`);
 if (ht && !/X-Robots-Tag "noindex/.test(ht)) bad('.htaccess', 'no X-Robots-Tag noindex for .json/.md');
 // Stray macOS Finder files would be served (they list file names). The .htaccess hides them, but they should not be deployed.
 const strays = files.filter((f) => /(^|\/)\.DS_Store$/.test(f));
@@ -119,7 +147,8 @@ try {
 } catch {}
 let disabledButtons = 0;
 for (const a of apps) {
-  const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
+  const oldFile = join(DIST, a.slug, `${a.slug}-old-versions.html`);
+  const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8') + (existsSync(oldFile) ? readFileSync(oldFile, 'utf8') : '');
   for (const m of h.matchAll(/<a class="btn[^"]*" href="([^"]+)"/g)) if (deadLinks.has(m[1].replace(/&amp;/g, '&'))) bad(a.slug, `enabled Download button for a dead link: ${m[1]}`);
   disabledButtons += (h.match(/class="btn[^"]*is-dead" disabled/g) || []).length;
 }

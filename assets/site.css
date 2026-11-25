@@ -455,3 +455,27 @@ svg.sv:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-r
 .lb-nav[hidden]{display:none}
 .lb-prev{left:16px}.lb-next{right:16px}
 .lb-close:hover,.lb-nav:hover{background:rgba(255,255,255,.28)}
+/* Old-versions pages: the version list, with a sidebar for the latest version and similar software */
+.ov-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:40px;align-items:start}
+.ov-side{position:sticky;top:6.5rem;display:grid;gap:20px}
+.ov-card{display:grid;gap:10px;justify-items:start;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.ov-card-head{display:flex;align-items:center;gap:10px;font-weight:600}
+.ov-card-head .card-icon{width:32px;height:32px}
+.ov-vers{display:grid;gap:4px;margin:0;padding:0;list-style:none;font-size:.9rem;color:var(--muted)}
+.ov-vers li{display:flex;align-items:center;gap:6px}
+.ov-vers svg{width:14px;height:14px}
+.ov-vers strong{color:var(--text);font-weight:600}
+.ov-card .btn{width:100%;text-align:center;box-sizing:border-box}
+.ov-similar h2{margin:0 0 6px;font-size:1rem}
+.ov-similar ul{display:grid;gap:2px;margin:0;padding:0;list-style:none}
+.ov-similar a{display:flex;align-items:center;gap:10px;padding:6px;border-radius:8px;color:var(--text);text-decoration:none}
+.ov-similar a:hover{background:var(--surface)}
+.ov-similar .card-icon{width:28px;height:28px;flex:none}
+.ov-similar .n{display:block;font-weight:600;font-size:.9rem}
+.ov-similar .v{display:block;font-size:.8rem;color:var(--muted)}
+.ov-cat{margin:8px 6px 0;font-size:.88rem}
+.ov-cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.ov-jump{display:flex;gap:16px;margin:0 0 8px}
+.ov-more{margin-top:16px}
+@media (max-height:760px){.ov-side{position:static}}
+@media (max-width:860px){.ov-layout{grid-template-columns:1fr;gap:28px}.ov-side{position:static}}

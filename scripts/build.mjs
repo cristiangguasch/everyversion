@@ -47,6 +47,11 @@ let RECS_BY_SLUG = new Map(); // filled in main(); lets pages link to other apps
 const FEATURES = loadFeatures(); // hand-written notes inside Description (config/features/<slug>.json), checked by scripts/validate.mjs
 const WINGET_REPO = 'https://github.com/microsoft/winget-pkgs';
 const PAGE_VERSIONS = 20; // versions rendered in HTML; the .json/.md twins carry everything we ingest
+const OLD_SPLIT = 25; // an app with more than this many old versions gets its own old-versions page
+const OLD_LISTED = 5; // old versions named (as plain text) on the main page of such an app
+// Old versions: on the platform with the most, every listed version except that platform's latest (what its list shows).
+const oldCountOf = (rec) => Math.max(0, ...[...new Set(rec.versions.map((v) => v.platform))].map((p) => rec.versions.filter((v) => v.platform === p).length - 1));
+const oldPathOf = (rec) => (oldCountOf(rec) > OLD_SPLIT ? `/${rec.slug}/${rec.slug}-old-versions.html` : null);
 
 // ------------------------------------------------------------------ helpers
 
@@ -527,7 +532,10 @@ function appPage(rec) {
     const first = latestOf[plats[0]].version;
     return plats.map((p) => latestOf[p].version).find((v) => v !== first && first.startsWith(`${v}.`)) || first;
   })();
-  const title = hasOld ? `${h1} ${titleVersion} and older versions` : `${h1} ${titleVersion}`; // the <title> tag; the H1 stays "Download X"
+  // The <title> tag; the H1 stays "Download X".
+  const title = `${h1} ${titleVersion} for ${plats.map((p) => PLATFORM[p]).join(', ')}`;
+  const oldPath = oldPathOf(rec); // null unless this app has its own old-versions page
+  const oldCount = oldCountOf(rec);
   const customOf = (p) => isCustom(provOf(rec, p)); // this platform's data comes from a custom source
   const allCustom = plats.every(customOf);
   const summaries = Object.fromEntries(plats.map((p) => [p, summarise(latestOf[p], { custom: customOf(p) })]));
@@ -860,39 +868,59 @@ ${v.manifest_dir ? `<p class="pin">Manifest: ${link(`${WINGET_REPO}/tree/master/
 </details>`;
   };
 
-  const versionsHtml = plats
+  // Version lists. 'full': the app page lists them all (up to PAGE_VERSIONS). 'old': the old-versions page, every listed
+  // version except the latest.
+  const renderVersions = (mode) => plats
     .map((p) => {
-      const all = versionsOf(rec, p);
+      const listed = versionsOf(rec, p);
+      const all = mode === 'old' ? listed.slice(1) : listed;
+      if (!all.length) return '';
       const total = rec.versions_total[p];
       const e = provOf(rec, p);
+      const at = (v) => listed.indexOf(v); // position among every listed version, so only the real latest gets the badge
       // Apps with series_label (Ableton Live): every version, grouped by series, the newest series open.
       const groups = rec.series_label ? [...new Set(all.map((v) => v.series).filter(Boolean))] : [];
       if (groups.length > 1) {
-        return `<h3 id="${p}-versions">${esc(PLATFORM[p])} versions</h3>
-<p>${all.length} versions listed, grouped by ${esc(rec.series_label)} version. Open a version for its downloads and checksums.</p>
+        return `<h3 id="${p}-versions">${esc(PLATFORM[p])} ${mode === 'old' ? 'old ' : ''}versions</h3>
+<p>${all.length} ${mode === 'old' ? 'older ' : ''}versions listed, grouped by ${esc(rec.series_label)} version. Open a version for its downloads and checksums.</p>
 ${groups
   .map((g, gi) => {
     const vs = all.filter((v) => v.series === g);
     return `<details class="vgroup"${gi === 0 ? ' open' : ''}>
 <summary>${esc(rec.series_label)} ${esc(g)} <span class="sub">${vs.length === 1 ? esc(vs[0].version) : `${vs.length} versions · ${esc(vs[0].version)} to ${esc(vs.at(-1).version)}`}</span></summary>
-${vs.map((v) => versionBlock(p, v, all.indexOf(v))).join('\n')}
+${vs.map((v) => versionBlock(p, v, at(v))).join('\n')}
 </details>`;
   })
   .join('\n')}`;
       }
-      const shown = all.slice(0, PAGE_VERSIONS);
+      const shown = mode === 'old' ? all : all.slice(0, PAGE_VERSIONS);
+      const how = `Open a version for its ${customOf(p) ? 'downloads and checksums' : 'installers, checksums and a command that pins it'}.`;
       const note =
         p === 'linux' && rec.flathub
           ? `Flathub lists only the current release, and Flatpak installs the newest build; earlier versions cannot be chosen from the listing.`
           : p === 'macos' && !customOf(p)
           ? `Homebrew casks list only the current release. Earlier builds appear in the cask’s history on GitHub, and Homebrew cannot install them directly.`
-          : `${total > shown.length ? `Showing the newest ${shown.length} of ${total} versions${all.length > shown.length ? ` (the <a href="/${rec.slug}/${rec.slug}.json">JSON</a> and <a href="/${rec.slug}/${rec.slug}.md">Markdown</a> versions list ${all.length})` : ''}. ` : `${total} version${total === 1 ? '' : 's'} listed. `}Open a version for its ${customOf(p) ? 'downloads and checksums' : 'installers, checksums and a command that pins it'}.`;
-      return `<h3 id="${p}-versions">${esc(PLATFORM[p])} versions</h3>
+          : mode === 'old'
+          ? `${shown.length} older version${shown.length === 1 ? '' : 's'} listed, newest first${total > listed.length ? `. The source has ${total} in all; this page lists the newest ${listed.length}, latest included` : ''}. ${how}`
+          : `${total > shown.length ? `Showing the newest ${shown.length} of ${total} versions${all.length > shown.length ? ` (the <a href="/${rec.slug}/${rec.slug}.json">JSON</a> and <a href="/${rec.slug}/${rec.slug}.md">Markdown</a> versions list ${all.length})` : ''}. ` : `${total} version${total === 1 ? '' : 's'} listed. `}${how}`;
+      const sourceLink = total > listed.length && (p === 'windows' || customOf(p));
+      return `<h3 id="${p}-versions">${esc(PLATFORM[p])} ${mode === 'old' ? 'old ' : ''}versions</h3>
 <p>${note}</p>
-${shown.map((v, i) => versionBlock(p, v, i)).join('\n')}
-${total > shown.length && (p === 'windows' || customOf(p)) ? `<p class="pin">${customOf(p) ? 'The publisher’s full release list' : 'All older versions'}: ${link(sourceHistory(e), e.path)}</p>` : ''}`;
+${shown.map((v) => versionBlock(p, v, at(v))).join('\n')}
+${sourceLink ? `<p class="pin">${customOf(p) ? 'The publisher’s full release list' : 'All older versions'}: ${link(sourceHistory(e), e.path)}</p>` : ''}`;
     })
+    .filter(Boolean)
     .join('\n');
+  // An app with its own old-versions page keeps only a plain list here: the five newest old versions (from the platform
+  // with the most), with no downloads, and a link to the full page. Every other app lists its versions in full.
+  const oldList = oldPath ? (() => {
+    const p = plats.reduce((a, b) => (versionsOf(rec, b).length > versionsOf(rec, a).length ? b : a));
+    return `<ul class="ov-list">
+${versionsOf(rec, p).slice(1, 1 + OLD_LISTED).map((v) => `<li>${esc(rec.name)} ${esc(v.version)}</li>`).join('\n')}
+<li><a href="${oldPath}">See all ${oldCount} old versions of ${esc(rec.name)}</a></li>
+</ul>`;
+  })() : '';
+  const versionsHtml = oldPath ? oldList : renderVersions('full');
 
   const hashState = (p) => {
     const ins = latestOf[p].installers;
@@ -1222,7 +1250,7 @@ ${glance.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${v}</td></tr>`)
     securityHtml,
     seriesHtml,
     `<section id="versions" aria-labelledby="h-versions">
-<h2 id="h-versions">${hasOld ? 'Old versions' : `All ${esc(rec.name)} versions`}</h2>
+<h2 id="h-versions">${oldPath ? 'Older versions' : hasOld ? 'Old versions' : `All ${esc(rec.name)} versions`}</h2>
 ${versionsHtml}
 </section>`,
     alternativesHtml,
@@ -1258,15 +1286,90 @@ if(b){const p=b.closest('.dl-menu').querySelector('.dl-pop'),show=p.hidden;p.hid
 document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySelectorAll('.dl-menu').forEach((m)=>{m.querySelector('.dl-pop').hidden=true;m.querySelector('.dl-install').setAttribute('aria-expanded','false')})});
 </script>`;
 
+  // Version anchors from before the split (#windows-1-2-3): old versions moved to the old-versions page, the latest to Downloads.
+  const deepLinkJs = oldPath
+    ? `\n<script>(function(){var h=decodeURIComponent(location.hash.slice(1)),L=${JSON.stringify(plats.map((p) => `${p}-${safeId(latestOf[p].version)}`))};if(!/^(windows|macos|linux)-/.test(h)||document.getElementById(h))return;if(L.indexOf(h)>-1)location.replace('#download');else location.replace(${JSON.stringify(oldPath)}+location.hash)})()</script>`
+    : '';
   const html = layout({
     title,
     description: desc,
     path,
-    body,
+    body: body + deepLinkJs,
     ld: [{ '@context': 'https://schema.org', '@graph': [websiteNode, publisherNode, software, crumbs, ...verifiedNodes, faqNode] }],
     alternates: `<link rel="alternate" type="application/json" href="/${rec.slug}/${rec.slug}.json">\n<link rel="alternate" type="text/markdown" href="/${rec.slug}/${rec.slug}.md">\n`,
     image: ogImage(rec),
   });
+
+  // ---- old-versions page (apps with more than OLD_SPLIT old versions)
+  const oldHtml = oldPath ? (() => {
+    const oldUrl = `${SITE.url}${oldPath}`;
+    const oldPlats = plats.filter((p) => versionsOf(rec, p).length > 1);
+    const first = versionsOf(rec, oldPlats[0]).slice(1);
+    const newestOld = first[0];
+    const oldest = first.at(-1);
+    const when = (v) => (fmtDate(v.release_date) ? ` (${fmtDate(v.release_date)})` : '');
+    const platNames = platformList(oldPlats);
+    const oTitle = `Download old versions of ${rec.name}`;
+    const oDesc = trunc(`All ${oldCount} old versions of ${rec.name} for ${platNames}, from ${oldest.version} to ${newestOld.version}, with links to the official downloads and SHA-256 checksums.`, 160);
+    const latestBtn = `<a class="btn ov-latest" href="${path}">Get latest version</a>`;
+    const jump = oldPlats.length > 1 ? `<nav class="ov-jump" aria-label="Platforms">${oldPlats.map((p) => `<a href="#${p}-versions">${esc(PLATFORM[p])}</a>`).join('')}</nav>` : '';
+    const pins = oldPlats.includes('windows') && rec.ids.winget;
+    const cardVersions = plats.map((p) => `<li>${PLATFORM_ICON[p] || ''}<span>${esc(PLATFORM[p])}</span> <strong>${esc(latestOf[p].version)}</strong></li>`).join('');
+    const similar = altRecs.length
+      ? `<div class="ov-similar">
+<h2>Similar software</h2>
+<ul>
+${altRecs.map((r) => `<li><a href="/${r.slug}/">${gridIcon(r)}<span><span class="n">${esc(r.name)}</span><span class="v">${esc(r.latest_versions[platsOf(r)[0]])}</span></span></a></li>`).join('\n')}
+</ul>
+${primaryCat.page ? `<p class="ov-cat"><a href="${catPath(primaryCat.slug)}">All ${primaryCat.count} ${esc(primaryCat.name)}</a></p>` : ''}
+</div>`
+      : '';
+    const oBody = `
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="${path}">${esc(rec.name)}</a> › Old versions</nav>
+<div class="ov-layout">
+<article class="ov-main" data-slug="${esc(rec.slug)}">
+<h1>${esc(rec.name)} old versions</h1>
+<p class="lead">${oldCount} older versions of ${esc(rec.name)} for ${esc(platNames)}, from ${esc(oldest.version)}${when(oldest)} to ${esc(newestOld.version)}${when(newestOld)}. Each one links to the download location named in the package data, with its SHA-256 checksum.</p>
+<p class="ov-cta">${latestBtn} <span class="sub">Latest: ${esc(latestText)}</span></p>
+<section id="versions" aria-labelledby="h-versions">
+<h2 id="h-versions">Pick a version</h2>
+${jump}
+${renderVersions('old')}
+</section>
+<hr>
+<section id="before" aria-labelledby="h-before">
+<h2 id="h-before">Before you install an old version</h2>
+<ul class="clean">
+<li><strong>Check the file.</strong> Compare the SHA-256 shown for the file with the one you compute after downloading: ${oldPlats.map((p) => `on ${esc(PLATFORM[p])}, <code>${esc(verifyCmd(p))}</code>`).join('; ')}.</li>
+<li><strong>Stop it from updating itself.</strong> Many apps update on their own the next time they start. Turn that off in the app’s settings${pins ? ', and use the winget command shown with each Windows version so winget keeps that version' : ''}.</li>
+<li><strong>Older can mean unpatched.</strong> Old releases miss the security fixes that came later. Use the newest version that works for you.</li>
+</ul>
+<p><a href="${path}">Get the latest version of ${esc(rec.name)}</a>, with its checksums, license and what the installer does.</p>
+</section>
+</article>
+<aside class="ov-side" aria-label="Latest version and similar software">
+<div class="ov-card">
+<div class="ov-card-head">${gridIcon(rec)}<span class="n">${esc(rec.name)}</span></div>
+<ul class="ov-vers">${cardVersions}</ul>
+${safeBadge.replace('href="#security"', `href="${path}#security"`)}
+${latestBtn}
+</div>
+${similar}
+</aside>
+</div>
+${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
+    const oCrumbs = {
+      '@type': 'BreadcrumbList',
+      '@id': `${oldUrl}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+        { '@type': 'ListItem', position: 2, name: rec.name, item: canonical },
+        { '@type': 'ListItem', position: 3, name: 'Old versions', item: oldUrl },
+      ],
+    };
+    const oPage = { '@type': 'CollectionPage', '@id': `${oldUrl}#page`, url: oldUrl, name: oTitle, description: oDesc, inLanguage: 'en-US', isPartOf: { '@id': websiteNode['@id'] }, about: { '@id': `${canonical}#software` }, breadcrumb: { '@id': oCrumbs['@id'] } };
+    return layout({ title: oTitle, description: oDesc, path: oldPath, body: oBody, ld: [{ '@context': 'https://schema.org', '@graph': [websiteNode, oPage, oCrumbs] }], image: ogImage(rec) });
+  })() : null;
 
   const unavailable = rec.versions.flatMap((v) => v.installers.filter((i) => deadOf(i)).map((i) => ({ platform: v.platform, version: v.version, filename: i.filename, url: i.url, http_status: deadOf(i).status, checked: deadOf(i).checked })));
   const shots = shotsOf(rec).map((it) => ({ url: `${SITE.url}/${rec.slug}/${it.file}`, width: it.width, height: it.height, ...(it.caption ? { caption: it.caption } : {}), platform: 'linux', source: 'Flathub', source_url: it.source }));
@@ -1324,7 +1427,7 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     .join('\n')
     .replace(/\n{3,}/g, '\n\n');
 
-  return { html, twin, md, title, desc };
+  return { html, twin, md, title, desc, oldHtml, oldPath };
 }
 
 // ------------------------------------------------------------------ search index
@@ -1741,10 +1844,15 @@ function main() {
   mkdirSync(DIST, { recursive: true });
 
   const index = [];
+  const oldPages = []; // old-versions pages, listed in their own sitemap
   const stats = { pages: 0, bytes: 0 };
   for (const rec of recs) {
-    const { html, twin, md, title, desc } = appPage(rec);
+    const { html, twin, md, title, desc, oldHtml, oldPath } = appPage(rec);
     write(`${rec.slug}/index.html`, html);
+    if (oldPath) {
+      write(oldPath.slice(1), oldHtml);
+      oldPages.push({ path: oldPath, lastmod: rec.last_updated || rec.provenance[0].retrieved_at.slice(0, 10) });
+    }
     if (ICONS[rec.slug]) cpSync(join(ROOT, 'data', 'icons', ICONS[rec.slug].file), join(DIST, rec.slug, `icon.${ICONS[rec.slug].ext}`));
     if (ogImage(rec)) cpSync(join(ROOT, 'data', 'og', `${rec.slug}.png`), join(DIST, rec.slug, 'og.png'));
     for (const it of shotsOf(rec)) cpSync(join(ROOT, 'data', 'screenshots', rec.slug, it.file), join(DIST, rec.slug, it.file));
@@ -1854,43 +1962,29 @@ function main() {
 # UNION DIRECTIVE 2019/790 ON COPYRIGHT AND RELATED RIGHTS
 # IN THE DIGITAL SINGLE MARKET.
 
-# Search engines do not crawl the machine-readable twins (the .json and .md files). They are meant for AI agents and tools, which keep
-# full access below. A crawler follows only the most specific group that names it, so each group repeats the rules it needs.
-User-Agent: Googlebot
-User-Agent: Googlebot-News
-User-Agent: Googlebot-Image
-User-Agent: Bingbot
-User-Agent: Slurp
-User-Agent: DuckDuckBot
-User-Agent: Baiduspider
-User-Agent: YandexBot
-User-Agent: Applebot
-User-Agent: Qwantify
-User-Agent: SeznamBot
-User-Agent: Naverbot
-User-Agent: Yeti
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
-Allow: /
-Disallow: /*.json$
-Disallow: /*.md$
-Disallow: /stats-data.php
-
 User-Agent: *
 Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
+Disallow: /stats-data.php
 
 Sitemap: ${SITE.url}/sitemap.xml
 `);
 
+  // sitemap.xml is an index of three sitemaps: the site's own pages, the software pages and the old-versions pages,
+  // so each group can be watched on its own in Search Console.
   const day = meta.run_at.slice(0, 10);
+  const urlset = (urls) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `<url><loc>${SITE.url}${u.path}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n')}\n</urlset>\n`;
+  const sitemaps = [
+    ['sitemap-pages.xml', [{ path: '/', lastmod: day }, ...staticPages.filter((pg) => !pg.noindex).map((pg) => ({ path: pg.path, lastmod: day }))]],
+    ['sitemap-software.xml', recs.map((r) => ({ path: `/${r.slug}/`, lastmod: r.last_updated || r.provenance[0].retrieved_at.slice(0, 10) }))],
+    ['sitemap-old-versions.xml', oldPages],
+  ].filter(([, urls]) => urls.length);
+  for (const [file, urls] of sitemaps) write(file, urlset(urls));
   write(
     'sitemap.xml',
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-      [`<url><loc>${SITE.url}/</loc><lastmod>${day}</lastmod></url>`]
-        .concat(staticPages.filter((pg) => !pg.noindex).map((pg) => `<url><loc>${SITE.url}${pg.path}</loc><lastmod>${day}</lastmod></url>`))
-        .concat(recs.map((r) => `<url><loc>${SITE.url}/${r.slug}/</loc><lastmod>${r.last_updated || r.provenance[0].retrieved_at.slice(0, 10)}</lastmod></url>`))
-        .join('\n') +
-      `\n</urlset>\n`,
+    `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+      sitemaps.map(([file, urls]) => `<sitemap><loc>${SITE.url}/${file}</loc><lastmod>${urls.map((u) => u.lastmod).sort().at(-1)}</lastmod></sitemap>`).join('\n') +
+      `\n</sitemapindex>\n`,
   );
 
   write(
@@ -1903,6 +1997,7 @@ Sitemap: ${SITE.url}/sitemap.xml
       '## Reading the data',
       '',
       `- Each app has one page at ${SITE.url}/{slug}/, a JSON twin at ${SITE.url}/{slug}/{slug}.json and a Markdown twin at ${SITE.url}/{slug}/{slug}.md.`,
+      `- Apps with more than ${OLD_SPLIT} old versions also have ${SITE.url}/{slug}/{slug}-old-versions.html, listing every older version with its downloads and checksums (${oldPages.length} apps; the JSON twin carries the same versions).`,
       `- Full index: ${SITE.url}/api/v1/apps.json. JSON Schema: ${SITE.url}/schema/app.schema.json.`,
       '- Verification: level 0 means SHA-256 values are copied from winget-pkgs manifests, Homebrew cask definitions (some casks declare no checksum), Flathub (Linux Flatpaks: no file checksum is published; the repository is signed) or, for apps read from a publisher’s own feed, the SHA-256 files the publisher posts next to each download and were not re-computed; cite them as "per winget-pkgs". Level 1 means the installers were downloaded from the publisher and the SHA-256 re-computed by the site owner, with code signatures checked where tools allowed. Each page states its level and the date.',
       '- Pricing "unknown" means winget-pkgs does not say; "free-to-download" is a hand-curated label.',
@@ -1919,7 +2014,7 @@ Sitemap: ${SITE.url}/sitemap.xml
     ].join('\n'),
   );
 
-  console.log(`built ${stats.pages} app pages + home in dist/ (avg ${(stats.bytes / stats.pages / 1024).toFixed(1)} KB per app page)`);
+  console.log(`built ${stats.pages} app pages (${oldPages.length} with an old-versions page) + home in dist/ (avg ${(stats.bytes / stats.pages / 1024).toFixed(1)} KB per app page)`);
 }
 
 main();
