@@ -250,7 +250,7 @@ const copy=(txt,ok)=>{const fb=()=>{const a=document.createElement('textarea');a
 m.addEventListener('click',(e)=>{const b=e.target.closest('[data-copy]');if(!b)return;const l=b.querySelector('.lbl'),old=l.textContent;copy(m.dataset.prompt,()=>{l.textContent='Copied';setTimeout(()=>{l.textContent=old;if(!b.hasAttribute('data-keep'))open(false)},1200)})})})();`;
 
 // `notice` (trusted HTML) puts a grey bar at the top of the header (sticky on every page but home), so it stays in view while scrolling.
-const NOTICE_MORE = 'Everyversion.net provides software version history, official publisher download links, VirusTotal security reports, and cryptographic checksum verification to help users make informed and safer software-download decisions.';
+const NOTICE_MORE = 'Everyversion.net provides software version history, official publisher download links, VirusTotal security reports, and cryptographic checksum verification to help users make informed and safer software-download decisions. Learn how we check every download in our <a href="/security/">Security and Trust Center</a>.';
 const NOTICE = '<span aria-hidden="true">✓</span> Official download links only. We host no files.';
 function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null, notice = NOTICE }) {
   const canonical = `${SITE.url}${path}`;
@@ -1182,9 +1182,6 @@ ${fileRows}
 </tbody></table></div>
 
 ${detectionsHtml}
-<div class="commit"><strong>Everyversion security commitment</strong>
-<p>We host no installers. Every download link goes to the download location named in the package listing, normally the publisher’s own server. ${rec.verification.level >= 1 ? 'For this software we downloaded the files from that source ourselves, re-computed each checksum and checked the code signature where our tools could, as shown above.' : 'For this software the checksums are copied from the package manifest and we have not re-computed them yet.'} A passing check shows a file is the one that was published; it is not a guarantee it is free of problems. For more information, visit our <a href="/security/">Security and Trust Center</a>.</p></div>
-
 <details class="prov"><summary>Source and provenance</summary>
 <div class="body"><div class="scroll"><table><tbody>
 ${verifyRows}
