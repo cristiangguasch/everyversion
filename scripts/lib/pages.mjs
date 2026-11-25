@@ -99,6 +99,9 @@ ${crumbs([null, 'About'])}
 <h3 id="virustotal">VirusTotal</h3>
 <p><a href="https://www.virustotal.com/">VirusTotal</a> scans files with dozens of antivirus and security engines. We look up each app’s latest installers by their SHA-256 and show the real result from VirusTotal’s last scan. Only the hash is sent, never the file, and if VirusTotal has no report we show no score. We are not affiliated with VirusTotal. The <a href="/security/">Security and Trust Center</a> explains how the score is worked out.</p>
 
+<h2 id="api">Use the data</h2>
+<p>Everything on this site is also plain JSON, free to fetch: no key, no signup, no price. Start with <a href="/api/v1/apps.json">the index of all ${fmt(apps)} apps</a>, then open any app’s full record at <code>/{slug}/{slug}.json</code>, with every version, download URL and SHA-256. If you build tools for older machines, run an AI assistant, or check downloads for a fleet of PCs, the <a href="/api/">API page</a> shows how, with examples you can run in 30 seconds.</p>
+
 <h2 id="source">Open source, so you can check my work</h2>
 <p>Everyversion is open source. Everything that builds this site is on GitHub: <a href="https://github.com/cristiangguasch/everyversion">github.com/cristiangguasch/everyversion</a>. You don’t have to take my word for how the checks work. You can read them, run them, and point out where they’re wrong.</p>
 <p>The code is under the <a href="https://github.com/cristiangguasch/everyversion/blob/main/LICENSE">MIT License</a> and the data under <a href="https://github.com/cristiangguasch/everyversion/blob/main/LICENSE-DATA.md">CC BY 4.0</a>. Use both however you like. If you reuse the data, credit Everyversion. App icons, screenshots and VirusTotal results belong to their owners and keep their own terms.</p>
@@ -402,7 +405,7 @@ ${crumbs([null, 'API'])}
 <tr><td><a href="/api/v1/categories.json"><code>/api/v1/categories.json</code></a></td><td><strong>The categories.</strong> Each one with its name, app count and the slugs of its apps. Categories with a page on this site also carry the page URL.</td></tr>
 <tr><td><a href="/schema/app.schema.json"><code>/schema/app.schema.json</code></a></td><td><strong>The JSON Schema</strong> for the per-app record. Use it to validate what you read.</td></tr>
 <tr><td><a href="/llms.txt"><code>/llms.txt</code></a></td><td><strong>A plain-text map for agents:</strong> how the site is organized, how to read the data, and one line for every app.</td></tr>
-<tr><td><a href="/sitemap.xml"><code>/sitemap.xml</code></a></td><td>Every page on the site.</td></tr>
+<tr><td><a href="/sitemap.xml"><code>/sitemap.xml</code></a></td><td>The sitemap index. It names three sitemaps: the site’s own pages, the software pages and the old versions pages.</td></tr>
 </tbody></table></div>
 
 <h2>Try it in 30 seconds</h2>
