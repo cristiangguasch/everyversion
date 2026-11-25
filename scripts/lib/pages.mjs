@@ -80,7 +80,20 @@ ${crumbs([null, 'About'])}
 
 <h2>What I won’t do</h2>
 <p>I won’t host files. I won’t wrap a download in an “installer manager”. I won’t put ads in front of a download button. Links go to the publisher, and that’s the whole trick.</p>
-<p>I’ll also tell you what I have and haven’t done. For <strong>${fmt(checked)} of the ${fmt(apps)} apps</strong>, I downloaded the latest installers myself, re-computed the SHA-256 and checked the code signature where I could. Each of those pages shows the result and the date. For the rest, the checksums are copied from the upstream package manifests, and the page says so. If I haven’t verified it, I won’t pretend I did.</p>
+<p>I’ll also tell you what I have and haven’t done. For <strong>${fmt(checked)} of the ${fmt(apps)} apps</strong>, the latest installers were downloaded, their SHA-256 re-computed and their code signatures checked where possible. Each of those pages shows the result and the date. For the rest, the checksums are copied from the upstream package manifests, and the page says so. If it hasn’t been verified, I won’t pretend it was.</p>
+
+<h2 id="checks">Who checks the files</h2>
+<p>Three names appear next to “Verified by” on an app page. Each one does a different job.</p>
+
+<h3 id="cristian">Cristian</h3>
+<p>That’s me. I pick the apps, set the rules for what counts as checked, read the reports and fix the data when something is wrong. If a page is wrong, it’s on me.</p>
+
+<h3 id="claude">Claude</h3>
+<p><a href="https://www.anthropic.com/claude">Claude</a> is an AI model made by Anthropic. I use it to run the update process from start to finish. It reads the package catalogs (winget, Homebrew and Flathub) for new versions, downloads the latest installers from the publisher’s servers, re-computes each SHA-256 and compares it with the published one, and checks the code signature. It also tests every download link and looks up each file on VirusTotal.</p>
+<p>Claude reports every result to me, including the downloads that failed, and it never rates a file by hand: the scores come from the checks themselves. I review the report before anything goes live.</p>
+
+<h3 id="virustotal">VirusTotal</h3>
+<p><a href="https://www.virustotal.com/">VirusTotal</a> scans files with dozens of antivirus and security engines. We look up each installer by its SHA-256 and show the real result from VirusTotal’s last scan. Only the hash is sent, never the file, and if VirusTotal has no report we show no score. We are not affiliated with VirusTotal. The <a href="/security/">Security and Trust Center</a> explains how the score is worked out.</p>
 
 <h2 id="brand">Brand guidelines</h2>
 <p>If you’re writing about Everyversion or linking to it, here’s how it looks and sounds.</p>

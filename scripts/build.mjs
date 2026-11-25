@@ -270,6 +270,10 @@ const imageMeta = (image) => image
 <meta name="twitter:image:alt" content="${esc(image.alt)}">`
   : '<meta name="twitter:card" content="summary">';
 
+// Small marks for the verification byline (decorative; the name follows each one).
+const ICON_CLAUDE = '<svg class="ck-ico" viewBox="0 0 24 24" aria-hidden="true"><g stroke="#d97757" stroke-width="2.6" stroke-linecap="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/></g></svg>';
+const ICON_VT = '<svg class="ck-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" fill="#394eff"/><path d="M8 7l6 5-6 5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
 // `notice` (trusted HTML) puts a grey bar at the top of the header (sticky on every page but home), so it stays in view while scrolling.
 const NOTICE = '<span aria-hidden="true">✓</span> Official download links only. We host no files.';
 function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null, notice = NOTICE }) {
@@ -536,7 +540,13 @@ function appPage(rec) {
   const totalVersions = Object.values(rec.versions_total).reduce((a, b) => a + b, 0);
 
   // ---- JSON-LD: one parent application, one child per platform
-  const byAuthor = `<a href="/about/" rel="author">${esc(AUTHOR)}</a>`;
+  // Verification byline: Cristian, Claude and VirusTotal, each linking to the About page with a short note on hover or focus.
+  const checker = (id, href, label, tip, rel = '') => `<span class="checker"><a href="${href}"${rel} aria-describedby="tip-${id}">${label}</a><span class="ck-tip" id="tip-${id}" role="tooltip">${tip}</span></span>`;
+  const byAuthor = [
+    checker('cristian', '/about/', '<img class="ck-ico ck-face" src="/cristian.jpg" width="16" height="16" alt="">Cristian', 'Built Everyversion after working at Softonic. Runs the checks and answers for the results.', ' rel="author"'),
+    checker('claude', '/about/#claude', `${ICON_CLAUDE}Claude`, 'Anthropic’s AI. Runs the download, checksum and signature checks and reports every result.'),
+    checker('virustotal', '/about/#virustotal', `${ICON_VT}VirusTotal`, 'Scans files with dozens of security engines. We look up each file by its SHA-256 only.'),
+  ].join(' ');
   const verified = !!(rec.verification.checks?.hash_recomputed || rec.verification.checks?.signature_checked);
   const partNodes = plats.map((p) => {
     const lv = latestOf[p];
@@ -920,7 +930,7 @@ ${total > shown.length && (p === 'windows' || customOf(p)) ? `<p class="pin">${c
   const checked = provOf(rec, plats[0]).retrieved_at.slice(0, 10);
   // One date: when we last checked this app (our verification date, else when we last read its listing).
   const updatedOn = verified ? rec.verification.checked_at : checked;
-  const updatedLine = `<p class="updated">Last updated: <time datetime="${esc(updatedOn)}">${esc(updatedOn)}</time>${verified ? ` · Verification by ${byAuthor}` : ''}</p>`;
+  const updatedLine = `<p class="updated">Last updated: <time datetime="${esc(updatedOn)}">${esc(updatedOn)}</time>${verified ? ` · Verified by ${byAuthor}` : ''}</p>`;
 
   // ---- security section: VirusTotal score + our own file checks
   const secFiles = [];
@@ -1796,6 +1806,7 @@ function main() {
   cpSync(join(ROOT, 'assets', 't.js'), join(DIST, 't.js'));
   cpSync(join(ROOT, 'assets', 'gallery.js'), join(DIST, 'gallery.js'));
   cpSync(join(ROOT, 'assets', 'stats.js'), join(DIST, 'stats.js'));
+  cpSync(join(ROOT, 'assets', 'cristian.jpg'), join(DIST, 'cristian.jpg')); // byline photo, 48 px for sharp 16 px display
   for (const f of ['collect.php', 'stats-data.php', 'analytics-lib.php']) cpSync(join(ROOT, 'server', f), join(DIST, f));
   mkdirSync(join(DIST, 'fonts'), { recursive: true });
   cpSync(join(ROOT, 'assets', 'fonts', 'geist.woff2'), join(DIST, 'fonts', 'geist.woff2'));
