@@ -76,7 +76,8 @@ $countries = $sortPairs($sumPairs('countries'), 0);
 echo json_encode([
     'generated' => gmdate('c'),
     'days' => $days,
-    'series' => array_map(static fn ($d) => ['d' => $d['d'], 'pv' => $d['pv'], 'uv' => $d['uv'], 'dl' => $d['dl']], $series),
+    // ch: visitors per channel that day (each visitor under one channel)
+    'series' => array_map(static fn ($d) => ['d' => $d['d'], 'pv' => $d['pv'], 'uv' => $d['uv'], 'dl' => $d['dl'], 'ch' => (object) array_map(static fn ($v) => $v[0], $d['channels'] ?? [])], $series),
     'apps' => $top($apps, 15),          // slug => [pageviews, downloads & installs]
     'countries' => $top($countries, 15), // country code => [pageviews, downloads & installs]
     'slots' => $sumOne('slots'),         // "platform|button" => clicks

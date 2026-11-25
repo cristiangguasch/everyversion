@@ -20,10 +20,12 @@ export function statsPage({ statsV }) {
 
 <div class="tiles" id="tiles" aria-live="polite"></div>
 
-<section class="st-card"><h2 id="h-daily">Pageviews, visitors and downloads per day</h2><p class="muted">Visitors are counted each day on their own: someone who visits on two days counts once on each. Downloads and installs are clicks on a Download button or the Linux Install button; the file itself comes from the publisher.</p><div id="c-main"></div></section>
+<section class="st-card"><h2 id="h-daily">Pageviews, visitors and downloads per day</h2><p class="muted" id="n-daily">Visitors are counted each day on their own: someone who visits on two days counts once on each. Downloads and installs are clicks on a Download button or the Linux Install button; the file itself comes from the publisher.</p>
+<div class="st-range st-view" role="group" aria-label="What the chart shows"><button type="button" class="chip" data-view="totals" aria-pressed="true">Totals</button><button type="button" class="chip" data-view="channels" aria-pressed="false">Channels</button></div>
+<div id="c-main"></div></section>
 
-<details class="st-table"><summary>View the daily numbers as a table</summary>
-<div class="scroll"><table><thead><tr><th scope="col">Day (UTC)</th><th scope="col">Pageviews</th><th scope="col">Visitors</th><th scope="col">Downloads and installs</th></tr></thead><tbody id="t-body"></tbody></table></div>
+<details class="st-table"><summary>View the chart’s numbers as a table</summary>
+<div class="scroll"><table><thead id="t-head"><tr><th scope="col">Day (UTC)</th><th scope="col">Pageviews</th><th scope="col">Visitors</th><th scope="col">Downloads and installs</th></tr></thead><tbody id="t-body"></tbody></table></div>
 </details>
 
 <div class="st-grid">

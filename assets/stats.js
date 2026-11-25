@@ -45,6 +45,17 @@
 
   let names = {};
   let days = 30;
+  let view = 'totals'; // the daily chart: 'totals' (pageviews, visitors, downloads) or 'channels' (visitors per channel)
+  let last = null; // the data last drawn, so the Totals / Channels switch redraws without fetching again
+  // Channels view: only three hues stay apart for every reader when every line can cross every other, so the three
+  // main channels get a fixed color each and the rest are added up into one gray dashed line. The table lists them all.
+  const CHANNELS = ['Direct', 'Organic Search', 'AI Organic Search', 'Social', 'Referral', 'Email', 'Paid Search', 'Paid Social', 'Other campaigns'];
+  const MAIN_CHANNELS = [['Direct', 'sv-s1', 'direct'], ['Organic Search', 'sv-s2', 'search'], ['AI Organic Search', 'sv-s3', 'AI search']];
+  const TOTALS = [
+    { key: 'pv', label: 'Pageviews', short: 'pageviews', cls: 'sv-s1' },
+    { key: 'uv', label: 'Visitors', short: 'visitors', cls: 'sv-s2' },
+    { key: 'dl', label: 'Downloads and installs', short: 'downloads', cls: 'sv-s3' },
+  ];
 
   // ---------------------------------------------------------------- charts
   const nice = (m) => {
@@ -67,20 +78,28 @@
    */
   function multiLineChart(host, series, defs) {
     host.textContent = '';
+    const many = defs.length > 4; // more than 4 lines: legend and tooltip only, no end labels (they would collide)
     const W = 720;
     const H = 240;
-    const m = { l: 44, r: 118, t: 14, b: 28 };
+    const m = { l: 44, r: many ? 16 : 118, t: 14, b: 28 };
     const iw = W - m.l - m.r;
     const ih = H - m.t - m.b;
     const n = series.length;
-    const max = nice(Math.max(...defs.flatMap((d) => series.map((p) => p[d.key])), 0));
+    // Four steps of 1, 2 or 5 times a power of ten, so counts get whole-number ticks (0, 10, 20, 30, 40).
+    const step = (() => {
+      const r = Math.max(Math.max(...defs.flatMap((d) => series.map((p) => p[d.key])), 0) / 4, 1);
+      const p = 10 ** Math.floor(Math.log10(r));
+      const f = r / p;
+      return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p;
+    })();
+    const max = step * 4;
     const x = (i) => m.l + (n === 1 ? iw / 2 : (i * iw) / (n - 1));
     const y = (v) => m.t + ih - (v / max) * ih;
     const latest = defs.map((d) => `${d.label} ${nf.format(series[n - 1][d.key])}`).join(', ');
 
     const legend = document.createElement('ul');
     legend.className = 'sv-legend';
-    legend.innerHTML = defs.map((d) => `<li><span class="sv-sw ${d.cls}" aria-hidden="true"></span>${esc(d.label)}</li>`).join('');
+    legend.innerHTML = defs.map((d) => `<li${d.title ? ` title="${esc(d.title)}"` : ''}><span class="sv-sw ${d.cls}" aria-hidden="true"></span>${esc(d.label)}${d.title ? ` <span class="sv-lg-sub">(${esc(d.title)})</span>` : ''}</li>`).join('');
 
     const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, class: 'sv', role: 'img', tabindex: '0', 'aria-label': `${defs.map((d) => d.label).join(', ')} per day, ${fmtDay(series[0].d, true)} to ${fmtDay(series[n - 1].d, true)}. Latest day: ${latest}. Use the arrow keys to read each day; a table with every value follows.` }, null);
     for (let t = 0; t <= 4; t++) {
@@ -107,6 +126,7 @@
     if (over > 0) for (const e of ends) e.ly -= over;
     for (const e of ends) {
       el('circle', { cx: x(n - 1), cy: e.y, r: 4, class: `sv-dot ${e.d.cls}` }, svg);
+      if (many) continue;
       const t = el('text', { x: x(n - 1) + 10, y: e.ly + 4, class: 'sv-end' }, svg);
       t.textContent = `${nf.format(e.v)} ${e.d.short}`;
     }
@@ -127,7 +147,7 @@
         hdots[k].setAttribute('cy', y(series[i][d.key]));
         hdots[k].setAttribute('visibility', 'visible');
       });
-      tip.innerHTML = `<span class="d">${esc(fmtDay(series[i].d, true))}</span>` + defs.map((d) => `<span class="r"><span class="sv-sw ${d.cls}" aria-hidden="true"></span>${esc(d.label)} <strong>${nf.format(series[i][d.key])}</strong></span>`).join('');
+      tip.innerHTML = `<span class="d">${esc(fmtDay(series[i].d, true))}</span>` + (many ? [...defs].sort((a, b) => series[i][b.key] - series[i][a.key]) : defs).map((d) => `<span class="r"><span class="sv-sw ${d.cls}" aria-hidden="true"></span>${esc(d.label)} <strong>${nf.format(series[i][d.key])}</strong></span>`).join('');
       tip.hidden = false;
       const pct = (x(i) / W) * 100;
       tip.style.left = pct + '%';
@@ -189,6 +209,41 @@
     return `<span class="dl-d">${arrow} ${Math.abs(p) < 10 ? Math.abs(p).toFixed(1) : Math.round(Math.abs(p))}%</span> <span class="dl-none">vs ${esc(label)}</span>`;
   };
 
+  /** The daily chart and its table, in the current view. Channels with no visitors in the period are left out. */
+  function drawDaily() {
+    const s = last;
+    if (!s) return;
+    let defs;
+    let rows;
+    let cols; // table columns (every channel); defs are the chart's lines
+    if (view === 'channels') {
+      const has = (c) => s.some((d) => (d.ch || {})[c]);
+      const rest = CHANNELS.filter((c) => !MAIN_CHANNELS.some(([m]) => m === c) && has(c));
+      defs = MAIN_CHANNELS.filter(([c]) => has(c)).map(([c, cls, short]) => ({ key: c, label: c, short, cls }));
+      if (rest.length) defs.push({ key: '_other', label: 'Other channels', short: 'other', cls: 'sv-s0', title: rest.join(', ') });
+      cols = [...defs.filter((x) => x.key !== '_other'), ...rest.map((c) => ({ key: c, label: c }))];
+      rows = s.map((d) => {
+        const ch = d.ch || {};
+        return { d: d.d, ...Object.fromEntries(CHANNELS.map((c) => [c, ch[c] || 0])), _other: rest.reduce((n, c) => n + (ch[c] || 0), 0) };
+      });
+      $('h-daily').textContent = 'Visitors per day by channel';
+      $('n-daily').textContent = 'Each visitor counts once a day, under the first outside source they came from (see Channels below).';
+    } else {
+      defs = TOTALS;
+      cols = TOTALS;
+      rows = s;
+      $('h-daily').textContent = 'Pageviews, visitors and downloads per day';
+      $('n-daily').textContent = 'Visitors are counted each day on their own: someone who visits on two days counts once on each. Downloads and installs are clicks on a Download button or the Linux Install button; the file itself comes from the publisher.';
+    }
+    if (!defs.length) {
+      $('c-main').innerHTML = '<p class="muted">No visits yet.</p>';
+    } else {
+      multiLineChart($('c-main'), rows, defs);
+    }
+    $('t-head').innerHTML = `<tr><th scope="col">Day (UTC)</th>${cols.map((x) => `<th scope="col">${esc(x.label)}</th>`).join('')}</tr>`;
+    $('t-body').innerHTML = [...rows].reverse().map((d) => `<tr><th scope="row">${esc(fmtDay(d.d, true))}</th>${cols.map((x) => `<td>${nf.format(d[x.key])}</td>`).join('')}</tr>`).join('');
+  }
+
   function render(cur, prevSeries) {
     const s = cur.series;
     const pv = sum(s, 'pv');
@@ -205,11 +260,8 @@
       ['Download rate', pv ? (dl / pv * 100).toFixed(1) + '%' : '–', '<span class="dl-none">clicks per 100 pageviews</span>'],
     ].map(([l, v, d]) => `<div class="tile"><div class="tl">${l}</div><div class="tv">${v}</div><div class="td">${d}</div></div>`).join('');
 
-    multiLineChart($('c-main'), s, [
-      { key: 'pv', label: 'Pageviews', short: 'pageviews', cls: 'sv-s1' },
-      { key: 'uv', label: 'Visitors', short: 'visitors', cls: 'sv-s2' },
-      { key: 'dl', label: 'Downloads and installs', short: 'downloads', cls: 'sv-s3' },
-    ]);
+    last = s;
+    drawDaily();
 
     const app = (slug) => names[slug] || slug;
     bars($('l-apps'), Object.entries(cur.apps).filter(([, v]) => v[1] > 0).slice(0, 12).map(([slug, v]) => ({ label: app(slug), href: `/${slug}/`, v: v[1], sub: `${nf.format(v[0])} views`, title: `${app(slug)}: ${nf.format(v[1])} downloads and installs, ${nf.format(v[0])} pageviews` })), 'No downloads yet.');
@@ -226,7 +278,6 @@
     bars($('l-pages'), rowsOf(cur.pages, (k) => PAGE[k] || k).sort((a, b) => b.v - a.v));
     bars($('l-langs'), rowsOf(cur.langs, LANG).sort((a, b) => b.v - a.v));
 
-    $('t-body').innerHTML = [...s].reverse().map((d) => `<tr><th scope="row">${esc(fmtDay(d.d, true))}</th><td>${nf.format(d.pv)}</td><td>${nf.format(d.uv)}</td><td>${nf.format(d.dl)}</td></tr>`).join('');
     $('updated').textContent = `Updated ${new Date(cur.generated).toLocaleString('en', { dateStyle: 'medium', timeStyle: 'short' })}. Days are UTC, and today is still in progress.`;
     $('empty').hidden = pv > 0 || dl > 0;
   }
@@ -246,6 +297,13 @@
     root.removeAttribute('aria-busy');
   }
 
+  document.querySelectorAll('[data-view]').forEach((b) =>
+    b.addEventListener('click', () => {
+      view = b.dataset.view;
+      document.querySelectorAll('[data-view]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      drawDaily();
+    }),
+  );
   document.querySelectorAll('[data-range]').forEach((b) =>
     b.addEventListener('click', () => {
       days = +b.dataset.range;
