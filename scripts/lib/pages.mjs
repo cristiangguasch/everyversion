@@ -42,14 +42,16 @@ export function aboutPage({ apps, versions, checked }) {
 ${crumbs([null, 'About'])}
 <article class="prose">
 <h1>Newer isn’t always better</h1>
-<p class="lead">I’m <a href="${AUTHOR_URL}">${AUTHOR}</a>. I built Everyversion so you can get the version of your software that actually works for you.</p>
-<p class="updated">Written 4 November 2026, for anyone stuck on an update they never asked for.</p>
+<p class="lead">I’m <a href="${AUTHOR_URL}">${AUTHOR}</a>. I built Everyversion so you can get back the version of your software that worked for you: from the official download, with a checksum you can check yourself. It’s free, and it’s open source. Every script and every record is on <a href="https://github.com/cristiangguasch/everyversion">GitHub</a>.</p>
+<p class="updated">Written 4 November 2026, updated 25 November 2026, for anyone stuck on an update they never asked for.</p>
 
 <p>I was the <a href="${LINKEDIN_URL}">Head of Content at Softonic</a>, in charge of its software catalog.</p>
 
 <p>Every day I saw the same thing. Someone on an older computer would search for a program they’d used for years. The latest release wouldn’t run on their machine. The old one was gone from the publisher’s site. So they went hunting, and they ended up on whatever page promised the file.</p>
 
 <p>That’s how people get hurt. Not by the software they wanted, but by the “installer” that came with it.</p>
+
+<p>Everyversion is the page I wish I could have sent them to. One link per file, straight to the official download. One checksum per file, so you can prove it’s the real one. No accounts, no download managers, no files of ours in between. And because the code is open, you don’t have to take my word for any of it. You can read exactly how each file is checked.</p>
 
 <h2>Three things go wrong with new versions</h2>
 <ul class="clean">
@@ -61,13 +63,14 @@ ${crumbs([null, 'About'])}
 
 <h2>What I’m doing about it</h2>
 <p>I’m building a plain, fast index of older versions of the software people use, with a link to the publisher’s download location for each one. Today that’s <strong>${fmt(apps)} apps</strong> and <strong>${fmt(versions)} versions</strong>. It will grow.</p>
-<p>Every version page shows the same things, in the same order:</p>
+<p>Every app page shows the same things, in the same order:</p>
 <ul class="clean">
 <li>The download link, from the publisher’s own servers or from repositories and archives. We host no installers, so we can’t slip anything into one.</li>
 <li>The SHA-256 checksum, so you can check the file before you run it.</li>
 <li>The release date, the license, and a plain summary of what the installer does.</li>
 <li>Release notes, when the publisher wrote them.</li>
 </ul>
+<p>Apps with a long history (more than 25 old versions) get a second page that lists every older version we have, up to 100 per platform, each with its own downloads and checksums.</p>
 
 <h2>What I’m aiming for</h2>
 <div class="card">
@@ -90,14 +93,15 @@ ${crumbs([null, 'About'])}
 <p>That’s me. I pick the apps, set the rules for what counts as checked, read the reports and fix the data when something is wrong. If a page is wrong, it’s on me.</p>
 
 <h3 id="claude">Claude</h3>
-<p><a href="https://www.anthropic.com/claude">Claude</a> is an AI model made by Anthropic. I use it to run the update process from start to finish. It reads the package catalogs (winget, Homebrew and Flathub) for new versions, downloads the latest installers from the publisher’s servers, re-computes each SHA-256 and compares it with the published one, and checks the code signature. It also tests every download link and looks up each file on VirusTotal.</p>
+<p><a href="https://www.anthropic.com/claude">Claude</a> is an AI model made by Anthropic. I use it to run the update process from start to finish. It reads the package catalogs (winget, Homebrew and Flathub) for new versions, downloads the latest installers from the publisher’s servers, re-computes each SHA-256 and compares it with the published one, and checks the code signature. It also tests every download link and looks up the latest installers on VirusTotal.</p>
 <p>Claude reports every result to me, including the downloads that failed, and it never rates a file by hand: the scores come from the checks themselves. I review the report before anything goes live.</p>
 
 <h3 id="virustotal">VirusTotal</h3>
-<p><a href="https://www.virustotal.com/">VirusTotal</a> scans files with dozens of antivirus and security engines. We look up each installer by its SHA-256 and show the real result from VirusTotal’s last scan. Only the hash is sent, never the file, and if VirusTotal has no report we show no score. We are not affiliated with VirusTotal. The <a href="/security/">Security and Trust Center</a> explains how the score is worked out.</p>
+<p><a href="https://www.virustotal.com/">VirusTotal</a> scans files with dozens of antivirus and security engines. We look up each app’s latest installers by their SHA-256 and show the real result from VirusTotal’s last scan. Only the hash is sent, never the file, and if VirusTotal has no report we show no score. We are not affiliated with VirusTotal. The <a href="/security/">Security and Trust Center</a> explains how the score is worked out.</p>
 
-<h2 id="source">The code and data are public</h2>
-<p>Everything that builds this site is on GitHub: <a href="https://github.com/cristiangguasch/everyversion">github.com/cristiangguasch/everyversion</a>. You don’t have to take my word for how the checks work. You can read them.</p>
+<h2 id="source">Open source, so you can check my work</h2>
+<p>Everyversion is open source. Everything that builds this site is on GitHub: <a href="https://github.com/cristiangguasch/everyversion">github.com/cristiangguasch/everyversion</a>. You don’t have to take my word for how the checks work. You can read them, run them, and point out where they’re wrong.</p>
+<p>The code is under the <a href="https://github.com/cristiangguasch/everyversion/blob/main/LICENSE">MIT License</a> and the data under <a href="https://github.com/cristiangguasch/everyversion/blob/main/LICENSE-DATA.md">CC BY 4.0</a>. Use both however you like. If you reuse the data, credit Everyversion. App icons, screenshots and VirusTotal results belong to their owners and keep their own terms.</p>
 <ul class="clean">
 <li><strong>The scripts</strong> that read winget, Homebrew and Flathub, download installers, re-compute checksums, check signatures and test links.</li>
 <li><strong>The data</strong> behind every page: one JSON file per app, with each version, download URL and SHA-256, plus the verification and VirusTotal results.</li>
@@ -135,7 +139,7 @@ ${crumbs([null, 'About'])}
 <p>Friendly, but not slang. Bold and honest. We say what we checked and what we didn’t, we state a risk as a fact instead of a scare, and we pick the specific claim (“official links, SHA-256 checksums, no installers hosted”) over the adjective.</p>
 
 <h2>Is your favorite app missing?</h2>
-<p>Good. Tell me. I add apps based on what people ask for, so your email moves the list.</p>
+<p>Good. Tell me. I add apps based on what people ask for, so your request moves the list. Use the contact form, or <a href="https://github.com/cristiangguasch/everyversion/issues">open an issue</a> on GitHub.</p>
 <p><a class="btn" href="/contact/">Request an app</a> <a href="/#apps">or browse what’s here now</a></p>
 
 <p class="sign">— <a href="${AUTHOR_URL}">${AUTHOR}</a></p>
@@ -143,7 +147,7 @@ ${crumbs([null, 'About'])}
   return {
     path: '/about/',
     title: `About Everyversion – Older Software Versions, Without the Junk`,
-    description: `Built by ${AUTHOR}, former Head of Content at Softonic, to help people find clean older versions of their favorite software.`,
+    description: `Built by ${AUTHOR}, former Head of Content at Softonic: a free, open-source index of older software versions with official links and checksums.`,
     body,
     ld: [
       {

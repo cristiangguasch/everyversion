@@ -135,3 +135,7 @@ curl -si -X POST https://everyversion.net/collect.php | grep -i -E "HTTP|cache-c
 `cf-cache-status` must be `DYNAMIC` or `BYPASS` (never `HIT`), and there must be no `age` header.
 
 **Why `/statistics/` and not `/stats/`:** the host reserves the `/stats` path for its own tooling (it answered 403 and 404 for anything under `/stats/` with Apache's default page), so the public page lives at `/statistics/`. The data endpoint `/stats-data.php` and the script `/stats.js` are not affected.
+
+## License
+
+The code (`scripts/`, `server/` and the site assets) is under the [MIT License](LICENSE). The data (`data/`, `config/`, and the `.json` / `.md` files and `/api/v1/` on the site) is under [CC BY 4.0](LICENSE-DATA.md): reuse it freely and credit Everyversion. Fields copied from winget-pkgs, Homebrew and Flathub keep those catalogs' licenses; app icons, screenshots, VirusTotal results, the Everyversion name and logo, and the Geist fonts keep their own terms. [LICENSE-DATA.md](LICENSE-DATA.md) lists the details.
