@@ -1611,6 +1611,544 @@
       ]
     },
     {
+      "platform": "windows",
+      "version": "1.3.2",
+      "release_date": "2025-09-05",
+      "release_notes": "1.3.2 Fix login bug introduced in 1.3.0 for users with login accounts older than 14 months\nWhat's Changed\nMinor Enhancements\n- login_fix by @Frooodle in #4402\nFull Changelog: https://github.com/Stirling-Tools/Stirling-PDF/compare/v1.3.1...v1.3.2",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.3.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.3.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.3.2/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "c7f8c31b9febb962f825a160653ed30018a42b285873539c31e3300b0a87828d",
+          "product_code": "{C95B742B-E2D4-3447-B23C-85968478A88C}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{C95B742B-E2D4-3447-B23C-85968478A88C}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}",
+              "installer_type": "msi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.1",
+      "release_date": "2025-09-05",
+      "release_notes": "Quick fixes for missing translations and minor build issues\nFor all major release changes, please check out 1.3.0\nhttps://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.3.0\nWhat's Changed\nMinor Enhancements\n- fix: add missing MediaType import in SplitPdfBySectionsController by @Ludy87 in #4393\nTranslation Changes\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #4386\nOther Changes\n- Bump version from 1.3.0 to 1.3.1 by @Frooodle in #4395\nFull Changelog: v1.3.0...v1.3.1",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.3.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.3.1/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "d1eb755fa393ceffed05b10679fc4079749ec388b880c1f269f40918853e060c",
+          "product_code": "{C2ED942F-00DA-34EC-B6B8-7A166F360E73}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{C2ED942F-00DA-34EC-B6B8-7A166F360E73}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2.0",
+      "release_date": "2025-08-09",
+      "release_notes": "This update contains various changes, enhancements and bug fixes\nSome of the major changes are:\n- Bug fix for pipeline operation\n- Bug fix for Stamp operation\n- Enhanced Table-Of-Contents feature to support import and exports\n- Image to PDF to support Phtoshops PSD format\n- Enhanced Update available logic to show degrees of urgency if future updates have security patches (Also correctly links the jar/exe etc to download the file for you)\nThanks to everyone's contributions!\nWhat's Changed\nBug fices\n- fix(pipeline): allow slashes in pipeline operation values by @Ludy87 in #4066\n- fix(stamp): validate image filename only for image stamp type by @Ludy87 in #4099\n- fix(saml): correct ClassPathResource handling for IdP metadata and add null-guard for privateKey by @Ludy87 in #4157\nEnhancements\n- feat(common): add configurable maxDPI limit for PDF-to-image conversion by @Ludy87 in #4129\n- feature: import and export bookmarks to clipboard by @lukasstorck in #4093\n- PSD support by @Frooodle in #4146\n- get updates advanced by @Frooodle in #4124\nMinor Enhancements\n- fix: adjust margin of bookmark editor by @lukasstorck in #4068\n- Update 3rd Party Licenses by @stirlingbot[bot] in #4073\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot[bot] in #4104\n- chore(templates): remove redundant fetch-utils.js script includes by @Ludy87 in #4092\n- refactor(eml-to-pdf): Improve readability, maintainability, and overall standards compliance by @balazs-szucs in #4065\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot[bot] in #4144\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot[bot] in #4150\n- Update 3rd Party Licenses by @stirlingbot[bot] in #4122\n- style(spotless): centralize and expand formatting config in root build.gradle by @Ludy87 in #4098\nDocker Updates\n- Optimize Dockerfiles by @PeterDaveHello in #4069\n- ci(github-actions): improve concurrency grouping with PR number fallback by @Ludy87 in #4101\n- build(deps): bump docker/metadata-action from 5.7.0 to 5.8.0 by @dependabot[bot] in #4116\n- build(deps): bump docker/login-action from 3.4.0 to 3.5.0 by @dependabot[bot] in #4118\nTranslation Changes\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #4041\n- Update zh_TW Traditional Chinese translation by @PeterDaveHello in #4100\n- Updated Hungarian translation by @balazs-szucs in #4094\n- Add new keys to zh_TW Traditional Chinese ignore translation list by @PeterDaveHello in #4108\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #4143\n- Update messages_it_IT.properties by @albanobattistella in #4154\nDevelopment Tools\n- chore(pre-commit): enable test source formatting and build validation on push to main by @Ludy87 in #4067\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot[bot] in #4075\n- build(local): simplify writeVersion task with WriteProperties plugin and enable build caching by @Ludy87 in #4139\n- chore: update development configs, formatting tools, and CI enhancements by @Ludy87 in #4130\nOther Changes\n- build(deps): bump actions/ai-inference from 1.1.0 to 1.2.3 by @dependabot[bot] in #4006\n- build(deps): bump github/codeql-action from 3.29.3 to 3.29.5 by @dependabot[bot] in #4061\n- build(deps): bump edu.sc.seis.launch4j from 3.0.6 to 3.0.7 by @dependabot[bot] in #4062\n- build(deps): bump com.opencsv:opencsv from 5.11.2 to 5.12.0 by @dependabot[bot] in #4060\n- build(deps): bump org.springframework.boot from 3.5.3 to 3.5.4 by @dependabot[bot] in #4059\n- build(deps): bump org.springframework.boot:spring-boot-dependencies from 3.5.3 to 3.5.4 by @dependabot[bot] in #4058\n- build(deps): bump org.eclipse.angus:angus-mail from 2.0.3 to 2.0.4 by @dependabot[bot] in #4114\n- build(deps): bump commonmarkVersion from 0.25.0 to 0.25.1 by @dependabot[bot] in #4115\n- build(deps): bump io.swagger.core.v3:swagger-core-jakarta from 2.2.34 to 2.2.35 by @dependabot[bot] in #4117\n- Update CODEOWNERS by @Frooodle in #4142\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #4135\n- build(deps): bump actions/ai-inference from 1.2.3 to 1.2.4 by @dependabot[bot] in #4119\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #4155\n- Update .files.yaml for V2 by @Frooodle in #4156\n- Update CODEOWNERS by @Frooodle in #4158\nNew Contributors\n- @lukasstorck made their first contribution in #4068\nFull Changelog: v1.1.1...v1.2.0",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.2.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.2.0/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "613b94dd053b50b0c682c130d31cefa1f1a15f3f917c4bdd1ea31b9e4853f6b7",
+          "product_code": "{16D6DC70-5837-3949-815D-F83249A74B07}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{16D6DC70-5837-3949-815D-F83249A74B07}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.1.1",
+      "release_date": "2025-07-31",
+      "release_notes": "Various small bug fixes related to pipeline functionality and other issues causing unexpected errors\nWhat's Changed\nMinor Enhancements\n- Update 3rd Party Licenses by @stirlingbot[bot] in #4012\n- V2 settings api (Added to V1) by @Frooodle in #4015\n- remove file locks plus formatting by @Frooodle in #4049\n- fix(search): add null-check in dropdown hide handler by @Ludy87 in #3983\n- fix(pipeline): correct paths for pipeline & support default WebUI pipeline config extraction by @Ludy87 in #4051\nDocker Updates\n- ci(workflows): add concurrency cancellation to CI workflows by @Ludy87 in #4034\n- Version bump + docker ultra lite fix by @Frooodle in #4057\nTranslation Changes\n- Translate language names for zh_TW Traditional Chinese by @PeterDaveHello in #4036\n- Update and improve zh_TW Traditional Chinese translation by @PeterDaveHello in #4038\nOther Changes\n- legal: termsAndConditions has moved by @pheiduck in #4035\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot[bot] in #4040\nFull Changelog: v1.1.0...v1.1.1",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.1.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.1.1/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "8824fc1acb66bbd1df7c66bfe44c68661d4db7e7007a541ab6e8ce2ffaf12ae9",
+          "product_code": "{CBECB714-6CB1-3956-B838-0E8F27F612C7}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{CBECB714-6CB1-3956-B838-0E8F27F612C7}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.1.0",
+      "release_date": "2025-07-24",
+      "release_notes": "This update contains various changes:\n- Bug fixes with UI scaling, Navbar and others ,\n- Auth.log not generating correctly\n- HTML sanitisation now further sanitises the tag for security to avoid external GET calls, This is enabled by default but can be disabled (via settings.yml) should you need this HTML functionality\n- Various extra security changes and patches\nWhat's Changed\n🚀 Major Enhancements\n- (Future V2 feature) Support multi-file async job results and ZIP extraction by @Frooodle in #3922\n- Fake scan renamed scanner effect by @Frooodle in #3954\n- Refactor: move modules under app/ directory and update file paths by @Ludy87 in #3938\n🐛 Bug Fixes\n- ✨ (Snyk) Fixed finding: \"java/PT\" by @pixeebotstirling[bot] in #3972\n- ✨ (Snyk) Fixed finding: \"java/PT\" by @pixeebotstirling[bot] in #3971\n- ✨ (Snyk) Fixed finding: \"java/Ssrf\" by @pixeebotstirling[bot] in #3973\n- ✨ (Snyk) Fixed finding: \"java/PT\" by @pixeebotstirling[bot] in #3974\n- ✨ (Snyk) Fixed finding: \"java/PT\" by @pixeebotstirling[bot] in #3975\n- ✨ (Snyk) Fixed finding: \"java/PT\" by @pixeebotstirling[bot] in #3976\n- fix(css): correct selector for free text editor overlay in PDF viewer CSS by @Ludy87 in #3916\n- fix: correct paths for python scripts and implement classpath extraction by @Ludy87 in #3984\n- Fix endpoint mapping by @Frooodle in #3999\n- url fixes for access issues by @Frooodle in #4013\n- Fix search scroll bar issue on navbar by @ConnorYoh in #3998\n- Fix for #3951 invalid auth.log by @Frooodle in #3952\n✨ Minor Enhancements\n- This PR makes the multi-tool usable when zoomed in or when the browser window is narrowed a lot. by @EthanHealy01 in #3897\n- AOP Fixes for v2 async by @Frooodle in #3934\n- Nav Bar Fixes for Mobile Devices by @EthanHealy01 in #3927\n- Disable cookie banner when analytics disabled by @Frooodle in #3989\n- Improved scaling of navbar for page-view and redact by @ConnorYoh in #3978\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot[bot] in #3995\n🐳 Docker & CI/CD Updates\n- build: update Dockerfile.fat by @Ludy87 in #3945\n- ci: enhance GitHub Actions workflows with Gradle setup, caching improvements, and Docker image testing by @Ludy87 in #3956\n- fix(ci): disable Gradle caching in GitHub workflows to resolve cache conflicts by @Ludy87 in #3986\n- build(deps): bump alpine from 3.22.0 to 3.22.1 by @dependabot[bot] in #4011\n- build(deps): bump step-security/harden-runner from 2.12.2 to 2.13.0 by @dependabot[bot] in #4007\n- build(deps): bump actions/checkout from 2.4.2 to 4.2.2 by @dependabot[bot] in #4010\n- build(deps): bump sigstore/cosign-installer from 3.9.1 to 3.9.2 by @dependabot[bot] in #4009\n🌍 Translation Changes\n- Update messages_ja_JP.properties by @tkymmm in #3906\n- Update messages_zh_CN.properties by @Lvshujun0918 in #3912\n- chore: update German translation add new keys to ignore list by @Ludy87 in #3917\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #3918\n- Update messages_ru_RU.properties by @TheShadowAngel in #3959\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #3962\n- Update messages_ru_RU.properties by @TheShadowAngel in #3967\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot[bot] in #3994\n🛠 Development Tools & Build\n- chore: add integrate Stylelint for CSS linting by @Ludy87 in #3909\n- Update CODEOWNERS by @ConnorYoh in #3981\n- ci: improve PR deployment workflow and labeling by @Ludy87 in #3842\n- chore(deps): bump com.diffplug.spotless from 7.0.4 to 7.1.0 by @dependabot[bot] in #3904\n- chore(license-report): add projects = [project] to licenseReport to avoid deprecation warnings by @Ludy87 in #3933\n- ci: fix Swagger docs generation by targeting stirling-pdf module by @Ludy87 in #3935\n- chore(deps): bump org.apache.commons:commons-lang3 from 3.17.0 to 3.18.0 by @dependabot[bot] in #3939\n- chore(cucumber): add create_pdf_with_black_boxes and convert-pdf-to-image outline; remove duplicate split-pdf-by-sections by @Ludy87 in #3937\n- Bump com.unboundid.product.scim2:scim2-sdk-client from 2.3.5 to 4.0.0 by @dependabot[bot] in #3736\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot[bot] in #3942\n- fix(ci): correct variable name for deployment comment check in PR-Demo-cleanup workflow by @Ludy87 in #3946\n- build(deps): bump io.micrometer:micrometer-core from 1.15.1 to 1.15.2 by @dependabot[bot] in #3947\n- build(deps): bump org.snakeyaml:snakeyaml-engine from 2.9 to 2.10 by @dependabot[bot] in #3948\n- build(deps): bump commons-io:commons-io from 2.19.0 to 2.20.0 by @dependabot[bot] in #4003\n- build(deps): bump github/codeql-action from 3.29.2 to 3.29.3 by @dependabot[bot] in #4008\n- build(deps): bump springSecuritySamlVersion from 6.5.1 to 6.5.2 by @dependabot[bot] in #4020\n- build(deps): bump com.diffplug.spotless from 7.1.0 to 7.2.1 by @dependabot[bot] in #4019\n🧑‍💻 New Contributors\n- @Lvshujun0918 made their first contribution in #3912\n- @TheShadowAngel made their first contribution in #3959\n- @pixeebotstirling[bot] made their first contribution in #3971\nFull Changelog: v1.0.2...v1.1.0",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.1.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.1.0/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "7925cfbaa8e49b6c24f4ace116d7eabe74870761c492b7a78cd80200e7809ef6",
+          "product_code": "{3164827E-ACD9-30D8-B379-1DABAA65DEFF}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{3164827E-ACD9-30D8-B379-1DABAA65DEFF}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.2",
+      "release_date": "2025-07-08",
+      "release_notes": "Quick Bug fixes for\n- Resource overrides\n- The account button not being visible under certain circumstances\n- API docs being correctly updated\nWhat's Changed\nBug Fixes\n- Fix for generateOpenApiDocs Task by @DarioGii in #3911\nMinor Enhancements\n- fix for #3907 resource override by @Frooodle in #3910\n- Survey change to reduce prompts to users by @Frooodle in #3913\nFull Changelog: v1.0.1...v1.0.2",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.0.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.0.2/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "c7cd79e91de95efae54bb0dfdf91c161928e31081a660b034f2a2c72a5f44f69",
+          "product_code": "{0BEB4905-27AE-39F2-B9B1-EEF016FFBB87}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{0BEB4905-27AE-39F2-B9B1-EEF016FFBB87}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.1",
+      "release_date": "2025-07-07",
+      "release_notes": "For V1.0.0 Release notes please check here https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.0.0\nDocker only:\nThis v1.0.1 contains a Quick fix for the flag changing from DOCKER_ENABLE_SECURITY=true to DISABLE_ADDITIONAL_FEATURES=false\nThis fix allows both flags to work without issue to avoid config compatibility issues with older versions\nPreviously, users not using DISABLE_ADDITIONAL_FEATURES=false And using latest label not latest-fat would face security jar download issues.\nThis is a good time to remind users, Anyone using the account system is recommended to use latest-fat tag to get the best experience!\nWhat's Changed\nMinor Enhancements\n- Update 3rd Party Licenses by @stirlingbot in #3893\nDocker Updates\n- Fix for security not downloading and running correctly in V1.0.0 by @Frooodle in #3902\nOther Changes\n- Update PR-Demo-Comment-with-react.yml by @Frooodle in #3894\n- Fix release generation issues by @Frooodle in #3898\n- [StepSecurity] ci: Harden GitHub Actions by @step-security-bot in #3901\nFull Changelog: v1.0.0...v1.0.1",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.0.1",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.0.1/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "bb60a76c4568bbba9c5f0eb98555b560631b32ad1a2a72aea7e0df0742caa716",
+          "product_code": "{A23C2B4B-D723-317B-9251-AE49DDBD0CE3}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{A23C2B4B-D723-317B-9251-AE49DDBD0CE3}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.0.0",
+      "release_date": "2025-07-07",
+      "release_notes": "V1.0.0 Release is here!\nThis release is actually part of a stepping stone into V2.0.0 release coming in a few months with a branch new UI and feel!\nThis release includes lots of new features and changes the main changes of note are\n- EML(email) to PDF Feature added\n- Table of Contents editing feature added\n- Fake Scan page feature added to convert a PDF to look like its been scanned (WIP, may be removed)\n- OCR and Compression back to using OCRMyPDF and Ghostscript for advanced PDF operations\n- Added tmp file manager to ensure all files are cleared even in event of crashes\n- Add file attachments to PDF feature added\nFor pro users, we have some additional changes, suggest you backup your /configs folder before testing v1.0.0\n- Audit logs\n- Team support with team management\nAs part of this release, there is also a slight license change. The core package remains MIT and fully open source, but we have created a 'proprietary' folder to store our 'Pro' features, such as audit/team functionality and account creation etc, which will be under a different license. This is only for our paid features and account creations.\nIf you are not using accounts, you remain fully open source, and we have ensured these can be fully decoupled for users who do wish only to use OSS. If you are using accounts, don't worry, no negative changes to functionality are introduced in this PR you can continue using as you would expect\nThere are also a lot of minor fixes and changes throughout the UI and backend in this release, including future support for async operations, progress updates and other features coming to V2! Stay tuned!\nWhat's Changed\nBug Fixes\n- Fix Chinese localization split page numbering by @Ludy87 in #3574\n- Fix error display for Split by Chapter by @Frooodle in #3621\n- fix: correct fetch path for popularity.txt in homecard.js by @Ludy87 in #3700\n- fix: ensure locale-safe formatting in GeneralUtils.formatBytes by @Ludy87 in #3762\nEnhancements\n- Enhance email error handling and expand test coverage by @Ludy87 in #3561\n- New common module by @DarioGii in #3573\n- Replace any() with anyList() in Mockito tests for stronger type safety by @Ludy87 in #3583\n- Added scan filter feature by @balazs-szucs in #3530\n- Proprietary module by @DarioGii in #3619\n- Add EML to PDF conversion functionality by @balazs-szucs in #3650\n- Ensure Pixel gets disabled, PDF ToC support by @Frooodle in #3659\n- Fix: Assign Internal API User to Internal Team and Eager-Load User’s Team Association by @Ludy87 in #3698\n- feat: add i18n support for team management UI and role table header by @Ludy87 in #3702\n- feat: Improve team management UX with message-based feedback and internal team protection by @Ludy87 in #3719\n- PDF-A conversion removes highlight opacity fix (#3106) by @tomasbernardino in #3695\n- Auditing support by @Frooodle in #3739\n- chore: add advanced PR auto-labeling configuration and workflow by @Ludy87 in #3767\n- ci: add matrix strategy for spring-security and improve test report check logic by @Ludy87 in #3768\n- Eml-to-pdf bug fixes: removal of incompatible fonts, removal of emoji in favor of @, jakarta-mail dependency handling improvements by @balazs-szucs in #3770\n- feat: add automated PR title review using GitHub Actions and AI by @Ludy87 in #3784\n- feat:centralise temp-file management & cleanup across app/docker by @Frooodle in #3797\n- feat: add JUnit tests for EML to PDF conversion by @balazs-szucs in #3806\n- feat: add Thai language support and corresponding font for watermarking by @balazs-szucs in #3819\n- feat: add Thai language option for stamp feature by @balazs-szucs in #3825\nMinor Enhancements\n- Update home.html by @Frooodle in #3560\n- Enforce Locale.US for Consistent Decimal Formatting in Byte-Size Output by @Ludy87 in #3562\n- 🤖 format everything with pre-commit by by @stirlingbot in #3588\n- Update 3rd Party Licenses by @stirlingbot in #3598\n- Reorder OCR menu based on language selected + display language in own language by @Frooodle in #3586\n- Update 3rd Party Licenses by @stirlingbot in #3599\n- Replace deprecated AntPathRequestMatcher with PathPatternRequestMatcher by @Ludy87 in #3606\n- Fix Tibetan locale code to bo_CN and update translation ignore configurations by @Ludy87 in #3614\n- Update 3rd Party Licenses by @stirlingbot in #3632\n- GetInfo summary #2388 by @Frooodle in #3585\n- Update 3rd Party Licenses by @stirlingbot in #3647\n- Disabled auto capture for posthog by @ConnorYoh in #3661\n- Multi module refactor by @DarioGii in #3640\n- Update 3rd Party Licenses by @stirlingbot in #3664\n- Set default encryption key length to 128 bit AES in add-password.html by @balazs-szucs in #3693\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot in #3697\n- Fix: Correct Convert Button Visuals and Make Consistent Code for EML-to-PDF by @balazs-szucs in #3707\n- chore: reformat Java codebase and centralize Spotless config by @Ludy87 in #3723\n- Update 3rd Party Licenses by @stirlingbot in #3721\n- formatting and versionNumber to always build by @Frooodle in #3759\n- style: improve formatting and import order consistency across codebase by @Ludy87 in #3761\n- Update multi-toolAdvert to respect SYSTEM_ROOTURIPATH. by @adityaruplaha in #3776\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot in #3786\n- Async by @Frooodle in #3773\n- Update 3rd Party Licenses by @stirlingbot in #3795\n- Add Attachments Feature by @DarioGii in #3781\n- refactor: replace deprecated fields() with propertyStream() in ApiDocService by @Ludy87 in #3838\n- restore OCRMyPDF and ghostscript compression by @Frooodle in #3846\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot in #3804\n- Update 3rd Party Licenses by @stirlingbot in #3852\n- exception handling and exception improvements by @Frooodle in #3858\n- remove footer gap by @reecebrowne in #3855\n- exception handling error to warn etc by @Frooodle in #3866\n- Scaling fixes by @reecebrowne in #3868\n- dropdown fixes by @reecebrowne in #3879\n- Exception cleanup, resource change and OCR Defaults by @Frooodle in #3876\n- fix(spelling): correct selectFilter typo across templates and localization files by @Ludy87 in #3886\n- fix(css): correct spelling of separator in navbar and theme CSS by @Ludy87 in #3888\n- 🤖 format everything with pre-commit by stirlingbot by @stirlingbot in #3882\nDocker Updates\n- security fixes by @Frooodle in #3587\n- Bump docker/build-push-action from 6.17.0 to 6.18.0 by @dependabot in #3624\n- Bump alpine from 3.21.3 to 3.22.0 by @dependabot in #3623\n- Update build.yml by @Frooodle in #3637\n- Bump step-security/harden-runner from 2.12.0 to 2.12.1 by @dependabot in #3728\n- Bump gradle/actions from 4.4.0 to 4.4.1 by @dependabot in #3727\n- Bump docker/setup-buildx-action from 3.10.0 to 3.11.0 by @dependabot in #3726\n- Bump sigstore/cosign-installer from 3.8.2 to 3.9.0 by @dependabot in #3792\n- Bump docker/setup-buildx-action from 3.11.0 to 3.11.1 by @dependabot in #3790\n- chore: update Docker Compose to v2.37.2 in GitHub Actions workflow by @Ludy87 in #3803\n- chore: include additional problem reports folder in upload-artifact step by @Ludy87 in #3805\n- chore(deps): bump step-security/harden-runner from 2.12.1 to 2.12.2 by @dependabot in #3849\n- chore(deps): bump sigstore/cosign-installer from 3.9.0 to 3.9.1 by @dependabot in #3801\n- Update push-docker.yml to change alpha to be fat by @Frooodle in #3872\nTranslation Changes\n- Ukrainian translation by @riv-gh in #3567\n- Russian translation by @riv-gh in #3572\n- Update messages_de_DE.properties by @Ludy87 in #3575\n- update messages_zh_CN.properties by @justeHe in #3597\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3600\n- Update messages_it_IT.properties by @albanobattistella in #3602\n- Update messages_it_IT.properties by @albanobattistella in #3612\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3617\n- Update messages_it_IT.properties by @albanobattistella in #3634\n- Update messages_de_DE.properties by @Ludy87 in #3618\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3639\n- Update messages_it_IT.properties by @albanobattistella in #3641\n- Updated Hungarian translation for new features: fake-scan, get-info, and for some misc front-end updates. by @balazs-szucs in #3646\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3657\n- Bug/langauge encoding by @reecebrowne in #3681\n- Update messages_pt_BR.properties by @thiagoor-cpu in #3676\n- Update Hungarian translations for language names and EML to PDF functionality by @balazs-szucs in #3662\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3685\n- Update Chinese translations in messages_zh_CN.properties by @ZhipengHe in #3653\n- Update hungarian translation for teams, table of contents features, and new admin labels. by @balazs-szucs in #3701\n- fix: update Malayalam translation to 81% and remove duplicate file by @Ludy87 in #3706\n- Restore zh_TW locale to state before incorrect commit by @reecebrowne in #3712\n- Update and improve zh_TW Traditional Chinese locale by @PeterDaveHello in #3649\n- translate en-GB to de_DE by @KernelSailor in #3715\n- Update Hungarian labels for the team feature by @balazs-szucs in #3710\n- fix: restore original messages_bo_CN.properties file overwritten in PR #3659 by @Ludy87 in #3708\n- Update messages_it_IT.properties by @albanobattistella in #3709\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3725\n- Update messages_it_IT.properties by @albanobattistella in #3722\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3760\n- Added Hungarian translations for audit dashboard and added the untranslatable items to .toml file by @balazs-szucs in #3765\n- Update messages_it_IT.properties by @albanobattistella in #3763\n- Improve Turkish translations for Fake Scan, TOC, and Cookie Banner by @dogukansahil in #3783\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3796",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v1.0.0",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/1.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v1.0.0/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "b5152337f929f6319f004f0c5cab42ea115e2c9e35f8739b49bcca14c96d2a9d",
+          "product_code": "{6DE6EE74-B1D8-3337-8F76-B9DB9EEA8790}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{6DE6EE74-B1D8-3337-8F76-B9DB9EEA8790}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.46.2",
+      "release_date": "2025-05-20",
+      "release_notes": "This release contains several dependency updates and bug fixes as well as some standout changes\n- Legacy homepage has been removed due to great feedback and love from the community for the new homepage\n- Malayalam language added by @shad-ct\n- Pro/Enterprise licenses now support floating between machines\nWhat's Changed\nBug Fixes\n- Use Thymeleaf th:src for redact.js to ensure correct resource path resolution by @Ludy87 in #3511\n- Fix empty-parameter issue in updateUserSettings by using @RequestBody map by @Ludy87 in #3536\n- Fix TemplateResolver and LibreOfficeListener bugs by @Frooodle in #3555\nEnhancements\n- Improve Type Safety and OpenAPI Schema for PDF API Controllers and Models by @Ludy87 in #3470\nMinor Enhancements\n- added Malayalam language by @shad-ct in #3506\n- 🤖 format everything with pre-commit by by @stirlingbot in #3514\n- Standardize Quoted Path Syntax in Thymeleaf th:href for Consistent Link Resolution by @Ludy87 in #3515\n- Update legal URLs and improve OpenAPI metadata configuration by @Ludy87 in #3522\n- Floating keys for pro users by @Frooodle in #3535\n- JUnits JUnits JUnits, so many JUnits by @Frooodle in #3537\n- Update 3rd Party Licenses by @stirlingbot in #3523\n- Fix test compilation around pipeline processor by @Frooodle in #3554\n- Update AGENTS guidelines by @Frooodle in #3556\n- Update 3rd Party Licenses by @stirlingbot in #3559\n- remove legacy homepage by @reecebrowne in #3518\nDocker Updates\n- Bump docker/build-push-action from 6.16.0 to 6.17.0 by @dependabot in #3541\n- Bump gradle/actions from 4.3.1 to 4.4.0 by @dependabot in #3544\nTranslation Changes\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3508\n- Update zh_TW Traditional Chinese locale by @Dr-XYZ in #3524\n- Update messages_es_ES.properties by @NeilJared in #3527\nOther Changes\n- Fix README enterprise link by @noahbaculi in #3509\n- updated the languages list by @shad-ct in #3510\n- Bump actions/dependency-review-action from 4.6.0 to 4.7.0 by @dependabot in #3519\n- Bump org.apache.xmlgraphics:batik-all from 1.18 to 1.19 by @dependabot in #3520\n- Bump io.micrometer:micrometer-core from 1.14.6 to 1.14.7 by @dependabot in #3521\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3531\n- Bump github/codeql-action from 3.28.17 to 3.28.18 by @dependabot in #3542\n- Bump actions/dependency-review-action from 4.7.0 to 4.7.1 by @dependabot in #3543\n- Bump org.springframework:spring-jdbc from 6.2.6 to 6.2.7 by @dependabot in #3545\n- Bump org.sonarqube from 6.1.0.5360 to 6.2.0.5505 by @dependabot in #3546\n- Bump org.springframework:spring-webmvc from 6.2.6 to 6.2.7 by @dependabot in #3547\n- Bump org.springframework.security:spring-security-saml2-service-provider from 6.4.5 to 6.5.0 by @dependabot in #3549\n- Bump io.micrometer:micrometer-core from 1.14.7 to 1.15.0 by @dependabot in #3550\n- Bump org.gradle.toolchains.foojay-resolver-convention from 0.10.0 to 1.0.0 by @dependabot in #3552\n- Bump org.mockito:mockito-core from 5.11.0 to 5.17.0 by @dependabot in #3551\n- Add additional unit tests for utils and EE by @Frooodle in #3557\nNew Contributors\n- @shad-ct made their first contribution in #3506\n- @noahbaculi made their first contribution in #3509\n- @Dr-XYZ made their first contribution in #3524\nFull Changelog: v0.46.1...v0.46.2",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.46.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.46.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.46.2/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "ba6006b5339b804b5cd128ed0e3344b77a3f27327551cdee52b86c04184bbed9",
+          "product_code": "{1BC4115D-7EF1-372C-8AD4-D83E6EF56C11}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{1BC4115D-7EF1-372C-8AD4-D83E6EF56C11}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.46.1",
+      "release_date": "2025-05-10",
+      "release_notes": "This release contains several bug fixes, API improvements, and standout changes!\n- Home page UI scaling change when screensize is small, allowing for better viewability of features\n- We now include an Email API to allow Email within Stirling PDF (WIP with no dedicated integrations)\n- Compression now more aggressive at higher numbers\n- Various translation changes!\nWhat's Changed\nBug Fixes\n- Fix NullPointerException by Enabling Constructor Injection for Color Replacement Components by @Ludy87 in #3469\n- fix read wrong properties by @Ludy87 in #3472\n- Fix cert-sign API NullPointerException when pageNumber is omitted for invisible signatures by @Ludy87 in #3463\n- Potential fix for code scanning alert no. 224: DOM text reinterpreted as HTML by @Frooodle in #3499\n- Potential fix for code scanning alert no. 11: DOM text reinterpreted as HTML by @Frooodle in #3497\nEnhancements\n- Add Email Sending Service with Attachment Support by @Ludy87 in #3455\nMinor Enhancements\n- Internationalize logout message by @Ludy87 in #3450\n- Update 3rd Party Licenses by @stirlingbot in #3444\n- Validate H2 Database Type and URL Consistency for Custom Databases by @Ludy87 in #3458\n- Update language list to use native names by @Balazs-Szucs in #3464\n- Update 3rd Party Licenses by @stirlingbot in #3468\n- 🤖 format everything with pre-commit by by @stirlingbot in #3479\n- Update 3rd Party Licenses by @stirlingbot in #3484\n- Update 3rd Party Licenses by @stirlingbot in #3487\n- Auto scale by @reecebrowne in #3490\n- pixel changes, redact color fix, version bump, aggressive compression by @Frooodle in #3502\n- Refactor permission variable names by @Balazs-Szucs in #3457\n- accept/decline cookies based on analytics and hide cookie banner when… by @reecebrowne in #3505\nTranslation Changes\n- Added missing Hungarian translations. by @Balazs-Szucs in #3451\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3446\n- Update messages_it_IT.properties by @albanobattistella in #3456\n- Fix French translation. by @miniupnp in #2981\nOther Changes\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3461\n- Bump github/codeql-action from 3.28.16 to 3.28.17 by @dependabot in #3467\n- Bump actions/create-github-app-token from 2.0.2 to 2.0.5 by @dependabot in #3466\n- Bump pdfboxVersion from 3.0.4 to 3.0.5 by @dependabot in #3465\n- Bump actions/create-github-app-token from 2.0.5 to 2.0.6 by @dependabot in #3475\n- Bump org.springdoc:springdoc-openapi-starter-webmvc-ui from 2.8.6 to 2.8.8 by @dependabot in #3482\n- Bump com.opencsv:opencsv from 5.10 to 5.11 by @dependabot in #3476\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3503\nNew Contributors\n- @Balazs-Szucs made their first contribution in #3451\nFull Changelog: v0.46.0...v0.46.1",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.46.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.46.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.46.1/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "abf9301f4e47c51e17205b0af6075cd90542d4e1e0965638e11890c57f834949",
+          "product_code": "{5CDA1A01-639C-3693-B0C7-0D2CEDFD49A6}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{5CDA1A01-639C-3693-B0C7-0D2CEDFD49A6}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.46.0",
+      "release_date": "2025-04-30",
+      "release_notes": "Some bug fixes in this release including\n- Multi tool select buttons bug\n- Footer fix in view-pdf\n- Make file extension checks case-insensitive\n- signed rotated document different the preview\n- H2 datasource configuration in DatabaseService causing errors in certain usecases\nAnd a new feature!\nNew 'unlock PDF Form' functionality to remove read-only locks from forms (Thanks to @MariaLaranjeira )\nimage\nWhat's Changed\nBug Fixes\n- (Snyk) Fixed finding: \"Improper Neutralization of CRLF Sequences in HTTP Headers\" by @pixeebot in #3424\n- Multi tool select buttons bug by @JoseQuintas2003 in #3404\nEnhancements\n- Add SHOW_SURVEY Environment variable to Docker by @muratcanyeldan in #3378\n- Support domain User instances in getCurrentUsername method by @Ludy87 in #3383\n- Changed footer to be more responsive to page size by @ConnorYoh in #3398\n- Remove read only from forms by @MariaLaranjeira in #3423\nMinor Enhancements\n- 2728 bug signed rotated document different than preview by @ConnorYoh in #3360\n- Make file extension checks case-insensitive in pipeline by @muratcanyeldan in #3368\n- 🤖 format everything with pre-commit by by @stirlingbot in #3374\n- Update 3rd Party Licenses by @stirlingbot in #3389\n- Changes from Version 2.2.0 to 2.8.6 org.springdoc:springdoc-openapi-starter-webmvc-ui by @Ludy87 in #3400\n- Update 3rd Party Licenses by @stirlingbot in #3408\n- Update 3rd Party Licenses by @stirlingbot in #3414\n- Refactor codebase to replace explicit constructors with Lombok annotations and remove boilerplat by @Ludy87 in #3415\n- 🤖 format everything with pre-commit by by @stirlingbot in #3429\n- Validate H2 datasource configuration in DatabaseService by @Ludy87 in #3449\nDocker Updates\n- Bump step-security/harden-runner from 2.11.1 to 2.12.0 by @dependabot in #3394\n- Bump actions/setup-python from 5.5.0 to 5.6.0 by @dependabot in #3410\n- Bump sigstore/cosign-installer from 3.8.1 to 3.8.2 by @dependabot in #3411\n- Upgrade Gradle to 8.14 in CI Workflows and Gradle Wrapper by @Ludy87 in #3425\n- Bump docker/build-push-action from 6.15.0 to 6.16.0 by @dependabot in #3442\n- Bump gradle from 8.13-jdk21 to 8.14-jdk21 by @dependabot in #3439\nTranslation Changes\n- Update messages_pt_BR.properties by @thiagoor-cpu in #3356\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3359\n- Update and improve zh_TW Traditional Chinese locale by @PeterDaveHello in #3362\n- Update messages_tr_TR.properties by @muratcanyeldan in #3363\n- Update messages_fr_FR.properties to fix translation mistake by @muratcanyeldan in #3365\n- Update messages_es_ES.properties by @NeilJared in #3405\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3409\n- Update messages_ja_JP.properties by @tkymmm in #3417\n- Update German properties by @Ludy87 in #3416\n- Update messages_it_IT.properties by @albanobattistella in #3448\nDevelopment Tools\n- Update Google Java Format to v1.26.0 across devcontainer, VSCode, and Gradle configuration by @Ludy87 in #3375\nOther Changes\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3364\n- fix security deploy by @Frooodle in #3373\n- Bump ruff to v0.11.6 and gitleaks to v8.24.3 in pre-commit config by @Ludy87 in #3376\n- Bump com.fathzer:javaluator from 3.0.5 to 3.0.6 by @dependabot in #3386\n- Bump org.springframework:spring-webmvc from 6.2.5 to 6.2.6 by @dependabot in #3385\n- Bump org.springframework:spring-jdbc from 6.2.5 to 6.2.6 by @dependabot in #3384\n- Mac x86_64 installer Hotfix by @DarioGii in #3391\n- Bump org.springframework.security:spring-security-saml2-service-provider from 6.4.4 to 6.4.5 by @dependabot in #3393\n- Bump org.springframework.session:spring-session-core from 3.4.2 to 3.4.3 by @dependabot in #3412\n- Bump github/codeql-action from 3.28.15 to 3.28.16 by @dependabot in #3413\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3418\n- Bump actions/download-artifact from 4.2.1 to 4.3.0 by @dependabot in #3443\n- Bump org.springframework.boot from 3.4.4 to 3.4.5 by @dependabot in #3441\n- Bump springBootVersion from 3.4.4 to 3.4.5 by @dependabot in #3440\n- Version bump by @Frooodle in #3445\nNew Contributors\n- @muratcanyeldan made their first contribution in #3363\n- @JoseQuintas2003 made their first contribution in #3404\n- @MariaLaranjeira made their first contribution in #3423\nFull Changelog: v0.45.6...v0.46.0",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.46.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.46.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.46.0/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "854b67587a124d8dc36d1613a0974593f1f1a39eb2607445a7a26adddbd9fa81",
+          "product_code": "{D49DAACB-2BC5-3B5B-941D-5A4C01663CAA}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "publisher": "Stirling PDF Inc",
+              "product_code": "{D49DAACB-2BC5-3B5B-941D-5A4C01663CAA}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.6",
+      "release_date": "2025-04-21",
+      "release_notes": "- Fixes bug for pipeline not loading correctly introduced in 0.45.5\n- Fixes issue with signature drawing 'lagging' on certain devices\nWhat's Changed\nBug Fixes\n- Bug/498/signature slow firefox mobile by @reecebrowne in #3322\nMinor Enhancements\n- Error reductions found via analytics by @ConnorYoh in #3351\n- Update 3rd Party Licenses by @stirlingbot in #3354\n- fix pipelines via changing to service by @Frooodle in #3358\nTranslation Changes\n- Update messages_it_IT.properties by @albanobattistella in #3350\nOther Changes\n- Bump io.micrometer:micrometer-core from 1.14.5 to 1.14.6 by @dependabot in #3353\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3352\nFull Changelog: v0.45.5...v0.45.6",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.45.6",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.45.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.45.6/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "ef105cab2d98d6eaa8e8a96c8937ad6a0788dfcdc7e41d3f1014766c6b85ad25",
+          "product_code": "{BE57453E-174C-3D6D-9172-56E5260F9E8E}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "Stirling PDF",
+              "product_code": "{BE57453E-174C-3D6D-9172-56E5260F9E8E}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.5",
+      "release_date": "2025-04-14",
+      "release_notes": "- Added a fileUploadLimit settings to settings.yml to allow users to display file upload limits set by their server (Thanks @PedroPF1234)\n- Language updates\n- Other minor changes and backend\nWhat's Changed\nEnhancements\n- Upload File Size Limit by @PedroPF1234 in #3334\n- 3335 feature request add app version to posthog by @ConnorYoh in #3348\nMinor Enhancements\n- Update 3rd Party Licenses by @stirlingbot in #3342\n- Allow non cert files to be enterprise by @Frooodle in #3346\n- 🤖 format everything with pre-commit by by @stirlingbot in #3347\nDocker Updates\n- Bump actions/setup-java from 4.7.0 to 4.7.1 by @dependabot in #3339\nTranslation Changes\n- Update messages_it_IT.properties by @albanobattistella in #3338\n- Complete zh_TW Traditional Chinese translation by @Chaoray in #3337\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3349\nOther Changes\n- MacOS x86_64 installer fix 🙏🏾 by @DarioGii in #3333\n- Bump com.diffplug.spotless from 7.0.2 to 7.0.3 by @dependabot in #3340\n- Bump commons-io:commons-io from 2.18.0 to 2.19.0 by @dependabot in #3341\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3343\n- Change PR deploy to use security (Enable '/deploypr security' command) by @Frooodle in #3345\nNew Contributors\n- @Chaoray made their first contribution in #3337\n- @PedroPF1234 made their first contribution in #3334\nFull Changelog: v0.45.4...v0.45.5",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.45.5",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.45.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.45.5/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "3e095f362eb8b324e670fe7c51e3c1637b1348ae8692f18a98d1c0e5308aa7b7",
+          "product_code": "{6F3882C0-1A47-3020-B1D9-AEDAD0F624A7}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{6F3882C0-1A47-3020-B1D9-AEDAD0F624A7}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.4",
+      "release_date": "2025-04-11",
+      "release_notes": "- Bug fixes for language selection\n- minor other changes\nWhat's Changed\nMinor Enhancements\n- removed cdn import for cookieconsent library by @ConnorYoh in #3325\n- Removed empty spaces shown when language suppression used by @ConnorYoh in #3327\nTranslation Changes\n- Update messages_it_IT.properties by @albanobattistella in #3331\nOther Changes\n- Mac x86_64 installer fix by @DarioGii in #3323\n- Update PR-Demo-Comment.yml by @Frooodle in #3326\n- Update PR-Demo-Comment-with-react.yml by @Frooodle in #3328\n- Update PR-Demo-Comment-with-react.yml by @Frooodle in #3329\n- Update PR-Demo-Comment-with-react.yml with stilringbot by @Frooodle in #3330\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3332\nFull Changelog: v0.45.3...v0.45.4",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.45.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.45.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.45.4/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "c82640be30dca1da8e7b2856769f161f693c5408f12f3cb8d2bae3241676f2b2",
+          "product_code": "{31F55331-1B3D-3735-83E7-64F253A6A511}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{31F55331-1B3D-3735-83E7-64F253A6A511}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.3",
+      "release_date": "2025-04-09",
+      "release_notes": "nice Manual redaction updates!\nWhat's Changed\nBug Fixes\n- fix: id for releases tag in footer by @nktnet1 in #3313\n- Fix for MacOS x86_64 Installer by @DarioGii in #3314\nEnhancements\n- Manual Redaction: Text based redaction configured by default by @ConnorYoh in #3317\nMinor Enhancements\n- Removed html tags from cookie banner language snippets by @ConnorYoh in #3310\n- Added undefined check for posthog when analytics disabled by @ConnorYoh in #3320\nOther Changes\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3311\n- Update build.gradle by @Frooodle in #3321\nFull Changelog: v0.45.2...v0.45.3",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.45.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.45.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.45.3/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "bc8ef3f63fd870adeb2c7f12aa9b6a339d2210835abd08a7f274e9155fbb178f",
+          "product_code": "{06F476A3-06F6-300C-8268-FA2AFCE9D5E9}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{06F476A3-06F6-300C-8268-FA2AFCE9D5E9}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.2",
+      "release_date": "2025-04-09",
+      "release_notes": "- Quick hotfix for including translation files\n- Improves Multi-tool UI\n- Please also check the 0.45.1 notes released along side this!\n\n## What's Changed\n\n### Bug Fixes\n\n- 3164 bug issue on UI pdf multi tool by @ConnorYoh in #3289\n\n### Enhancements\n\n- Exclude Internal API User from Total User Count by @Ludy87 in #3299\n\n### Minor Enhancements\n\n- 🤖 format everything with pre-commit by by @stirlingbot in #3300\n- Pipeline shows disabled endpoints fix (#2881) by @AndreSantos04 in #3282\n\n### Docker Updates\n\n- Fix: corrects the path to version.properties by @Ludy87 in #3290\n\n### Translation Changes\n\n- 🌐 Sync Translations + Update README Progress Table by @stirlingbot in #3288\n\n### Other Changes\n\n- Update build.gradle by @Frooodle in #3308\n\n## New Contributors\n\n- @AndreSantos04 made their first contribution in #3282\n\n##### Full Changelog: https://github.com/Stirling-Tools/Stirling-PDF/compare/v0.45.1...v0.45.2",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.45.2",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.45.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.45.2/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "98048df174f5439eff73b15f85672c5c11764d4e4446e5c5cdb90478cf59ec97",
+          "product_code": "{1A7C85AA-365A-3198-BC3E-C9814F60663A}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.0",
+      "release_date": "2025-03-25",
+      "release_notes": "This update includes a huge security fix, recommended for all users, as part of this we are disabling URL-TO-PDF as default, to enable a user must specify it within settings.yml\nOther changes include:\n- Enable user to add custom JAVA ops with env JAVA_CUSTOM_OPTS\n- Remove loud Split PDF logs\n- Improve Merge memory usage\n- Fix add image within view/edit pdf page\n- Lots of translation chnages!\nSome changes to our paid features\n- Added support for Prometheus (enabled via JAVA_CUSTOM_OPTS + enterprise license)\n- Changed settings from enterprise naming to 'Premium' and have key itself decide between pro/enterprise (Should be automated, please let me know if configs don't auto change for you)\n- KeygenLicense Check to support offline licenses for air-gapped envs\n- Added Usage analytics page\n- Add user button only to be enabled based on total seats\nWhat's Changed\nBug Fixes\n- Fix: Session of admin is destroyed instead of the deleted user by @Ludy87 in #3218\n- Removed rounding causing images to scale on viewer by @ConnorYoh in #3237\nEnhancements\n- Security fixes, enterprise stuff and more by @Frooodle in #3241\nMinor Enhancements\n- Small css fix to remove white square in bottom right corner between scrollbars by @riv-gh in #3233\n- 🤖 format everything with pre-commit by by @stirlingbot in #3220\n- Update 3rd Party Licenses by @stirlingbot in #3234\n- Update 3rd Party Licenses by @stirlingbot in #3245\nDocker Updates\n- Bump actions/upload-artifact from 4.6.1 to 4.6.2 by @dependabot in #3223\nTranslation Changes\n- Fix missing translations 🇳🇴 by @arienshibani in #3235\nOther Changes\n- Bump ch.qos.logback:logback-classic from 1.5.17 to 1.5.18 by @dependabot in #3222\n- Bump springBootVersion from 3.4.3 to 3.4.4 by @dependabot in #3224\n- Bump actions/download-artifact from 4.1.9 to 4.2.1 by @dependabot in #3225\n- Bump github/codeql-action from 3.28.11 to 3.28.12 by @dependabot in #3226\n- Bump actions/create-github-app-token from 1.11.6 to 1.11.7 by @dependabot in #3227\n- Bump org.springframework.boot from 3.4.3 to 3.4.4 by @dependabot in #3229\n- Bump ch.qos.logback:logback-core from 1.5.17 to 1.5.18 by @dependabot in #3230\n- Bump github/codeql-action from 3.28.12 to 3.28.13 by @dependabot in #3239\nNew Contributors\n- @arienshibani made their first contribution in #3235\nFull Changelog: v0.44.3...v0.45.0\n📥 Downloads\n🖥️ Server Downloads\n- Stirling-PDF.jar - Standard server JAR\n- Stirling-PDF-with-login.jar - Server JAR with login functionality\n- Windows Portable Server - No installation required\n- Windows Portable Server with Login - No installation, includes login functionality\n🧩 Local UI Downloads\n- Windows Client Installer - Single-user Windows client\n- Mac Client Installer - Single-user Mac client",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.45.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.45.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.45.0/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "aff6fb83ff16f90709eb9bc470182119b69bfddf4a5a287a39fec0848ed4190b",
+          "product_code": "{4651F186-D166-3299-855C-C6871CD9ADBD}",
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{4651F186-D166-3299-855C-C6871CD9ADBD}",
+              "upgrade_code": "{2A43ED0C-B8C2-40CF-89E1-751129B87641}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.37.1",
+      "release_date": "2025-01-16",
+      "release_notes_url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.37.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/s/StirlingTools/StirlingPDF/0.37.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/Stirling-Tools/Stirling-PDF/releases/download/v0.37.1/Stirling-PDF-win-installer.exe",
+          "host": "github.com",
+          "filename": "Stirling-PDF-win-installer.exe",
+          "sha256": "05a6e760c2206d1fdbf5b6efd2f5e4e02f44784ccbc1e66db9b7363a4e351a83",
+          "product_code": "{56C07538-2C72-3A04-9A1E-754A6471E643}",
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
       "platform": "macos",
       "version": "3.5.0",
       "installers": [
@@ -1659,8 +2197,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "13f03baeadf427f63f340300af40c1fa52c28e81",
-      "retrieved_at": "2026-11-24T02:47:42.576Z",
+      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
+      "retrieved_at": "2026-11-25T02:29:14.550Z",
       "path": "manifests/s/StirlingTools/StirlingPDF"
     },
     {

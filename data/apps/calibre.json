@@ -41,7 +41,8 @@
     "name": "GPL-3.0",
     "url": "https://github.com/kovidgoyal/calibre/blob/HEAD/LICENSE",
     "spdx": "GPL-3.0",
-    "copyright": "© Kovid Goyal"
+    "copyright": "© Kovid Goyal",
+    "copyright_url": "https://github.com/kovidgoyal/calibre/blob/master/LICENSE"
   },
   "pricing": {
     "status": "open-source",
@@ -3817,6 +3818,2894 @@
       ]
     },
     {
+      "platform": "windows",
+      "version": "7.22.0",
+      "release_date": "2024-11-29",
+      "release_notes": "New features\n- E-book viewer: Read Aloud: Add an option to control the position of the popup control bar. It can now be placed along the top or bottom edges so as to overlap less with text.\n- System tray menu: Add action to restart calibre\n  Closes tickets: 2087754\n- Tolino driver: Support new firmware\nBug fixes\n- Windows: Enable popup OS notifications even when system tray icon is disabled to match behavior on other platforms. Notifications can be disabled via Preferences->Look & feel->Disable notifications on job completion\n- Fix a regression that caused incorrect English transliteration of Japanese text even when the UI language is set to Japanese\n  Closes tickets: 2087850\n- macOS: Dark mode: Fix a regression that caused the scrollbar to no longer be transient\n  Closes tickets: 2088153\n- DOCX Input: When some text has multiple footnotes insert a space between the consecutive foot note numbers so that they are distinct\n  Closes tickets: 2089433\n- DOCX Input: Fix ToC nesting not working if the styles for the ToC levels dont use integer margins\n- E-book viewer: Fix spurious chapter transition after configuring Read aloud\n- PDF Input: Fix reflow of lines in files with little text not working\n  Closes tickets: 2089436\nNew news sources\n- Economist News by unkn0wn\nImproved news sources\n- Economist\n- Indian Express\n- Economist World Ahead\n- Frontline\n- Infobae",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.22.0/calibre-64bit-7.22.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.22.0.msi",
+          "sha256": "e5f2653f4f97d8a4f92048125cec23e30b8dcb04d1b452b31b13ef0f17400050",
+          "product_code": "{1E97B5F3-1500-42BF-B7B7-C1DA92D42C2C}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{1E97B5F3-1500-42BF-B7B7-C1DA92D42C2C}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.21.0",
+      "release_date": "2024-11-08",
+      "release_notes": "New features\n- Edit book: A new tool to create an audio overlay in EPUB files for all text using the Read aloud facility\n  This allows readers of the book to listen to it with sentence tracking, even if they do not have a functioning text-to-speech system in the reading software. You can even assign different voices to different parts of the text for a more immersive experience. The tool is available from the Tools menu in the book editor.\n- Dark mode: make scrollbar more visible with higher contrast and rounded corners\n- E-book viewer: In flow mode when scrolling across internal file boundaries using the mouse wheel/touchpad have a short half second pause to ease the transition. Can be controlled via the Scrolling section of the Viewer preferences.\n- ebook-meta.exe: Add an option to disallow rendered cover of first page for EPUB\n- Book details: Add an action to download the cover to the context menu when right clicking the cover\n  Closes tickets: 2082075\n- Read aloud: Add a restore defaults button to the configuration dialog\n  Closes tickets: 2086609\n- Auto adding: Allow excluding arbitrary file types not just known book file types\n  Closes tickets: 2086478\n- Edit metadata dialog: Add an action to open the book's folder to the context menu of the formats list\n  Closes tickets: 2083583\nBug fixes\n- Read aloud: Fix only first 32000 characters per chapter being read\n  Closes tickets: 2086571\n- Content server: Read aloud: Fix clicking on a word to skip reading aloud to that word causing word highlighting to stop working\n  Closes tickets: 2086661\n- Linux: Handle speech dispatcher with dummy output module and no voices more gracefully\n- When renaming authors fix empty author folder not being removed if it contained file explorer metadata but was otherwise empty\n- Edit metadata dialog: Fix keyboard shortcuts to edit prev/next raising an error when trying to go beyond the first/last book\n  Closes tickets: 2086193\n- Linux: ToC Editor: Fix a regression in 7.17 that broke using the Create new entry button\n  Closes tickets: 2085576\n- Content server: Fix changing the language of a book not working for non-English user interface language and for books that have no existing language\n  Closes tickets: 2085005\n- Linux: Read aloud with Piper: Fix audio not playing on some Linux systems\n- Notes browser: When searching books search over all currently selected categories not just the last selected one\nNew news sources\n- Unz Review and Sonar21 by unkn0wn\nImproved news sources\n- Substack\n- Live Mint\n- NYPost\n- Ars Technica\n- Indian Express\n- Reuters",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.21.0/calibre-64bit-7.21.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.21.0.msi",
+          "sha256": "70666e905359c683e9eaf38477b13eed508d8981536f827eb992c736b6341973",
+          "product_code": "{B7EE05BC-C7DC-4E56-AB79-063A58E9127F}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{B7EE05BC-C7DC-4E56-AB79-063A58E9127F}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.20.0",
+      "release_date": "2024-10-18",
+      "release_notes": "New features\n- PDF Input: Automatic header/footer detection and removal\n  A new, dedicated PDF Input engine for calibre that implements automatic detection of headers and footers based on document analysis. The new engine is the default to go back to using the old engine, select it in the PDF Input section of the Conversion dialog.\n- Read Aloud: Allow configuring an extra pause at the end of every sentence when using the Piper TTS engine\n  Closes tickets: 2083058\n- PDF Output: Add _WIDTH_PIXELS_ and _HEIGHT_PIXELS_ variables to know the width and height of the header/footer area in templates\n- Windows: Use calibre's bundled SSL certificates instead of the system certificate store by default\n  Can be turned off via CALIBRE_USE_SYSTEM_CERTIFICATES=1 env var\n- Trim image tool: Add a control to adjust aspect ratio\n- Kobo driver: Add support for the new firmware used by the Tolino Shine 5\nBug fixes\n- Fix a regression in previous release that broke copying of book to another library if the books author does not exist in the destination database\n- Read aloud: Piper backend: Fix not working with voices whose names have non-ASCII characters on Windows.\n- Content server: Fix book with non-ASCII filenames not downloading in the Kindle browser when using the /mobile view\n- Content server: Fix embedding the server HTML inside a third party iframe causing an error\nNew news sources\n- NYT Magazine by unkn0wn\n- RedaktionsNetzwerk Deutschland by epubli\nImproved news sources\n- The Wire\n- Nikkei Asia Magazine\n- Swarajya\n- Mainichi\n- Nautilus\n- National Geographic\n- Science Journal\n- Times Literary Supplement\n- Saechsische Zeitung\n- India Today\n- Scientific American",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.20.0/calibre-64bit-7.20.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.20.0.msi",
+          "sha256": "47a88aaed5785f06d2d189c5f85282654ce221ccaf3bd7c96ef7b5d84f3eaf9e",
+          "product_code": "{04613330-8BD8-49CF-908E-26063A4A20B3}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{04613330-8BD8-49CF-908E-26063A4A20B3}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.19.0",
+      "release_date": "2024-09-27",
+      "release_notes": "New features\n- E-book viewer: Halve the time taken to open large EPUB format books for the first time\n  A four hundred thousand word EPUB book now opens in under a second on typical hardware.\n- PDF new engine: Improve header/footer detection\n- For column icons and grid view emblems, support icons for both light and dark themes\n- News downloads: Mark links to locally available articles with a middle-dot\n- When saving a layout also save the main window geometry\n  Closes tickets: 2079784\nBug fixes\n- Windows: Read Aloud: Fix an occasional crash when stopping read aloud when using the legacy windows TTS engine\n  Closes tickets: 2080705\n- Windows: Read Aloud: Fix clicking in text to change what is being read causing tracking of currently read word to fail when using the legacy Windows TTS engine\n  Closes tickets: 2080705\n- Read aloud: Fix reading large numeric words causing text synchronization to fail when using some legacy TTS engines\n  Closes tickets: 2080708\n- EPUB3 metadata: Fix setting series number to zero not working\n  Closes tickets: 2080701\n- Comic Input: Handle comics whose internal files have control codes in their filenames\n  Closes tickets: 2081982\n- E-book viewer: Fix a regression that broke searching in Japanese books that use <ruby> text\n  Closes tickets: 2071348\n- E-book viewer: Fix a regression in the previous release that broke Read aloud for selected text\n  Closes tickets: 2080655\n- Amazon metadata plugin: Workaround for downloads failing because Google discontinued its webcache\n- Cover grid: Suppress the 2px border Qt draws for the list view\nNew news sources\n- NYT News based on feeds by unkn0wn\nImproved news sources\n- NY Times\n- NYT Book Review\n- Courrier International\n- Le Monde\n- TLS Magazine\n- Scientific American\n- Engadget",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.19.0/calibre-64bit-7.19.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.19.0.msi",
+          "sha256": "32c88893fec29d2d71959bb2dedec83f7bb9c62dabbaa0634c7b54f8ebdde620",
+          "product_code": "{299468B2-05A9-47DE-848D-26C92333958F}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{299468B2-05A9-47DE-848D-26C92333958F}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.18.0",
+      "release_date": "2024-09-13",
+      "release_notes": "New features\n- E-book viewer: Read aloud: A new Text-to-Speech engine (Piper) that uses a neural network for realistic sounding voices\n  To use it access the viewer controls and click the Read aloud button or press 'Ctrl+S'. The neural network is run locally, no cloud services are used. Using the OS Text-to-Speech engine is still possible by clicking the configure button on the Read aloud control bar. Note that the new engine highlights the currently read sentence rather than word.\n- New experimental engine to convert PDF files with support for automatic header/footer removal\n  Closes tickets: 2076346\n  Turn it on via the PDF input section of the conversion dialog.\n- Content server: Viewer: Read Aloud: Implement word-by-word tracking when reading aloud if the browser and voice used support it, for example, Chromium on Windows, Firefox on Android and Safari on macOS\n- Image popup: Add a context menu with an option to reset the current zoom\n  Closes tickets: 2080315\n- Edit metadata dialog: Show the number of data files on the data files button\nBug fixes\n- Fix a regression in the previous release that broke using Tab key to move around the book list while editing cells\n- E-book viewer: Fix scrollbar position not updating during continuous scroll\n  Closes tickets: 2077801\n- E-book viewer: Fix a harmless error when the book contains page list references whose targets do not exist\n  Closes tickets: 2077871\n- Linux binary build: Fix missing libdeflate dependency\n  Closes tickets: 2077794\nNew news sources\n- Muy Interesante México by unkn0wn\n- Salzburger Nachrichten by İlker Melik Sıtkı\n- Computer Weekly by İlker Melik Sıtkı\nImproved news sources\n- Revista Muy Interesante\n- Ars Technica\n- South China Morning Post\n- Times Literary Supplement\n- Hackernews\n- Star Gazetesi\n- Hurriyet\n- Gorafi\n- Times Online",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.18.0/calibre-64bit-7.18.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.18.0.msi",
+          "sha256": "988700135eea8005d922ac7ad8bb5e04dd8d0cc40b16816cfc1018d27a11af07",
+          "product_code": "{A9956B3C-5D7A-4CAA-B257-66CA2AEAFC30}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{A9956B3C-5D7A-4CAA-B257-66CA2AEAFC30}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.17.0",
+      "release_date": "2024-08-23",
+      "release_notes": "New features\n- E-book viewer: Support for jumping to and displaying paper edition page numbers\n  If an e-book contains embedded information about the pages from the paper edition of the book, the calibre E-book viewer can now jump to a page number via the Go to button in the viewer controls. You can also optionally have the current paper edition page number displayed in the header/footer by adding \"Pages from paper edition\" to either the header or footer in the viewer settings.\n- Edit book: When text is selected allow changing the indentation of all lines in the selection by pressing Tab to increase one level or Shift+Tab to decrease one level\n  Closes tickets: 2076251\n- Allow a plugboard to change the series_index as well as the series name.\n- News download: News recipes can now optionally use browser engines based on either Qt or Chromium network stacks instead of mechanize\n- Email delivery: When sending emails to Kindles do not convert filenames to English letters as Amazon appears to have finally fixed their email servers to handle non-English filenames\n- Quickview: Add a tooltip displaying the full cell contents\n  Closes tickets: 2075565\nBug fixes\n- Update the version of the Qt toolkit bundled with calibre to the latest available, fixing some crashes on macOS related to accessibility tools\n- Edit book: Fix searching marking incorrect text in the presence of non-BMP unicode characters\n  Closes tickets: 2075970\n- Conversion: Do not embed a second copy of a font when using the option to embed font family if the font is already embedded in the book\n  Closes tickets: 2074002\n- calibredb list: Fix a regression in the previous release that required setting --template-header to empty to use the list command\n  Closes tickets: 2076515\n- Tolino driver: Fix books from the Tolino cloud not being listed\n- Windows: Book details panel: Fix selection not visible when using the system default theme\n- Hide the Virtual library tab bar in device view as it is non-functional\n  Closes tickets: 2073441\nNew news sources\n- GaGadget by bugmen00t\n- Süddeutsche Zeitung Magazin by unkn0wn\n- Science Journal by unkn0wn\nImproved news sources\n- Jot Down\n- Various Russian and Ukranian news sources\n- Nautilus Magazine\n- Süddeutsche Zeitung\n- The India Forum\n- WSJ\n- National Geographic\n- Washington Post\n- Mediapart\n- Bloomberg\n- Nautilus",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.17.0/calibre-64bit-7.17.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.17.0.msi",
+          "sha256": "51028af0e0a79b6c74de44ffa712ab3494fc310d1f0078b8701b5b1bab528e48",
+          "product_code": "{409F8636-ED5C-41AA-84DB-0AD17958D4CC}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{409F8636-ED5C-41AA-84DB-0AD17958D4CC}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.16.0",
+      "release_date": "2024-07-31",
+      "release_notes": "New features\n- Add a driver for the new 2024 Tolino devices. They use a modified version of the Kobo firmware, so they are detected as Kobo devices.\n- Various news recipes now have the ability to download past issues, accessible via the Advanced tab in the Schedule news dialog\nBug fixes\n- ONLY if you use the calibre Content server, you should update calibre as soon as possible\n  Closes tickets: 2075128\n  If you do not know what the Content server is, you do not use it, and these do not apply to you. If you have set a password to access the Content server that you have not shared with anyone, these do not affect you. A remote code execution bug in the Content server introduced in calibre version 6.9.0 (released on 2022-11-25) means that anyone with access to the server also has access to the rest of the computer the server is running on. If you are using a password to protect access to the server only people that know the password can gain access via the bug. Thanks to STAR Labs (https://starlabs.sg) for finding these vulnerabilities.\n- Content server: Fix path traversal vulnerability\n  Closes tickets: 2075125\n  A bug in a feature introduced in calibre version 6.16.0 (released 2023-04-20) means anyone with access to the server can also read non calibre related files on the computer running the server.\n- Content server: Fix SQL injection vulnerability\n  Closes tickets: 2075131\n  A bug in a feature introduced in calibre version 6.10.0 (released 2022-12-16) means anyone with access to the server can also read non-calibre SQLITE database files on the computer running the server.\n- Content server: Fix an XSS vulnerability in one endpoint\n  Closes tickets: 2075130\n  Only relevant if you embed the calibre server within a larger server, it means attackers who can convince users to click on a specially crafted link, can run JavaScript code with the same origin as the larger server calibre is embedded in.\n- Content server: Fix an error when opening the downloaded books page directly via a link and using a custom book list template\n  Closes tickets: 2073972\n- macOS: Fix opening multiple books from Finder with the editor only opening one of the books\n- Fix the legacy LRF format viewer not starting\n- Fix mouse wheel not transitioning from undefined date to current date in date entry controls\n  Closes tickets: 2074147\nImproved news sources\n- Harvard Business Review\n- Live Mint\n- Business Standard\n- Pagina12\n- Bloomberg",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.16.0/calibre-64bit-7.16.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.16.0.msi",
+          "sha256": "95bb3267514ee0b3a941ed2e497e05d415cc6edda7357f9c734af7eefa0fbbf1",
+          "product_code": "{998B5A73-40C7-40AE-B153-A9459B91D418}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{998B5A73-40C7-40AE-B153-A9459B91D418}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.15.0",
+      "release_date": "2024-07-19",
+      "release_notes": "New features\n- Fetch news: Allow individual news sources to specify source specific options such as downloading of past editions\nBug fixes\n- Windows: MTP driver: Fix a regression in the previous release that caused an error with some devices\n  Closes tickets: 2073323\n- Icon theme creation dialog: Fix various issues when creating an icon theme with many icons that have light/dark variants\nNew news sources\n- WSJ News by unkn0wn\nImproved news sources\n- Bloomberg\n- Eenadu\n- Mediapart",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.15.0/calibre-64bit-7.15.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.15.0.msi",
+          "sha256": "7443aec402e34f5ef5357ce5468b94e603e5cff5b2077d6a72236145470b0f89",
+          "product_code": "{29F4A13B-3F55-4501-B1D4-9D9CB746F367}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{29F4A13B-3F55-4501-B1D4-9D9CB746F367}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.14.0",
+      "release_date": "2024-07-12",
+      "release_notes": "New features\n- Book details: When dropping files add an option to add them to the book as data files\n  Closes tickets: 2072442\n- Edit book: A new action to toggle line wrapping mode in all code editors. Can be assigned via Preferences->Keyboard shortcuts->Global actions or added to the toolbar via Preferences->Toolbars->Book wide actions\n- Kobo driver: Add an option to force the SeriesID for all books in a series to have the same value\nBug fixes\n- Fix a regression in the previous release that broke merging of books when the confirmation for the merge was disabled\n  Closes tickets: 2071458\n- E-book viewer: Allow some header and footer items such as progress to overflow instead of being truncated\n  Closes tickets: 2072412\n- HTMLZ output: Make renaming of image files happen in filename order\n  Closes tickets: 2072405\n- MTP driver: Fix infinite loop when connecting to some devices with more 65K objects in their filesystem\n  Closes tickets: 2072384\n- Fix shortcut editing widget when Qt is using a theme that inserts accelerators into push button labels automatically\nNew news sources\n- Ancient Egypt Magazine, Minerva Magazine, Military History Magazine and World Archaeology Magazine by unkn0wn\nImproved news sources\n- Instapaper\n- MIT Tech Review\n- Guardian\n- Liberation\n- The Times and Sunday Times\n- Bloomberg Businessweek\n- Times Literary Supplement",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.14.0/calibre-64bit-7.14.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.14.0.msi",
+          "sha256": "feaa0de8278f8c87216fea27381652d8f783df74c84c66d00709add30af6931c",
+          "product_code": "{CEC2BD9F-C367-48C1-8A37-F9D4078DF5BE}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{CEC2BD9F-C367-48C1-8A37-F9D4078DF5BE}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.13.0",
+      "release_date": "2024-06-28",
+      "release_notes": "New features\n- When merging books add an option to store discarded or replaced covers as an alternate cover in the data folder of the target book\n  Closes tickets: 2071033\n- Generate CSV catalog: Add a button to sort the fields by the order in which they appear in the book list\n  Closes tickets: 2068070\nBug fixes\n- MTP driver: Preserve cover aspect ratio for thumbnail generation\n  Closes tickets: 2067755\n- Fix identifiers not always being merged correctly when merging books\n  Closes tickets: 2071044\n- DOCX Input: Fix extra left padding when converting lists\n  Closes tickets: 2069541\n- Amazon metadata download: Get title and comments for audiobook pages\n- Amazon metadata: When filtering search engine results by title ignore words of the title that are purely punctuation\n- When matching books on a device to book in the library assume a match if the title and any one author match, dont require all authors to match\n- Update Google Images cover download plugin for website changes\n  Closes tickets: 2069553\n- When adding new books if the timestamp is specified as undefined use the current timestamp\n  Closes tickets: 2069494\n- Content server: Fix systemd pre-activated socket not working\n- Content server: Fix no KFX download link in OPDS acquisition feeds\n  Closes tickets: 2071390\nNew news sources\n- Times Literary Supplement by unkn0wn\n- Wall Street Journal Magazine by unkn0wn\n- Various Valnet Publishing Group recipes by Spicy Poison\n- VOX, The Good E-reder and The e-book Reader by SpicyPoison\n- Gates Notes, Greatist, Halthline and United Nations by SpicyPoison\nImproved news sources\n- Harpers\n- Wall Street Journal\n- Liberation\n- How to Geek\n- Make Use Of\n- TechCrunch\n- LifeHacker\n- India Today\n- 1843\n- Reuters\n- The Week India\n- Slate",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.13.0/calibre-64bit-7.13.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.13.0.msi",
+          "sha256": "7c1b57b6f55076cc646a30eb6394ec00df18be373c3badf80d7ee39152ccffda",
+          "product_code": "{7279F121-D993-41A7-80F4-74E565D33202}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{7279F121-D993-41A7-80F4-74E565D33202}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.12.0",
+      "release_date": "2024-05-30",
+      "release_notes": "New features\n- E-book polishing: Add option to download external resources (images/stylesheets/etc.)\n  Closes tickets: 2067167\n- Conversion: Add an option under Structure detection to automatically fill in blank alt attributes for images that have alt text in the image file metadata\n- Content server: Use the book title as the filename for downloaded highlights\n  Closes tickets: 2067437\n- Review downloaded metadata dialog: Add a \"Previous\" button to go back to the last reviewed book\nBug fixes\n- Content server viewer: Fix the bottom of the text being cut off on mobile browsers when not in full screen mode. Unfortunately, this means the viewer now requires a browser no more than two years old.\n- Kindle driver: Increase the size of the cover thumbnails sent to the Scribe\n  Closes tickets: 2067168\n- Kindle output: Fix cover images that contain EXIF data without a rotation not displaying on the Kindle lockscreen\n  Closes tickets: 1943495\n- E-book viewer: Fix ruby tags not excluded when searching for text\n- Content server viewer: Fix a regression in the previous release that broke searching\n  Closes tickets: 2067128\nImproved news sources\n- Economist Espresso\n- Slate",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.12.0/calibre-64bit-7.12.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.12.0.msi",
+          "sha256": "6d94f880fbd110a9172096fbe5f8b6215253fa7bd4f9db6cd754bd74615669a8",
+          "product_code": "{BE4FA749-20BF-4318-A314-06A3BF2D194F}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "PML",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{BE4FA749-20BF-4318-A314-06A3BF2D194F}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.11.0",
+      "release_date": "2024-05-24",
+      "release_notes": "New features\n- Kindle driver: Add support for sending cover thumbnails to the Kindle Scribe\n- A new options under Preferences->Look & feel to draw covers with rounded corners\n- Bulk metadata edit: Add a new tab where you can create rules to transform tags/authors/publishers for the selected books\n  Closes tickets: 2064674\n- Tag browser context menu for Formats now has Open with menu items\n  Closes tickets: 2065544\n- E-book viewer: When hovering over the top/bottom margin show a button indicating that a click will open the viewer controls. Can be configured via The Headers and footers section of the viewer Preferences.\n  Closes tickets: 2064665\n- Spell check dialog: Also show count of currently displayed words\nBug fixes\n- E-book viewer: Fix searching not ignoring ruby text\n  Closes tickets: 2065249\n- Edit book: Save the state of the current book when opening a new book via File->Open book\n- Edit book: Fix importing a list of words into a user dictionary not working\n  Closes tickets: 2064887\n- EPUB3 metadata: Do not fail to read metadata in the presence on invalid calibre user metadata in the OPF file with empty keys\n- Get books: Fix rules to map tags on adding books not being applied to books downloaded via Get books\n- Spellcheck dialog: Move the checkbox to hide correctly spelled words with the rest of the checkboxes that filter the word list\n  Closes tickets: 2064792\nNew news sources\n- Collider, Comic Book Archive, Make Use Of, MoviewWeb and ScreenRant by Spicy Poison\n- Lex Fridman Podcast by unkn0wn\nImproved news sources\n- Slate\n- Wall Street Journal\n- London Review of Books\n- Economist\n- Bloomberg\n- Business Week\n- The World Ahead\n- National Geographic",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.11.0/calibre-64bit-7.11.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.11.0.msi",
+          "sha256": "21a00ad5b4b06bd12fdd2851b847efe8c67cb01f10bb0e901d875278a7dd9dbb",
+          "product_code": "{56BBE0DB-75F6-49EB-B261-7CB66C48BC14}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{56BBE0DB-75F6-49EB-B261-7CB66C48BC14}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.10.0",
+      "release_date": "2024-05-03",
+      "release_notes": "New features\n- Export of calibre data: Ensure individual part files in the exported data are no larger than one gigabyte even if the library contains individual files larger than that size.\n  Note that this means that exports created by calibre from this version on will not be importable by earlier versions. However, exports from earlier versions should still be importable.\n- Edit book: Spell check: Add options to exclude words in ALL CAPS or with numbers or in camelCase/snake_case from the list of words\n- Allow easily inverting the current search via the right click menu on the search box\nBug fixes\n- Kobo driver: Fix database unsupported error with newest firmware\n  Closes tickets: 2064546\n- DOCX Input: Fix text elements containing only whitespace being incorrectly ignored\n  Closes tickets: 2063301\n- Bulk metadata dialog: Do not fail when setting covers from ebook files and some of the files have invalid covers\nImproved news sources\n- Economist\n- The Week\n- Caravan Magazine\n- Financial Times",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.10.0/calibre-64bit-7.10.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.10.0.msi",
+          "sha256": "85b196197933f0594661e444b57052ce73e0230f8f05a938c203ae03c844d341",
+          "product_code": "{CBBB212A-8EDB-4E87-8584-D87FB2037167}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{CBBB212A-8EDB-4E87-8584-D87FB2037167}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.9.0",
+      "release_date": "2024-04-19",
+      "release_notes": "New features\n- Kobo driver: Add support for the new color Kobo devices\n  Closes tickets: 2060886\n- Edit book: Add a setting to control cursor width under Preferences->Editor settings\n- Edit book: Regex-function mode: Show a confirmation popup when closing the function editor when there are unsaved changes\nBug fixes\n- Fix undocked Quickview dialog not being restored at startup\n  Closes tickets: 2060314\n- Windows: Fix an issue where closing a maximized calibre window to the system tray and then reconnecting with remote desktop would cause a blank calibre window to be displayed\n  Closes tickets: 2044118\nImproved news sources\n- El Correo\n- Eenadu\n- ORFonline\n- NatGeo\n- Harpers Magazine\n- New Yorker\n- Business Today\n- The Week\n- Asahi Shimbun\n- Outlook Magazine",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.9.0/calibre-64bit-7.9.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.9.0.msi",
+          "sha256": "64bb071a2802855c49fbc2daf6f9c7c0f0f6a2e83fcc9444c741410e3b8e0114",
+          "product_code": "{5CE9A3A7-0901-4ED9-BD49-146891154898}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{5CE9A3A7-0901-4ED9-BD49-146891154898}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.8.0",
+      "release_date": "2024-04-05",
+      "release_notes": "New features\n- E-book viewer: Highlight panel: Allow filtering the shown highlights by type of highlight\n  Closes tickets: 2057929\n- Conversion: Add support for the CSS text-transform property when subsetting embedded fonts\n- E-book viewer: Allow displaying the view mode paged/flow in the header/footer\n  Closes tickets: 2060079\n- Book details popup window: Allow dropping of files to add formats/set the cover just as for the book details panel\n  Closes tickets: 2059162\n- Book details: Context menu: Add a menu action to remove the associated link\n  Closes tickets: 2058814\n- DOCX Input: Add role=doc-noteref for links to footnotes/endnotes so that they popup in more e-book readers\n- Add a \"Mark all selected books\" to the Mark action.\n- Add \"Hide Empty Categories\" to tag browser configuration menu\n  Closes tickets: 2059169\n- Supernote: Support for new device firmware\n- Sort by tool: Add an action to re-apply the current sort\nBug fixes\n- Grid view cover cache: Fix covers not loading when cache entries are stale\n- Conversion: Do not change viewport relative font sizes used for SVG text elements\n  Closes tickets: 2058798\n- Conversion: Fix <style> tags inside <svg> tags not being processed\n  Closes tickets: 2058798\n- Get books: Update Kobo store plugin for website changes\n- EPUB Input: Use a translated name for the cover page\nNew news sources\n- Bergfreunde Blog by VoHe\n- Live Law and Politico.eu by unkn0wn\nImproved news sources\n- Caravan\n- Global Times\n- New York Review of Books\n- Himal Southasian\n- The Week\n- CBC Canada",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/7.8.0/calibre-64bit-7.8.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.8.0.msi",
+          "sha256": "69b63200ed1cffba94f2e29cf4f264619c2e662a25169e1f2f4248305d70d00d",
+          "product_code": "{A3E5B966-9243-4714-BF6D-8F419ACCF88E}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "protocols": [
+            "calibre"
+          ],
+          "file_extensions": [
+            "azw",
+            "azw1",
+            "azw3",
+            "book",
+            "cb7",
+            "cbc",
+            "cbr",
+            "cbz",
+            "chm",
+            "djv",
+            "djvu",
+            "doc",
+            "docm",
+            "docx",
+            "epub",
+            "fb2",
+            "ibook",
+            "ibooks",
+            "imp",
+            "lrf",
+            "lrx",
+            "markdown",
+            "md",
+            "mobi",
+            "odt",
+            "opf",
+            "pdb",
+            "pml",
+            "pobi",
+            "prc",
+            "ps",
+            "rtf",
+            "shtml",
+            "text",
+            "tpz",
+            "txt",
+            "xhtml",
+            "xps"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "product_code": "{A3E5B966-9243-4714-BF6D-8F419ACCF88E}",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.6.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.6.0/calibre-64bit-7.6.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.6.0.msi",
+          "sha256": "775c00348c36b70d8699fc20f8430360e486b3aa1df9b0a9dd0c3d9c94ae7a57",
+          "product_code": "{3F9A118E-DB32-4F2D-93FD-99E98C04CE35}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.5.1",
+      "release_date": "2024-02-09",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v7.5.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.5.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.5.1/calibre-64bit-7.5.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.5.1.msi",
+          "sha256": "78d348f7cefda75dd582a0412b408be8cedf200670e92de89ec442a93d0a1c46",
+          "product_code": "{889C12E8-C41B-4B69-A422-996F3CFA580C}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.5.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.5.0/calibre-64bit-7.5.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.5.0.msi",
+          "sha256": "4eda58b121c84025e5f30121696b7d86010e06aa87df0f2b8808b62c83c4d946",
+          "product_code": "{99ECCC80-0501-4738-86A4-27F9ECC34895}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.4.0",
+      "release_date": "2024-01-19",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v7.4.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.4.0/calibre-64bit-7.4.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.4.0.msi",
+          "sha256": "075d655499e13e9d115acd220a7bc5b97d501f17ab097b9f0591057ddfc75a24",
+          "product_code": "{0269E9B3-B0A8-4849-9D2A-1090C32982DF}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.3.0",
+      "release_date": "2024-01-05",
+      "release_notes": "Release version 7.3.0",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v7.3.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.3.0/calibre-64bit-7.3.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.3.0.msi",
+          "sha256": "dfd6521a422f560e14eea879c7a163df3e68317bcca0a2689f4065dbef3522d1",
+          "product_code": "{0269E9B3-B0A8-4849-9D2A-1090C32982DF}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.2.0",
+      "release_date": "2023-12-15",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v7.2.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.2.0/calibre-64bit-7.2.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.2.0.msi",
+          "sha256": "3fd00aa23d94ec9483bfdd623c6e672e773880981e5c5bfc26e63bf494bf243d",
+          "product_code": "{31998FF7-0A0A-4B25-9BDA-20B12F109278}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.1.0",
+      "release_date": "2023-11-24",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v7.1.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.1.0/calibre-64bit-7.1.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.1.0.msi",
+          "sha256": "2dc50a62510b5df2dfd0d462e7b2fd3433d60b14976fb463669437078e61e4fa",
+          "product_code": "{9E38FA2A-6295-45FA-880A-C7F3E151B248}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "7.0.0",
+      "release_date": "2023-11-17",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v7.0.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/7.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/7.0.0/calibre-64bit-7.0.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-7.0.0.msi",
+          "sha256": "8a1465bf24a73b38fdb84b4e3eefcc813400d2b2434cecc86a7baa644fed9d99",
+          "product_code": "{30DB0BDB-14E9-4108-AD39-D3F551136348}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.29.0",
+      "release_date": "2023-10-20",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v6.29.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.29.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.29.0/calibre-64bit-6.29.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.29.0.msi",
+          "sha256": "58ef95016dafc8616cbadc74ee98a3a21eaf401b6caf110ebc5672392fa48fd4",
+          "product_code": "{7F97780B-9EAD-4000-BD3A-F6D0FE096D56}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.28.1",
+      "release_date": "2023-10-07",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.28.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.28.1/calibre-64bit-6.28.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.28.1.msi",
+          "sha256": "3b136bce8aff34d2a7643c739efd7c26eb9bec9df6fe79c01026cd0d92c980c6",
+          "product_code": "{E5C0C5A2-3C99-49D1-9097-52D0450ACF64}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.28.0",
+      "release_date": "2023-10-06",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.28.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.28.0/calibre-64bit-6.28.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.28.0.msi",
+          "sha256": "666bbe500745884267a17fcf75c8761b6c8b6748cda1ce51e1c2482563356e27",
+          "product_code": "{826DC315-8511-4EBE-BCA1-AC8831DD1FB8}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.27.0",
+      "release_date": "2023-09-22",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.27.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.27.0/calibre-64bit-6.27.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.27.0.msi",
+          "sha256": "fd65eb0b31095c7efbea457179d933eb263334feda1e35d5b16b3717e5888bf3",
+          "product_code": "{5E5F7EF7-872A-40B4-AA43-6E00E034D23E}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.26.0",
+      "release_date": "2023-09-08",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.26.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.26.0/calibre-64bit-6.26.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.26.0.msi",
+          "sha256": "d482be68707f6d005ed717b736a6896a9cc8b3f5ce0f05f03cd8a039c6c10a03",
+          "product_code": "{F7CEB619-A3B5-4C3B-92CE-F3329695C00B}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.25.0",
+      "release_date": "2023-08-18",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.25.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.25.0/calibre-64bit-6.25.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.25.0.msi",
+          "sha256": "0a1704a1bea10386c0c8b79fb404ff484c7a3456d24ac20a7f641b23ec282928",
+          "product_code": "{920E3ABA-79B1-4194-A409-2B51E2DC61E9}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.24.0",
+      "release_date": "2023-08-04",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.24.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.24.0/calibre-64bit-6.24.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.24.0.msi",
+          "sha256": "a78b262379481782e761389f3f767f838dc0b1d16283a0288714c371102a76ae",
+          "product_code": "{C034EE35-6695-4523-BEBE-12ED15960189}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.23.0",
+      "release_date": "2023-07-14",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.23.0/calibre-64bit-6.23.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.23.0.msi",
+          "sha256": "aa63ca81765254d2d1de31e5251fd8cc47f74990f625e606ab3a0af7c723f75d",
+          "product_code": "{CCFCB310-562C-453D-839C-D784279AC61A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.22.0",
+      "release_date": "2023-06-30",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.22.0/calibre-64bit-6.22.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.22.0.msi",
+          "sha256": "8175aa15a46b03dc3cc4c0874fe2c534301239fff9393f3b734cbc8673b208f2",
+          "product_code": "{2EAF2700-EEA1-46E1-B598-443BE64F1945}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.21.0",
+      "release_date": "2023-06-13",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.21.0/calibre-64bit-6.21.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.21.0.msi",
+          "sha256": "424c46e23f142e1a3ac9210ec0e74d4aedcc401bcfdf63daa4a8ae3400d75371",
+          "product_code": "{68A851E9-855D-4B7F-80FE-DADEB020E9C8}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.20.0",
+      "release_date": "2023-06-09",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.20.0/calibre-64bit-6.20.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.20.0.msi",
+          "sha256": "9499e2d064808d75193a20d28bed2fb0b0f669cf1743cbc9a216355e187908c7",
+          "product_code": "{BA76E8AB-8BB2-4145-939D-F9ED69802DE6}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.19.1",
+      "release_date": "2023-05-29",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.19.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.19.1/calibre-64bit-6.19.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.19.1.msi",
+          "sha256": "a5ac8e8e51bf456c24eff640c0a6357511553ba53f0d44e663a51b42bfd40f4a",
+          "product_code": "{9C75C174-01F1-4511-944B-21CAEC5D0D4C}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.19.0",
+      "release_date": "2023-05-29",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.19.0/calibre-64bit-6.19.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.19.0.msi",
+          "sha256": "00d02073ca58e765566c0577765a5d46db17dc6b398af3a7c9c01c7a4ca4eab4",
+          "product_code": "{EA96FFF3-61B6-42F3-A37D-D0CFC666A53C}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.18.1",
+      "release_date": "2023-05-26",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.18.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.18.1/calibre-64bit-6.18.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.18.1.msi",
+          "sha256": "6a4efb343fdcd2a93694f9fe95b44cacee647422c1b26eb353f385699841d7a6",
+          "product_code": "{D7F91DD5-C759-4073-A2C8-5F3740D2483A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.18.0",
+      "release_date": "2023-05-26",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.18.0/calibre-64bit-6.18.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.18.0.msi",
+          "sha256": "0b6635b68cbf801af95c7c0925cec2b18498a56cd17cc0cdb11ebb3ab2661828",
+          "product_code": "{B0B9A754-3C05-49AD-A5E7-D3B6C4F9797D}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.17.0",
+      "release_date": "2023-04-27",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v6.17.0",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.17.0/calibre-64bit-6.17.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.17.0.msi",
+          "sha256": "1a4e7cfd72da4f5464c69735234c8af70eacc7a6fdb9c03b3f00c563c49b836c",
+          "product_code": "{DFA8A84B-B786-4EBC-9395-18D3D1380E8F}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.16.0",
+      "release_date": "2023-04-21",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.16.0/calibre-64bit-6.16.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.16.0.msi",
+          "sha256": "0173c18d2190127603438ebab660b685823c5ef133e23e445f7fa4d11ab38d25",
+          "product_code": "{979290B4-9246-4B86-8EA4-F1F3E159F063}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.15.1",
+      "release_date": "2023-04-08",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.15.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.15.1/calibre-64bit-6.15.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.15.1.msi",
+          "sha256": "bdd4174958b3eddf8009c836f56f8adce5c83744f9beaf5694f811f47b8c27eb",
+          "product_code": "{D4FEC296-DE73-48EF-9A9D-690884FB897A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.15.0",
+      "release_date": "2023-04-07",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.15.0/calibre-64bit-6.15.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.15.0.msi",
+          "sha256": "bf74c0f25d40cedbfebad6af78343377aa7e39a7d2de17c3821240b15dcd688d",
+          "product_code": "{7837A167-668C-42E0-9978-7375C9270CDA}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.14.1",
+      "release_date": "2023-03-16",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.14.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.14.1/calibre-64bit-6.14.1.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.14.1.msi",
+          "sha256": "e1b9c201ccedc752ca4918197bdc4e26963cf45943ec187a8e8509503a458cae",
+          "product_code": "{85C24C86-6D8A-43B1-B07B-D57A835990E4}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.14.0",
+      "release_date": "2023-03-10",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.14.0/calibre-64bit-6.14.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.14.0.msi",
+          "sha256": "d37fadfd5756c59ed9017bc8e84ecdddd6c195b5b30b6e759e245c20e7702ae4",
+          "product_code": "{82232078-076D-4563-8BB4-C6F20E8D23D5}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.13.0",
+      "release_date": "2023-02-17",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.13.0/calibre-64bit-6.13.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.13.0.msi",
+          "sha256": "58f500b8684249fa1064b995cf8b05357a32d0e8fefebcf4dbb2060447475762",
+          "product_code": "{9925AAA7-7FB5-4A01-94E3-BBAA9DA39B5A}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.12.0",
+      "release_date": "2023-02-03",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download.calibre-ebook.com/6.12.0/calibre-64bit-6.12.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.12.0.msi",
+          "sha256": "48f1a4d35e25767dd076b26bfed96105587d736d34d192cb2cadeaf426081b47",
+          "product_code": "{25B90110-B395-43E6-A338-04DC330BC7A8}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.11.0",
+      "release_date": "2023-01-06",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/6.11.0/calibre-64bit-6.11.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.11.0.msi",
+          "sha256": "73baa297b4b9be7aea8b9fc91779349ecc5ae21d6df112f2c7e182cd8ce402c6",
+          "product_code": "{6AC20EE9-EC5C-473E-8E60-93B4396402B4}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.10.0",
+      "release_date": "2022-12-16",
+      "release_notes_url": "https://github.com/kovidgoyal/calibre/releases/tag/v6.10.0",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/6.10.0/calibre-64bit-6.10.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.10.0.msi",
+          "sha256": "88f0f14ae7e826831785e7743fee7ae2600ab851053e9565f40de3d0fada0f5d",
+          "product_code": "{5465488D-C103-4202-AC52-DC8CDF2F901D}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "calibre 64bit",
+              "upgrade_code": "{5DD881FF-756B-4097-9D82-8C0F11D521EA}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.9.0",
+      "release_date": "2022-11-25",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/6.9.0/calibre-64bit-6.9.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.9.0.msi",
+          "sha256": "be9b029370e9ce75557a240e8e5375be04e1bbeffdf26a261f3527e3410aa163",
+          "product_code": "{FD4283DA-1E54-490D-B836-DD06AA5AB5DC}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "6.8.0",
+      "release_date": "2022-11-04",
+      "release_notes_url": "https://calibre-ebook.com/whats-new",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/c/calibre/calibre/6.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://download.calibre-ebook.com/6.8.0/calibre-64bit-6.8.0.msi",
+          "host": "download.calibre-ebook.com",
+          "filename": "calibre-64bit-6.8.0.msi",
+          "sha256": "644aa27a9055cac764c71a38e98af3456c8af95b2fa74c514c1b2de630eb1b8b",
+          "product_code": "{A51C2A72-1A27-40EA-8718-D6F1AD6D9B79}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "azw",
+            "azw3",
+            "docx",
+            "epub",
+            "fb2",
+            "fbz",
+            "html",
+            "lit",
+            "mobi",
+            "odt",
+            "pdb",
+            "pdf",
+            "prc",
+            "rtf",
+            "txt"
+          ]
+        }
+      ]
+    },
+    {
       "platform": "macos",
       "version": "9.19.0",
       "installers": [
@@ -3909,8 +6798,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "a3521d58a2ae914c6b621b42e99d1c3202f71b10",
-      "retrieved_at": "2026-11-21T13:24:55.658Z",
+      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
+      "retrieved_at": "2026-11-25T02:29:14.550Z",
       "path": "manifests/c/calibre/calibre"
     },
     {

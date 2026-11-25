@@ -1991,6 +1991,1681 @@
       ]
     },
     {
+      "platform": "windows",
+      "version": "3.11.1",
+      "release_date": "2024-01-30",
+      "release_notes": "List of supported platforms by this release: System RequirementsWhat's Changed\n- [stable-3.11] Bugfix. Fix incorrect size of the folderbutton size and scaling. by @backportbot-nextcloud in nextcloud/desktop#6292\n- [stable-3.11] Bugfix. Do not treat item type change as metadata update. by @backportbot-nextcloud in nextcloud/desktop#6294\n- [stable-3.11] ensure we do not modify a file that has been just uploaded by @backportbot-nextcloud in nextcloud/desktop#6300\n- [stable-3.11] Bugfix/missing translations in AppImage by @backportbot-nextcloud in nextcloud/desktop#6333\n- [stable-3.11] Feature/filelocking keep user lock by @backportbot-nextcloud in nextcloud/desktop#6361\n- [stable-3.11] Display terabyte again by @backportbot-nextcloud in nextcloud/desktop#6362\n- [stable-3.11] Spell-correction for e2e_errors by @backportbot in nextcloud/desktop#6369\n- [stable-3.11] Bugfix/autostart by @backportbot in nextcloud/desktop#6371\n- [stable-3.11] Fix: remove failure to import legacy account notification. by @backportbot in nextcloud/desktop#6383\nFull Changelog:",
+      "release_notes_url": "https://github.com/nextcloud-releases/desktop/releases/tag/v3.11.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.11.1/Nextcloud-3.11.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.11.1-x64.msi",
+          "sha256": "e3186462b8e9bc61846e5eddd0f378e1d7bfd869269dbb14da9251bdf4064936",
+          "product_code": "{D52513F7-7A1A-4766-B3ED-7DD573AC1F9E}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "3.11.1.20240125",
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11.0",
+      "release_date": "2023-12-11",
+      "release_notes": "What's Changed\n- Allow deleting remotely deleted files locally in case of upload errors by @allexzander in nextcloud/desktop#6014\n- Bugfix/lock state spam by @allexzander in nextcloud/desktop#6022\n- Remove locketimeout condition. by @allexzander in nextcloud/desktop#6027\n- fixed detection of server version in cmd client similar to gui client (2nd try, signed off) by @errror in nextcloud/desktop#6023\n- Add compatibility with the new libcloudproviders integration by @tintou in nextcloud/desktop#6031\n- Fix macOS notification talk replies by avoiding early dealloc by @claucambra in nextcloud/desktop#6034\n- Store the new etag into local database when opening with auto-locking… by @allexzander in nextcloud/desktop#6038\n- Fix visual bug with folder size confirmation combo box in general settings by @claucambra in nextcloud/desktop#6035\n- Display correct conflict part in multiple conflicts resolution dialog. by @allexzander in nextcloud/desktop#6043\n- Rewrite share expiration date field's date handling, fixing issues by @claucambra in nextcloud/desktop#5961\n- Use a standardised locale to create log file filenames by @claucambra in nextcloud/desktop#6012\n- Bugfix/multiple accounts migration by @camilasan in nextcloud/desktop#6046\n- Remove unused shareuserline ui component by @claucambra in nextcloud/desktop#6042\n- once we call done on a sync file item, return is needed by @mgallien in nextcloud/desktop#6053\n- Bugfix/infinite sync by @allexzander in nextcloud/desktop#6056\n- do not check every 5 seconds files with infinite timeout (= 0) by @mgallien in nextcloud/desktop#6059\n- FileProvider: Add missing AccountState State case for notifying account state to extension by @claucambra in nextcloud/desktop#6006\n- Automatically update GitHub Actions by @DimitriPapadopoulos in nextcloud/desktop#5992\n- Fix folder wizard warning color for local path in dark mode by @claucambra in nextcloud/desktop#5968\n- Fix residual typos found by codespell by @DimitriPapadopoulos in nextcloud/desktop#5860\n- Fix new typos found by codespell by @DimitriPapadopoulos in nextcloud/desktop#6069\n- Add macOS CI (and fixes for newly-found FolderWatcher bugs) by @claucambra in nextcloud/desktop#5729\n- Remove dead OAuth code by @claucambra in nextcloud/desktop#6005\n- Open Nextcloud after installation on macOS by @claucambra in nextcloud/desktop#5991\n- Fix Chunk v2 upload headers by @claucambra in nextcloud/desktop#6084\n- Bugfix/activity list fixes by @allexzander in nextcloud/desktop#6064\n- Optimize CaseConflictRecords search in local DB during the sync. by @allexzander in nextcloud/desktop#6083\n- improve names of CI checks and do not run them on merges to master by @mgallien in nextcloud/desktop#6089\n- Bugfix/legacy migration by @camilasan in nextcloud/desktop#6072\n- Bump actions/github-script from 3 to 6 by @dependabot in nextcloud/desktop#6090\n- Prevent empty password being passed into share creation by @claucambra in nextcloud/desktop#6100\n- Unhide discovery logs for file deleted on the server and for discovered file by @allexzander in nextcloud/desktop#6112\n- Use material icon for folders. by @allexzander in nextcloud/desktop#6114\n- Fix chunk v2 destination header by @claucambra in nextcloud/desktop#6133\n- Bugfix/restore folders recursively by @mgallien in nextcloud/desktop#6134\n- Ci/clazy fixes by @mgallien in nextcloud/desktop#6135\n- Show more informative error message when VFS hydration fails.\n  Displaya popup and put an error into activity list.\n  More detailed logs. by @allexzander in nextcloud/desktop#6140\n- Improve Settings dialog design. by @allexzander in nextcloud/desktop#6150\n- Do not show failure popul for VFS when hydration finished with code 200 or 204. by @allexzander in nextcloud/desktop#6160\n- Upgrade to Mac OS 12.0.0. by @camilasan in nextcloud/desktop#6166\n- Bump actions/cache from 2 to 3 by @dependabot in nextcloud/desktop#6092\n- Bump peter-evans/create-or-update-comment from 3.0.1 to 3.0.2 by @dependabot in nextcloud/desktop#6091\n- Bump actions/stale from 3 to 8 by @dependabot in nextcloud/desktop#6093\n- Bump actions/checkout from 2 to 4 by @dependabot in nextcloud/desktop#6094\n- Build(deps): Bump actions/setup-python from 1 to 4 by @dependabot in nextcloud/desktop#6128\n- Build(deps): Bump cpp-linter/cpp-linter-action from 2.1.1 to 2.6.1 by @dependabot in nextcloud/desktop#6129\n- Enforce virtual file type when it is falsely marked as non-virtual.  Added more logs for scenarios when virtual placeholder gets marked as non-virtual. by @allexzander in nextcloud/desktop#6158\n- we require version 12.0+ for macOS by @mgallien in nextcloud/desktop#6174\n- Fix crash when clicking on import legacy account dialog 'Skip' button.  by @camilasan in nextcloud/desktop#6184\n- Fix crash.\n  Remove unnecessary dependency injection causing crash. by @allexzander in nextcloud/desktop#6178\n- Check path validity on Windows will validate NTFS permissions for network drives by @allexzander in nextcloud/desktop#6209\n- Bugfix/vfs toggle fix by @allexzander in nextcloud/desktop#6223\n- Fix.\n  Bulk upload.\n  Accumulate sent bytes.\n  Fix negative value in UI. by @allexzander in nextcloud/desktop#6227\n- Don't log notification successes as warnings by @strugee in nextcloud/desktop#6234\n- avoid restore algorithm by setting the data fingerprint from sync DB by @mgallien in nextcloud/desktop#6216\n- docs(troubleshooting): Add warning about sensitive data in logs by @joshtrichards in nextcloud/desktop#6237\n- Build(deps): Bump cpp-linter/cpp-linter-action from 2.6.1 to 2.7.1 by @dependabot in nextcloud/desktop#6233\n- Build(deps): Bump peter-evans/create-or-update-comment from 3.0.2 to 3.1.0 by @dependabot in nextcloud/desktop#6185\n- Update stale.yml: Unify \"needs info\" handling with other NC repos by @joshtrichards in nextcloud/desktop#6246\n- add a cmake flag to not build with Qt5 WebEngine by @mgallien in nextcloud/desktop#6257\n- Build(deps): Bump actions/github-script from 6 to 7 by @dependabot in nextcloud/desktop#6220\n- Change logging for sparkle update to qCInfo by @claucambra in nextcloud/desktop#6161\n- maintain lock state if unlock happens during sync by @mgallien in nextcloud/desktop#6236\n- [stable-3.11] avoid modifying a placeholder (virtual files) when not needed by @backportbot-nextcloud in nextcloud/desktop#6263\n- [stable-3.11] Fix build with latest NextcloudKit, caused by search for XCTest and friends by @backportbot-nextcloud in nextcloud/desktop#6265\n- [stable-3.11] Bug fixes for mac OS  by @backportbot-nextcloud in nextcloud/desktop#6281\n- [stable-3.11] Feature/client status reporting by @allexzander in nextcloud/desktop#6283\nNew Contributors\n- @errror made their first contribution in nextcloud/desktop#6023\n- @dependabot made their first contribution in nextcloud/desktop#6090\n- @joshtrichards made their first contribution in nextcloud/desktop#6237",
+      "release_notes_url": "https://github.com/nextcloud-releases/desktop/releases/tag/v3.11.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.11.0/Nextcloud-3.11.0-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.11.0-x64.msi",
+          "sha256": "ec60c8fbf7c3baa11eb56257f19fa2b3d8d0e32398810e4eb47840adb61af580",
+          "product_code": "{9CBA9245-780A-4724-964C-141405B5F59D}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "3.11.0.20231211",
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.10.2",
+      "release_date": "2023-12-07",
+      "release_notes": "What's Changed\n- [stable-3.10] Fix folder wizard warning color for local path in dark mode by @backportbot-nextcloud in nextcloud/desktop#6068\n- [stable-3.10] Bugfix/remove dead oauth code by @claucambra in nextcloud/desktop#6075\n- [stable-3.10] Open Nextcloud after installation on macOS by @backportbot-nextcloud in nextcloud/desktop#6076\n- [stable-3.10] Fix Chunk v2 upload headers by @backportbot-nextcloud in nextcloud/desktop#6086\n- [stable-3.10] Bugfix/legacy migration by @backportbot-nextcloud in nextcloud/desktop#6095\n- [stable-3.10] Prevent empty password being passed into share creation by @tobiasKaminsky in nextcloud/desktop#6107\n- [stable-3.10] Unhide discovery logs for file deleted on the server and for discovered file by @backportbot-nextcloud in nextcloud/desktop#6116\n- Fix issues on manpages by @hefee in nextcloud/desktop#6122\n- [stable-3.10] Fix chunk v2 destination header by @backportbot-nextcloud in nextcloud/desktop#6141\n- [stable-3.10] Bugfix/restore folders recursively by @backportbot-nextcloud in nextcloud/desktop#6143\n- [stable-3.10] Show more informative error message when VFS hydration fails.\n  Displaya popup and put an error into activity list.\n  More detailed logs. by @backportbot-nextcloud in nextcloud/desktop#6153\n- [stable-3.10] Do not show failure popul for VFS when hydration finished with code 200 or 204. by @backportbot-nextcloud in nextcloud/desktop#6163\n- [stable-3.10] Upgrade to Mac OS 12.0.0. by @backportbot-nextcloud in nextcloud/desktop#6171\n- [stable-3.10] Enforce virtual file type when it is falsely marked as non-virtual.  Added more logs for scenarios when virtual placeholder gets marked as non-virtual. by @backportbot-nextcloud in nextcloud/desktop#6172\n- [stable-3.10] we require version 12.0+ for macOS by @backportbot-nextcloud in nextcloud/desktop#6175\n- [stable-3.10] Fix crash when clicking on import legacy account dialog 'Skip' button.  by @backportbot-nextcloud in nextcloud/desktop#6208\n- [stable-3.10] avoid restore algorithm by setting the data fingerprint from sync DB by @backportbot-nextcloud in nextcloud/desktop#6241\n- [stable-3.10] Fix crash.\n  Remove unnecessary dependency injection causing crash. by @backportbot-nextcloud in nextcloud/desktop#6252\n- [stable-3.10] Fix.\n  Bulk upload.\n  Accumulate sent bytes.\n  Fix negative value in UI. by @allexzander in nextcloud/desktop#6253\n- [stable-3.10] Bugfix/vfs toggle fix by @allexzander in nextcloud/desktop#6251\n- [stable-3.10] maintain lock state if unlock happens during sync by @backportbot-nextcloud in nextcloud/desktop#6259\n- [stable-3.10] avoid modifying a placeholder (virtual files) when not needed by @backportbot-nextcloud in nextcloud/desktop#6262\n- [stable-3.10] Fix build with latest NextcloudKit, caused by search for XCTest and friends by @backportbot-nextcloud in nextcloud/desktop#6266\n- [stable-3.10] Feature.\n  Do not allow move of external storage mounted folders. by @allexzander in nextcloud/desktop#6268",
+      "release_notes_url": "https://github.com/nextcloud-releases/desktop/releases/tag/v3.10.2",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.10.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.10.2/Nextcloud-3.10.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.10.2-x64.msi",
+          "sha256": "31f7d00060136f80ce24ad4d2db5b9db6f0efa3675749892553c4f72959298c3",
+          "product_code": "{568A5A3C-EF9D-4C84-89F9-6C315036D726}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "3.10.2.20231207",
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.10.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.10.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.10.1/Nextcloud-3.10.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.10.1-x64.msi",
+          "sha256": "26a1834b9bf1d94d30bcce0b04fff00ac78c335ef211d15b9b556cf8c5a55f1f",
+          "product_code": "{619EFCA5-B7F1-4880-BF99-CF2AA874A2DF}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.10.0",
+      "release_date": "2023-09-15",
+      "release_notes": "What's Changed\n- Fix tray window header folders button colour by @claucambra in nextcloud/desktop#5712\n- align activity text with \"Sync now\" text by @mgallien in nextcloud/desktop#5724\n- ensure that the file to test monitoring is hidden by @mgallien in nextcloud/desktop#5731\n- Fix tray styling by @claucambra in nextcloud/desktop#5715\n- Fix macOS build when file provider module build is disabled by @claucambra in nextcloud/desktop#5707\n- Fix dark mode switch issues in tray controls manually overriding palette colours by @claucambra in nextcloud/desktop#5743\n- fix build on windows by adding missing archive name properties on libs by @mgallien in nextcloud/desktop#5745\n- Fix macOS icon by @claucambra in nextcloud/desktop#5757\n- Don't build file provider module by default (yet) by @claucambra in nextcloud/desktop#5761\n- Fix Debug builds of File Provider module by @claucambra in nextcloud/desktop#5759\n- Fix progress bar palette by @claucambra in nextcloud/desktop#5751\n- Bugfix/log less verbose by @mgallien in nextcloud/desktop#5769\n- Bugfix.\n  Conflict resolution button not clickable. by @allexzander in nextcloud/desktop#5766\n- display subject when we have sync issues like network errors by @mgallien in nextcloud/desktop#5768\n- Fix UnifiedSearch text field placeholder text color for light and dark theme by @allexzander in nextcloud/desktop#5764\n- addd a cmake option to enable single account desktop client by @mgallien in nextcloud/desktop#5773\n- Fix colouring of NCRadioButton by @claucambra in nextcloud/desktop#5786\n- Fix reply button visibility after reply field opened and reply text sent by @claucambra in nextcloud/desktop#5788\n- chore: update workflows from templates by @nextcloud-command in nextcloud/desktop#5736\n- Bugfix/rotate log less often by @mgallien in nextcloud/desktop#5792\n- Bugfix/adjust log levels by @mgallien in nextcloud/desktop#5796\n- Fix xcodebuild parallel build warning by @claucambra in nextcloud/desktop#5760\n- Bugfix/unsupported filename on server by @allexzander in nextcloud/desktop#5801\n- Bugfix/remove stale caseclashcopies by @allexzander in nextcloud/desktop#5783\n- Build for Debian Bookworm by @ivaradi in nextcloud/desktop#5814\n- Documentation for mass deployment. by @allexzander in nextcloud/desktop#5611\n- Bugfix/checksum calculation stop on destruction by @allexzander in nextcloud/desktop#5688\n- Fix typos found by codespell by @DimitriPapadopoulos in nextcloud/desktop#5763\n- update docker container based on opensuse leap to cross build to windows by @mgallien in nextcloud/desktop#5650\n- Fix residual typos found by codespell by @DimitriPapadopoulos in nextcloud/desktop#5829\n- Feature/improve network error handling by @mgallien in nextcloud/desktop#5036\n- Update the documentation with information on how 'Edit locally' works. by @camilasan in nextcloud/desktop#5844\n- prevent crash by resetting common pointer after deleting gobject menu by @mgallien in nextcloud/desktop#5845\n- Bugfix/e2ee better init by @mgallien in nextcloud/desktop#5586\n- Remove seen Talk notificatios from Tray window. by @allexzander in nextcloud/desktop#5851\n- fix bulk upload of empty files by @mgallien in nextcloud/desktop#5871\n- add link in readme to nextcloud-releases correct page with binaries by @mgallien in nextcloud/desktop#5864\n- always propagate locked status to read-only or read/write for real file by @mgallien in nextcloud/desktop#5841\n- chore(CI): Sign .drone.yml file by @nickvergessen in nextcloud/desktop#5886\n- Added new state and new job to check if /index.php/204 is being redirected by @allexzander in nextcloud/desktop#5848\n- Fix crash and incorrect implementation of seen chat notifications removal by @allexzander in nextcloud/desktop#5879\n- windows reserved word silently excluded - csync exclude.cpp by @tomdereub in nextcloud/desktop#4977\n- Disable share view completely when server does not support/has disabled file sharing by @claucambra in nextcloud/desktop#5885\n- Set VFS PinState to Excluded for ignored files. by @m7913d in nextcloud/desktop#5853\n- Create placeholder while dehydrating if needed by @m7913d in nextcloud/desktop#5890\n- Fix expire date field in Share settings by @claucambra in nextcloud/desktop#5659\n- Fix password generation for shares, improve generator by @claucambra in nextcloud/desktop#5717\n- Fix SVG rendering error in SvgImageProvider by @claucambra in nextcloud/desktop#5666\n- Add option to move deleted files to trash instead of permanently deleting them by @claucambra in nextcloud/desktop#5698\n- Fix build of sharemodel.cpp on MSVC by @claucambra in nextcloud/desktop#5912\n- Improve macOS Sparkle updater by @claucambra in nextcloud/desktop#5468\n- Remove Ubuntu Kinetic, add Mantic by @ivaradi in nextcloud/desktop#5915\n- Fix Finder Sync Extension by @claucambra in nextcloud/desktop#5903\n- Clean up systray.mm (macOS) by @claucambra in nextcloud/desktop#5602\n- Ensure errors are displayed as first entries in tray window activity list, add testing for SortedActivityListModel by @claucambra in nextcloud/desktop#5408\n- Convert VFS file to placeholder again if needed by @m7913d in nextcloud/desktop#5889\n- Feature/check server availibility everyminute by @allexzander in nextcloud/desktop#5621\n- Add option to notify when synced folder overcomes set size limit by @claucambra in nextcloud/desktop#5868\n- Do not modify discovered files on disk if not necessary by @claucambra in nextcloud/desktop#5872\n- Add \"Allow resharing\" option to share dialog by @claucambra in nextcloud/desktop#5965\n- on windows file names can always be encoded: fix wrong test by @mgallien in nextcloud/desktop#5971\n- update read-only status of virtual files when needed for lock state by @mgallien in nextcloud/desktop#5978\n- Hide password field in share settings when share type does not support passwords by @claucambra in nextcloud/desktop#5948\n- Generate a suggested password when server requires password for share creation by @claucambra in nextcloud/desktop#5966\n- update main CI image to get newer Qt, Java and other dependencies by @mgallien in nextcloud/desktop#5996\n- Make file details tray follow current account accent colour by @claucambra in nextcloud/desktop#5975\n- Fix user-facing message about why encryption cannot yet be done by @claucambra in nextcloud/desktop#5972\n- Add warning prior to folder encryption, prevent unknowing users from creating unrecoverable encrypted folders by @claucambra in nextcloud/desktop#5969\n- only flush debug log files when closing them by @mgallien in nextcloud/desktop#5798\n- Display correct server colour prior to acquiring server capabilities by @claucambra in nextcloud/desktop#5946\n- Ignore the USE_OUR_OWN_SQLITE3 flag. by @camilasan in nextcloud/desktop#6008\n- Implement support for server chunked file upload V2 API by @claucambra in nextcloud/desktop#5939\n- Bump client and client-appimage image versions. by @camilasan in nextcloud/desktop#6015\n- Update VFS placeholder each time a file is opened by Word by @allexzander in nextcloud/desktop#6010\n- oc desktop client login migration to nc desktop client login by @camilasan in nextcloud/desktop#5959\n- Automatically lock LibreOffice files on server while they are being edited locally by @claucambra in nextcloud/desktop#5986\n- [stable-3.10] Allow deleting remotely deleted files locally in case of upload errors by @backportbot-nextcloud in nextcloud/desktop#6019\n- [stable-3.10] Bugfix/lock state spam by @backportbot-nextcloud in nextcloud/desktop#6025\n- [stable-3.10] Remove locketimeout condition. by @backportbot-nextcloud in nextcloud/desktop#6028\n- [stable-3.10] fixed detection of server version in cmd client similar to gui client (2nd try, signed off) by @backportbot-nextcloud in nextcloud/desktop#6033\n- [stable-3.10] Add compatibility with the new libcloudproviders integration by @backportbot-nextcloud in nextcloud/desktop#6036\n- [stable-3.10] Fix macOS notification talk replies by avoiding early dealloc by @backportbot-nextcloud in nextcloud/desktop#6037\n- [stable-3.10] Store the new etag into local database when opening with auto-locking… by @backportbot-nextcloud in nextcloud/desktop#6039\n- [stable-3.10] Fix visual bug with folder size confirmation combo box in general settings by @backportbot-nextcloud in nextcloud/desktop#6044\n- [stable-3.10] Display correct conflict part in multiple conflicts resolution dialog. by @backportbot-nextcloud in nextcloud/desktop#6045\n- [stable-3.10] Rewrite share expiration date field's date handling, fixing issues by @backportbot-nextcloud in nextcloud/desktop#6048\n- [stable-3.10] Use a standardised locale to create log file filenames by @backportbot-nextcloud in nextcloud/desktop#6050\n- [stable-3.10] Bugfix/multiple accounts migration by @backportbot-nextcloud in nextcloud/desktop#6051\n- [stable-3.10] once we call done on a sync file item, return is needed by @backportbot-nextcloud in nextcloud/desktop#6054\n- [stable-3.10] Bugfix/infinite sync by @backportbot-nextcloud in nextcloud/desktop#6057\n- [stable-3.10] do not check every 5 seconds files with infinite timeout (= 0) by @backportbot-nextcloud in nextcloud/desktop#6060\nNew Contributors\n- @DimitriPapadopoulos made their first contribution in nextcloud/desktop#5763\n- @tomdereub made their first contribution in nextcloud/desktop#4977\n- @m7913d made their first contribution in nextcloud/desktop#5853",
+      "release_notes_url": "https://github.com/nextcloud-releases/desktop/releases/tag/v3.10.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.10.0/Nextcloud-3.10.0-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.10.0-x64.msi",
+          "sha256": "a2973b95a2cffe2c84d9efceeb51c21abb888b863510e2303cabae5b0959aa71",
+          "product_code": "{D67EDC45-7CF4-4575-B174-702A392DC243}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "3.10.0.20230915",
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.4",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.9.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.9.4/Nextcloud-3.9.4-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.9.4-x64.msi",
+          "sha256": "e268b8a0e61d0f8cfd177c10c547998ce5a3c6a03ba7051277867d409127d193",
+          "product_code": "{56186084-E32C-4344-816A-C659B90D1CF4}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.3",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.9.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.9.3/Nextcloud-3.9.3-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.9.3-x64.msi",
+          "sha256": "06d730db210f3652c6640738a8a425d99a418279478e655e3bdb1f23de27db66",
+          "product_code": "{82109DFA-B604-4790-AC5E-EB0C80398306}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.2",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.9.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.9.2/Nextcloud-3.9.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.9.2-x64.msi",
+          "sha256": "6027aef1ea4135be18a18d8fdabb8903cab0ea2c4caf6f0e0328b36ec0b8ad11",
+          "product_code": "{3F1D1B77-0658-461C-961C-A8BFECCBDF81}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.1",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.9.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.9.1/Nextcloud-3.9.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.9.1-x64.msi",
+          "sha256": "28cbab97c7568a782244b34a5a8220cc90b0f7ec72a77cf5001c80f5452106ed",
+          "product_code": "{FA5B6B23-0F34-4FBF-A054-45FD3084D913}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.9.0/Nextcloud-3.9.0-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.9.0-x64.msi",
+          "sha256": "4ccd460cd08422df803d40fb7040493ae4ea65b415ee2426f92c382882c4762b",
+          "product_code": "{E78CC941-C105-4677-9AC1-D3A54B20FDE1}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.2",
+      "release_date": "2023-05-16",
+      "release_notes": "What's Changed\n- [stable-3.8] Edit locally.\n  Elide loading dialog filename label middle. by @backportbot-nextcloud in #5619\n- [stable-3.8] Fix crash on entering new log file after file size of 512kb reached by @backportbot-nextcloud in #5620\n- [stable-3.8] Properly handle all fatal errors during edit locally setup procedure by @backportbot-nextcloud in #5623\n- [stable-3.8] Fix MacOS UTF-8 normalization issue by @backportbot-nextcloud in #5624\n- [stable-3.8] Parse sharees 'lookup' key to include federated sharees. by @backportbot-nextcloud in #5625\n- [stable-3.8] Implement missing share settings by @backportbot-nextcloud in #5631\n- [stable-3.8] no longer override the pixman default version by @backportbot-nextcloud in #5632\n- [stable-3.8] Edit locally.\n  Fix crash on _chekTokenJob pointer deref. by @backportbot-nextcloud in #5647\n- [stable-3.8] Remove some SQL debug logs to unclutter the output. by @backportbot-nextcloud in #5651\n- [stable-3.8] E2EE. Fix freeze on metadata checksum validation. by @backportbot-nextcloud in #5657\n- [stable-3.8] Fix folder progress bar positioning in account settings on macOS by @backportbot-nextcloud in #5660\n- [stable-3.8] Use addLayout to insert the VFS option when setting account. by @backportbot-nextcloud in #5671\n- [stable-3.8] Fix update request channel being set to wrong localised string by @backportbot-nextcloud in #5658\n- [stable-3.8] Fix setting [undefined] to QFont in 'Sync now' button by @backportbot-nextcloud in #5661\n- [stable-3.8] Fix account migration from legacy desktop clients (again) by @backportbot-nextcloud in #5664\n- [stable-3.8] Attempt sign in when an account state is added in AccountManager by @backportbot-nextcloud in #5663\n- [stable-3.8] Update CHANGELOG. by @backportbot-nextcloud in #5673\n- [stable-3.8] Fix unrecoverable freezing when PutMultiFileJob is used with upload rate limits enabled by @backportbot-nextcloud in #5694",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.8.2",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.8.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.8.2/Nextcloud-3.8.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.8.2-x64.msi",
+          "sha256": "3f402aaa32e13dfc7ee1f38b05ef8102f4ff4b43b1d49606d1f680a8eab6fa8f",
+          "product_code": "{71068431-AA26-4847-8E8D-FE865FE879F7}",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "3.8.2.20230516",
+              "upgrade_code": "{FD2FCCA9-BB8F-4485-8F70-A0621B84A7F4}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.0",
+      "release_date": "2023-03-31",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.8.0",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.8.0/Nextcloud-3.8.0-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.8.0-x64.msi",
+          "sha256": "1959399f83fada739940872f0dcf618b6a1f0aa397838db25a270055f1d16f01",
+          "product_code": "{65081468-46F4-4940-9F97-C7A35C658ED4}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.4",
+      "release_date": "2023-03-09",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.7.4",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.7.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.7.4/Nextcloud-3.7.4-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.7.4-x64.msi",
+          "sha256": "aea3496ecd0039592bf853de5e9ad3eaa0fa087ec283ee74de66f9b306130d13",
+          "product_code": "{235C8899-32EF-44CF-9E58-3E182ABEFDC6}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.3",
+      "release_date": "2023-02-09",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.7.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.7.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.7.3/Nextcloud-3.7.3-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.7.3-x64.msi",
+          "sha256": "4aa1eca2659abe402f1ab70fd2452f368800ae24fc6590c98099e84124dedc79",
+          "product_code": "{9DA017FA-4B3C-4ED8-BAF1-D2CAE6422A69}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.6",
+      "release_date": "2023-01-20",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.6.6",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.6.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.6.6/Nextcloud-3.6.6-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.6.6-x64.msi",
+          "sha256": "d3d03bf1231595b144471b27b9d10fe9119f676053c4d229cb56c94ee975d867",
+          "product_code": "{2E5F383F-C80C-4F61-AA50-A2C801AC15DD}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.4",
+      "release_date": "2022-12-08",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.6.4",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.6.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.6.4/Nextcloud-3.6.4-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.6.4-x64.msi",
+          "sha256": "44e8ee6688bd40ab1e838868c312cba189d18c1de9d66fa028a084e7996a6818",
+          "product_code": "{1E09F7A7-6545-481A-8CC5-56DA122A5E5D}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.2",
+      "release_date": "2022-11-10",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.6.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.6.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.6.2/Nextcloud-3.6.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.6.2-x64.msi",
+          "sha256": "ebd6da43ff5e5571db9f5f5e8762e375f499883284e2f07a15adcde5056ea0cd",
+          "product_code": "{2AA449B7-A29D-4016-871F-280CA192578B}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.1.20221018",
+      "release_date": "2022-10-19",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.6.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.6.1.20221018",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.6.1/Nextcloud-3.6.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.6.1-x64.msi",
+          "sha256": "655474f64b74c3d0bebdfa229ed7a2fc5b19b9893bb221af059e792d60ac1160",
+          "product_code": "{B76971CB-B4BE-4FCE-AFE6-67751EAD173D}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.3.20220729",
+      "release_date": "2022-07-29",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.5.3",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.5.3.20220729",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.3/Nextcloud-3.5.3-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.3-x64.msi",
+          "sha256": "6351944795426f7320a8c28117e97c1aaf5dfd339324d15ed9fc3904a280ad99",
+          "product_code": "{6AD36D53-67C5-4793-A3E2-28CE4D7734E5}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.3/Nextcloud-3.5.3-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.3-x86.msi",
+          "sha256": "a15dd41b148999cf982831da5fa639a4c26a9a0358739e4d66dcbf60bb96b75a",
+          "product_code": "{7661ACF6-B040-40F3-87AA-DA595C54DCF2}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.2.20220701",
+      "release_date": "2022-07-04",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.5.2",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.5.2.20220701",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.2/Nextcloud-3.5.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.2-x64.msi",
+          "sha256": "4073e747eeacb5b48e9649ed8f86b29c0635fc583e9c637e280d5eec7edd9566",
+          "product_code": "{07FC8573-559E-450F-8659-F770F50125DB}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.2/Nextcloud-3.5.2-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.2-x86.msi",
+          "sha256": "953a721a1807a2a24de6468e01bf9cd992cabab3ebaf3f6fa2d29675f9068915",
+          "product_code": "{BD68EEFF-8353-4D3E-BAAF-4C6E6C4B2956}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.1.20220517",
+      "release_date": "2022-05-17",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.5.1",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.5.1.20220517",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.1/Nextcloud-3.5.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.1-x64.msi",
+          "sha256": "1bbad75122624dc052c7779565d85365e4c72d8a1f6b206514d656742fd90deb",
+          "product_code": "{AC782078-7F62-44E6-99C6-6AF09EB0C2B6}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.1/Nextcloud-3.5.1-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.1-x86.msi",
+          "sha256": "acbe7048e9bf0caa926053a59e4429c6fd5b9fd2e61a7c38e8087b6f7be94e0a",
+          "product_code": "{2D4CE316-2F38-4B07-B4F5-E2889D796662}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.0.20220502",
+      "release_date": "2022-05-03",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.5.0",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.5.0.20220502",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.0/Nextcloud-3.5.0-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.0-x64.msi",
+          "sha256": "946302e43b9f7d3f5970de4d9b5c89b0b114e3a635a98f5665c977fe1d717b97",
+          "product_code": "{4FC659E5-0AC1-4D3C-9024-AF5CF96F5DC1}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.5.0/Nextcloud-3.5.0-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.5.0-x86.msi",
+          "sha256": "ccf9ebb572385399d9c4fa576ad8a268380f58d21dd4c50eb7bb97d659c8abbc",
+          "product_code": "{B619A861-B2AD-47B0-A9B6-3512D84175AA}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.4",
+      "release_date": "2022-03-18",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.4.4",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.4.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.4/Nextcloud-3.4.4-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.4-x64.msi",
+          "sha256": "16da441e64121435daad668b4c642063ebab1d07226d26393035d81a572155fc",
+          "product_code": "{9BD3E5E5-D9C0-423E-87E7-FCB6FE082121}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.4/Nextcloud-3.4.4-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.4-x86.msi",
+          "sha256": "f2ef1e61356675e07a48858ab42c4db8a584a08efdb0e553924a371b23bad80a",
+          "product_code": "{4E64FB61-E87C-4FE7-9FBB-BF8F5425C305}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.3.20220225",
+      "release_date": "2022-02-27",
+      "release_notes_url": "https://github.com/nextcloud/desktop/releases/tag/v3.4.3",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.4.3.20220225",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.3/Nextcloud-3.4.3-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.3-x64.msi",
+          "sha256": "5b1c54836effd61de95935f695459f0bd77d9f973f57c191065dd6366467ff8e",
+          "product_code": "{2F8EDE5C-B36F-4F09-974B-82DE33DA01AF}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.3/Nextcloud-3.4.3-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.3-x86.msi",
+          "sha256": "79175860a8c4feb9c751a1e57b33341d19a3880906c939ebc8c96846d8a098ec",
+          "product_code": "{DEC4CB74-D466-483F-B8BE-CBA7832D5A23}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.2.20220127",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.4.2.20220127",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.2/Nextcloud-3.4.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.2-x64.msi",
+          "sha256": "0c28c2b61654477db59f1887a495beb748d9a568c549fe2cc6ebb8a35f365034",
+          "product_code": "{4B7D3279-626A-4FBF-B593-35ABD4FC6A1E}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.2/Nextcloud-3.4.2-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.2-x86.msi",
+          "sha256": "acb8895045081e16a9f4b337edebea93303a114320978d284562524e6eb59a30",
+          "product_code": "{9B8D924A-762F-4488-9BF1-B51203BC08D1}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.1.20211221",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.4.1.20211221",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.1/Nextcloud-3.4.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.1-x64.msi",
+          "sha256": "6090ebe13baccee171ae7e1d184fe88515435a36624a94fec9b4de77107a28c6",
+          "product_code": "{27596A6F-750F-4996-A5C2-A980522ED1C4}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.1/Nextcloud-3.4.1-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.1-x86.msi",
+          "sha256": "132575410c59de544b709457e9863f6d480f0d8fa89aa0c12ceeb95fba711430",
+          "product_code": "{8BEEE82C-0B4B-4578-8C28-022789516771}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.82.20211124",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.82.20211124",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.0-rc2/Nextcloud-3.4.0-rc2-x86_64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.0-rc2-x86_64.msi",
+          "sha256": "8d52f67930fe9536ab7c62085eb8b637167836ae5503caeee33acd3bebd207dc",
+          "product_code": "{134ED710-E11E-41EC-920D-287B034BEBE1}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.4.0-rc2/Nextcloud-3.4.0-rc2-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.4.0-rc2-x86.msi",
+          "sha256": "92e26f85bfa7782c7098ab652fc9eeaaca4c681149e06404ab3f84d958cf40c3",
+          "product_code": "{9E56F79F-D2BE-4C21-9E70-F5BD653968C1}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.6.20211028",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.6.20211028",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.6/Nextcloud-3.3.6-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.6-x64.msi",
+          "sha256": "a9e18d8d9a000f8a24b332ab2498399536c93429d8931a90f23cb40d05ad8399",
+          "product_code": "{3A99002F-BABA-4378-BB20-44C94A159696}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.6/Nextcloud-3.3.6-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.6-x86.msi",
+          "sha256": "5b560b0b31bf199e64e54e4e6f3d660423c2388a9fa0fb8fe38ecbc1d00c43c0",
+          "product_code": "{A6D99040-2CCD-4DFF-8778-47AC8EEB52B6}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.5.20210930",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.5.20210930",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.5/Nextcloud-3.3.5-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.5-x64.msi",
+          "sha256": "5df488af92fdcb9f9a51dc7718b6db9c89c5991ab16ab7bcf1c7bc5e6fbf9f64",
+          "product_code": "{74BB4713-81B4-4A94-968A-9D64B970CBA4}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.5/Nextcloud-3.3.5-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.5-x86.msi",
+          "sha256": "ef3e236eb668c2f910acdc1c8bd69d5c41360385a75728cea287e0a463c9627f",
+          "product_code": "{9D5502D4-D950-4B70-A2DA-8083B0E729AF}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.4.20210920",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.4.20210920",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.4/Nextcloud-3.3.4-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.4-x64.msi",
+          "sha256": "ea09e0a2f74a05c6ea0285399f5c67a26895bc47efbbe03e66ef8204ec0a2259",
+          "product_code": "{83FFDFF0-CE7B-4684-9A78-AD07972A17DC}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.4/Nextcloud-3.3.4-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.4-x86.msi",
+          "sha256": "bc339833dd3d3ad0a3cebfb8c7978eeeb5426124ccc34dad51bedcbe72098091",
+          "product_code": "{80FA2A71-1F71-4E10-882B-4C67518D14BD}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.3.20210903",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.3.20210903",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.3/Nextcloud-3.3.3-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.3-x64.msi",
+          "sha256": "418114744bb77b26d8f7347c7a1dd78296bc4ebcd36ebfe8268691a87b4ef6c2",
+          "product_code": "{552D8312-4EBA-4718-A1EA-76BA338A6706}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.3/Nextcloud-3.3.3-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.3-x86.msi",
+          "sha256": "a1a9e5b82fdfb8aac1b8f155a10cb50a4142d0a5156a987900334e33e9a54698",
+          "product_code": "{80D1B99C-B219-4F2B-B90A-56B7BEED27BD}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.2.20210826",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.2.20210826",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.2/Nextcloud-3.3.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.2-x64.msi",
+          "sha256": "4c53a688c0e969e52df1da5ee345861fb19336da2233081746de52696af4c33e",
+          "product_code": "{ACF2B956-B9AF-454D-A3B9-D998F81C12B2}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.2/Nextcloud-3.3.2-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.2-x86.msi",
+          "sha256": "d53f7261044d1a4bb8c77a976d44929e11890f5babb489d11cb2dd139d35f80f",
+          "product_code": "{D287DE81-B738-4EA7-BBFA-8D89FC1CCD0C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.1.20210812",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.1.20210812",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.1/Nextcloud-3.3.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.1-x64.msi",
+          "sha256": "2b222dcb6a12e77a281f1c35e74781583dee515068e63bb2acbf71a30cfc83e2",
+          "product_code": "{4703A881-EDC1-4F7E-A498-02399CC3F9C8}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.1/Nextcloud-3.3.1-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.1-x86.msi",
+          "sha256": "4943e729a45dcedb224fb7b2656d96a3ea5627c10c95b6db6eafdb057114c9b8",
+          "product_code": "{C5DD5014-C9D3-46A8-8507-4C3F0A424B34}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.0.20210729",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.3.0.20210729",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.0/Nextcloud-3.3.0-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.0-x64.msi",
+          "sha256": "885ac2e6079fade6c84ceac6ad8b2373009c268e2c280746fea5436b2b8f9e79",
+          "product_code": "{FD59BC11-469C-43DB-9184-4B751D42A3E9}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.3.0/Nextcloud-3.3.0-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.3.0-x86.msi",
+          "sha256": "0b6eae423cdecd815433f788c4888aa74eca4a1725fc6857c2fbb31074777d6b",
+          "product_code": "{A86E9DDA-8AFC-42BA-A2A5-1BDA9103FC0B}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.4.20210706",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.2.4.20210706",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.4/Nextcloud-3.2.4-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.4-x64.msi",
+          "sha256": "a34f1d344e1b8809daa3cc70e11349280ee3c9dc88fdeaf7e87ce6ad48a605c9",
+          "product_code": "{C92FFADD-2AE7-4BAE-B3EB-6DA081E7425C}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.4/Nextcloud-3.2.4-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.4-x86.msi",
+          "sha256": "95e4a30c6d5fe34bd1ad3803fa4ee2c637b70d43d172661c0960abf09034a81f",
+          "product_code": "{79DDF3EF-4313-45B2-8CD8-D04704ABD01E}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.3.20210624",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.2.3.20210624",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.3/Nextcloud-3.2.3-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.3-x64.msi",
+          "sha256": "e26aeb51cb65617a467d3c7249e293d9d0c2096e7811831687a5535edd6784e8",
+          "product_code": "{E4F354C3-4074-484E-9158-A74D9588652F}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.3/Nextcloud-3.2.3-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.3-x86.msi",
+          "sha256": "9bb0bd866295f980f4f4f8c0c2d93cfc28f1aca998e9ceabd511d9987cbd9615",
+          "product_code": "{3DCB75AC-5EFF-468E-ACAF-068FCC3912D0}",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.2.20210527",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.2.2.20210527",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.2/Nextcloud-3.2.2-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.2-x64.msi",
+          "sha256": "19c3c8315245e3f9f7dddcacdec0ef95279fb0c87c0b743aee3d66c03137912a",
+          "product_code": "{F05BC2A8-FD9A-4F1C-ADEF-FD286AA6BBF4}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.2/Nextcloud-3.2.2-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.2-x86.msi",
+          "sha256": "6051d8a1ea0a3a5bd8660c6601da8c04c2828695807439f159f27b1ff7683c6a",
+          "product_code": "{6AD6650D-0698-4FAD-B34C-76D0F75AF90B}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.1.20210428",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.2.1.20210428",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.1/Nextcloud-3.2.1-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.1-x64.msi",
+          "sha256": "d057801edaf83c8b254f8c661ecfc4ebd4ee6755d8d42137dc8a6adeacf637c8",
+          "product_code": "{146F877C-1C9C-4EBD-8C21-F33AD396E388}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.1/Nextcloud-3.2.1-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.1-x86.msi",
+          "sha256": "bac850d4f8ddc7a69f95ccf1ec369cd7843535c318560c2e19b6d566bb5d27ba",
+          "product_code": "{F5769D36-5F0A-41E8-9F64-003B55D3D6BE}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.0.20210409",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.2.0.20210409",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.0/Nextcloud-3.2.0-x64.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.0-x64.msi",
+          "sha256": "7e6a3bba98a20f4bc4058d44e0c4e6d945c56b445df25a55f0678062a0effd41",
+          "product_code": "{0CF81574-B8CB-4809-8498-B3E604EF6E96}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          }
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "wix",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.2.0/Nextcloud-3.2.0-x86.msi",
+          "host": "github.com",
+          "filename": "Nextcloud-3.2.0-x86.msi",
+          "sha256": "08fdf86ab4398d551146e460b7731a22855d26580bba99af0a41aec5a586bc3a",
+          "product_code": "{29224D38-F053-47A7-B352-C0CB9FEA31C8}",
+          "min_os_version": "10.0.0.0",
+          "switches": {
+            "custom": "Reboot=ReallySuppress"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.3.25130",
+      "manifest_version": "1.1.0",
+      "manifest_dir": "manifests/n/Nextcloud/NextcloudDesktop/3.1.3.25130",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "neutral",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/nextcloud/desktop/releases/download/v3.1.3/Nextcloud-3.1.3-setup.exe",
+          "host": "github.com",
+          "filename": "Nextcloud-3.1.3-setup.exe",
+          "sha256": "f2b1068a1e2add84eaa4b0bb57585079d2a703297b690af32509063ae54b9da0",
+          "min_os_version": "10.0.0.0"
+        }
+      ]
+    },
+    {
       "platform": "macos",
       "version": "35.0.3",
       "installers": [
@@ -2056,8 +3731,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "a2bf4af82349e2f9c643fe5acd61c84a7a132216",
-      "retrieved_at": "2026-11-13T14:56:34.531Z",
+      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
+      "retrieved_at": "2026-11-25T02:29:14.550Z",
       "path": "manifests/n/Nextcloud/NextcloudDesktop"
     },
     {

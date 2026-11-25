@@ -3826,6 +3826,1817 @@
           "upgrade_behavior": "install"
         }
       ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.72.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.72.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.72.0/PowerToysSetup-0.72.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.72.0-arm64.exe",
+          "sha256": "39c1d430a538b0f3d7869d39df7f636a64aafad8dfb3c82059a97f4ebd3369c4",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.72.0/PowerToysUserSetup-0.72.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.72.0-arm64.exe",
+          "sha256": "2e68139c22c56648e64514e4e8e0a0d12882f6cf30b48eb20ecc66b4ccdd5909",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.72.0/PowerToysSetup-0.72.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.72.0-x64.exe",
+          "sha256": "788ee4d828169f092737a739030b218cefec79583e42858bb8f9f036b701be6f",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.72.0/PowerToysUserSetup-0.72.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.72.0-x64.exe",
+          "sha256": "9925894d797458c78a8c3df6fe4bd748580638b01bb43680477763662915109a",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.71.0",
+      "release_date": "2023-07-05",
+      "release_notes": "Highlights\n- Support previewing archive files with Peek.\n  Thanks @davidegiacometti!\n- Fixed PT Run crash caused by missing App.\n  Dark.png file.\n- Added setting to set Registry Preview as default app for opening .reg files.\n  Thanks @randyrants!\n- Modernized Settings app title bar and styling (Mica background material) to be inline with Windows 11 guidelines.\n  Thanks @niels9001!\nGeneral\n- Fixed infinite loop issue caused by global event not being reset. (This was a hotfix for 0.70)\n- Bump CommunityToolkit.\n  Mvvm package version to 8.2.0.\n  Thanks @davidegiacometti!\n- Fixed issue causing runner lag by moving check for updates and running bug report logic to the background thread.\n- Bump WinUIEx package version to 2.2.\n  Thanks @niels9001!\n- Fixed issue causing Settings app crash when launching a second app process.\n  Thanks @BLM16!\n- Fixed network errors when checking for updates on virtual machines.\n- Bump Microsoft.\n  CodeAnalysis.\n  NetAnalyzers package version to 7.0.3.\n  Thanks @davidegiacometti!\n- Bump Microsoft.\n  Windows.\n  Compatibility package version to 7.0.3.\n- Bump System.\n  Management package version to 7.0.2.\n- Fixed issue causing PowerToys to start with Below Normal priority on startup.\nColorPicker\n- Store color history in a separated file.\nFancyZones\n- Added feature to use middle click to toggle multiple zones spanning.\n  Thanks @BasitAli!\n- Fixed issue causing zoning not to happen until the cursor is moved.\n- Improved monitor identification logic to mitigate issues causing layout reset.\n- Fixed issue where default layout was applied instead of blank layout.\nFile Locksmith\n- Added setting to show only in extended context menu.\nFile Explorer add-ons\n- Developer files preview support for .vsconfig, .sln, .vcproj, .vbproj, .fsproj and .vcxproj files. (This was a hotfix for 0.70)\n- Developer files preview support .vbs, .inf, .gitconfig, .gitattributes and .editorconfig files. (This was a hotfix for 0.70) Thanks @Aaron-Junker!\n- Changed order of developer files preview context menu items.\n  Thanks @Aaron-Junker!\n- Developer files preview support for .gitignore files. (This was a hotfix for 0.70) Thanks @Aaron-Junker!\n- Fixed issue causing preview pane flickering on file selection and resizing.\n  Thanks @tanchekwei!\nHosts\n- Improved UX by adding keyboard shortcuts.\n  Thanks @davidegiacometti!\n- Added setting to select the file encoding.\n  Thanks @davidegiacometti!\n- Fixed parsing of commented lines with an address and host in the middle of the comment.\n  Thanks @davidegiacometti!\n- Fixed issue on adding first entry and improve empty hosts list UI.\n  Thanks @davidegiacometti!\n- Added logic to handle more than 9 hosts per entry (Windows limitation) by splitting them into separate entries.\n  Thanks @davidegiacometti!\nImageResizer\n- Added Enter key event handler when setting width/height of the new custom size.\nInstaller\n- Fixed PowerToys Plugin installation. (This was a hotfix for 0.70) Thanks @davidegiacometti!\n- Fixed issue causing missing Mouse Without Borders service after upgrade. (This was a hotfix for 0.70)\n- Removed unneeded PT Run registry entries.\nMouse Without Borders\n- Added Name2IP setting. (This was a hotfix for 0.70)\n- Fixed device layout issues. (This was a hotfix for 0.70)\n- Fixed hiding cursor at the top of the screen when \"Hide mouse at the screen edge\" is enabled. (This was a hotfix for 0.70)\n- Fixed issue that was preventing OS going to sleep mode. (This was a hotfix for 0.70)\n- Remove shortcut for deprecated VKMap functionality. (This was a hotfix for 0.70) Thanks @dtaylor84!\n- Make MWB work without service if service doesn't start properly. (This was a hotfix for 0.70)\n- Fixed focus issue causing \"Hide mouse at the screen edge\" not to work properly. (This was a hotfix for 0.70)\n- Fixed issue causing app to hijack shortcut keys if they are only partially matched.\nPeek\n- Consume Ctrl+Space shortcut only if Desktop or Shell are in the foreground. (This was a hotfix for 0.70)\n- Added feature to hide window with Esc key. (This was a hotfix for 0.70) Thanks @davidegiacometti!\n- Added a setting to always run not-elevated (enabled by default). (This was a hotfix for 0.70)\n- Support .vsconfig, .sln, .vcproj, .vbproj, .fsproj and .vcxproj files. (This was a hotfix for 0.70)\n- Fixed blinking issue while loading developer files. (This was a hotfix for 0.70)\n- Reset preview Source on Peek window close. (This was a hotfix for 0.70)\n- Center Peek window on File Explorer activated monitor. (This was a hotfix for 0.70) Thanks @SamChaps!\n- Fix previewing unsupported file types by using effective pixels. (This was a hotfix for 0.70) Thanks @SamChaps!\n- Support .vbs, .inf, .gitconfig, .gitattributes and .editorconfig files. (This was a hotfix for 0.70) Thanks @Aaron-Junker!\n- Fixed memory leak by clearing generated thumbnails. (This was a hotfix for 0.70)\n- Added setting to close on focus lost. (This was a hotfix for 0.70)\n- Fixed crash when triggering Peek with no files being selected. (This was a hotfix for 0.70)\n- Fixed setting Peek window as a foreground window. (This was a hotfix for 0.70)\n- Fixed race condition causing low quality preview to be displayed even if high quality preview is present. (This was a hotfix for 0.70)\n- Added support for .htm files.\n- Fixed issue where title bar button colors were not update on Windows theme change.\n- Added up/down arrow key item navigation.\n  Thanks @DanWiseProgramming!\n- Improved UX by defining minimum window size and adding tooltips for shown text.\n  Thanks @htcfreek!\n- Fixed crash on previewing internet shortcuts files.\n- Support previewing archive files.\n  Thanks @davidegiacometti!\nPowerToys Run\n- Fixed crash caused by non thread-safe Results update.\n- Fixed crash caused by missing App.\n  Dark.png\n- Code cleanup and fixed possible crash caused by missing VS Code instance in VS Code plugin.\n  Thanks @davidegiacometti!\n- Fix environment helper for nested environment variables.\n  Thanks @htcfreek!\nQuick Accent\n- Added multiplication and division signs.\n  Thanks @ailintom!\n- Added opening exclamation mark to Catalan and Spanish language.\n  Thanks @Aaron-Junker!\n- Added the section sign (\"§\", U+00A7).\n  Thanks @EikeJoo!\n- Added accent units and more additional signs.\n  Thanks @WilkoLu!\nRegistry Preview\n- Added setting to set the app as default app for opening .reg files.\n  Thanks @randyrants!\n- Merge settings to single folder.\n- Fixed issue of saving files without truncation.\n  Thanks @qwerty472123!\nText Extractor\n- Various improvements and fixes.\n  Thanks @TheJoeFin!\nSettings\n- Styling fixes for Peek and Mouse Without Borders pages. (This was a hotfix for 0.70) Thanks @niels9001!\n- Fixed Mouse Without Borders machine connection status styling. (This was a hotfix for 0.70)\n- Improved Mouse Without Border page Uninstall service UX when it is inaccessible. (This was a hotfix for 0.70)\n- Updated File Explorer module screenshots and instructions to reflect the Windows 11 File Explorer.\n  Thanks @infinitepower18!\n- Modernized the app title bar and styling (Mica background material) to be inline with Windows11 guidelines.\n  Thanks @niels9001!\n- Improved error handling on settings backup failure.\n- Added Reset button to shortcut control to reset activation shortcut to default value.\n  Thanks @Svenlaa!\n- Improved Exclude apps setting for all modules to also detect apps by title.\nDevelopment\n- Added Peek and Mouse Without Borders to GitHub templates. (This was a hotfix for 0.70)\n- Fixed the CI release pipelines winget package submission. (This was a hotfix for 0.70)\n- Fixed process report and termination lists for Peek and Mouse Without Borders. (This was a hotfix for 0.70)\n- Added Winget configuration file. (This was a hotfix for 0.70) Thanks @ryfu-msft!\n- Fixed tests localization issues.\n- Added Microsoft.\n  VisualStudio.\n  Component.\n  VC.ATL library to .vsconfig.\n- Onboarding to GitOps.\n  ResourceManagement.",
+      "release_notes_url": "https://github.com/microsoft/PowerToys/releases/tag/v0.71.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.71.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysUserSetup-0.71.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.71.0-x64.exe",
+          "sha256": "4c6ccb3055e3838da50ff529a670baad129570f4bfabf497b5d92259d3052794",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysSetup-0.71.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.71.0-x64.exe",
+          "sha256": "44f092dfac002536a27abc701750d8c78ff30f8879768990bc4a0afd0d5119f1",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysUserSetup-0.71.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.71.0-arm64.exe",
+          "sha256": "48633758dfbb99de34ba2d3e3f294a60ef7e01015296d29a884251068b6fe3f6",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.71.0/PowerToysSetup-0.71.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.71.0-arm64.exe",
+          "sha256": "283a67539eda5d3ad88735c7b0150852ecb57d569bac80396f942c60d6acb33f",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.70.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.70.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.1/PowerToysSetup-0.70.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.70.1-arm64.exe",
+          "sha256": "5155ea186230876ef1da6f49dc33e40d552b2bffa0e03f66fba71fbeb8713594",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.1/PowerToysUserSetup-0.70.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.70.1-arm64.exe",
+          "sha256": "9f267b7ad91e5fae86ed5050a08a24756ce3ea9875ffcfde195f1f4f299f0933",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.1/PowerToysSetup-0.70.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.70.1-x64.exe",
+          "sha256": "1be4760558765ef363e12126282f1e3340a8adff657c5c51714f7e096f86ee50",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.1/PowerToysUserSetup-0.70.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.70.1-x64.exe",
+          "sha256": "b8fd209310b9847da3ac35c2c5a89f99ce5ea91f456d9d3595dd2840d62a1ac1",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.70.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.70.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.0/PowerToysSetup-0.70.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.70.0-arm64.exe",
+          "sha256": "b0fa955d34c84f3fbf39335887f3beb417a2094f7a06b9eeeb92b9a1000b258e",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.0/PowerToysUserSetup-0.70.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.70.0-arm64.exe",
+          "sha256": "2d9591a4752efa7603c56ebddc9cb4f70c5e938a4ef66adc46b72fc60779e82c",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.0/PowerToysSetup-0.70.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.70.0-x64.exe",
+          "sha256": "2dbe97e599aa4ed5363f2a15d581113bbf13035fe503d9e9ed71650b1cee7771",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.70.0/PowerToysUserSetup-0.70.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.70.0-x64.exe",
+          "sha256": "a2c45cc2ea953ff07246c85c7e106a403eaa5ed51e7c777452238ee280c9f6ea",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.69.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.69.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.1/PowerToysSetup-0.69.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.69.1-arm64.exe",
+          "sha256": "02a3afa2bb90d46bdff93e0a6e855751455bb831a31a93a6b05db8f0b6893e57",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.1/PowerToysUserSetup-0.69.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.69.1-arm64.exe",
+          "sha256": "cbd35e2f0dcef16e902c6f5110224618e0e272b8afdba3468f7ad32978603a51",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.1/PowerToysSetup-0.69.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.69.1-x64.exe",
+          "sha256": "058a382779270fefd262a55b573e0d6a8501771c7dc52f41993fc440b5dde5ff",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.1/PowerToysUserSetup-0.69.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.69.1-x64.exe",
+          "sha256": "662e4082a788df808bfb34c8d922c8b15835632808ce8c93db7e13d9f2b984ba",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.69.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.69.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.0/PowerToysSetup-0.69.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.69.0-arm64.exe",
+          "sha256": "cf13f75f93462be68ca3e4c90b23f3828bbcaa44e7aa987503e73652dcb9fdf8",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.0/PowerToysUserSetup-0.69.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.69.0-arm64.exe",
+          "sha256": "0b113eaf17eeea86299def7f73e7af15a9cbfb8033c7f9218e33bda276f37727",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.0/PowerToysSetup-0.69.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.69.0-x64.exe",
+          "sha256": "ade1e56df8cc52839fbd9db6a0bcf34e38b88aaa52544eead3c1bb023fdaf29a",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "user",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.69.0/PowerToysUserSetup-0.69.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysUserSetup-0.69.0-x64.exe",
+          "sha256": "d05fc31f137718516c1d792765aafec51551fc172064bc3ee170911e455053ac",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.68.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.68.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.68.1/PowerToysSetup-0.68.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.68.1-arm64.exe",
+          "sha256": "3f568bf24e78d855b529d25cab510a2589b8371d76b5be3bcebbd4c7b9043d99",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.68.1/PowerToysSetup-0.68.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.68.1-x64.exe",
+          "sha256": "ecbeed67efa864e558403f719b7ffd6f0192e77c36579b2ff9c2a0b6dd305752",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.68.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.68.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.68.0/PowerToysSetup-0.68.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.68.0-arm64.exe",
+          "sha256": "59d4ae125f7b8e937b4e68786107df0c479d107bedef8b0434c7a28969f86fc0",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.68.0/PowerToysSetup-0.68.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.68.0-x64.exe",
+          "sha256": "44e4441eab29d9fb9b5fd3ec4baa63f8d425c8ac9622faa432b17c1216ff64ed",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.67.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.67.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.67.1/PowerToysSetup-0.67.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.67.1-arm64.exe",
+          "sha256": "e6f4e41c4b35b2f1f9262e4d954254d64769d68bddfddec67b5626e58dce3842",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.67.1/PowerToysSetup-0.67.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.67.1-x64.exe",
+          "sha256": "a5ad6bca1df8a9399a56334a96ccf49b1e55005b369493b2081388ae7bdc1fb4",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.67.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.67.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.67.0/PowerToysSetup-0.67.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.67.0-arm64.exe",
+          "sha256": "80ca4b9de6b34e214f9e3f5063086e161608193faca15cb24924660f818c4400",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.67.0/PowerToysSetup-0.67.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.67.0-x64.exe",
+          "sha256": "f653dec43f4ce09f3c14c682ba18e3a18d34d2a2244ecbfdf3a879897a237383",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.66.0",
+      "release_date": "2023-01-05",
+      "release_notes_url": "https://github.com/microsoft/PowerToys/releases/tag/v0.66.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.66.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.66.0/PowerToysSetup-0.66.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.66.0-arm64.exe",
+          "sha256": "19da79d497cad28cc80a9c9954459ee93fe23ffc560de7732dd806a38e862210",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.66.0/PowerToysSetup-0.66.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.66.0-x64.exe",
+          "sha256": "ee3f76f056a0611f69a203ba6d2b36ff81014b1fa29d1f46ecdcc6d312724fc6",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.65.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.65.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.65.0/PowerToysSetup-0.65.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.65.0-arm64.exe",
+          "sha256": "8780cf5e82f21baaf3234f630a89175782a26d22eb7e32fd23f78fb3e4c336a2",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.65.0/PowerToysSetup-0.65.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.65.0-x64.exe",
+          "sha256": "8151675ee508cd3c91df3088c52192c58080a15a4edf958ada99ebda19c31cf1",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.64.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.64.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.64.1/PowerToysSetup-0.64.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.64.1-arm64.exe",
+          "sha256": "dee28fe7c7d59c301861375c1dba47b41865653d1f34262e4c5a7a30a0051f39",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.64.1/PowerToysSetup-0.64.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.64.1-x64.exe",
+          "sha256": "0110ee62579462d509086d50f65ea44196f52624b08cdc8c9e1cbb8a7ffd4f35",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.64.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.64.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.64.0/PowerToysSetup-0.64.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.64.0-arm64.exe",
+          "sha256": "d3f225d00a748e94a5bc09c21ce6ed3a1b1f0dc5e1d6fe1870f82a0154b0772c",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.64.0/PowerToysSetup-0.64.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.64.0-x64.exe",
+          "sha256": "5bafc1ef4683f83c16d0fce6ba11f97a9b6e9c12732b07ff8480f2d47f72c44e",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.63.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.63.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.63.0/PowerToysSetup-0.63.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.63.0-arm64.exe",
+          "sha256": "028e0c055c0a8cdfffe61e4a0389a575b5d2fa0007005aa364c16138c7a183e8",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.63.0/PowerToysSetup-0.63.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.63.0-x64.exe",
+          "sha256": "d9e5cae050e6cb54f672c2f13dceb753b6ff1047d7286e0a98baa95df0affff7",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.62.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.62.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.62.1/PowerToysSetup-0.62.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.62.1-arm64.exe",
+          "sha256": "80ab7b27cad78b6f6cbe934ccc64d2d8abef9a59a430a67bd5806b396a9eb6b4",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.62.1/PowerToysSetup-0.62.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.62.1-x64.exe",
+          "sha256": "db42a587d9241b99d069de03d9e456083e141c392b35e05c9ad0177baa4a37fe",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.62.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.62.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.62.0/PowerToysSetup-0.62.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.62.0-arm64.exe",
+          "sha256": "4665372967bd0efe597c7e2149af5d68953535e38686bd21020c72453eb5fb50",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.62.0/PowerToysSetup-0.62.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.62.0-x64.exe",
+          "sha256": "7ede5c5be5f4ac03721ef0a73a4d3794bdbc3c2cae93d60c85dce7f6b1aff5bd",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.61.1",
+      "release_date": "2022-08-02",
+      "release_notes_url": "https://github.com/microsoft/PowerToys/releases/tag/v0.61.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.61.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.61.1/PowerToysSetup-0.61.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.61.1-arm64.exe",
+          "sha256": "d08967c4402654462644214597cc12c2fd3c67556a2a3e5ec580a5fec5042e01",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.61.1/PowerToysSetup-0.61.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.61.1-x64.exe",
+          "sha256": "9334014e9aa026f2f66b407f3be5d2076920fc3047aec1cf6185b0655749d6ff",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.61.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.61.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.61.0/PowerToysSetup-0.61.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.61.0-arm64.exe",
+          "sha256": "52a931f4fcb4df1e0f9b73bfc163d845f8b72d2210e6a5d847ebe8942f19e933",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.61.0/PowerToysSetup-0.61.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.61.0-x64.exe",
+          "sha256": "f76d3106fe743df54963db297397cf557d3854c47cc53e0b59cc56c316ac65e0",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.60.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.60.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.60.1/PowerToysSetup-0.60.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.60.1-arm64.exe",
+          "sha256": "4215b12366e7ae4a088e538045a9ef2f484843ecd1b1b3560413a6a763bc88b3",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.60.1/PowerToysSetup-0.60.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.60.1-x64.exe",
+          "sha256": "f72ae40ff6daa9263f4a7c33f7210027e527eac9e95bb91a89f245abc81b19aa",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.60.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.60.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.60.0/PowerToysSetup-0.60.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.60.0-x64.exe",
+          "sha256": "030a4f7c6d81b09c7b8c8d75fc9fda8da98bfb3e0ac03c555035ff66fe9f71c2",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.60.0/PowerToysSetup-0.60.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.60.0-arm64.exe",
+          "sha256": "aeb644a76626cbd627455d30a9aba0440a231ca0f82436a72d6299da3cf49838",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet /norestart",
+            "silent_with_progress": "/quiet /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.59.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.59.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.59.1/PowerToysSetup-0.59.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.59.1-x64.exe",
+          "sha256": "6cfcdd19f8076ecf64be98da9c05257178b4cb1dbf41e2d014991abeb2b83352",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/passive /norestart",
+            "silent_with_progress": "/passive /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.59.1/PowerToysSetup-0.59.1-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.59.1-arm64.exe",
+          "sha256": "4f1430c8d6dec1caff2faa2c5dee983fa75d7db654fd5fdba681c6f3b5fa92d4",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/passive /norestart",
+            "silent_with_progress": "/passive /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.59.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.59.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.59.0/PowerToysSetup-0.59.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.59.0-x64.exe",
+          "sha256": "a6742f3c9a477ff50bf3e6f8521fcdc4b7524a81659d0f5c5d850716eff3d8b8",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/passive /norestart",
+            "silent_with_progress": "/passive /norestart"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.59.0/PowerToysSetup-0.59.0-arm64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.59.0-arm64.exe",
+          "sha256": "b7125697bdbf4a6f835757b4cfb9f71a5a5c6e08c073777112a3d212dc04b170",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/passive /norestart",
+            "silent_with_progress": "/passive /norestart"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.58.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.58.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.58.0/PowerToysSetup-0.58.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.58.0-x64.exe",
+          "sha256": "bbce7f377eba02c57c0529eff00fe966a249beb9f5eeda068955a0e8032ea42f",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet",
+            "silent_with_progress": "/passive"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.57.2",
+      "release_date": "2022-04-08",
+      "release_notes_url": "https://github.com/microsoft/PowerToys/releases/tag/v0.57.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.57.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.57.2/PowerToysSetup-0.57.2-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.57.2-x64.exe",
+          "sha256": "92d657a001578aee5b5a3f0748ac7c89c54c870bb86221a5ecfff1506bd57c41",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet",
+            "silent_with_progress": "/passive"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.57.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.57.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.57.0/PowerToysSetup-0.57.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.57.0-x64.exe",
+          "sha256": "0f20dcdc0a1bf5c86d60a41ded8f459a2cf1457c37bb33da31979d639dd8bd9e",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet",
+            "silent_with_progress": "/passive"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.56.2",
+      "release_date": "2022-03-07",
+      "release_notes_url": "https://github.com/microsoft/PowerToys/releases/tag/v0.56.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.56.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.56.2/PowerToysSetup-0.56.2-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.56.2-x64.exe",
+          "sha256": "e042e0fc38d2682da9fff0e9700c3c42d204c0a0eec0cba8cb273de46d2c9166",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "/quiet",
+            "silent_with_progress": "/passive"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.56.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.56.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.56.1/PowerToysSetup-0.56.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.56.1-x64.exe",
+          "sha256": "c54ddd1d325d3c6f537caef2a57f763131f51caa2bdb23b3e3360185e6032aac",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.55.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.55.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.55.2/PowerToysSetup-0.55.2-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.55.2-x64.exe",
+          "sha256": "5eda6daf8a5312d54d1b138a0cf06fe7584b1e353436df32d9af553ab663b631",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.55.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.55.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.55.1/PowerToysSetup-0.55.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.55.1-x64.exe",
+          "sha256": "c470eeca26aebbdb28bf7d35694065c1897a123a64fb5103033fc23207d6c4a5",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.55.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.55.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.55.0/PowerToysSetup-0.55.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.55.0-x64.exe",
+          "sha256": "2241c78386d6347aae2eda9ad16a980db00f596038fde1a176838f24302a2d07",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.53.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.53.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.53.3/PowerToysSetup-0.53.3-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.53.3-x64.exe",
+          "sha256": "4ca9b08c66af900c062956ede0887de804cd8dcf0f561bc2fc1cb73038883132",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.53.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.53.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "burn",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.53.1/PowerToysSetup-0.53.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.53.1-x64.exe",
+          "sha256": "d7d37972e7c9c090779671b04aa9894affc29a8429f26987df493bfe5f1520d4",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "-silent",
+            "silent_with_progress": "-silent"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.51.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.51.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.51.1/PowerToysSetup-0.51.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.51.1-x64.exe",
+          "sha256": "cdd2c65a30017da05a0bf5a8b144db8e523e17225fd180ffc3bd4c8b81f72994",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.51.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.51.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.51.0/PowerToysSetup-0.51.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.51.0-x64.exe",
+          "sha256": "d815fa165a39ade56848e2adc5a21ad8b2f639d6fd075b60120e10bcc9df1bac",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.49.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.49.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.49.1/PowerToysSetup-0.49.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.49.1-x64.exe",
+          "sha256": "31962e9947318f00086269b903e3b53b4613c9e9abe32a71d1128e3437222b2c",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.49.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.49.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.49.0/PowerToysSetup-0.49.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.49.0-x64.exe",
+          "sha256": "6e8f1c3bfba3374ff1aeacc15519d27b5ac32c07f1b96decfc38a95b32fddd7e",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.47.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.47.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.47.1/PowerToysSetup-0.47.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.47.1-x64.exe",
+          "sha256": "e49b5aa3a5d6e215a66e7c325d21220c6b3846e4659eb90ed71ca9c430c5154f",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.47.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.47.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.47.0/PowerToysSetup-0.47.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.47.0-x64.exe",
+          "sha256": "58ef4ae2f24080dcfaabc1cc03be05f8637ad41d3dd6d66ec6ac8ac5037389bc",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.45.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.45.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.45.0/PowerToysSetup-0.45.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.45.0-x64.exe",
+          "sha256": "bc1c7eda2eb80f3780c27467fef65c774e2008da908a4ca5c7c2ad87750735df",
+          "product_code": "{B3A4E585-5157-49AE-98FA-234D2E1BDD75}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "upgrade_behavior": "install",
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.43.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.43.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.43.0/PowerToysSetup-0.43.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.43.0-x64.exe",
+          "sha256": "5500395af64808129b4dfb0bdf02e3d3650d8a103c4c3244898c8bb7b92f9d48",
+          "product_code": "{DED29EDD-F6DE-4B52-B070-260055565001}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.41.4",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.41.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.41.4/PowerToysSetup-0.41.4-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.41.4-x64.exe",
+          "sha256": "15bc88a752f1d32aad1242897663bbb5c502203e44545a84625fed2c75fc55c4",
+          "product_code": "{C3F0E458-1DEF-4118-89B6-B80E5A46DFE0}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          },
+          "dependencies": {
+            "packages": [
+              "Microsoft.DotNet.Runtime.3_1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.41.3",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.41.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.41.3/PowerToysSetup-0.41.3-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.41.3-x64.exe",
+          "sha256": "3d386926d1ef48050ed0ffd15ba54e75cc72a00acf52117adaab3ebc1be132e9",
+          "product_code": "{4A3949D5-8C9F-46D1-BBA6-921B56A90A23}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.41.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.41.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.41.2/PowerToysSetup-0.41.2-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.41.2-x64.exe",
+          "sha256": "4bacda8925d5267be455348eeb0bacfe5cb3db2e5189e9ca2ff85297c597e8d8",
+          "product_code": "{3E02622B-1146-4640-B46C-C83315C2E858}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.37.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.37.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.37.2/PowerToysSetup-0.37.2-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.37.2-x64.exe",
+          "sha256": "bb045e34a8c6dda640c1cb262e7a3c646c6f6be8adbcb7dc7b6e77f9217b71e6",
+          "product_code": "{51CBAD6C-E458-46AC-B10E-997DA6C9FD4E}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.37.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.37.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.37.0/PowerToysSetup-0.37.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.37.0-x64.exe",
+          "sha256": "262cd602206df552323af7fdcf1032fb0b0d0e8dad82e1e3b11290cefcf5757b",
+          "product_code": "{51CBAD6C-E458-46AC-B10E-997DA6C9FD4E}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.35.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.35.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.35.0/PowerToysSetup-0.35.0-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.35.0-x64.exe",
+          "sha256": "8a052767127a6e2058baae03b551a807777bb1b726650e2c7e92c3e92c8df80d",
+          "product_code": "{21EFEBE5-45DF-479D-8ED1-BF733D4315BB}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.33.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.33.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.33.1/PowerToysSetup-0.33.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.33.1-x64.exe",
+          "sha256": "33d9a55e5d133ec521669fa05473a3b3f04f06b786016a36e92adc83002502e1",
+          "product_code": "{21EFEBE5-45DF-479D-8ED1-BF733D4315BB}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.31.2",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.31.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.31.2/PowerToysSetup-0.31.2-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.31.2-x64.exe",
+          "sha256": "8b4a3d4c8d18da10fd11558bd6c8cf195d931576d6e07369e7ac99ba9be7c4c4",
+          "product_code": "{174AD64A-220A-4CB9-ABDC-A13E3243DD09}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "0.31.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/m/Microsoft/PowerToys/0.31.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/microsoft/PowerToys/releases/download/v0.31.1/PowerToysSetup-0.31.1-x64.exe",
+          "host": "github.com",
+          "filename": "PowerToysSetup-0.31.1-x64.exe",
+          "sha256": "a1226b1788b2f254da72383b879e3b1f38603daaaf6d2674f0927730e0ad8af4",
+          "product_code": "{174AD64A-220A-4CB9-ABDC-A13E3243DD09}",
+          "min_os_version": "10.0.17134.0",
+          "switches": {
+            "silent": "--silent",
+            "silent_with_progress": "--silent"
+          }
+        }
+      ]
     }
   ],
   "verification": {
@@ -3842,8 +5653,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "9a6f025838a24430a00bf70fdf00405980b029c3",
-      "retrieved_at": "2026-11-18T23:29:43.113Z",
+      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
+      "retrieved_at": "2026-11-25T02:29:14.550Z",
       "path": "manifests/m/Microsoft/PowerToys"
     }
   ]

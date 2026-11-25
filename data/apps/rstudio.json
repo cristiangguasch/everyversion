@@ -3045,6 +3045,233 @@
       ]
     },
     {
+      "platform": "windows",
+      "version": "1.3.1073",
+      "release_date": "2020-08-11",
+      "release_notes": "This is a patch release of RStudio 1.3, consisting primarily of bugfixes and small improvements to RStudio 1.3.\n\nMisc\n- Compatible with R graphics engine version 13 (R 4.1.0+) (#7253) - Add support for configurable rsandbox path in Server Pro (Pro #1777) - Add support for running Slurm plugin in unprivileged Docker containers (Pro #1744)\n\nFixed\n- Fix issue where files could not be uploaded when using RStudio Server load balancing (Pro #1751)\n- Fix issue where the Crash Handler notification prompt would never go away (#7243)\n- Fix issue with slow shutdown on Windows (#7117)\n- Fix issue where Launcher debug logs could contain user’s plain text password (Pro #1687)\n- Fix issue where some log entries could not be displayed on the admin logs page (Pro #1783)\n- Fix “TypeError” when sign-in using IE11 (#7359)\n- Fix issue where users belonging to more than 101 groups could not launch Kubernetes sessions (Pro #1796)\n- Fix problem with moving Console between left and right columns (#7246)\n- Fix issue with rstudioapi::setCursorPosition() not scrolling cursor into view (#7317)\n- Fix issue with rmarkdown and packrat packages being eagerly loaded on IDE launch (#7265)\n- Fix issue with folded chunk outputs getting stuck at top of IDE (#7293)\n- Fix issue where Slurm Launcher jobs could not be started on systems with root squash configured for the user home directory (Pro #1775)\n- Fix issue where locking an account would cause an infinite redirect loop on the sign-in page (Pro #1785, Pro #1764)\n- Fix issue where Jupyter sessions could not be started when the home directory was a root squash mount (Pro #1795)\n- Fix issue where large R objects in the environment pane could not be expanded (Pro #1799)\n- Fix issue where Session Server settings for a saved server could not be modified (Pro #1824)",
+      "release_notes_url": "https://www.rstudio.com/products/rstudio/release-notes/",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/Posit/RStudio/1.3.1073",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download1.rstudio.org/desktop/windows/RStudio-1.3.1073.exe",
+          "host": "download1.rstudio.org",
+          "filename": "RStudio-1.3.1073.exe",
+          "sha256": "2fea472a1e054f1795f57f084389ddac2fd44afcf33b1287343f31768ac7c8ad",
+          "product_code": "RStudio",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "c",
+            "cpp",
+            "css",
+            "h",
+            "hpp",
+            "js",
+            "markdown",
+            "md",
+            "mdtxt",
+            "r",
+            "rd",
+            "rda",
+            "rdata",
+            "rdprsp",
+            "rhtml",
+            "rmarkdown",
+            "rmd",
+            "rnw",
+            "rpres",
+            "rproj",
+            "tex"
+          ],
+          "dependencies": {
+            "packages": [
+              "RProject.R"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "RStudio",
+              "product_code": "RStudio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.1056",
+      "release_date": "2020-07-15",
+      "release_notes": "This is a patch release of RStudio 1.3, consisting primarily of bugfixes and small improvements from the initial 1.3 stable release.\n\nMisc\n- R 4.0.0’s raw string literals are now handled properly by the diagnostics engine. (#6788)\n- Allow projects to reopen after a crash (#3220)\n- Added spellcheck blacklist item for preview Latvian dictionary (#6594)\n- Allow multiple space-separated domains in www-frame-origin for Tutorial API (Pro)\n- Update rstudioapi highlightUi call to accept a callback variable containing an R script to be executed after the highlight element has been selected (#67565)\n- Adds class attributed to RMarkdown chunks, their control buttons, and their output based on their given labels. (#6787)\n- Add option www-url-path-prefix to force a path on auth cookies (Pro #1608)\n- Add additional keyboard shortcut (Ctrl+`) for Focus Console Output accessibility command (#6850)\n- Always set application role for screen readers and removed related accessibility preference checkbox (#6863)\n- Update NOTICE for Ace editor license (#7102)\n- Removed requirement of password forwarding for PAM sessions when using Launcher sessions (Pro #1638)\n\nFixed\n- Announce text of warnings bar via screen reader (#6963)\n- Fix issue where projects using renv sometimes failed to load (#7077)\n- Fix issue where attempts to create clusters via parallel package failed on macOS (#6692)\n- Fix display issue with keyboard shortcut in Modify Keyboard Shortcuts dialog (#7142)\n- Fix ‘truncating string with embedded nuls’ warning being emitted when saving R Notebook (#6932)\n- Fix Compare Results and other incompatibility with newer versions of the shinytest package (#6960)\n- Fix Terminal to work with both Git-Bash and RTools4 MSYS2 installed on Windows (#6696, #6809)\n- Fix auto-activation of JAWS screen reader virtual cursor in Console Output region (#6884)\n- Fix dependency installation for untitled buffers (#6762)\n- Fix failure to open source files when debugging some functions in R 4.0.0 (work around R bug in deparse()) (#6854)\n- Fix failure to use the first project template and default open files (#6865)\n- Fix issue where R_LIBS_SITE could be forcibly set empty, overriding the value in /etc/R/REnviron (#6982)\n- Fix keybinding failure when global keybindings exists but user keybindings don’t (#6870)\n- Fixed Chromium issue when using RStudio Desktop on Linux systems with newer glibc (#6379)\n- Fixed install issue where service scripts would not be created if there was no /lib/systemd path (Pro #6710)\n- Fixed issue where an attempt to create more sessions than the license limit would fail with a generic error (Pro #1680)\n- Fixed issue where users could not save files in home directory if specified by UNC path (#6598)\n- Fixed issue where file upload would fail when the file already existed (#7015)\n- Fix sign out from the Admin Dashboard when behind a path-rewriting proxy (Pro #1709)\n- Fix “Login as user” from the Admin Dashboard when using Launcher sessions (Pro #1710)\n- Fix issue with first esc keypress being ignored (#7045)\n- Fix issue with spellcheck not working with realtime turned off (#7068)\n- Fix error when some HTML comments are included in R Markdown documents (#6997)\n- Fix issue where toolbar buttons were missing on initialization (#7076)\n- Fix error in Viewer pane when previewing Distill blogs (#6945)\n- Fix misalignment of some number cells in the data viewer (#6975)\n- Fix C++ autocompletion results missing on macOS in some contexts (#7097)\n- Fix misleading errors report for verify-installation without Launcher (Pro #1718)\n- Fix Global Options failure to launch when missing secondary repositories (#7116)\n- Send keyboard focus to the Source pane when creating new files (#7103)\n- Fix failure to open HTML widgets from the Viewer in an external web browser on Windows with R >= 4.0.0 (#6893)\n- Fix “cannot access the file” error with rstan when Viewer is open (#7046)\n- Fix launching jobs from working directories with spaces on their names (Pro #1708)\n- Update editor toolbar when R Markdown documents are switched to/from Notebook mode in YAML header (#7051)\n- Fix error when invoking spell check manually on some languages (#7018)\n- Fix RStudio Desktop Pro Job Launcher connections and path mappings (Pro #1726 and Pro #1727)\n- Fix painting of Appearance pane in Global Options on RStudio Desktop (#6268)\n- Fix Alt+- shortcut to insert assignment operator in R Markdown documents (#7169)\n- Fix issue with duplicated signature tooltips in R Markdown documents (#7154)\n- Fix issue with chunk toolbars not showing up in some cases (#7067)\n- Fix RStudio Server Pro issue where R version modules would sometimes not be able to modify the PATH environment variable (Pro #1737)\n- Fix dealing with expired sessions due to inactivity or signed out when using multiple browser tabs (Pro #1731, #7205)\n- Fix dropdowns not repopulating after being closed via keyboard shortcut (#7215)\n- Fix errors occurring during verify-installation command (#7221)\n\nRStudio Server Pro\n- New option server-project-sharing-root-dir allows project sharing outside user home directories (Pro #1340)\n- Update embedded nginx to 1.17.10",
+      "release_notes_url": "https://www.rstudio.com/products/rstudio/release-notes/",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/Posit/RStudio/1.3.1056",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download1.rstudio.org/desktop/windows/RStudio-1.3.1056.exe",
+          "host": "download1.rstudio.org",
+          "filename": "RStudio-1.3.1056.exe",
+          "sha256": "a8f1fee5b17f4cd2b8a3b5c1b05845f41fbc292f8540f6c005c6af6977e4527d",
+          "product_code": "RStudio",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "c",
+            "cpp",
+            "css",
+            "h",
+            "hpp",
+            "js",
+            "markdown",
+            "md",
+            "mdtxt",
+            "r",
+            "rd",
+            "rda",
+            "rdata",
+            "rdprsp",
+            "rhtml",
+            "rmarkdown",
+            "rmd",
+            "rnw",
+            "rpres",
+            "rproj",
+            "tex"
+          ],
+          "dependencies": {
+            "packages": [
+              "RProject.R"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "RStudio",
+              "product_code": "RStudio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.3.959",
+      "release_date": "2020-05-22",
+      "release_notes_url": "https://www.rstudio.com/products/rstudio/release-notes/",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/Posit/RStudio/1.3.959",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download1.rstudio.org/desktop/windows/RStudio-1.3.959.exe",
+          "host": "download1.rstudio.org",
+          "filename": "RStudio-1.3.959.exe",
+          "sha256": "3d493ae5779dd43943ca535e28e025d34b9236bd9342e4a434a43eca76016c9f",
+          "product_code": "RStudio",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "c",
+            "cpp",
+            "css",
+            "h",
+            "hpp",
+            "js",
+            "markdown",
+            "md",
+            "mdtxt",
+            "r",
+            "rd",
+            "rda",
+            "rdata",
+            "rdprsp",
+            "rhtml",
+            "rmarkdown",
+            "rmd",
+            "rnw",
+            "rpres",
+            "rproj",
+            "tex"
+          ],
+          "dependencies": {
+            "packages": [
+              "RProject.R"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "RStudio",
+              "product_code": "RStudio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "1.2.5042",
+      "release_date": "2020-04-13",
+      "release_notes": "This is a maintenance release of RStudio containing small bugfixes and functionality enhancements.\n\nMisc\n- Fix a crash when debugging with R 4.0+ (#5888)\n\nServer Pro\n- Fix a crash in rserver that sometimes occurs when a port proxy request fails to connect (#1361)\n- Fix a display issue for configured Launcher session limits (#1167)\n- Fix inability to select R version in Global Options and elsewhere (#1470)\n- Fix failure to start R sessions when multiple values are present in www-frame-origin (#1529)",
+      "release_notes_url": "https://www.rstudio.com/products/rstudio/release-notes/",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/Posit/RStudio/1.2.5042",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download1.rstudio.org/desktop/windows/RStudio-1.2.5042.exe",
+          "host": "download1.rstudio.org",
+          "filename": "RStudio-1.2.5042.exe",
+          "sha256": "5d4cd64426ee0d9ad520861c86ea11783c16b0daff46006f75b1c2f50ae78f34",
+          "product_code": "RStudio",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "c",
+            "cpp",
+            "css",
+            "h",
+            "hpp",
+            "js",
+            "markdown",
+            "md",
+            "mdtxt",
+            "r",
+            "rd",
+            "rda",
+            "rdata",
+            "rdprsp",
+            "rhtml",
+            "rmarkdown",
+            "rmd",
+            "rnw",
+            "rpres",
+            "rproj",
+            "tex"
+          ],
+          "dependencies": {
+            "packages": [
+              "RProject.R"
+            ]
+          },
+          "apps_and_features": [
+            {
+              "display_name": "RStudio",
+              "product_code": "RStudio"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "platform": "macos",
       "version": "2026.11.0",
       "source_version": "2026.11.0,203",
@@ -3093,8 +3320,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "a2bf4af82349e2f9c643fe5acd61c84a7a132216",
-      "retrieved_at": "2026-11-13T14:56:34.531Z",
+      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
+      "retrieved_at": "2026-11-25T02:29:14.550Z",
       "path": "manifests/p/Posit/RStudio"
     },
     {

@@ -53,17 +53,47 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "5.3.0",
+    "windows": "5.3.1",
     "macos": "5.2.3",
     "linux": "5.3.0"
   },
-  "last_updated": "2026-10-20",
+  "last_updated": "2026-11-24",
   "versions_total": {
-    "windows": 48,
+    "windows": 49,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "5.3.1",
+      "release_date": "2026-11-24",
+      "release_notes": "qBittorrent v5.3.1 was released.\nThe default version is now based on libtorrent 2.1.x series. It should have less I/O problems compared to 2.0.x series for those who chose to stay on the 1.2.x series. A version based on the 1.2.x series is still provided.\nNOTICE for heavy seeders: The new default libtorrent backend (2.1.x series) is known to have worse read performance compared to the 1.2.x series, which will affect your upload speed. So if you are a heavy seeder you may want to choose the version based on the 1.2.x series. Some details can be found here.\nLibrary versions\n\n|            |                                            |\n| ---------- | ------------------------------------------ |\n| libtorrent | 1.2.20+gitc5ff6c3186 / 2.1.3+git87b77c039e |\n| Qt         | 6.11.3                                     |\n| Boost      | 1.86 / 1.92                                |\n\nv5.3.1 changelog:\n- BUGFIX: Don't try to obtain pieces info when no metadata is available (glassez) #25070\n- BUGFIX: Add mnemonic for Plugins menu item (vafada) #25111\n- BUGFIX: Preserve encoded plus signs in HTTP queries (zepx) #25114\n- BUGFIX: Treat a lockfile that names our own PID as stale (ghz-max) #25128\n- BUGFIX: Correctly update item-by-path mapping on folder renamed (glassez) #25135\n- BUGFIX: Fix unexpected drop behavior when dragging from Firefox on Windows (Chocobo1) #25140\n- BUGFIX: Use system theme fallback icon for Open Destination Folder button (FTA7700) #25153\n- BUGFIX: Fix content layout isn't applied on deduplicated filenames (glassez) #25183\n- BUGFIX: Save search session after restoring it (droplet-gag-saint) #25196\n- BUGFIX: Allow renaming files with invalid names (droplet-gag-saint) #25197\n- BUGFIX: Ensure that recently queued jobs are performed before shutdown (glassez) #25215\n- BUGFIX: Adopt \"producer-consumer\" pattern in file-based resume data storage (glassez) #25217\n- BUGFIX: Fix WebTorrent trackers are rejected from magnet links (glassez) #25259\n- BUGFIX: Fix performance statistics time units (Chocobo1) #25277\n- WEBUI: Preserve web seed URLs when editing (c8dhjp4tyv-bit) #25096\n- WEBUI: Let search plugins download their own results (Piccirello) #25107\n- WEBUI: Insert translated strings as text instead of HTML (Piccirello) #25145\n- WEBAPI: Fix torrent ID changed event is unhandled (glassez) #25080\n- WEBAPI: Preserve metadata source URI encoding (zepx) #25113\n- WINDOWS: NSIS: Fix wrong registry view (Chocobo1) #25179\n- WINDOWS: NSIS: Remove leftover registry value (Chocobo1) #25180\n- MACOS: Add Homebrew prefix for Apple Silicon to PATH (MaxSiominDev) #25132\n- Full changes",
+      "release_notes_url": "https://www.qbittorrent.org/news",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/q/qBittorrent/qBittorrent/5.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://sourceforge.net/projects/qbittorrent/files/qbittorrent-win32/qbittorrent-5.3.1/qbittorrent_5.3.1_x64_setup.exe/download",
+          "host": "sourceforge.net",
+          "filename": "download",
+          "sha256": "836d0f415fdf195cb861a3bc88ac603d2bf4480f78a334d512ad0e458e7c8db5",
+          "product_code": "qBittorrent",
+          "elevation_requirement": "elevatesSelf",
+          "upgrade_behavior": "install",
+          "protocols": [
+            "magnet"
+          ],
+          "file_extensions": [
+            "torrent"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "5.3.0",
@@ -1676,34 +1706,6 @@
     "reason": "fails_gatekeeper_check",
     "date": "2026-09-01"
   },
-  "provenance": [
-    {
-      "source": "winget-pkgs",
-      "platform": "windows",
-      "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "8b25a4adc5af08a914e73e0d05bad15b95c57fa4",
-      "retrieved_at": "2026-11-10T13:00:24.015Z",
-      "path": "manifests/q/qBittorrent/qBittorrent"
-    },
-    {
-      "source": "homebrew-cask",
-      "platform": "macos",
-      "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
-      "retrieved_at": "2026-11-10T13:00:24.015Z",
-      "path": "Casks/q/qbittorrent.rb",
-      "api_url": "https://formulae.brew.sh/api/cask/qbittorrent.json"
-    },
-    {
-      "source": "flathub",
-      "platform": "linux",
-      "repo": "https://github.com/flathub/org.qbittorrent.qBittorrent",
-      "retrieved_at": "2026-11-08T14:04:57.687Z",
-      "path": "api/v2/appstream/org.qbittorrent.qBittorrent",
-      "api_url": "https://flathub.org/api/v2/appstream/org.qbittorrent.qBittorrent",
-      "content_sha256": "2c9e8f91d7eddfa0fcd862b07f62595a97b3bb3ffd01d71546e282467bf78f7e"
-    }
-  ],
   "flathub": {
     "app_id": "org.qbittorrent.qBittorrent",
     "page_url": "https://flathub.org/apps/org.qbittorrent.qBittorrent",
@@ -1724,11 +1726,39 @@
       "FileTransfer",
       "P2P"
     ],
-    "download_size": 15396475,
-    "installed_size": 25587712,
+    "download_size": 15844846,
+    "installed_size": 26078720,
     "arches": [
       "arm64",
       "x64"
     ]
-  }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "630042ce38c95e471839460c27801fabdc6c97e9",
+      "retrieved_at": "2026-11-25T01:10:19.550Z",
+      "path": "manifests/q/qBittorrent/qBittorrent"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "2a787405f61bae566c2b5d98e72d776daaa820de",
+      "retrieved_at": "2026-11-10T13:00:24.015Z",
+      "path": "Casks/q/qbittorrent.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/qbittorrent.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.qbittorrent.qBittorrent",
+      "retrieved_at": "2026-11-25T01:10:36.411Z",
+      "path": "api/v2/appstream/org.qbittorrent.qBittorrent",
+      "api_url": "https://flathub.org/api/v2/appstream/org.qbittorrent.qBittorrent",
+      "content_sha256": "fa69fb9e975c2bc7fbbec601c33c7bbc855527cd2abe5441b48bfd585c610f3a"
+    }
+  ]
 }

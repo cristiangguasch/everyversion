@@ -57,7 +57,7 @@
   },
   "latest_versions": {
     "windows": "2026.3",
-    "macos": "2026.3",
+    "macos": "2026.3.0.1",
     "linux": "2026.3"
   },
   "last_updated": "2026-11-05",
@@ -6172,27 +6172,1264 @@
       ]
     },
     {
+      "platform": "windows",
+      "version": "2023.3.6",
+      "release_date": "2024-03-25",
+      "release_notes": "What's fixed:\n- We've introduced a workaround to reduce the probability of IDE crashes after an update to macOS Sonoma 14.4 (JBR-6802).\nFor more details, please see the blog post.",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538483/WebStorm-2023.3.6-233.15026.13-build-Release-Notes",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.3.6",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.6.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.6.exe",
+          "sha256": "d7f43f75227f60d669e153ea6633f8448ef74f4e384b303eb5e9d905d552f2b5",
+          "product_code": "WebStorm 2023.3.6",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.6",
+              "display_version": "233.15026.13",
+              "product_code": "WebStorm 2023.3.6"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.6-aarch64.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.6-aarch64.exe",
+          "sha256": "112c85214e8b28b62767a70e76d4f3da05968c5dbbde35fd2b2b3dba64c8f4a9",
+          "product_code": "WebStorm 2023.3.6",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.6",
+              "display_version": "233.15026.13",
+              "product_code": "WebStorm 2023.3.6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.3.5",
+      "release_date": "2024-03-15",
+      "release_notes": "What's fixed:\n- We've fixed the issue causing erratic screen scaling on Linux (IDEA-341318).\n- We've fixed the issue with update options being shown for disabled plugins (IJPL-626).\nFor more details, please see the blog post.",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538480/WebStorm-2023.3.5-233.14808.24-build-Release-Notes",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.3.5",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.5.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.5.exe",
+          "sha256": "2b6fb568f8c77562e03769a7907e12a2175935dd1f4a66a4f8128c80c6887e92",
+          "product_code": "WebStorm 2023.3.5",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.5",
+              "display_version": "233.14808.24",
+              "product_code": "WebStorm 2023.3.5"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.5-aarch64.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.5-aarch64.exe",
+          "sha256": "09d064140162ade3fa4fb02cfdec661c42c3b391b2242ad906e56751a01acf83",
+          "product_code": "WebStorm 2023.3.5",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.5",
+              "display_version": "233.14808.24",
+              "product_code": "WebStorm 2023.3.5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.3.4",
+      "release_date": "2024-02-16",
+      "release_notes": "What's fixed:\n- We've fixed the issue causing errors thrown outside Vitest tests to not be reported (WEB-65015).\n- We've addressed the issue with the Settings Sync functionality reporting an authorization problem (IDEA-343073).\n- Customizing inspection severities is once again accessible in Settings | Editor | Inspections (IDEA-341773).\nFor more details, please see the blog post.",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538470/WebStorm-2023.3.4-233.14475.40-build-Release-Notes",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.3.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.4.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.4.exe",
+          "sha256": "5517840c35832d1312f1add5233ed93a6a63383f05e89eb385266fd01c670959",
+          "product_code": "WebStorm 2023.3.4",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.4",
+              "display_version": "233.14475.40",
+              "product_code": "WebStorm 2023.3.4"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.4-aarch64.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.4-aarch64.exe",
+          "sha256": "3edaf3052d372aa9458482b6b5af4137cea9e23ac747a63f561e11cf54f7e483",
+          "product_code": "WebStorm 2023.3.4",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.4",
+              "display_version": "233.14475.40",
+              "product_code": "WebStorm 2023.3.4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.3.3",
+      "release_date": "2024-01-26",
+      "release_notes": "What's fixed:\n- React.js server and client components are now highlighted with different colors (WEB-60882).\n- We've improved Angular 17 support and fixed a number of related issues (WEB-63345, WEB-63976, WEB-64042, WEB-64551, and WEB-64736).\n- The Corresponding file is not included in tsconfig.json error will no longer be shown in Astro files when TypeScript is used (WEB-59503).\n- We've fixed the issue with the \"Cannot find module\" error message shown in Vue file imports (WEB-62353).\n- We've fixed the issue that caused WebStorm to use Vue Language Server in Next.js projects (WEB-63282).\n- We've added support for the <search> HTML element (WEB-60484).\nFor more details, please see the blog post.",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538462/WebStorm-2023.3.3-233.14015.89-build-Release-Notes",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.3.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.3.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.3.exe",
+          "sha256": "001f52ed675bcc5b298c98b37423d97d5cfd86e87c89ebe983c964e88b06254c",
+          "product_code": "WebStorm 2023.3.3",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.3",
+              "display_version": "233.14015.89",
+              "product_code": "WebStorm 2023.3.3"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.3-aarch64.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.3-aarch64.exe",
+          "sha256": "86276b2176d1fb50b66c4570a362600c1ee543d1d8a62c441042093e2596faaf",
+          "product_code": "WebStorm 2023.3.3",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.3",
+              "display_version": "233.14015.89",
+              "product_code": "WebStorm 2023.3.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.3.2",
+      "release_date": "2023-12-21",
+      "release_notes": "What's new:\n- We've added support for Angular 17 new control flow block syntax (WEB-63164).\n- We've fixed the issue causing WebStorm to throw an error after updating to ESLint 8.56.0 while using a flat config file (eslint.config.js) and the ESLint plugin (WEB-64696).\n- We've fixed the regression causing WebStorm not to include anything inside the default export in the Vue component Structure view (WEB-63946).\n- We've fixed the issue causing WebStorm to lose file names in file templates (IDEA-279811).\n- We've fixed several HTTP Client related issues (IDEA-332986, IDEA-224825, IDEA-296844).\n- We've fixed the issue causing WebStorm to show a blank window when opening a second project in full-screen mode on macOS (IDEA-339992).\n- When using borderless mode on Windows, WebStorm once again correctly restores the position of a window that had previously been snapped to one side of the screen (IDEA-250563).\n- We've fixed the issue causing WebStorm to crash on startup due to errors appearing when parsing the UI theme (IDEA-340108).\nFor more details, please see the blog post.",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538458/WebStorm-2023.3.2-233.13135.92-build-Release-Notes",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.3.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.2.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.2.exe",
+          "sha256": "e5164e5108b82293a40ccf1d43b124f4e6f5e9db574122864948d048fb1b9511",
+          "product_code": "WebStorm 2023.3.2",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.2",
+              "display_version": "233.13135.92",
+              "product_code": "WebStorm 2023.3.2"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.2-aarch64.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.2-aarch64.exe",
+          "sha256": "45b97ea39594569a314f4035ff672b6e77c342f467e8fc253339aeecc1539220",
+          "product_code": "WebStorm 2023.3.2",
+          "switches": {
+            "log": "/LOG=\"<LOGPATH>\""
+          },
+          "upgrade_behavior": "uninstallPrevious",
+          "file_extensions": [
+            "css",
+            "html",
+            "ipr",
+            "js",
+            "json"
+          ],
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.2",
+              "display_version": "233.13135.92",
+              "product_code": "WebStorm 2023.3.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.3.1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2023.3.1.exe",
+          "host": "download.jetbrains.com",
+          "filename": "WebStorm-2023.3.1.exe",
+          "sha256": "f7aeb2948ba2eb6ce789d0dbb62edbf2afe2c5e3cb7e2b36a4b0878b7bc4fca0",
+          "product_code": "WebStorm 2023.3.1",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.3.1",
+              "display_version": "233.11799.293",
+              "product_code": "WebStorm 2023.3.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.2.3",
+      "release_date": "2023-11-12",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.2.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2023.2.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2023.2.3.exe",
+          "sha256": "0d7975a1cca3aafd2aa174d965bec20f6edb54ab507dc90f05aca8962b448a5e",
+          "product_code": "WebStorm 2023.2.3",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.2.3",
+              "display_version": "232.10072.28",
+              "product_code": "WebStorm 2023.2.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2023.2",
+      "release_date": "2023-07-24",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2023.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2023.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2023.2.exe",
+          "sha256": "85265c746a4e563afe35fa4437df762f35fc8f5b407c5a15ca82376cd1ddf18c",
+          "product_code": "WebStorm 2023.2",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.2",
+              "product_code": "WebStorm 2022.3.2"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2023.2-aarch64.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2023.2-aarch64.exe",
+          "sha256": "41e391d92ee4f1d84987c24c91f6edff1976c7d570cf2f826a71b18aa0620ab0",
+          "product_code": "WebStorm 2023.2",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2023.2",
+              "product_code": "WebStorm 2022.3.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.3.2",
+      "release_date": "2023-01-31",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538388/WebStorm-223.8214.51-Release-Notes",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.3.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.3.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.3.2.exe",
+          "sha256": "ba07cb3086993dd7796b7186a57e182006d4214740c494139ba498c956a64d78",
+          "product_code": "WebStorm 2022.3.2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.3.2",
+              "display_version": "223.8617.44",
+              "product_code": "WebStorm 2022.3.2"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.3.2-aarch64.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.3.2-aarch64.exe",
+          "sha256": "1cccbd81d2f5d5d274242d1a22d3950ba78477b4e39d83e22a3b8761e158df8d",
+          "product_code": "WebStorm 2022.3.2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.3.2",
+              "display_version": "223.8617.44",
+              "product_code": "WebStorm 2022.3.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.3.1",
+      "release_date": "2022-12-22",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538388/WebStorm-223.8214.51-Release-Notes",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.3.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.3.1.exe",
+          "sha256": "a84b1a0f0efa214dd49ecaabbb4bae1c0131778c51cda3f7525c47ce37b16f9d",
+          "product_code": "WebStorm 2022.3.1",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.3",
+              "display_version": "223.8214.51",
+              "product_code": "WebStorm 2022.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.3",
+      "release_date": "2022-11-28",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538385",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.3.exe",
+          "sha256": "5426c0033bc400a26f7f010c48305d4d8fd9c29aa57bf5a1bf0ffc714540a6fb",
+          "product_code": "WebStorm 2022.2.3",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.3",
+              "display_version": "223.7571.168",
+              "product_code": "WebStorm 2022.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.2.3",
+      "release_date": "2022-10-10",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538376/WebStorm-222434514-Release-Notes",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.2.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.2.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.2.3.exe",
+          "sha256": "e70c8df345314d47d1a66e73b6287bfce399742ab60c88cf3cb8252f024984ee",
+          "product_code": "WebStorm 2022.2.3",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.2.3",
+              "display_version": "222.4345.14",
+              "product_code": "WebStorm 2022.2.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.2.2",
+      "release_date": "2022-09-15",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538370/WebStorm-222416731-Release-Notes",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.2.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.2.2.exe",
+          "sha256": "c542afdf44b5d737cf390f96af9b1f3f8f67000596614cece3f1814330b0a718",
+          "product_code": "WebStorm 2022.2",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.2",
+              "publisher": "JetBrains s.r.o.",
+              "display_version": "222.4167.31",
+              "product_code": "WebStorm 2022.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.2.1",
+      "release_date": "2022-08-18",
+      "release_notes_url": "https://youtrack.jetbrains.com/articles/WEB-A-233538367/WebStorm-222373957-Release-Notes",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.2.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.2.1.exe",
+          "sha256": "3ad3774657d92a1a0ed8444646ba0a30289f24c771fddfe4a9178b5cae62e950",
+          "product_code": "WebStorm 2022.2.1",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.2.1",
+              "display_version": "222.3739.57",
+              "product_code": "WebStorm 2022.2.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.2.exe",
+          "sha256": "27dac818588602225e14f118e8025a306562978410c1ba90f19bf1bc92fc6c71",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.2",
+              "display_version": "222.3345.108",
+              "product_code": "WebStorm 2022.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.1.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.1.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.1.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.1.3.exe",
+          "sha256": "be3accf8246f5d6bd85393da7028d80f4581e33041be51dbe23284778b1e9dba",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.1.3",
+              "display_version": "221.5921.27",
+              "product_code": "WebStorm 2022.1.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.1.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.1.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.1.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.1.2.exe",
+          "sha256": "5eea20966c1a9415e239361f57ec7977781f4c3e333c41cd2373362227085492",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.1.2",
+              "display_version": "221.5787.30",
+              "product_code": "WebStorm 2022.1.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.1.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.1.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.1.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.1.1.exe",
+          "sha256": "6f8da70e43ac8cd8527c220310c5856349393a489fd14a34e3cbac9950c5fe21",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.1.1",
+              "display_version": "221.5591.52",
+              "product_code": "WebStorm 2022.1.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2022.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2022.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2022.1.exe",
+          "sha256": "103efaad480d80df18d997c314306cf0a6dbb6938b82fc3161821acb9e99af96",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2022.1",
+              "display_version": "221.5080.193",
+              "product_code": "WebStorm 2022.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.3.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.3.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.3.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.3.3.exe",
+          "sha256": "b3f96f5fa4a9841ec518a28bc16907840813407a9487670c449aff6e7b18c23d",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.3.3",
+              "display_version": "213.7172.31",
+              "product_code": "WebStorm 2021.3.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.3.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.3.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.3.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.3.2.exe",
+          "sha256": "98b8f5901299bb6ad74913104e72bdaf275a1dc6a1ba9664149b802f10ad26e9",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.3.2",
+              "display_version": "213.6777.57",
+              "product_code": "WebStorm 2021.3.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.3.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.3.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.3.1.exe",
+          "sha256": "235bba60a1640c88f6c42b0df86acbd51200c99b747888af61bc0dd029054941",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.3.1",
+              "display_version": "213.6461.79",
+              "product_code": "WebStorm 2021.3.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.3.exe",
+          "sha256": "3919c790d9c0b92b9b2f03e6b86ff86af0c1ad77708de25e69186b128d19617a",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.3",
+              "display_version": "213.5744.224",
+              "product_code": "WebStorm 2021.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.2.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.2.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.2.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.2.3.exe",
+          "sha256": "d13071d1adcede6100e85cea099638d44cea3ee74367f860af9a6df21f935a4c",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.2.3",
+              "display_version": "212.5457.55",
+              "product_code": "WebStorm 2021.2.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.2.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.2.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.2.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.2.2.exe",
+          "sha256": "4798e7c1bbbbcc7bbbfceeedff52ac39d7262a255b943edd3c3575cbe32d3191",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.2.2",
+              "display_version": "212.5284.41",
+              "product_code": "WebStorm 2021.2.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.2.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.2.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.2.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.2.1.exe",
+          "sha256": "b6856d57bab7f571514f3dd3646d7b6e824f383a4e2583b1e1d08ec1f9a6d20b",
+          "min_os_version": "10.0.0.0",
+          "install_modes": [
+            "interactive",
+            "silent"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.2.1",
+              "display_version": "212.5080.54",
+              "product_code": "WebStorm 2021.2.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.2.exe",
+          "sha256": "50f9f819151b356402782654eb254b1e5175730b90082f453bb80da25d91a00c",
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.2",
+              "display_version": "212.4746.80",
+              "product_code": "WebStorm 2021.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.1.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.1.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.1.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.1.3.exe",
+          "sha256": "f5a7fee980db38a08935078db20adcbb8395834b1add44fed2a8973943b79d6b",
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.1.3",
+              "display_version": "211.7628.25",
+              "product_code": "WebStorm 2021.1.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.1.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.1.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.1.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.1.2.exe",
+          "sha256": "1892065785b338c5b9ec68d9b28377cd1867e98a0c624d45dc69ca065bb84981",
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.1.2",
+              "display_version": "211.7442.26",
+              "product_code": "WebStorm 2021.1.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2021.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2021.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2021.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2021.1.exe",
+          "sha256": "bdeb616c8f3315aad215044ec4aa7b140bfd5d85046cf22fb45fe80927c61112",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2021.1",
+              "display_version": "211.6693.108",
+              "product_code": "WebStorm 2021.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2020.3.3",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2020.3.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2020.3.3.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2020.3.3.exe",
+          "sha256": "f9a84bb606b2637aa2cae77f7e0dea0baeff533e7a03375fa23b71c32b509941",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2020.3.3",
+              "display_version": "203.7717.59",
+              "product_code": "WebStorm 2020.3.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2020.3.2",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2020.3.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2020.3.2.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2020.3.2.exe",
+          "sha256": "8a1a880f79810999c292438620b5f945f7ec1610309bd7ae092150e8e9438dc4",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2020.3.2",
+              "display_version": "203.7148.54",
+              "product_code": "WebStorm 2020.3.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2020.3.1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/j/JetBrains/WebStorm/2020.3.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "url": "https://download-cdn.jetbrains.com/webstorm/WebStorm-2020.3.1.exe",
+          "host": "download-cdn.jetbrains.com",
+          "filename": "WebStorm-2020.3.1.exe",
+          "sha256": "6121d55fef081db000be520edea763bc88efe4c1c97f9dd1608804685a6a125f",
+          "min_os_version": "10.0.0.0",
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "WebStorm 2020.3.1",
+              "display_version": "203.6682.155",
+              "product_code": "WebStorm 2020.3.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "platform": "macos",
-      "version": "2026.3",
-      "source_version": "2026.3,263.7307.202",
+      "version": "2026.3.0.1",
+      "source_version": "2026.3.0.1,263.7307.348",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://download.jetbrains.com/webstorm/WebStorm-2026.3.dmg",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2026.3.0.1.dmg",
           "host": "download.jetbrains.com",
-          "filename": "WebStorm-2026.3.dmg",
-          "sha256": "9c9034708549712f91e20780ee6e7bf5ebb56c28143220950e6eed225f1f9daf"
+          "filename": "WebStorm-2026.3.0.1.dmg",
+          "sha256": "f1e9383d79d66dddd5e64e154c85b9fed87ad3b370b18aafd90be2e6a53a34f4"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://download.jetbrains.com/webstorm/WebStorm-2026.3-aarch64.dmg",
+          "url": "https://download.jetbrains.com/webstorm/WebStorm-2026.3.0.1-aarch64.dmg",
           "host": "download.jetbrains.com",
-          "filename": "WebStorm-2026.3-aarch64.dmg",
-          "sha256": "d333faf67126b1c178e58f1b428931d4b400bff6fd6f254251f00e5442a09477"
+          "filename": "WebStorm-2026.3.0.1-aarch64.dmg",
+          "sha256": "eb2dd5712388dae74602d3c5725b4cb8d7f10187d010fc3e10f4b844255d316c"
         }
       ],
       "cask": {
@@ -6257,34 +7494,6 @@
       "signature_checked": false
     }
   },
-  "provenance": [
-    {
-      "source": "winget-pkgs",
-      "platform": "windows",
-      "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "f44244a8fe3923e91db034ba4968209876ea4c33",
-      "retrieved_at": "2026-11-12T15:43:16.804Z",
-      "path": "manifests/j/JetBrains/WebStorm"
-    },
-    {
-      "source": "homebrew-cask",
-      "platform": "macos",
-      "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "286239cc5939c6639ddd0f80ac6dd3ff51dd35b9",
-      "retrieved_at": "2026-11-07T17:28:24.997Z",
-      "path": "Casks/w/webstorm.rb",
-      "api_url": "https://formulae.brew.sh/api/cask/webstorm.json"
-    },
-    {
-      "source": "flathub",
-      "platform": "linux",
-      "repo": "https://github.com/flathub/com.jetbrains.WebStorm",
-      "retrieved_at": "2026-11-13T14:56:46.032Z",
-      "path": "api/v2/appstream/com.jetbrains.WebStorm",
-      "api_url": "https://flathub.org/api/v2/appstream/com.jetbrains.WebStorm",
-      "content_sha256": "6a69dfc9f09384ad422682d76e6054a4668f869781ae201e3fca1d590307eb96"
-    }
-  ],
   "flathub": {
     "app_id": "com.jetbrains.WebStorm",
     "page_url": "https://flathub.org/apps/com.jetbrains.WebStorm",
@@ -6299,11 +7508,39 @@
       "Development",
       "IDE"
     ],
-    "download_size": 1214178407,
-    "installed_size": 3535038464,
+    "download_size": 1220962051,
+    "installed_size": 3566557184,
     "arches": [
       "arm64",
       "x64"
     ]
-  }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
+      "retrieved_at": "2026-11-25T02:29:14.550Z",
+      "path": "manifests/j/JetBrains/WebStorm"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "05ed6977d588d8c6a2f23e580b9cac1ce3b0f1f0",
+      "retrieved_at": "2026-11-25T01:10:19.550Z",
+      "path": "Casks/w/webstorm.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/webstorm.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/com.jetbrains.WebStorm",
+      "retrieved_at": "2026-11-25T01:10:36.411Z",
+      "path": "api/v2/appstream/com.jetbrains.WebStorm",
+      "api_url": "https://flathub.org/api/v2/appstream/com.jetbrains.WebStorm",
+      "content_sha256": "e3fe13e2394fd9a280a48419475f02f0c19382c8b5442a922f2322df3b8d242e"
+    }
+  ]
 }

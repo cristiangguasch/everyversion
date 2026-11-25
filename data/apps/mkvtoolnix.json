@@ -3169,6 +3169,324 @@
       ]
     },
     {
+      "platform": "windows",
+      "version": "54.0.0",
+      "release_date": "2021-02-26",
+      "release_notes": "New features and enhancements\n- mkvmerge: added support for using ISO 639-3 language codes in IETF BF47 language tags. Part of the implementation of #3007.\n- mkvmerge: AC-3 parser: added support for byte-swapped AC-3 data. Implements #3022.\n- mkvmerge: Matroska reader: for audio tracks that have the bit depth track header set mkvmerge will now keep that header even for codecs that don't require it for decoding. Implements #3009.\n- mkvmerge: MPEG transport stream reader, PCM audio tracks: mkvmerge will now re-order the channels for 5.1, 7.0 and 7.1 channel tracks from the Blu-ray layout to the WAVEFORMATEXTENSIBLE layout expected in Matroska. Patch by Tom Yan. Implements #2988.\n- mkvmerge, mkvinfo, mkvpropedit, MKVToolNix GUI: added support for the following new track header elements: \"hearing impaired\" flag, \"visual impaired\" flag, \"text descriptions\" flag, \"original\" flag, \"commentary\" flag. Implements #3011.\n- MKVToolNix GUI: added support for using ISO 639-3 language codes in IETF BF47 language tags. As there are several thousand of them, they're deactivated by default and must be activated in the preferences (\"GUI\" → \"Often used selections\" → \"Languages\"). Part of the implementation of #3007.\n- MKVToolNix GUI: multiplexer: when adding Blu-rays the user can select multiple playlists to add simultaneously in the \"select playlist to add\" dialog. Implements #2961.\n- MKVToolNix GUI: multiplexer: the file name extensions \"eb3\" and \"ec3\" were added for Dolby Digital Plus & \"mpl\" for Dolby TrueHD in the file dialogs. Part of the implementation of #3027.\n- MKVToolNix GUI: multiplexer: when adding multiple files the dialog asking the user what to do with them has gained a new checkbox. If enabled, all files containing at least one video track will always be placed in newly created multiplex setting. Implements #2966.\n- MKVToolNix GUI: multiplexer: added a menu entry in the \"Multiplexer\" for adding all files that are currently in the clipboard. Implements #3006.\n\nBug fixes\n- all: Windows: fixed compatibility with gettext 0.21 and newer on mingw.\n- all: Windows: fixed several of the programs having problems with certain Unicode characters (primarily emojis) in file names (e.g. mkvextract wrongfully complaining about an \"invalid mode\" or the GUI not being able to find parts of Blu-ray file structures).\n- mkvextract: AAC: fixed wrong channel mask field in the ADTS headers for 7.1 channel layouts. Fix by Tom Yan. Fixes #2636.\n- mkvextract: HEVC/H.265 extraction: if the first frame starts with the parameter sets (SPS, PPS & VPS), the ones from CodecPrivate aren't written and the ones from the first frame are kept. Fixes #3031.\n- mkvmerge: fixed the calculation of chapter timestamps read from NTSC DVDs. Fix by Tom Yan.\n- MKVToolNix GUI: IETF BCP 47 language widget: the language combo box will now always contain the language code the user enters in the free-form field, even if it isn't in the list of often-used languages the user configured in the preferences.\n- MKVToolNix GUI: multiplexer: when browsing for the destination file name the default directory is now chosen according to the preferences regarding how the destination file name should be formed. For example, if the policy is set to \"fixed output directory\" then that output directory will be the one initially set when the directory selection dialog is opened. Fixes #3021.\n- MKVToolNix GUI: multiplexer: fixed the removal of appended source files if the \"delete source files\" end-of-job action is enabled. Fixes #3029.\n- MKVToolNix GUI: chapter editor: when importing chapters from DVDs the IETF BCP 47 language elements will be set, too, not just the legacy language elements.\n\nBuild system changes\n- libEBML v1.4.2 and libMatroska v1.6.3 are now required. The optional, bundled copies of both libraries have been updated to those versions. This bump in requirements fixes several heap overflow bugs in libEBML.\n- MKVToolNix is now using the C++17 library feature \"file system library\" instead of Boost's \"file system\" and \"system\" libraries. For the GNU Compiler Collection (gcc) libstdc++ this means v8 or newer is required; for clang's libc++ it means v7 or newer. For macOS this means that provided disk image will only run on 10.15 \"Catalina\" or newer.",
+      "release_notes_url": "https://mkvtoolnix.download/doc/NEWS.md",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/m/MoritzBunkus/MKVToolNix/54.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/54.0.0/mkvtoolnix-32-bit-54.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-32-bit-54.0.0-setup.exe",
+          "sha256": "59c452f1f6d3d6aaf5c5e6c83f77930b2329bbffa2523bb63f33e6efa0c03d27",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/54.0.0/mkvtoolnix-64-bit-54.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-64-bit-54.0.0-setup.exe",
+          "sha256": "8a58e4320dba7679e71fcd5358a30bbd62bb373a45b492fc0f6e8b6131c213a4",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "50.0.0",
+      "release_date": "2020-09-06",
+      "release_notes": "New feature: IETF BCP 47 language tags\n- I've written up a nice FAQ entry (https://gitlab.com/mbunkus/mkvtoolnix/-/wikis/Languages-in-Matroska-and-MKVToolNix) about the switch to using IETF BCP 47 language tags, how they interact with legacy language elements, how the programs actually behave and how to disable their use if necessary.\n- mkvmerge: IETF BCP 47/RFC 5646 language tags: mkvmerge will now accept full BCP 47 language tags for all options taking a language. mkvmerge will always write \"LanguageIETF\" track header elements. If the language tag contains a valid ISO 639-2 language code it will also set the legacy \"Language\" track header element to the included ISO 639-2 code. Part of the implementation of #2419.\n- mkvmerge: IETF BCP 47/RFC 5646 language tags: if present the \"LanguageIETF\" track header element will be reported as the language_ietf property in JSON identification mode. Part of the implementation of #2419.\n- mkvmerge: IETF BCP 47/RFC 5646 language tags in chapters: mkvmerge will now write \"ChapLanguageIETF\" elements when creating chapter atoms, either when reading the simple chapter format or when generating chapters due to the --generate-chapters command line option. Part of the implementation of #2419.\n- mkvmerge: IETF BCP 47/RFC 5646 language tags in tags: mkvmerge will now write \"TagLanguageIETF\" elements when creating \"simple tag\" elements, either when reading tag XML files or when generating them. Part of the implementation of #2419.\n- mkvmerge: IETF BCP 47/RFC 5646 language tags: added an option --disable-language-ietf that causes mkvmerge to only write the legacy language elements.\n- mkvmerge, mkvpropedit, MKVToolNix GUI's chapter editor: IETF BCP 47/RFC 5646 language tags in chapters: when reading XML chapter files the programs will now add \"ChapLanguageIETF\" elements for atoms that don't contain them. The values are derived from existing \"ChapterLanguage\" elements. Part of the implementation of #2419.\n- mkvpropedit: IETF BCP 47/RFC 5646 language tags: setting/deleting the track language now acts on both the old language element as well as the \"LanguageIETF\" track header element. Part of the implementation of #2419.\n- mkvpropedit: IETF BCP 47/RFC 5646 language tags: added an option --disable-language-ietf that causes mkvpropedit to apply changes to the language track header property only to the legacy language track header element.\n- mkvinfo: IETF BCP 47/RFC 5646 language tags: added support for the \"LanguageIETF\" track header element. Part of the implementation of #2419.\n- MKVToolNix GUI: multiplexer: added full support for IETF BCP 47/RFC 5646 language tags for both track and chapter languages. Part of the implementation of #2419.\n- MKVToolNix GUI: chapter: added full support for IETF BCP 47/RFC 5646 language tags for chapter languages. Part of the implementation of #2419.\n- MKVToolNix GUI: header editor: added full support for IETF BCP 47/RFC 5646 language tags for track header languages. The header editor allows editing of the legacy language elements and the IETF BCP 47 language elements independent of each other. Part of the implementation of #2419.\n\nOther new features and enhancements\n- mkvmerge: the chapter generation mode when-appending now also works with the splitting modes parts: & parts-frames: when using the …,+… syntax for appending other sections of the source file to the same destination file. Implements #2898.\n- MKVToolNix GUI: multiplexer: the file selection dialogs now include the extension .dtsma for DTS files. Implements #2901.\n- mkvmerge: MP4 reader: sped up parsing MP4 DASH files with a lot of segments (trun atoms) quite a bit. Part of the fix of #2900.\n- The PCRE2 regular expression library is now used instead of std::regex for big performance improvements in all places where regular expressions are used for parsing big chunks of text, e.g. in the subtitle parsers. Part of the fix of #2899.\n- all programs: Windows: all programs now support long file names on Windows 10 release 1604 if they're turned on in the registry. Implements #2916.\n\nBug fixes\n- MKVToolNix GUI: preferences: under certain conditions changing the selected entry in the page tree on the left did not cause the page shown on the right to be updated. Fixes #2895.\n- mkvmerge: splitting text by a fixed string (e.g. ,) is now done by using std::string.find() instead of using a regular-expression-based text splitting function, greatly improving its performance. Part of the fix of #2899.\n- mkvmerge: mkvmerge will now read-buffer file I/O when probing text file formats which increases its speed significantly on Windows. Part of the fix of #2899.\n- mkvmerge: MP4 reader: fixed handling of tkhd atoms of version 1. Fixes #2900.\n\nBuild system changes\n- The PCRE2 library (the 8-bit variant) is now required.",
+      "release_notes_url": "https://mkvtoolnix.download/doc/NEWS.md",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/m/MoritzBunkus/MKVToolNix/50.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/50.0.0/mkvtoolnix-32-bit-50.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-32-bit-50.0.0-setup.exe",
+          "sha256": "aa1bb51d6fed20a073924f15ccc912b77bf0b463623600ddb3e184f83d7842cf",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/50.0.0/mkvtoolnix-64-bit-50.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-64-bit-50.0.0-setup.exe",
+          "sha256": "4778c7668403c585b76f68e59ddf83ade2b66089c3d387cfb5efebd1bf0bade7",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "49.0.0",
+      "release_date": "2020-08-02",
+      "release_notes": "New features and enhancements\n- mkvmerge: added support for copying the new track header elements BlockAddIDName, BlockAddIDType, BlockAddIDValue and BlockAddIDExtraData from Matroska files if they exist. Part of the implementation of #2887.\n- mkvinfo: added support for the new track header elements BlockAdditionMapping, BlockAddIDName, BlockAddIDType, BlockAddIDValue and BlockAddIDExtraData. Part of the implementation of #2887.\n- MKVToolNix GUI: multiplexer: the list of recent directories can now be edited in the preferences → \"Multiplexer\" → \"Destination file name\". Implements #2861.\n- MKVToolNix GUI: preferences: the values in the various \"predefined values\" lists can now be re-ordered freely by dragging & dropping.\n\nBug fixes\n- mkvmerge: Matroska reader: when reading tracks (e.g. a subtitle track) from Matroska files with their default track flag set to yes, and when overwriting those via the command line to no, mkvmerge would not promote additional tracks of the same type from other files (e.g. another subtitle track from an SRT file). Fixes #2863.\n- mkvmerge: SRT reader: empty lines inside entries were doubled. Fixes #2888.\n- mkvmerge: subtitles: when calculating the rounded duration of each entry the error from rounding the corresponding timestamp will be taken into account. Fixes #2890.\n- mkvextract: SSA/ASS extraction: mkvextract is no longer inserting empty lines before the Dialogue: lines. Fixes #2876.\n- mkvextract: USF subtitles: start & end timestamps were too high by a factor of 1.000.000. Fixes #2875.\n- MKVToolNix: info tool: when saving to a text file the checkbox \"Save as default for saving output to text files\" did nothing. Fixes #2869.\n- MKVToolNix: info tool: when saving to a text file in \"all elements in a tree-like structure\" mode, the GUI always stopped at the first cluster regardless of the setting of the \"verbosity\" option.\n- MKVToolNix GUI: preferences: when tooltips were disabled the dialogs for adding new entries to the various \"predefined values\" lists were missing their texts.\n- Windows installer: the images are shown again. Fixes #2868.\n- configure: fixed detection of QtDBus. Fixes #2886.\n\nBuild system changes\n- libMatroska v1.6.1 is now required. The bundled version has been updated to that version.",
+      "release_notes_url": "https://mkvtoolnix.download/doc/NEWS.md",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/m/MoritzBunkus/MKVToolNix/49.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/49.0.0/mkvtoolnix-32-bit-49.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-32-bit-49.0.0-setup.exe",
+          "sha256": "d1eecca2ee4a4516ce7d4d6314f6ed71a27c95e1d1f46ebee21e05d091058f49",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/49.0.0/mkvtoolnix-64-bit-49.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-64-bit-49.0.0-setup.exe",
+          "sha256": "82afcf67224445dc73268e4d12f1d52565bb7b5a6ae78025f0fdfa393c20db3f",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "48.0.0",
+      "release_date": "2020-06-27",
+      "release_notes": "New features and enhancements\n- mkvmerge: AC-3: file identification will report AC-3 tracks encoded in Dolby Surround EX as codec \"AC-3 Dolby Surround EX\". Implements #2740.\n- MKVToolNix GUI: multiplexer: on new installations the GUI will now recognize all known ISO 639-2 language codes in file names by default instead of only the top 100 of languages by native speakers.\n- MKVToolNix GUI: multiplexer: on new installations the list of \"often used languages\" will by default only contain certain agnostic ones (\"multiple languages\", \"no linguistic content\", \"reserved for local use\", \"uncoded languages\"), \"English\" and the default user interface language. The \"list of spoken languages by native speaks\" isn't used anymore. Also implements #2716.\n- MKVToolNix GUI: header editor: added an option to remove all attachments to the tree context menu. Implements #2835.\n- MKVToolNix GUI: while the GUI is running it will remember the last page that was selected when the preferences dialog is closed. Upon re-opening the preferences that page will be selected by default. Implements #2852.\n\nBug fixes\n- mkvmerge: fixed a segmentation fault when exiting prematurely due to write errors such as the destination having run out of space. Fixes #2843.\n- mkvmerge: DTS: fixed wrong channel count for DTS tracks with XCh extensions. Fixes #2715.\n- mkvmerge: MPEG TS reader: fixed detecting AVC/H.264 and HEVC/H.265 tracks that consist of only a single frame. Part of the fix of #2849.\n- mkvmerge: MPEG TS reader: fixed handling of unbounded PES sizes for tracks that consist of only a single PES packet. Part of the fix of #2849.\n- mkvmerge: MPEG TS reader: PGS subtitle tracks are now exempt from the \"detect bogus subtitle timestamps\" heuristic which could lead to some PGS subtitles not being timestamped correctly. Symptoms were that they were shown at the wrong time or that they were shown indefinitely. Fixes #2736 and partially fixes #2824.\n- mkvmerge: MPEG TS reader: when reading MPLS playlists the start timestamps of a play items were handled wrong: all the timestamps of packets read were compared to that start timestamp, dropping those packets whose timestamps were smaller than the play item's start timestamp. The correct behavior is to accept all packets as soon as the first one with a timestamp equal to or larger than the play item's start timestamp is encountered. This could result in PGS subtitle entries located right at the start of the play item being garbled/lost as they consist of multiple PES packets for which some timestamps are often slightly smaller. Part of the fix of #2824.\n- mkvmerge: MPEG TS reader: when reading MPLS playlists mkvmerge will no longer read the whole M2TS files they reference, processing only the packets lying inside the timestamp range given by the playlists's play item's start & end timestamps. Instead mkvmerge will use the index information present in corresponding clip information (CLPI) files in order to seek to the nearest file position of the play item's start timestamp. Additionally mkvmerge will simply stop processing a file once the end timestamp is seen. This change greatly speeds up processing files from which only small portions must be read. Part of the fix of #2824.\n- mkvmerge: WavPack: fixed support for files created by v5 of the program. Checksums, DSD audio data and non-standard sampling rates are handled correctly. Patch by David Bryant.\n- MKVToolNix GUI: multiplexer: fixed the cursor being positioned wrong after entering or pasting characters that aren't allowed in file names into the \"destination file\" control. Fixes #2855.\n\nBuild system changes\n- libEBML v1.4.0 and libMatroska v1.6.0 are now required.\n\nOther changes\n- The source code repository's main development branch was renamed to main.",
+      "release_notes_url": "https://mkvtoolnix.download/doc/NEWS.md",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/m/MoritzBunkus/MKVToolNix/48.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/48.0.0/mkvtoolnix-32-bit-48.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-32-bit-48.0.0-setup.exe",
+          "sha256": "2b62dd899fc0c1782584a78606d947ecbe346f44b5b5e9d29c0103cdcd9298ca",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/48.0.0/mkvtoolnix-64-bit-48.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-64-bit-48.0.0-setup.exe",
+          "sha256": "8a6ce7f4b78cf1c3a482a66714dc5c8072713737ac4bab73de4289ec35455a3d",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "47.0.0",
+      "release_date": "2020-05-30",
+      "release_notes": "New features and enhancements\n- mkvmerge: chapters: mkvmerge can now read chapters from DVDs if the user specifies the path to a DVD folder structure via the --chapters … parameter. By default chapters from the first title will be imported. This can be changed by append :<title number> to the file/directory name in the --chapters … argument, e.g. --chapters /srv/dvds/BigBuckBunny/VIDEO_TS:3 This feature requires mkvmerge to have been built with the libdvdread library. Part of the implementation of #2808.\n- mkvmerge: added --engage append_and_split_flac that enables mkvmerge to append and split FLAC tracks, restoring pre-v45 behavior. The resulting tracks will be broken: the official FLAC tools will not be able to decode them and seeking will not work as expected.\n- MKVToolNix GUI: multiplexer: added support for mkvmerge's new support for reading chapters from DVDs if both have been built with the libdvdread library. Part of the implementation of #2808.\n- MKVToolNix GUI: multiplexer: when deriving languages from file names the GUI will now look for simplified language names instead of the full ones (e.g. instead of looking for \"Greek, Modern (1453-)\" it would simply look for \"Greek\").\n- MKVToolNix GUI: multiplexer: the options in the \"additional command-line options\" dialog are now sorted alphabetically. Additionally the --append-mode option has been added as one of the only missing global options.\n- MKVToolNix GUI: chapter editor: the chapter editor can now read chapters from DVDs if MKVToolNix has been build with the libdvdread library. Part of the implementation of #2808.\n- MKVToolNix GUI: header editor: added an option in the preferences for displaying all date & time values in UTC instead of the local time zone. Implements #2814.\n\nBug fixes\n- all: fixed a crash when using the MTX_LOGGER=file syntax for logging debug messages without specifying a file name to log to. It will now log to a file called mkvtoolnix-debug.log in the system's default temporary directory, as initially intended.\n\nBuild system changes\n- The libdvdread (https://www.videolan.org/developers/libdvdnav.html) library will be used if found via pkg-config. If it is found, support for reading chapters from DVDs will be enabled in mkvmerge and the MKVToolNix GUI. Part of the implementation of #2808.\n- Boost's Date/Time, Lexical Cast, Range, Range Adaptors, Tri-Bool, Variant libraries are not used anymore.\n- MKVToolNix now requires a C++ compiler & standard library that support the following features of the C++17 standard: \"std::variant\", \"std::gcd\". For the GNU Compiler Collection (gcc) this means v7 or newer; for clang it means v4 or newer — the same versions required by earlier MKVToolNix versions.\n- MKVToolNix now requires version 6.1.0 of fmtlib or later for the fmt::to_string function and bugfixes to the formatting of floating point numbers. If a system-wide version is installed that's older, the bundled copy will be used.\n- The bundled version of fmtlib has been updated to release 6.2.1.",
+      "release_notes_url": "https://mkvtoolnix.download/doc/NEWS.md",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/m/MoritzBunkus/MKVToolNix/47.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/47.0.0/mkvtoolnix-32-bit-47.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-32-bit-47.0.0-setup.exe",
+          "sha256": "51bfd90928cdb11955a870b6b0dcf13a0d21a2434d5af0f79316f6e520c57665",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/47.0.0/mkvtoolnix-64-bit-47.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-64-bit-47.0.0-setup.exe",
+          "sha256": "6a46fd6e5439638d178da9ee3d232124359bca292704b575a18c9c3564cd627c",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "46.0.0",
+      "release_date": "2020-05-01",
+      "release_notes": "New features and enhancements\n- mkvmerge: when splitting, the placeholder %c can be used in the destination file name. It'll be replaced by the name of the first chapter in the file. Implements #2791.\n- mkvmerge: when reading MPLS playlists mkvmerge will include a tag named SOURCE_ID in the track's statistics tags that conveys the fact that the source was a Blu-ray and what the track's ID was in the source container. When reading Matroska file existing SOURCE_ID tags will be kept. The format used is the same format MakeMKV uses. Implements #2774.\n- mkvmerge: for audio-only files mkvmerge will now write a cue entry every 500ms instead of every 2s.\n- MKVToolNix GUI: job actions: split up the option \"execute when the job finishes successfully or with warnings\" into two separate options: \"…when finishes successfully\" and \"…when exits with warnings\". Implements #2798.\n\nBug fixes\n- mkvmerge: Matroska reader: when regenerating UIDs for chapters mkvmerge will now fix referencing tag chapter UID targets to have the same values. Fixes #2804.\n- mkvmerge: MP4 reader: fixed a crash that could potentially happen while trying to identify HEVC/H.265 tracks.\n- mkvmerge: MP4 reader: when reading HEVC/H.265 tracks without a frame offset table (ctts atom) present, mkvmerge did not parse the hevcC structure correctly in certain cases, causing no video frames to be output at all or the output not being playable. This fixes #2782, a bug introduced in v45.\n- mkvmerge: MPLS handling/MPEG TS reader: timestamp restrictions as given in an MPLS file were only honored for the first play item, not for subsequent play items. For those play items the whole referenced file was always copied. Part of the fix of #2789.\n- mkvmerge: MPLS handling/MPEG TS reader: under certain circumstances mkvmerge copied one frame too many before switching to the next play item. Part of the fix of #2789.\n- mkvmerge: for audio-only files cues will only be created for I frames (important for e.g. TrueHD where decoding can only start on a sync frame). Fixes #2790.\n- MKVToolNix GUI: fixed a crash that happened when closing the preferences after having closed at least one multiplexer tab. Fixes #2785.\n- MKVToolNix GUI: macOS: changed the default of the \"elide tab header labels\" feature introduced in v45 from \"no\" to \"yes\" to mirror how versions before v45 behaved on macOS.",
+      "release_notes_url": "https://mkvtoolnix.download/doc/NEWS.md",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/m/MoritzBunkus/MKVToolNix/46.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/46.0.0/mkvtoolnix-32-bit-46.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-32-bit-46.0.0-setup.exe",
+          "sha256": "a10204d8cadd9bae52eaba72f928c3fbc8dd99c53cb57cb7f9d80162819f52ea",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://mkvtoolnix.download/windows/releases/46.0.0/mkvtoolnix-64-bit-46.0.0-setup.exe",
+          "host": "mkvtoolnix.download",
+          "filename": "mkvtoolnix-64-bit-46.0.0-setup.exe",
+          "sha256": "28082db58b5f90cff5c8d3b40ff46ddcd90bcbc8c868b1bc941716deaf2a8310",
+          "product_code": "MKVToolNix",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "mtxcfg"
+          ],
+          "commands": [
+            "mkvextract",
+            "mkvinfo",
+            "mkvmerge",
+            "mkvpropedit"
+          ]
+        }
+      ]
+    },
+    {
       "platform": "macos",
       "version": "104.0-1",
       "installers": [
@@ -3246,34 +3564,6 @@
       "signature_checked": false
     }
   },
-  "provenance": [
-    {
-      "source": "winget-pkgs",
-      "platform": "windows",
-      "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "7ba156ba3b98370906bafbaa35808b8d6cfe55f1",
-      "retrieved_at": "2026-11-05T12:08:19.012Z",
-      "path": "manifests/m/MoritzBunkus/MKVToolNix"
-    },
-    {
-      "source": "homebrew-cask",
-      "platform": "macos",
-      "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "def33ffdec289560d81ce03ea66deb3b2c9c9f1c",
-      "retrieved_at": "2026-11-24T01:13:17.473Z",
-      "path": "Casks/m/mkvtoolnix-app.rb",
-      "api_url": "https://formulae.brew.sh/api/cask/mkvtoolnix-app.json"
-    },
-    {
-      "source": "flathub",
-      "platform": "linux",
-      "repo": "https://github.com/flathub/org.bunkus.mkvtoolnix-gui",
-      "retrieved_at": "2026-11-24T01:13:40.902Z",
-      "path": "api/v2/appstream/org.bunkus.mkvtoolnix-gui",
-      "api_url": "https://flathub.org/api/v2/appstream/org.bunkus.mkvtoolnix-gui",
-      "content_sha256": "6be863eaad16a739ccb4e4cc14ca741f3f584ce4fdcff48e33048df14eedf248"
-    }
-  ],
   "flathub": {
     "app_id": "org.bunkus.mkvtoolnix-gui",
     "page_url": "https://flathub.org/apps/org.bunkus.mkvtoolnix-gui",
@@ -3293,11 +3583,39 @@
       "AudioVideo",
       "AudioVideoEditing"
     ],
-    "download_size": 16876938,
-    "installed_size": 38825984,
+    "download_size": 16890009,
+    "installed_size": 38850560,
     "arches": [
       "arm64",
       "x64"
     ]
-  }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
+      "retrieved_at": "2026-11-25T02:29:14.550Z",
+      "path": "manifests/m/MoritzBunkus/MKVToolNix"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "def33ffdec289560d81ce03ea66deb3b2c9c9f1c",
+      "retrieved_at": "2026-11-24T01:13:17.473Z",
+      "path": "Casks/m/mkvtoolnix-app.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/mkvtoolnix-app.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.bunkus.mkvtoolnix-gui",
+      "retrieved_at": "2026-11-25T01:10:36.411Z",
+      "path": "api/v2/appstream/org.bunkus.mkvtoolnix-gui",
+      "api_url": "https://flathub.org/api/v2/appstream/org.bunkus.mkvtoolnix-gui",
+      "content_sha256": "008d65c48959ee26f2e8c54cdd8f51a65a754067fa0e16119add9eba57401f26"
+    }
+  ]
 }

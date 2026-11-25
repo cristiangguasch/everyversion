@@ -30,7 +30,7 @@
     "homepage": "https://localsend.org/",
     "publisher": "https://tienisto.com/",
     "support": "https://localsend.org/",
-    "release_notes": "https://github.com/localsend/localsend/releases/tag/v1.18.2"
+    "release_notes": "https://github.com/localsend/localsend/releases/tag/v1.19.0"
   },
   "license": {
     "name": "Apache-2.0",
@@ -44,17 +44,72 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "1.18.2",
-    "macos": "1.18.2",
+    "windows": "1.19.0",
+    "macos": "1.19.0",
     "linux": "1.18.2"
   },
-  "last_updated": "2026-08-24",
+  "last_updated": "2026-11-23",
   "versions_total": {
-    "windows": 19,
+    "windows": 20,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "1.19.0",
+      "release_date": "2026-11-23",
+      "release_notes": "This release also added the rpm package for the first time (e.g. for Fedora users).\nPlease note a breaking change in the CLI API when sending files.\n- feat: make sending checksums opt-in (@Tienisto)\n- feat: format timestamps using system date and time settings (@ShlomoCode)\n- feat: add keyboard shortcuts to accept or decline incoming transfers (@Tienisto)\n- feat: restore hashtag codes for connecting to devices (@Tienisto)\n- feat: show an HTTPS badge in the device list tile when encryption is enabled (@Tienisto)\n- feat: show inbound/outbound reachability per device to help diagnose firewall issues (@Tienisto)\n- feat: add a copy button to the log screens (@ShlomoCode)\n- feat: add a Cancel button to the device name dialog (@ShlomoCode)\n- feat: group the changelog by release and type, and show what's new after an update (@ShlomoCode)\n- feat(cli): send text using --text, including input from stdin (@Tienisto)\n- feat(cli)!: replace --file with the send command for sending files and directories (@otanim)\n- feat(cli): add builds for Alpine Linux (@julianxhokaxhiu)\n- feat(desktop): add an option to keep the LocalSend window above other windows (@ShlomoCode)\n- feat(macos): use native window restoration to keep partially off-screen windows near their saved position (@ShlomoCode)\n- feat(linux): support delta updates for the AppImage (@ShlomoCode)\n- feat(linux): add x86_64 rpm package to release workflow (@basil)\n- feat(linux): add software rendering toggle with automatic fallback after a rendering crash (@Tienisto)\n- security: limit simultaneous incoming connections to prevent resource exhaustion (@Tienisto)\n- security: prevent senders without a client certificate from impersonating favorite devices while sharing via link (@Tienisto)\n- security(cli): sanitize remote text before displaying it in the terminal (@Tienisto)\n- perf: reduce memory use during file transfers (@luojiyin1987)\n- fix: strip request URLs from HTTP client errors so the PIN is not exposed (@Tienisto)\n- fix: prevent a startup crash with legacy Quick Save settings (@ShlomoCode)\n- fix: show the real error when a file cannot be read while sending, instead of transferring it as an empty file (@leopalmieri-spec)\n- fix: bound inline text previews to prevent large-message freezes (@kneeyard126)\n- fix: rank link-local IPv6 channels after IPv4 when choosing an address to dial (@Tienisto)\n- fix: limit connection setup for pinned HTTP clients to 5 seconds (@Tienisto)\n- fix: let cancellation interrupt reading prepare-upload and upload responses (@Tienisto)\n- fix: stop a send session that was cancelled while prepare-upload was answering (@Tienisto)\n- fix: avoid directory name collisions when receiving files (@ShlomoCode)\n- fix: accept PINs containing special characters (@ShlomoCode)\n- fix: release wakelock when a transfer fails (@bunnysayzz)\n- fix: normalize filenames to NFC so Korean jamo display correctly on Windows (@GhagSagar23)\n- fix: show the actual save location path for receiving files (@ShlomoCode)\n- fix: allow scrolling in the edit favorites dialog (@samdelong)\n- fix: validate the port when adding or editing a favorite device (@ShlomoCode)\n- fix: show an error when web share translations fail to load (@ShlomoCode)\n- fix: keep device name unchanged when cancelling the dialog (@ShlomoCode)\n- fix: close favorite editor after confirming changes (@ShlomoCode)\n- fix: pressing Enter now confirms file renaming (@ShlomoCode)\n- fix: avoid adding a trailing dot when renaming files without an extension (@ShlomoCode)\n- fix: hide unsupported troubleshooting options (@ShlomoCode)\n- fix: apply zero-padding when numbering renamed files (@A-M-D-R-3-W)\n- fix: avoid division by zero on the progress page when a file fails in the millisecond the session starts (@Tienisto)\n- fix: keep the message input dialog usable with large text and an open keyboard (@ArtemChikolaev)\n- fix: preserve the extension case and leading dot when numbering duplicate file names (@lingyicute)\n- fix(cli): cancel pending web shortcuts when pressing non-character keys (@ShlomoCode)\n- fix(desktop): respect custom error-403.html even when web sharing is disabled (@Tienisto)\n- fix(mobile): prevent incomplete cache cleanup (@ShlomoCode)\n- fix(android): allow receiving files with the same name after moving them to Trash (@ShlomoCode)\n- fix(android): preserve file modification times when saving media to the gallery (@ShlomoCode)\n- fix(android): keep file names when saving to a custom folder (@Tienisto)\n- fix(android): can't open files with unrecognized extensions (@ShlomoCode)\n- fix(android): avoid display flashes when opening or closing the app on some Android TVs (@ShlomoCode)\n- fix(android): use the phone's configured name or model when selecting \"Use system name\" in settings (@ShlomoCode)\n- fix(android): show an error when loading the installed apps list fails (@ShlomoCode)\n- fix(ios): show LocalSend in the share menu on iOS 14 and 15 (@ShlomoCode)\n- fix(ios): send shared links as text instead of two TXT files (@ShlomoCode)\n- fix(macos): prevent intermittent MissingPluginException during startup (@ShlomoCode)\n- fix(macos): file sharing via Share Extension doesn't work in DMG builds (@ShlomoCode, @vdmkotai)\n- fix(macos): make Command+W close the window reliably (@ShlomoCode)\n- fix(windows): fix LocalSend not opening after installation via WinGet (@ShlomoCode)\n- fix(windows): correct the MSIX helper architecture in ARM64 builds (@Tienisto)\n- fix(windows): sign the embedded uninstaller as well as the installer (@Tienisto)\n- fix(windows): close the running app and remove autostart, the Send to shortcut and firewall rules on uninstall (@Tienisto)\n- fix(windows): show the LocalSend icon in the Share Sheet and \"Share with\" menu (@ShlomoCode)\n- fix(linux): prevent .deb startup failure when legacy AppIndicator is installed (@Tienisto)\n- fix(linux): load bundled Rust library relative to the executable (@ShlomoCode)\n- fix(linux): add EGL and GLES dependencies to deb package (@ShlomoCode)\n- fix(linux): require glibc 2.34 when installing the DEB package (@ShlomoCode)\n- fix(linux): Flatpak drag-and-drop for files outside Downloads (@loucass)\n- fix(linux): keep keyboard shortcuts working when Num Lock is enabled (@ShlomoCode)\n- fix(linux): respect XDG_CONFIG_HOME, safely remove the desktop entry, and set its icon (@vicajilau)\n- fix(linux): install rpm icon without setuid, set StartupWMClass and require libappindicator-gtk3 (@Tienisto)\n- fix(linux): name rpm desktop file after the application id so KWin shows the app icon (@Tienisto)\n- fix(linux): wrong window icon in deb installations on KDE Wayland (@Tienisto)\n- fix(linux): tray icon fails to load in Snap installations (@vicajilau)\n- fix(linux): show the AppImage icon in the GNOME dash (@ShlomoCode)\n- fix(linux): restore the dock icon for deb installations (@vicajilau)\n- fix(linux): show \"LocalSend\" as title in the system tray (@Josephur)\n- fix(linux): match the native title bar to the app theme (@ShlomoCode)\n- fix(linux): don't show the farewell message during deb upgrades or reinstalls (@ShlomoCode)\n- i18n: add Kyrgyz (@nidara-duo)",
+      "release_notes_url": "https://github.com/localsend/localsend/releases/tag/v1.19.0",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/l/LocalSend/LocalSend/1.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.19.0/LocalSend-1.19.0-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.19.0-windows-x86-64.exe",
+          "sha256": "0df76352124634c8d998867b813cb5ae96613f4a3b6e52d8d3e497dba63c01e0",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "upgrade": "/FORCECLOSEAPPLICATIONS",
+            "custom": "/CURRENTUSER"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.19.0/LocalSend-1.19.0-windows-x86-64.exe",
+          "host": "github.com",
+          "filename": "LocalSend-1.19.0-windows-x86-64.exe",
+          "sha256": "0df76352124634c8d998867b813cb5ae96613f4a3b6e52d8d3e497dba63c01e0",
+          "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1",
+          "elevation_requirement": "elevatesSelf",
+          "switches": {
+            "upgrade": "/FORCECLOSEAPPLICATIONS",
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "product_code": "{00809252-FEC6-448E-83B4-E7F55AE7E47D}_is1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "1.18.2",
@@ -692,16 +747,16 @@
     },
     {
       "platform": "macos",
-      "version": "1.18.2",
+      "version": "1.19.0",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2.dmg",
+          "url": "https://github.com/localsend/localsend/releases/download/v1.19.0/LocalSend-1.19.0.dmg",
           "host": "github.com",
-          "filename": "LocalSend-1.18.2.dmg",
-          "sha256": "126860d56f6f49b11845f601aac51de27a49b16d2b48102415da91e0e37e5155"
+          "filename": "LocalSend-1.19.0.dmg",
+          "sha256": "5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4"
         }
       ],
       "cask": {
@@ -755,34 +810,6 @@
       "signature_checked": false
     }
   },
-  "provenance": [
-    {
-      "source": "winget-pkgs",
-      "platform": "windows",
-      "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "615b69b21b30191d28d575b8573292efbfcd10f6",
-      "retrieved_at": "2026-11-10T00:19:10.008Z",
-      "path": "manifests/l/LocalSend/LocalSend"
-    },
-    {
-      "source": "homebrew-cask",
-      "platform": "macos",
-      "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "b8938744284baffb58afa1a4f652ab30ab24edb6",
-      "retrieved_at": "2026-11-10T00:19:10.008Z",
-      "path": "Casks/l/localsend.rb",
-      "api_url": "https://formulae.brew.sh/api/cask/localsend.json"
-    },
-    {
-      "source": "flathub",
-      "platform": "linux",
-      "repo": "https://github.com/flathub/org.localsend.localsend_app",
-      "retrieved_at": "2026-11-10T00:19:11.094Z",
-      "path": "api/v2/appstream/org.localsend.localsend_app",
-      "api_url": "https://flathub.org/api/v2/appstream/org.localsend.localsend_app",
-      "content_sha256": "80309a6ae6a867cf0d49faf7610d19a3a4874f9f605ccafd661411e629bda127"
-    }
-  ],
   "flathub": {
     "app_id": "org.localsend.localsend_app",
     "page_url": "https://flathub.org/apps/org.localsend.localsend_app",
@@ -807,5 +834,33 @@
       "arm64",
       "x64"
     ]
-  }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "630042ce38c95e471839460c27801fabdc6c97e9",
+      "retrieved_at": "2026-11-25T01:10:19.550Z",
+      "path": "manifests/l/LocalSend/LocalSend"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "05ed6977d588d8c6a2f23e580b9cac1ce3b0f1f0",
+      "retrieved_at": "2026-11-25T01:10:19.550Z",
+      "path": "Casks/l/localsend.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/localsend.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/org.localsend.localsend_app",
+      "retrieved_at": "2026-11-10T00:19:11.094Z",
+      "path": "api/v2/appstream/org.localsend.localsend_app",
+      "api_url": "https://flathub.org/api/v2/appstream/org.localsend.localsend_app",
+      "content_sha256": "80309a6ae6a867cf0d49faf7610d19a3a4874f9f605ccafd661411e629bda127"
+    }
+  ]
 }
