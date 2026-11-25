@@ -293,10 +293,21 @@ h2 .plat-icon,h3 .plat-icon{vertical-align:-4px;margin-right:10px}
 .dl-warn strong{color:#b45309}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dl-warn strong{color:#f59e0b}}
 :root[data-theme="dark"] .dl-warn strong{color:#f59e0b}
-.plat-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:8px 36px}
-.plat-col h3{margin-top:18px}
-.plat-col h3:first-child{margin-top:0}
-.plat-col .req li{margin:4px 0}
+/* "What the installer does": a row per fact, a column per platform. On phones each row becomes a block with the platform named before each value. */
+.inst thead th{font-weight:600;font-size:.95rem;text-transform:none;letter-spacing:0;color:var(--text);background:var(--bg)}
+.inst thead td{background:var(--surface);border-bottom:1px solid var(--line)}
+.inst tbody td{overflow-wrap:anywhere}
+.inst td.na{color:var(--muted)}
+.scroll:has(.inst)+.pin{margin-top:12px}
+@media (max-width:560px){
+.inst.multi thead{display:none}
+.inst.multi tr{display:block;border-bottom:1px solid var(--line);padding:8px 0}
+.inst.multi tr:last-child{border-bottom:0}
+.inst.multi th,.inst.multi td{display:block;width:auto;border:0;padding:2px 12px}
+.inst.multi th{background:none;font-weight:600;color:var(--text)}
+.inst.multi td::before{content:attr(data-pl) ": ";color:var(--muted)}
+.inst.multi td.na{display:none}
+}
 .dl-dead{margin-top:4px;font-size:.82rem;color:var(--muted)}
 .dl-foot{padding:16px 20px;background:var(--surface);border-top:1px solid var(--line)}
 .dl-foot p{margin:0 0 8px;font-size:.92rem}

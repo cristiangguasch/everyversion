@@ -58,6 +58,8 @@ const oldPathOf = (rec) => (oldCountOf(rec) > OLD_SPLIT ? `/${rec.slug}/${rec.sl
 const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ESC[c]);
 const withCode = (s) => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+// Row order of the "What the installer does" table (labels from lib/summary.mjs and requirementsOf). Unlisted labels go last.
+const INSTALLER_ROW_ORDER = ['Package', 'Architectures', 'Minimum OS', 'Install scope', 'Installs', 'Admin rights', 'Silent install', 'Install modes', 'What it changes', 'File types', 'Link protocols', 'Commands', 'Also installs', 'Listed in Installed apps as', 'Packaged app', 'Dependencies', 'Updates itself', 'Upgrades', 'Uninstall', 'Checksum', 'Download size', 'Installed size'];
 const trunc = (s, n) => {
   s = String(s).replace(/\s+/g, ' ').trim();
   if (s.length <= n) return s;
@@ -851,7 +853,6 @@ ${rec.license.url ? `<p class="pin">${link(rec.license.url, 'Read the license')}
 </div>`;
 
   // System requirements per platform: only what the package data holds (minimum OS, CPU architectures, dependencies, Flathub sizes).
-  const REQ_TITLE = { windows: 'PC requirements', macos: 'Mac requirements', linux: 'Linux requirements' };
   const winName = (v) => {
     const [maj, min, build] = String(v).split('.').map(Number);
     const name = maj === 10 ? (build >= 22000 ? 'Windows 11' : 'Windows 10') : { '6.3': 'Windows 8.1', '6.2': 'Windows 8', '6.1': 'Windows 7', '6.0': 'Windows Vista', '5.1': 'Windows XP' }[`${maj}.${min}`] || 'Windows';
@@ -863,10 +864,10 @@ ${rec.license.url ? `<p class="pin">${link(rec.license.url, 'Read the license')}
     const uniq = (a) => [...new Set(a.filter(Boolean))];
     const rows = [];
     const mins = uniq(ins.map((i) => i.min_os_version));
-    if (p === 'windows' && mins.length) rows.push(['Minimum Windows version', mins.map(winName).join('; ')]);
-    if (p === 'macos' && mins.length) rows.push(['Minimum macOS version', mins.map((v) => `macOS ${v} or later`).join('; ')]);
+    if (p === 'windows' && mins.length) rows.push(['Minimum OS', mins.map(winName).join('; ')]);
+    if (p === 'macos' && mins.length) rows.push(['Minimum OS', mins.map((v) => `macOS ${v} or later`).join('; ')]);
     const archs = p === 'linux' && rec.flathub?.arches?.length ? rec.flathub.arches : uniq(ins.map((i) => i.architecture));
-    rows.push([p === 'linux' ? 'Architectures' : 'CPU architecture', archs.map((a) => (p === 'macos' ? MAC_ARCH[a] : null) || ARCH[a] || a).join(', ')]);
+    rows.push(['Architectures', archs.map((a) => (p === 'macos' ? MAC_ARCH[a] : null) || ARCH[a] || a).join(', ')]);
     const deps = [];
     if (p === 'windows') {
       for (const d of ins.map((i) => i.dependencies).filter(Boolean)) {
@@ -877,30 +878,27 @@ ${rec.license.url ? `<p class="pin">${link(rec.license.url, 'Read the license')}
       const d = latestOf[p].cask?.depends_on;
       deps.push(...(d?.casks || []).map((x) => `\`${x}\` (Homebrew cask)`), ...(d?.formulae || []).map((x) => `\`${x}\` (Homebrew package)`));
     }
-    if (deps.length) rows.push([p === 'macos' ? 'Dependencies (Homebrew)' : 'Dependencies', uniq(deps).join('; ')]);
+    if (deps.length) rows.push(['Dependencies', uniq(deps).join('; ')]);
     if (p === 'linux' && rec.flathub) {
       if (rec.flathub.download_size) rows.push(['Download size', fmtBytes(rec.flathub.download_size)]);
       if (rec.flathub.installed_size) rows.push(['Installed size', fmtBytes(rec.flathub.installed_size)]);
     }
     return rows;
   };
-  const installerHtml = `<div class="plat-cols">
-${plats
-    .map(
-      (p) => `<div class="plat-col">
-<h3>${esc(PLATFORM[p])}</h3>
-<ul class="clean">
-${summaries[p].map((s) => `<li>${withCode(s)}</li>`).join('\n')}
-</ul>
-${latestOf[p].cask?.caveats ? `<p class="pin">Homebrew note shown after install: ${esc(trunc(latestOf[p].cask.caveats, 300))}</p>` : ''}
-<h3>${esc(REQ_TITLE[p])}</h3>
-<ul class="clean req">
-${requirementsOf(p).map(([k, v]) => `<li><strong>${esc(k)}:</strong> ${withCode(v)}</li>`).join('\n')}
-</ul>
-</div>`,
-    )
-    .join('\n')}
-</div>`;
+  // One table for every platform: a row per fact, a column per platform. A row appears when at least one platform has a value.
+  const installerTableRows = (() => {
+    const per = Object.fromEntries(plats.map((p) => [p, new Map([...summaries[p], ...requirementsOf(p)])]));
+    const keys = [...new Set(plats.flatMap((p) => [...per[p].keys()]))];
+    const rank = (k) => (INSTALLER_ROW_ORDER.includes(k) ? INSTALLER_ROW_ORDER.indexOf(k) : INSTALLER_ROW_ORDER.length);
+    return keys.sort((a, b) => rank(a) - rank(b)).map((k) => [k, plats.map((p) => per[p].get(k) ?? null)]);
+  })();
+  const multiPlat = plats.length > 1;
+  const caveats = plats.filter((p) => latestOf[p].cask?.caveats);
+  const installerHtml = `<div class="scroll"><table class="glance inst${multiPlat ? ' multi' : ''}">
+${multiPlat ? `<thead><tr><td></td>${plats.map((p) => `<th scope="col">${esc(PLATFORM[p])}</th>`).join('')}</tr></thead>\n` : ''}<tbody>
+${installerTableRows.map(([k, vals]) => `<tr><th scope="row">${esc(k)}</th>${vals.map((v, j) => (v == null ? `<td class="na" data-pl="${esc(PLATFORM[plats[j]])}"><span aria-label="Not applicable">—</span></td>` : `<td data-pl="${esc(PLATFORM[plats[j]])}">${withCode(v)}</td>`)).join('')}</tr>`).join('\n')}
+</tbody></table></div>
+${caveats.map((p) => `<p class="pin">Homebrew note shown after install: ${esc(trunc(latestOf[p].cask.caveats, 300))}</p>`).join('\n')}`;
 
   // Publisher changelog: the app-level release-notes URL if upstream gives one, else the GitHub releases page
   // of the repo the installers are published from. Null when neither exists.
@@ -1538,7 +1536,7 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
 
   const unavailable = rec.versions.flatMap((v) => v.installers.filter((i) => deadOf(i)).map((i) => ({ platform: v.platform, version: v.version, filename: i.filename, url: i.url, http_status: deadOf(i).status, checked: deadOf(i).checked })));
   const shots = shotsOf(rec).map((it) => ({ url: `${SITE.url}/${rec.slug}/${it.file}`, width: it.width, height: it.height, ...(it.caption ? { caption: it.caption } : {}), platform: 'linux', source: 'Flathub', source_url: it.source }));
-  const twin = { ...rec, derived: { canonical_url: canonical, title, h1, installer_summary: summaries, ...(shots.length ? { screenshots: shots } : {}), ...(unavailable.length ? { unavailable_downloads: unavailable } : {}) } };
+  const twin = { ...rec, derived: { canonical_url: canonical, title, h1, installer_summary: Object.fromEntries(plats.map((p) => [p, Object.fromEntries(summaries[p])])), ...(shots.length ? { screenshots: shots } : {}), ...(unavailable.length ? { unavailable_downloads: unavailable } : {}) } };
 
   const md = [
     `# ${h1}`,
@@ -1567,14 +1565,15 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
     rec.description ? `## Description\n\n${rec.description}\n` : '',
     FEATURES.get(rec.slug) ? featuresMd(FEATURES.get(rec.slug)) : '',
     shots.length ? [`## Screenshots`, '', `Screenshots of the Linux version, from Flathub (${SHOTS[rec.slug].page}).`, '', ...shots.map((s, i) => `- [Screenshot ${i + 1}${s.caption ? `: ${s.caption}` : ''}](${s.url})`), ''].join('\n') : '',
+    allCustom ? '## What the download is' : '## What the installer does',
+    '',
+    `| |${plats.map((p) => ` ${OS_NAME[p]} |`).join('')}`,
+    `|---|${plats.map(() => '---|').join('')}`,
+    ...installerTableRows.map(([k, vals]) => `| **${k}** |${vals.map((v) => ` ${v == null ? '—' : v.replace(/\|/g, '\\|')} |`).join('')}`),
+    ...caveats.map((p) => `\nHomebrew note shown after install: ${trunc(latestOf[p].cask.caveats, 300)}`),
+    '',
     ...plats.flatMap((p) => [
       `## ${OS_NAME[p]}`,
-      '',
-      allCustom ? '### What the download is' : '### What the installer does',
-      ...summaries[p].map((s) => `- ${s}`),
-      '',
-      `### ${REQ_TITLE[p]}`,
-      ...requirementsOf(p).map(([k, v]) => `- **${k}:** ${v.replace(/`/g, '')}`),
       '',
       `### Versions (newest first)${p === 'macos' && !customOf(p) ? ' — Homebrew lists only the current release' : p === 'linux' && rec.flathub ? ' — Flathub lists only the current release' : ''}`,
       '',
