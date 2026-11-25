@@ -15,6 +15,7 @@ export const PERSON = {
   '@id': AUTHOR_ID,
   name: AUTHOR,
   url: AUTHOR_URL,
+  description: 'Former Head of Content at Softonic, in charge of its software catalog. Built and runs Everyversion.',
   mainEntityOfPage: 'https://everyversion.net/about/',
   sameAs: [AUTHOR_URL, LINKEDIN_URL],
 };
@@ -44,7 +45,7 @@ ${crumbs([null, 'About'])}
 <p class="lead">I’m <a href="${AUTHOR_URL}">${AUTHOR}</a>. I built Everyversion so you can get the version of your software that actually works for you.</p>
 <p class="updated">Written 4 November 2026, for anyone stuck on an update they never asked for.</p>
 
-<p>I used to <a href="${LINKEDIN_URL}">work for Softonic</a>.</p>
+<p>I was the <a href="${LINKEDIN_URL}">Head of Content at Softonic</a>, in charge of its software catalog.</p>
 
 <p>Every day I saw the same thing. Someone on an older computer would search for a program they’d used for years. The latest release wouldn’t run on their machine. The old one was gone from the publisher’s site. So they went hunting, and they ended up on whatever page promised the file.</p>
 
@@ -142,7 +143,7 @@ ${crumbs([null, 'About'])}
   return {
     path: '/about/',
     title: `About Everyversion – Older Software Versions, Without the Junk`,
-    description: `Built by ${AUTHOR}, a former Softonic employee, to help people find clean older versions of their favorite software.`,
+    description: `Built by ${AUTHOR}, former Head of Content at Softonic, to help people find clean older versions of their favorite software.`,
     body,
     ld: [
       {
