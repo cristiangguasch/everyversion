@@ -1092,9 +1092,8 @@ ${versionsOf(rec, p).slice(1, 1 + OLD_LISTED).map((v) => `<li>${esc(rec.name)} $
     : safetyScan;
   // What the rating means, shown on hover or keyboard focus (the same words go to screen readers).
   const SAFETY_MEANS = {
-    ok: partial
-      ? 'No more than one security engine on VirusTotal flagged the files scanned so far, and no checksum failed. Some files have no VirusTotal report yet.'
-      : 'No more than one security engine on VirusTotal flagged any of the latest files, and no checksum failed. A single flag among about 70 engines is usually a false alarm.',
+    // Said with the real count: "No security engine" (none flagged) or "Only 1 security engine" (one flagged).
+    ok: `${maxFlagged ? 'Only 1 security engine' : 'No security engine'} on VirusTotal flagged ${partial ? 'the files scanned so far' : 'the latest files'}, and no checksum failed.${maxFlagged ? ' A single flag among about 70 engines is usually a false alarm.' : ''}${partial ? ' Some files have no VirusTotal report yet.' : ''}`,
     warn: hashMis.mismatch
       ? 'A downloaded file does not match the checksum its package catalog publishes. Read the security details before you install.'
       : 'Two or three security engines on VirusTotal flagged a file. Often a false alarm, but read the security details before you install.',
