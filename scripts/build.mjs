@@ -536,12 +536,17 @@ const flathubVerifiedText = (f) => {
 const flathubUnverifiedText = (f) => `The ownership of the ${f.app_id} app ID has not been verified and it may be a community package.`;
 // After a rename the H1 and <title> carry the old name too: "Letos (formerly SQLiteStudio)". The slug never changes.
 const nameWithFormer = (rec) => (rec.formerly ? `${rec.name} (formerly ${rec.formerly})` : rec.name);
-const pinCmd = (rec, v) => (rec.ids.winget ? `winget install --id ${v.winget_id || rec.ids.winget} --version ${v.version} --exact` : null);
+const pinCmd = (rec, v) => (rec.ids.winget && !v.from_feed ? `winget install --id ${v.winget_id || rec.ids.winget} --version ${v.version} --exact` : null);
 
 const PLAT_ORDER = ['windows', 'macos', 'linux'];
 const platsOf = (rec) => PLAT_ORDER.filter((p) => rec.platforms.includes(p));
 const versionsOf = (rec, p) => rec.versions.filter((v) => v.platform === p);
 const provOf = (rec, p) => rec.provenance.find((e) => e.platform === p);
+// A supplement feed's entry for this platform (scripts/lib/supplement.mjs): versions the publisher lists that winget or Homebrew lack.
+const feedOf = (rec, p) => rec.provenance.find((e) => e.platform === p && e.source === 'custom' && e.supplement);
+const FEED_NAME = { jetbrains: 'JetBrains’ release feed' };
+const feedName = (e) => FEED_NAME[e?.source_id] || 'the publisher’s release feed';
+const mainSourceName = (rec, p) => (provOf(rec, p)?.source === 'winget-pkgs' ? 'winget-pkgs' : 'the Homebrew cask');
 const isCustom = (e) => e?.source === 'custom';
 const isFlathub = (e) => e?.source === 'flathub';
 const sourceName = (e) => (isCustom(e) ? 'publisher release feed' : isFlathub(e) ? 'Flathub' : e.source === 'winget-pkgs' ? 'winget-pkgs' : 'Homebrew cask');
@@ -916,6 +921,7 @@ ${url ? `<p class="pin">${link(url, v.release_notes ? 'Read the full release not
 <div class="body">
 ${installerTable(v.installers, p, v.version, rec.slug)}
 ${pin}
+${v.from_feed && feedOf(rec, p) ? `<p class="pin">From ${link(feedOf(rec, p).repo, feedName(feedOf(rec, p)))}: ${esc(mainSourceName(rec, p))} does not list this version. The SHA-256 is the one the publisher posts next to each download${p === 'windows' ? ', and winget cannot pin it' : ''}.</p>` : ''}
 ${notesBlock(v)}
 ${v.manifest_dir ? `<p class="pin">Manifest: ${link(provOf(rec, p)?.commit ? gh(provOf(rec, p).commit, v.manifest_dir) : `${WINGET_REPO}/tree/master/${v.manifest_dir}`, v.manifest_dir)}${provOf(rec, p)?.commit ? ` <span class="host">at commit ${esc(provOf(rec, p).commit.slice(0, 12))}</span>` : ''}</p>` : ''}
 </div>
@@ -952,7 +958,7 @@ ${vs.map((v) => versionBlock(p, v, at(v))).join('\n')}
       const note =
         p === 'linux' && rec.flathub
           ? `Flathub lists only the current release, and Flatpak installs the newest build; earlier versions cannot be chosen from the listing.`
-          : p === 'macos' && !customOf(p)
+          : p === 'macos' && !customOf(p) && !feedOf(rec, p)
           ? `Homebrew casks list only the current release. Earlier builds appear in the cask’s history on GitHub, and Homebrew cannot install them directly.`
           : mode === 'old'
           ? `${shown.length} older version${shown.length === 1 ? '' : 's'} listed, newest first${total > listed.length ? `. The source has ${total} in all; this page lists the newest ${listed.length}, latest included` : ''}. ${how}`
@@ -1004,8 +1010,9 @@ ${versionsOf(rec, p).slice(1, 1 + OLD_LISTED).map((v) => `<li>${esc(rec.name)} $
 <tr><th scope="row">${esc(PLATFORM[p])}: data retrieved</th><td>${esc(e.retrieved_at.slice(0, 10))} · attribution: app data from Flathub${rec.flathub.license ? `, license listed there: ${esc(rec.flathub.license)}` : ''}</td></tr>`;
       }
       return `<tr><th scope="row">${esc(PLATFORM[p])}: source</th><td>${link(e.repo, e.source === 'winget-pkgs' ? 'microsoft/winget-pkgs' : 'Homebrew/homebrew-cask')}</td></tr>
-<tr><th scope="row">${esc(PLATFORM[p])}: SHA-256 in upstream manifest</th><td>${esc(hashState(p))}</td></tr>
-<tr><th scope="row">${esc(PLATFORM[p])}: observed at commit</th><td>${link(sourceTree(e), e.commit.slice(0, 12))} · retrieved ${esc(e.retrieved_at.slice(0, 10))}</td></tr>`;
+<tr><th scope="row">${esc(PLATFORM[p])}: SHA-256 ${latestOf[p].from_feed ? 'from the publisher' : 'in upstream manifest'}</th><td>${esc(hashState(p))}${latestOf[p].from_feed ? ` (the latest version comes from ${esc(feedName(feedOf(rec, p)))}, the file posted next to each download)` : ''}</td></tr>
+<tr><th scope="row">${esc(PLATFORM[p])}: observed at commit</th><td>${link(sourceTree(e), e.commit.slice(0, 12))} · retrieved ${esc(e.retrieved_at.slice(0, 10))}</td></tr>${feedOf(rec, p) ? `
+<tr><th scope="row">${esc(PLATFORM[p])}: also from the publisher</th><td>${feedOf(rec, p).added} version${feedOf(rec, p).added === 1 ? '' : 's'} that ${esc(mainSourceName(rec, p))} lacks, from ${link(feedOf(rec, p).repo, feedName(feedOf(rec, p)))} · retrieved ${esc(feedOf(rec, p).retrieved_at.slice(0, 10))}</td></tr>` : ''}`;
     })
     .join('\n');
 

@@ -197,6 +197,18 @@ Some apps aren't in winget-pkgs or need more than it has, so they're read from t
 - `node scripts/custom.mjs --only=ableton-live --full` reads every version again.
 - **Push** downloads are a fixed list in the config; update the URLs there when Ableton ships new firmware.
 
+### Supplement sources (JetBrains)
+
+winget-pkgs and Homebrew miss releases. winget can trail the publisher by a day or more and rarely carries updates to an older release line (JetBrains ships 2026.2.7 after 2026.3), and a Homebrew cask lists only the current release. A supplement source reads the publisher's own feed and adds the versions a winget/Homebrew record lacks, on the Windows and macOS platforms the record already has. It never makes its own app page.
+
+- **Config:** an entry in `config/custom-sources.json` with `"supplement": true` and `products` (winget ID → the publisher's product code). The adapter exports `fetchSupplement()` (`scripts/sources/jetbrains.mjs`); the merge is in `scripts/lib/supplement.mjs`.
+- **JetBrains:** one request to `data.services.jetbrains.com/products/releases` covers all 13 JetBrains apps. It adds the x64 and Arm64 `.exe` and `.dmg` files of each stable release, with the SHA-256 from the `.sha256` file JetBrains posts next to each download. A release whose checksum cannot be read is left out. Zip, JBR-variant and Linux packages are not added (Linux comes from Flathub).
+- **winget and Homebrew win:** a feed version is added only when the record has no version with the same number or the same full build (Toolbox's `3.1.2.64642` is the feed's `3.1.2`). When winget catches up, its version replaces the feed's.
+- **How many:** feed versions are listed when they fall within the newest 100 of the platform (`max_versions`); older ones count in `versions_total`. winget and cask versions are never dropped.
+- **On the page:** each feed version says it came from the publisher's feed, and has no `winget install --version` line, since winget does not have it. The verification table counts the added versions per platform. Each added version carries `from_feed`, and each platform gets a provenance entry with `supplement: true` and `added`.
+- **Re-runs:** `scripts/custom.mjs` strips what the feed added before merging again, and `scripts/ingest.mjs` carries the feed versions across a winget re-read, so a run without changes leaves the records as they are. Checksums are cached by URL in `data/custom/jetbrains.sha256.json`.
+- `node scripts/custom.mjs --only=jetbrains` re-checks the feed.
+
 ### Renamed apps
 
 When a publisher renames an app, its page keeps its URL and carries both names. In `config/apps.txt`, keep the old slug (add `slug=<old-slug>` if the new name would make a different one) and set `name=<New_Name> formerly=<Old_Name>`, with underscores for spaces. For a custom source, set `app.name` and `app.formerly` in `config/custom-sources.json`. The H1 and `<title>` of the app page and of its old-versions page then read "New name (formerly Old name)", for example "Cloudflare One Client (formerly WARP)". The rest of the site uses the new name, and search finds the app under both.

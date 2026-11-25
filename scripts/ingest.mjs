@@ -13,6 +13,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, wri
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { feedPartsOf, mergeFeed } from './lib/supplement.mjs';
 import { compareVersions } from './lib/version.mjs';
 import { loadCasks, normaliseCask, suggestCask } from './lib/cask.mjs';
 
@@ -407,7 +408,7 @@ async function main() {
       missing.push(id);
       continue;
     }
-    const { rec } = res;
+    let { rec } = res;
     const manifest_dir = rec._manifestDir;
     delete rec._manifestDir;
 
@@ -474,12 +475,19 @@ async function main() {
       const ids = { ...shared.ids };
       delete ids.homebrew_cask;
       delete ids.flathub;
-      return JSON.stringify({ versions: versions.filter((v) => platOf(v) === plat), ...(plat === 'windows' ? { ...shared, ids } : {}) });
+      return JSON.stringify({ versions: versions.filter((v) => platOf(v) === plat && !v.from_feed), ...(plat === 'windows' ? { ...shared, ids } : {}) });
     };
     rec.provenance = provenance.map((entry) => {
       const old = prev && Array.isArray(prev.provenance) ? prev.provenance.find((e) => e.platform === entry.platform) : null;
       return old && parts(prev, entry.platform) === parts(rec, entry.platform) ? old : entry;
     });
+    // Versions a publisher feed added (supplement sources, scripts/lib/supplement.mjs) stay until scripts/custom.mjs re-reads
+    // that feed, which runs right after this step; winget versions with the same number replace them.
+    const feedPrev = feedPartsOf(prev);
+    if (feedPrev) {
+      const feed = Object.fromEntries(Object.entries(feedPrev).map(([p, f]) => [p, { versions: f.versions, unlisted: f.unlisted, entry: (({ added: _a, ...e }) => e)(f.entry) }]));
+      rec = mergeFeed(rec, feed).rec;
+    }
     const same = prev && JSON.stringify(prev) === JSON.stringify(clean(rec));
 
     writeFileSync(join(DATA, `${rec.slug}.json`), JSON.stringify(rec, null, 2) + '\n');

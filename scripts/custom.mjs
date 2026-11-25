@@ -16,6 +16,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { mergeFeed, stripFeed } from './lib/supplement.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data', 'apps');
@@ -124,6 +125,51 @@ async function runSource(src) {
   return { slug: rec.slug, created: !prev, changed: !same };
 }
 
+// A supplement source ("supplement": true) does not make its own app: it adds the versions its feed has and the winget/Homebrew
+// record lacks to each app in `products` (winget ID -> the publisher's product code). See scripts/lib/supplement.mjs.
+async function runSupplement(src) {
+  const mod = await import(pathToFileURL(join(ROOT, 'scripts', 'sources', `${src.adapter}.mjs`)).href);
+  mkdirSync(CACHE_DIR, { recursive: true });
+  const cacheFile = join(CACHE_DIR, `${src.id}.sha256.json`);
+  const cache = existsSync(cacheFile) ? JSON.parse(readFileSync(cacheFile, 'utf8')) : {};
+  const ctx = { getJson: (u) => get(u, 'json'), getText: (u) => get(u, 'text'), cache, log: (m) => console.log(m), today: new Date().toISOString().slice(0, 10) };
+  const byWinget = new Map();
+  for (const f of readdirSync(DATA).filter((f) => f.endsWith('.json'))) {
+    const r = JSON.parse(readFileSync(join(DATA, f), 'utf8'));
+    if (r.ids?.winget) byWinget.set(r.ids.winget, { file: join(DATA, f), rec: r });
+  }
+  const now = new Date().toISOString();
+  let failed = 0;
+  for (const id of Object.keys(src.products)) {
+    const hit = byWinget.get(id);
+    if (!hit) { console.log(`  ${id}: no record yet, skipped`); continue; }
+    try {
+      const base = stripFeed(hit.rec);
+      const { byPlatform, stats, feedUrl } = await mod.fetchSupplement(src, ctx, base);
+      const feed = {};
+      for (const [p, f] of Object.entries(byPlatform)) {
+        const content = sha({ versions: f.versions, unlisted: f.unlisted });
+        const old = hit.rec.provenance.find((e) => e.source === 'custom' && e.supplement && e.platform === p);
+        const entry = old && old.content_sha256 === content
+          ? (({ added: _a, ...e }) => e)(old)
+          : { source: 'custom', source_id: src.id, supplement: true, platform: p, repo: feedUrl, retrieved_at: now, path: new URL(feedUrl).pathname.replace(/^\//, ''), content_sha256: content };
+        feed[p] = { ...f, entry };
+      }
+      const { rec, added } = mergeFeed(base, feed);
+      const out = clean(rec);
+      const same = JSON.stringify(out) === JSON.stringify(hit.rec);
+      if (!same) writeFileSync(hit.file, JSON.stringify(out, null, 2) + '\n');
+      const per = Object.entries(added).map(([p, n]) => `${p} +${n} (latest ${out.latest_versions[p]})`).join(', ') || 'nothing missing';
+      console.log(`  ${out.name}: ${per}; ${stats.fetched} new checksum(s)${stats.failed ? `, ${stats.failed} unreadable` : ''}; ${same ? 'record unchanged' : 'record updated'}`);
+    } catch (e) {
+      failed++;
+      console.error(`  ✗ ${id}: ${e.message}`);
+    }
+  }
+  writeFileSync(cacheFile, JSON.stringify(Object.fromEntries(Object.entries(cache).sort(([x], [y]) => x.localeCompare(y))), null, 1) + '\n');
+  if (failed) throw new Error(`${failed} app(s) failed`);
+}
+
 async function main() {
   const cfg = JSON.parse(readFileSync(join(ROOT, 'config', 'custom-sources.json'), 'utf8'));
   const sources = cfg.sources.filter((s) => s.enabled !== false && (!ONLY.length || ONLY.includes(s.id)));
@@ -131,7 +177,7 @@ async function main() {
   let failed = 0;
   for (const src of sources) {
     try {
-      await runSource(src);
+      await (src.supplement ? runSupplement(src) : runSource(src));
     } catch (e) {
       failed++;
       console.error(`✗ ${src.id}: ${e.message}`);

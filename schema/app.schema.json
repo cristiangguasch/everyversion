@@ -346,6 +346,15 @@
             "type": "string",
             "description": "For source 'custom': the id of the custom source"
           },
+            "supplement": {
+              "const": true,
+              "description": "For source 'custom': a feed that adds the versions winget-pkgs or Homebrew lack to this platform (scripts/lib/supplement.mjs), listed after the platform's main entry"
+            },
+            "added": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "For a supplement entry: how many versions the feed adds to versions_total on this platform, listed or not"
+            },
           "content_sha256": {
             "type": "string",
             "pattern": "^[0-9a-f]{64}$",
@@ -574,6 +583,10 @@
         },
         "manifest_dir": {
           "type": "string"
+        },
+        "from_feed": {
+          "type": "string",
+          "description": "Id of the supplement source (config/custom-sources.json) this version came from: a release the publisher's own feed lists and winget-pkgs or Homebrew lack. No winget pin and no manifest."
         },
         "winget_id": {
           "type": "string",
