@@ -29,6 +29,7 @@ Scope: $ARGUMENTS
 - Compare against the snapshot and list each app whose latest version changed: name, platform, old version → new version.
 - Say how many apps did not change.
 - For every changed app: hash result, signatures, VirusTotal rating. Call out anything MEDIUM or HIGH risk, with the engines and detection names. Do not change a rating by hand.
+- **Renamed apps:** look for apps whose publisher renamed them (a new PackageName, a new winget ID from the same publisher, or a rename on the publisher's site or in the release notes). List each one and, after I confirm, apply the rename rule: the URL never changes: keep the old slug (add `slug=<old-slug>` when the new name would make a different one), set `name=<New_Name> formerly=<Old_Name>` in `config/apps.txt` (`app.name` and `app.formerly` for a custom source), and the H1 and `<title>` of the app page and its old-versions page then read "New name (formerly Old name)". `npm run check` fails if they do not. When the rename came with a new winget ID, switch the line to the new ID and add `previous=<OldId>` so the old versions stay on the same page; then verify, link-check and look up the new installers on VirusTotal, and update the app's feature notes.
 - List apps whose record was removed or that winget no longer has, Homebrew casks that became disabled or deprecated, Flathub apps that went end-of-life, failed downloads (403/404), and new dead download links.
 
 ## 4. Deploy only what changed

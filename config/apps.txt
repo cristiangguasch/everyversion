@@ -2,6 +2,8 @@
 #   free-to-download = free to download and use (may also offer paid tiers). Curated by hand.
 #   slug=<name>      = override the flat URL slug (default: slugified PackageName).
 #   name=<Name_With_Underscores> = override the display name (underscores become spaces), e.g. name=Threema_Web. The URL slug is not affected.
+#   previous=<OldId>[,<OldId>] = the winget ID(s) before a rename that changed the ID; their versions stay on this page.
+#   formerly=<Old_Name>  = the app was renamed: name= holds the new name, formerly= the old one. The H1 and <title> read "New (formerly Old)". Keep the old slug (add slug=<old-slug> if the new name would change it).
 #   cask=<token>     = matching Homebrew cask (reviewed by hand against name, homepage and download host).
 #   flathub=<id>     = matching Flathub app (Linux), e.g. net.cozic.joplin_desktop. flathub=none = not on Flathub / do not match.
 # Pricing for open-source / freeware licenses is derived from the manifest License field.
@@ -70,7 +72,7 @@ Anki.Anki                                   cask=anki flathub=net.ankiweb.Anki
 ShareX.ShareX
 Greenshot.Greenshot
 Malwarebytes.Malwarebytes                   free-to-download cask=malwarebytes
-Cloudflare.Warp                             free-to-download slug=cloudflare-warp name=Cloudflare_One_Client_(formerly_WARP) cask=cloudflare-warp
+Cloudflare.Warp                             free-to-download slug=cloudflare-warp name=Cloudflare_One_Client formerly=WARP cask=cloudflare-warp
 Tailscale.Tailscale                         free-to-download cask=tailscale-app
 Proton.ProtonVPN                            free-to-download cask=protonvpn flathub=com.protonvpn.www
 Logitech.OptionsPlus                        free-to-download cask=logi-options+
@@ -497,7 +499,7 @@ CNRISTI.MeshLab cask=meshlab flathub=net.meshlab.MeshLab
 CommandLine.Wave name=Wave_Terminal slug=wave-terminal cask=wave flathub=none
 Elegoo.ElegooSlicer cask=elegoo-slicer flathub=none
 Headlamp.Headlamp cask=headlamp flathub=io.kinvolk.Headlamp
-PawelSalawa.SQLiteStudio flathub=none
+PawelSalawa.Letos slug=sqlitestudio name=Letos formerly=SQLiteStudio previous=PawelSalawa.SQLiteStudio cask=letos flathub=none
 Posit.Positron free-to-download cask=positron flathub=none
 StirlingTools.StirlingPDF name=Stirling-PDF cask=stirling-pdf flathub=none
 SurgeSynth.SurgeXT cask=surge-xt flathub=org.surge_synth_team.surge-xt

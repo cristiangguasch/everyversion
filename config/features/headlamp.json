@@ -1,0 +1,81 @@
+{
+  "slug": "headlamp",
+  "reviewed": "2026-11-25",
+  "best_for": "Developers and cluster operators who want a free graphical view of their Kubernetes clusters on their own computer, using the kubeconfig they already have.",
+  "points": [
+    {
+      "title": "A Kubernetes dashboard, free under Apache 2.0",
+      "text": "Headlamp shows cluster resources, logs, a container terminal and a resource editor, and works with several clusters at once. It is a Kubernetes SIG UI project, not tied to any vendor, and plugins extend it."
+    },
+    {
+      "title": "It needs a cluster and credentials",
+      "text": "The desktop app reads your kubeconfig, and you can point it at other files. Sign-in uses a client certificate or a bearer token, with a service account token as the suggested route. What you can see and change follows your Kubernetes RBAC permissions."
+    },
+    {
+      "title": "Desktop app or in-cluster web UI",
+      "text": "Teams can also deploy Headlamp inside a cluster with a Helm chart and put it behind an ingress, with OIDC sign-in for shared use. This listing covers only the desktop app."
+    },
+    {
+      "title": "Windows: per-user .exe or machine-wide MSI",
+      "text": "The .exe installers, for x64 and Arm64, install for the current user, and earlier records mark them as able to run silently. Version 0.46.0 also lists an x64 MSI that installs for the whole machine and elevates itself. At the time of reading, the docs warned that Windows builds may be unsigned and blocked, with More then Run Anyway as the way past."
+    },
+    {
+      "title": "No built-in updater for direct downloads",
+      "text": "The docs say an installer or DMG taken from the release page does not upgrade itself; you install the newer one over it. Winget, Chocolatey, Homebrew and Flatpak can handle upgrades for you."
+    },
+    {
+      "title": "Mac needs Monterey or later",
+      "text": "The Mac DMGs, for Intel and Apple silicon, require macOS 12 or newer."
+    },
+    {
+      "title": "Linux Flatpak and cloud CLI logins",
+      "text": "Flathub marks the Flatpak as verified, for x64 and Arm64. Kubeconfig entries that call tools such as az, aws or gcloud need extra permission, given with Flatseal or `flatpak override --talk-name=org.freedesktop.Flatpak`. The project also ships AppImages and tarballs, which are not listed here."
+    },
+    {
+      "title": "Older builds only for Windows",
+      "text": "The Windows listing keeps 34 versions, back to 0.20.1. macOS and Linux keep only the current release."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Headlamp home",
+      "url": "https://headlamp.dev/"
+    },
+    {
+      "label": "GitHub repository and README",
+      "url": "https://github.com/kubernetes-sigs/headlamp"
+    },
+    {
+      "label": "Installation and log-in",
+      "url": "https://headlamp.dev/docs/latest/installation/"
+    },
+    {
+      "label": "Desktop app",
+      "url": "https://headlamp.dev/docs/latest/installation/desktop/"
+    },
+    {
+      "label": "Windows installation",
+      "url": "https://headlamp.dev/docs/latest/installation/desktop/win-installation"
+    },
+    {
+      "label": "Mac installation",
+      "url": "https://headlamp.dev/docs/latest/installation/desktop/mac-installation"
+    },
+    {
+      "label": "Linux installation",
+      "url": "https://headlamp.dev/docs/latest/installation/desktop/linux-installation"
+    },
+    {
+      "label": "In-cluster installation",
+      "url": "https://headlamp.dev/docs/latest/installation/in-cluster/"
+    },
+    {
+      "label": "Homebrew cask",
+      "url": "https://formulae.brew.sh/cask/headlamp"
+    },
+    {
+      "label": "Flathub listing",
+      "url": "https://flathub.org/apps/io.kinvolk.Headlamp"
+    }
+  ]
+}

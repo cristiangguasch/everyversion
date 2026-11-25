@@ -45,11 +45,15 @@ function readConfig() {
     const [id, ...rest] = line.split(/\s+/);
     const slugTok = rest.find((t) => t.startsWith('slug='));
     const nameTok = rest.find((t) => t.startsWith('name='));
+    const formerlyTok = rest.find((t) => t.startsWith('formerly='));
+    const previousTok = rest.find((t) => t.startsWith('previous='));
     out.push({
       id,
-      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('name=') && !t.startsWith('cask=') && !t.startsWith('flathub=')) || null,
+      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('name=') && !t.startsWith('formerly=') && !t.startsWith('previous=') && !t.startsWith('cask=') && !t.startsWith('flathub=')) || null,
       slugOverride: slugTok ? slugTok.slice(5) : null,
       nameOverride: nameTok ? nameTok.slice(5).replace(/_/g, ' ') : null, // name=Threema_Web -> "Threema Web"
+      formerly: formerlyTok ? formerlyTok.slice(9).replace(/_/g, ' ') : null, // formerly=SQLiteStudio -> "Letos (formerly SQLiteStudio)" in H1 and title
+      previous: previousTok ? previousTok.slice(9).split(',').filter(Boolean) : [], // previous=PawelSalawa.SQLiteStudio: the winget ID(s) the app had before a rename; their versions join this page
       cask: (rest.find((t) => t.startsWith('cask=')) || '').slice(5) || null,
     });
   }
@@ -234,7 +238,7 @@ function readVersion(id, appDir, dirName) {
   };
 }
 
-function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride) {
+function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, formerly, previous = []) {
   const appDir = join(CACHE, manifestDir(id));
   if (!existsSync(appDir)) return { missing: true };
 
@@ -250,6 +254,23 @@ function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride) {
     if (v) versions.push(v);
   }
   if (!versions.length) return { missing: true };
+  // After a rename with a new winget ID, the old ID's versions join the page. Each keeps its own ID (for `winget install --id`),
+  // and a version number the new ID already has is not repeated.
+  let totalDirs = dirs.length;
+  for (const pid of previous) {
+    const pDir = join(CACHE, manifestDir(pid));
+    if (!existsSync(pDir)) continue;
+    const pDirs = readdirSync(pDir)
+      .filter((n) => statSync(join(pDir, n)).isDirectory() && existsSync(join(pDir, n, `${pid}.yaml`)))
+      .filter((n) => !dirs.includes(n))
+      .sort((a, b) => compareVersions(b, a));
+    totalDirs += pDirs.length;
+    for (const d of pDirs) {
+      if (versions.length >= MAX_VERSIONS) break;
+      const v = readVersion(pid, pDir, d);
+      if (v && !versions.some((x) => x.version === v.version)) versions.push({ ...v, wingetId: pid });
+    }
+  }
   versions.sort((a, b) => compareVersions(b.version, a.version));
 
   // Descriptive fields: newest version wins, older versions fill gaps.
@@ -271,9 +292,10 @@ function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride) {
     schema_version: 2,
     slug: slugOverride || slugFor(id, name, publisher),
     name: nameOverride || name,
+    formerly: formerly || undefined,
     publisher,
     author: str(L.Author),
-    ids: clean({ winget: id, moniker: str(L.Moniker) }),
+    ids: clean({ winget: id, winget_previous: previous.length ? previous : undefined, moniker: str(L.Moniker) }),
     platforms: ['windows'],
     summary: str(L.ShortDescription),
     description: str(L.Description),
@@ -300,7 +322,7 @@ function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride) {
     pricing: derivePricing(licenseName, curatedPricing),
     latest_versions: { windows: latest.version },
     last_updated: latest.releaseDate,
-    versions_total: { windows: dirs.length },
+    versions_total: { windows: totalDirs },
     versions: versions.map((v) =>
       clean({
         platform: 'windows',
@@ -310,6 +332,7 @@ function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride) {
         release_notes_url: str(v.locale.ReleaseNotesUrl),
         manifest_version: v.manifestVersion,
         manifest_dir: v.dir,
+        winget_id: v.wingetId,
         installers: v.installers,
       }),
     ),
@@ -340,7 +363,7 @@ async function main() {
   }
 
   console.log('syncing winget-pkgs (sparse, depth 1)…');
-  const commit = syncCache(config.map((c) => manifestDir(c.id)));
+  const commit = syncCache(config.flatMap((c) => [c.id, ...c.previous].map(manifestDir)));
   console.log(`winget-pkgs @ ${commit}`);
 
   console.log('fetching Homebrew cask index…');
@@ -377,9 +400,9 @@ async function main() {
   let unchanged = 0;
 
   for (const { id, slugOverride } of allConfig) if (slugOverride) taken.set(slugOverride, id);
-  for (const { id, curatedPricing, slugOverride, nameOverride, cask: caskConfigured } of config) {
+  for (const { id, curatedPricing, slugOverride, nameOverride, formerly, previous, cask: caskConfigured } of config) {
     if (kept.size >= LIMIT) break;
-    const res = readApp(id, curatedPricing, slugFor, slugOverride, nameOverride);
+    const res = readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, formerly, previous);
     if (res.missing) {
       missing.push(id);
       continue;
@@ -432,7 +455,7 @@ async function main() {
     }
 
     // ---- provenance: an entry only moves when that platform's content changed
-    const prev = existing.get(id);
+    const prev = existing.get(id) ?? previous.map((p) => existing.get(p)).find(Boolean); // a renamed app's record still carries its old ID
     // Linux (Flathub) data is owned by scripts/flathub.mjs, which runs after this step. Carry it over so a re-read of the
     // winget data does not drop it (and keeps its retrieved_at); flathub.mjs then refreshes it.
     if (prev?.ids?.flathub && prev.flathub) {

@@ -1,17 +1,23 @@
 {
   "schema_version": 2,
   "slug": "sqlitestudio",
-  "name": "SQLiteStudio",
-  "publisher": "sqlitestudio.pl",
+  "name": "Letos",
+  "formerly": "SQLiteStudio",
+  "publisher": "letos.org",
   "author": "Paweł Salawa",
   "ids": {
-    "winget": "PawelSalawa.SQLiteStudio"
+    "winget": "PawelSalawa.Letos",
+    "winget_previous": [
+      "PawelSalawa.SQLiteStudio"
+    ],
+    "homebrew_cask": "letos"
   },
   "platforms": [
-    "windows"
+    "windows",
+    "macos"
   ],
   "summary": "Create, edit, browse SQLite databases.",
-  "description": "SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people, who know what SQLite is, or what relational databases are in general.",
+  "description": "Letos is desktop application for browsing and editing SQLite database files. It is aimed for people, who know what SQLite is, or what relational databases are in general.",
   "tags": [
     "database",
     "db",
@@ -20,36 +26,532 @@
   ],
   "locale": "en-US",
   "urls": {
-    "homepage": "https://www.sqlitestudio.pl/",
-    "publisher": "https://www.sqlitestudio.pl/",
-    "support": "https://github.com/pawelsalawa/sqlitestudio/issues",
-    "bug_tracker": "https://github.com/pawelsalawa/sqlitestudio/issues",
-    "release_notes": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3421",
+    "homepage": "https://letos.org/",
+    "publisher": "https://letos.org/",
+    "support": "https://github.com/pawelsalawa/letos/issues",
+    "bug_tracker": "https://github.com/pawelsalawa/letos/issues",
+    "release_notes": "https://github.com/pawelsalawa/letos/blob/HEAD/ChangeLog.md#404",
     "documentation": [
       {
         "label": "Wiki",
-        "url": "https://github.com/pawelsalawa/sqlitestudio/wiki"
+        "url": "https://github.com/pawelsalawa/letos/wiki"
       }
     ]
   },
   "license": {
     "name": "GPL-3.0",
-    "url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/LICENSE",
+    "url": "https://github.com/pawelsalawa/letos/blob/HEAD/LICENSE",
     "spdx": "GPL-3.0",
-    "copyright": "Copyright © sqlitestudio.pl 2026"
+    "copyright": "Copyright © letos.org 2026"
   },
   "pricing": {
     "status": "open-source",
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "3.4.21"
+    "windows": "4.0.4",
+    "macos": "4.0.4"
   },
-  "last_updated": "2026-01-23",
+  "last_updated": "2026-10-15",
   "versions_total": {
-    "windows": 19
+    "windows": 24,
+    "macos": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "4.0.4",
+      "release_date": "2026-10-15",
+      "release_notes": "- CHANGE: #5819 Added an option on the Database list configuration page to expand or collapse connected databases on double-click instead of opening their settings.\n- CHANGE: SQLite version updated to 3.54.0.\n- BUGFIX: #5816 Include the data row number in import errors for CSV and other import sources.\n- BUGFIX: #5804 Fixed renaming columns used by dependent views, CHECK constraints, generated columns and table keys, and dropping views before rebuilding their tables.\n- BUGFIX: #5810 Fixed unreadable Debug Console text in dark themes by using the theme's text color.\n- BUGFIX: #5814 Fixed queries using implicitly attached databases with views, CTE aliases, forward references and materialization hints, including incorrect results when table names overlap.\n- BUGFIX: #5822 Fixed uninitialized syntax colors and editor highlight backgrounds when starting with the default palette.\n- BUGFIX: #5815 Restored support for the user's QT_PLUGIN_PATH environment variable by reverting the fix for #4241.\n- BUGFIX: #5808 Fixed dragging table fields into the SQL Editor to insert comma-separated names, generate SELECT with Ctrl, and generate UPDATE with Ctrl+Shift.\n- BUGFIX: #5831 Fixed using ! and != operators without a whitespace separating it from the value or id.\n- BUGFIX: #5806 Fixed crash when renaming VIEW inline (in Database List).",
+      "release_notes_url": "https://github.com/pawelsalawa/letos/blob/HEAD/ChangeLog.md#404",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PawelSalawa/Letos/4.0.4",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.4/Letos-4.0.4-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.4-windows-x64-setup.exe",
+          "sha256": "c470431db62977a1b38d27dc41ac2e593b52b2415184ce4b18e9ace90a1a41d2",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.4/Letos-4.0.4-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.4-windows-x64-setup.exe",
+          "sha256": "c470431db62977a1b38d27dc41ac2e593b52b2415184ce4b18e9ace90a1a41d2",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.4/Letos-4.0.4-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.4-windows-arm64-setup.exe",
+          "sha256": "c3e224f8d3f7269acbe786195ee102b5d831e0230ff4a066c65a871fe0ddd13b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.4/Letos-4.0.4-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.4-windows-arm64-setup.exe",
+          "sha256": "c3e224f8d3f7269acbe786195ee102b5d831e0230ff4a066c65a871fe0ddd13b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.3",
+      "release_date": "2026-08-12",
+      "release_notes": "- ADDED: #5794 Added glowing effect for entities & arrows being in relation with the selected entity. Can be turned off/on.\n- BUGFIX: #5794 Scene area once again refreshes after entity is moved out of the scene, so it's possible to scroll to see it.\n- BUGFIX: #5797 Fixed font color on DDL tab of Table Window immediately after changing theme from light to dark or vice versa.\n- BUGFIX: #5799 Import/Export dialog on macOS has now mnHeight=450, so the options section appear at bottom, neglckting the ephemeral scrollbars on macOS.",
+      "release_notes_url": "https://github.com/pawelsalawa/letos/blob/HEAD/ChangeLog.md#403",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PawelSalawa/Letos/4.0.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.3/Letos-4.0.3-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.3-windows-x64-setup.exe",
+          "sha256": "3f5b265bf6ddb4a2920eff56357f85f73694b4c0f31564570c9cc16ab4988e2b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.3/Letos-4.0.3-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.3-windows-x64-setup.exe",
+          "sha256": "3f5b265bf6ddb4a2920eff56357f85f73694b4c0f31564570c9cc16ab4988e2b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.3/Letos-4.0.3-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.3-windows-arm64-setup.exe",
+          "sha256": "624a7252d455504c5320800d05176e5e18ddc9560c36fff39843703d4348543b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.3/Letos-4.0.3-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.3-windows-arm64-setup.exe",
+          "sha256": "624a7252d455504c5320800d05176e5e18ddc9560c36fff39843703d4348543b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.2",
+      "release_date": "2026-08-07",
+      "release_notes": "- ADDED: #5758 Added Fusion Light theme, so now there's Fusion for system-compliant autodetected color palette, Fusion Dark for enforced dark palette and Fusion Light for light palette.\n- ADDED: #5771 Window List menu is now by default a top-level menu (on menubar), but it still can be restored to previous way (submenu in View menu) in configuration.\n- CHANGE: #5774 SQLite3 updated to 3.53.4.\n- BUGFIX: #5755 Grid View column header separator is now easier to grab or double-click.\n- BUGFIX: #5744 Fixed cmd+c in Grid View for macOS with russian keyboard input.\n- BUGFIX: #5744 Update Qt on macOS for official builds to 6.11 to fix cmd+c copy hotkey, thus dropping support for macOS 11 and 12 in official builds (other builds may still use older Qt and support older macOS).\n- BUGFIX: #5777 Fixed crash when committing whole ERD schema while havinh table panel open and trying to do another change in that panel.\n- BUGFIX: #5768 Fixed crash when pasting data from a spreadsheet (i.e. Excel, etc) containing empty cells.\n- BUGFIX: #5754 Fixed crash in several Browse File actions across the application.\n- BUGFIX: #5760 Fixed wrong (dark) text color in SQL editor on Windows with dark theme.\n- BUGFIX: #5758 Properly removed windowsvista and windows11 themes, as they should have been in #5743 already in 4.0.1.\n- BUGFIX: #5778 Fixed deleting data rows from Table Window for tables with unusual names.\n- BUGFIX: #5756 Resize (adjust) all selected columns when double-clicked on section separator in header, regardles if the column associated with the clicked separator needs the resizing or not.\n- BUGFIX: #5761 Added additional MacOS build with older Qt (6.5) to allow to run the app on older MacOS (11 & 12), with the known issue #5744 in older Qt.\n- BUGFIX: #5785 Fixed mult-level CTE queries execution with explicit database names in the query.\n- BUGFIX: #5766 Added the Last-used-window hotkey (Ctrl+Tab) for macOS, for which Qt lacks proper implementation.\n- BUGFIX: Fixed Command Palette navigation under Windows/Linux, after breaking it with the fix for MacOS. Now it should work on all OS's.",
+      "release_notes_url": "https://github.com/pawelsalawa/letos/blob/HEAD/ChangeLog.md#402",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PawelSalawa/Letos/4.0.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.2/Letos-4.0.2-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.2-windows-x64-setup.exe",
+          "sha256": "f91bbeab482966bfe2d3437ffbf7ce20726f51d52bd28520dae239466330ed6f",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.2/Letos-4.0.2-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.2-windows-x64-setup.exe",
+          "sha256": "f91bbeab482966bfe2d3437ffbf7ce20726f51d52bd28520dae239466330ed6f",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.2/Letos-4.0.2-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.2-windows-arm64-setup.exe",
+          "sha256": "84e9b66aa09d0ae3d7f96d41622c22136329a73ee82cfea8ead347888eb79806",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.2/Letos-4.0.2-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.2-windows-arm64-setup.exe",
+          "sha256": "84e9b66aa09d0ae3d7f96d41622c22136329a73ee82cfea8ead347888eb79806",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.1",
+      "release_date": "2026-07-06",
+      "release_notes": "- ADDED: #5402 User Interface scaling can be now configured for whole application from the configuration dialog (Look & Feel page).\n- ADDED: Letos can now use different icon sets. It's configurable. For now the open source repository contains only the default icon set, while official letos.org builds will include a set from Icons8 (https://icons8.com). These are proprietary icons and Icons8 team granted the license to Letos project.\n- BUGFIX: #5626 Grid View font is now used for inline editors to make the cell editing experience unified.\n- BUGFIX: #5722 Fixed crash when committing data edited in a View.\n- BUGFIX: #5728 Set cell vertical alignment in Grid View to center.\n- BUGFIX: #5724 Persian translation added. Right-To-Left languages support fixed. Fixed core Qt translations (i.e. dialog buttons, etc).\n- BUGFIX: #5693 Fixed disappearing folder/group from Db list when drag&dropping it outside of the Db list.\n- BUGFIX: #4241 ignore user's QT_PLUGIN_PATH, because it can break Letos if it's incompatible Qt path\n- BUGFIX: #5733 Fixed drop support for SQLite3 files under Windows.\n- BUGFIX: #5742 Fixed header to resize column on double-clicking its right separator.\n- BUGFIX: #5738 Fixed bright background for MDI on first app run when using MacOS or Linux with dark theme.\n- BUGFIX: #5743 Removed the Windows 11 and Windows Vista styles from the official builds, as the Qt implementations are incomplete and may lead to a confusing user experience.\n- BUGFIX: Fixed Command Palette under MacOS, so that navigating with up/down keys over results works now and margins of the results are more aesthetic.\n- BUGFIX: Fixed restoring expanded/collapsed state of folders on the database list.\n- BUGFIX: Fixed crash on pressing Ctrl while having focus in the Hex editor.\n- BUGFIX: Fixed Import Dialog to keep selected table when importing data to table from DB list context menu.\n- BUGFIX: Removed misleading message from data query execution when clearing the sorting column by header clicks.",
+      "release_notes_url": "https://github.com/pawelsalawa/letos/blob/HEAD/ChangeLog.md#401",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PawelSalawa/Letos/4.0.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.1/Letos-4.0.1-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.1-windows-x64-setup.exe",
+          "sha256": "fac036588ebd274f8f146640565b808003d446c94246076b7b0048adbde72abd",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.1/Letos-4.0.1-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.1-windows-x64-setup.exe",
+          "sha256": "fac036588ebd274f8f146640565b808003d446c94246076b7b0048adbde72abd",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.1/Letos-4.0.1-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.1-windows-arm64-setup.exe",
+          "sha256": "66a449f524a0aa8c868dd2f6bd28bbf57ca2ff00f4e5186988aa638830f79206",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.1/Letos-4.0.1-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.1-windows-arm64-setup.exe",
+          "sha256": "66a449f524a0aa8c868dd2f6bd28bbf57ca2ff00f4e5186988aa638830f79206",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.0",
+      "release_date": "2026-06-23",
+      "release_notes_url": "https://github.com/pawelsalawa/letos/blob/HEAD/ChangeLog.md#400",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/PawelSalawa/Letos/4.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.0/Letos-4.0.0-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.0-windows-x64-setup.exe",
+          "sha256": "0984b245810a758ef0863a45e9f6c5416e2640dd3ed42f8696eda63bbdeb38c5",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.0/Letos-4.0.0-windows-x64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.0-windows-x64-setup.exe",
+          "sha256": "0984b245810a758ef0863a45e9f6c5416e2640dd3ed42f8696eda63bbdeb38c5",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.0/Letos-4.0.0-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.0-windows-arm64-setup.exe",
+          "sha256": "23da7e9c3d23a7df7e91bd528282fcaec762d9d9e442b4bffe304d2fc33ef20b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/CURRENTUSER"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.0/Letos-4.0.0-windows-arm64-setup.exe",
+          "host": "github.com",
+          "filename": "Letos-4.0.0-windows-arm64-setup.exe",
+          "sha256": "23da7e9c3d23a7df7e91bd528282fcaec762d9d9e442b4bffe304d2fc33ef20b",
+          "product_code": "{66E6E480-A7AE-4473-879F-C8699024904E}_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "file_extensions": [
+            "db",
+            "db3",
+            "s3db",
+            "sdb",
+            "sqlite",
+            "sqlite3"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "3.4.21",
@@ -58,6 +560,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3421",
       "manifest_version": "1.12.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.21",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -130,6 +633,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md",
       "manifest_version": "1.12.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.20",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -203,6 +707,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3419",
       "manifest_version": "1.10.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.19",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -276,6 +781,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3418",
       "manifest_version": "1.10.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.18",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -348,6 +854,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.17",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -421,6 +928,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3416",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.16",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -494,6 +1002,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3415",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.15",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -567,6 +1076,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3414",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.14",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -640,6 +1150,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3413",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.13",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -713,6 +1224,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#3412",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.12",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -785,6 +1297,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.11",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -857,6 +1370,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.10",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -930,6 +1444,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#349",
       "manifest_version": "1.9.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.9",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -1003,6 +1518,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#348",
       "manifest_version": "1.6.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.8",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -1076,6 +1592,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#347",
       "manifest_version": "1.6.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.7",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -1148,6 +1665,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md",
       "manifest_version": "1.6.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.6",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -1221,6 +1739,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#345",
       "manifest_version": "1.6.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.5",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -1294,6 +1813,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md",
       "manifest_version": "1.6.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.4",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -1367,6 +1887,7 @@
       "release_notes_url": "https://github.com/pawelsalawa/sqlitestudio/blob/HEAD/ChangeLog.md#341",
       "manifest_version": "1.6.0",
       "manifest_dir": "manifests/p/PawelSalawa/SQLiteStudio/3.4.1",
+      "winget_id": "PawelSalawa.SQLiteStudio",
       "installers": [
         {
           "platform": "windows",
@@ -1431,6 +1952,36 @@
           ]
         }
       ]
+    },
+    {
+      "platform": "macos",
+      "version": "4.0.4",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/pawelsalawa/letos/releases/download/4.0.4/letos-4.0.4-macos-universal.dmg",
+          "host": "github.com",
+          "filename": "letos-4.0.4-macos-universal.dmg",
+          "sha256": "f62a9592b9f5ed07eec0c581162738708b91754e9d3b96c3d319513ec32b7b5b",
+          "min_os_version": "13"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Letos.app"
+        ],
+        "cleanup": {
+          "quit": [
+            "org.letos.Letos"
+          ],
+          "zap_paths": [
+            "~/Library/Preferences/letos.org",
+            "~/Library/Preferences/org.letos.Letos.plist"
+          ]
+        }
+      }
     }
   ],
   "verification": {
@@ -1447,9 +1998,18 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "13f03baeadf427f63f340300af40c1fa52c28e81",
-      "retrieved_at": "2026-11-24T02:47:42.576Z",
-      "path": "manifests/p/PawelSalawa/SQLiteStudio"
+      "commit": "06eb8dc72af614346b9a2e8f5a4e620e4f08772f",
+      "retrieved_at": "2026-11-25T18:59:09.488Z",
+      "path": "manifests/p/PawelSalawa/Letos"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "20160a465ac6c3f3eba0e0c0a4f30713cb885301",
+      "retrieved_at": "2026-11-25T18:59:09.488Z",
+      "path": "Casks/l/letos.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/letos.json"
     }
   ]
 }

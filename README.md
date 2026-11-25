@@ -197,6 +197,12 @@ Some apps aren't in winget-pkgs or need more than it has, so they're read from t
 - `node scripts/custom.mjs --only=ableton-live --full` reads every version again.
 - **Push** downloads are a fixed list in the config; update the URLs there when Ableton ships new firmware.
 
+### Renamed apps
+
+When a publisher renames an app, its page keeps its URL and carries both names. In `config/apps.txt`, keep the old slug (add `slug=<old-slug>` if the new name would make a different one) and set `name=<New_Name> formerly=<Old_Name>`, with underscores for spaces. For a custom source, set `app.name` and `app.formerly` in `config/custom-sources.json`. The H1 and `<title>` of the app page and of its old-versions page then read "New name (formerly Old name)", for example "Cloudflare One Client (formerly WARP)". The rest of the site uses the new name, and search finds the app under both.
+
+If the rename also brought a new winget ID, switch the line to the new ID and add `previous=<OldId>` (for example `PawelSalawa.Letos slug=sqlitestudio name=Letos formerly=SQLiteStudio previous=PawelSalawa.SQLiteStudio`). The ingest then reads both IDs into one page: old versions keep their own `winget_id`, so their `winget install` commands and manifest links stay right, and the facts table lists the earlier ID. `npm run check` fails when a record with `formerly` lacks it in either place.
+
 ### Feature notes (editorial)
 
 Some app pages carry hand-written notes in the Description section: a one-line "Best for", then 5 to 8 bullets on what the app does and where it stops. Each lives in `config/features/<slug>.json` and is shown on the page and in the `.md` file by `scripts/lib/features.mjs`. Apps without a file show only the description.

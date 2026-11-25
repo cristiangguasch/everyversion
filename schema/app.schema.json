@@ -37,6 +37,11 @@
       "type": "string",
       "minLength": 1
     },
+    "formerly": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The app's old name after a rename. The H1 and <title> read \"<name> (formerly <formerly>)\"; the slug keeps the old URL."
+    },
     "author": {
       "type": "string"
     },
@@ -47,6 +52,12 @@
       "properties": {
         "winget": {
           "type": "string"
+        },
+        "winget_previous": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "winget IDs the app had before a rename; their versions are on this page, each with its own winget_id"
         },
         "moniker": {
           "type": "string"
@@ -563,6 +574,10 @@
         },
         "manifest_dir": {
           "type": "string"
+        },
+        "winget_id": {
+          "type": "string",
+          "description": "Only on versions from a previous winget ID (ids.winget_previous): the ID to install this version with"
         },
         "installers": {
           "type": "array",

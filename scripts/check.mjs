@@ -192,6 +192,20 @@ for (const a of apps) {
   } else if (ul) bad(a.slug, 'Description has feature bullets but no content file');
   if (/id="features"|In the package data/.test(h)) bad(a.slug, 'old features section still on the page');
 }
+// renamed apps: "New (formerly Old)" in the H1 and <title> of the app page and its old-versions page, at the old slug
+for (const a of apps) {
+  const rec = JSON.parse(readFileSync(join(ROOT, 'data', 'apps', `${a.slug}.json`), 'utf8'));
+  if (!rec.formerly) continue;
+  const want = `${rec.name} (formerly ${rec.formerly})`.replace(/&/g, '&amp;');
+  for (const page of [join(DIST, a.slug, 'index.html'), join(DIST, a.slug, `${a.slug}-old-versions.html`)]) {
+    if (!existsSync(page)) continue;
+    const h = readFileSync(page, 'utf8');
+    const h1 = /<h1[^>]*>([\s\S]*?)<\/h1>/.exec(h)?.[1] || '';
+    const title = /<title>([\s\S]*?)<\/title>/.exec(h)?.[1] || '';
+    if (!h1.includes(want)) bad(a.slug, `H1 lacks "${want}" (${page.slice(DIST.length)})`);
+    if (!title.includes(want)) bad(a.slug, `<title> lacks "${want}" (${page.slice(DIST.length)})`);
+  }
+}
 for (const a of apps) for (const ext of ['json', 'md']) if (!exists(`/${a.slug}/${a.slug}.${ext}`)) bad(a.slug, `missing .${ext} twin`);
 
 // screenshots (scripts/screenshots.mjs): every image the page shows is in the app folder, and the Flathub credit is there

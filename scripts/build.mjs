@@ -534,7 +534,9 @@ const flathubVerifiedText = (f) => {
 };
 // Shown for every Flathub app without the verified badge.
 const flathubUnverifiedText = (f) => `The ownership of the ${f.app_id} app ID has not been verified and it may be a community package.`;
-const pinCmd = (rec, v) => (rec.ids.winget ? `winget install --id ${rec.ids.winget} --version ${v.version} --exact` : null);
+// After a rename the H1 and <title> carry the old name too: "Letos (formerly SQLiteStudio)". The slug never changes.
+const nameWithFormer = (rec) => (rec.formerly ? `${rec.name} (formerly ${rec.formerly})` : rec.name);
+const pinCmd = (rec, v) => (rec.ids.winget ? `winget install --id ${v.winget_id || rec.ids.winget} --version ${v.version} --exact` : null);
 
 const PLAT_ORDER = ['windows', 'macos', 'linux'];
 const platsOf = (rec) => PLAT_ORDER.filter((p) => rec.platforms.includes(p));
@@ -575,7 +577,7 @@ function appPage(rec) {
   const platText = platformList(plats);
   const free = isFree(rec);
   const hasOld = Object.values(rec.versions_total).some((n) => n > 1);
-  const h1 = `Download ${rec.name}`;
+  const h1 = `Download ${nameWithFormer(rec)}`;
   const latestOf = Object.fromEntries(plats.map((p) => [p, versionsOf(rec, p)[0]]));
   // The version in the <title>: the first platform's, unless another platform's version is the same number without a build suffix.
   const titleVersion = (() => {
@@ -741,6 +743,7 @@ function appPage(rec) {
     repoOf && ['Source code', link(`https://${repoOf}`, repoOf)],
     rec.tags?.length && ['Tags', rec.tags.map((t) => `<span class="badge">${esc(t)}</span>`).join(' ')],
     rec.ids.winget && ['winget ID', `<code>${esc(rec.ids.winget)}</code>`],
+    rec.ids.winget_previous && [`Earlier winget ID${rec.ids.winget_previous.length > 1 ? 's' : ''}`, `${rec.ids.winget_previous.map((x) => `<code>${esc(x)}</code>`).join(', ')}${rec.formerly ? ` (as ${esc(rec.formerly)})` : ''}`],
     rec.ids.homebrew_cask && ['Homebrew cask', `<code>${esc(rec.ids.homebrew_cask)}</code>`],
     rec.flathub && ['Flathub', `${link(rec.flathub.page_url, rec.flathub.app_id)}${rec.flathub.verified ? ' <span class="badge free" title="The app’s publisher has been verified by Flathub">Verified</span>' : ` <span class="badge" title="${esc(flathubUnverifiedText(rec.flathub))}">Unverified · community</span>`} <span class="host">data from Flathub</span>`],
     rec.flathub && ['Flathub verification', esc(rec.flathub.verified ? flathubVerifiedText(rec.flathub) : flathubUnverifiedText(rec.flathub))],
@@ -1440,7 +1443,7 @@ ${AI_MENU_JS}
     const oldest = first.at(-1);
     const when = (v) => (fmtDate(v.release_date) ? ` (${fmtDate(v.release_date)})` : '');
     const platNames = platformList(oldPlats);
-    const oTitle = `Download old versions of ${rec.name}`;
+    const oTitle = `Download old versions of ${nameWithFormer(rec)}`;
     const oDesc = trunc(`All ${oldCount} old versions of ${rec.name} for ${platNames}, from ${oldest.version} to ${newestOld.version}, with links to the official downloads and SHA-256 checksums.`, 160);
     const latestBtn = `<a class="btn ov-latest" href="${path}">Get latest version</a>`;
     const jump = oldPlats.length > 1 ? `<nav class="ov-jump" aria-label="Platforms">${oldPlats.map((p) => `<a href="#${p}-versions">${esc(PLATFORM[p])}</a>`).join('')}</nav>` : '';
@@ -1450,7 +1453,7 @@ ${AI_MENU_JS}
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="${path}">${esc(rec.name)}</a> › Old versions</nav>
 <div class="ov-layout">
 <article class="ov-main" data-slug="${esc(rec.slug)}">
-<h1>${esc(rec.name)} old versions</h1>
+<h1>${esc(nameWithFormer(rec))} old versions</h1>
 <p class="lead">${oldCount} older versions of ${esc(rec.name)} for ${esc(platNames)}, from ${esc(oldest.version)}${when(oldest)} to ${esc(newestOld.version)}${when(newestOld)}. Each one links to the download location named in the package data, with its SHA-256 checksum.</p>
 <p class="ov-cta">${latestBtn} <span class="sub">Latest: ${esc(latestText)}</span></p>
 <section id="versions" aria-labelledby="h-versions">
@@ -1512,6 +1515,7 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
     u.support ? `- Support: ${u.support}` : '',
     u.bug_tracker ? `- Bug tracker: ${u.bug_tracker}` : '',
     rec.ids.winget ? `- winget ID: ${rec.ids.winget}` : '',
+    rec.ids.winget_previous ? `- Earlier winget ID: ${rec.ids.winget_previous.join(', ')}${rec.formerly ? ` (as ${rec.formerly})` : ''}` : '',
     rec.ids.custom ? `- Source: ${rec.ids.custom} (publisher release feed)` : '',
     rec.ids.homebrew_cask ? `- Homebrew cask: ${rec.ids.homebrew_cask}` : '',
     rec.homebrew_cask_disabled ? `- Homebrew cask status: DISABLED${rec.homebrew_cask_disabled.date ? ` on ${rec.homebrew_cask_disabled.date}` : ''} (${rec.homebrew_cask_disabled.reason}). ${caskDisabledSentence(rec.homebrew_cask_disabled.reason).replace(/\`/g, '')} The macOS download link still works.` : '',
@@ -1560,7 +1564,7 @@ const searchIndexOf = (recs) =>
     s: r.slug,
     n: r.name,
     p: r.publisher,
-    k: [r.ids.winget || r.ids.custom, ...(r.tags || [])].join(' ').toLowerCase(),
+    k: [r.ids.winget || r.ids.custom, ...(r.ids.winget_previous || []), r.formerly, ...(r.tags || [])].filter(Boolean).join(' ').toLowerCase(),
     v: platsOf(r).map((p) => `${PLATFORM[p]} ${r.latest_versions[p]}`).join(' · '),
     ...(ICONS[r.slug] ? { i: ICONS[r.slug].ext, ...(iconHash(r.slug) ? { h: iconHash(r.slug) } : {}) } : {}),
   }));

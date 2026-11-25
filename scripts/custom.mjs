@@ -68,6 +68,7 @@ function buildRecord(src, out, prev, now) {
     schema_version: 2,
     slug: src.slug,
     name: a.name,
+    formerly: a.formerly,
     publisher: a.publisher,
     ids: { custom: src.id },
     platforms,
