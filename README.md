@@ -96,7 +96,7 @@ An app with more than 25 old versions (`OLD_SPLIT` in `scripts/build.mjs`; count
 - `sitemap-software.xml`: one URL per app page (`/<slug>/`)
 - `sitemap-old-versions.xml`: the old-versions pages
 
-The per-app `.json` and `.md` files, `/api/v1/*.json` and `/stats-data.php` are for AI agents and tools, not for search results. robots.txt does not block the `.json` and `.md` twins: they are kept out of search results only by the `X-Robots-Tag: noindex, nofollow, noarchive` header that `.htaccess` (from `assets/htaccess`) sends for them, and crawlers can see that header because they are allowed to fetch the files. AI agents and scripts read them freely; `llms.txt` points to them. `npm run check` fails if robots.txt blocks the twins, lists any sitemap other than the index, or the header is missing.
+The per-app `.json` and `.md` files, `/api/v1/*.json` and `/stats-data.php` are made for AI agents and tools. robots.txt does not block the `.json` and `.md` twins, and `.htaccess` sends no `X-Robots-Tag` header for them, so search engines may crawl and index them like any other page. AI agents and scripts read them freely; `llms.txt` points to them. `npm run check` fails if robots.txt blocks the twins or lists any sitemap other than the index.
 
 ## Deploying (Apache)
 
