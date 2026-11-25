@@ -145,87 +145,7 @@ function paragraphs(text) {
   return out.join('\n');
 }
 
-// ------------------------------------------------------------------ platform guidance
-
-// Plain-sentence advice built only from what the package data declares: which architectures are published and the
-// minimum OS version each installer states. Nothing is added from outside the data.
-const WIN_BUILD = { 17134: '10 version 1803', 17763: '10 version 1809', 18362: '10 version 1903', 19041: '10 version 2004' };
-const MAC_NAME = { '10.13': 'High Sierra', '10.14': 'Mojave', '10.15': 'Catalina', 11: 'Big Sur', 12: 'Monterey', 13: 'Ventura', 14: 'Sonoma', 15: 'Sequoia', 26: 'Tahoe' };
-const verParts = (v) => String(v).split('.').map((n) => parseInt(n, 10) || 0);
-const verCmp = (a, b) => {
-  const x = verParts(a), y = verParts(b);
-  for (let i = 0; i < Math.max(x.length, y.length); i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) - (y[i] || 0);
-  return 0;
-};
-function minOsLabel(platform, v) {
-  const s = String(v);
-  if (platform === 'macos') {
-    const key = s.startsWith('10.') ? s.split('.').slice(0, 2).join('.') : s.split('.')[0];
-    return `macOS ${key}${MAC_NAME[key] ? ` ${MAC_NAME[key]}` : ''}`;
-  }
-  const [maj, min, build] = verParts(s);
-  if (maj === 6) return { 1: 'Windows 7', 2: 'Windows 8', 3: 'Windows 8.1' }[min] || `Windows ${s}`;
-  if (maj === 10) return build >= 22000 ? 'Windows 11' : WIN_BUILD[build] ? `Windows ${WIN_BUILD[build]}` : build > 0 ? `Windows 10 (build ${build})` : 'Windows 10';
-  return `Windows ${s}`;
-}
 const joinList = (a) => (a.length <= 1 ? a.join('') : a.length === 2 ? a.join(' and ') : `${a.slice(0, -1).join(', ')}, and ${a.at(-1)}`);
-function platformGuidance(platform, installers, src = platform === 'macos' ? 'cask' : 'winget') {
-  const win = platform === 'windows';
-  const mac = platform === 'macos';
-  const keyOf = (i) => (i.architecture === 'neutral' || i.architecture === 'universal' ? (win ? 'any' : 'universal') : i.architecture);
-  const arch = new Set(installers.map(keyOf));
-  const out = [];
-  if (win) {
-    const [x64, a64, x86] = ['x64', 'arm64', 'x86'].map((a) => arch.has(a));
-    if (x64 && a64) out.push(`Choose the x64 (64-bit) installer for Intel or AMD PCs and the ARM64 installer for ARM PCs.${x86 ? ' The x86 (32-bit) installer is only for 32-bit Windows.' : ''}`);
-    else if (x64 && x86) out.push('Choose the x64 (64-bit) installer for Intel or AMD PCs. The x86 (32-bit) installer is only for 32-bit Windows.');
-    else if (x64) out.push('The publisher offers a 64-bit (x64) build for Intel or AMD PCs.');
-    else if (a64 && !x86) out.push('The publisher offers only an ARM64 build, for ARM PCs.');
-    else if (x86 && !a64) out.push('The publisher offers only a 32-bit (x86) build.');
-  } else if (mac) {
-    const [uni, arm, x64] = ['universal', 'arm64', 'x64'].map((a) => arch.has(a));
-    if (uni) out.push('The Universal build runs on both Intel and Apple silicon Macs.');
-    else if (arm && x64) out.push('Choose the Apple silicon (ARM64) build for Macs with an M-series chip and the Intel (x64) build for older Intel Macs.');
-    else if (arm) out.push('The publisher offers only an Apple silicon (ARM64) build, for Macs with an M-series chip.');
-    else if (x64) out.push('The publisher offers only an Intel (x64) build.');
-  } else {
-    const [x64, a64] = ['x64', 'arm64'].map((a) => arch.has(a));
-    if (x64 && a64) out.push('Choose the x64 (64-bit) download for Intel or AMD computers and the ARM64 download for ARM computers.');
-    else if (x64) out.push('The publisher offers a 64-bit (x64) build for Intel or AMD computers.');
-    else if (a64) out.push('The publisher offers only an ARM64 build, for ARM computers.');
-  }
-  // Minimum OS: the strictest value declared for each architecture, grouped by the label it produces.
-  const NAME = win ? { x64: 'x64', arm64: 'ARM64', x86: 'x86', any: '' } : { universal: 'Universal', arm64: mac ? 'Apple silicon' : 'ARM64', x64: mac ? 'Intel' : 'x64' };
-  const strictest = new Map();
-  for (const i of installers) {
-    if (!i.min_os_version) continue;
-    const k = keyOf(i);
-    if (!strictest.has(k) || verCmp(i.min_os_version, strictest.get(k)) > 0) strictest.set(k, i.min_os_version);
-  }
-  if (!strictest.size) {
-    const from = src === 'custom' ? 'The publisher’s release data' : src === 'flathub' ? 'The Flathub listing' : win ? 'The package data' : 'The Homebrew cask';
-    out.push(
-      win
-        ? `${from} states no minimum Windows version, so check the publisher’s system requirements before installing on an older PC.`
-        : mac
-          ? `${from} states no minimum macOS version, so check the publisher’s system requirements before installing on an older Mac.`
-          : `${from} states no minimum Linux version or distribution, so check the publisher’s system requirements before installing.`,
-    );
-  } else {
-    const groups = new Map();
-    for (const [k, v] of strictest) (groups.get(minOsLabel(platform, v)) || groups.set(minOsLabel(platform, v), []).get(minOsLabel(platform, v))).push(k);
-    if (groups.size === 1 && strictest.size === arch.size) out.push(arch.size === 1 ? `This build needs ${[...groups.keys()][0]} or later.` : `Every build needs ${[...groups.keys()][0]} or later.`);
-    else {
-      const parts = [...groups].map(([label, ks]) => {
-        const names = ks.map((k) => NAME[k]).filter(Boolean);
-        return `the ${names.length ? joinList(names) + ' ' : ''}build${ks.length > 1 ? 's' : ''} ${ks.length > 1 ? 'need' : 'needs'} ${label} or later`;
-      });
-      const sentence = joinList(parts);
-      out.push(sentence.charAt(0).toUpperCase() + sentence.slice(1) + '.');
-    }
-  }
-  return out;
-}
 
 // ------------------------------------------------------------------ license type
 
@@ -839,7 +759,6 @@ ${plats
 ${p === 'macos' && rec.homebrew_cask_disabled ? caskWarn : ''}${installerRows(latestOf[p].installers, p)}`)
   .join('\n')}
 <div class="dl-foot">
-<p>${plats.flatMap((p) => platformGuidance(p, latestOf[p].installers, customOf(p) ? 'custom' : p === 'macos' ? 'cask' : p === 'linux' && rec.flathub ? 'flathub' : 'winget')).map(esc).join(' ')}</p>
 ${plats
   .filter((p) => installCmd(rec, p))
   .map(
