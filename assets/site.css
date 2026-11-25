@@ -44,7 +44,7 @@ h3{font-size:1.05rem;margin:24px 0 8px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
 .note{background:var(--warn-bg);color:var(--text);border:1px solid var(--warn);border-radius:var(--radius);padding:12px 16px;font-size:.92rem}
 .note strong{color:var(--warn)}
-.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)}
+.scroll{position:relative;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)}
 table{border-collapse:collapse;width:100%;font-size:.9rem}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
@@ -175,7 +175,12 @@ h2 .plat-icon,h3 .plat-icon{vertical-align:-4px;margin-right:10px}
 
 .app-head{display:flex;align-items:flex-start;gap:16px 24px}
 .app-head-text{flex:1 1 auto;min-width:0}
-.app-lead{margin:18px 0 0}
+.app-head-text h1{margin:0}
+.title-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:12px}
+.app-meta{margin-top:16px}
+.app-meta .dev{margin:0 0 4px}
+.app-meta .updated{margin:0}
+.app-lead{margin:14px 0 0}
 .app-icon{flex:none;width:96px;height:96px;border-radius:22px;object-fit:cover;border:1px solid var(--line);background:var(--surface)}
 @media (max-width:560px){.app-icon{width:64px;height:64px;border-radius:15px}}
 
@@ -254,8 +259,6 @@ h2 .plat-icon,h3 .plat-icon{vertical-align:-4px;margin-right:10px}
 .guide{margin:12px 0 0;padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
 .guide p{margin:0 0 6px;font-size:.92rem}
 .guide p:last-child{margin:0}
-.title-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px}
-.title-row h1{margin:0}
 .safe-badge{text-decoration:none;color:inherit}
 .safe-badge .pill{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-weight:700;font-size:.95rem;color:var(--text)}
 .safe-badge:hover .pill{border-color:var(--accent)}
@@ -517,3 +520,5 @@ svg.sv:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-r
 .ai-t.x::after{content:"";width:11px;height:11px;flex:none;background:var(--muted);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center/contain no-repeat}
 .ai-d{color:var(--muted);font-size:.82rem}
 @media (max-width:560px){.app-head{position:relative}.ai-menu{position:static}.ai-pop{left:0;right:0;width:auto;max-width:none}}
+/* App and old-versions pages: long file names, hashes and manifest paths break instead of widening the page on phones */
+.app-layout article p,.app-layout article li,.ov-main p,.ov-main li{overflow-wrap:anywhere}

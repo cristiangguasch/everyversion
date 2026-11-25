@@ -1314,10 +1314,13 @@ ${similarHtml ? '<div class="ov-layout app-layout">\n' : ''}<article data-slug="
 <div class="app-head">
 ${iconHtml}
 <div class="app-head-text">
-<div class="title-row"><h1>${esc(h1)} <span class="h1-ver"${new Set(plats.map((p) => latestOf[p].version)).size > 1 ? ` title="${esc(latestText)}"` : ''}>${esc(latestOf[plats[0]].version)}</span></h1>${safeBadge}${aiMenu(rec)}</div>
+<h1>${esc(h1)} <span class="h1-ver"${new Set(plats.map((p) => latestOf[p].version)).size > 1 ? ` title="${esc(latestText)}"` : ''}>${esc(latestOf[plats[0]].version)}</span></h1>
+<div class="title-actions">${safeBadge}${aiMenu(rec)}</div>
+</div>
+</div>
+<div class="app-meta">
 <p class="dev">Developer: ${u.publisher || u.homepage ? link(u.publisher || u.homepage, rec.publisher) : esc(rec.publisher)}</p>
 ${updatedLine}
-</div>
 </div>
 ${rec.summary ? `<p class="lead app-lead">${esc(rec.summary)}</p>` : ''}
 
