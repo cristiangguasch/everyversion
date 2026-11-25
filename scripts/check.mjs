@@ -119,6 +119,7 @@ for (const f of oldFiles) {
   const o = readFileSync(join(DIST, f), 'utf8');
   const main = readFileSync(join(DIST, slug, 'index.html'), 'utf8');
   if (!main.includes(`href="${f}"`)) bad(slug, 'main page does not link to its old-versions page');
+  if (!(/<nav aria-label="Jump to">[\s\S]*?<\/nav>/.exec(main)?.[0] || '').includes(`<a href="${f}">Older versions</a>`)) bad(slug, 'the Older versions link in Downloads does not go to the old-versions page');
   if (!new RegExp(`<a class="btn ov-latest" href="/${slug}/">Get latest version</a>`).test(o)) bad(f, 'no "Get latest version" link back to the main page');
   if (!/<aside class="ov-side"/.test(o)) bad(f, 'no sidebar');
 }

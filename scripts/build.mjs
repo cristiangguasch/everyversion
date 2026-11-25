@@ -1229,7 +1229,7 @@ ${rec.release_series
   // Sections are separated by <hr>. Empty sections (no description, no changelog) are skipped so no double rules appear.
   const sectionsHtml = [
     `<section id="download" aria-labelledby="h-download">
-<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${hasOld ? '<a href="#versions">Older versions</a>' : ''}${alternativesHtml ? '<a href="#alternatives">Alternatives</a>' : ''}</nav></div>
+<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${oldPath ? `<a href="${oldPath}">Older versions</a>` : hasOld ? '<a href="#versions">Older versions</a>' : ''}${alternativesHtml ? '<a href="#alternatives">Alternatives</a>' : ''}</nav></div>
 ${downloadHtml}
 </section>`,
     `<section id="installer" aria-labelledby="h-installer">
