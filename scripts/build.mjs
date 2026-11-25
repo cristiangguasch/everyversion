@@ -1206,6 +1206,17 @@ ${primaryCat.page ? `<p class="pin"><a href="${catPath(primaryCat.slug)}">See al
 </section>`
     : '';
 
+  // Sidebar list of similar software, shared by the app page and its old-versions page.
+  const similarHtml = altRecs.length
+    ? `<div class="ov-similar">
+<h2>Similar software</h2>
+<ul>
+${altRecs.map((r) => `<li><a href="/${r.slug}/">${gridIcon(r)}<span><span class="n">${esc(r.name)}</span><span class="v">${esc(r.latest_versions[platsOf(r)[0]])}</span></span></a></li>`).join('\n')}
+</ul>
+${primaryCat.page ? `<p class="ov-cat"><a href="${catPath(primaryCat.slug)}">All ${primaryCat.count} ${esc(primaryCat.name)}</a></p>` : ''}
+</div>`
+    : '';
+
   // Release series (custom sources that publish several series in parallel): one row per series still downloadable.
   const cap = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : '');
   const seriesHtml = rec.release_series?.length
@@ -1261,7 +1272,7 @@ ${versionsHtml}
 
   const body = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(rec.name)}</nav>
-<article data-slug="${esc(rec.slug)}" data-ver="${esc(latestOf[plats[0]].version)}">
+${similarHtml ? '<div class="ov-layout app-layout">\n' : ''}<article data-slug="${esc(rec.slug)}" data-ver="${esc(latestOf[plats[0]].version)}">
 <div class="app-head">
 ${iconHtml}
 <div class="app-head-text">
@@ -1275,7 +1286,7 @@ ${rec.summary ? `<p class="lead app-lead">${esc(rec.summary)}</p>` : ''}
 ${shotsHtml(rec)}
 ${sectionsHtml}
 </article>
-${shotsOf(rec).length ? `<script src="/gallery.js?v=${assetHash('gallery.js')}" defer></script>\n` : ''}<script>
+${similarHtml ? `<aside class="ov-side app-side" aria-label="Similar software">\n${similarHtml}\n</aside>\n</div>\n` : ''}${shotsOf(rec).length ? `<script src="/gallery.js?v=${assetHash('gallery.js')}" defer></script>\n` : ''}<script>
 document.addEventListener('click',(e)=>{const b=e.target.closest('.copy');if(!b)return;const t=b.dataset.copy,done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)},fb=()=>{const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{if(document.execCommand('copy'))done()}catch(_){}a.remove()};
 if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,fb);else fb()});
 document.addEventListener('click',(e)=>{const shut=(m)=>{const p=m.querySelector('.dl-pop');p.hidden=true;m.querySelector('.dl-install').setAttribute('aria-expanded','false')};
@@ -1315,15 +1326,6 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     const jump = oldPlats.length > 1 ? `<nav class="ov-jump" aria-label="Platforms">${oldPlats.map((p) => `<a href="#${p}-versions">${esc(PLATFORM[p])}</a>`).join('')}</nav>` : '';
     const pins = oldPlats.includes('windows') && rec.ids.winget;
     const cardVersions = plats.map((p) => `<li>${PLATFORM_ICON[p] || ''}<span>${esc(PLATFORM[p])}</span> <strong>${esc(latestOf[p].version)}</strong></li>`).join('');
-    const similar = altRecs.length
-      ? `<div class="ov-similar">
-<h2>Similar software</h2>
-<ul>
-${altRecs.map((r) => `<li><a href="/${r.slug}/">${gridIcon(r)}<span><span class="n">${esc(r.name)}</span><span class="v">${esc(r.latest_versions[platsOf(r)[0]])}</span></span></a></li>`).join('\n')}
-</ul>
-${primaryCat.page ? `<p class="ov-cat"><a href="${catPath(primaryCat.slug)}">All ${primaryCat.count} ${esc(primaryCat.name)}</a></p>` : ''}
-</div>`
-      : '';
     const oBody = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="${path}">${esc(rec.name)}</a> › Old versions</nav>
 <div class="ov-layout">
@@ -1354,7 +1356,7 @@ ${renderVersions('old')}
 ${safeBadge.replace('href="#security"', `href="${path}#security"`)}
 ${latestBtn}
 </div>
-${similar}
+${similarHtml}
 </aside>
 </div>
 ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
