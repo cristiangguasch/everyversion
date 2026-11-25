@@ -547,9 +547,11 @@ svg.sv:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-r
 .ev-v.ok{color:var(--ok)}.ev-v.warn{color:#ea580c}.ev-v.bad{color:#dc2626}.ev-v.muted{color:var(--muted)}
 @media (max-width:560px){.ev-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}}
 /* Download rows: where the file comes from, and its full SHA-256 */
-.dl-from{margin-top:6px;font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}
+/* Download button with its source host underneath. */
+.dl-act{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;max-width:14rem}
+.dl-from{font-size:.8rem;color:var(--muted);text-align:center;overflow-wrap:anywhere}
 .dl-from strong{color:var(--text);font-weight:600}
-.dl-url{display:block;font-family:var(--mono,ui-monospace,monospace);font-size:.74rem;opacity:.85}
+@media (max-width:560px){.dl-act{width:100%;max-width:none}}
 .dl-sha{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:6px;font-size:.78rem;color:var(--muted)}
 .dl-sha .k{font-weight:600;color:var(--text)}
 .dl-sha code{overflow-wrap:anywhere;word-break:break-all;min-width:0;flex:1 1 16rem}

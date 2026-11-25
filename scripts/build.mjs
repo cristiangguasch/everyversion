@@ -741,10 +741,12 @@ ${opts.map(([label, cmd, slot]) => `<button type="button" role="menuitem" class=
 <div class="dl-title">${esc(PLATFORM[p])} ${i.variant ? `${esc(i.variant)}${i.architecture === 'neutral' ? '' : ` · ${esc(archLabel(i))}`}` : `${esc(archLabel(i))} ${esc(KIND[i.type] || 'installer')}`}</div>
 <div class="dl-sub">${esc(sub.join(' · '))}</div>
 ${deadOf(i) ? `<div class="dl-dead">The publisher’s link returns HTTP ${deadOf(i).status} (checked ${esc(deadDay(deadOf(i).checked))}), so the download is switched off.</div>` : ''}
-${p === 'linux' && rec.flathub && i.type === 'flatpak' ? '' : `<div class="dl-from">From <strong>${esc(i.host || '')}</strong><span class="dl-url">${esc(i.url)}</span></div>`}
 ${i.sha256 || ownSha(rec.slug, i) ? `<div class="dl-sha"><span class="k">SHA-256${i.sha256 ? '' : ' (computed by us)'}</span><code class="hash">${esc(i.sha256 || ownSha(rec.slug, i))}</code><button type="button" class="copy" data-copy="${esc(i.sha256 || ownSha(rec.slug, i))}" aria-label="Copy SHA-256 of ${esc(i.filename)}">Copy</button></div>` : `<div class="dl-sha"><span class="k">SHA-256</span><span class="host">${rec.flathub && p === 'linux' ? 'No file checksum: Flatpak checks the app against Flathub’s signed repository' : 'Not provided by the publisher'}</span></div>`}
 </div>
+<div class="dl-act">
 ${flatpakMenu(i, p)}
+${p === 'linux' && rec.flathub && i.type === 'flatpak' ? '' : `<div class="dl-from">From <strong>${esc(i.host || '')}</strong></div>`}
+</div>
 </div>`;
       })
       .join('\n');
