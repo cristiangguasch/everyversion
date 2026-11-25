@@ -38,7 +38,7 @@ ${section('l-countries', 'Countries', 'Pageviews, with downloads and installs be
 ${section('l-browsers', 'Browsers')}
 ${section('l-os', 'Operating systems')}
 ${section('l-devices', 'Devices')}
-${section('l-channels', 'Channels', 'Visitors by how they arrived: Direct, Organic Search, AI Organic Search (ChatGPT, Perplexity, Claude, Gemini and others), Social, Referral, Email, Paid Search and Paid Social. Each visitor counts once a day, under the first outside source they came from, with their pageviews and downloads beneath. Paid and email visits are recognized from ad click markers and utm tags. Answers from search engines’ own AI features (Google’s AI Overviews, Bing Copilot) arrive as normal search and count as Organic Search.')}
+${section('l-channels', 'Channels', 'Visitors by how they arrived: Direct, Organic Search, AI Organic Search (ChatGPT, Perplexity, Claude, Gemini and others), Social, Referral, Email, Paid Search and Paid Social. Each visitor counts once a day, under the first outside source they came from, with their pageviews and downloads beneath. Paid and email visits are recognized from ad click markers and utm tags. Under Direct, “likely shared links” counts the Direct visitors whose first page was an app page: few people type or bookmark those addresses, so most are links shared in chats, email apps or documents that pass no referrer. It is an estimate. Answers from search engines’ own AI features (Google’s AI Overviews, Bing Copilot) arrive as normal search and count as Organic Search.')}
 ${section('l-referrers', 'Where visitors come from', 'Websites that link to us. Visits with no referrer are not listed.')}
 ${section('l-pages', 'Page types')}
 ${section('l-langs', 'Browser languages')}

@@ -193,6 +193,7 @@
     for (const r of rows) {
       const li = document.createElement('li');
       li.title = r.title || `${r.label}: ${nf.format(r.v)}`;
+      if (r.cls) li.className = r.cls;
       li.innerHTML = `<span class="bl">${r.href ? `<a href="${esc(r.href)}">${esc(r.label)}</a>` : esc(r.label)}${r.sub ? `<span class="bs">${esc(r.sub)}</span>` : ''}</span><span class="bt"><span class="bf" style="width:${Math.max((r.v / max) * 100, r.v ? 1.5 : 0).toFixed(1)}%"></span></span><span class="bv">${nf.format(r.v)}</span>`;
       ul.appendChild(li);
     }
@@ -273,7 +274,13 @@
     bars($('l-browsers'), rowsOf(cur.browsers).sort((a, b) => b.v - a.v));
     bars($('l-os'), rowsOf(cur.os).sort((a, b) => b.v - a.v));
     bars($('l-devices'), rowsOf(cur.devices, (k) => DEVICE[k] || k).sort((a, b) => b.v - a.v));
-    bars($('l-channels'), Object.entries(cur.channels || {}).map(([ch, v]) => ({ label: ch, v: v[0], sub: `${nf.format(v[1])} pageview${v[1] === 1 ? '' : 's'} · ${nf.format(v[2])} download${v[2] === 1 ? '' : 's'}`, title: `${ch}: ${nf.format(v[0])} visitors, ${nf.format(v[1])} pageviews, ${nf.format(v[2])} downloads and installs${v[1] ? ` (${(v[2] / v[1] * 100).toFixed(1)} per 100 pageviews)` : ''}` })).sort((a, b) => b.v - a.v), 'No visits yet.');
+    const chRow = (label, v, cls) => ({ label, v: v[0], cls, sub: `${nf.format(v[1])} pageview${v[1] === 1 ? '' : 's'} · ${nf.format(v[2])} download${v[2] === 1 ? '' : 's'}`, title: `${label}: ${nf.format(v[0])} visitors, ${nf.format(v[1])} pageviews, ${nf.format(v[2])} downloads and installs${v[1] ? ` (${(v[2] / v[1] * 100).toFixed(1)} per 100 pageviews)` : ''}` });
+    const chRows = Object.entries(cur.channels || {}).map(([ch, v]) => chRow(ch, v)).sort((a, b) => b.v - a.v);
+    // Under Direct: the part that landed straight on an app page, most likely a link shared where no referrer is passed.
+    const deep = cur.direct_deep || [0, 0, 0];
+    const at = chRows.findIndex((r) => r.label === 'Direct');
+    if (at > -1 && deep[0]) chRows.splice(at + 1, 0, chRow('of which likely shared links', deep, 'sub-row'));
+    bars($('l-channels'), chRows, 'No visits yet.');
     bars($('l-referrers'), rowsOf(cur.referrers).sort((a, b) => b.v - a.v), 'No outside referrers yet.');
     bars($('l-pages'), rowsOf(cur.pages, (k) => PAGE[k] || k).sort((a, b) => b.v - a.v));
     bars($('l-langs'), rowsOf(cur.langs, LANG).sort((a, b) => b.v - a.v));

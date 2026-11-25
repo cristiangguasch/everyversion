@@ -243,7 +243,7 @@ function ev_channel(array $e): string
 /** Add one day of raw events into a rollup array. */
 function ev_rollup_day(string $day): array
 {
-    $r = ['d' => $day, 'pv' => 0, 'uv' => 0, 'dl' => 0, 'apps' => [], 'slots' => [], 'platforms' => [], 'hosts' => [], 'countries' => [], 'browsers' => [], 'os' => [], 'devices' => [], 'referrers' => [], 'pages' => [], 'langs' => [], 'channels' => []];
+    $r = ['d' => $day, 'pv' => 0, 'uv' => 0, 'dl' => 0, 'direct_deep' => [0, 0, 0], 'apps' => [], 'slots' => [], 'platforms' => [], 'hosts' => [], 'countries' => [], 'browsers' => [], 'os' => [], 'devices' => [], 'referrers' => [], 'pages' => [], 'langs' => [], 'channels' => []];
     $file = ev_events_file($day);
     $fh = is_file($file) ? @fopen($file, 'r') : false;
     if (!$fh) {
@@ -252,7 +252,7 @@ function ev_rollup_day(string $day): array
     $seen = [];
     // Channel per visitor and day: the first channel that is not Direct, else Direct. Pages a visitor opens inside the
     // site carry no outside referrer, so counting each pageview on its own would file nearly everything under Direct.
-    $visits = []; // visitor hash => [channel, pageviews, downloads & installs]
+    $visits = []; // visitor hash => [channel, pageviews, downloads & installs, type of the first page viewed]
     $inc = static function (array &$a, string $k, int $i = 0, int $by = 1): void {
         $a[$k] ??= [0, 0];
         $a[$k][$i] += $by;
@@ -272,6 +272,7 @@ function ev_rollup_day(string $day): array
                     $visits[$u][0] = $ch;
                 }
                 $visits[$u][1]++;
+                $visits[$u][3] ??= (string) ($e['pt'] ?? 'other');
             }
             if (!empty($e['u'])) {
                 $seen[$e['u']] = true;
@@ -313,7 +314,9 @@ function ev_rollup_day(string $day): array
     }
     fclose($fh);
     $r['uv'] = count($seen);
-    foreach ($visits as [$ch, $pv, $dl]) {
+    foreach ($visits as $v) {
+        [$ch, $pv, $dl] = $v;
+        $landing = $v[3] ?? 'other';
         if ($pv === 0) {
             continue; // clicks without a recorded pageview (a page left open overnight) belong to no visit today
         }
@@ -321,6 +324,13 @@ function ev_rollup_day(string $day): array
         $r['channels'][$ch][0]++;
         $r['channels'][$ch][1] += $pv;
         $r['channels'][$ch][2] += $dl;
+        // Direct visitors who landed straight on an app page: nobody types or bookmarks those addresses much, so most
+        // are links shared in chats, email apps or documents that pass no referrer ("dark social").
+        if ($ch === 'Direct' && $landing === 'app') {
+            $r['direct_deep'][0]++;
+            $r['direct_deep'][1] += $pv;
+            $r['direct_deep'][2] += $dl;
+        }
     }
     return $r;
 }
@@ -337,8 +347,9 @@ function ev_rollup(string $day): array
         $fresh = $today ? (time() - filemtime($cache) < 30) : filemtime($cache) >= $dayEnd;
         if ($fresh) {
             $c = json_decode((string) @file_get_contents($cache), true);
-            // A rollup cached before channels were counted is made again while the raw events are still kept.
-            if (is_array($c) && (isset($c['channels']) || !is_file(ev_events_file($day)))) {
+            // A rollup cached before channels and the Direct landing split were counted is made again while the raw
+            // events are still kept.
+            if (is_array($c) && (isset($c['direct_deep']) || !is_file(ev_events_file($day)))) {
                 return $c;
             }
         }

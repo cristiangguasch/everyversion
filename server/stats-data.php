@@ -69,6 +69,13 @@ foreach ($series as $d) {
     }
 }
 uasort($channels, static fn ($x, $y) => $y[0] <=> $x[0]);
+// Of the Direct visitors, those whose first page was an app page (likely shared links): [visitors, pageviews, downloads].
+$directDeep = [0, 0, 0];
+foreach ($series as $d) {
+    for ($i = 0; $i < 3; $i++) {
+        $directDeep[$i] += $d['direct_deep'][$i] ?? 0;
+    }
+}
 
 $apps = $sortPairs($sumPairs('apps'), 1);
 $countries = $sortPairs($sumPairs('countries'), 0);
@@ -87,6 +94,7 @@ echo json_encode([
     'os' => $top($sumOne('os'), 10),
     'devices' => $sumOne('devices'),
     'channels' => $channels,             // channel => [visitors, pageviews, downloads & installs]
+    'direct_deep' => $directDeep,        // part of Direct that landed straight on an app page
     'referrers' => $top($sumOne('referrers'), 10),
     'pages' => $sumOne('pages'),
     'langs' => $top($sumOne('langs'), 10),
