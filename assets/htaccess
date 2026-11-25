@@ -7,7 +7,6 @@
 #   1. Sends every request to https://everyversion.net/ (no http, no www, no other hostname) in ONE 301 redirect.
 #   2. Never shows a list of files. A folder without an index.html answers 404, not a listing.
 #   3. Hides dotfiles (.DS_Store, .git, .env ...) and editor/backup leftovers.
-#   3b. Marks the .json and .md twins noindex (X-Robots-Tag). robots.txt lets crawlers fetch them so they can see it.
 #   4. Serves 404.html for missing pages and refused requests.
 
 # ---------------------------------------------------------------------------------------------------------
@@ -68,17 +67,6 @@ RewriteRule ^analytics-lib\.php$ - [R=404,L]
 RewriteRule ^_data(/|$) - [R=404,L]
 </IfModule>
 
-
-# ---------------------------------------------------------------------------------------------------------
-# 3b. Keep the machine-readable twins out of search indexes
-# ---------------------------------------------------------------------------------------------------------
-# The .json and .md files (and the stats JSON) are for AI agents and tools. robots.txt asks search engines not to crawl them; this header is
-# the second layer for any crawler that fetches them anyway: do not index them, do not follow links in them. Ordinary readers and agents are not affected.
-<IfModule mod_headers.c>
-<FilesMatch "\.(json|md)$|^stats-data\.php$">
-Header always set X-Robots-Tag "noindex, nofollow, noarchive"
-</FilesMatch>
-</IfModule>
 
 # ---------------------------------------------------------------------------------------------------------
 # 4. Error pages

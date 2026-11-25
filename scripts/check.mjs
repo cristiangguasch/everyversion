@@ -127,14 +127,12 @@ for (const f of oldFiles) {
 const ht = exists('/.htaccess') || existsSync(join(DIST, '.htaccess')) ? readFileSync(join(DIST, '.htaccess'), 'utf8') : null;
 if (!ht) bad('.htaccess', 'missing from dist/ (the build copies assets/htaccess)');
 else for (const [what, re] of [['https redirect', /RewriteCond %\{HTTPS\} !=on/], ['canonical host', /https:\/\/everyversion\.net\/\$1 \[R=301/], ['no listings', /Options -Indexes/], ['404 for folders without index.html', /REQUEST_FILENAME\}\/index\.html !-f/], ['hidden files', /well-known/]]) if (!re.test(ht)) bad('.htaccess', `missing rule: ${what}`);
-// robots.txt: one group for everyone and a single Sitemap line (the index). The .json / .md twins stay out of search
-// results through the noindex header in .htaccess, which crawlers can only see because robots.txt lets them fetch the files.
+// robots.txt: one group for everyone and a single Sitemap line (the index). Nothing blocks the .json / .md twins.
 const robots = existsSync(join(DIST, 'robots.txt')) ? readFileSync(join(DIST, 'robots.txt'), 'utf8') : '';
 if (!/User-Agent: \*\n[^\n]*\nAllow: \/\n/i.test(robots)) bad('robots.txt', 'the general group must still allow everything (AI agents read the twins)');
-if (/Disallow: \/\*\.(json|md)\$/.test(robots)) bad('robots.txt', 'blocks the .json/.md twins, which hides their noindex header');
+if (/Disallow: \/\*\.(json|md)\$/.test(robots)) bad('robots.txt', 'blocks the .json/.md twins');
 const robotSitemaps = [...robots.matchAll(/^Sitemap: (.+)$/gm)].map((m) => m[1]);
 if (robotSitemaps.join() !== 'https://everyversion.net/sitemap.xml') bad('robots.txt', `should list only the sitemap index, found: ${robotSitemaps.join(', ') || 'none'}`);
-if (ht && !/X-Robots-Tag "noindex/.test(ht)) bad('.htaccess', 'no X-Robots-Tag noindex for .json/.md');
 // Stray macOS Finder files would be served (they list file names). The .htaccess hides them, but they should not be deployed.
 const strays = files.filter((f) => /(^|\/)\.DS_Store$/.test(f));
 if (strays.length) warn.push(`${strays.length} .DS_Store file(s) in dist/ (Finder droppings, hidden by .htaccess; delete before you upload): ${strays.slice(0, 3).map((f) => f.replace(DIST + '/', '')).join(', ')}`);
