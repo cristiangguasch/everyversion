@@ -145,8 +145,10 @@ function ev_parse_ua(string $ua): ?array
 }
 
 /** Which kinds of events exist, and which button slots (values the client may send). Anything else is dropped. */
-const EV_EVENTS = ['pageview', 'download', 'install', 'copy'];
-const EV_SLOTS = ['row', 'version', 'install', 'copy-install', 'copy-run', 'copy-winget', 'copy-brew', 'copy-flatpak'];
+const EV_EVENTS = ['pageview', 'download', 'install', 'copy', 'ai'];
+const EV_SLOTS = ['row', 'version', 'install', 'copy-install', 'copy-run', 'copy-winget', 'copy-brew', 'copy-flatpak',
+    // the Copy for AI menu on app pages: its main button, then each menu item
+    'ai-button', 'ai-copy', 'ai-md', 'ai-json', 'ai-chatgpt', 'ai-claude', 'ai-perplexity', 'ai-gemini'];
 const EV_PAGE_TYPES = ['home', 'app', 'platform', 'category', 'other'];
 const EV_PLATFORMS = ['windows', 'macos', 'linux'];
 const EV_ARCHES = ['x86', 'x64', 'arm', 'arm64', 'neutral', 'universal'];
@@ -243,7 +245,7 @@ function ev_channel(array $e): string
 /** Add one day of raw events into a rollup array. */
 function ev_rollup_day(string $day): array
 {
-    $r = ['d' => $day, 'pv' => 0, 'uv' => 0, 'dl' => 0, 'direct_deep' => [0, 0, 0], 'apps' => [], 'slots' => [], 'platforms' => [], 'hosts' => [], 'countries' => [], 'browsers' => [], 'os' => [], 'devices' => [], 'referrers' => [], 'pages' => [], 'langs' => [], 'channels' => []];
+    $r = ['d' => $day, 'pv' => 0, 'uv' => 0, 'dl' => 0, 'direct_deep' => [0, 0, 0], 'apps' => [], 'slots' => [], 'platforms' => [], 'hosts' => [], 'countries' => [], 'browsers' => [], 'os' => [], 'devices' => [], 'referrers' => [], 'pages' => [], 'langs' => [], 'channels' => [], 'ai' => []];
     $file = ev_events_file($day);
     $fh = is_file($file) ? @fopen($file, 'r') : false;
     if (!$fh) {
@@ -306,7 +308,12 @@ function ev_rollup_day(string $day): array
                     $r['hosts'][$e['h']] = ($r['hosts'][$e['h']] ?? 0) + 1;
                 }
             }
-            if (!empty($e['sl'])) {
+            if ($e['e'] === 'ai') {
+                // Copy for AI menu: counted per item, apart from the download and command buttons.
+                if (!empty($e['sl'])) {
+                    $r['ai'][$e['sl']] = ($r['ai'][$e['sl']] ?? 0) + 1;
+                }
+            } elseif (!empty($e['sl'])) {
                 $key = ($e['pl'] ?? '-') . '|' . $e['sl'];
                 $r['slots'][$key] = ($r['slots'][$key] ?? 0) + 1;
             }

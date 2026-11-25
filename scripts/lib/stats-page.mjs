@@ -5,7 +5,7 @@ export function statsPage({ statsV }) {
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › Stats</nav>
 <article class="stats" id="stats">
 <h1>Stats</h1>
-<p class="lead">How Everyversion is used: pageviews, visitors, and clicks on the Download and Install buttons. These numbers are public.</p>
+<p class="lead">How Everyversion is used: pageviews, visitors, and clicks on the Download and Install buttons and the Copy for AI menu. These numbers are public.</p>
 <p class="muted">We count with our own small script and keep the data on our own server. No cookies, no third-party tools, and no IP addresses are stored. Visitors are counted per day from a one-way hash that cannot be followed from one day to the next, so a person who returns tomorrow counts as a new visitor. See the <a href="/legal/privacy/">privacy policy</a>.</p>
 
 <div class="st-range" role="group" aria-label="Time range">
@@ -33,6 +33,7 @@ ${section('l-apps', 'Most downloaded and installed', 'Clicks on Download and Ins
 ${section('l-views', 'Most viewed', 'Pageviews, by app.')}
 ${section('l-slots', 'Which button', 'Every kind of click we measure, and where it was.')}
 ${section('l-platforms', 'Downloads by platform')}
+${section('l-ai', 'Copy for AI', 'Clicks on the Copy for AI button next to each app’s safety badge, and on each item of its menu.')}
 ${section('l-hosts', 'Where downloads go', 'The publisher or package host of the Download buttons that were clicked.')}
 ${section('l-countries', 'Countries', 'Pageviews, with downloads and installs beneath each name. Country comes from the network the request passes through, not from an IP address we keep.')}
 ${section('l-browsers', 'Browsers')}

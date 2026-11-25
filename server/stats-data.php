@@ -95,6 +95,7 @@ echo json_encode([
     'devices' => $sumOne('devices'),
     'channels' => $channels,             // channel => [visitors, pageviews, downloads & installs]
     'direct_deep' => $directDeep,        // part of Direct that landed straight on an app page
+    'ai' => $sumOne('ai'),               // Copy for AI menu clicks, by item
     'referrers' => $top($sumOne('referrers'), 10),
     'pages' => $sumOne('pages'),
     'langs' => $top($sumOne('langs'), 10),

@@ -32,6 +32,16 @@
     'linux|copy-flatpak': 'Linux: copy Flatpak command (footer)',
   };
   const PLAT = { windows: 'Windows', macos: 'Mac', linux: 'Linux' };
+  const AI_ITEM = {
+    'ai-button': 'Copy for AI button',
+    'ai-copy': 'Menu: Copy for AI',
+    'ai-md': 'Menu: View as Markdown',
+    'ai-json': 'Menu: View as JSON',
+    'ai-chatgpt': 'Menu: Open in ChatGPT',
+    'ai-claude': 'Menu: Open in Claude',
+    'ai-perplexity': 'Menu: Open in Perplexity',
+    'ai-gemini': 'Menu: Open in Gemini',
+  };
   const PAGE = { home: 'Home', app: 'App pages', platform: 'Platform lists', category: 'Category pages', other: 'Other pages' };
   const DEVICE = { desktop: 'Desktop', mobile: 'Mobile', tablet: 'Tablet' };
   const LANG = (() => {
@@ -281,6 +291,7 @@
     const at = chRows.findIndex((r) => r.label === 'Direct');
     if (at > -1 && deep[0]) chRows.splice(at + 1, 0, chRow('of which likely shared links', deep, 'sub-row'));
     bars($('l-channels'), chRows, 'No visits yet.');
+    bars($('l-ai'), rowsOf(cur.ai || {}, (k) => AI_ITEM[k] || k).sort((a, b) => b.v - a.v), 'No clicks yet.');
     bars($('l-referrers'), rowsOf(cur.referrers).sort((a, b) => b.v - a.v), 'No outside referrers yet.');
     bars($('l-pages'), rowsOf(cur.pages, (k) => PAGE[k] || k).sort((a, b) => b.v - a.v));
     bars($('l-langs'), rowsOf(cur.langs, LANG).sort((a, b) => b.v - a.v));

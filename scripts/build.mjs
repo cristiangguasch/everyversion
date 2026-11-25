@@ -299,11 +299,11 @@ const aiMenu = (rec) => {
   const item = ({ ico, title, desc, href, copy, ext }) => {
     const inner = `<span class="ai-ico">${AI_ICON[ico]}</span><span class="ai-txt"><span class="ai-t${ext ? ' x' : ''}"><span class="lbl">${esc(title)}</span></span><span class="ai-d">${esc(desc)}</span></span>`;
     return href
-      ? `<a role="menuitem" class="ai-item" href="${esc(href)}" target="_blank" rel="noopener"${copy ? ' data-copy data-keep' : ''}>${inner}</a>`
-      : `<button type="button" role="menuitem" class="ai-item" data-copy>${inner}</button>`;
+      ? `<a role="menuitem" class="ai-item" href="${esc(href)}" target="_blank" rel="noopener"${copy ? ' data-copy data-keep' : ''} data-t="ai" data-slot="ai-${ico}">${inner}</a>`
+      : `<button type="button" role="menuitem" class="ai-item" data-copy data-t="ai" data-slot="ai-${ico}">${inner}</button>`;
   };
   return `<div class="ai-menu" data-prompt="${esc(prompt)}">
-<button type="button" class="ai-main" data-copy>${AI_ICON.copy}<span class="lbl">Copy for AI</span></button><button type="button" class="ai-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="ai-pop" aria-label="More ways to use this page with AI">${AI_ICON.chevron}</button>
+<button type="button" class="ai-main" data-copy data-t="ai" data-slot="ai-button">${AI_ICON.copy}<span class="lbl">Copy for AI</span></button><button type="button" class="ai-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="ai-pop" aria-label="More ways to use this page with AI">${AI_ICON.chevron}</button>
 <div class="ai-pop" id="ai-pop" role="menu" aria-label="Use this page with AI" hidden>
 ${[
   item({ ico: 'copy', title: 'Copy for AI', desc: 'Copy a prompt that points your AI to this page' }),
