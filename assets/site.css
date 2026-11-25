@@ -276,8 +276,6 @@ h2 .plat-icon,h3 .plat-icon{vertical-align:-4px;margin-right:10px}
 .dl-main{min-width:0;flex:1 1 auto}
 .dl-title{font-weight:600}
 .dl-sub{color:var(--muted);font-size:.88rem}
-.dl-hash{margin-top:6px;font-size:.78rem;color:var(--muted)}
-.dl-hash code{margin-left:4px;overflow-wrap:anywhere;word-break:break-all}
 .dl-btn{flex:none;padding:9px 20px}
 .btn.is-dead,.btn.is-dead:hover{background:var(--surface);color:var(--muted);border:1px solid var(--line);cursor:not-allowed;filter:none;opacity:.75;font:inherit;font-weight:600}
 .dead-tip{position:relative;display:inline-block;border-radius:8px;cursor:not-allowed}
@@ -306,10 +304,6 @@ h2 .plat-icon,h3 .plat-icon{vertical-align:-4px;margin-right:10px}
 .dl-ok{font-weight:600}
 .dl-ok span{color:var(--ok);margin-right:6px}
 @media (max-width:560px){.dl-row{flex-wrap:wrap}.dl-btn{width:100%;text-align:center;box-sizing:border-box}}
-details.dl-hash{border:0;background:none;margin:6px 0 0;border-radius:0}
-details.dl-hash>summary{display:inline-block;padding:0;cursor:pointer;color:var(--accent);font-size:.85rem}
-details.dl-hash[open]>summary{border-bottom:0;margin-bottom:6px}
-details.dl-hash>div{font-size:.78rem}
 article>hr{border:0;border-top:1px solid var(--line);margin:36px 0 0}
 article>hr+section h2:first-child,article>hr+section>.dl-head{margin-top:24px}
 /* External text links (they open in a new tab): small "opens elsewhere" icon after the text. Buttons and menu items are left alone. */
@@ -383,6 +377,15 @@ h1 .h1-ver{font-family:var(--display);font-size:.55em;font-weight:500;color:var(
 /* Every page: grey notice bar at the top of the header (sticky everywhere but home) */
 .notice-bar{background:var(--surface);border-bottom:1px solid var(--line);color:var(--text);font-size:.86rem;font-weight:600;line-height:1.4}
 .site-header .notice-bar .wrap,.site-header.sticky .notice-bar .wrap{display:block;min-height:0;padding-top:7px;padding-bottom:7px;text-align:center}
+details.notice-bar{margin:0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:var(--surface)}
+.notice-bar>summary{list-style:none;cursor:pointer;padding:0;font-weight:inherit}
+.notice-bar[open]>summary{border-bottom:0}
+.notice-bar>summary::-webkit-details-marker{display:none}
+.notice-bar>summary:hover{text-decoration:underline;text-underline-offset:3px}
+.notice-bar>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.nb-chev{width:14px;height:14px;margin-left:6px;vertical-align:-2px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s}
+.notice-bar[open] .nb-chev{transform:rotate(180deg)}
+.site-header .notice-bar .nb-more{padding-top:0;padding-bottom:10px;max-width:46rem;font-weight:400;color:var(--muted);line-height:1.5}
 .notice-bar span{color:var(--ok);margin-right:6px}
 html.has-notice{scroll-padding-top:7.5rem}
 @media (max-width:560px){html.has-notice{scroll-padding-top:10.5rem}.notice-bar{font-size:.8rem}}
@@ -522,3 +525,25 @@ svg.sv:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-r
 @media (max-width:560px){.app-head{position:relative}.ai-menu{position:static}.ai-pop{left:0;right:0;width:auto;max-width:none}}
 /* App and old-versions pages: long file names, hashes and manifest paths break instead of widening the page on phones */
 .app-layout article p,.app-layout article li,.ov-main p,.ov-main li{overflow-wrap:anywhere}
+/* App pages: evidence grid under the lead (VirusTotal, download source, SHA-256, license) */
+.evidence{margin:18px 0 0}
+.ev-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 18px;list-style:none;margin:0;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.ev{min-width:0}
+.ev-h{display:flex;align-items:center;gap:5px;font-weight:600;font-size:.78rem}
+.ev-h svg{width:15px;height:15px;flex:none;fill:none;stroke:var(--ok);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ev-v{font-family:var(--display);font-size:1.02rem;font-weight:600;line-height:1.3;margin:3px 0 2px;letter-spacing:-.01em}
+.ev-v.ok{color:var(--ok)}.ev-v.warn{color:#ea580c}.ev-v.bad{color:#dc2626}.ev-v.muted{color:var(--muted)}
+@media (max-width:560px){.ev-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}}
+/* Download rows: where the file comes from, and its full SHA-256 */
+.dl-from{margin-top:6px;font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}
+.dl-from strong{color:var(--text);font-weight:600}
+.dl-url{display:block;font-family:var(--mono,ui-monospace,monospace);font-size:.74rem;opacity:.85}
+.dl-sha{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:6px;font-size:.78rem;color:var(--muted)}
+.dl-sha .k{font-weight:600;color:var(--text)}
+.dl-sha code{overflow-wrap:anywhere;word-break:break-all;min-width:0;flex:1 1 16rem}
+/* Safety badge: what the rating means, on hover or focus */
+.safe-wrap{position:relative;display:inline-flex}
+.safe-tip{position:absolute;left:0;top:calc(100% + 8px);z-index:70;width:max-content;max-width:min(300px,80vw);padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font-size:.84rem;font-weight:400;line-height:1.45;box-shadow:0 6px 18px rgba(0,0,0,.14);opacity:0;visibility:hidden;transition:opacity .12s}
+.safe-tip .st-cap{display:block;margin-top:4px;color:var(--muted)}
+.safe-wrap:hover .safe-tip,.safe-wrap:focus-within .safe-tip{opacity:1;visibility:visible}
+@media (max-width:560px){.safe-wrap{position:static}.safe-tip{left:0;right:0;width:auto;max-width:none}}

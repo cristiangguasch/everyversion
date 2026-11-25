@@ -329,6 +329,7 @@ const copy=(txt,ok)=>{const fb=()=>{const a=document.createElement('textarea');a
 m.addEventListener('click',(e)=>{const b=e.target.closest('[data-copy]');if(!b)return;const l=b.querySelector('.lbl'),old=l.textContent;copy(m.dataset.prompt,()=>{l.textContent='Copied';setTimeout(()=>{l.textContent=old;if(!b.hasAttribute('data-keep'))open(false)},1200)})})})();`;
 
 // `notice` (trusted HTML) puts a grey bar at the top of the header (sticky on every page but home), so it stays in view while scrolling.
+const NOTICE_MORE = 'Everyversion.net provides software version history, official publisher download links, VirusTotal security reports, and cryptographic checksum verification to help users make informed and safer software-download decisions.';
 const NOTICE = '<span aria-hidden="true">✓</span> Official download links only. We host no files.';
 function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null, notice = NOTICE }) {
   const canonical = `${SITE.url}${path}`;
@@ -359,7 +360,7 @@ ${ld.map(jsonLd).join('\n')}
 ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<script src="/t.js?v=${assetHash('t.js')}" defer></script>
 </head>
 <body>
-<header class="site-header${isHome ? '' : ' sticky'}">${notice ? `<div class="notice-bar" role="note"><div class="wrap">${notice}</div></div>` : ''}<div class="wrap hdr">
+<header class="site-header${isHome ? '' : ' sticky'}">${notice ? `<details class="notice-bar"><summary><span class="wrap">${notice}<svg class="nb-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary><div class="wrap nb-more">${NOTICE_MORE}</div></details>` : ''}<div class="wrap hdr">
 <a class="brand" href="/" aria-label="Everyversion home">${LOGO}</a>${isHome ? '' : `
 <form class="header-search" role="search" action="/">
 <label class="sr" for="hq">Search apps</label>
@@ -779,7 +780,8 @@ ${opts.map(([label, cmd, slot]) => `<button type="button" role="menuitem" class=
 <div class="dl-title">${esc(PLATFORM[p])} ${i.variant ? `${esc(i.variant)}${i.architecture === 'neutral' ? '' : ` · ${esc(archLabel(i))}`}` : `${esc(archLabel(i))} ${esc(KIND[i.type] || 'installer')}`}</div>
 <div class="dl-sub">${esc(sub.join(' · '))}</div>
 ${deadOf(i) ? `<div class="dl-dead">The publisher’s link returns HTTP ${deadOf(i).status} (checked ${esc(deadDay(deadOf(i).checked))}), so the download is switched off.</div>` : ''}
-${i.sha256 || ownSha(rec.slug, i) ? `<details class="dl-hash"><summary>Show SHA-256${i.sha256 ? '' : ' (computed by us)'}</summary><div><code class="hash">${esc(i.sha256 || ownSha(rec.slug, i))}</code> <button type="button" class="copy" data-copy="${esc(i.sha256 || ownSha(rec.slug, i))}" aria-label="Copy SHA-256 of ${esc(i.filename)}">Copy</button></div></details>` : `<div class="dl-hash"><span class="host">${rec.flathub && p === 'linux' ? 'No file checksum: Flatpak checks the app against Flathub’s signed repository' : 'SHA-256 not provided by the publisher'}</span></div>`}
+${p === 'linux' && rec.flathub && i.type === 'flatpak' ? '' : `<div class="dl-from">From <strong>${esc(i.host || '')}</strong><span class="dl-url">${esc(i.url)}</span></div>`}
+${i.sha256 || ownSha(rec.slug, i) ? `<div class="dl-sha"><span class="k">SHA-256${i.sha256 ? '' : ' (computed by us)'}</span><code class="hash">${esc(i.sha256 || ownSha(rec.slug, i))}</code><button type="button" class="copy" data-copy="${esc(i.sha256 || ownSha(rec.slug, i))}" aria-label="Copy SHA-256 of ${esc(i.filename)}">Copy</button></div>` : `<div class="dl-sha"><span class="k">SHA-256</span><span class="host">${rec.flathub && p === 'linux' ? 'No file checksum: Flatpak checks the app against Flathub’s signed repository' : 'Not provided by the publisher'}</span></div>`}
 </div>
 ${flatpakMenu(i, p)}
 </div>`;
@@ -912,7 +914,7 @@ ${url ? `<p class="pin">${link(url, v.release_notes ? 'Read the full release not
 ${installerTable(v.installers, p, v.version, rec.slug)}
 ${pin}
 ${notesBlock(v)}
-${v.manifest_dir ? `<p class="pin">Manifest: ${link(`${WINGET_REPO}/tree/master/${v.manifest_dir}`, v.manifest_dir)}</p>` : ''}
+${v.manifest_dir ? `<p class="pin">Manifest: ${link(provOf(rec, p)?.commit ? gh(provOf(rec, p).commit, v.manifest_dir) : `${WINGET_REPO}/tree/master/${v.manifest_dir}`, v.manifest_dir)}${provOf(rec, p)?.commit ? ` <span class="host">at commit ${esc(provOf(rec, p).commit.slice(0, 12))}</span>` : ''}</p>` : ''}
 </div>
 </details>`;
   };
@@ -1088,7 +1090,18 @@ ${versionsOf(rec, p).slice(1, 1 + OLD_LISTED).map((v) => `<li>${esc(rec.name)} $
   const safety = hashMis.mismatch && safetyScan.cls !== 'bad'
     ? { cls: 'warn', icon: ICON.medium, label: 'Medium risk', cap: `${hashMis.mismatch} of ${hashMis.total} downloads do not match the published checksum` }
     : safetyScan;
-  const safeBadge = `<a class="safe-badge" href="#security" title="${esc(safety.cap)}" aria-label="Safety: ${esc(safety.label)}. ${esc(safety.cap)}. Jump to the security details"><span class="pill ${safety.cls}">${safety.icon}${esc(safety.label)}</span></a>`;
+  // What the rating means, shown on hover or keyboard focus (the same words go to screen readers).
+  const SAFETY_MEANS = {
+    ok: partial
+      ? 'No more than one security engine on VirusTotal flagged the files scanned so far, and no checksum failed. Some files have no VirusTotal report yet.'
+      : 'No more than one security engine on VirusTotal flagged any of the latest files, and no checksum failed. A single flag among about 70 engines is usually a false alarm.',
+    warn: hashMis.mismatch
+      ? 'A downloaded file does not match the checksum its package catalog publishes. Read the security details before you install.'
+      : 'Two or three security engines on VirusTotal flagged a file. Often a false alarm, but read the security details before you install.',
+    bad: 'Four or more security engines on VirusTotal flagged a file. Read the security details before you install.',
+    none: 'VirusTotal has no report for these files yet, so there is no rating. The checksums can still be checked.',
+  };
+  const safeBadge = `<span class="safe-wrap"><a class="safe-badge" href="#security" aria-describedby="safe-tip" aria-label="Safety: ${esc(safety.label)}. ${esc(safety.cap)}. Jump to the security details"><span class="pill ${safety.cls}">${safety.icon}${esc(safety.label)}</span></a><span class="safe-tip" id="safe-tip" role="tooltip"><strong>${esc(safety.label)}:</strong> ${esc(SAFETY_MEANS[safety.cls])} <span class="st-cap">${esc(safety.cap)}.</span></span></span>`;
 
   // Flagged files: list each engine and its label exactly as VirusTotal reports it. We add no interpretation.
   const flaggedFiles = secFiles.filter((f) => f.flagged > 0 && f.vt?.detections?.length);
@@ -1108,6 +1121,71 @@ ${f.vt.detections.map((d) => `<tr><td>${esc(d.engine)}</td><td>${esc(d.category)
 </div></details>`
     : '';
   const firstReport = (scanned[0] || secFiles.find((f) => f.sha))?.sha;
+
+  // ---- evidence grid under the lead: VirusTotal, where the download goes, SHA-256, license. Each card links to its proof
+  // and says when it was last checked.
+  const EV_ICON = {
+    vt: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',
+    src: '<path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>',
+    sha: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 15l2 2 4-4"/>',
+    lic: '<path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7M8 21h8"/>',
+  };
+  // Title and value only: the details (counts, hosts, dates, links) are in the downloads and Security sections below.
+  const evCard = (ico, title, value, cls) => `<li class="ev"><div class="ev-h"><svg viewBox="0 0 24 24" aria-hidden="true">${EV_ICON[ico]}</svg>${esc(title)}</div><div class="ev-v${cls ? ` ${cls}` : ''}">${esc(value)}</div></li>`;
+  const day = (iso) => (iso ? `<time datetime="${esc(String(iso).slice(0, 10))}">${esc(String(iso).slice(0, 10))}</time>` : '');
+  const rootOf = (h) => String(h || '').toLowerCase().replace(/^www\./, '').split('.').slice(-2).join('.');
+  const hostOfUrl = (u) => { try { return new URL(u).hostname.toLowerCase(); } catch { return ''; } };
+  const firstFile = secFiles[0];
+  const pe = provOf(rec, plats[0]);
+  // The manifest this version was read from, at the exact catalog commit we read.
+  const manifestAt = (p, v) => {
+    const e = provOf(rec, p);
+    return e?.source === 'winget-pkgs' && e.commit && v?.manifest_dir ? gh(e.commit, v.manifest_dir) : sourceTree(e);
+  };
+  const vtCard = (() => {
+    const f = flaggedWorst || scanned[0] || firstFile;
+    if (!worst) return evCard('vt', 'VirusTotal', 'Not scanned', 'muted', 'No VirusTotal report yet');
+    // Green ("Scanned") up to one flag, as the safety badge counts it; otherwise the count itself, in orange or red.
+    const value = ringClass === 'ok' ? 'Scanned' : `${flaggedWorst.flagged} of ${flaggedWorst.engines} flagged`;
+    const flags = maxFlagged ? `${flaggedWorst.flagged}/${flaggedWorst.engines} engines flagged` : 'No engine flagged';
+    return evCard('vt', 'VirusTotal', value, ringClass, `${ringClass === 'ok' ? flags : `in ${esc(flaggedWorst.i.filename)}`}${partial ? ` · ${scanned.length}/${secFiles.length} files` : ''}${scanDates.length ? ` · ${day(scanDates.at(-1))}` : ''}`);
+  })();
+  const srcCard = (() => {
+    const i = firstFile?.i;
+    if (!i) return '';
+    const host = i.host || hostOfUrl(i.url);
+    const site = [u.publisher, u.homepage].map(hostOfUrl).filter(Boolean);
+    const gh = /(^|\.)github\.com$|githubusercontent\.com$/.test(host) ? (/github\.com\/([^/]+)\/([^/]+)\//.exec(i.url) || []) : [];
+    const ownerSites = [u.publisher, u.homepage, u.repository, ...(rec.urls?.documentation || []).map((d) => d.url)].filter(Boolean).map(String);
+    const ghOfficial = gh[1] && ownerSites.some((x) => new RegExp(`github\\.com/${gh[1]}(/|$)`, 'i').test(x));
+    const others = [...new Set(secFiles.map((f) => f.i.host).filter((h) => h && h !== host))];
+    const more = others.length ? ` · +${others.length} other host${others.length === 1 ? '' : 's'}` : '';
+    const via = `named in the ${esc(sourceName(pe))} listing`;
+    if (site.some((h) => rootOf(h) === rootOf(host))) return evCard('src', 'Download source', 'Official', '', `Publisher’s own site · <strong>${esc(host)}</strong>${more}`);
+    if (gh[1]) return evCard('src', 'Download source', ghOfficial ? 'Official' : 'GitHub release', '', `${ghOfficial ? 'Publisher’s GitHub release' : 'GitHub release'} · <strong>${esc(`${gh[1]}/${gh[2]}`)}</strong>${more}`);
+    return evCard('src', 'Download source', 'Official link', '', `<strong>${esc(host)}</strong>, ${via}${more}`);
+  })();
+  const shaCard = (() => {
+    const v = latestOf[plats[0]];
+    const mUrl = manifestAt(plats[0], v);
+    const manifest = `${esc(sourceName(pe))} ${mUrl ? 'manifest' : 'listing'}`;
+    const hasSha = secFiles.some((f) => f.sha);
+    if (hashMis.mismatch) return evCard('sha', 'SHA-256', 'Mismatch', 'bad', `${hashMis.mismatch} of ${hashMis.total} differ from the ${manifest} · ${day(rec.verification.checked_at)}`);
+    if (rec.verification.checks?.hash_recomputed && hashMis.match) return evCard('sha', 'SHA-256', 'Verified', 'ok', `Matches the ${manifest} · ${day(rec.verification.checked_at)}`);
+    if (hasSha) return evCard('sha', 'SHA-256', 'Published', '', `From the ${manifest} · not re-computed yet · ${day(pe.retrieved_at)}`);
+    return evCard('sha', 'SHA-256', 'Not provided', 'muted', `The ${manifest} lists no checksum`);
+  })();
+  const licCard = (() => {
+    const lt = licenseType(rec);
+    const name = rec.license.name || 'Not stated';
+    return evCard('lic', 'License', name.length > 28 ? `${name.slice(0, 27)}…` : name, '', lt ? esc(lt.text.split(' · ')[0]) : 'Not stated in the listing');
+  })();
+  const evidenceHtml = `<section class="evidence" aria-label="Safety evidence"><ul class="ev-grid">
+${vtCard}
+${srcCard}
+${shaCard}
+${licCard}
+</ul></section>`;
   const securityHtml = `<section id="security" aria-labelledby="h-security">
 <h2 id="h-security">Is ${esc(rec.name)} safe?</h2>
 <div class="sec-score">
@@ -1323,6 +1401,7 @@ ${iconHtml}
 ${updatedLine}
 </div>
 ${rec.summary ? `<p class="lead app-lead">${esc(rec.summary)}</p>` : ''}
+${evidenceHtml}
 
 ${shotsHtml(rec)}
 ${sectionsHtml}
