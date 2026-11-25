@@ -270,8 +270,9 @@ const imageMeta = (image) => image
 <meta name="twitter:image:alt" content="${esc(image.alt)}">`
   : '<meta name="twitter:card" content="summary">';
 
-// `notice` (trusted HTML) puts a grey bar at the top of the sticky header, so it stays in view while scrolling.
-function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null, notice = '' }) {
+// `notice` (trusted HTML) puts a grey bar at the top of the header (sticky on every page but home), so it stays in view while scrolling.
+const NOTICE = '<span aria-hidden="true">✓</span> Official download links only. We host no files.';
+function layoutRaw({ title, description, path, body, ld = [], alternates = '', noindex = false, image = null, notice = NOTICE }) {
   const canonical = `${SITE.url}${path}`;
   const isHome = path === '/'; // the home page keeps its own header and its big search box
   return `<!doctype html>
@@ -300,7 +301,7 @@ ${ld.map(jsonLd).join('\n')}
 ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<script src="/t.js?v=${assetHash('t.js')}" defer></script>
 </head>
 <body>
-<header class="site-header${isHome ? '' : ' sticky'}">${notice && !isHome ? `<div class="notice-bar" role="note"><div class="wrap">${notice}</div></div>` : ''}<div class="wrap hdr">
+<header class="site-header${isHome ? '' : ' sticky'}">${notice ? `<div class="notice-bar" role="note"><div class="wrap">${notice}</div></div>` : ''}<div class="wrap hdr">
 <a class="brand" href="/" aria-label="Everyversion home">${LOGO}</a>${isHome ? '' : `
 <form class="header-search" role="search" action="/">
 <label class="sr" for="hq">Search apps</label>
@@ -1255,7 +1256,6 @@ document.addEventListener('keydown',(e)=>{if(e.key==='Escape')document.querySele
     ld: [{ '@context': 'https://schema.org', '@graph': [websiteNode, publisherNode, software, crumbs, ...verifiedNodes, faqNode] }],
     alternates: `<link rel="alternate" type="application/json" href="/${rec.slug}/${rec.slug}.json">\n<link rel="alternate" type="text/markdown" href="/${rec.slug}/${rec.slug}.md">\n`,
     image: ogImage(rec),
-    notice: '<span aria-hidden="true">✓</span> Official download links only. We host no files.',
   });
 
   const unavailable = rec.versions.flatMap((v) => v.installers.filter((i) => deadOf(i)).map((i) => ({ platform: v.platform, version: v.version, filename: i.filename, url: i.url, http_status: deadOf(i).status, checked: deadOf(i).checked })));
