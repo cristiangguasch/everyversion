@@ -58,6 +58,18 @@ $sortPairs = static function (array $a, int $by): array {
     return $a;
 };
 
+// Channels: channel => [visitors, pageviews, downloads & installs], each visitor counted once per day under one channel.
+$channels = [];
+foreach ($series as $d) {
+    foreach ($d['channels'] ?? [] as $k => $v) {
+        $channels[$k] ??= [0, 0, 0];
+        for ($i = 0; $i < 3; $i++) {
+            $channels[$k][$i] += $v[$i];
+        }
+    }
+}
+uasort($channels, static fn ($x, $y) => $y[0] <=> $x[0]);
+
 $apps = $sortPairs($sumPairs('apps'), 1);
 $countries = $sortPairs($sumPairs('countries'), 0);
 
@@ -73,6 +85,7 @@ echo json_encode([
     'browsers' => $top($sumOne('browsers'), 10),
     'os' => $top($sumOne('os'), 10),
     'devices' => $sumOne('devices'),
+    'channels' => $channels,             // channel => [visitors, pageviews, downloads & installs]
     'referrers' => $top($sumOne('referrers'), 10),
     'pages' => $sumOne('pages'),
     'langs' => $top($sumOne('langs'), 10),

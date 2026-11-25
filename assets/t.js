@@ -20,6 +20,7 @@
   const path = loc.pathname;
   const pageType = path === '/' ? 'home' : art ? 'app' : /^\/(windows|mac|linux)\/$/.test(path) ? 'platform' : /^\/categories\//.test(path) ? 'category' : 'other';
   const qs = new URLSearchParams(loc.search);
+  const CLICK_IDS = ['gclid', 'gbraid', 'wbraid', 'msclkid', 'yclid', 'ttclid', 'twclid', 'li_fat_id', 'ScCid', 'epik', 'rdt_cid'];
 
   const send = (o) => {
     const body = JSON.stringify(o);
@@ -46,7 +47,10 @@
       l: nav.language || undefined,
       w: innerWidth < 600 ? 's' : innerWidth < 1024 ? 'm' : 'l',
       us: qs.get('utm_source') || undefined,
+      um: qs.get('utm_medium') || undefined,
       uc: qs.get('utm_campaign') || undefined,
+      // Which ad click marker is in the address, if any (its name only, never its value): it tells paid traffic apart.
+      ck: CLICK_IDS.find((k) => qs.has(k)),
     });
   };
   // Not for prerendered or background-opened tabs: count the view when the page is actually shown.

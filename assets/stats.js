@@ -199,6 +199,7 @@
     bars($('l-browsers'), rowsOf(cur.browsers).sort((a, b) => b.v - a.v));
     bars($('l-os'), rowsOf(cur.os).sort((a, b) => b.v - a.v));
     bars($('l-devices'), rowsOf(cur.devices, (k) => DEVICE[k] || k).sort((a, b) => b.v - a.v));
+    bars($('l-channels'), Object.entries(cur.channels || {}).map(([ch, v]) => ({ label: ch, v: v[0], sub: `${nf.format(v[1])} pageview${v[1] === 1 ? '' : 's'} · ${nf.format(v[2])} download${v[2] === 1 ? '' : 's'}`, title: `${ch}: ${nf.format(v[0])} visitors, ${nf.format(v[1])} pageviews, ${nf.format(v[2])} downloads and installs${v[1] ? ` (${(v[2] / v[1] * 100).toFixed(1)} per 100 pageviews)` : ''}` })).sort((a, b) => b.v - a.v), 'No visits yet.');
     bars($('l-referrers'), rowsOf(cur.referrers).sort((a, b) => b.v - a.v), 'No outside referrers yet.');
     bars($('l-pages'), rowsOf(cur.pages, (k) => PAGE[k] || k).sort((a, b) => b.v - a.v));
     bars($('l-langs'), rowsOf(cur.langs, LANG).sort((a, b) => b.v - a.v));

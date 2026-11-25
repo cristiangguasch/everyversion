@@ -141,7 +141,9 @@ $rec = array_filter([
     'l' => $str(strtolower(substr((string) ($in['l'] ?? ''), 0, 2)), '/^[a-z]{2}$/', 2),
     'r' => $ref,
     'us' => $str($in['us'] ?? null, '/^[A-Za-z0-9._-]{1,40}$/', 40),
+    'um' => $str($in['um'] ?? null, '/^[A-Za-z0-9._ -]{1,40}$/', 40),
     'uc' => $str($in['uc'] ?? null, '/^[A-Za-z0-9._-]{1,40}$/', 40),
+    'ck' => is_string($in['ck'] ?? null) && isset(EV_CLICK_IDS[$in['ck']]) ? $in['ck'] : null,
     'w' => in_array($in['w'] ?? null, ['s', 'm', 'l'], true) ? $in['w'] : null,
     'u' => $visitor,
 ], static fn ($v) => $v !== null && $v !== '');

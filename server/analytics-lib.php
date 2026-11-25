@@ -151,16 +151,108 @@ const EV_PAGE_TYPES = ['home', 'app', 'platform', 'category', 'other'];
 const EV_PLATFORMS = ['windows', 'macos', 'linux'];
 const EV_ARCHES = ['x86', 'x64', 'arm', 'arm64', 'neutral', 'universal'];
 
+/** Ad click markers (the URL parameter an ad network adds to its clicks) and the kind of ad each one means. */
+const EV_CLICK_IDS = [
+    'gclid' => 'search', 'gbraid' => 'search', 'wbraid' => 'search', 'msclkid' => 'search', 'yclid' => 'search',
+    'ttclid' => 'social', 'twclid' => 'social', 'li_fat_id' => 'social', 'ScCid' => 'social', 'epik' => 'social', 'rdt_cid' => 'social',
+];
+
+/** Channels, in the order the stats page lists them when they tie. */
+const EV_CHANNELS = ['Direct', 'Organic Search', 'AI Organic Search', 'Social', 'Referral', 'Email', 'Paid Search', 'Paid Social', 'Other campaigns'];
+
+/** True when $host is one of $domains or a subdomain of one. */
+function ev_host_in(string $host, array $domains): bool
+{
+    foreach ($domains as $d) {
+        if ($host === $d || str_ends_with($host, '.' . $d)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/** The kind of site a referrer host (or a utm_source written like one) is: ai, email, search, social, or null. */
+function ev_source_kind(string $src): ?string
+{
+    $h = strtolower(preg_replace('/^www\./', '', trim($src)));
+    if ($h === '') {
+        return null;
+    }
+    // AI assistants and answer engines. ChatGPT and others also tag their links with utm_source=chatgpt.com and the like.
+    if (ev_host_in($h, ['chatgpt.com', 'chat.openai.com', 'openai.com', 'perplexity.ai', 'claude.ai', 'gemini.google.com', 'bard.google.com', 'copilot.microsoft.com', 'copilot.cloud.microsoft', 'you.com', 'phind.com', 'poe.com', 'deepseek.com', 'meta.ai', 'grok.com', 'chat.mistral.ai', 'kimi.com', 'kimi.moonshot.cn', 'chat.qwen.ai', 'duck.ai', 'andisearch.com', 'komo.ai'])
+        || preg_match('/^(chatgpt|openai|perplexity|claude|gemini|copilot|deepseek|grok|mistral|phind|poe|meta\.?ai)$/', $h)) {
+        return 'ai';
+    }
+    if (ev_host_in($h, ['mail.google.com', 'outlook.live.com', 'outlook.office.com', 'outlook.office365.com', 'mail.yahoo.com', 'mail.aol.com', 'mail.proton.me', 'mail.zoho.com', 'mail.yandex.ru', 'mail.ru', 'gmx.net', 'web.de', 'fastmail.com'])
+        || preg_match('/^(e-?mail|newsletter|gmail|outlook|mailchimp|substack)$/', $h)) {
+        return 'email';
+    }
+    if (preg_match('/^(news\.)?google\.[a-z.]+$/', $h) || preg_match('/^(search\.|[a-z]{2}\.search\.)?yahoo\.[a-z.]+$/', $h) || preg_match('/^yandex\.[a-z.]+$/', $h)
+        || ev_host_in($h, ['bing.com', 'duckduckgo.com', 'baidu.com', 'ecosia.org', 'search.brave.com', 'startpage.com', 'qwant.com', 'naver.com', 'seznam.cz', 'kagi.com', 'sogou.com', 'so.com', 'ask.com', 'search.aol.com', 'daum.net', 'ya.ru', 'mojeek.com', 'swisscows.com', 'metager.org', 'metager.de', 'petalsearch.com', 'presearch.com', 'search.lilo.org'])
+        || preg_match('/^(google|bing|duckduckgo|ddg|yahoo|yandex|baidu|ecosia|brave|startpage|qwant|naver|kagi)$/', $h)) {
+        return 'search';
+    }
+    if (ev_host_in($h, ['facebook.com', 'fb.com', 'fb.me', 'instagram.com', 't.co', 'x.com', 'twitter.com', 'linkedin.com', 'lnkd.in', 'reddit.com', 'redd.it', 'youtube.com', 'youtu.be', 'tiktok.com', 'threads.net', 'threads.com', 'bsky.app', 'mastodon.social', 'mstdn.social', 'news.ycombinator.com', 'discord.com', 'discordapp.com', 't.me', 'telegram.org', 'whatsapp.com', 'vk.com', 'quora.com', 'tumblr.com', 'medium.com', 'snapchat.com', 'weibo.com', 'producthunt.com', 'lemmy.world', 'tildes.net', 'pinterest.com'])
+        || preg_match('/^([a-z]{2}\.)?pinterest\.[a-z.]+$/', $h)
+        || preg_match('/^(facebook|fb|instagram|ig|twitter|x|linkedin|reddit|youtube|tiktok|threads|bluesky|bsky|mastodon|hackernews|hn|discord|telegram|whatsapp|pinterest|quora|snapchat)$/', $h)) {
+        return 'social';
+    }
+    return null;
+}
+
+/**
+ * The channel of one pageview, from its referrer host (r), utm_source (us), utm_medium (um) and ad click marker (ck).
+ * Paid comes first (an ad click can carry a search or social referrer), then email, AI, search, social, any other site.
+ */
+function ev_channel(array $e): string
+{
+    $medium = strtolower(trim((string) ($e['um'] ?? '')));
+    $source = (string) ($e['us'] ?? '');
+    $ref = (string) ($e['r'] ?? '');
+    $srcKind = $source !== '' ? ev_source_kind($source) : null;
+    $refKind = $ref !== '' ? ev_source_kind($ref) : null;
+    $click = EV_CLICK_IDS[$e['ck'] ?? ''] ?? null;
+
+    if ($click === 'social' || (preg_match('/^(.*cp.*|ppc|retargeting|paid.*)$/', $medium) && ($srcKind === 'social' || $refKind === 'social'))) {
+        return 'Paid Social';
+    }
+    if ($click === 'search' || preg_match('/^(.*cp.*|ppc|retargeting|paid.*)$/', $medium)) {
+        return 'Paid Search';
+    }
+    if (preg_match('/^(e[-_ ]?mail|newsletter)$/', $medium) || $srcKind === 'email' || $refKind === 'email') {
+        return 'Email';
+    }
+    if ($srcKind === 'ai' || $refKind === 'ai') {
+        return 'AI Organic Search';
+    }
+    if ($medium === 'organic' || ($medium === '' && $srcKind === 'search') || ($source === '' && $refKind === 'search')) {
+        return 'Organic Search';
+    }
+    if (preg_match('/^(social|social[-_ ]?(network|media)|sm)$/', $medium) || ($medium === '' && $srcKind === 'social') || ($source === '' && $refKind === 'social')) {
+        return 'Social';
+    }
+    if ($medium !== '' && !preg_match('/^(referral|link|app)$/', $medium)) {
+        return 'Other campaigns'; // tagged, but with a medium none of the channels above covers (display, affiliate ...)
+    }
+    if ($source !== '' || $ref !== '') {
+        return 'Referral';
+    }
+    return 'Direct';
+}
+
 /** Add one day of raw events into a rollup array. */
 function ev_rollup_day(string $day): array
 {
-    $r = ['d' => $day, 'pv' => 0, 'uv' => 0, 'dl' => 0, 'apps' => [], 'slots' => [], 'platforms' => [], 'hosts' => [], 'countries' => [], 'browsers' => [], 'os' => [], 'devices' => [], 'referrers' => [], 'pages' => [], 'langs' => []];
+    $r = ['d' => $day, 'pv' => 0, 'uv' => 0, 'dl' => 0, 'apps' => [], 'slots' => [], 'platforms' => [], 'hosts' => [], 'countries' => [], 'browsers' => [], 'os' => [], 'devices' => [], 'referrers' => [], 'pages' => [], 'langs' => [], 'channels' => []];
     $file = ev_events_file($day);
     $fh = is_file($file) ? @fopen($file, 'r') : false;
     if (!$fh) {
         return $r;
     }
     $seen = [];
+    // Channel per visitor and day: the first channel that is not Direct, else Direct. Pages a visitor opens inside the
+    // site carry no outside referrer, so counting each pageview on its own would file nearly everything under Direct.
+    $visits = []; // visitor hash => [channel, pageviews, downloads & installs]
     $inc = static function (array &$a, string $k, int $i = 0, int $by = 1): void {
         $a[$k] ??= [0, 0];
         $a[$k][$i] += $by;
@@ -170,8 +262,17 @@ function ev_rollup_day(string $day): array
         if (!is_array($e) || empty($e['e'])) {
             continue;
         }
+        $u = (string) ($e['u'] ?? '');
         if ($e['e'] === 'pageview') {
             $r['pv']++;
+            if ($u !== '') {
+                $ch = ev_channel($e);
+                $visits[$u] ??= ['Direct', 0, 0];
+                if ($visits[$u][0] === 'Direct' && $ch !== 'Direct') {
+                    $visits[$u][0] = $ch;
+                }
+                $visits[$u][1]++;
+            }
             if (!empty($e['u'])) {
                 $seen[$e['u']] = true;
             }
@@ -189,6 +290,10 @@ function ev_rollup_day(string $day): array
             $isDl = $e['e'] === 'download' || $e['e'] === 'install';
             if ($isDl) {
                 $r['dl']++;
+                if ($u !== '') {
+                    $visits[$u] ??= ['Direct', 0, 0];
+                    $visits[$u][2]++;
+                }
                 if (!empty($e['s'])) {
                     $inc($r['apps'], $e['s'], 1);
                 }
@@ -208,6 +313,15 @@ function ev_rollup_day(string $day): array
     }
     fclose($fh);
     $r['uv'] = count($seen);
+    foreach ($visits as [$ch, $pv, $dl]) {
+        if ($pv === 0) {
+            continue; // clicks without a recorded pageview (a page left open overnight) belong to no visit today
+        }
+        $r['channels'][$ch] ??= [0, 0, 0];
+        $r['channels'][$ch][0]++;
+        $r['channels'][$ch][1] += $pv;
+        $r['channels'][$ch][2] += $dl;
+    }
     return $r;
 }
 
@@ -223,7 +337,8 @@ function ev_rollup(string $day): array
         $fresh = $today ? (time() - filemtime($cache) < 30) : filemtime($cache) >= $dayEnd;
         if ($fresh) {
             $c = json_decode((string) @file_get_contents($cache), true);
-            if (is_array($c)) {
+            // A rollup cached before channels were counted is made again while the raw events are still kept.
+            if (is_array($c) && (isset($c['channels']) || !is_file(ev_events_file($day)))) {
                 return $c;
             }
         }
