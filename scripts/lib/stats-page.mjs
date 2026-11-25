@@ -20,9 +20,7 @@ export function statsPage({ statsV }) {
 
 <div class="tiles" id="tiles" aria-live="polite"></div>
 
-<section class="st-card"><h2 id="h-pv">Pageviews per day</h2><div class="chart" id="c-pv"></div></section>
-<section class="st-card"><h2 id="h-uv">Visitors per day</h2><p class="muted">Each day counted on its own: someone who visits on two days counts once on each.</p><div class="chart" id="c-uv"></div></section>
-<section class="st-card"><h2 id="h-dl">Downloads and installs per day</h2><p class="muted">Clicks on a Download button or on the Linux Install button. A click shows intent: the file itself comes from the publisher.</p><div class="chart" id="c-dl"></div></section>
+<section class="st-card"><h2 id="h-daily">Pageviews, visitors and downloads per day</h2><p class="muted">Visitors are counted each day on their own: someone who visits on two days counts once on each. Downloads and installs are clicks on a Download button or the Linux Install button; the file itself comes from the publisher.</p><div id="c-main"></div></section>
 
 <details class="st-table"><summary>View the daily numbers as a table</summary>
 <div class="scroll"><table><thead><tr><th scope="col">Day (UTC)</th><th scope="col">Pageviews</th><th scope="col">Visitors</th><th scope="col">Downloads and installs</th></tr></thead><tbody id="t-body"></tbody></table></div>

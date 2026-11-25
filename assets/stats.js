@@ -60,24 +60,32 @@
     return e;
   };
 
-  /** One line chart: 2px line, a 10% wash under it, hairline grid, end dot, crosshair + tooltip on hover or arrow keys. */
-  function lineChart(host, series, key, unit) {
+  /**
+   * One chart, one shared axis, one 2px line per measure in fixed categorical order (blue, orange, teal). A legend above,
+   * each line's latest value labelled at its end (labels pushed apart so they never overlap), and a crosshair with a
+   * tooltip listing every measure on hover or with the arrow keys.
+   */
+  function multiLineChart(host, series, defs) {
     host.textContent = '';
     const W = 720;
-    const H = 210;
-    const m = { l: 44, r: 16, t: 14, b: 28 };
+    const H = 240;
+    const m = { l: 44, r: 118, t: 14, b: 28 };
     const iw = W - m.l - m.r;
     const ih = H - m.t - m.b;
     const n = series.length;
-    const vals = series.map((d) => d[key]);
-    const max = nice(Math.max(...vals, 0));
+    const max = nice(Math.max(...defs.flatMap((d) => series.map((p) => p[d.key])), 0));
     const x = (i) => m.l + (n === 1 ? iw / 2 : (i * iw) / (n - 1));
     const y = (v) => m.t + ih - (v / max) * ih;
+    const latest = defs.map((d) => `${d.label} ${nf.format(series[n - 1][d.key])}`).join(', ');
 
-    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, class: 'sv', role: 'img', tabindex: '0', 'aria-label': `${unit} per day, ${fmtDay(series[0].d, true)} to ${fmtDay(series[n - 1].d, true)}. Latest day: ${nf.format(vals[n - 1])}. A table with every value follows the charts.` });
+    const legend = document.createElement('ul');
+    legend.className = 'sv-legend';
+    legend.innerHTML = defs.map((d) => `<li><span class="sv-sw ${d.cls}" aria-hidden="true"></span>${esc(d.label)}</li>`).join('');
+
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, class: 'sv', role: 'img', tabindex: '0', 'aria-label': `${defs.map((d) => d.label).join(', ')} per day, ${fmtDay(series[0].d, true)} to ${fmtDay(series[n - 1].d, true)}. Latest day: ${latest}. Use the arrow keys to read each day; a table with every value follows.` }, null);
     for (let t = 0; t <= 4; t++) {
       const v = (max / 4) * t;
-      el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: 'sv-grid' }, svg);
+      el('line', { x1: m.l, x2: m.l + iw, y1: y(v), y2: y(v), class: 'sv-grid' }, svg);
       const tx = el('text', { x: m.l - 8, y: y(v) + 4, class: 'sv-tick', 'text-anchor': 'end' }, svg);
       tx.textContent = compact(Math.round(v * 10) / 10);
     }
@@ -86,19 +94,26 @@
       const tx = el('text', { x: x(i), y: H - 8, class: 'sv-tick', 'text-anchor': i === 0 ? 'start' : 'middle' }, svg);
       tx.textContent = fmtDay(series[i].d);
     }
-    const pts = vals.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`);
-    if (n > 1) {
-      el('path', { d: `M${pts.join('L')}L${x(n - 1)},${y(0)}L${x(0)},${y(0)}Z`, class: 'sv-area' }, svg);
-      el('path', { d: `M${pts.join('L')}`, class: 'sv-line' }, svg);
+    // Lines, drawn last measure first so the first (pageviews) sits on top where they cross.
+    for (const d of [...defs].reverse()) {
+      const pts = series.map((p, i) => `${x(i).toFixed(1)},${y(p[d.key]).toFixed(1)}`);
+      if (n > 1) el('path', { d: `M${pts.join('L')}`, class: `sv-line ${d.cls}` }, svg);
     }
-    // End dot with a surface ring, and its value (the one direct label).
-    el('circle', { cx: x(n - 1), cy: y(vals[n - 1]), r: 4, class: 'sv-dot' }, svg);
-    const last = el('text', { x: x(n - 1), y: Math.max(y(vals[n - 1]) - 10, 10), class: 'sv-last', 'text-anchor': 'end' }, svg);
-    last.textContent = nf.format(vals[n - 1]);
+    // End dots, and end labels in text ink, nudged apart vertically (at least 15px between them).
+    const ends = defs.map((d) => ({ d, v: series[n - 1][d.key], y: y(series[n - 1][d.key]) })).sort((a, b) => a.y - b.y);
+    for (let k = 1; k < ends.length; k++) ends[k].ly = Math.max(ends[k].y, (ends[k - 1].ly ?? ends[k - 1].y) + 15);
+    ends[0].ly = ends[0].y;
+    const over = ends[ends.length - 1].ly - (m.t + ih + 4);
+    if (over > 0) for (const e of ends) e.ly -= over;
+    for (const e of ends) {
+      el('circle', { cx: x(n - 1), cy: e.y, r: 4, class: `sv-dot ${e.d.cls}` }, svg);
+      const t = el('text', { x: x(n - 1) + 10, y: e.ly + 4, class: 'sv-end' }, svg);
+      t.textContent = `${nf.format(e.v)} ${e.d.short}`;
+    }
 
-    // Hover layer.
+    // Hover layer: one crosshair, a dot on every line, one tooltip with all measures.
     const cross = el('line', { y1: m.t, y2: m.t + ih, class: 'sv-cross', visibility: 'hidden' }, svg);
-    const hdot = el('circle', { r: 4, class: 'sv-dot', visibility: 'hidden' }, svg);
+    const hdots = defs.map((d) => el('circle', { r: 4, class: `sv-dot ${d.cls}`, visibility: 'hidden' }, svg));
     const tip = document.createElement('div');
     tip.className = 'sv-tip';
     tip.hidden = true;
@@ -106,21 +121,23 @@
       i = Math.max(0, Math.min(n - 1, i));
       cross.setAttribute('x1', x(i));
       cross.setAttribute('x2', x(i));
-      hdot.setAttribute('cx', x(i));
-      hdot.setAttribute('cy', y(vals[i]));
       cross.setAttribute('visibility', 'visible');
-      hdot.setAttribute('visibility', 'visible');
-      tip.innerHTML = `<span class="d">${esc(fmtDay(series[i].d, true))}</span><strong>${nf.format(vals[i])}</strong> ${esc(unit.toLowerCase())}`;
+      defs.forEach((d, k) => {
+        hdots[k].setAttribute('cx', x(i));
+        hdots[k].setAttribute('cy', y(series[i][d.key]));
+        hdots[k].setAttribute('visibility', 'visible');
+      });
+      tip.innerHTML = `<span class="d">${esc(fmtDay(series[i].d, true))}</span>` + defs.map((d) => `<span class="r"><span class="sv-sw ${d.cls}" aria-hidden="true"></span>${esc(d.label)} <strong>${nf.format(series[i][d.key])}</strong></span>`).join('');
       tip.hidden = false;
       const pct = (x(i) / W) * 100;
       tip.style.left = pct + '%';
-      tip.style.transform = pct > 70 ? 'translateX(-100%)' : pct < 30 ? 'translateX(0)' : 'translateX(-50%)';
-      tip.style.top = Math.max((y(vals[i]) / H) * 100 - 22, 0) + '%';
+      tip.style.transform = pct > 60 ? 'translateX(calc(-100% - 12px))' : 'translateX(12px)';
+      tip.style.top = '8px';
       return i;
     };
     const hide = () => {
       cross.setAttribute('visibility', 'hidden');
-      hdot.setAttribute('visibility', 'hidden');
+      hdots.forEach((h) => h.setAttribute('visibility', 'hidden'));
       tip.hidden = true;
     };
     let cur = n - 1;
@@ -137,7 +154,10 @@
       else return;
       ev.preventDefault();
     });
-    host.append(svg, tip);
+    const plot = document.createElement('div');
+    plot.className = 'chart';
+    plot.append(svg, tip);
+    host.append(legend, plot);
   }
 
   /** Horizontal bars: <= 10px thick, rounded at the data end, value at the tip in text ink. */
@@ -185,9 +205,11 @@
       ['Download rate', pv ? (dl / pv * 100).toFixed(1) + '%' : '–', '<span class="dl-none">clicks per 100 pageviews</span>'],
     ].map(([l, v, d]) => `<div class="tile"><div class="tl">${l}</div><div class="tv">${v}</div><div class="td">${d}</div></div>`).join('');
 
-    lineChart($('c-pv'), s, 'pv', 'Pageviews');
-    lineChart($('c-uv'), s, 'uv', 'Visitors');
-    lineChart($('c-dl'), s, 'dl', 'Downloads and installs');
+    multiLineChart($('c-main'), s, [
+      { key: 'pv', label: 'Pageviews', short: 'pageviews', cls: 'sv-s1' },
+      { key: 'uv', label: 'Visitors', short: 'visitors', cls: 'sv-s2' },
+      { key: 'dl', label: 'Downloads and installs', short: 'downloads', cls: 'sv-s3' },
+    ]);
 
     const app = (slug) => names[slug] || slug;
     bars($('l-apps'), Object.entries(cur.apps).filter(([, v]) => v[1] > 0).slice(0, 12).map(([slug, v]) => ({ label: app(slug), href: `/${slug}/`, v: v[1], sub: `${nf.format(v[0])} views`, title: `${app(slug)}: ${nf.format(v[1])} downloads and installs, ${nf.format(v[0])} pageviews` })), 'No downloads yet.');
