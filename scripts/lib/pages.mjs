@@ -370,7 +370,7 @@ ${crumbs([null, 'API'])}
 <thead><tr><th scope="col">Link</th><th scope="col">What you get</th></tr></thead>
 <tbody>
 <tr><td><a href="/api/v1/apps.json"><code>/api/v1/apps.json</code></a></td><td><strong>The index. Start here.</strong> One short entry per app: name, publisher, summary, platforms, newest version on each platform, license, price label, category, and links to the app’s page and files. About ${indexKB} KB.</td></tr>
-<tr><td><code>/{slug}/{slug}.json</code><br>for example <a href="/vlc/vlc.json"><code>/vlc/vlc.json</code></a></td><td><strong>The full record for one app.</strong> Every version we list (up to 50 per platform), and for each version every installer with its architecture, format, download URL, file name and SHA-256. It also holds the source of the data and how far we checked it.</td></tr>
+<tr><td><code>/{slug}/{slug}.json</code><br>for example <a href="/vlc/vlc.json"><code>/vlc/vlc.json</code></a></td><td><strong>The full record for one app.</strong> Every version we list (up to 100 per platform), and for each version every installer with its architecture, format, download URL, file name and SHA-256. It also holds the source of the data and how far we checked it.</td></tr>
 <tr><td><code>/{slug}/{slug}.md</code><br>for example <a href="/vlc/vlc.md"><code>/vlc/vlc.md</code></a></td><td><strong>The same facts as Markdown.</strong> Made for pasting into a prompt or for an agent to read.</td></tr>
 <tr><td><a href="/api/v1/categories.json"><code>/api/v1/categories.json</code></a></td><td><strong>The categories.</strong> Each one with its name, app count and the slugs of its apps. Categories with a page on this site also carry the page URL.</td></tr>
 <tr><td><a href="/schema/app.schema.json"><code>/schema/app.schema.json</code></a></td><td><strong>The JSON Schema</strong> for the per-app record. Use it to validate what you read.</td></tr>
@@ -388,7 +388,7 @@ ${API_EXAMPLES.map(example).join('\n')}
 <li><code>platforms</code> is a list drawn from <code>windows</code>, <code>macos</code> and <code>linux</code>. <code>latest_versions</code> gives the newest version on each.</li>
 <li><code>last_updated</code> is the date of the newest release in our data (<code>YYYY-MM-DD</code>). Some apps have none, so check for it.</li>
 <li><code>pricing</code> is one of <code>open-source</code>, <code>freeware</code>, <code>free-to-download</code>, <code>paid</code> or <code>unknown</code>. “Free to download” is a label we set by hand, and it can still mean paid tiers exist; <code>paid</code> means the software needs a purchase after any free trial.</li>
-<li><code>versions_total</code> is how many versions the source has. We list up to 50 per platform. On the Mac side, most sources list only the current release.</li>
+<li><code>versions_total</code> is how many versions the source has. We list up to 100 per platform. On the Mac side, most sources list only the current release.</li>
 <li><code>ids</code> holds the identifiers the app goes by in its source, such as its winget ID, Homebrew cask or Flathub app ID. Not every app has every one.</li>
 <li><code>category</code> is the slug of the app’s main category, as listed in <code>categories.json</code>.</li>
 </ul>

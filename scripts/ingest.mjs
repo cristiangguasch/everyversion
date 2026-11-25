@@ -29,7 +29,7 @@ const opt = (name, def) => {
 const ONLY = (args.find((a) => a.startsWith('--only=')) || '').slice(7).split(',').filter(Boolean); // re-read just these winget IDs
 const NEW_ONLY = args.includes('--new') || ONLY.length > 0; // only ingest config entries that have no record yet; leave everything else untouched
 const LIMIT = opt('limit', 100000);
-const MAX_VERSIONS = opt('max-versions', 50);
+const MAX_VERSIONS = opt('max-versions', 100);
 
 const RESERVED = new Set(['index', 'api', 'assets', 'about', 'sitemap', 'robots', 'llms', 'search', 'changes', 'status', 'schema', '404', 'security', 'contact', 'legal', 'windows', 'mac', 'macos', 'linux', 'stats', 'statistics']);
 
