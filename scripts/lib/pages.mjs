@@ -95,6 +95,15 @@ ${crumbs([null, 'About'])}
 <h3 id="virustotal">VirusTotal</h3>
 <p><a href="https://www.virustotal.com/">VirusTotal</a> scans files with dozens of antivirus and security engines. We look up each installer by its SHA-256 and show the real result from VirusTotal’s last scan. Only the hash is sent, never the file, and if VirusTotal has no report we show no score. We are not affiliated with VirusTotal. The <a href="/security/">Security and Trust Center</a> explains how the score is worked out.</p>
 
+<h2 id="source">The code and data are public</h2>
+<p>Everything that builds this site is on GitHub: <a href="https://github.com/cristiangguasch/everyversion">github.com/cristiangguasch/everyversion</a>. You don’t have to take my word for how the checks work. You can read them.</p>
+<ul class="clean">
+<li><strong>The scripts</strong> that read winget, Homebrew and Flathub, download installers, re-compute checksums, check signatures and test links.</li>
+<li><strong>The data</strong> behind every page: one JSON file per app, with each version, download URL and SHA-256, plus the verification and VirusTotal results.</li>
+<li><strong>The history.</strong> Every update is a commit, so you can see when a version was added or a link was marked dead, and what changed.</li>
+</ul>
+<p>Found a wrong version, a broken link or a mistake in a summary? <a href="https://github.com/cristiangguasch/everyversion/issues">Open an issue</a> on GitHub, or use the <a href="/contact/">contact form</a> if you’d rather not have an account.</p>
+
 <h2 id="brand">Brand guidelines</h2>
 <p>If you’re writing about Everyversion or linking to it, here’s how it looks and sounds.</p>
 <div class="card brand-card">
