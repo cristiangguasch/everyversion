@@ -759,14 +759,14 @@ ${plats
 ${p === 'macos' && rec.homebrew_cask_disabled ? caskWarn : ''}${installerRows(latestOf[p].installers, p)}`)
   .join('\n')}
 <div class="dl-foot">
+${plats.some((p) => installCmd(rec, p)) ? '<h3 class="dl-foot-h">Install commands</h3>' : ''}
 ${plats
   .filter((p) => installCmd(rec, p))
   .map(
-    (p) => `<p class="pin">Install with ${p === 'windows' ? 'winget' : p === 'linux' ? 'Flatpak (Flathub)' : 'Homebrew'}: <code>${esc(installCmd(rec, p))}</code> <button type="button" class="copy" data-t="copy" data-slot="${p === 'windows' ? 'copy-winget' : p === 'linux' ? 'copy-flatpak' : 'copy-brew'}" data-pl="${p}" data-copy="${esc(installCmd(rec, p))}" aria-label="Copy ${esc(PLATFORM[p])} install command">Copy</button></p>`,
+    (p) => `<p class="pin">${p === 'windows' ? 'winget' : p === 'linux' ? 'Flatpak' : 'Homebrew'}: <code>${esc(installCmd(rec, p))}</code> <button type="button" class="copy" data-t="copy" data-slot="${p === 'windows' ? 'copy-winget' : p === 'linux' ? 'copy-flatpak' : 'copy-brew'}" data-pl="${p}" data-copy="${esc(installCmd(rec, p))}" aria-label="Copy ${esc(PLATFORM[p])} install command">Copy</button></p>`,
   )
   .join('\n')}
 ${plats.some((p) => latestOf[p].installers.some((i) => i.sha256)) ? `<p class="pin">Check a download: ${[...new Set(plats.filter((p) => latestOf[p].installers.some((i) => i.sha256)).map((p) => verifyCmd(p)))].map((c) => `<code>${esc(c)}</code>`).join(' or ')} and compare it with the SHA-256 above.</p>` : ''}
-${rec.flathub ? `<p class="pin">Linux (Flatpak): Flathub publishes no file checksum; Flatpak checks the app against Flathub’s signed repository when it installs. ${esc(rec.flathub.verified ? 'Flathub shows this app as publisher-verified.' : flathubUnverifiedText(rec.flathub))} ${link(rec.flathub.page_url, 'App page on Flathub')}.</p>` : ''}
 ${rec.license.url ? `<p class="pin">${link(rec.license.url, 'Read the license')}.</p>` : ''}
 </div>
 </div>`;
