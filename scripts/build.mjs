@@ -506,12 +506,12 @@ function mergeVerification(recs) {
 
 function installerTable(installers, platform = 'windows', ver = '', slug = '') {
   const mac = platform === 'macos';
-  const rows = sortInstallers(installers)
+  const rows = sortInstallers(mergeSameFile(installers))
     .map(
       (i) => `<tr>
 <td>${i.variant ? `${esc(i.variant)}<span class="host">${esc(archLabel(i))}</span>` : esc(archLabel(i))}</td>
 <td>${esc(fmtOf(i))}${i.nested_type ? `<span class="host">in ${esc(FORMAT[i.nested_type] || i.nested_type)}</span>` : ''}</td>
-${mac ? '' : `<td>${esc(SCOPE[i.scope] || '—')}${i.locale ? `<span class="host">${esc(i.locale)}</span>` : ''}</td>
+${mac ? '' : `<td>${esc(scopeLabel(i) || '—')}${localeLabel(i) ? `<span class="host">${esc(localeLabel(i))}</span>` : ''}</td>
 `}${mac ? `<td>${esc(i.min_os_version ? `macOS ${i.min_os_version}+` : '—')}</td>
 <td><span class="fn">${esc(i.filename)}</span>${i.version ? `<span class="host">version ${esc(i.version)}</span>` : ''}<span class="host">${esc(i.host)}</span></td>
 ` : ''}<td>${i.sha256 || ownSha(slug, i) ? `<code class="hash">${esc(i.sha256 || ownSha(slug, i))}</code>${i.sha256 ? '' : '<span class="host">Computed by us</span>'}` : '<span class="host">Not provided</span>'}</td>
@@ -567,7 +567,38 @@ const gridIcon = (r) => {
 const gridVersions = (r, plats) =>
   plats.map((p) => `<span class="ver" title="${esc(PLATFORM[p])}">${PLATFORM_ICON[p] || ''}${esc(r.latest_versions[p])}</span>`).join('');
 const MAC_ARCH = { universal: 'Universal (Apple silicon + Intel)', arm64: 'Apple silicon (ARM64)', x64: 'Intel (x64)' };
-const archLabel = (i) => (i.platform === 'macos' ? MAC_ARCH[i.architecture] || i.architecture : ARCH[i.architecture] || i.architecture);
+const archLabel1 = (i, a) => (i.platform === 'macos' ? MAC_ARCH[a] || a : ARCH[a] || a);
+const archLabel = (i) => {
+  const all = i.archs || [i.architecture];
+  if (all.length > 1 && all.includes('neutral')) return archLabel1(i, 'neutral');
+  return all.map((a) => archLabel1(i, a)).join(', ');
+};
+// winget lists one entry per file × architecture × scope × language, so a single .exe that installs per user or for all
+// users shows up twice. The pages show one row per file (same URL and SHA-256), saying every architecture, scope and
+// language it is listed for. The data and the JSON copy keep every entry.
+const mergeSameFile = (installers) => {
+  const groups = new Map();
+  for (const i of installers) {
+    const k = [i.url, i.sha256 || '', i.type, i.nested_type || '', i.variant || ''].join('\u0000');
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(i);
+  }
+  return [...groups.values()].map((list) => {
+    if (list.length === 1) return list[0];
+    const uniq = (f) => [...new Set(list.map(f).filter(Boolean))];
+    const archs = uniq((i) => i.architecture).sort((a, b) => ARCH_ORDER.indexOf(a) - ARCH_ORDER.indexOf(b));
+    return { ...list[0], architecture: archs[0], archs, scopes: uniq((i) => i.scope), locales: uniq((i) => i.locale), entries: list.length };
+  });
+};
+const scopeLabel = (i) => {
+  const s = i.scopes || (i.scope ? [i.scope] : []);
+  return s.length > 1 ? 'Per user or all users' : s.length ? SCOPE[s[0]] : null;
+};
+const localeLabel = (i) => {
+  const l = i.locales || (i.locale ? [i.locale] : []);
+  return l.length > 3 ? `${l.length} languages` : l.length ? l.join(', ') : null;
+};
+const filesIn = (v) => mergeSameFile(v.installers).length;
 // Package-manager commands exist only where a package manager lists the app; custom-source downloads have none.
 const installCmd = (rec, p) => (p === 'windows' ? (rec.ids.winget ? `winget install --id ${rec.ids.winget} --exact` : null) : p === 'macos' ? (rec.ids.homebrew_cask && !rec.homebrew_cask_disabled ? `brew install --cask ${rec.ids.homebrew_cask}` : null) : p === 'linux' ? (rec.flathub ? rec.flathub.install_command : null) : null);
 const verifyCmd = (p) => (p === 'windows' ? 'Get-FileHash .\\<file> -Algorithm SHA256 (PowerShell)' : p === 'linux' ? 'sha256sum ~/Downloads/<file> (Terminal)' : 'shasum -a 256 ~/Downloads/<file> (Terminal)');
@@ -629,7 +660,7 @@ function appPage(rec) {
       ...(p === 'windows' && rec.last_updated ? { dateModified: rec.last_updated } : {}),
       ...(minOs.length === 1 ? { softwareRequirements: `${OS_NAME[p]} ${minOs[0]} or later` } : {}),
       ...(arches.length ? { processorRequirements: arches.join(', ') } : {}),
-      associatedMedia: sortInstallers(lv.installers)
+      associatedMedia: sortInstallers(mergeSameFile(lv.installers))
         .filter((i) => i.sha256 && !deadOf(i))
         .map((i) => ({ '@type': 'MediaObject', name: i.filename, contentUrl: i.url, sha256: i.sha256 })),
     };
@@ -774,14 +805,14 @@ ${opts.map(([label, cmd, slot]) => `<button type="button" role="menuitem" class=
 </div>`;
   };
   const installerRows = (installers, p) =>
-    sortInstallers(installers)
+    sortInstallers(mergeSameFile(installers))
       .map((i) => {
         const sub = [
           fmtOf(i),
           i.nested_type ? `in ${FORMAT[i.nested_type] || i.nested_type}` : null,
-          p === 'windows' ? SCOPE[i.scope] : null,
+          p === 'windows' ? scopeLabel(i) : null,
           p === 'macos' && i.min_os_version ? `macOS ${i.min_os_version}+` : null,
-          i.locale || null,
+          localeLabel(i),
         ].filter(Boolean);
         return `<div class="dl-row">
 <div class="dl-main">
@@ -911,7 +942,7 @@ ${url ? `<p class="pin">${link(url, v.release_notes ? 'Read the full release not
   })();
 
   const versionBlock = (p, v, idx) => {
-    const sub = [v.release_date, v.series ? `series ${v.series}` : null, `${v.installers.length} ${customOf(p) ? 'download' : 'installer'}${v.installers.length === 1 ? '' : 's'}`].filter(Boolean).join(' · ');
+    const sub = [v.release_date, v.series ? `series ${v.series}` : null, `${filesIn(v)} ${customOf(p) ? 'download' : 'installer'}${filesIn(v) === 1 ? '' : 's'}`].filter(Boolean).join(' · ');
     const pin =
       p === 'windows' && pinCmd(rec, v)
         ? `<p class="pin">Pin this version: <code>${esc(pinCmd(rec, v))}</code></p>`
@@ -1548,7 +1579,7 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
       ...versionsOf(rec, p).flatMap((v) => [
         `#### ${v.version}${v.release_date ? ` — ${v.release_date}` : ''}`,
         '',
-        ...sortInstallers(v.installers).map((i) => `- ${i.variant ? `${i.variant}, ` : ''}${i.architecture} ${i.type}${i.scope ? ` (${i.scope})` : ''}${i.version ? ` [version ${i.version}]` : ''}: ${i.filename}\n  - url: ${i.url}${deadOf(i) ? ` (UNAVAILABLE: HTTP ${deadOf(i).status} on ${deadOf(i).checked}; the download button is disabled)` : ''}\n  - sha256: ${i.sha256 || (ownSha(rec.slug, i) ? `${ownSha(rec.slug, i)} (computed by us; the source lists none)` : 'not provided by upstream')}`),
+        ...sortInstallers(mergeSameFile(v.installers)).map((i) => `- ${i.variant ? `${i.variant}, ` : ''}${(i.archs || [i.architecture]).join(', ')} ${i.type}${(i.scopes || (i.scope ? [i.scope] : [])).length ? ` (${(i.scopes || [i.scope]).join(' or ')})` : ''}${localeLabel(i) && i.locales?.length > 1 ? ` [${localeLabel(i)}]` : ''}${i.version ? ` [version ${i.version}]` : ''}: ${i.filename}\n  - url: ${i.url}${deadOf(i) ? ` (UNAVAILABLE: HTTP ${deadOf(i).status} on ${deadOf(i).checked}; the download button is disabled)` : ''}\n  - sha256: ${i.sha256 || (ownSha(rec.slug, i) ? `${ownSha(rec.slug, i)} (computed by us; the source lists none)` : 'not provided by upstream')}`),
         v.release_notes ? `Release notes: ${v.release_notes.replace(/\s+/g, ' ').trim()}` : v.release_notes_url ? `Release notes: ${v.release_notes_url}` : '',
         '',
         pinCmd(rec, v) && p === 'windows' ? `Pin: \`${pinCmd(rec, v)}\`` : installCmd(rec, p) ? `Install: \`${installCmd(rec, p)}\`` : '',
