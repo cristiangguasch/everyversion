@@ -101,7 +101,7 @@ const platformList = (ps) => {
   const n = ps.map((p) => PLATFORM[p]);
   return n.length <= 2 ? n.join(' & ') : `${n.slice(0, -1).join(', ')} & ${n.at(-1)}`;
 };
-const FORMAT = { dmg: 'DMG', pkg: 'PKG', tar: 'TAR', unknown: 'Not stated', exe: 'EXE', nullsoft: 'NSIS', inno: 'Inno Setup', wix: 'MSI (WiX)', msi: 'MSI', burn: 'Burn', msix: 'MSIX', appx: 'APPX', zip: 'ZIP', portable: 'Portable', pwa: 'PWA', flatpak: 'Flatpak', swu: 'SWUpdate package', sit: 'StuffIt archive (.sit)', hqx: 'BinHex archive (.hqx)' };
+const FORMAT = { dmg: 'DMG', pkg: 'PKG', tar: 'TAR', unknown: '—', exe: 'EXE', nullsoft: 'NSIS', inno: 'Inno Setup', wix: 'MSI (WiX)', msi: 'MSI', burn: 'Burn', msix: 'MSIX', appx: 'APPX', zip: 'ZIP', portable: 'Portable', pwa: 'PWA', flatpak: 'Flatpak', swu: 'SWUpdate package', sit: 'StuffIt archive (.sit)', hqx: 'BinHex archive (.hqx)' };
 const SCOPE = { user: 'Per user', machine: 'All users' };
 const ARCH_ORDER = ['universal', 'x64', 'arm64', 'x86', 'arm', 'neutral'];
 const ARCH = { x64: 'x64 (64-bit)', x86: 'x86 (32-bit)', arm64: 'ARM64', arm: 'ARM', neutral: 'Any' };
@@ -110,7 +110,6 @@ const PRICE_LABEL = {
   freeware: 'Freeware',
   'free-to-download': 'Free to download (may offer paid tiers)',
   paid: 'Paid (free trial available)',
-  unknown: 'Not stated in winget-pkgs',
 };
 const isFree = (rec) => !['unknown', 'paid'].includes(rec.pricing.status);
 
@@ -766,8 +765,9 @@ function appPage(rec) {
   const glance = [
     whatItIs && ['What it is', esc(whatItIs)],
     ['Latest version', versionCell],
-    ['Price', esc(PRICE_LABEL[rec.pricing.status]) + (rec.pricing.source === 'curated' ? ' <span class="host">curated by hand</span>' : '')],
-    ['Open source', rec.pricing.status === 'open-source' ? 'Yes' : rec.pricing.status === 'unknown' ? 'Not stated' : 'No'],
+    // Price and open-source rows only when the source says something; an unknown price is left out, not printed as "Not stated".
+    rec.pricing.status !== 'unknown' && ['Price', esc(PRICE_LABEL[rec.pricing.status]) + (rec.pricing.source === 'curated' ? ' <span class="host">curated by hand</span>' : '')],
+    rec.pricing.status !== 'unknown' && ['Open source', rec.pricing.status === 'open-source' ? 'Yes' : 'No'],
     ['License', rec.license.url ? link(rec.license.url, rec.license.name) : esc(rec.license.name)],
     licType && licType.text !== rec.license.name && ['License type', `${esc(licType.text)}${licType.note ? ` <span class="host">${esc(licType.note)}</span>` : ''}`],
     rec.license.copyright && ['Copyright', esc(rec.license.copyright)],
@@ -808,7 +808,7 @@ ${opts.map(([label, cmd, slot]) => `<button type="button" role="menuitem" class=
     sortInstallers(mergeSameFile(installers))
       .map((i) => {
         const sub = [
-          fmtOf(i),
+          i.type === 'unknown' ? null : fmtOf(i),
           i.nested_type ? `in ${FORMAT[i.nested_type] || i.nested_type}` : null,
           p === 'windows' ? scopeLabel(i) : null,
           p === 'macos' && i.min_os_version ? `macOS ${i.min_os_version}+` : null,
@@ -935,7 +935,7 @@ ${requirementsOf(p).map(([k, v]) => `<li><strong>${esc(k)}:</strong> ${withCode(
     return `<section id="changelog" aria-labelledby="h-changelog">
 <h2 id="h-changelog">What’s new in ${esc(rec.name)} ${esc(v.version)}${shown ? ` <span class="sub"><time datetime="${esc(iso)}">${esc(shown)}</time></span>` : ''}</h2>
 ${plats.length > 1 && !sameVersion ? `<p class="pin">Notes for the ${esc(PLATFORM[clPlat])} release.</p>` : ''}
-${v.release_notes ? `<p class="notes">${esc(trunc(v.release_notes, 1500))}</p>` : `<p>The publisher gives no notes text for this release.</p>`}
+${v.release_notes ? `<p class="notes">${esc(trunc(v.release_notes, 1500))}</p>` : ''}
 ${url ? `<p class="pin">${link(url, v.release_notes ? 'Read the full release notes on the publisher’s site' : 'Release notes on the publisher’s site')}</p>` : ''}
 <p class="pin">Notes for older versions are inside each version below.</p>
 </section>`;
@@ -1310,17 +1310,19 @@ ${verifyRows}
   const docsLink = u.documentation?.length || u.support ? `${nm}’s documentation` : null;
   const where = docsLink ? ` (see ${docsLink})` : site ? ` (see ${site})` : '';
   const multi = plats.length > 1;
-  const updateA = multi
-    ? `For Windows, we have no information on whether ${nm} updates itself, and for Mac, ${autoUpd ? 'the app is listed as updating itself, so an older build will likely offer, or simply install, the newest release when you open it' : 'we have no confirmation that the app updates itself, although many apps check for updates and offer to install them'}. ${autoUpd ? `To keep an old version, look for an automatic-update setting in ${nm}${where} and turn it off before you rely on it.` : `Look for an update setting in ${nm}${where} before you rely on an older version.`}`
-    : `We cannot say for certain. We do not have data on whether ${nm} updates itself, and many apps check for updates and offer to install them. Look for an update setting in ${nm}${where} before you rely on an older version.`;
+  // Answered only when Homebrew says the Mac app updates itself; with no data the question is left out, not filled with "we cannot say".
+  const updateA = autoUpd
+    ? `${multi ? 'On a Mac, ' : ''}${multi ? `Homebrew lists ${nm}` : `Yes, most likely. Homebrew lists ${nm}`} as updating itself, so an older build will likely offer, or simply install, the newest release when you open it. To keep an old version, look for an automatic-update setting in ${nm}${where} and turn it off before you rely on it.`
+    : null;
 
   const priceA = {
     'open-source': `No. ${nm} is free and open source (license: ${esc(rec.license.name)}).`,
     freeware: `No. ${nm} is freeware (license: ${esc(rec.license.name)}).`,
     'free-to-download': `It is free to download and use, but ${nm} may also offer paid plans or extra features (license: ${esc(rec.license.name)}).`,
     paid: `${nm} is paid software (license: ${esc(rec.license.name)}). The publisher offers a free trial.`,
-    unknown: `We could not tell from the package catalog whether ${nm} costs anything.`,
-  }[rec.pricing.status] + (['free-to-download', 'paid', 'unknown'].includes(rec.pricing.status) ? (u.purchase ? ' For current pricing, see the publisher’s pricing page.' : site ? ` For current pricing, see ${site}.` : '') : '');
+  }[rec.pricing.status];
+  const priceTail = (['free-to-download', 'paid'].includes(rec.pricing.status) ? (u.purchase ? ' For current pricing, see the publisher’s pricing page.' : site ? ` For current pricing, see ${site}.` : '') : '');
+  const priceFull = priceA ? priceA + priceTail : null;
 
   const verClause = (p) => {
     const all = versionsOf(rec, p);
@@ -1340,11 +1342,11 @@ ${verifyRows}
 
   const faqItems = [
     { q: `Is ${rec.name} safe to download from here?`, a: safeA.map((x) => `<p>${x}</p>`).join('\n') },
-    { q: `Does ${rec.name} update itself after I install an old version?`, a: `<p>${updateA}</p>` },
-    { q: `Does ${rec.name} cost anything?`, a: `<p>${priceA}</p>` },
+    updateA && { q: `Does ${rec.name} update itself after I install an old version?`, a: `<p>${updateA}</p>` },
+    priceFull && { q: `Does ${rec.name} cost anything?`, a: `<p>${priceFull}</p>` },
     { q: `Which versions of ${rec.name} are listed here, and how far back?`, a: `<p>${versionsA}</p>` },
     { q: 'Where do the download links go?', a: `<p>${linksA}</p>` },
-  ];
+  ].filter(Boolean);
   const unesc = (h) => h.replace(/<br>/g, ' ').replace(/<\/p>\s*<p>/g, ' ').replace(/<[^>]*>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
   const faqHtml = `<section id="faq" aria-labelledby="h-faq">
 <h2 id="h-faq">${esc(rec.name)} FAQ</h2>
@@ -1548,7 +1550,7 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
     `- Latest: ${latestText}${rec.last_updated ? ` (Windows build released ${rec.last_updated})` : ''}`,
     `- Platforms: ${plats.map((p) => OS_NAME[p]).join(', ')}`,
     `- License: ${rec.license.name}${rec.license.url ? ` (${rec.license.url})` : ''}`,
-    `- Price: ${PRICE_LABEL[rec.pricing.status]}`,
+    rec.pricing.status !== 'unknown' ? `- Price: ${PRICE_LABEL[rec.pricing.status]}` : '',
     u.homepage ? `- Website: ${u.homepage}` : '',
     u.support ? `- Support: ${u.support}` : '',
     u.bug_tracker ? `- Bug tracker: ${u.bug_tracker}` : '',
