@@ -1195,21 +1195,11 @@ ${faqItems.map((f) => `<h3>${esc(f.q)}</h3>\n${f.a}`).join('\n')}
     const picked = all.some((a) => a.peer) ? all.filter((a) => a.peer) : all.filter((a) => a.shared_tags >= 1);
     return picked.slice(0, ALT_LIMIT).map((a) => RECS_BY_SLUG.get(a.slug)).filter(Boolean);
   })();
-  const alternativesHtml = altRecs.length
-    ? `<section id="alternatives" aria-labelledby="h-alt">
-<h2 id="h-alt">Alternatives to ${esc(rec.name)}</h2>
-<p>Similar apps in ${primaryCat.page ? `<a href="${catPath(primaryCat.slug)}">${esc(primaryCat.name)}</a>` : esc(primaryCat.name)} on Everyversion. Each one links to the download location named in the publisher’s package data, with a SHA-256 checksum.</p>
-<ul class="grid">
-${altRecs.map((r) => appCard(r)).join('\n')}
-</ul>
-${primaryCat.page ? `<p class="pin"><a href="${catPath(primaryCat.slug)}">See all ${primaryCat.count} ${esc(primaryCat.name)}</a></p>` : ''}
-</section>`
-    : '';
 
   // Sidebar list of similar software, shared by the app page and its old-versions page.
   const similarHtml = altRecs.length
     ? `<div class="ov-similar">
-<h2>Similar software</h2>
+<h2>Alternatives to ${esc(rec.name)}</h2>
 <ul>
 ${altRecs.map((r) => `<li><a href="/${r.slug}/">${gridIcon(r)}<span><span class="n">${esc(r.name)}</span><span class="v">${esc(r.latest_versions[platsOf(r)[0]])}</span></span></a></li>`).join('\n')}
 </ul>
@@ -1240,7 +1230,7 @@ ${rec.release_series
   // Sections are separated by <hr>. Empty sections (no description, no changelog) are skipped so no double rules appear.
   const sectionsHtml = [
     `<section id="download" aria-labelledby="h-download">
-<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${oldPath ? `<a href="${oldPath}">Older versions</a>` : hasOld ? '<a href="#versions">Older versions</a>' : ''}${alternativesHtml ? '<a href="#alternatives">Alternatives</a>' : ''}</nav></div>
+<div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${oldPath ? `<a href="${oldPath}">Older versions</a>` : hasOld ? '<a href="#versions">Older versions</a>' : ''}</nav></div>
 ${downloadHtml}
 </section>`,
     `<section id="installer" aria-labelledby="h-installer">
@@ -1264,7 +1254,6 @@ ${glance.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${v}</td></tr>`)
 <h2 id="h-versions">${oldPath ? 'Older versions' : hasOld ? 'Old versions' : `All ${esc(rec.name)} versions`}</h2>
 ${versionsHtml}
 </section>`,
-    alternativesHtml,
     faqHtml,
   ]
     .filter(Boolean)

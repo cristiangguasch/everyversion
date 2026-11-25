@@ -98,9 +98,9 @@ for (const c of catPages) {
 }
 for (const a of apps) {
   const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
-  const alt = /<section id="alternatives"[\s\S]*?<\/section>/.exec(h)?.[0];
+  const alt = /<div class="ov-similar">[\s\S]*?<\/div>/.exec(h)?.[0]; // the alternatives sidebar
   if (!alt) continue;
-  const links = [...alt.matchAll(/<a class="item" href="\/([^/"]+)\/"/g)].map((m) => m[1]);
+  const links = [...alt.matchAll(/<li><a href="\/([^/"]+)\/"/g)].map((m) => m[1]);
   if (links.includes(a.slug)) bad(a.slug, 'lists itself as an alternative');
   if (links.length < 1 || links.length > 6) bad(a.slug, `alternatives has ${links.length} links`);
 }
