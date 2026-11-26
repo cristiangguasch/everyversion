@@ -222,6 +222,7 @@ Some app pages carry hand-written notes in the Description section: a one-line "
 ```
 { "slug", "reviewed": "YYYY-MM-DD",
   "best_for": "one line, written for the reader: their system, their job, their problem",
+  "description": "1 or 2 paragraphs, 350 to 750 characters"   shown in place of the publisher's description
   "points": [{ "title", "text" }],          5 to 8 bullets; titles are free, so the structure differs per app
   "sources": [{ "label", "url" }] }          the official pages the text is based on (https only); not shown on the page
 ```
@@ -231,6 +232,7 @@ Rules:
 - Write in our own words; never copy sentences.
 - Say what the app doesn't do: plan limits, account needs, platform gaps, differences between platforms.
 - Include only what was confirmed on a page, and leave out anything unconfirmed.
+- `description` replaces the publisher's text, which is often copied from elsewhere and found on many other sites. Open with what the app is and who makes it, then what the reader can do with it, in concrete terms. Repeat nothing from `best_for` or the points. Time-limited offers and prices carry "at the time of reading". 1 or 2 paragraphs separated by a blank line, 350 to 750 characters, American English, no hype.
 - `sources` and `reviewed` are the audit trail. Check a file again when the app's plans or platforms change, and update `reviewed`.
 
 `npm run validate` checks each file, and `npm run check` checks the notes appear exactly on the apps that have a file.

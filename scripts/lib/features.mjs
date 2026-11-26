@@ -7,6 +7,8 @@
 // File shape (see README, "Features notes"):
 //   { "slug", "reviewed": "YYYY-MM-DD",
 //     "best_for": "…",
+//     "description": "…",                                 optional: our own Description text, 1 or 2 paragraphs (blank line between),
+//                                                          shown in place of the publisher's; repeats nothing from best_for or points
 //     "points": [{ "title": "…", "text": "…" }]          5 to 8 points; titles are free, so the structure differs per app
 //     "sources": [{ "label": "…", "url": "https://…" }] }
 
@@ -16,6 +18,9 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const FEATURES_DIR = join(ROOT, 'config', 'features');
+
+export const DESC_MIN = 350;
+export const DESC_MAX = 750;
 
 export function loadFeatures() {
   const out = new Map();
@@ -41,9 +46,16 @@ export function featureProblems(slug, feat, rec) {
   }
   if (new Set((feat.points || []).map((p) => p.title)).size !== (feat.points || []).length) bad.push('point titles must be unique');
   if (!str(feat.best_for)) bad.push('"best_for" is missing');
+  if (feat.description != null) {
+    const d = String(feat.description).trim();
+    const paras = d.split(/\n\s*\n/);
+    if (d.length < DESC_MIN || d.length > DESC_MAX) bad.push(`"description" should be ${DESC_MIN} to ${DESC_MAX} chars (${d.length})`);
+    if (paras.length > 2) bad.push('"description" has more than 2 paragraphs');
+    if (paras.some((p) => /\n/.test(p.trim()))) bad.push('"description" paragraphs are single lines, separated by one blank line');
+  }
   if (!Array.isArray(feat.sources) || !feat.sources.length) bad.push('"sources" needs at least one official page');
   for (const s of feat.sources || []) if (!str(s.label) || !/^https:\/\/[^\s]+$/.test(s.url || '')) bad.push(`bad source ${JSON.stringify(s)}`);
-  const text = [feat.best_for, ...(feat.points || []).flatMap((p) => [p.title, p.text])].join(' ');
+  const text = [feat.best_for, feat.description || '', ...(feat.points || []).flatMap((p) => [p.title, p.text])].join(' ');
   if (/\b(UNCONFIRMED|TODO|lorem)\b/i.test(text)) bad.push('contains a placeholder or UNCONFIRMED marker');
   return bad;
 }

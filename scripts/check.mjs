@@ -190,6 +190,12 @@ for (const a of apps) {
     if (n < 5 || n > 8) bad(a.slug, `feature list has ${n} bullets`);
     if (!/Best for:/.test(overview)) bad(a.slug, 'Description is missing the "Best for" line');
     if (!readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes('**Best for:**')) bad(a.slug, 'features missing from the .md twin');
+    const fd = JSON.parse(readFileSync(join(ROOT, 'config', 'features', `${a.slug}.json`), 'utf8')).description;
+    if (fd) {
+      const first = fd.split(/\n\s*\n/)[0].trim().slice(0, 60).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+      if (!overview.includes(first)) bad(a.slug, 'our own description is not shown in Description');
+      if (!readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes(fd.split(/\n\s*\n/)[0].trim().slice(0, 60))) bad(a.slug, 'our own description is missing from the .md twin');
+    }
   } else if (ul) bad(a.slug, 'Description has feature bullets but no content file');
   if (/id="features"|In the package data/.test(h)) bad(a.slug, 'old features section still on the page');
 }

@@ -46,7 +46,9 @@ let SEARCH_V = ''; // set in main(): hash of search.js + the search index, so br
 let HAS_LINUX = false; // set in main(): the header links to /linux/ only when at least one app has a Linux build
 let RECS_BY_SLUG = new Map(); // filled in main(); lets pages link to other apps
 const WHATSNEW = loadWhatsNew(); // our own summary of the latest release (config/whatsnew/<slug>.json), checked by scripts/validate.mjs
-const FEATURES = loadFeatures(); // hand-written notes inside Description (config/features/<slug>.json), checked by scripts/validate.mjs
+const FEATURES = loadFeatures();
+// The Description text: our own (config/features/<slug>.json "description") when written, else the publisher's.
+const descOf = (rec) => FEATURES.get(rec.slug)?.description || rec.description; // hand-written notes inside Description (config/features/<slug>.json), checked by scripts/validate.mjs
 const WINGET_REPO = 'https://github.com/microsoft/winget-pkgs';
 const PAGE_VERSIONS = 20; // versions rendered in HTML; the .json/.md twins carry everything we ingest
 const OLD_SPLIT = 25; // an app with more than this many old versions gets its own old-versions page
@@ -627,7 +629,7 @@ function appPage(rec) {
       caption: it.caption || `${rec.name} on Linux, screenshot ${i + 1}`,
       creditText: 'Screenshot from Flathub',
     })) } : {}),
-    description: trunc(rec.description || rec.summary || rec.name, 500),
+    description: trunc(descOf(rec) || rec.summary || rec.name, 500),
     operatingSystem: plats.map((p) => OS_NAME[p]).join(', '),
     inLanguage: 'en-US',
     publisher: { '@id': `${canonical}#publisher` },
@@ -1367,9 +1369,9 @@ ${downloadHtml}
 <h2 id="h-installer">${allCustom ? 'What the download is' : 'What the installer does'}</h2>
 ${installerHtml}
 </section>`,
-    rec.description || rec.summary ? `<section id="overview" aria-labelledby="h-overview">
+    descOf(rec) || rec.summary ? `<section id="overview" aria-labelledby="h-overview">
 <h2 id="h-overview">Description</h2>
-${paragraphs(rec.description || rec.summary)}${FEATURES.get(rec.slug) ? `\n${featuresHtml(FEATURES.get(rec.slug), { esc, code: withCode })}` : ''}
+${paragraphs(descOf(rec) || rec.summary)}${FEATURES.get(rec.slug) ? `\n${featuresHtml(FEATURES.get(rec.slug), { esc, code: withCode })}` : ''}
 </section>` : '',
     `<section id="details" aria-labelledby="h-details">
 <h2 id="h-details">${esc(rec.name)} at a glance</h2>
@@ -1525,7 +1527,7 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
     `- Verification: level ${rec.verification.level} — ${rec.verification.label}${verified ? ` Checked by ${AUTHOR}.` : ''}`,
     ...rec.provenance.map((e) => `- Source (${OS_NAME[e.platform]}): ${sourceName(e)}${e.commit ? ` @ ${e.commit}` : ''} — ${sourceTree(e)}`),
     '',
-    rec.description ? `## Description\n\n${rec.description}\n` : '',
+    descOf(rec) ? `## Description\n\n${descOf(rec)}\n` : '',
     FEATURES.get(rec.slug) ? featuresMd(FEATURES.get(rec.slug)) : '',
     (() => { const w = currentWhatsNew(WHATSNEW.get(rec.slug), rec); return w ? `## What’s new in ${w.version}\n\n${w.summary}\n` : ''; })(),
     shots.length ? [`## Screenshots`, '', `Screenshots of the Linux version, from Flathub (${SHOTS[rec.slug].page}).`, '', ...shots.map((s, i) => `- [Screenshot ${i + 1}${s.caption ? `: ${s.caption}` : ''}](${s.url})`), ''].join('\n') : '',
