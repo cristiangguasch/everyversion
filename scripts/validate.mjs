@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
 import { compareVersions } from './lib/version.mjs';
 import { loadFeatures, featureProblems } from './lib/features.mjs';
+import { loadWhatsNew, whatsNewProblems, currentWhatsNew } from './lib/whatsnew.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const schema = JSON.parse(readFileSync(join(ROOT, 'schema', 'app.schema.json'), 'utf8'));
@@ -86,8 +87,19 @@ for (const [slug, feat] of features) {
   for (const p of featureProblems(slug, feat, rec)) fail(`config/features/${slug}.json`, p);
 }
 
+// "What's new" summaries (config/whatsnew/<slug>.json): shape and a listed version. A summary for a version that is no
+// longer the latest is not an error (the page falls back to the publisher's notes), but it is listed so it gets rewritten.
+const whatsNew = loadWhatsNew();
+const stale = [];
+for (const [slug, wn] of whatsNew) {
+  const rec = slugs.has(slug) ? JSON.parse(readFileSync(join(dir, `${slug}.json`), 'utf8')) : undefined;
+  for (const p of whatsNewProblems(slug, wn, rec)) fail(`config/whatsnew/${slug}.json`, p);
+  if (rec && !currentWhatsNew(wn, rec)) stale.push(slug);
+}
+if (stale.length) console.log(`! ${stale.length} "What’s new" summaries are for an older version and are not shown: ${stale.join(', ')}`);
+
 if (bad) {
   console.error(`\n${bad} problem(s) in ${files.length} files`);
   process.exit(1);
 }
-console.log(`✓ ${files.length} records valid${features.size ? `, ${features.size} features sections` : ''}`);
+console.log(`✓ ${files.length} records valid${features.size ? `, ${features.size} features sections` : ''}${whatsNew.size ? `, ${whatsNew.size - stale.length} current “What’s new” summaries` : ''}`);

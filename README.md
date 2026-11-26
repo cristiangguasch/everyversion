@@ -235,6 +235,27 @@ Rules:
 
 `npm run validate` checks each file, and `npm run check` checks the notes appear exactly on the apps that have a file.
 
+### What's new summaries (editorial)
+
+The "What's new" section of an app page opens with a short summary, in our own words, of what changed in the latest release. It's written from the publisher's release notes and lives in `config/whatsnew/<slug>.json`. Apps without a file, or whose file is for an older version, show the publisher's notes as before.
+
+```
+{ "slug", "platform": "windows" | "macos" | "linux", "version", "reviewed": "YYYY-MM-DD",
+  "summary": "1 to 3 sentences, at most 380 characters",
+  "source": "https://…" }          the release notes page it was written from (optional when the notes came with the manifest)
+```
+
+Rules:
+
+- Write it from the release notes of that exact version only. Summarize; never copy a sentence.
+- The first sentence says what the reader gets: the main new thing, or "a bug-fix release with no new features" when that's all it is.
+- Name fixes by what the user notices ("PDFs no longer print thin lines as black boxes"), not by internal names, bug numbers, pull requests or contributors. Leave out dependency bumps, refactors and CI changes.
+- Say where it stops: which platform a change is for, removed options, dropped OS versions, breaking changes.
+- Plain words, short sentences, American English, no hype ("exciting", "powerful", "seamless").
+- Include only what the notes say. When the notes are empty, only a list of commits, or for another version, write no file.
+
+A summary is tied to `platform` and `version`. When the app's latest version on that platform changes, the page stops showing it until the file is rewritten. `npm run validate` checks each file and lists the stale ones, and `npm run check` checks that each current summary appears on the page and in the `.md` file. The code is in `scripts/lib/whatsnew.mjs`.
+
 ### Share images (og:image)
 
 Every app page has a 1200×630 image for link previews, drawn by `scripts/og.mjs` with Satori and resvg. It shows:

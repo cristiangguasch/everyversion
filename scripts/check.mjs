@@ -5,6 +5,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadWhatsNew, currentWhatsNew } from './lib/whatsnew.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
@@ -191,6 +192,18 @@ for (const a of apps) {
     if (!readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes('**Best for:**')) bad(a.slug, 'features missing from the .md twin');
   } else if (ul) bad(a.slug, 'Description has feature bullets but no content file');
   if (/id="features"|In the package data/.test(h)) bad(a.slug, 'old features section still on the page');
+}
+// "What's new" summaries: shown in the changelog section and the .md twin exactly when the file matches the latest version
+{
+  const wns = loadWhatsNew();
+  for (const a of apps) {
+    const rec = JSON.parse(readFileSync(join(ROOT, 'data', 'apps', `${a.slug}.json`), 'utf8'));
+    const w = currentWhatsNew(wns.get(a.slug), rec);
+    const sec = /<section id="changelog"[\s\S]*?<\/section>/.exec(readFileSync(join(DIST, a.slug, 'index.html'), 'utf8'))?.[0] || '';
+    if (w && !/<p class="wn">/.test(sec)) bad(a.slug, '“What’s new” summary file exists but the section does not show it');
+    if (!w && /<p class="wn">/.test(sec)) bad(a.slug, '“What’s new” summary shown without a current file');
+    if (w && !readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes(`## What’s new in ${w.version}`)) bad(a.slug, '“What’s new” summary missing from the .md twin');
+  }
 }
 // renamed apps: "New (formerly Old)" in the H1 and <title> of the app page and its old-versions page, at the old slug
 for (const a of apps) {

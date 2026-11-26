@@ -16,6 +16,7 @@ import { summarise } from './lib/summary.mjs';
 import { statsPage } from './lib/stats-page.mjs';
 import { CASK_REPO, caskDisabledSentence } from './lib/cask.mjs';
 import { loadFeatures, featuresHtml, featuresMd } from './lib/features.mjs';
+import { loadWhatsNew, currentWhatsNew } from './lib/whatsnew.mjs';
 import { PLATFORM_PATHS } from './lib/platform-icons.mjs';
 import { aboutPage, apiPage, contactPage, legalHub, privacyPage, termsPage, cookiesPage, disclaimerPage, contentPage, securityPage, AUTHOR, AUTHOR_ID, PERSON } from './lib/pages.mjs';
 
@@ -44,6 +45,7 @@ const assetHash = (name) => createHash('sha256').update(readFileSync(join(ROOT, 
 let SEARCH_V = ''; // set in main(): hash of search.js + the search index, so browsers refetch both when either changes (the server caches them for days)
 let HAS_LINUX = false; // set in main(): the header links to /linux/ only when at least one app has a Linux build
 let RECS_BY_SLUG = new Map(); // filled in main(); lets pages link to other apps
+const WHATSNEW = loadWhatsNew(); // our own summary of the latest release (config/whatsnew/<slug>.json), checked by scripts/validate.mjs
 const FEATURES = loadFeatures(); // hand-written notes inside Description (config/features/<slug>.json), checked by scripts/validate.mjs
 const WINGET_REPO = 'https://github.com/microsoft/winget-pkgs';
 const PAGE_VERSIONS = 20; // versions rendered in HTML; the .json/.md twins carry everything we ingest
@@ -65,6 +67,28 @@ const trunc = (s, n) => {
   if (s.length <= n) return s;
   const cut = s.slice(0, n - 1);
   return cut.slice(0, cut.lastIndexOf(' ') > n * 0.6 ? cut.lastIndexOf(' ') : cut.length).replace(/[,;:.\-–\s]+$/, '') + '…';
+};
+// Publisher release notes as HTML, keeping their own lines: "- ", "* " or "• " lines become a list, other lines short
+// paragraphs (often headings such as "Fixed"). Cut after about max characters at a line break; cut is true when shortened.
+const notesHtml = (raw, max) => {
+  const lines = String(raw).split(/\r?\n/).map((l) => l.replace(/^#+\s*/, '').trim()).filter(Boolean);
+  const out = [];
+  let used = 0, cut = false, list = [];
+  const flush = () => { if (list.length) out.push(`<ul>${list.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`); list = []; };
+  for (const l of lines) {
+    const item = /^[-*•]\s+/.test(l);
+    let text = item ? l.replace(/^[-*•]\s+/, '') : l;
+    if (used + text.length > max) {
+      if (used > max * 0.5) { cut = true; break; }
+      text = trunc(text, max - used); cut = true;
+    }
+    used += text.length;
+    if (item) list.push(text);
+    else { flush(); out.push(`<p>${esc(text)}</p>`); }
+    if (cut) break;
+  }
+  flush();
+  return { html: `<div class="notes">${out.join('')}</div>`, cut };
 };
 const jsonLd = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 const write = (rel, content) => {
@@ -832,31 +856,52 @@ ${caveats.map((p) => `<p class="pin">Homebrew note shown after install: ${esc(tr
       }
       return null;
     })();
+  // Whose words the notes are, and where the full text lives, named by host rather than "the publisher's site".
+  const whose = rec.publisher ? `${rec.publisher}’${/s$/i.test(rec.publisher) ? '' : 's'}` : 'The publisher’s';
+  const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return 'the publisher’s site'; } };
+  // Link under a notes block. Text present: "Full notes on <host>" (after "Shortened here." when cut). No text: the
+  // version's own notes page, or else the app's changelog.
+  const notesLink = (v, notes) => {
+    const url = v.release_notes_url || changelog;
+    if (!url) return '';
+    const label = v.release_notes ? `Full notes on ${hostOf(url)}` : v.release_notes_url ? `Notes for ${v.version} on ${hostOf(url)}` : `${whose} changelog on ${hostOf(url)}`;
+    return `<p class="pin">${notes?.cut ? 'Shortened here. ' : ''}${link(url, label)}</p>`;
+  };
   // Shown only when there is something to show; otherwise the block is omitted.
   const notesBlock = (v) => {
-    const parts = [];
-    if (v.release_notes) parts.push(`<p class="notes">${esc(trunc(v.release_notes, 1500))}</p>`);
-    const url = v.release_notes_url || changelog;
-    if (url) parts.push(`<p class="pin">${link(url, v.release_notes ? 'Full release notes from the publisher' : v.release_notes_url ? 'Read the release notes on the publisher’s site' : 'Publisher changelog')}</p>`);
-    return parts.length ? `<h4>Release notes</h4>\n${parts.join('\n')}` : '';
+    const notes = v.release_notes ? notesHtml(v.release_notes, 1500) : null;
+    const parts = [notes?.html, notesLink(v, notes)].filter(Boolean);
+    return parts.length ? `<h4>${v.release_notes || v.release_notes_url ? `What changed in ${esc(v.version)}` : 'Release notes'}</h4>\n${parts.join('\n')}` : '';
   };
 
-  // Dated changelog for the newest release: the publisher's own notes text, its date, and a link to the full notes.
-  // Taken from the first platform that has notes text or a notes link; omitted when the publisher gives neither.
-  const clPlat = plats.find((p) => latestOf[p].release_notes || latestOf[p].release_notes_url) || (changelog ? plats[0] : null);
+  // Dated changelog for the newest release: the publisher's own notes, credited to them, its date, a link to the full
+  // notes, and a pointer to the older builds. Taken from the first platform that has notes text or a notes link;
+  // omitted when the publisher gives neither.
+  // Our own summary of the latest release, when one is written for the current version; it decides the platform shown.
+  const wn = currentWhatsNew(WHATSNEW.get(rec.slug), rec);
+  const clPlat = (wn && plats.includes(wn.platform) ? wn.platform : null) || plats.find((p) => latestOf[p].release_notes || latestOf[p].release_notes_url) || (changelog ? plats[0] : null);
   const changelogHtml = (() => {
     if (!clPlat) return '';
     const v = latestOf[clPlat];
-    const url = v.release_notes_url || changelog;
     const iso = v.release_date || (clPlat === 'windows' ? rec.last_updated : null);
     const shown = fmtDate(iso);
-    const sameVersion = new Set(plats.map((p) => latestOf[p].version)).size === 1;
+    // Other platforms on a different version, e.g. "Mac is on 161.0 and Linux on 160.0".
+    const others = plats.filter((p) => p !== clPlat && latestOf[p].version !== v.version);
+    const otherLine = others.length
+      ? `<p class="pin">${esc(PLATFORM[clPlat])} build. ${others.map((p, i) => `${esc(PLATFORM[p])}${i === 0 ? ' is' : ''} on ${esc(latestOf[p].version)}`).join(others.length > 2 ? ', ' : ' and ')}.</p>`
+      : '';
+    const notes = v.release_notes ? notesHtml(v.release_notes, 1500) : null;
+    // Where the earlier builds are: the old-versions page when the app has one, else the platform's list on this page.
+    const older = versionsOf(rec, clPlat).length - 1;
+    const olderLine = older < 1 ? ''
+      : oldPath ? `<p class="pin">Need an earlier build? <a href="${oldPath}">See all ${oldCount} old versions of ${esc(rec.name)}</a>, each with its downloads and checksums.</p>`
+      : `<p class="pin">Need an earlier build? <a href="#${clPlat}-versions">${older === 1 ? 'The older' : older < PAGE_VERSIONS ? `The ${older} older` : 'Older'} ${esc(PLATFORM[clPlat])} version${older === 1 ? ' is' : 's are'} below</a>, each with its downloads and checksums.</p>`;
     return `<section id="changelog" aria-labelledby="h-changelog">
 <h2 id="h-changelog">What’s new in ${esc(rec.name)} ${esc(v.version)}${shown ? ` <span class="sub"><time datetime="${esc(iso)}">${esc(shown)}</time></span>` : ''}</h2>
-${plats.length > 1 && !sameVersion ? `<p class="pin">Notes for the ${esc(PLATFORM[clPlat])} release.</p>` : ''}
-${v.release_notes ? `<p class="notes">${esc(trunc(v.release_notes, 1500))}</p>` : ''}
-${url ? `<p class="pin">${link(url, v.release_notes ? 'Read the full release notes on the publisher’s site' : 'Release notes on the publisher’s site')}</p>` : ''}
-<p class="pin">Notes for older versions are inside each version below.</p>
+${otherLine}
+${wn ? `<p class="wn">${withCode(wn.summary)}</p>` : notes ? `<p class="pin">From ${esc(whose)} release notes:</p>\n${notes.html}` : ''}
+${wn ? ((u2) => (u2 ? `<p class="pin">${link(u2, `Full notes on ${hostOf(u2)}`)}</p>` : ''))(wn.source || v.release_notes_url || changelog) : notesLink(v, notes)}
+${olderLine}
 </section>`;
   })();
 
@@ -1482,6 +1527,7 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
     '',
     rec.description ? `## Description\n\n${rec.description}\n` : '',
     FEATURES.get(rec.slug) ? featuresMd(FEATURES.get(rec.slug)) : '',
+    (() => { const w = currentWhatsNew(WHATSNEW.get(rec.slug), rec); return w ? `## What’s new in ${w.version}\n\n${w.summary}\n` : ''; })(),
     shots.length ? [`## Screenshots`, '', `Screenshots of the Linux version, from Flathub (${SHOTS[rec.slug].page}).`, '', ...shots.map((s, i) => `- [Screenshot ${i + 1}${s.caption ? `: ${s.caption}` : ''}](${s.url})`), ''].join('\n') : '',
     allCustom ? '## What the download is' : '## What the installer does',
     '',

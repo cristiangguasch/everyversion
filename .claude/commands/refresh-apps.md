@@ -24,6 +24,12 @@ Scope: $ARGUMENTS
 - If a step fails, read the error, fix the cause if it is in the data or config, and run the same command again (finished steps are not repeated). If the fix would change a script, stop and ask me first.
 - If `npm run check` or `npm run categories` reports a problem, fix it until both pass.
 
+## 2b. Rewrite stale "What's new" summaries
+
+- `npm run validate` lists the summaries in `config/whatsnew/` whose version is no longer the latest. Rewrite each one for the new latest version, and write one for any app whose latest version now has notes but no file. Follow README, "What's new summaries (editorial)" (the same rules as in /add-apps, step 4b). For more than five apps, split them across parallel subagents and read every file before keeping it.
+- When the new version's notes are empty or only a commit list, delete the stale file instead, and say so in the report.
+- Then run `npm run validate`, `npm run build` and `npm run check` again.
+
 ## 3. Report
 
 - Compare against the snapshot and list each app whose latest version changed: name, platform, old version → new version.

@@ -41,6 +41,16 @@ Every new app gets `config/features/<slug>.json` (format and rules in README, "F
 - For more than five apps, split the research across parallel subagents (about five apps each), giving each one these rules, the two example files and the app records. Read every file they write before keeping it.
 - Then run `npm run tags`, `npm run categories`, `npm run validate`, `npm run build`, `npm run check` until the check passes with every app categorised and every new app showing its feature notes.
 
+## 4b. Write the "What's new" summary
+
+Every new app whose latest version has release notes gets `config/whatsnew/<slug>.json` (format and rules in README, "What's new summaries (editorial)"; checks in `scripts/lib/whatsnew.mjs`). Read `config/whatsnew/firefox.json` and `anaconda.json` first to match the tone.
+
+- **Which version:** the latest version on the platform whose notes the page shows: the first of Windows, Mac and Linux whose latest version has `release_notes` text or a `release_notes_url` in `data/apps/<slug>.json`.
+- **From the notes only:** the `release_notes` text, or the `release_notes_url` page when there is no text. The notes must be for that exact version. When they are empty, only a commit list, or for another version, write no file and say so in the report.
+- **1 to 3 sentences, at most 380 characters.** First sentence: the main new thing, or "a bug-fix release with no new features". Fixes named by what users notice, no bug numbers, PRs or contributor names. Say which platform a change is for, and call out removed options and dropped OS versions.
+- **Our own words.** Never copy a sentence, no hype, American English. `"reviewed"` is today's date, `"source"` is the notes URL when there is one.
+- `npm run validate` and `npm run check` must pass with the summary showing on the page.
+
 ## 5. Report
 
 - One line per new app: platforms, cask, Flathub ID, hash result, signatures, VirusTotal rating, and the feature-note count with its `best_for` line.
