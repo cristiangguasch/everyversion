@@ -108,7 +108,7 @@
         im.src = '/' + a.s + '/icon.' + a.i + (a.h ? '?v=' + a.h : '');
         im.width = 28;
         im.height = 28;
-        im.alt = '';
+        im.alt = a.n + ' icon';
         im.loading = 'lazy';
         link.append(im);
       } else link.append(mk('span', 'ico ph'));

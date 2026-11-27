@@ -515,7 +515,7 @@ const iconSrc = (slug, ext) => `/${slug}/icon.${ext}${iconHash(slug) ? `?v=${ico
 // Card for the app grids: the icon (when we have one) beside name, publisher and version line.
 const gridIcon = (r) => {
   const icon = ICONS[r.slug];
-  return icon ? `<img class="card-icon${icon.source === 'macos-app-bundle' ? ' app-icon-native' : ''}" src="${iconSrc(r.slug, icon.ext)}" width="40" height="40" alt="" loading="lazy" decoding="async">` : '';
+  return icon ? `<img class="card-icon${icon.source === 'macos-app-bundle' ? ' app-icon-native' : ''}" src="${iconSrc(r.slug, icon.ext)}" width="40" height="40" alt="${esc(r.name)} icon" loading="lazy" decoding="async">` : '';
 };
 // Version line for a grid card: platform logo + version, one pair per platform.
 const gridVersions = (r, plats) =>
@@ -1325,7 +1325,7 @@ ${faqItems.map((f) => `<h3>${esc(f.q)}</h3>\n${f.a}`).join('\n')}
   const faqNode = { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: faqItems.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: unesc(f.a) } })) };
 
   const icon = ICONS[rec.slug];
-  const iconHtml = icon ? `<img class="app-icon${icon.source === 'macos-app-bundle' ? ' app-icon-native' : ''}" src="${iconSrc(rec.slug, icon.ext)}" width="96" height="96" alt="" decoding="async">` : '';
+  const iconHtml = icon ? `<img class="app-icon${icon.source === 'macos-app-bundle' ? ' app-icon-native' : ''}" src="${iconSrc(rec.slug, icon.ext)}" width="96" height="96" alt="${esc(rec.name)} icon" decoding="async">` : '';
 
   // Alternatives: the app's peers (same sub-group) when it has any, otherwise same-category apps that share tags. Only strong matches are linked.
   const altRecs = (() => {
@@ -1851,7 +1851,7 @@ const render=()=>{const t=q.value.trim().toLowerCase();box.textContent='';shown=
 const all=find(t);shown=all.slice(0,MAX).map(x=>x.a);
 shown.forEach((a,i)=>{const li=mk('li','opt');li.id='sg'+i;li.setAttribute('role','option');li.setAttribute('aria-selected','false');
 const link=mk('a');link.href='/'+a.s+'/';link.tabIndex=-1;
-if(a.i){const im=mk('img','ico');im.src='/'+a.s+'/icon.'+a.i+(a.h?'?v='+a.h:'');im.width=28;im.height=28;im.alt='';im.loading='lazy';link.append(im)}else link.append(mk('span','ico ph'));
+if(a.i){const im=mk('img','ico');im.src='/'+a.s+'/icon.'+a.i+(a.h?'?v='+a.h:'');im.width=28;im.height=28;im.alt=a.n+' icon';im.loading='lazy';link.append(im)}else link.append(mk('span','ico ph'));
 const tx=mk('span','tx');const nm=mk('span','nm');hl(nm,a.n,t);tx.append(nm,mk('span','sub',a.p+' · '+a.v));link.append(tx);li.append(link);
 li.addEventListener('mousemove',()=>{if(act!==i)mark(i)});box.append(li)});
 if(all.length>MAX){const li=mk('li','more','Showing '+MAX+' of '+all.length+' matches. Keep typing to narrow it down.');li.setAttribute('role','presentation');box.append(li)}
