@@ -15,7 +15,7 @@
 // domains that two or more of our apps share (mozilla.org, jetbrains.com …), whose logo would be the company's;
 // sources smaller than MIN_SOURCE px. config/apps.txt can set logo_domain=<domain> to pick a domain by hand (also
 // for shared or hosted ones), or logo=none to never use Logo.dev for that app (company logos, wordmarks, banners).
-// Logo.dev logos are company/brand logos, so the footer credits Logo.dev on every page (their attribution rule).
+// Logo.dev logos are brand logos; the app page that uses one as its icon credits Logo.dev in its footer (their attribution rule).
 // Results and provenance go to data/icons.json (source "logo-dev", with domain, brand id and etag).
 
 import { createHash } from 'node:crypto';

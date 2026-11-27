@@ -211,10 +211,18 @@ for (const a of apps) {
     if (w && !readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes(`## What’s new in ${w.version}`)) bad(a.slug, '“What’s new” summary missing from the .md twin');
   }
 }
-// Logo.dev attribution: when any icon comes from Logo.dev, every page's footer must link to logo.dev (free-plan rule)
+// Logo.dev attribution: an app page whose own icon comes from Logo.dev must link to logo.dev in its footer, and no other page does
 {
-  const usesLogoDev = Object.values(JSON.parse(readFileSync(join(ROOT, 'data', 'icons.json'), 'utf8'))).some((i) => i.source === 'logo-dev');
-  if (usesLogoDev) for (const a of apps) if (!/<footer[\s\S]*href="https:\/\/logo\.dev"/.test(readFileSync(join(DIST, a.slug, 'index.html'), 'utf8'))) bad(a.slug, 'footer is missing the Logo.dev credit link');
+  const icons = JSON.parse(readFileSync(join(ROOT, 'data', 'icons.json'), 'utf8'));
+  for (const f of htmlFiles) {
+    const h = readFileSync(f, 'utf8');
+    const [body, footer = ''] = h.split('<footer class="site-footer">');
+    const m = /<img class="app-icon[^"]*" src="\/([^/"]+)\/icon\./.exec(body);
+    const shows = !!m && icons[m[1]]?.source === 'logo-dev';
+    const credits = /href="https:\/\/logo\.dev"/.test(footer);
+    if (shows && !credits) bad(f.replace(DIST, ''), 'app icon is from Logo.dev but the footer has no Logo.dev credit');
+    if (!shows && credits) bad(f.replace(DIST, ''), 'Logo.dev credit in the footer but the app icon is not from Logo.dev');
+  }
 }
 // renamed apps: "New (formerly Old)" in the H1 and <title> of the app page and its old-versions page, at the old slug
 for (const a of apps) {

@@ -320,7 +320,7 @@ ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<scri
 <main><div class="wrap">
 ${body}
 </div></main>
-<footer class="site-footer"><div class="wrap"><p>We host no installers, we <a href="/legal/cookies/">use no cookies</a>, and we’re not affiliated with any software publisher. Some app icons: <a href="https://logo.dev" rel="noopener">Logos provided by Logo.dev</a>.</p><nav aria-label="More"><a href="/categories/">Software</a><a href="/api/">API</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/statistics/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
+<footer class="site-footer"><div class="wrap"><p>We host no installers, we <a href="/legal/cookies/">use no cookies</a>, and we’re not affiliated with any software publisher.${logoDevCredit(body)}</p><nav aria-label="More"><a href="/categories/">Software</a><a href="/api/">API</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/statistics/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
 </body>
 </html>
 `;
@@ -503,6 +503,13 @@ const sourceHistory = (e) => (isCustom(e) || isFlathub(e) ? e.repo : e.source ==
 const fmtOf = (i) => (i.type === 'tar' && /\.t(ar\.)?gz$/i.test(i.filename || '') ? 'TGZ (compressed tar)' : FORMAT[i.type] || i.type.toUpperCase());
 // Icon URLs carry a short hash of the icon file (?v=...). The server lets browsers and the CDN keep images for 30 days, so a replaced icon
 // would otherwise stay stale; a new hash is a new URL.
+// Logo.dev's free plan asks for a credit link where its logos appear. Only an app page whose own icon (the big
+// class="app-icon" image at the top) comes from Logo.dev (scripts/logodevicons.mjs) carries it; small icons in
+// alternatives, listings and search suggestions do not add it.
+const logoDevCredit = (body) => {
+  const m = /<img class="app-icon[^"]*" src="\/([^/"]+)\/icon\./.exec(body);
+  return m && ICONS[m[1]]?.source === 'logo-dev' ? ' This app’s icon: <a href="https://logo.dev" rel="noopener">Logos provided by Logo.dev</a>.' : '';
+};
 const iconHash = (slug) => (ICONS[slug]?.sha256 || '').slice(0, 8);
 const iconSrc = (slug, ext) => `/${slug}/icon.${ext}${iconHash(slug) ? `?v=${iconHash(slug)}` : ''}`;
 // Card for the app grids: the icon (when we have one) beside name, publisher and version line.
