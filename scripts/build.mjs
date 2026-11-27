@@ -1359,15 +1359,20 @@ ${rec.release_series
 </section>`
     : '';
 
+  const installerTitle = allCustom ? 'What the download is' : 'What the installer does';
   // Sections are separated by <hr>. Empty sections (no description, no changelog) are skipped so no double rules appear.
   const sectionsHtml = [
     `<section id="download" aria-labelledby="h-download">
 <div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${oldPath ? `<a href="${oldPath}">Older versions</a>` : hasOld ? '<a href="#versions">Older versions</a>' : ''}</nav></div>
 ${downloadHtml}
-<h3 id="installer">${allCustom ? 'What the download is' : 'What the installer does'}</h3>
+</section>`,
+    // "What the installer does" sits at the end of the What's new section; apps without one keep it as its own section.
+    changelogHtml
+      ? changelogHtml.replace(/<\/section>$/, `<h3 id="installer">${installerTitle}</h3>\n${installerHtml}\n</section>`)
+      : `<section id="installer" aria-labelledby="h-installer">
+<h2 id="h-installer">${installerTitle}</h2>
 ${installerHtml}
 </section>`,
-    changelogHtml,
     descOf(rec) || rec.summary ? `<section id="overview" aria-labelledby="h-overview">
 <h2 id="h-overview">Overview</h2>
 ${paragraphs(descOf(rec) || rec.summary)}${FEATURES.get(rec.slug) ? `\n${featuresHtml(FEATURES.get(rec.slug), { esc, code: withCode })}` : ''}
