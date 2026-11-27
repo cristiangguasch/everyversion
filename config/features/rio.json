@@ -1,0 +1,47 @@
+{
+  "slug": "rio",
+  "reviewed": "2026-11-27",
+  "best_for": "Developers who live in the terminal and want a free, GPU-drawn terminal that shows images inline and works the same way on Windows, Mac and Linux.",
+  "description": "Rio is a terminal emulator written in Rust by Raphael Amorim and released as open source. It draws its window on the graphics card and runs on Windows, macOS, Linux and FreeBSD, with a WebAssembly build for the browser.\n\nYou can split a window into panels, open several windows, move through the scrollback in vi mode, and click links or pick text with hints. Programs that use the sixel, iTerm2 or kitty image formats can show pictures right in the terminal. Rio can follow the system's light or dark theme, mark prompts through shell integration, and dress the screen in retro CRT filters.",
+  "points": [
+    {
+      "title": "Free and open source",
+      "text": "Rio is under the MIT License and costs nothing. There is no account and no paid edition; the author asks users who like it to sponsor the project on GitHub."
+    },
+    {
+      "title": "Set up in a text file",
+      "text": "Settings, themes and key bindings live in a config.toml file: ~/.config/rio on Mac and Linux, and AppData\\Local\\rio under your user folder on Windows. Expect to edit that file rather than click through a settings window."
+    },
+    {
+      "title": "Windows installers for x64 and Arm64",
+      "text": "The MSI installers install machine-wide and can run silently. They place a newer pseudoconsole from the Windows Terminal project next to rio.exe, which images and full-screen programs need. Windows shows a warning the first time you run the installer; Rio says to pick More info and then Run anyway."
+    },
+    {
+      "title": "CRT filters depend on the build",
+      "text": "The retro shader filters run only on the WebGPU renderer. That is the default on Windows, so they work there right away. The standard Mac and Linux builds use Metal and Vulkan instead and quietly ignore the setting unless you build Rio yourself with that feature."
+    },
+    {
+      "title": "Linux Flatpak lags behind",
+      "text": "The Flathub package is verified for the rioterm.com domain and built for x64 and Arm64, but at the time of reading it carried 0.5.28 while Windows and Mac had 0.5.32. The project also ships .deb and .rpm packages; on Ubuntu 22.04 and older Debian releases the .deb needs Rio's terminfo installed by hand."
+    },
+    {
+      "title": "Mac build is one universal app",
+      "text": "The Homebrew cask installs a single disk image that runs on both Intel and Apple silicon Macs, and adds the rio command to the shell."
+    },
+    {
+      "title": "Old versions on Windows only",
+      "text": "The Windows listing keeps 86 versions. macOS and Linux list only the current release, so going back a version there means another source, such as the project's GitHub releases."
+    }
+  ],
+  "sources": [
+    { "label": "Rio on GitHub", "url": "https://github.com/raphamorim/rio" },
+    { "label": "Features", "url": "https://rioterm.com/docs/features" },
+    { "label": "Install on Windows", "url": "https://rioterm.com/docs/install/windows" },
+    { "label": "Install on macOS", "url": "https://rioterm.com/docs/install/macos" },
+    { "label": "Install on Linux", "url": "https://rioterm.com/docs/install/linux" },
+    { "label": "Configuration", "url": "https://rioterm.com/docs/config" },
+    { "label": "RetroArch shaders", "url": "https://rioterm.com/docs/features/retroarch-shaders" },
+    { "label": "Changelog", "url": "https://rioterm.com/changelog" },
+    { "label": "Flathub listing", "url": "https://flathub.org/apps/com.rioterm.Rio" }
+  ]
+}

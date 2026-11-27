@@ -1,0 +1,415 @@
+{
+  "schema_version": 2,
+  "slug": "gpt4all",
+  "name": "GPT4All",
+  "publisher": "Nomic",
+  "ids": {
+    "winget": "nomic.gpt4all",
+    "homebrew_cask": "gpt4all",
+    "flathub": "io.gpt4all.gpt4all"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "summary": "GPT4All is a GUI application for loading and interacting with Generative AI models",
+  "tags": [
+    "llm-inference"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/nomic-ai/gpt4all",
+    "publisher": "https://github.com/nomic-ai",
+    "support": "https://github.com/nomic-ai/gpt4all/issues",
+    "bug_tracker": "https://github.com/nomic-ai/gpt4all/issues",
+    "release_notes": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.10.0"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/nomic-ai/gpt4all/blob/HEAD/LICENSE.txt",
+    "spdx": "MIT"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "3.10.0",
+    "macos": "3.10.0",
+    "linux": "3.10.0"
+  },
+  "last_updated": "2025-02-25",
+  "versions_total": {
+    "windows": 10,
+    "macos": 1,
+    "linux": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "3.10.0",
+      "release_date": "2025-02-25",
+      "release_notes": "What's New\n- Remote Models:\n  - The Add Model page now has a dedicated tab for remote model providers.\n  - Groq, OpenAI, and Mistral remote models are now easier to configure.\n- CUDA Compatibility: GPUs with CUDA compute capability 5.0 such as the GTX 750 are now supported by the CUDA backend.\n- New Model: The non-MoE Granite model is now supported.\n- Translation Updates:\n  - The Italian translation has been updated.\n  - The Simplified Chinese translation has been significantly improved.\n- Better Chat Templates: The default chat templates for OLMoE 7B 0924/0125 and Granite 3.1 3B/8B have been improved.\n- Whitespace Fixes: DeepSeek-R1-based models now have better whitespace behavior in their output.\n- Crash Fixes: Several issues that could potentially cause GPT4All to crash have been fixed.\nContributors\n- Jared Van Bortel (Nomic AI)\n- Adam Treat (Nomic AI)\n- ThiloteE (@ThiloteE)\n- Lil Bob (@Junior2Ran)\n- Riccardo Giovanetti (@Harvester62)\nFull Changelog: CHANGELOG.md",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.10.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.10.0/gpt4all-installer-win64-v3.10.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.10.0.exe",
+          "sha256": "e284f2d72cf0026dc49c3dce8b5f1a19c088737b36e37bc8e0d48b668926ef52",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --accept-messages"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.0",
+      "release_date": "2025-02-04",
+      "release_notes": "What's New\n- LocalDocs Fix: LocalDocs no longer shows an error on later messages with reasoning models.\n- DeepSeek Fix: DeepSeek-R1 reasoning (in 'think' tags) no longer appears in chat names and follow-up questions.\n- Windows ARM Improvements:\n  - Graphical artifacts on some SoCs have been fixed.\n  - A crash when adding a collection of PDFs to LocalDocs has been fixed.\n- Template Parser Fixes: Chat templates containing an unclosed comment no longer freeze GPT4All.\n- New Models: OLMoE and Granite MoE models are now supported.\nContributors\n- Jared Van Bortel (Nomic AI)\n- Adam Treat (Nomic AI)\n- ThiloteE (@ThiloteE)\nFull Changelog: CHANGELOG.md",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.9.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.9.0/gpt4all-installer-win64-v3.9.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.9.0.exe",
+          "sha256": "9caa0748f6f47ea60ebffe90c939b00672733347fb40027ae91b317017e82aba",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --accept-messages"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.0",
+      "release_date": "2025-01-31",
+      "release_notes": "What's New\n- Native DeepSeek-R1-Distill Support: GPT4All now has robust support for the DeepSeek-R1 family of distillations.\n    - Several model variants are now available on the downloads page.\n    - Reasoning (wrapped in \"think\" tags) is displayed similarly to the Reasoner model.\n    - The DeepSeek-R1 Qwen pretokenizer is now supported, resolving the loading failure in previous versions.\n    - The model is now configured with a GPT4All-compatible prompt template by default.\n- Chat Templating Overhaul: The template parser has been completely replaced with one that has much better compatibility with common models.\n- Code Interpreter Fixes:\n    - An issue preventing the code interpreter from logging a single string in v3.7.0 has been fixed.\n    - The UI no longer freezes while the code interpreter is running a computation.\n- Local Server Fixes:\n    - An issue preventing the server from using LocalDocs after the first request since v3.5.0 has been fixed.\n    - System messages are now correctly hidden from the message history.\nContributors\n- Jared Van Bortel (Nomic AI)\n- Adam Treat (Nomic AI)\n- Riccardo Giovanetti (@Harvester62)\nFull Changelog: CHANGELOG.md",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.8.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.8.0/gpt4all-installer-win64-v3.8.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.8.0.exe",
+          "sha256": "78d60817a986f5346f347073e3ac1dca2863353d3494b564db3b1cde25be47eb",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --accept-messages"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.8.0/gpt4all-installer-win64-arm-v3.8.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-arm-v3.8.0.exe",
+          "sha256": "4b58271309627ee10afab9f0f19d3bd4a119e6921fb7aeb805973c18cbae501f",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --accept-messages"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.0",
+      "release_date": "2025-01-23",
+      "release_notes": "What's New\n- Windows ARM Support: GPT4All now supports the Windows ARM platform, ensuring compatibility with devices powered by Qualcomm Snapdragon and Microsoft SQ-series processors.\n    - NOTE: Support for GPU and/or NPU acceleration is not available at this time. Only the CPU will be used to run LLMs.\n    - NOTE: You must install the new Windows ARM version of GPT4All from the website. The standard Windows version will not work due to emulation limitations.\n- Fixed Updating on macOS: The maintenance tool no longer crashes when attempting to update or uninstall GPT4All on Sequoia.\n    - NOTE: If you have installed the version from the GitHub releases as a workaround for this issue, you can safely uninstall it and switch back to the version from the website.\n- Fixed Chat Saving on macOS: Chats now save as expected when the application is quit with Command-Q.\n- Code Interpreter Improvements:\n    - The behavior when the code takes too long to execute and times out has been improved.\n    - console.log now accepts multiple arguments for better compatibility with native JavaScript.\n- Chat Templating Improvements:\n    - Two crashes and one compatibility issue have been fixed in the chat template parser.\n    - The default chat template for EM German Mistral has been fixed.\n    - Automatic replacements have been added for five new models as we continue to improve compatibility with common chat templates.\nContributors\n- Jared Van Bortel (Nomic AI)\n- Adam Treat (Nomic AI)\n- Riccardo Giovanetti (@Harvester62)\nFull Changelog: CHANGELOG.mdNote: Please be careful when downloading an offline installer below. There is now a -win64-arm installer. If you have an ARM processor (e.g. Qualcomm Snapdragon or Microsoft SQ-series), use the -win64-arm one. If you have an Intel or AMD processor, or if unsure, use the -win64 one.",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.7.0",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.7.0/gpt4all-installer-win64-v3.7.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.7.0.exe",
+          "sha256": "ceee098236debc5d69ac9d9179e977eb949b33525e2a963f29f063050be4eb73",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --accept-messages"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.1",
+      "release_date": "2024-12-20",
+      "release_notes": "What's New\n- Fixes:\n    - The stop generation button no longer working in v3.6.0.\n    - The copy entire conversation button no longer working in v3.6.0.\nContributors\n- Adam Treat (Nomic AI)\nFull Changelog: CHANGELOG.md",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.6.1",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.6.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.6.1/gpt4all-installer-win64-v3.6.1.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.6.1.exe",
+          "sha256": "020ec4aef03e0dd43bceac9cc55dc27110087a200500e24b1f265bac7d5d8ab7",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --accept-messages"
+          },
+          "upgrade_behavior": "deny"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.2",
+      "release_date": "2024-10-16",
+      "release_notes": "What's New\n- LocalDocs Fixes: Several issues with LocalDocs, some of which were introduced in v3.4.0, have been fixed.\n    - Fixed the possible use of references from unselected collections.\n    - Fixed unnecessary reindexing of files with uppercase extensions.\n    - Fixed hybrid search failure due to inconsistent database state.\n    - Fully fixed the blank Embeddings Device selection in LocalDocs settings.\n    - Fixed LocalDocs indexing of large PDFs making very slow progress or even stalling.\nContributors\n- Adam Treat (Nomic AI)\n- Jared Van Bortel (Nomic AI)\nFull Changelog: CHANGELOG.md",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.4.2",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.4.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.4.2/gpt4all-installer-win64-v3.4.2.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.4.2.exe",
+          "sha256": "c655c6fa7d15fc0ac3e85ed350ebfaa439b9b130ceda166fcd073487c936c1da",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --am"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.0",
+      "release_date": "2024-07-24",
+      "release_notes": "Added\n- Generate suggested follow-up questions (#2634)\n- Scaffolding for translations (#2612)\n- Spanish (MX) translation (by @jstayco in #2654)\n- Chinese (Simplified) translation by mikage (#2657)\n- Dynamic changes of language and locale at runtime (#2659, #2677)\n- Romanian translation by @SINAPSA_IC (#2662)\n- Chinese (Traditional) translation (by @supersonictw in #2661)\n- Italian translation (by @Harvester62 in #2700)\nChanged\n- Customize combo boxes and context menus to fit the new style (#2535)\n- Improve view bar scaling and Model Settings layout (#2520\n- Make the logo spin while the model is generating (#2557)\n- Server: Reply to wrong GET/POST method with HTTP 405 instead of 404 (by @cosmic-snow in #2615)\n- Update theme for menus (by @3Simplex in #2578)\n- Move the \"stop\" button to the message box (#2561)\n- Build with CUDA 11.8 for better compatibility (#2639)\n- Make links in latest news section clickable (#2643)\n- Support translation of settings choices (#2667, #2690)\n- Improve LocalDocs view's error message (by @cosmic-snow in #2679)\n- Ignore case of LocalDocs file extensions (#2642, #2684)\n- Update llama.cpp to commit 87e397d00 from July 19th (#2694)\n    - Add support for GPT-NeoX, Gemma 2, OpenELM, ChatGLM, and Jais architectures (all with Vulkan support)\n    - Enable Vulkan support for StarCoder2, XVERSE, Command R, and OLMo\n- Show scrollbar in chat collections list as needed (by @cosmic-snow in #2691)\nRemoved\n- Remove support for GPT-J models (#2676, #2693)\nFixed\n- Fix placement of thumbs-down and datalake opt-in dialogs (#2540)\n- Select the correct folder with the Linux fallback folder dialog (#2541)\n- Fix clone button sometimes producing blank model info (#2545)\n- Fix jerky chat view scrolling (#2555)\n- Fix \"reload\" showing for chats with missing models (#2520\n- Fix property binding loop warning (#2601)\n- Fix UI hang with certain chat view content (#2543)\n- Fix crash when Kompute falls back to CPU (#2640)\n- Fix several Vulkan resource management issues (#2694)",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.1.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.1.0/gpt4all-installer-win64-v3.1.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.1.0.exe",
+          "sha256": "8db0bce3be837272dd75bff4c475db9d130ad1440be7fcf494a5c188cca9b21c",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --am"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.0",
+      "release_date": "2024-07-02",
+      "release_notes": "What's New\n- Complete UI overhaul (#2396)\n- LocalDocs improvements (#2396)\n    - Use nomic-embed-text-v1.5 as local model instead of SBert\n    - Ship local model with application instead of downloading afterwards\n    - Store embeddings flat in SQLite DB instead of in hnswlib index\n    - Do exact KNN search with usearch instead of approximate KNN search with hnswlib\n- Markdown support (#2476)\n- Support CUDA/Metal device option for embeddings (#2477)\nFixes\n- Fix embedding tokenization after #2310 (#2381)\n- Fix a crash when loading certain models with \"code\" in their name (#2382)\n- Fix an embedding crash with large chunk sizes after #2310 (#2383)\n- Fix inability to load models with non-ASCII path on Windows (#2388)\n- CUDA: Do not show non-fatal DLL errors on Windows (#2389)\n- LocalDocs fixes (#2396)\n    - Always use requested number of snippets even if there are better matches in unselected collections\n    - Check for deleted files on startup\n- CUDA: Fix PTX errors with some GPT4All builds (#2421)\n- Fix blank device in UI after model switch and improve usage stats (#2409)\n- Use CPU instead of CUDA backend when GPU loading fails the first time (ngl=0 is not enough) (#2477)\n- Fix crash when sending a message greater than n_ctx tokens after #1970 (#2498)\nNew Contributors\n- @woheller69 made their first contribution in (#2339)\n- @patcher9 made their first contribution in (#2386)\n- @sunsided made their first contribution in (#2414)\n- @johnwparent made their first contribution in (#2319)\n- @mcembalest made their first contribution in (#2488)\nFull Changelog: https://github.com/nomic-ai/gpt4all/compare/v2.8.0...v3.0.0",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.0.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/3.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.0.0/gpt4all-installer-win64-v3.0.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v3.0.0.exe",
+          "sha256": "b5f20f5285ed9d3520bf205acda3c1f663f7bbed97ca5f6f4731e89d583d4fb8",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --am"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.8.0",
+      "release_date": "2024-05-21",
+      "release_notes": "What's New\n- Context Menu: Replace \"Select All\" on message with \"Copy Message\" (#2324)\n- Context Menu: Hide Copy/Cut when nothing is selected (#2324)\n- Improve speed of context switch after quickly switching between several chats (#2343)\n- New Chat: Always switch to the new chat when the button is clicked (#2330)\n- New Chat: Always scroll to the top of the list when the button is clicked (#2330)\n- Update to latest llama.cpp as of May 9, 2024 (#2310)\n- Add support for the llama.cpp CUDA backend (#2310, #2357)\n    - Nomic Vulkan is still used by default, but CUDA devices can now be selected in Settings\n    - When in use: Greatly improved prompt processing and generation speed on some devices\n    - When in use: GPU support for Q5_0, Q5_1, Q8_0, K-quants, I-quants, and Mixtral\n- Add support for InternLM models (#2310)\nFixes\n- Do not allow sending a message while the LLM is responding (#2323)\n- Fix poor quality of generated chat titles with many models (#2322)\n- Set the window icon correctly on Windows (#2321)\n- Fix a few memory leaks (#2328, #2348, #2310)\n- Do not crash if a model file has no architecture key (#2346)\n- Fix several instances of model loading progress displaying incorrectly (#2337, #2343)\n- New Chat: Fix the new chat being scrolled above the top of the list on startup (#2330)\n- macOS: Show a \"Metal\" device option, and actually use the CPU when \"CPU\" is selected (#2310)\n- Remove unsupported Mamba, Persimmon, and PLaMo models from the whitelist (#2310)\n- Fix GPT4All.desktop being created by offline installers on macOS (#2361)\nFull Changelog: https://github.com/nomic-ai/gpt4all/compare/v2.7.5...v2.8.0",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v2.8.0",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/2.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "portable",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v2.8.0/gpt4all-installer-win64-v2.8.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v2.8.0.exe",
+          "sha256": "a9029a845aeae464af29c844ca1ef7c41bf35b3cad3e19110912f43ee1e9a0a7",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --am"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.7.0",
+      "release_date": "2023-11-21",
+      "release_notes": "What's Changed\n  - Add 12 new model architectures for CPU and Metal inference (#1914)\n  - These are Baichuan, BLOOM, CodeShell, GPT-2, Orion, Persimmon, Phi and Phi-2, Plamo, Qwen, Qwen2, Refact, and StableLM.\n  - We don't have official downloads for these yet, but TheBloke offers plenty of compatible GGUF quantizations.\n  - Restore minimum window size of 720x480 (1b524c4)\n  - Use ChatML for Mistral OpenOrca to make its output formatting more reliable (#1935)\nBug Fixes\n  - Fix VRAM not being freed when CPU fallback occurs - this makes switching models more reliable (#1901)\n  - Disable offloading of Mixtral to GPU because we crash otherwise (#1931)\n  - Limit extensions scanned by LocalDocs to txt, pdf, md, rst - other formats were inserting useless binary data (#1912)\n  - Fix missing scrollbar for chat history (490404d)\n  - Accessibility improvements (4258bb1)\nNew Contributors\n  - @boshk0 made their first contribution in #1924",
+      "release_notes_url": "https://github.com/nomic-ai/gpt4all/releases/tag/v2.7.0",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/n/nomic/gpt4all/2.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "exe",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v2.7.0/gpt4all-installer-win64-v2.7.0.exe",
+          "host": "github.com",
+          "filename": "gpt4all-installer-win64-v2.7.0.exe",
+          "sha256": "eff938357666818d407ca70e1a62456e10479843ad309a04b50b8a6ca78fb228",
+          "switches": {
+            "silent": "install --accept-licenses --confirm-command --am"
+          },
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "3.10.0",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.10.0/gpt4all-installer-macos-v3.10.0.dmg",
+          "host": "github.com",
+          "filename": "gpt4all-installer-macos-v3.10.0.dmg",
+          "sha256": "d0d98ab465de516af6d50fc013abbf9a8967274f2d171bbf69198873ce255b5f",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "manual_installer": true,
+        "cleanup": {
+          "remove": [
+            "~/Library/Application Support/nomic.ai/GPT4All"
+          ],
+          "zap_paths": [
+            "~/Library/Application Support/GPT4All",
+            "~/Library/Preferences/com.nomic-ai.gpt4all.plist",
+            "~/Library/Saved Application State/gpt4all.savedState"
+          ]
+        }
+      }
+    },
+    {
+      "platform": "linux",
+      "version": "3.10.0",
+      "release_date": "2025-02-25",
+      "installers": [
+        {
+          "platform": "linux",
+          "architecture": "arm64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/io.gpt4all.gpt4all.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "io.gpt4all.gpt4all.flatpakref",
+          "no_checksum": true
+        },
+        {
+          "platform": "linux",
+          "architecture": "x64",
+          "type": "flatpak",
+          "url": "https://dl.flathub.org/repo/appstream/io.gpt4all.gpt4all.flatpakref",
+          "host": "dl.flathub.org",
+          "filename": "io.gpt4all.gpt4all.flatpakref",
+          "no_checksum": true
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked. Linux (Flatpak) installs come from Flathub, whose repository is signed; Flathub publishes no file checksum.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "74ee2a56d725f521e9ec2728fd54e6aec47d1fe4",
+      "retrieved_at": "2026-11-27T23:10:53.803Z",
+      "path": "manifests/n/nomic/gpt4all"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1d373c532f89598520d347d4931a0ac37017410f",
+      "retrieved_at": "2026-11-27T23:10:53.803Z",
+      "path": "Casks/g/gpt4all.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/gpt4all.json"
+    },
+    {
+      "source": "flathub",
+      "platform": "linux",
+      "repo": "https://github.com/flathub/io.gpt4all.gpt4all",
+      "retrieved_at": "2026-11-27T23:10:59.362Z",
+      "path": "api/v2/appstream/io.gpt4all.gpt4all",
+      "api_url": "https://flathub.org/api/v2/appstream/io.gpt4all.gpt4all",
+      "content_sha256": "6dcfd8e458cf06ee964ebf79e9aa40f62e98f03790634fba89d3d5bf73cd7cd3"
+    }
+  ],
+  "flathub": {
+    "app_id": "io.gpt4all.gpt4all",
+    "page_url": "https://flathub.org/apps/io.gpt4all.gpt4all",
+    "repo_url": "https://github.com/flathub/io.gpt4all.gpt4all",
+    "install_command": "flatpak install flathub io.gpt4all.gpt4all",
+    "run_command": "flatpak run io.gpt4all.gpt4all",
+    "verified": false,
+    "license": "MIT",
+    "free_license": true,
+    "developer_name": "Nomic-ai",
+    "categories": [
+      "Utility",
+      "Office"
+    ],
+    "download_size": 1117171522,
+    "installed_size": 2131351552,
+    "arches": [
+      "arm64",
+      "x64"
+    ]
+  }
+}

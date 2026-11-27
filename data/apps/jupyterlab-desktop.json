@@ -1,0 +1,474 @@
+{
+  "schema_version": 2,
+  "slug": "jupyterlab-desktop",
+  "name": "JupyterLab Desktop",
+  "publisher": "Project Jupyter",
+  "ids": {
+    "winget": "ProjectJupyter.JupyterLab",
+    "moniker": "jupyterlab",
+    "homebrew_cask": "jupyterlab-app"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "JupyterLab computational environment desktop application, based on Electron.",
+  "tags": [
+    "jupyter",
+    "jupyter-notebook",
+    "jupyterlab-desktop"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://github.com/jupyterlab/jupyterlab-desktop",
+    "publisher": "https://jupyter.org/",
+    "support": "https://github.com/jupyterlab/jupyterlab-desktop/issues",
+    "bug_tracker": "https://github.com/jupyterlab/jupyterlab-desktop/issues",
+    "privacy": "https://discourse.jupyter.org/privacy",
+    "release_notes": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.6.3-1",
+    "documentation": [
+      {
+        "label": "Developer Documentation",
+        "url": "https://github.com/jupyterlab/jupyterlab-desktop/blob/master/dev.md"
+      }
+    ]
+  },
+  "license": {
+    "name": "BSD-3-Clause",
+    "url": "https://github.com/jupyterlab/jupyterlab-desktop/blob/HEAD/LICENSE",
+    "spdx": "BSD-3-Clause",
+    "copyright": "Copyright (c) 2015-2021 Project Jupyter Contributors",
+    "copyright_url": "https://github.com/jupyterlab/jupyterlab-desktop/blob/master/LICENSE"
+  },
+  "pricing": {
+    "status": "open-source",
+    "source": "derived-from-license"
+  },
+  "latest_versions": {
+    "windows": "4.6.3-1",
+    "macos": "4.6.3-1"
+  },
+  "last_updated": "2026-08-26",
+  "versions_total": {
+    "windows": 12,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "4.6.3-1",
+      "release_date": "2026-08-26",
+      "release_notes": "JupyterLab Desktop v4.6.3-1\nUpdates\n- Update to bundled JupyterLab v4.6.3 in #1107\nBug & security fixes\n- Fix file-system settings race and remove orphaned serialize-javascript resolution by @notluquis in #1075\n- Snap on stable cannot launch: refresh electron-builder past the .tar.7z extraction bug by @notluquis in #1091\n- Make blocked navigation the default for views nobody claimed by @notluquis in #1093\n- Fix the Linux packages failing to launch, and verify each installer in CI by @notluquis in #1094\n- Let server-initiated sign-in chains complete without leaving the app by @notluquis in #1087\n- Refuse browser permissions to content that is not the Jupyter server and limit permissions grants by @notluquis in #1092\n- Harden the news feed against malformed feeds and empty results by @notluquis in #1028\n- Refresh @xmldom/xmldom to the patched 0.8.13 by @notluquis in #1080\nDocumentation improvements\n- Correct the minimum supported OS versions by @notluquis in #1071\n- Rename dev.md to CONTRIBUTING.md and document the test suite by @notluquis in #1121\n- Drop warning on maintenance status by @krassowski in #1070\nMaintenance\n- Change release PR environment by @krassowski in #1067\n- Drop the isDevMode comment about the check it replaced by @notluquis in #1111\n- Add the pull request template, ported from jupyterlab by @notluquis in #1110\n- Ask Electron whether the app is packaged instead of reading an undocumented internal by @notluquis in #1097\n- Fix flaky signing of mac assets and update release docs by @krassowski in #1069\n- Run the unit suite on macOS and Windows too by @notluquis in #1112\n- Fix the macOS installers failing to sign, and the cross-architecture dmg that hung by @notluquis in #1127\nFull Changelog: v4.6.2-1...v4.6.3-1",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.6.3-1",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/4.6.3-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.6.3-1/JupyterLab-Setup-Windows-x64.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows-x64.exe",
+          "sha256": "2229631ee9355d8be01aa10f3da4d50dcea5c14fcac105d92361bad926f42be5",
+          "product_code": "4110a4d2-5ce1-5719-a864-da51ff18661b",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "JupyterLab 4.6.3-1",
+              "display_version": "4.6.3-1",
+              "product_code": "4110a4d2-5ce1-5719-a864-da51ff18661b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.6.2-1",
+      "release_date": "2026-07-22",
+      "release_notes": "JupyterLab Desktop v4.6.2-1\nThis is a first release in 2 years, catching up with the latest JupyterLab 4.6.2 and a stable, supported Electron version. This release includes patches for security vulnerabilities due to be disclosed soon. All users are recommended upgrade, but please bear with us as we exercise the revamped release process for the first time in a while - it is likely that some installers will only become available a bit later.\nMany thanks to @notluquis for pushing on the revival.\nWhat's Changed\n- Attempt to fix lab sync workflow by @krassowski in #898\n- Run sync job in the sync environment by @krassowski in #899\n- Improve lab version sync action by @krassowski in #901\n- Only upload changed files by @krassowski in #902\n- Fix sync workflow for filtering files by @krassowski in #904\n- Fix sync file upload by @krassowski in #906\n- Bump braces from 3.0.2 to 3.0.3 by @dependabot[bot] in #838\n- Bump actions/setup-python from 5 to 6 by @dependabot[bot] in #915\n- Bump actions/setup-node from 4 to 5 by @dependabot[bot] in #916\n- Bump fast-xml-parser from 4.2.5 to 5.7.0 by @dependabot[bot] in #849\n- Add review guidance by @krassowski in #921\n- Update to JupyterLab v4.5.7 by @jupyterlab-desktop-bot[bot] in #950\n- fix: replace node-fetch with Electron net.fetch in main process by @notluquis in #955\n- chore: remove vestigial stylelint setup by @notluquis in #959\n- feat: add test infrastructure (Vitest + Playwright) by @notluquis in #961\n- fix: resolve CodeQL high-severity findings and harden CI by @notluquis in #966\n- test: main-process unit coverage with CI-enforced thresholds (C2) by @notluquis in #967\n- test: cover cli.ts and env.ts process-spawn branches by @notluquis in #972\n- test: characterize the 12 preload contextBridge contracts by @notluquis in #971\n- test: Playwright e2e suite (first-run smoke + env-backed welcome) by @notluquis in #976\n- Phase 3 e2e: macOS leg and embedded-server isolation by @notluquis in #984\n- Phase 3 pre-bump: TypeScript 6 and ESLint 10 flat config by @notluquis in #978\n- Phase 3: bump Electron 27 to 42 and adapt the changed APIs by @notluquis in #988\n- deps: move js-yaml 4 to 5, with a parse test on the real data by @notluquis in #1000\n- build: drop @types/tar, tar 7 ships its own types by @notluquis in #999\n- test(e2e): exercise the JupyterLab integration through the labview (cell, widget, UI) by @notluquis in #1001\n- Bump lodash from 4.17.21 to 4.18.1 by @dependabot[bot] in #990\n- ci: have Dependabot track npm version updates too by @notluquis in #998\n- ci: add zizmor static analysis for the workflows by @notluquis in #1016\n- ci: open the release PR with gh instead of peter-evans/create-pull-request by @notluquis in #996\n- build: replace fs-extra, node-watch, meow and rimraf with Node built-ins by @notluquis in #992\n- Address Copilot review on the e2e suite (#984 follow-up) by @notluquis in #986\n- Fix dialog title bars and env-switch crash from the Electron 42 / TS6 migration by @notluquis in #1022\n- Fix env-select popup placement on narrow windows and dismissal on blur by @notluquis in #1037\n- Fix title bar maximize/restore desync and cross-window focus theft by @notluquis in #1038\n- ci: build the osx-64 installer on a native Intel runner by @notluquis in #1020\n- Fix resize repaint gaps and initial view sizing by @notluquis in #1039\n- Harden WebContentsView lifecycle after the Electron 42 migration by @notluquis in #1031\n- Make env-switch and initial-load failures visible and recoverable by @notluquis in #1036\n- Update to JupyterLab v4.6.2 by @jupyterlab-desktop-bot[bot] in #1059\n- Fix Mac build by @krassowski in #1064\n- Prettier by @krassowski in #1065\n- Update releasing docs and workflows by @krassowski in #1066\nNew Contributors\n- @notluquis made their first contribution in #955\nFull Changelog: v4.2.5-1...v4.6.2-1",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.6.2-1",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/4.6.2-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "locale": "en-US",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.6.2-1/JupyterLab-Setup-Windows-x64.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows-x64.exe",
+          "sha256": "a60e4b1e09f81fdf113cd1c1b7de3aafd76698ca935f9076e7f43b6f33f94096",
+          "product_code": "4110a4d2-5ce1-5719-a864-da51ff18661b",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious",
+          "apps_and_features": [
+            {
+              "display_name": "JupyterLab 4.6.2-1",
+              "product_code": "4110a4d2-5ce1-5719-a864-da51ff18661b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.5-1",
+      "release_date": "2024-08-29",
+      "release_notes": "- Upgrade to JupyterLab v4.2.5",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.2.5-1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/4.2.5-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.2.5-1/JupyterLab-Setup-Windows-x64.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows-x64.exe",
+          "sha256": "f63202132d706ceb5c89ce76e304abaf9c1f021316c016f4855a3a55f519a1e8",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.2.1-1",
+      "release_date": "2024-05-26",
+      "release_notes": "- Upgrade to JupyterLab v4.2.1",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.2.1-1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/4.2.1-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.2.1-1/JupyterLab-Setup-Windows-x64.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows-x64.exe",
+          "sha256": "5cdc4b164d2a21a99e952719be0be5e7b7f096c11562291cd7807ce6200769be",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.8-1",
+      "release_date": "2024-04-30",
+      "release_notes": "- Launch JupyterLab Web App option in Python Environment Management dialog\n- Upgrade to JupyterLab v4.1.8",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.1.8-1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/4.1.8-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.1.8-1/JupyterLab-Setup-Windows-x64.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows-x64.exe",
+          "sha256": "65a59cc99b625d9fa864676d9843e4bbca81ca249e22ac1d06232db0faf28618",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.1.5-1",
+      "release_date": "2024-03-22",
+      "release_notes": "- Option to show Table of Contents in Zen Mode\n- Fix for duplicate Python environments shown on environment list\n- Upgrade to JupyterLab v4.1.5",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.1.5-1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/4.1.5-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.1.5-1/JupyterLab-Setup-Windows-x64.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows-x64.exe",
+          "sha256": "bddc616bf4cb1b551f4397590623078b5d325ebeeb6b0c374394944dc8d9e476",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "4.0.2-1",
+      "release_date": "2023-07-08",
+      "release_notes": "- Python environment management enhancements\n- Bundled Python environment is now based on conda-pack\n- No more use of Windows installer for the bundled environment\n- Ability to install bundled Python environment to different locations\n- Ability to create new Python environments using CLI\n- CLI command options to manage Python environments\n- Upgrade to JupyterLab 4.0.2",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v4.0.2-1",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/4.0.2-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.0.2-1/JupyterLab-Setup-Windows.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows.exe",
+          "sha256": "bdd6e4a7e90d1f60ba70ac610710ba4e009989a7b9e89149d75cc421f5f1c843",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.3-2",
+      "release_date": "2023-05-04",
+      "release_notes": "- Support for closing tabs by default with Ctrl / Cmd + W\n- Fix for bundled environment update availability check",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v3.6.3-2",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/3.6.3-2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v3.6.3-2/JupyterLab-Setup-Windows.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows.exe",
+          "sha256": "4114e2064e1060d989958dc51e661709ebb2b4db18e00dfc2adcbfa056360eed",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.3-1",
+      "release_date": "2023-04-23",
+      "release_notes": "- Support for alpha and beta JupyterLab Python packages in custom environments\n- Fix for default working directory setting persistence issue\n- Fix for settings dialog footer height issue\n- Removes Client App mode support for JupyterLab UI\n- Upgrade to Electron 24.1.2\n- Upgrade to JupyterLab 3.6.3",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v3.6.3-1",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/3.6.3-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v3.6.3-1/JupyterLab-Setup-Windows.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows.exe",
+          "sha256": "aa1f3cd58892b77e752c755e9cdfcaff6d1441404b90ee443899a7dd44ec3651",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.2-1",
+      "release_notes": "JupyterLab Desktop v3.6.2-1\n\nMake sure to uninstall the previous version before installing the new one by following the uninstall instructions.\n\n- Ability to configure Ctrl + W behavior\n- HTTP Basic Authentication support\n- Apple silicon support\n- Upgrade to Electron 23.1.4\n- Upgrade to JupyterLab 3.6.2",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v3.6.2-1",
+      "manifest_version": "1.4.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/3.6.2-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v3.6.2-1/JupyterLab-Setup-Windows.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows.exe",
+          "sha256": "30893a37984dde21416e1c92615073bfa65ec36c7f43950fc5719345293615c0",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.1-1",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v3.5.1-1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/3.5.1-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v3.5.1-1/JupyterLab-Setup-Windows.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows.exe",
+          "sha256": "f62fc78662cab5ebe2abd2f47953622f0968f087be4c4c77caeeeaff66ceb8e3",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.0-1",
+      "release_notes_url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/tag/v3.5.0-1",
+      "manifest_version": "1.2.0",
+      "manifest_dir": "manifests/p/ProjectJupyter/JupyterLab/3.5.0-1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v3.5.0-1/JupyterLab-Setup-Windows.exe",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-Windows.exe",
+          "sha256": "f5c61726d82c7d126d3c1e27890241943f1bb853f8712e44be6b9fe777b3e971",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "uninstallPrevious"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "4.6.3-1",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "x64",
+          "type": "dmg",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.6.3-1/JupyterLab-Setup-macOS-x64.dmg",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-macOS-x64.dmg",
+          "sha256": "bf47dc3a2c7d42edb2c9d84809553a85d2ab8d7afc3c06a28172b67ebe3672ca",
+          "min_os_version": "12"
+        },
+        {
+          "platform": "macos",
+          "architecture": "arm64",
+          "type": "dmg",
+          "url": "https://github.com/jupyterlab/jupyterlab-desktop/releases/download/v4.6.3-1/JupyterLab-Setup-macOS-arm64.dmg",
+          "host": "github.com",
+          "filename": "JupyterLab-Setup-macOS-arm64.dmg",
+          "sha256": "0c208d3ba4cfa4eedc3a2adafabc009b00f14a271b43b9c8a047b06f12e14503",
+          "min_os_version": "12"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "JupyterLab.app"
+        ],
+        "cleanup": {
+          "pkgutil": [
+            "com.electron.jupyterlab-desktop"
+          ],
+          "remove": [
+            "/usr/local/bin/jlab",
+            "~/Library/jupyterlab-desktop"
+          ],
+          "zap_paths": [
+            "~/.jupyter",
+            "~/Library/Application Support/jupyterlab-desktop",
+            "~/Library/Caches/org.jupyter.jupyterlab-desktop",
+            "~/Library/Caches/org.jupyter.jupyterlab-desktop.ShipIt",
+            "~/Library/HTTPStorages/org.jupyter.jupyterlab-desktop",
+            "~/Library/Jupyter",
+            "~/Library/Logs/JupyterLab",
+            "~/Library/Logs/jupyterlab-desktop",
+            "~/Library/Preferences/com.electron.jupyterlab-desktop.plist",
+            "~/Library/Saved Application State/com.electron.jupyterlab-desktop.savedState"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "74ee2a56d725f521e9ec2728fd54e6aec47d1fe4",
+      "retrieved_at": "2026-11-27T23:10:53.803Z",
+      "path": "manifests/p/ProjectJupyter/JupyterLab"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1d373c532f89598520d347d4931a0ac37017410f",
+      "retrieved_at": "2026-11-27T23:10:53.803Z",
+      "path": "Casks/j/jupyterlab-app.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/jupyterlab-app.json"
+    }
+  ]
+}

@@ -1,0 +1,1617 @@
+{
+  "schema_version": 2,
+  "slug": "proxyman",
+  "name": "Proxyman",
+  "publisher": "Proxyman LLC",
+  "author": "Proxyman LLC",
+  "ids": {
+    "winget": "Proxyman.Proxyman",
+    "moniker": "proxyman",
+    "homebrew_cask": "proxyman"
+  },
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "summary": "Debug Network Faster & Smarter with Proxyman",
+  "description": "Proxyman is a high-performance Windows app, which enables developers to capture, inspect, and manipulate HTTP/HTTPS requests/responses with ease.",
+  "tags": [
+    "capture",
+    "debug",
+    "network",
+    "proxy",
+    "request",
+    "response",
+    "traffic",
+    "web"
+  ],
+  "locale": "en-US",
+  "urls": {
+    "homepage": "https://proxyman.io/windows",
+    "publisher": "https://proxyman.io/",
+    "support": "https://proxyman.io/support",
+    "privacy": "https://proxyman.io/privacy",
+    "purchase": "https://proxyman.io/pricing",
+    "release_notes": "https://proxyman.io/changelog",
+    "documentation": [
+      {
+        "label": "Documentation",
+        "url": "https://docs.proxyman.io/"
+      }
+    ]
+  },
+  "license": {
+    "name": "Proprietary",
+    "url": "https://proxyman.io/eula",
+    "copyright": "Copyright © 2026 Proxyman LLC"
+  },
+  "pricing": {
+    "status": "free-to-download",
+    "source": "curated"
+  },
+  "latest_versions": {
+    "windows": "26.3.0",
+    "macos": "26.6.1"
+  },
+  "last_updated": "2026-11-15",
+  "versions_total": {
+    "windows": 49,
+    "macos": 1
+  },
+  "versions": [
+    {
+      "platform": "windows",
+      "version": "26.3.0",
+      "release_date": "2026-11-15",
+      "release_notes": "✨ Features\n- Headless mode: Start Proxyman with --headless to run the proxy and MCP with no window, tray icon or dialogs, so AI agents can drive it in the background. The MCP server starts it when needed with mcp-server --headless and quits it once no agent uses it. Opening Proxyman again shows the window.\n- Ubuntu/Debian package: Install Proxyman from a .deb package as well as the AppImage. It installs to /opt/Proxyman with a proxyman command, and works on Ubuntu 24.04 and later without --no-sandbox or FUSE.\n\n⚡️ Improve\n- MCP: New tools to list and resume requests held at a Breakpoint, open and close session files, and create a root certificate without installing it. get_proxy_status says whether the proxy is listening, and quit_proxyman and proxyman-cli quit close Proxyman cleanly.\n- MCP: Network Condition tools keep only the host and reject wildcard hosts, create_breakpoint warns when a Map Local or Block List rule stops it from pausing, and a new setup workflow fixes curl.exe's CRYPT_E_NO_REVOCATION_CHECK error on Windows.\n- When a client rejects Proxyman's certificate, the connection now shows as an SSL Handshake Failed request with the likely cause and the client's error. On Windows, it explains that curl.exe needs --ssl-no-revoke.\n- Linux: The update window explains how to update the way you installed Proxyman, with a copyable apt command for the .deb, and Download Update opens the new version's release page.\n- Settings > Products: Redesigned, with every Proxyman platform in one row, plus Device MCP, TCP Viewer and TinyShield from the Proxyman team.\n- Crash reports now go to Proxyman's own server instead of sentry.io, and still leave out your IP address, cookies and request bodies.\n\n🐞 Bugs\n- Fixed: Right-clicking a request outside the selection selects it first, so Copy, Delete, Repeat and Tools act on the request under the pointer.\n- Fixed: Network Conditions throttle at the chosen speed instead of 8 times slower, an Unlimited custom bandwidth no longer hangs, and throttled requests show how long the client actually waited.\n- Fixed: Editing a body at a Breakpoint only changes what you edited. Compact JSON stays compact, numbers such as large IDs stay as written, and line endings are kept.\n- Fixed: Breakpoint and Compose keep repeated headers, such as Set-Cookie, in the server's order.\n- Fixed: Map Local no longer adds Windows line endings to inline JSON bodies, and bodies served from a file keep their exact bytes.\n- Fixed: Breakpoint, Map Local and Scripting rules created from a request only turn on SSL Proxying for https:// and wss:// URLs.\n- Fixed: HAR files record afternoon times correctly instead of 12 hours early.\n- Fixed: Proxyman's own update checks and crash reports no longer appear in the request list.\n- Fixed: When another app uses the proxy port, Proxyman says so and how to fix it, instead of looking like the proxy is running.\n- Fixed: Opening Proxyman a second time no longer disconnects MCP from the running app.\n- Fixed: MCP export-log --domains matches host:port, and list_setup_workflows lists every workflow instead of the first 25.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/26.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/26.3.0/build/Proxyman%20Setup%2026.3.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 26.3.0.exe",
+          "sha256": "0abd723235fa3f33ec243f1d23e098f4c26b22101c03cb74e6b8e7f8748fbfda",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.2.0",
+      "release_date": "2026-10-27",
+      "release_notes": "✨ Features\n- Compromised CA protection: Proxyman refuses HTTPS and WebSocket servers whose certificate chain uses one of the eMudhra intermediate CAs whose private keys leaked in October 2026, also behind an external proxy. The request is never sent, and the response, Compose, Repeat and the Connection Log say why.\n\n⚡️ Improve\n- Script Editor: Tools > Scripting on a WebSocket flow adds onWebsocket() with examples to edit, drop and send messages. The message fields, sendToClient(), sendToServer() and abort() autocomplete and explain themselves on hover, like on macOS.\n- MCP: The scripting docs cover the WebSocket examples and explain that only the first matching script runs.\n\n🐞 Bugs\n- Fixed: WebSocket error messages no longer end with \"undefined\".",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/26.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/26.2.0/build/Proxyman%20Setup%2026.2.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 26.2.0.exe",
+          "sha256": "62fcf29dde7e0ccdd77bbe7468ca8056411e0306c235f30da061e53fed0f89c2",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.1.0",
+      "release_date": "2026-10-24",
+      "release_notes": "✨ Features\n- Overview: See a live summary of your traffic in Capture > Overview, with charts for requests, bandwidth, status codes, top apps and domains, slow requests and errors. Copy or save it as Markdown.\n- Script Templates: Start from ready-made scripts in the Scripting editor. Filter them, copy a snippet, or replace your script with one.\n- WebSocket Scripting: Log, edit, drop and send WebSocket messages with onWebsocket(). Turn on Modify WebSocket Messages in the Script Editor to change them.\n- Windows installer: Choose Recommended, or Custom to pick the install folder. Updates still install silently.\n\n⚡️ Improve\n- The Raw tab in Compose and Breakpoint now shows and edits the body, not only the first line and headers.\n- The main table stays smooth with 100,000 requests during heavy traffic, and Auto Select keeps following the newest request.\n- The Script Editor's Console Log now stays on the right, with filter, clear and hide, and shows JSON logs without escaping.\n- Scripting: writeToFile() expands ~ and creates missing folders, isFileExists() is available, and JSON and form bodies are parsed whatever the case of Content-Type.\n- Android Emulator setup finds system images when adb comes from Debian/Ubuntu or Google's Platform Tools, and finds Android SDKs in custom folders.\n- MCP: New get_traffic_overview and list_script_templates tools, and WebSocket scripting support.\n\n🐞 Bugs\n- Fixed: The main table keeps its sort after restarting Proxyman.\n- Fixed: Requests and responses held at a Breakpoint no longer fail with \"socket hang up\" after 30 seconds.\n- Fixed: Compose and Repeat send http:// and ws:// requests without the root certificate, and no longer show an extra \"Oops! Something went wrong\" over the Setup Guide.\n- Fixed: Proxyman asks to regenerate a root certificate from before 3.19.0 that Chrome rejects with ERR_SSL_SERVER_CERT_BAD_FORMAT, such as on PCs whose name has an underscore.\n- Fixed: Proxyman can turn the Windows system proxy on and off, and restore your previous proxy on quit, when registry editing is disabled by policy. If it still can't, it shows how to set the proxy yourself.\n- Fixed: Checking for updates and other Proxyman requests work on networks that inspect HTTPS with a company certificate.\n- Fixed: Large requests and responses no longer hang when the disk is full.\n- Fixed: When a WebSocket server disconnects abruptly, Proxyman closes the client connection too, after delivering the last messages. Binary messages from the server are no longer listed as from the client.\n- Fixed: Proxyman no longer crashes when the terminal that opened it closes on Linux, when the proxy stops while a connection is opening, or when quitting stops MCP twice.\n- Fixed: Turning MCP off and on quickly keeps it running.\n- Fixed: Changing a checkbox in the Scripting editor no longer activates a script that wasn't saved.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/26.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/26.1.0/build/Proxyman%20Setup%2026.1.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 26.1.0.exe",
+          "sha256": "c2761211dcc3f135e38ed47f14511e5b6e2d5a5f005172f8114a8956ec7bbcf1",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "26.0.0",
+      "release_date": "2026-10-14",
+      "release_notes": "✨ Features\n- Apps: See which app sends each request, group traffic by app, and pin apps or enable SSL Proxying for them.\n- HTTP/2: Capture and debug HTTP/2 traffic. Turn on Use HTTP/2 in Settings to get started.\n- Connection Log: See connection steps, request and response headers, and errors to help find connection problems.\n- Access Control: Choose which remote devices can connect to Proxyman. Allow all, block all, or allow specific IP addresses.\n\n⚡️ Improve\n- Updated proxy status and Advanced Proxy Settings to make your IP address, port, recording, and HTTP mode easier to find and change.\n- Improved speed and memory use when capturing traffic, viewing Connection Logs, and working with many pinned requests.\n- Added Copy Client Detection Diagnostics to the Help menu to help troubleshoot missing app names.\n- JSONPath filters now explain why a filter was rejected instead of only showing no results.\n- Updated Electron and other libraries to fix security issues.\n\n🐞 Bugs\n- Fixed: The cursor and text selection now line up correctly in the Scripting editor on Windows.\n- Fixed: Saving a Scripting rule keeps the selected HTTP method instead of changing it to Any.\n- Fixed: Scripting keeps renamed HTTP/1.1 headers, and HTTP/2 headers work correctly in custom columns and CSV exports.\n- Fixed: The Client column stays visible after updating unless you choose to hide it.\n- Fixed: Typing in SSL Proxying filters no longer changes selected rules, and Escape closes an open menu without closing the whole window.\n- Fixed: Existing SSL Proxying rules can still be turned on or off when the free plan limit is reached.\n- Fixed: Pinned requests no longer appear twice or stop updating, and deleting requests also removes them from Apps.\n- Fixed: Sidebar search avoids duplicate domains and keeps matching pins and imported files visible after Clear.\n- Fixed: Changing the proxy port keeps your recording and system proxy settings. Restore Default also reports when port 9090 is busy.\n- Fixed: Compose correctly displays binary WebSocket messages and keeps its requests out of Remote Devices.\n- Fixed: Failed WebSocket connections show the server IP when the server sends a response.\n- Fixed: HTTP/2 handles large responses more reliably and retries with HTTP/1.1 when a server requires it.\n- Fixed: Redacted logs and Workspace uploads remove local app paths that could reveal your computer username.\n- Fixed: Log exports report write errors, saved logs keep the correct HTTP/2 version, and restored sessions avoid duplicate request IDs.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/26.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/26.0.0/build/Proxyman%20Setup%2026.0.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 26.0.0.exe",
+          "sha256": "d2fc61ed36c44db41e2e709dc431fab5e076e7c03ab747799851e1d168ee5f73",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.21.0",
+      "release_date": "2026-09-25",
+      "release_notes": "✨ Features\n- Split View: View two traffic panes side by side with separate filters.\n- Workspace tabs: Open traffic in separate tabs, each with its own filters and selection.\n- Workspace sign-in: Sign in with a six-digit code sent to your email.\n\n⚡️ Improve\n- MCP now supports more tools, including Compose, WebSocket inspection, Reverse Proxy, and DNS Spoofing.\n\n🐞 Bugs\n- Fixed: Map Remote now sends the correct Host and Origin headers for WebSocket connections.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.21.0/build/Proxyman%20Setup%203.21.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.21.0.exe",
+          "sha256": "0fc4fd7ac1073e5d0248e61c3d2704e2b21747a96cf183fe35578a437377b898",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.20.0",
+      "release_date": "2026-09-11",
+      "release_notes": "🐞 Bugs\n- HOTFIX: The app becomes white empty screen after using for a while\n- HOTFIX: SSL Errors in some scenarios",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.20.0/build/Proxyman%20Setup%203.20.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.20.0.exe",
+          "sha256": "cc3a9d8b57f0b9db48d37a37e4e420ec43b09433b4d985834fdce025ad7fa066",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.19.0",
+      "release_date": "2026-09-06",
+      "release_notes": "✨ Features\n- App language: You can now use Proxyman in Simplified Chinese.\n\n⚡️ Improve\n- HTTP and HTTPS proxying now handles large bodies, redirects, and connection errors better.\n\n🐞 Bugs\n- Fixed: Certificate names with non-English characters now stay correct after relaunch.\n- Fixed: Windows now waits for PowerShell to finish installing the certificate.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.19.0/build/Proxyman%20Setup%203.19.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.19.0.exe",
+          "sha256": "311414e5c24270bda1df40be59aef3cfbe002fb5c6c3f1f49665e411c4886dfb",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.18.0",
+      "release_date": "2026-08-30",
+      "release_notes": "✨ Features\n- Android emulator setup: Proxyman can now use Magisk to root your Play Store Android Emulator, so you can intercept traffic from it.\n- Leaf certificate expiry: You can now choose how long generated HTTPS certificates stay valid.\n\n⚡️ Improve\n- Settings has a new design and search, so options are easier to find.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.18.0/build/Proxyman%20Setup%203.18.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.18.0.exe",
+          "sha256": "611045030c764121698890579d89037567628447eb771e4904bef12538e0394d",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.17.0",
+      "release_date": "2026-08-19",
+      "release_notes": "✨ Features\n- Reverse Proxy: You can now use Reverse Proxy on Windows and Linux.\n- TLS key logging: You can now export TLS keys for Wireshark.\n\n⚡️ Improve\n- Windows beta builds now add a download link to the pull request.\n\n🐞 Bugs\n- Fixed: Fatal network crashes are now sent to Sentry.\n- Fixed: Scripting requests now keep custom Axios headers.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.17.0/build/Proxyman%20Setup%203.17.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.17.0.exe",
+          "sha256": "2100771dcf1994e42cc0c853a14d0531197b78e5942cb5f1244b8fda7b6f73ab",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.16.1",
+      "release_date": "2026-07-07",
+      "release_notes": "🐞 Bugs\n- HOTFIX: Theme and Pin items are reset after launching the app due to the bug in the license checking logic.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.16.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.16.1/build/Proxyman%20Setup%203.16.1.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.16.1.exe",
+          "sha256": "6807f67c1b7650e5f1f57f26a2c8b8666201ec89f54cc2df7a5fbc180f095ef2",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.16.0",
+      "release_date": "2026-07-02",
+      "release_notes": "✨ Features\n- Scripting before Breakpoint: Scripts can now run before a request pauses at a breakpoint.\n- Flow colors: Added more highlight colors for flows.\n\n🐞 Bugs\n- Fixed: System proxy does not revert after quitting the app. As a result, some apps may not be able to connect to the internet.\n- Fixed: Some devices could get the wrong UUID.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.16.0/build/Proxyman%20Setup%203.16.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.16.0.exe",
+          "sha256": "fa25ae25eaaaf72a76c11bdc13b8de3a4a5b7dda2df268b067ee6c482ee3ca7c",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.15.0",
+      "release_date": "2026-06-17",
+      "release_notes": "✨ Features\n- Proxyman CLI: Added the Windows/Linux proxyman CLI.\n- Custom network throttling: You can now create custom throttling profiles.\n- System resource monitor: Added a new monitor for app and system resource usage.\n- Scripting multipart form data: Scripts now support multipart/form-data.\n- Products settings: Added a new Products tab in Settings.\n\n⚡️ Improve\n- Code generation is now more reliable with library-backed generators.\n- Inspector updates are smoother when selecting requests in the main table.\n- Postinstall now detects npm more reliably.\n\n🐞 Bugs\n- Fixed: Linux certificate install elevation now works correctly.\n- Fixed: Map Local folder relocation now works correctly.\n- Fixed: Renderer development memory leaks.\n- Fixed: Noisy transport errors are filtered from Sentry.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.15.0/build/Proxyman%20Setup%203.15.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.15.0.exe",
+          "sha256": "b9deac46b34313bf896f3b76e99a88d44e82be1627d1a085deceac16a0f6d142",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.14.1",
+      "release_date": "2026-05-29",
+      "release_notes": "🐞 Bugs\n- Fixed: Raw tab could crash when header filter highlighting is active.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.14.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.14.1/build/Proxyman%20Setup%203.14.1.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.14.1.exe",
+          "sha256": "4f84ba4fc0d0b1440c624d14e602fa47373b20594c7afb1a02fe20b6c7845c8a",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.14.0",
+      "release_date": "2026-05-27",
+      "release_notes": "✨ Features\n- Compose WebSocket: You can now create and send WebSocket requests from the Compose tool.\n- Scripting npm packages: Scripts can now use npm packages with require.\n- Header filters: You can now filter by header name and value, with matched text highlighted.\n\n⚡️ Improve\n- Large body filtering is faster and uses less repeated work.\n- Large disk-backed bodies now render better in the inspector and Raw tab.\n- Settings window dark mode looks cleaner and more consistent.\n\n🐞 Bugs\n- Fixed: Map Local does not render the JSON Body if it is too large.\n- Fixed: Disabled request timeout now behaves correctly.\n- Fixed: GraphQL request names are now detected correctly after fragments.\n- Fixed: JWT Authorization values with slashes now display correctly.\n- Fixed: Streamed responses are now kept when a late tunnel error happens.\n- Fixed: Proxyman now picks the correct VPN adapter IP more reliably.\n- Fixed: Scripting npm install command now works better on Windows.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.14.0/build/Proxyman%20Setup%203.14.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.14.0.exe",
+          "sha256": "01f820671e45be099f2f102a479ac71f9ac4d8139219330a1b6e8541024a4df6",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.13.0",
+      "release_date": "2026-05-12",
+      "release_notes": "✨ Features\n- Charles CHLZ import: You can now open Charles .chlz session files in Proxyman.\n- Markdown Custom Preview Tabs: Custom Previewer tabs can now render Markdown content.\n- Recent JSON filters: Proxyman now remembers your recent JSON filters, so you can reuse them faster.\n- Raw copy actions: You can now copy raw request and response content directly from the request list.\n- Debugging Tools column: The main table can now show which debugging tools affected each request.\n- Android premium download: Premium users can now find the Android download from the license screen.\n\n⚡️ Improve\n- Large body storage: Proxyman now stores large request and response bodies on disk, which helps reduce memory use with big traffic.\n- Custom header columns are easier to manage and work better across the main table and tabs.\n- MCP Server dependencies were updated for better stability and security.\n\n🐞 Bugs\n- Fixed: Scripting editor cursor could jump while editing scripts.\n- Fixed: cURL export now escapes quotes in header values correctly.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.13.0/build/Proxyman%20Setup%203.13.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.13.0.exe",
+          "sha256": "7f4d663d07ab7a70d0de80e88f61ee2ed1f5497ca9a594054f7bfc6463406f8a",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.12.0",
+      "release_date": "2026-04-21",
+      "release_notes": "✨ Features\n- Better main table UI: The request list now looks cleaner, is easier to scan, and uses better monospace fonts by default.\n- More complete MCP results: MCP can now collect flows from different sources, so AI tools can see more of your traffic in one place.\n\n⚡️ Improve\n- Smarter Linux certificate setup: Proxyman now uses distro-aware fallback steps and shows clearer help when automatic certificate install does not work.\n- Main table sort is now remembered correctly, so your preferred order stays in place after relaunch.\n- Better cleanup behavior: Proxyman now keeps retained flows and source-list selection more stable after memory cleanup.\n\n🐞 Bugs\n- Fixed several top Sentry issues, including certificate generation errors, compose certificate setup errors, and memory growth with very large buffers.\n- Fixed temporary network errors in proxy, tunnel, and PAC handling, so short connection resets are handled more safely and cause fewer unexpected errors.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.12.0/build/Proxyman%20Setup%203.12.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.12.0.exe",
+          "sha256": "4db8d8a1f3ea140d46e678f4b63d5bae4a2224d484380287f940c8e898d7a8b0",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.11.0",
+      "release_date": "2026-04-01",
+      "release_notes": "✨ Features\n- Better MCP Server: Redesigned MCP UI with new design and v3 parity surface for improved AI integrations.\n- Electron 41 Upgrade: Updated to Electron 41.0.0 with Node 24, bringing improved performance and security.\n\n⚡️ Improve\n- Local Docker-based Testing: Migrated unit tests from remote httpbin to local Docker-based httpbin.test, eliminating network dependency and speeding up test execution.\n- Added stdio guard in the main process for better process stability.\n\n🐞 Bugs\n- Fixed: Monaco Editor crash when pasting long or invalid regex patterns in the Find Widget.\n- Fixed: Missing feedURL during release, which could prevent auto-update from working correctly.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.11.0/build/Proxyman%20Setup%203.11.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.11.0.exe",
+          "sha256": "a9e3f777abed11b573f81a1c74353183a997b209747bcba6e0a68d7812b64007",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.10.0",
+      "release_date": "2026-03-11",
+      "release_notes": "✨ Features\n- Smart Leaf Certificate Cache: Proxyman now reuses cached leaf certificates to reduce certificate regeneration and improve HTTPS stability.\n\n⚡️ Improve\n- MCP Server dependency update: Bumped AJV from 8.17.1 to 8.18.0 for more reliable schema validation.\n- Release workflow maintenance: Synced 3.9.0-v3 release pipeline updates into main to keep the release flow consistent.\n\n🐞 Bugs\n- Fixed: Windows SSL handshake failures that could block secure requests.\n- Fixed: Invalid Root CA certificate issue that could break TLS trust setup.\n- Fixed: SSL cache and redirect handling bugs to prevent certificate mismatch behavior.\n- Fixed: JSON Filter now works correctly on the Request tab.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.10.0/build/Proxyman%20Setup%203.10.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.10.0.exe",
+          "sha256": "937d2c25167e7998f09f6ae4ee76feb93306854c36464ebaabe099f00c8b9108",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.9.0",
+      "release_date": "2026-02-20",
+      "release_notes": "✨ Features\n- Scripting Tool with multipart/form-data: Enhanced scripting capabilities to support multipart/form-data requests.\n\n⚡️ Improve\n- Auto Release & Publish: Streamlined GitHub release and publish workflow for faster deployments.\n- WebSocket Proxy: Refactored to use HTTP for better proxy-to-websocket server communication.\n- Error Handling: Improved logic for handling error messages in tunnel operations.\n\n🐞 Bugs\n- Fixed: Expected `onClick` listener to be a function error - resolved type validation issue.\n- Fixed: Added condition before capturing exceptions to prevent unnecessary error reporting.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.9.0/build/Proxyman%20Setup%203.9.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.9.0.exe",
+          "sha256": "b59c0e2befa0dfc6796658cceaca61bd5066fb48c8de0f6eea772740ec8fb949",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.8.0",
+      "release_date": "2026-02-07",
+      "release_notes": "✨ Features\n- MCP for Windows: Officially support the Model Context Protocol (MCP) server, enabling advanced AI integrations directly on Windows.\n- Workspace Login: Sign in to your Workspace account to seamlessly manage your license key and connected devices.\n- Share Log Online: Instantly upload and share your Proxyman logs with your team via the Workspace platform.\n\n⚡️ Improve\n- Core Refactor: Cleaned up and optimized internal logic flows for better stability and maintainability.\n- Token Management: Enhanced the Refresh Token logic to ensure more reliable session persistence.\n\n🐞 Bugs\n- Fixed: Resolved a Null-Safety vulnerability in ProxymanLogV2 that could cause the app to crash.\n- Fixed: Added essential safety checks to the Remote Device feature to prevent unexpected errors.\n- Fixed: General stability improvements with additional safe guards throughout the application.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.8.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.8.0/build/Proxyman%20Setup%203.8.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.8.0.exe",
+          "sha256": "bbaad7fdfbc5d1333ed96616adda5e4686bba116a9bddb15d9fe029f53b620d1",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.7.0",
+      "release_date": "2026-01-20",
+      "release_notes": "✨ Features\n- Proxyman VPN on Android Emulator: Easily intercept traffic from Android Emulators.\n- Custom Previewer Tab with Scripting: Build your own Previewer Tab with JavaScript.\n- Capture localhost from Google Chrome: Automatically capture localhost traffic from Chrome.\n- Filter Enhancements: Support filtering by Duration, Request/Response Body Size, and use operators (>=, <).\n- Visual Indicator for Blocked Requests: Easily identify blocked requests in the list.\n\n⚡️ Improve\n- Implement unpinning logic for domains.\n- Improve how Proxyman handles expired certificates.\n- Force XML indentation when using 'Format Document' option.\n- Update UI to use Kbd component for better visuals.\n\n🐞 Bugs\n- Fixed: Next.js Startup Failure caused by NODE_OPTIONS in Manual Setup Script.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.12.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.7.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.7.0/build/Proxyman%20Setup%203.7.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.7.0.exe",
+          "sha256": "3e47f06087fd46c7a59a6f0f25f2c9efdc3d50e9f7282d4d84dbaebfd79405fc",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.6.0",
+      "release_date": "2025-12-01",
+      "release_notes": "✨ Features\n- Added Scripting support for WebSocket, allowing developers to modify WebSocket requests using JavaScript.\n\n⚡️ Improve\n- Scripting now exposes both original and mapped URLs when using Map Remote.\n\n🐞 Bugs\n- Fixed HAR export to be fully HAR 1.2 compliant, including missing log.pages and entries without responses.\n- Fixed an issue where Compose Tool incorrectly displayed JSON body.\n- Add warning when the Scripting sleep function is used without 'await'.\n- Fixed unit tests that were broken by public domains.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.6.0/build/Proxyman%20Setup%203.6.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.6.0.exe",
+          "sha256": "d57d6a0d898a334aa7a7a1a90f65e279dfdd07cd5fe43cda72c849c53a1506f2",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.5.0",
+      "release_date": "2025-11-14",
+      "release_notes": "✨ Features\n- Added PAC file support for the External Proxy tool, enabling more flexible proxy configurations.\n- Updated Android Emulator integration script to correctly install the Proxyman certificate into the system-level trust store.\n\n🐞 Bugs\n- Fixed an issue where Proxyman could not render text/event-stream responses when Content-Encoding: gzip was used.\n- Resolved a bug with Custom Columns, ensuring they display and behave correctly.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://assets.proxyman.com/windows/3.5.0/build/Proxyman%20Setup%203.5.0.exe",
+          "host": "assets.proxyman.com",
+          "filename": "Proxyman Setup 3.5.0.exe",
+          "sha256": "e009e9f5a3c713e97b46697975b728f0ee983c254fd1c8351f16a35150430f75",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.4.0",
+      "release_date": "2025-10-20",
+      "release_notes": "✨ Features\n- Command Palette View: Quick access to all actions with a new command palette using keyboard shortcuts.\n- Map Local Multiple Folders: Organize your Map Local rules into folders for better management.\n- Breakpoint Multiple Folders: Organize your Breakpoint rules into folders with enhanced navigation.\n- Scripting Multiple Folders: Organize your Scripting rules into folders for better organization.\n- Publish to Gist: Share requests directly to GitHub Gist with authorization support.\n- Export to OpenAPI: Export requests to OpenAPI format (HTML or YAML).\n- Support SOCKSv5 Proxy in External Proxy: Proxy traffic through SOCKSv5 with full CONNECT request support.\n- Scripting against Map Local: Combine scripting and map local tools for advanced debugging workflows.\n- Multiple Tools for Debugging: View multiple debugging tools simultaneously in the Summary Tab.\n\n⚡️ Improve\n- Added Host to the filter options for more precise request filtering.\n- Enhanced unit tests for Map Local, Breakpoint, and Scripting features.\n- Improved folder-based organization with drag-and-drop reordering support.\n- Better navigation and selection experience in rule tables with keyboard shortcuts.\n- Enhanced import/export functionality for rule configurations.\n\n🐞 Bugs\n- Fixed: a bug where requests would always timeout after 30 seconds.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.com/windows/3.4.0/build/Proxyman%20Setup%203.4.0.exe",
+          "host": "download.proxyman.com",
+          "filename": "Proxyman Setup 3.4.0.exe",
+          "sha256": "bb48c2969bb7e666d881fa2bcc22c89d110191a21838d40d9a1b442ed856f5a1",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.3.0",
+      "release_date": "2025-09-30",
+      "release_notes": "✨ Features\n- SOCKSv5 Proxy Server: You can now proxy traffic through SOCKSv5.\n- Save Edited Requests: Edited requests are automatically saved in your history for quick re-use.\n- JQ Filter for JSON: Easily filter and query JSON responses using JQ.\n\n⚡️ Improve\n- Added a new analytics endpoint for better insights.\n- Breakpoints now support dropping the connection with a 429 Too Many Requests status.\n- HTTPS is now fully supported on proxy.man/ssl and cert.proxyman.io.\n- Refreshed our Fun Fact images for a nicer touch.\n\n🐞 Bugs\n- Fixed: an issue where node-jq failed in production builds.\n- Fixed: Resolved Machine ID errors during license activation.\n- Fixed: a crash on Windows caused by missing VCRedist 2015 to 2022 x64.\n- Fixed: The app now remembers your selected path in the Source List after relaunch.\n- Fixed: a bug where requests would always timeout after 30 seconds.\n- Fixed: NDJSON responses now stream correctly (with SSE-style support).\n- Fixed: Improved WebSocket unit tests for stability.\n- Fixed: Clearing a session will no longer delete all requests from the log file.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.3.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/3.3.0/build/Proxyman%20Setup%203.3.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 3.3.0.exe",
+          "sha256": "fb46a61047923d6e789ce6d204e0b117a0b162e02ebccadaa908104249f5b926",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.2.0",
+      "release_date": "2025-08-26",
+      "release_notes": "✨ Features\n- Introduce the Custom Client Certificate for SSL Proxying.\n- Add Shortcut Ctrl+1,2,3, to quickly switch between tabs in the main window.\n- Able to repeat multiple requests at once.\n- Able to create multiple Map Local Rules at once.\n\n🐞 Bugs\n- Fixed: Sometimes Proxyman doens't revert the system proxy when the app is closed.\n- Fixed: Could not open the Comment Dialog in the Diff View\n- Fixed: Color highlight doesn't work\n- Fixed: New requests show under wrong pinned domain\n- Fixed: Flow is missing if it hits the Breakpoint Tool with Response Mode\n- Fixed: Issue when Proxyman can't generate a Root Certificate in some Windows.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.2.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/3.2.0/build/Proxyman%20Setup%203.2.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 3.2.0.exe",
+          "sha256": "c35b813ebfb81ded311fd14645c8fdc8dff310cdf9170fbc1792f687cdbe3dad",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.1.0",
+      "release_date": "2025-08-11",
+      "release_notes": "✨ Features\n- Introduce Client Certificate that allows you to use your own certificate to connect to your servers.\n\n⚡️ Improve\n- Enhance Scripting Context with Built-in Utilities (Buffer, TextEncoder, TextDecoder, btoa, atob)\n- Add a Copy Logs button when activating the license with an error, it's useful to debug\n- Refactor the Logic: Verify License Key\n\n🐞 Bugs\n- Fixed: License is removed for no reason.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.1.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/3.1.0/build/Proxyman%20Setup%203.1.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 3.1.0.exe",
+          "sha256": "cc08e7b7781a435e29f112133dcbd9a002c25ca71b4d7eb15b780a058bd4b1c7",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "3.0.0",
+      "release_date": "2025-07-22",
+      "release_notes": "⚡️ Improve\n- Better Scripting Editor: Hover to show the syntax, better auto completion\n- Bring Back old logic: Toggle Play/Stop Recording button doesn't affect the System Proxy Overridden\n\n🐞 Bugs\n- Map Local Binary file and Proxymnalogv2 Timing\n- Transfer-Encoding: chunked is added on 304 Not Modified",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/3.0.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/3.0.0/build/Proxyman%20Setup%203.0.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 3.0.0.exe",
+          "sha256": "f9310497ed9bd59c1cbcb921a386bacb0951c14d3a864e8e74c40be461a987da",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.27.0",
+      "release_date": "2025-07-06",
+      "release_notes": "✨ Features\n- Support Dark Theme for Windows and Linux\n- Introduce new Image Metadata for Image Body. Easier to check the size, width, height, and Exif data.\n- Introduce new SSE and OpenAPI tabs: Easier to preview OpenAPI completion or response\n- Introduce new UI for SSL Proxying List\n- Auto start/stop the system proxy when the system is sleep/wake up.\n\n⚡️ Improve\n- Improve the UI of entire app: New App icon for Menu Context, better UI.\n- Zstandard Decompression Support Update\n\n🐞 Bugs\n- Error Alert when open the app on Linux due to invalid network library\n- Crash from Map Remote Table\n- Crash When Deleting Request",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.27.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.27.0/build/Proxyman%20Setup%202.27.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.27.0.exe",
+          "sha256": "7f1fcc39010038288d7acec95d869817a8ad8e6b1806ad7c140303b03043931d",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.26.0",
+      "release_date": "2025-06-08",
+      "release_notes": "✨ Features\n- Introduce Custom Root Certificate\n- New UI for URL Editor in Compose and Breakpoint\n- Auto clean up Memory if it exceeds 2Gb\n- Bump Electron to v28.2.2 and Node.js to v18.20.8 for better performance\n\n🐞 Bugs\n- Script can't modify the m3u8 Request/Response\n- Fix bunch of issue on Sentry",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.26.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.26.0/build/Proxyman%20Setup%202.26.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.26.0.exe",
+          "sha256": "18f10612382c88a72c726a40b83812e3ffd303024670cba1d3621463bdb03231",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.25.0",
+      "release_date": "2025-05-21",
+      "release_notes": "⚡️ Improve\n- refactor: update the new writing chunks logic for the Streaming body\n\n🐞 Bugs\n- Fixed: Send headers before writing chunk\n- Fixed: Proxyman alters the header case\n- Fixed: Crash When Closing Undefined HttpServer\n- Fixed: Crash When Invoking EVENT_INVOKE_GET_IP_ADDRESS via IPC\n- Fixed: Handle Undefined Response in License Activation Flow\n- Fixed: Vrash when accessing undefined childNodes in SourceList\n- Fixed: Fallback to PowerShell for Certificate Installation on Windows if sudo execFails\n- Fixed: Proxyman fails to parse URL correctly when importing from Charles-generated cURL",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.25.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.25.0/build/Proxyman%20Setup%202.25.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.25.0.exe",
+          "sha256": "dff35933ea9e6b53ee6b386dc0a903099fc38509dce4cf92fdba15f700643ee4",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.24.0",
+      "release_date": "2025-05-04",
+      "release_notes": "✨ Features\n- Intercept Webbrowser with 1 click. Works with Chrome, Firefox, Edge and Brave.\n- Import from Proxyman Session file.\n\n⚡️ Improve\n- Improve how we install the CA Certificate by using Command Line\n- [Map Local] Introduce the Delay Setting for Map Local Rule\n\n🐞 Bugs\n- Fixed: Can't make a request without Scheme in the Compose Tool\n- Fixed: Sorting columns in the Diff View doesn't work\n- Fixed: Crash if use Breakpoint with Status Code 100\n- Fixed: Can't import cURL from from Postman (has --location flag)\n- Fixed: Export Websocket in Raw Format doesn't contains the websocket messages",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.24.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.24.0/build/Proxyman%20Setup%202.24.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.24.0.exe",
+          "sha256": "470833159a1617921e0c8b1d66b52411c4b327ea18eaff0f848d5cf8ec18b2cb",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.23.0",
+      "release_date": "2025-04-14",
+      "release_notes": "✨ Features\n- Start Google Chrome, Firefox, Edge and Brave with Proxyman settings. No need to install or set a Proxy manually. It just works.\n- Restore to Previous HTTP/HTTPS Proxy when Proxyman is closed. Useful if youre using other proxy at the same time.\n- Manual Setup now can capture Go network requests, like net/http, fasthttp, resty, gorequest, req, grequests\n\n🐞 Bugs\n- Fixed: Unable to delete/reset Proxyman CA certificate\n- Fixed: Loop issue when using Proxyman with Nuxt",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.10.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.23.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.23.0/build/Proxyman%20Setup%202.23.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.23.0.exe",
+          "sha256": "bd51b5ae207330baac46134a4a8480efdc6a46d0b3fbe92470ad315cfa1f3ec9",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.22.0",
+      "release_date": "2025-03-19",
+      "release_notes": "🐞 Bugs\n- Fixed: Requests reappear again after being deleted in Imported File\n- Fixed: XML Tab doesn't prettify the XML content\n- Fixed: Can't repeat a request with 500 status code",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.22.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.22.0/build/Proxyman%20Setup%202.22.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.22.0.exe",
+          "sha256": "ff1928887961797e9fbaeed3c07b45e9ec81988101d8fa95972cdbc1f9fd154d",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.21.0",
+      "release_date": "2025-02-28",
+      "release_notes": "✨ Features\n- Introduce the Custom Filter: Filter quickly by creating your own filters. access via filter menu.\n- Add option to Sort JSON Keys in Body Previewer: easier to read the JSON body.\n- Add GraphQL Filter in the main filter\n\n⚡️ Improve\n- Proxyman now use https://proxyman.com for the update server.\n- Able to export HAR and CSV with multiple folder\n- Use TelemetryDesk for App Analytic\n\n🐞 Bugs\n- Fixed: Proxyman improperly changing URL in Map Remote\n- Fixed: Two open scripts will overwrite eachother after any edit/save\n- Fixed: Proxyman incorrectly get the IP from VPN or vEthernet instead of WiFi or Ethernet\n- Fixed: Can't activate License key with corperated proxy with Proxy Setting in Settings",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.21.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.21.0/build/Proxyman%20Setup%202.21.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.21.0.exe",
+          "sha256": "d315b2e28b65807b93391a38aba158925d50014f8052f21d9c9f037fadbb1a31",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.20.0",
+      "release_date": "2025-02-04",
+      "release_notes": "✨ Features\n- Option to show/hide or filter some Warning/Error/Users/System logs from Scripting Console\n\n⚡️ Improve\n- Update ElectronJS Core and fix vulnerabilities from dependencies\n- Removed Unused Dependencies\n- Update Sentry 5\n- Improve wording in 'Edit & Repeat' UI\n- Lock some features for the FREE app version\n- Use ISO 8061 for Full date\n- Leading text truncation option for the main table view. Easier to see long text\n\n🐞 Bugs\n- Fixed: Can not resize the vertical / horizontal Sidebar\n- Fixed: Incomplete Display of Hexadecimal Request Bodies and Lack of JSON\n- Fixed: Timeout when parsing the URL with invalid chars in the Breakpoint",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.20.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.20.0/build/Proxyman%20Setup%202.20.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.20.0.exe",
+          "sha256": "1779b6f29ec62b150da35a50ddea6e71806d044567ade0d6ebaf4933f7f73b64",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.19.0",
+      "release_date": "2024-12-07",
+      "release_notes": "✨ Features\n- Introduce Multipart Editor in Compose View\n- [Breakpoint] Able to edit Request Multiparts in the Breakpoint Tool\n- Remove Aptabase Analytic\n\n🐞 Bugs\n- Fixed: \"Copy to cURL\" has incorrect escape single quote in the body\n- Fixed: Multipart body is changed after using the Breakpoint Tool\n- Fixed: Proxyman steals the Ctrl+R shortcut",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.9.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.19.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.19.0/build/Proxyman%20Setup%202.19.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.19.0.exe",
+          "sha256": "73122f239b4062765762f73d8251d3c8ee76ded5e0f9d048289951a3a743a792",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.18.0",
+      "release_date": "2024-11-13",
+      "release_notes": "✨ Features\n- Support zstd compression from Content-Encoding Header\n- Add Filter to Map Remote Tool\n- Add Filter to the Scripting\n- Improve UX: Show a yellow warning comment if the Map Local doesn't map due to missing local file\n- Support Decode inline Image (Base64 format)\n\n🐞 Bugs\n- Fixed: Script Console doesn't respect the Font Setting\n- Fixed: The free version can pin unlimited domains\n- Fixed: Should check if it exceeds the free rule first, before showing the Editor\n- Fixed: App crashes when setting invalid Query in Breakpoint or Scripting\n- Fixed: WebSocket messages not being checked by searches",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.18.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.18.0/build/Proxyman%20Setup%202.18.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.18.0.exe",
+          "sha256": "6c3e003a72b89726fed8d33ac758f3cbcc0dce6329677e7e4437dfbb6aa97099",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.17.0",
+      "release_date": "2024-10-07",
+      "release_notes": "⚡️ Improve\n- Build with the latest tool and improve app stability\n\n🐞 Bugs\n- Fixed: Proxyman can't decode the deflate body correctly\n- Fixed: Some Internal Crashes",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.17.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.17.0/build/Proxyman%20Setup%202.17.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.17.0.exe",
+          "sha256": "ba6f9a34957daa0599cfba5aa46b55a2888be9a96ed451b5dc2be1f1ae33ebe4",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.16.0",
+      "release_date": "2024-08-04",
+      "release_notes": "✨ Features\n- Introduce the Manual Setup that set up the Proxy and Certificate on NodeJS, Ruby and Python with 1-click. Useful for backend debugging.\n- [Scripting Tool] Import Scripts Setting from macOS <-> Windows/Linux\n- Introduce the Code Generators Tab\n\n⚡️ Improve\n- New UI for Free Version\n- Export as a CSV\n- Improve UI for all debugging tools\n- [Compose] Import from cURL\n- New commands for Copy as CSV in the Right Menu Context\n\n🐞 Bugs\n- Fixed: Crash Errors on Sentry",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.16.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.16.0/build/Proxyman%20Setup%202.16.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.16.0.exe",
+          "sha256": "23b34288d4e838f11e1137beeb4c643ad5c58b3921232a67a599c0135ee3138c",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.15.0",
+      "release_date": "2024-06-02",
+      "release_notes": "✨ Features\n- Introduce the checkbox column on Query and Param to enable/disable some entries. Works with Compose and Breakpoint Tools\n- Introduce the Shared State in Scripting\n- Introduce `http://cert.proxyman.io`\n- Improve the UX when users can't access http://proxy.man/ssl\n\n⚡️ Improve\n- Update to ElectronJS v22\n\n🐞 Bugs\n- Fixed: Crash Errors on Sentry\n- Fixed: Getting error when repeating one request multiple times\n- Fixed: The response cannot display when enabling Map Remote and URL end with '&'\n- Fixed: Search params encode issue for Map Remote and Scripting",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.15.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.15.0/build/Proxyman%20Setup%202.15.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.15.0.exe",
+          "sha256": "86789885e3aff2577a30f659be9672e96a8b6ecd965ae90d6168ef28255e6f98",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.14.0",
+      "release_date": "2024-04-15",
+      "release_notes": "✨ Features\n- Introduce the External Proxy Tool to help developers set up Proxyman with their corporate Proxy Server\n- Introduce the new Advanced Proxy Settings\n\n🐞 Bugs\n- Fixed: Highlight color doesn't render if it's a selected row\n- Fixed: Cannot switch off the \"Don't ask again\" in the Alert when closing the app\n- Fixed: JSON Body parser causes missing large number\n- Fixed: Map remote websocket support",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.14.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.14.0/build/Proxyman%20Setup%202.14.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.14.0.exe",
+          "sha256": "0efa28c1f1d7bdaf1e9b169b9b419814d0a9982db5347dd5c7ac9c00ef0fafc8",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.13.0",
+      "release_date": "2024-04-01",
+      "release_notes": "✨ Features\n- Introduce Custom Header Column: We can add Header as a Column. Easier to read the Header.\n- Introduce New Proxy Settings\n- Support Highlight by Color (red, green, ...)\n- Add new menu context to the Source List\n\n⚡️ Improve\n- New Setting screen with new settings: Toggle 24h Format, Alert before closing the app, full-time date mode, etc\n- [Scripting] Add Color/Comment by Scripting\n- Replace checkbox with Tailwind UI Checkbox\n- Support Server-sent Event with Proxyman\n\n🐞 Bugs\n- Fixed: Can not fetch the current IP from user machine\n- Fixed: Cannot read properties of undefined (reading 'filter')\n- Fixed: [Map Remote] Invalid URL when mapping a empty path URL\n- Fixed: Server-Sent Event (SSE) doesn't work",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.13.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.13.0/build/Proxyman%20Setup%202.13.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.13.0.exe",
+          "sha256": "13f752598364c7e507481889a2ce0af856c587bca05007583713cd228d5a5a45",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.12.0",
+      "release_date": "2024-03-10",
+      "release_notes": "✨ Features\n- Introduce Map Remote Tool: Allow developers to change the destination of your URL easily. Useful for changing localhost requests to production and vice versa\n- Add missing filters from macOS: Including All, Request Body, Response Body, IP Address, Comment, ...\n\n⚡️ Improve\n- Support Wildcard on the left panel. It is useful to match multiple domains with a single wildcard rule\n- Support GraphQL on Filter\n- Improve the Right Menu-Context for the left panel\n- [Map Remote]: Import / Export Rule\n- [Map Remote]: Work with Breakpoint and Scripting Tool\n- [Map Remote]: Support WebSocket\n- Able to Edit Proxying List Entry in the SSL Proxying List\n- [Map Remote]: Auto parse the Map Remote URL to each component like Charles Proxy\n\n🐞 Bugs\n- Fixed: Creating new rules that don't contain the GraphQL Query Name\n- Fixed: [Scripting] Multipart form data broken if used with scripting\n- Fixed: The WebSocket UI is off\n- Fixed: Proxy in Setting doesn't work when activating License Key with Corporate Proxy\n- Fixed: Clear Session doesn't clear all TreeNode's child\n- Fixed: Unable to verify the first certificate\n- Fixed: Broken UI with large font size",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.12.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.12.0/build/Proxyman%20Setup%202.12.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.12.0.exe",
+          "sha256": "5b1d592fb5e758209578dbe73747960e8698bf1ee2c72275e533aa5245414dad",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.11.1",
+      "release_date": "2024-02-21",
+      "release_notes": "🐞 Bugs\n- Fixed: Proxyman does not accept Self-signed certificates from the user's website\n- Fixed: HLS Media Manifest wrong display (Binary instead of text)\n- Fixed: SSL Proxying List does not work with a domain (has - character in the name)\n- Fixed: White Screen when showing the Body",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.6.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.11.1",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.11.1/build/Proxyman%20Setup%202.11.1.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.11.1.exe",
+          "sha256": "3f100669ec1980fb04e36a23b1b00583e23c5c8b4c810f2a41204faf3ce13b47",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.11.0",
+      "release_date": "2024-02-14",
+      "release_notes": "✨ Features\n- Introduce the Scripting on Windows/Linux: Write JS to modify the Request (Method, URL, Header, Body, and Query) and Response (Status Code, Header, Body) with ease.\n- [Scripting] Support axios to make HTTP(s) requests inside the Script\n- [Scripting] Support built-in library to perform common tasks: e.g. base64, encryption, ...\n\n🐞 Bugs\n- Fixed: PRO Tag is glitched\n- Fixed: Can't use F5 when using other apps.",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.11.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.11.0/build/Proxyman%20Setup%202.11.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.11.0.exe",
+          "sha256": "3cdc9185344f1f5f34586ff90d864ed284f29aa92bc2741799ca357a69990c17",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.10.0",
+      "release_date": "2024-01-21",
+      "release_notes": "✨ Features\n- Introduce the Filter Websocket message to the WebSocket UI\n- Support Timestamp Convert (Second and millisecond)\n- [Compose & Edit] Support timeout and auto-redirect\n\n⚡️ Improve\n- Detect if the Proxyman Root CA Certificate is expired\n- Support new Setting for Appearance (Monospace Font, Tab Width, and Show Invisibles)\n- Support Multiple selection for the Source List\n\n🐞 Bugs\n- Fixed: Delete all flows does not work\n- Fixed: Source List jumps after deleting a domain node",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.10.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.10.0/build/Proxyman%20Setup%202.10.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.10.0.exe",
+          "sha256": "77dd27977a2b22f694c0173e2db77a1fa5e79297a96fca11e9674a59287d5a6c",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.9.0",
+      "release_date": "2023-12-12",
+      "release_notes": "✨ Features\n- Introduce a Network Condition tool that helps developers to simulate slow networks. Support various profiles, e.g 3G, 4G, 5G, 100% drop, etc\n\n🐞 Bugs\n- Fixed: Could not decrypt HTTPS from Firefox due to invalid certificate",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.9.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.9.0/build/Proxyman%20Setup%202.9.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.9.0.exe",
+          "sha256": "eea29dbea1c5f51a8ea25e238a8d95e9e6841e427704328bf4b2073488977f9f",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "version": "2.6.0",
+      "release_date": "2023-10-22",
+      "release_notes": "✨ Features\n- Introduce a \"Manual Install Proxyman Certificate\" to Windows OS. It's the alternative solution if you don't want to install it automatically.\n- Introduce the \"Quick View\" that lets users quickly show the inline base64, and beautify inline JSON, JWT, and Key Value.\n\n⚡️ Improve\n- Improve the Proxyman Pro UI: Hide the FREE column if it's the PRO version\n- Remove an unnecessary BlueprintJS library",
+      "release_notes_url": "https://proxyman.io/changelog",
+      "manifest_version": "1.5.0",
+      "manifest_dir": "manifests/p/Proxyman/Proxyman/2.6.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://download.proxyman.io/windows/2.6.0/build/Proxyman%20Setup%202.6.0.exe",
+          "host": "download.proxyman.io",
+          "filename": "Proxyman Setup 2.6.0.exe",
+          "sha256": "8b25af30026101d48d949e1ee3695854f5439562129e5f0bda2c8d42889e6617",
+          "product_code": "1c658a2b-63bd-5737-96bf-d2b01fd7d360",
+          "switches": {
+            "upgrade": "--updated"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "har",
+            "proxymanlogv2"
+          ]
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "version": "26.6.1",
+      "source_version": "26.6.1,260601",
+      "installers": [
+        {
+          "platform": "macos",
+          "architecture": "universal",
+          "type": "dmg",
+          "url": "https://download.proxyman.com/260601/Proxyman_26.6.1.dmg",
+          "host": "download.proxyman.com",
+          "filename": "Proxyman_26.6.1.dmg",
+          "sha256": "9c1f7b63f8cc7f1dc691fc8918f850c7d920ad6b75fe7b2801f0c41b5d8dc03c",
+          "min_os_version": "14"
+        }
+      ],
+      "cask": {
+        "apps": [
+          "Proxyman.app"
+        ],
+        "binaries": [
+          "proxyman-cli"
+        ],
+        "auto_updates": true,
+        "cleanup": {
+          "quit": [
+            "com.proxyman.NSProxy"
+          ],
+          "launchctl": [
+            "com.proxyman.NSProxy.HelperTool"
+          ],
+          "remove": [
+            "/Library/PrivilegedHelperTools/com.proxyman.NSProxy.HelperTool"
+          ],
+          "zap_paths": [
+            "~/.proxyman*",
+            "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.proxyman.nsproxy.sfl*",
+            "~/Library/Application Support/com.proxyman",
+            "~/Library/Application Support/com.proxyman.NSProxy",
+            "~/Library/Application Support/Proxyman",
+            "~/Library/Caches/com.plausiblelabs.crashreporter.data/com.proxyman.NSProxy",
+            "~/Library/Caches/com.proxyman.NSProxy",
+            "~/Library/Caches/Proxyman",
+            "~/Library/Cookies/com.proxyman.binarycookies",
+            "~/Library/Cookies/com.proxyman.NSProxy.binarycookies",
+            "~/Library/HTTPStorages/com.proxyman.NSProxy",
+            "~/Library/Preferences/com.proxyman.iconappmanager.userdefaults.plist",
+            "~/Library/Preferences/com.proxyman.NSProxy.plist",
+            "~/Library/Preferences/com.proxyman.plist",
+            "~/Library/Saved Application State/com.proxyman.NSProxy.savedState",
+            "~/Library/WebKit/com.proxyman.NSProxy",
+            "/Users/Shared/Proxyman"
+          ]
+        }
+      }
+    }
+  ],
+  "verification": {
+    "level": 0,
+    "label": "Hashes copied from upstream package manifests (winget-pkgs, Homebrew cask). Not independently re-computed; signatures not checked.",
+    "checks": {
+      "hash_in_manifest": true,
+      "hash_recomputed": false,
+      "signature_checked": false
+    }
+  },
+  "provenance": [
+    {
+      "source": "winget-pkgs",
+      "platform": "windows",
+      "repo": "https://github.com/microsoft/winget-pkgs",
+      "commit": "74ee2a56d725f521e9ec2728fd54e6aec47d1fe4",
+      "retrieved_at": "2026-11-27T23:10:53.803Z",
+      "path": "manifests/p/Proxyman/Proxyman"
+    },
+    {
+      "source": "homebrew-cask",
+      "platform": "macos",
+      "repo": "https://github.com/Homebrew/homebrew-cask",
+      "commit": "1d373c532f89598520d347d4931a0ac37017410f",
+      "retrieved_at": "2026-11-27T23:10:53.803Z",
+      "path": "Casks/p/proxyman.rb",
+      "api_url": "https://formulae.brew.sh/api/cask/proxyman.json"
+    }
+  ]
+}
