@@ -10,7 +10,7 @@
 //   1. append new lines to config/apps.txt (duplicates are skipped)
 //   2. ingest   new winget apps + auto-match their Homebrew cask (same name AND same website domain), then every custom source (config/custom-sources.json), then Flathub (Linux, matched the same way)
 //   3. validate the data
-//   3b. icons   winget manifest icon, else Flathub icon, else the app icon from the Homebrew cask download, else a generic GitHub mark for GitHub projects, else none
+//   3b. icons   winget manifest icon, else Flathub icon, else the app icon from the Homebrew cask download, else the Logo.dev logo of the app's own domain (needs LOGODEV_SECRET), else a generic GitHub mark for GitHub projects, else none
 //   3c. share images (og:image) for apps that have none yet, or whose name or icon changed
 //   3d. screenshots from Flathub for apps that have none yet, or whose Flathub screenshot list changed
 //   4. verify   download installers, re-compute SHA-256, check signatures (apps with no or stale results)
@@ -19,7 +19,7 @@
 //   6. build the site and run the checks
 //   7. print a report of the new apps
 //
-// Options: --refresh  --max-mb=N (optional: leave apps with a bigger installer unchecked; there is no limit by default)  --jobs=3  --no-verify  --no-vt  --no-icons  --no-og  --no-screenshots  --no-links  --no-build
+// Options: --refresh  --max-mb=N (optional: leave apps with a bigger installer unchecked; there is no limit by default)  --jobs=3  --no-verify  --no-vt  --no-icons  --no-logodev  --no-og  --no-screenshots  --no-links  --no-build
 
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, appendFileSync, writeFileSync } from 'node:fs';
@@ -99,7 +99,7 @@ if (unknown.length) {
 step('Validate');
 run('validate.mjs');
 
-// ---- icons (new or re-read apps only: winget manifest icon, else the generic GitHub mark, else none)
+// ---- icons (new or re-read apps only: winget, custom source or Flathub icon, else the Mac app icon, else Logo.dev, else the generic GitHub mark, else none)
 if (!flags['no-icons']) {
   const onlySet = new Set(String(flags.only || '').split(',').filter(Boolean));
   const iconSlugs = Object.entries(apps()).filter(([slug, r]) => !before.has(slug) || onlySet.has(r.ids.winget)).map(([slug]) => slug);
@@ -107,7 +107,9 @@ if (!flags['no-icons']) {
   if (iconSlugs.length) run('icons.mjs', iconSlugs, { allowFail: true });
   // Still no icon (or only the generic GitHub mark)? Take the app's own icon out of its Homebrew cask download.
   if (iconSlugs.length) run('macicons.mjs', ['--missing', ...iconSlugs], { allowFail: true });
-  else console.log('  nothing new');
+  // Still nothing? The Logo.dev logo of the app's own domain (skips code hosts, shared domains and logo=none apps).
+  if (iconSlugs.length && !flags['no-logodev']) run('logodevicons.mjs', ['--missing', ...iconSlugs], { allowFail: true });
+  if (!iconSlugs.length) console.log('  nothing new');
 }
 
 // ---- share images: made once per app, remade only when its name or icon changed (scripts/og.mjs keeps the hashes in data/og.json)

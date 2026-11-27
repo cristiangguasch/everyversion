@@ -52,7 +52,7 @@ function readConfig() {
     const licenseUrlTok = rest.find((t) => t.startsWith('license_url='));
     out.push({
       id,
-      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('name=') && !t.startsWith('formerly=') && !t.startsWith('previous=') && !t.startsWith('cask=') && !t.startsWith('flathub=') && !t.startsWith('license=') && !t.startsWith('license_url=')) || null,
+      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('name=') && !t.startsWith('formerly=') && !t.startsWith('previous=') && !t.startsWith('cask=') && !t.startsWith('flathub=') && !t.startsWith('license=') && !t.startsWith('license_url=') && !t.startsWith('logo=') && !t.startsWith('logo_domain=')) || null,
       slugOverride: slugTok ? slugTok.slice(5) : null,
       nameOverride: nameTok ? nameTok.slice(5).replace(/_/g, ' ') : null, // name=Threema_Web -> "Threema Web"
       formerly: formerlyTok ? formerlyTok.slice(9).replace(/_/g, ' ') : null, // formerly=SQLiteStudio -> "Letos (formerly SQLiteStudio)" in H1 and title

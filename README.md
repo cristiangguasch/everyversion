@@ -91,7 +91,7 @@ scripts/validate.mjs       checks every record against the schema
 scripts/verify.mjs         downloads installers, re-computes SHA-256, checks signatures
 scripts/virustotal.mjs     VirusTotal lookups by hash
 scripts/linkcheck.mjs      finds dead download links
-scripts/icons.mjs, macicons.mjs, og.mjs, screenshots.mjs   icons, share images, screenshots
+scripts/icons.mjs, macicons.mjs, logodevicons.mjs, og.mjs, screenshots.mjs   icons, share images, screenshots
 scripts/tags.mjs, categories.mjs   tags and categories for the listings
 scripts/build.mjs          data -> dist/ (static pages in scripts/lib/pages.mjs)
 scripts/check.mjs          checks on the built site
@@ -120,7 +120,7 @@ npm run daily -- --only=Joplin.Joplin                               # re-read on
 npm run daily -- --refresh                                          # re-read every app; apps whose installers changed are verified again
 ```
 
-Options: `--max-mb=N` (leave apps with a bigger installer unchecked; no limit by default), `--jobs=3`, `--no-verify`, `--no-vt`, `--no-icons`, `--no-og`, `--no-screenshots`, `--no-links`, `--no-build`.
+Options: `--max-mb=N` (leave apps with a bigger installer unchecked; no limit by default), `--jobs=3`, `--no-verify`, `--no-vt`, `--no-icons`, `--no-logodev`, `--no-og`, `--no-screenshots`, `--no-links`, `--no-build`.
 
 Good to know:
 
@@ -257,6 +257,26 @@ Rules:
 - Include only what the notes say. When the notes are empty, only a list of commits, or for another version, write no file.
 
 A summary is tied to `platform` and `version`. When the app's latest version on that platform changes, the page stops showing it until the file is rewritten. `npm run validate` checks each file and lists the stale ones, and `npm run check` checks that each current summary appears on the page and in the `.md` file. The code is in `scripts/lib/whatsnew.mjs`.
+
+### App icons
+
+Each app page shows the app's own icon, kept in `data/icons/<slug>.<ext>`, with where it came from in `data/icons.json`. The first source that has one wins:
+
+1. the icon in the app's winget manifest (`scripts/icons.mjs`)
+2. for custom sources, the icon the source's config names
+3. the app's Flathub icon
+4. the icon inside the Mac app, taken from the Homebrew cask download (`scripts/macicons.mjs`)
+5. the Logo.dev logo of the app's own website domain (`scripts/logodevicons.mjs`)
+6. for GitHub projects, one generic GitHub mark
+
+Nothing is generated: apps with none of these get no icon. SVG files are refused.
+
+Logo.dev is a last resort, because its logos are brand logos. The script uses the Logo.dev API with the secret key in `LOGODEV_SECRET` (in `.env`, never in a tracked file), downloads each logo once and keeps it. It never copies images from the img.logo.dev CDN, which Logo.dev's rules forbid. It skips code hosts such as github.com, domains shared by two or more of our apps (mozilla.org, jetbrains.com), and sources smaller than 64 px. In `config/apps.txt`, `logo=none` turns Logo.dev off for an app whose logo is a company logo, a wordmark or a banner, and `logo_domain=<domain>` picks the domain by hand. Logo.dev's free plan asks for a credit, so the site footer links to Logo.dev on every page.
+
+```bash
+node scripts/logodevicons.mjs --missing --dry-run   # what it would fetch, without saving
+node scripts/logodevicons.mjs --missing             # fetch for every app with no icon or only the GitHub mark
+```
 
 ### Share images (og:image)
 

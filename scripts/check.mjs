@@ -211,6 +211,11 @@ for (const a of apps) {
     if (w && !readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes(`## What’s new in ${w.version}`)) bad(a.slug, '“What’s new” summary missing from the .md twin');
   }
 }
+// Logo.dev attribution: when any icon comes from Logo.dev, every page's footer must link to logo.dev (free-plan rule)
+{
+  const usesLogoDev = Object.values(JSON.parse(readFileSync(join(ROOT, 'data', 'icons.json'), 'utf8'))).some((i) => i.source === 'logo-dev');
+  if (usesLogoDev) for (const a of apps) if (!/<footer[\s\S]*href="https:\/\/logo\.dev"/.test(readFileSync(join(DIST, a.slug, 'index.html'), 'utf8'))) bad(a.slug, 'footer is missing the Logo.dev credit link');
+}
 // renamed apps: "New (formerly Old)" in the H1 and <title> of the app page and its old-versions page, at the old slug
 for (const a of apps) {
   const rec = JSON.parse(readFileSync(join(ROOT, 'data', 'apps', `${a.slug}.json`), 'utf8'));

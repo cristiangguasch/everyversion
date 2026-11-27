@@ -6,6 +6,8 @@
 #   formerly=<Old_Name>  = the app was renamed: name= holds the new name, formerly= the old one. The H1 and <title> read "New (formerly Old)". Keep the old slug (add slug=<old-slug> if the new name would change it).
 #   cask=<token>     = matching Homebrew cask (reviewed by hand against name, homepage and download host).
 #   flathub=<id>     = matching Flathub app (Linux), e.g. net.cozic.joplin_desktop. flathub=none = not on Flathub / do not match.
+#   logo=none        = never use a Logo.dev logo as this app's icon (it would be a company logo, a wordmark or a banner).
+#   logo_domain=<d>  = the domain to ask Logo.dev about, when the homepage is a code host or shared with other apps.
 #   license=<SPDX>   = the license as the project's own LICENSE file states it, when the manifest's License field is wrong (underscores become spaces). license_url=<url> = its link.
 # Pricing for open-source / freeware licenses is derived from the manifest License field.
 # 100 apps for the MVP.
@@ -48,7 +50,7 @@ Postman.Postman                             free-to-download cask=postman flathu
 GitHub.GitHubDesktop                        cask=github flathub=io.github.shiftey.Desktop
 JetBrains.IntelliJIDEA.Community            slug=intellij-idea-community cask=intellij-idea-ce
 JetBrains.PyCharm.Community                 slug=pycharm-community cask=pycharm-ce
-EclipseAdoptium.Temurin.21.JDK              slug=temurin-jdk-21 cask=temurin@21
+EclipseAdoptium.Temurin.21.JDK              slug=temurin-jdk-21 cask=temurin@21 logo=none
 OpenJS.NodeJS                               slug=nodejs
 Rustlang.Rustup                             slug=rustup
 GoLang.Go                                   slug=go
@@ -58,7 +60,7 @@ Obsidian.Obsidian                           free-to-download cask=obsidian flath
 Notion.Notion                               free-to-download cask=notion
 Figma.Figma                                 free-to-download cask=figma
 TheDocumentFoundation.LibreOffice           cask=libreoffice flathub=org.libreoffice.LibreOffice
-Adobe.Acrobat.Reader.64-bit                 free-to-download cask=adobe-acrobat-reader
+Adobe.Acrobat.Reader.64-bit                 free-to-download cask=adobe-acrobat-reader logo=none
 Foxit.FoxitReader                           free-to-download slug=foxit-reader cask=foxitreader
 SumatraPDF.SumatraPDF
 WinSCP.WinSCP
@@ -226,7 +228,7 @@ Soulseek.SoulseekQt cask=soulseek
 Stellarium.Stellarium cask=stellarium flathub=org.stellarium.Stellarium
 JannisX11.Blockbench cask=blockbench flathub=net.blockbench.Blockbench
 Ultimaker.Cura cask=ultimaker-cura flathub=com.ultimaker.cura
-Rclone.Rclone
+Rclone.Rclone logo=none
 Mumble.Mumble.Client flathub=info.mumble.Mumble cask=mumble
 OpenTTD.OpenTTD cask=openttd flathub=org.openttd.OpenTTD
 PPSSPPTeam.PPSSPP cask=ppsspp-emulator flathub=org.ppsspp.PPSSPP
@@ -373,7 +375,7 @@ AntibodySoftware.WizTree free-to-download flathub=none
 WinDirStat.WinDirStat flathub=none
 Espanso.Espanso cask=espanso flathub=none
 Betterbird.Betterbird flathub=eu.betterbird.Betterbird
-Playnite.Playnite flathub=none
+Playnite.Playnite flathub=none logo=none
 AutoHotkey.AutoHotkey flathub=none
 Ditto.Ditto flathub=none
 Ventoy.Ventoy flathub=none
@@ -386,7 +388,7 @@ Winamp.Winamp free-to-download flathub=none
 
 # added 2026-11-15
 Klocman.BulkCrapUninstaller slug=bcuninstaller flathub=none
-Rizonesoft.Notepad3 flathub=none
+Rizonesoft.Notepad3 flathub=none logo=none
 QL-Win.QuickLook flathub=none
 
 # added 2026-11-16
@@ -394,7 +396,7 @@ DominikReichl.KeePass flathub=none
 WinMerge.WinMerge flathub=none
 DuongDieuPhap.ImageGlass flathub=none
 NickeManarin.ScreenToGif flathub=none
-Rainmeter.Rainmeter flathub=none
+Rainmeter.Rainmeter flathub=none logo=none
 LizardByte.Sunshine flathub=dev.lizardbyte.app.Sunshine
 Neovide.Neovide cask=neovide-app flathub=dev.neovide.neovide
 GitExtensionsTeam.GitExtensions flathub=none
@@ -425,9 +427,9 @@ GitButler.GitButler free-to-download cask=gitbutler flathub=com.gitbutler.gitbut
 Mozilla.VPN cask=mozilla-vpn flathub=org.mozilla.vpn
 CPUID.HWMonitor flathub=none
 rocksdanister.LivelyWallpaper flathub=none
-JAMSoftware.TreeSize.Free free-to-download flathub=none
+JAMSoftware.TreeSize.Free free-to-download flathub=none logo=none
 FastStone.Viewer free-to-download flathub=none
-CodeSector.TeraCopy free-to-download flathub=none
+CodeSector.TeraCopy free-to-download flathub=none logo=none
 Henry++.simplewall flathub=none
 Rem0o.FanControl flathub=none
 WinsiderSS.SystemInformer flathub=none
@@ -440,9 +442,9 @@ JetBrains.IntelliJIDEA cask=intellij-idea flathub=com.jetbrains.IntelliJ-IDEA-Ul
 # added 2026-11-18
 Anthropic.Claude free-to-download cask=claude flathub=none
 OpenAI.ChatGPT free-to-download cask=chatgpt flathub=none
-Codeium.Windsurf free-to-download flathub=none
+Codeium.Windsurf free-to-download flathub=none logo=none
 Anaconda.Anaconda3 free-to-download slug=anaconda name=Anaconda cask=anaconda flathub=none
-Hashicorp.Vagrant cask=vagrant flathub=none
+Hashicorp.Vagrant cask=vagrant flathub=none logo=none
 Microsoft.PowerBI free-to-download slug=power-bi-desktop name=Power_BI_Desktop flathub=none
 Tableau.Public free-to-download cask=tableau-public flathub=none
 Mobatek.MobaXterm flathub=none
@@ -463,7 +465,7 @@ Streamlabs.Streamlabs cask=streamlabs flathub=none
 Notion.NotionCalendar free-to-download cask=notion-calendar flathub=none
 SteelSeries.GG free-to-download cask=steelseries-gg flathub=none
 Elgato.CameraHub free-to-download cask=elgato-camera-hub flathub=none
-Apple.iTunes free-to-download flathub=none
+Apple.iTunes free-to-download flathub=none logo=none
 Deezer.Deezer free-to-download cask=deezer flathub=none
 ActivityWatch.ActivityWatch cask=activitywatch flathub=none
 GlassWire.GlassWire free-to-download flathub=none
@@ -474,15 +476,15 @@ Iterate.MountainDuck cask=mountain-duck flathub=none
 RedisInsight.RedisInsight free-to-download cask=redis-insight flathub=com.redis.RedisInsight
 Microsoft.Azure.StorageExplorer slug=azure-storage-explorer name=Azure_Storage_Explorer cask=microsoft-azure-storage-explorer flathub=com.microsoft.AzureStorageExplorer
 Microsoft.WindowsApp free-to-download cask=windows-app flathub=none
-Telerik.Fiddler.Classic free-to-download slug=fiddler-classic name=Fiddler_Classic flathub=none
+Telerik.Fiddler.Classic free-to-download slug=fiddler-classic name=Fiddler_Classic flathub=none logo=none
 Yaak.app cask=yaak flathub=none
 ManicTime.ManicTime cask=manictime flathub=none
 Mozilla.Thunderbird.ESR slug=thunderbird-esr name=Thunderbird_ESR cask=thunderbird@esr flathub=org.mozilla.thunderbird_esr
 Morgen.Morgen cask=morgen flathub=none
-Amazon.Corretto.21.JDK slug=amazon-corretto-21 name=Amazon_Corretto_21 cask=corretto@21 flathub=none
+Amazon.Corretto.21.JDK slug=amazon-corretto-21 name=Amazon_Corretto_21 cask=corretto@21 flathub=none logo=none
 
 # added 2026-11-21
-Azul.Zulu.21.JDK slug=azul-zulu-21 name=Azul_Zulu_JDK_21 cask=zulu@21 flathub=none
+Azul.Zulu.21.JDK slug=azul-zulu-21 name=Azul_Zulu_JDK_21 cask=zulu@21 flathub=none logo=none
 Microsoft.OpenJDK.21 slug=microsoft-openjdk-21 name=Microsoft_Build_of_OpenJDK_21 cask=microsoft-openjdk@21 flathub=none
 Microsoft.SQLServerManagementStudio.22 free-to-download slug=ssms-22 name=SQL_Server_Management_Studio_22 flathub=none
 Microsoft.VisualStudio.2022.Community free-to-download slug=visual-studio-community-2022 name=Visual_Studio_Community_2022 flathub=none

@@ -320,7 +320,7 @@ ${isHome ? '' : `<script src="/search.js?v=${SEARCH_V}" defer></script>\n`}<scri
 <main><div class="wrap">
 ${body}
 </div></main>
-<footer class="site-footer"><div class="wrap"><p>We host no installers, we <a href="/legal/cookies/">use no cookies</a>, and we’re not affiliated with any software publisher.</p><nav aria-label="More"><a href="/categories/">Software</a><a href="/api/">API</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/statistics/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
+<footer class="site-footer"><div class="wrap"><p>We host no installers, we <a href="/legal/cookies/">use no cookies</a>, and we’re not affiliated with any software publisher. Some app icons: <a href="https://logo.dev" rel="noopener">Logos provided by Logo.dev</a>.</p><nav aria-label="More"><a href="/categories/">Software</a><a href="/api/">API</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/security/">Security</a><a href="/legal/">Legal</a><a href="/statistics/">Stats</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav></div></footer>
 </body>
 </html>
 `;

@@ -10,6 +10,8 @@
 //   3. for apps on Flathub (verified or not; the record says which): the 128x128 icon Flathub serves for the app (dl.flathub.org)
 //   4. for projects hosted on GitHub: ONE generic GitHub mark (data/icons/github-mark.svg). Never the project's or a
 //      person's profile picture.
+// After this, macicons.mjs takes the icon out of the Mac app (Homebrew download) and logodevicons.mjs asks Logo.dev,
+// both only for apps left with no icon or the GitHub mark. An existing Logo.dev icon is kept over the GitHub mark.
 // Apps with neither get no icon (nothing is invented or generated). Results and provenance go to data/icons.json.
 
 import { createHash } from 'node:crypto';
@@ -135,6 +137,11 @@ for (const rec of recs) {
       const g = fromGithub(rec);
       if (g.skip) why = g.skip;
       else hit = g;
+    }
+    // A Logo.dev icon (scripts/logodevicons.mjs) is kept when this script would only find the GitHub mark or nothing.
+    if ((!hit || hit.source === 'github-project') && index[rec.slug]?.source === 'logo-dev') {
+      console.log('kept Logo.dev icon');
+      continue;
     }
     if (!hit) {
       delete index[rec.slug];
