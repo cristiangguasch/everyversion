@@ -48,14 +48,19 @@ function readConfig() {
     const nameTok = rest.find((t) => t.startsWith('name='));
     const formerlyTok = rest.find((t) => t.startsWith('formerly='));
     const previousTok = rest.find((t) => t.startsWith('previous='));
+    const licenseTok = rest.find((t) => t.startsWith('license='));
+    const licenseUrlTok = rest.find((t) => t.startsWith('license_url='));
     out.push({
       id,
-      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('name=') && !t.startsWith('formerly=') && !t.startsWith('previous=') && !t.startsWith('cask=') && !t.startsWith('flathub=')) || null,
+      curatedPricing: rest.find((t) => !t.startsWith('slug=') && !t.startsWith('name=') && !t.startsWith('formerly=') && !t.startsWith('previous=') && !t.startsWith('cask=') && !t.startsWith('flathub=') && !t.startsWith('license=') && !t.startsWith('license_url=')) || null,
       slugOverride: slugTok ? slugTok.slice(5) : null,
       nameOverride: nameTok ? nameTok.slice(5).replace(/_/g, ' ') : null, // name=Threema_Web -> "Threema Web"
       formerly: formerlyTok ? formerlyTok.slice(9).replace(/_/g, ' ') : null, // formerly=SQLiteStudio -> "Letos (formerly SQLiteStudio)" in H1 and title
       previous: previousTok ? previousTok.slice(9).split(',').filter(Boolean) : [], // previous=PawelSalawa.SQLiteStudio: the winget ID(s) the app had before a rename; their versions join this page
       cask: (rest.find((t) => t.startsWith('cask=')) || '').slice(5) || null,
+      // license=Apache-2.0 / license_url=https://…: the license as the project's own LICENSE file states it, when the
+      // manifest's License field is wrong or out of date. Underscores become spaces (GPL-2.0-only_OR_GPL-3.0-only).
+      license: licenseTok ? { name: licenseTok.slice(8).replace(/_/g, ' '), url: licenseUrlTok ? licenseUrlTok.slice(12) : null } : null,
     });
   }
   return out;
@@ -239,7 +244,7 @@ function readVersion(id, appDir, dirName) {
   };
 }
 
-function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, formerly, previous = []) {
+function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, formerly, previous = [], licenseOverride = null) {
   const appDir = join(CACHE, manifestDir(id));
   if (!existsSync(appDir)) return { missing: true };
 
@@ -282,7 +287,7 @@ function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, former
   const publisher = str(L.Publisher);
   if (!name || !publisher) return { missing: true, reason: 'no name/publisher' };
 
-  const licenseName = str(L.License);
+  const licenseName = licenseOverride?.name || str(L.License);
   const support = str(L.PublisherSupportUrl);
   const docsList = Array.isArray(L.Documentations)
     ? L.Documentations.map((d) => clean({ label: str(d.DocumentLabel), url: str(d.DocumentUrl) })).filter((d) => d.label && d.url)
@@ -315,8 +320,8 @@ function readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, former
     }),
     license: clean({
       name: licenseName || 'Not stated',
-      url: str(L.LicenseUrl),
-      spdx: licenseName && SPDX.has(licenseName) ? licenseName : undefined,
+      url: licenseOverride?.url || str(L.LicenseUrl),
+      spdx: licenseName && (SPDX.has(licenseName) || licenseOverride) ? licenseName : undefined,
       copyright: str(L.Copyright),
       copyright_url: str(L.CopyrightUrl),
     }),
@@ -401,9 +406,9 @@ async function main() {
   let unchanged = 0;
 
   for (const { id, slugOverride } of allConfig) if (slugOverride) taken.set(slugOverride, id);
-  for (const { id, curatedPricing, slugOverride, nameOverride, formerly, previous, cask: caskConfigured } of config) {
+  for (const { id, curatedPricing, slugOverride, nameOverride, formerly, previous, cask: caskConfigured, license: licenseOverride } of config) {
     if (kept.size >= LIMIT) break;
-    const res = readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, formerly, previous);
+    const res = readApp(id, curatedPricing, slugFor, slugOverride, nameOverride, formerly, previous, licenseOverride);
     if (res.missing) {
       missing.push(id);
       continue;
