@@ -217,7 +217,7 @@ If the rename also brought a new winget ID, switch the line to the new ID and ad
 
 ### Feature notes (editorial)
 
-Some app pages carry hand-written notes in the Description section: a one-line "Best for", then 5 to 8 bullets on what the app does and where it stops. Each lives in `config/features/<slug>.json` and is shown on the page and in the `.md` file by `scripts/lib/features.mjs`. Apps without a file show only the description.
+Some app pages carry hand-written notes in the Overview section: a one-line "Best for", then 5 to 8 bullets on what the app does and where it stops. Each lives in `config/features/<slug>.json` and is shown on the page and in the `.md` file by `scripts/lib/features.mjs`. Apps without a file show only the description.
 
 ```
 { "slug", "reviewed": "YYYY-MM-DD",

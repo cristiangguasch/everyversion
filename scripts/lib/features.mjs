@@ -1,4 +1,4 @@
-// Editorial notes shown inside the Description section of an app page: hand-written per app in config/features/<slug>.json,
+// Editorial notes shown inside the Overview section of an app page: hand-written per app in config/features/<slug>.json,
 // rendered by the build on the page and in the .md twin.
 //
 // The text is written by us, in our own words, from the publisher's pages listed in `sources`. It never carries a claim we could not
@@ -7,7 +7,7 @@
 // File shape (see README, "Features notes"):
 //   { "slug", "reviewed": "YYYY-MM-DD",
 //     "best_for": "…",
-//     "description": "…",                                 optional: our own Description text, 1 or 2 paragraphs (blank line between),
+//     "description": "…",                                 optional: our own Overview text, 1 or 2 paragraphs (blank line between),
 //                                                          shown in place of the publisher's; repeats nothing from best_for or points
 //     "points": [{ "title": "…", "text": "…" }]          5 to 8 points; titles are free, so the structure differs per app
 //     "sources": [{ "label": "…", "url": "https://…" }] }
@@ -60,7 +60,7 @@ export function featureProblems(slug, feat, rec) {
   return bad;
 }
 
-// HTML that goes inside the Description section, right after the description paragraphs. `code` lets `backticks` become <code>.
+// HTML that goes inside the Overview section, right after the description paragraphs. `code` lets `backticks` become <code>.
 export function featuresHtml(feat, { esc, code }) {
   return `<p class="feat-fit"><strong>Best for:</strong> ${code(feat.best_for)}</p>
 <h3>Features</h3>

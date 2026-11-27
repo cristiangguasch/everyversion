@@ -178,25 +178,25 @@ for (const a of apps) {
   } else if (/class="dl-warn"/.test(dl)) bad(a.slug, 'Homebrew warning on an app whose cask is not disabled');
 }
 
-// features notes (inside Description): present exactly for the apps that have a content file, with 5-8 bullets and the Best for line
+// features notes (inside Overview): present exactly for the apps that have a content file, with 5-8 bullets and the Best for line
 const featureSlugs = existsSync(join(ROOT, 'config', 'features')) ? readdirSync(join(ROOT, 'config', 'features')).filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, '')) : [];
 for (const a of apps) {
   const h = readFileSync(join(DIST, a.slug, 'index.html'), 'utf8');
   const overview = /<section id="overview"[\s\S]*?<\/section>/.exec(h)?.[0] || '';
   const ul = /<ul class="feat">([\s\S]*?)<\/ul>/.exec(overview)?.[1];
   if (featureSlugs.includes(a.slug)) {
-    if (!ul) { bad(a.slug, 'features file exists but Description has no feature bullets'); continue; }
+    if (!ul) { bad(a.slug, 'features file exists but Overview has no feature bullets'); continue; }
     const n = (ul.match(/<li>/g) || []).length;
     if (n < 5 || n > 8) bad(a.slug, `feature list has ${n} bullets`);
-    if (!/Best for:/.test(overview)) bad(a.slug, 'Description is missing the "Best for" line');
+    if (!/Best for:/.test(overview)) bad(a.slug, 'Overview is missing the "Best for" line');
     if (!readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes('**Best for:**')) bad(a.slug, 'features missing from the .md twin');
     const fd = JSON.parse(readFileSync(join(ROOT, 'config', 'features', `${a.slug}.json`), 'utf8')).description;
     if (fd) {
       const first = fd.split(/\n\s*\n/)[0].trim().slice(0, 60).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
-      if (!overview.includes(first)) bad(a.slug, 'our own description is not shown in Description');
+      if (!overview.includes(first)) bad(a.slug, 'our own description is not shown in Overview');
       if (!readFileSync(join(DIST, a.slug, `${a.slug}.md`), 'utf8').includes(fd.split(/\n\s*\n/)[0].trim().slice(0, 60))) bad(a.slug, 'our own description is missing from the .md twin');
     }
-  } else if (ul) bad(a.slug, 'Description has feature bullets but no content file');
+  } else if (ul) bad(a.slug, 'Overview has feature bullets but no content file');
   if (/id="features"|In the package data/.test(h)) bad(a.slug, 'old features section still on the page');
 }
 // "What's new" summaries: shown in the changelog section and the .md twin exactly when the file matches the latest version

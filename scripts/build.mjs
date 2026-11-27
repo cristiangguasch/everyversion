@@ -47,8 +47,8 @@ let HAS_LINUX = false; // set in main(): the header links to /linux/ only when a
 let RECS_BY_SLUG = new Map(); // filled in main(); lets pages link to other apps
 const WHATSNEW = loadWhatsNew(); // our own summary of the latest release (config/whatsnew/<slug>.json), checked by scripts/validate.mjs
 const FEATURES = loadFeatures();
-// The Description text: our own (config/features/<slug>.json "description") when written, else the publisher's.
-const descOf = (rec) => FEATURES.get(rec.slug)?.description || rec.description; // hand-written notes inside Description (config/features/<slug>.json), checked by scripts/validate.mjs
+// The Overview text: our own (config/features/<slug>.json "description") when written, else the publisher's.
+const descOf = (rec) => FEATURES.get(rec.slug)?.description || rec.description; // hand-written notes inside Overview (config/features/<slug>.json), checked by scripts/validate.mjs
 const WINGET_REPO = 'https://github.com/microsoft/winget-pkgs';
 const PAGE_VERSIONS = 20; // versions rendered in HTML; the .json/.md twins carry everything we ingest
 const OLD_SPLIT = 25; // an app with more than this many old versions gets its own old-versions page
@@ -1364,13 +1364,12 @@ ${rec.release_series
     `<section id="download" aria-labelledby="h-download">
 <div class="dl-head"><h2 id="h-download">Downloads</h2><nav aria-label="Jump to">${changelogHtml ? '<a href="#changelog">Change log</a>' : ''}${oldPath ? `<a href="${oldPath}">Older versions</a>` : hasOld ? '<a href="#versions">Older versions</a>' : ''}</nav></div>
 ${downloadHtml}
-</section>`,
-    `<section id="installer" aria-labelledby="h-installer">
-<h2 id="h-installer">${allCustom ? 'What the download is' : 'What the installer does'}</h2>
+<h3 id="installer">${allCustom ? 'What the download is' : 'What the installer does'}</h3>
 ${installerHtml}
 </section>`,
+    changelogHtml,
     descOf(rec) || rec.summary ? `<section id="overview" aria-labelledby="h-overview">
-<h2 id="h-overview">Description</h2>
+<h2 id="h-overview">Overview</h2>
 ${paragraphs(descOf(rec) || rec.summary)}${FEATURES.get(rec.slug) ? `\n${featuresHtml(FEATURES.get(rec.slug), { esc, code: withCode })}` : ''}
 </section>` : '',
     `<section id="details" aria-labelledby="h-details">
@@ -1379,7 +1378,6 @@ ${paragraphs(descOf(rec) || rec.summary)}${FEATURES.get(rec.slug) ? `\n${feature
 ${glance.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${v}</td></tr>`).join('\n')}
 </tbody></table></div>
 </section>`,
-    changelogHtml,
     securityHtml,
     seriesHtml,
     `<section id="versions" aria-labelledby="h-versions">
@@ -1527,7 +1525,7 @@ ${body.slice(body.indexOf('<script>\ndocument.addEventListener'))}`;
     `- Verification: level ${rec.verification.level} — ${rec.verification.label}${verified ? ` Checked by ${AUTHOR}.` : ''}`,
     ...rec.provenance.map((e) => `- Source (${OS_NAME[e.platform]}): ${sourceName(e)}${e.commit ? ` @ ${e.commit}` : ''} — ${sourceTree(e)}`),
     '',
-    descOf(rec) ? `## Description\n\n${descOf(rec)}\n` : '',
+    descOf(rec) ? `## Overview\n\n${descOf(rec)}\n` : '',
     FEATURES.get(rec.slug) ? featuresMd(FEATURES.get(rec.slug)) : '',
     (() => { const w = currentWhatsNew(WHATSNEW.get(rec.slug), rec); return w ? `## What’s new in ${w.version}\n\n${w.summary}\n` : ''; })(),
     shots.length ? [`## Screenshots`, '', `Screenshots of the Linux version, from Flathub (${SHOTS[rec.slug].page}).`, '', ...shots.map((s, i) => `- [Screenshot ${i + 1}${s.caption ? `: ${s.caption}` : ''}](${s.url})`), ''].join('\n') : '',
