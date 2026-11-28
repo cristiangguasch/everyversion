@@ -31,7 +31,7 @@
     "publisher": "https://kde.org/",
     "support": "https://krita.org/en/report-a-bug/",
     "privacy": "https://krita.org/en/privacy-statement/",
-    "release_notes": "https://krita.org/en/release-history/",
+    "release_notes": "https://krita.org/en/posts/2026/krita-5.3.5-released/",
     "documentation": [
       {
         "label": "Docs",
@@ -49,17 +49,50 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "5.3.4.1",
-    "macos": "5.3.4.1",
+    "windows": "5.3.5.0",
+    "macos": "5.3.5",
     "linux": "5.3.4.1"
   },
-  "last_updated": "2026-10-01",
+  "last_updated": "2026-11-18",
   "versions_total": {
-    "windows": 32,
+    "windows": 33,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "5.3.5.0",
+      "release_date": "2026-11-18",
+      "release_notes": "Today we're releasing Krita 5.3.5. This is a bugfix release, with some important crash fixes. For example, it was possible to start Krita twice, which lead to brushes and menu items missing, this is now fixed. We've also fixed a particular crash inside QML, with the font dropdown. Beyond that, this release contains a lot of fixes for qt 6 and wayland, and various other bugfixes.\nChangelog\n- Fix MacOS builds when Python 3.11 is used\n- Fix a crash in the color space browser on qt 6.11\n- [wayland] Fix issues with MDI subwindows on Wayland\n- Fix tabs having wrong close icon when switcing window modes\n- [wayland] Fix custom tooltip position on Wayland (Bug 515578)\n- Fix palette docker lockup on Qt 6.11.0 (Bug 519191)\n- Remove an unnecessary assignment from the readLod function. (Thanks, Elena Sagalaeva)\n- Don't emit bogus warning when saving guides to krz\n- Many new icons by Arkady Flury\n- Fix assigning display profiles in preferences (Bug 526120)\n- Fix warnings in the assistant tool (Thanks, Jonas Rakebrandt)\n- Disable left-click scrolling on animation curves (Bug 525961)\n- Remove some extraneous padding from text properties docker.\n- Fix horizontal scrolling with the second mouse wheel\n- Properly reset color selector self set flag (Bug 527378)\n- Don't crash reading invalid CFA patterns (Bug 527671)\n- Fix layers docker options menu being clipped on MacOS\n- [android] Update S-Pen Pro Air Action descriptions\n- Add missing action XML data, fixing warnings.\n- fix improper color triangle rendering at document creation (thanks, Maxim Bulatitskiy)\n- Fix possible out-of-bounds read when loading a Paint Shop Pro palette, as well as better reading of the GIMP palettes (Bug 518931)\n- Don't mark the eraser presets as dirty on activation\n- Fix MyPaint brushes not to be set dirty on activation\n- Fix missing menu items and missing presets situation that happened due starting Krita twice (Bug 523713)\n- Append .UTF-8 to LANG on Linux to prevent ISO-8859-1 locale fallback (Thanks, Lunna Martín González)\n- Fix Chinese and Japanese if no specific language is selected\n- Don't clamp colors to unitValue in the 32bit float specialization of the copy blending mode. (Bug 528879)\n- Add tooltips to the document tabs.\n⚠️ Warning\nWe consider Krita 5.3.5 suitable for productive work; 6.0.5 is, because of the many changes from Qt5 to Qt6 more experimental.",
+      "release_notes_url": "https://krita.org/en/posts/2026/krita-5.3.5-released/",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/k/KDE/Krita/5.3.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://download.kde.org/stable/krita/5.3.5/krita-x64-5.3.5-setup.exe",
+          "host": "download.kde.org",
+          "filename": "krita-x64-5.3.5-setup.exe",
+          "sha256": "c21930c3d409519a873d3de9793068df954c21a4209c3ac42ef7732f82beaf27",
+          "product_code": "Krita_x64",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "exr",
+            "jxl",
+            "kpp",
+            "kra",
+            "krz",
+            "ora",
+            "psd",
+            "xcf"
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "5.3.4.1",
@@ -1110,16 +1143,16 @@
     },
     {
       "platform": "macos",
-      "version": "5.3.4.1",
+      "version": "5.3.5",
       "installers": [
         {
           "platform": "macos",
           "architecture": "universal",
           "type": "dmg",
-          "url": "https://download.kde.org/stable/krita/5.3.4.1/krita-5.3.4.1-signed.dmg",
+          "url": "https://download.kde.org/stable/krita/5.3.5/krita-5.3.5-signed.dmg",
           "host": "download.kde.org",
-          "filename": "krita-5.3.4.1-signed.dmg",
-          "sha256": "531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de"
+          "filename": "krita-5.3.5-signed.dmg",
+          "sha256": "273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175"
         }
       ],
       "cask": {
@@ -1180,16 +1213,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "21e6be824c55b3c6f476664adc0b93087cd16c82",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "0c448069751280f531a4210aa61a4ec6999abbe6",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "manifests/k/KDE/Krita"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "1f44ba636b3c070723431b7ab5848c15eb34396a",
-      "retrieved_at": "2026-11-04T01:08:06.172Z",
+      "commit": "8a7d425839b865f3e966dbfec6e280ff91c960df",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "Casks/k/krita.rb",
       "api_url": "https://formulae.brew.sh/api/cask/krita.json"
     },

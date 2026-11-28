@@ -29,7 +29,7 @@
     "support": "https://www.usebruno.com/support",
     "privacy": "https://www.usebruno.com/privacy-policy",
     "purchase": "https://www.usebruno.com/pricing",
-    "release_notes": "https://github.com/usebruno/bruno/releases/tag/v4.3.0",
+    "release_notes": "https://github.com/usebruno/bruno/releases/tag/v4.4.0",
     "documentation": [
       {
         "label": "Documentation",
@@ -49,17 +49,164 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "4.3.0",
+    "windows": "4.4.0",
     "macos": "4.4.0",
     "linux": "v4.3.0"
   },
-  "last_updated": "2026-10-22",
+  "last_updated": "2026-11-24",
   "versions_total": {
-    "windows": 116,
+    "windows": 117,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "4.4.0",
+      "release_date": "2026-11-24",
+      "release_notes": "Changelog\n\nFeatures\n- feat(export): YAML export functionality with save dialog by @naman-bruno in #9831\n- feat(grpc): enhance URL parsing for loopback addresses by @sanish-bruno in #9769\n- feat(openapi): CLI changes for openapi for setting up authentication and request name source by @sachin-bruno in #9702\n- feat(openapi): Openapi import/sync for setting authentication at collection level and choosing request name source by @sachin-bruno in #9701\n- feat: OpenAPI sync with preserve values by @sachin-bruno in #9664\n- feat(openapi-sync): connect a collection to a spec in the workspace by @sundram-bruno in #9639\n- feat(import): enhance script translation reporting and measurement by @sanish-bruno in #9733\n- feat(api-spec): spec row context menu with generate, reveal, remove and delete by @sundram-bruno in #9309\n- feat: Move writeCollection method to io package. by @morsh-bruno in #9718\n- feat(bruno-js): add jsdoc annotations to Script APIs by @morsh-bruno in #9725\n- feat(openapi): OpenAPI importer does not support schema composition (oneOf, anyOf,allOf, not) by @sachin-bruno in #9533\n- feat: check for spec updates in bulk import open api by @sachin-bruno in #9613\n- feat(cli): add import postman functionality through cli by @morsh-bruno in #9643\n- feat(sensitive-fields): add save as secret, mark as secret and move to environment actions by @pooja-bruno in #9532\n- feat(selectors): create memoized selectors and subscribe to by @sachin-thakur-bruno in #9290\n- feat(environment): add multi-select and context menu actions to environment list by @sachin-thakur-bruno in #9541\n- feat(sidebar): show invalid counts on collections and folders by @gopu-bruno in #9490\n- feat(variables): added set as variable from a text selection by @ravindra-bruno and @sachin-thakur-bruno in #9419\n- feat(variables): add scoped variable autocomplete and single-brace trigger by @sachin-thakur-bruno in #9267\n- feat(ui): improve multiple errors ui/ux in response pane by @prateek-bruno in #9504\n- feat(sidebar): expanded collapsed ancestors to reveal the active request by @ravindra-bruno in #9394\n- feat(auth): warn when sensitive fields store a value in plain text by @pooja-bruno in #9418\n- feat(secret-manager): add 1Password secret manager support by @prateek-bruno\n- feat(tests): stop execution tests with mock license server by @abhishekp-bruno\n\nFixes\n- fix(graphql): show variables in editor from a pasted or imported graphQL cURL by @lohit-bruno in #9872\n- fix(yml): read oauth2 additional param name and value as strings by @lohit-bruno in #9875\n- fix: close button not working when import modal is too long by @sachin-bruno in #9822\n- fix(openapi-export): keep secret values out of exported OpenAPI specs by @sundram-bruno in #9729\n- fix(app): apply form bodies when a cURL command is pasted into the URL by @aayushbaluni in #9512\n- fix(ws): changed default timeout to 30000 in schema by @sachin-thakur-bruno in #9764\n- fix(settings): changed stripping text from setting by @sachin-thakur-bruno in #9742\n- fix(security): avoid internal link from all places by @sid-bruno in #9660\n- fix: Exporting GraphQL Requests to Curl issue by @tobby-s in #9301\n- fix(app): pad single-digit decimal remainder in response size KB by @siddiqueirshad in #9673\n- fix(generate-code): keep leading slash of the request target for URLs with a query but no path by @harxh07 in #9536\n- fix(mock-server): closed mock server tabs and stopped running servers when the Mock Server beta feature was disabled by @ravindra-bruno in #9644\n- fix(query-builder): remove MAX_DEPTH for gql query builder by @shubh-bruno and @mrweed8848 in #9651\n- fix(grpc): support gRPC endpoints hosted under a URL subpath by @sanish-bruno in #7736\n- fix(scripts): normalize line endings within sctipts before execution by @abhishekp-bruno in #9647\n- fix(ui): add responsiveness to script sub tab by @morsh-bruno in #9620\n- fix(git): enable long path support for git operations on Windows by @gopu-bruno in #9678\n- fix(runner): Collection Runner tag filter UX improvement by @abhishekp-bruno in #9669\n- fix: tab crash when source isn't there in script error by @prateek-bruno in #9656\n- fix(mock-server): allowed custom headers and methods in CORS preflights, served OPTIONS mock routes and logged preflights in the Request Log by @ravindra-bruno in #9584\n- fix(auth): allow view actions and hide edit actions in inherited authview by @pooja-bruno in #9618\n- fix(variables): show folder scope for folder vars used in folder settings by @pooja-bruno in #9679\n- fix(mock-server): kept mock response edits and edit mode when switching tabs by @ravindra-bruno in #9606\n- fix(grpc): proto file changes lost when collection settings have unsaved draft by @abhishekp-bruno in #9516\n- fix(codemirror-search): cursor jumps when search is open and user type in the doc by @shubh-bruno and @mrweed8848 in #9598\n- fix(import-environment): enter should not import the environment when focus is inside the modal by @sachin-thakur-bruno in #9565\n- fix(response): treat UTF-8 multi-byte characters as text in detection by @Mark007-R in #9367\n- fix: keep variable tooltips above the New Request modal by @y0geshpatil in #9196\n- fix: implement parsing and validation for OpenAPI and Swagger specs by @utkarsh-bruno in #9582\n- fix: adding overflow for long names on confirm modal by @utkarsh-bruno in #9605\n- fix(open-api): OpenAPI to Bruno conversion missing standard parameter serialization by @sachin-bruno in #9400\n- fix(mock-server): use in app modal instead of native close confirm by @gopu-bruno in #9515\n- fix(openapi): tweak Create Spec modal dropdown height and active segment by @adwait-bruno in #9529\n- fix(auth): allow expanding OAuth2 token sections in inherited auth view by @pooja-bruno in #9523\n- fix(wsdl): add element namespaces to generated request bodies by @gopu-bruno in #9456\n- fix: yml collections lose data while saving due to a race condition by @abhishekp-bruno in #9431\n- fix(snap): declare the plugs the gnome extension leaves out by @Pragadesh44-Bruno\n- fix: import OpenAPI file refs as requests by @arpit-bruno\n- fix(openapi-export): keep secret values out of exported OpenAPI specs by @sundram-bruno\n- fix: show bulk import file format options before picking a format in tests by @arpit-bruno\n- fix(git): apply core.longpaths on conflict resolution by @gopu-bruno\n- fix(import): implement max selection limit and improve selection behavior by @naman-bruno\n- fix(git): fixing the cta on the modal and adding all errors to ProcesStdOut by @utkarsh-bruno\n- fix(git): show SSO authorization error for SSO enforced orgs by @gopu-bruno\n- fix(secret-manager): adjust AWS config export handling based on auth method by @abhishekp-bruno\n- fix: workspace limit is respected when a repo is cloned by @utkarsh-bruno\n- fix(sidebar): offer delete option when js files are bulk selected by @sachin-thakur-bruno\n- fix(git): input fields unresponsive after discard on Windows by @gopu-bruno\n\nOthers\n- chore(docs): use bruno-api-docs as the generated API docs container id by @arpit-bruno in #9863\n- chore: bump Node to 24.22.3 and 22.23.5 for Nov 2026 security releases by @barelyhuman in #9830\n- Added changelog for v4.4.0 by @naman-bruno in #9772\n- chore: make the cache-modules flag GA by @sid-bruno in #9761\n- test: add test cases for importing a valid WSDL XML file by @aparna-bruno in #9684\n- test: add test cases importing an Insomnia collection from a direct URL by @aparna-bruno in #9683\n- refactor(bruno-js): extract common logic for ReadOnlyPropertyList subclasses and array backed store for headerList and GrpcMetadataList by @morsh-bruno in #9739\n- test: added opening collection sanity test cases by @aman-bruno in #8381\n- refactor: rename the environment flag to env in postman CLI import by @morsh-bruno in #9748\n- test: add test cases for importing a Postman collection from a direct URL by @aparna-bruno in #9680\n- Use full pane width for Collection Settings editor tabs by @hippi345 in #9549\n- chore: update electron and node version by @sid-bruno in #9666\n- test: added test for collection apps unsaved draft validation by @mohit-bruno in #9612\n- chore: bump axios to 1.21.0 by @prateek-bruno in #9623\n- test(response): cover format auto-switch when content type changes by @PaulooBarros in #9693\n- test: automation for exporting collection in Zip, Single YAML and as postman collection by @guru-sharan-bruno in #9695\n- chore: bump deps by @prateek-bruno in #9619\n- chore(docs): use Bruno.apiDocs in generated API docs by @arpit-bruno in #9640\n- test: Automation for Adding folder and request under collection, cloning and removing the collection by @guru-sharan-bruno in #9550\n- test: added test cases for import file format options by @aparna-bruno in #9659\n- chore: add local testing checkbox to PR template by @aditya-bruno in #9663\n- test: add tests for adding a collection to bruno by @shivang-bruno in #9453\n- chore(transient): clear the transient directory on app start by @chirag-bruno in #9642\n- refactor: loosen the schema validation and use the transformed schema where needed by @sid-bruno in #9514\n- chore: map BrowserStack test case ids and types onto generated e2e tests by @devsi-bruno in #9603\n- Add keymap binding to run Prettify on request text by @yume02kki in #8555\n- chore(ui): port ee ui components to oss by @sachin-thakur-bruno in #9505\n- fix: unit test case fix by @utkarsh-bruno in #9573\n- feat(tests): adds automation tests for collection runner functionality by @guru-sharan-bruno in #9737\n- Enterprise edition desktop support by @Pragadesh44-Bruno\n- chore: remove unused bulk import locators and match oss specs by @arpit-bruno\n- test(collection-runner): add e2e tests for a single run, iteration count, CSV rows, and the paid-only data file by @Vinay-bruno\n- perf(runner): schedule collection run iterations by @chirag-bruno\n- chore: update electron builder config for nightlies by @sid-bruno\n- refactor: move secrets fetch fail & success to alerts section by @prateek-bruno",
+      "release_notes_url": "https://github.com/usebruno/bruno/releases/tag/v4.4.0",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/b/Bruno/Bruno/4.4.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_x64_win.exe",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_x64_win.exe",
+          "sha256": "ad351e149ff9b435d01457c0b6a01005b3620dba22a4023b30f02cd63e8706aa",
+          "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "apps_and_features": [
+            {
+              "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_x64_win.exe",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_x64_win.exe",
+          "sha256": "ad351e149ff9b435d01457c0b6a01005b3620dba22a4023b30f02cd63e8706aa",
+          "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "apps_and_features": [
+            {
+              "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_x64_win.msi",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_x64_win.msi",
+          "sha256": "c3c8e78d42913d811dbcba3c697d1b0d7df112157c1bd7be257819906fb70848",
+          "product_code": "{6FE80AC2-27CF-4243-9160-92FEF30DE0E2}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{6FE80AC2-27CF-4243-9160-92FEF30DE0E2}",
+              "upgrade_code": "{41B6BEB9-60D6-5400-90FC-A4FE1C44F678}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_x64_win.zip",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_x64_win.zip",
+          "sha256": "6a81d51c8fe9f3d2bbb63febff95d93871b48b2340d0f73c65f162522a522821"
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_arm64_win.exe",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_arm64_win.exe",
+          "sha256": "b82ca17b00acbff85ddb018131e15c926620c748d386e1a885ec9efd1e6268f6",
+          "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77",
+          "switches": {
+            "custom": "/currentuser"
+          },
+          "apps_and_features": [
+            {
+              "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_arm64_win.exe",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_arm64_win.exe",
+          "sha256": "b82ca17b00acbff85ddb018131e15c926620c748d386e1a885ec9efd1e6268f6",
+          "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77",
+          "switches": {
+            "custom": "/allusers"
+          },
+          "apps_and_features": [
+            {
+              "product_code": "35fe443c-39df-5cca-9e6d-73ca33a1ce77"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "wix",
+          "scope": "machine",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_arm64_win.msi",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_arm64_win.msi",
+          "sha256": "261c23639eec71e1f120b79c60d16b74618a232d953d3f8afe4b4066c7370b9e",
+          "product_code": "{F1D2492B-ECA9-44E6-87CD-39135C8F1A0E}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "apps_and_features": [
+            {
+              "product_code": "{F1D2492B-ECA9-44E6-87CD-39135C8F1A0E}",
+              "upgrade_code": "{41B6BEB9-60D6-5400-90FC-A4FE1C44F678}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "zip",
+          "nested_type": "portable",
+          "url": "https://github.com/usebruno/bruno/releases/download/v4.4.0/bruno_4.4.0_arm64_win.zip",
+          "host": "github.com",
+          "filename": "bruno_4.4.0_arm64_win.zip",
+          "sha256": "ff166ecad84d55c828f231979e363e1720fb52208a29440c0d3094cdfb17df84"
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "4.3.0",
@@ -5375,30 +5522,6 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "1.12.1",
-      "release_notes_url": "https://github.com/usebruno/bruno/releases/tag/v1.12.1",
-      "manifest_version": "1.6.0",
-      "manifest_dir": "manifests/b/Bruno/Bruno/1.12.1",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "nullsoft",
-          "locale": "en-US",
-          "url": "https://github.com/usebruno/bruno/releases/download/v1.12.1/bruno_1.12.1_x64_win.exe",
-          "host": "github.com",
-          "filename": "bruno_1.12.1_x64_win.exe",
-          "sha256": "dfa7e26fedd047b6b328f9c7b3a1bcdddcd0202bb4aecd2825ad99aba231445e",
-          "switches": {
-            "silent": "--silent",
-            "silent_with_progress": "-silent"
-          },
-          "upgrade_behavior": "install"
-        }
-      ]
-    },
-    {
       "platform": "macos",
       "version": "4.4.0",
       "installers": [
@@ -5471,8 +5594,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "6581c2e6d1232e02fedb528e2ac8161089c09d39",
-      "retrieved_at": "2026-11-25T02:29:14.550Z",
+      "commit": "0c448069751280f531a4210aa61a4ec6999abbe6",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "manifests/b/Bruno/Bruno"
     },
     {

@@ -49,13 +49,58 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "22.4.0"
+    "windows": "22.5.0"
   },
-  "last_updated": "2026-11-08",
+  "last_updated": "2026-11-26",
   "versions_total": {
-    "windows": 24
+    "windows": 25
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "22.5.0",
+      "release_date": "2026-11-26",
+      "release_notes": "- OCR Improvements:\n  - Replaced Windows OCR with AI powered PaddleOCR, which gives significantly more accurate results. It supports over 100 languages out of the box, with no language packs to download and no switching between languages, and everything still runs locally on your device.\n  - Redesigned the OCR window with an image preview that outlines the recognized text. Click a text region to copy it, or use the mouse wheel to zoom the preview.\n  - Added \"Separate paragraphs\" option that automatically detects paragraphs and keeps their structure in the recognized text.\n  - Added \"Make text in captures searchable in history\" option (Application settings -> History).\n  - Removed the \"Language\" option, since languages no longer need to be selected, and the \"Scale factor\" option.\n- Added \"Pixel editor\" tool for pixel art and sprite animations, with layers, an animation timeline, tilemaps, slices, and sprite sheet import and export. Images can be opened in it with \"Edit in Pixel editor…\" from the main window and history windows.\n- Image editor improvements:\n  - The top toolbar can now be moved with its drag handle. Double-click the handle to reset its position.\n  - Added \"Compact image editor toolbar\" option, closer to the ShareX v21 editor (Task settings -> Tools -> Image editor).\n  - Added \"Right-click deletes the shape under the cursor\" option (Task settings -> Tools -> Image editor).\n  - Added \"Size window to fit image\" option (Task settings -> Tools -> Image editor).\n  - \"Zoom to fit on open\" now only shrinks images, so small images open at their actual size.\n  - Added \"New from screenshot (region)…\" and \"New from screenshot (full screen)\" options to the file menu and start screen.\n  - Added \"Auto size to text\" option to the \"Speech Balloon\" tool.\n  - Added border options to the \"Magnify\" tool.\n  - The font size can now be typed in, from 1 to 1000, including decimals such as 36.5.\n  - \"Crop\" now shows position and size while cropping, like ShareX v21.\n  - The \"Smart Eraser\" tool can now be rotated to improve parity with other tools.\n  - Holding Shift while drawing with the \"Freehand\" tool now draws straight lines, like ShareX v21.\n  - Resized images now stretch to fill their box, and holding Shift while dragging a corner keeps their proportions, like ShareX v21.\n  - Shift + Enter now starts a new line in text annotations.\n  - Added recent colors next to the screen color picker in the color dropdown.\n- Updated toolbar customization for region capture and the image editor so tools and spacers can be dragged into place on a preview of the toolbar.\n- Region capture improvements:\n  - Region capture now opens about twice as fast.\n  - Added \"Ellipse region\" and \"Freehand region\" tools back.\n  - Added \"Capture selected region\" mouse action (Task settings -> Region capture).\n  - Pressing Enter now captures the highlighted window.\n  - Added \"Mouse wheel\" option to choose whether scrolling resizes or zooms the magnifier. Hold Ctrl while scrolling to do the other (Task settings -> Region capture).\n  - Added \"Use custom toolbar button size\" option (Task settings -> Region capture). Ctrl + Mouse wheel over the toolbar also resizes it.\n  - The toolbar now follows the mouse cursor across monitors until it is used.\n- The after capture window and editors now open on the screen the capture was taken on.\n- Animated GIFs now play in the task preview, thumbnails and image viewer.\n- Added \"Image preview location\" option to show the image preview below the list view (Application settings -> Main window).\n- Added \"Always show full-width scroll bars\" option (Application settings -> Theme).\n- Added \"Monitor\" option to choose which monitor toast notifications appear on (Task settings -> General -> Notifications).\n- Photo editor improvements:\n  - Added \"Layer from Background\" to the Layers panel right-click menu.\n  - Layers can now be deleted by dragging them onto the bin in the Layers panel.\n  - Copied text layers are now pasted as text.\n- Added crop and resize options to the animated GIF trimmer.\n- \"Save image to file as\" can now save in any supported image format.\n- Links in the QR code window can now be opened with Ctrl + Click.\n- The video converter now shows the average bitrate, file size and resolution of the output after converting.\n- Improved image effects search to rank results and match common words.\n- Settings, stats, debug log, about, image effects and FFmpeg options windows can now be closed with Esc.\n- Improved keyboard and screen reader support. The task list can now be used with the keyboard, and message box buttons have Alt shortcuts.\n- Added \"Display diagnostics\" window that creates a report for scaling and multi-monitor issues (Debug -> Display diagnostics).\n- Removed \"Leave clipboard alone\" goal from the after capture window.\n- Upgraded project to .NET 11.\n- Removed \"Dev\" update channel.",
+      "release_notes_url": "https://getsharex.com/changelog",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/s/ShareX/ShareX/22.5.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "url": "https://github.com/ShareX/ShareX/releases/download/v22.5.0/ShareX-22.5.0-setup-x64.exe",
+          "host": "github.com",
+          "filename": "ShareX-22.5.0-setup-x64.exe",
+          "sha256": "0ac699fde6d29c53ec135864509a7b802fa2e9004484f34165095e5a744d4c0f",
+          "product_code": "82E6AC09-0FEF-4390-AD9F-0DD3F5561EFC_is1",
+          "min_os_version": "6.1.7601.0",
+          "switches": {
+            "upgrade": "/UPDATE",
+            "custom": "/NORUN"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://github.com/ShareX/ShareX/releases/download/v22.5.0/ShareX-22.5.0-setup-x64.exe",
+          "host": "github.com",
+          "filename": "ShareX-22.5.0-setup-x64.exe",
+          "sha256": "0ac699fde6d29c53ec135864509a7b802fa2e9004484f34165095e5a744d4c0f",
+          "product_code": "82E6AC09-0FEF-4390-AD9F-0DD3F5561EFC_is1",
+          "min_os_version": "6.1.7601.0",
+          "switches": {
+            "upgrade": "/UPDATE",
+            "custom": "/NORUN"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "22.4.0",
@@ -1284,8 +1329,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "0af175843b6fdbe04e5598329181e0f36c919bb0",
-      "retrieved_at": "2026-11-08T21:59:01.347Z",
+      "commit": "0c448069751280f531a4210aa61a4ec6999abbe6",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "manifests/s/ShareX/ShareX"
     }
   ]

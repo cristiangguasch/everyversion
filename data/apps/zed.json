@@ -30,7 +30,7 @@
     "support": "https://zed.dev/support",
     "privacy": "https://zed.dev/privacy-policy",
     "purchase": "https://zed.dev/pricing",
-    "release_notes": "https://github.com/zed-industries/zed/releases/tag/v1.29.3",
+    "release_notes": "https://github.com/zed-industries/zed/releases/tag/v1.30.2",
     "documentation": [
       {
         "label": "Community Links",
@@ -53,17 +53,76 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "1.29.3",
-    "macos": "1.29.3",
+    "windows": "1.30.2",
+    "macos": "1.30.2",
     "linux": "v1.30.2"
   },
-  "last_updated": "2026-11-20",
+  "last_updated": "2026-11-25",
   "versions_total": {
-    "windows": 6,
+    "windows": 5,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "1.30.2",
+      "release_date": "2026-11-25",
+      "release_notes": "This week's release includes reduced GPU usage across the app, a model picker for AI commit message generation in the Git Panel, a setting to hide the title bar, support for GPT-6.1 Terra, and faster scanning of large projects.\nFeatures\nAI\n- Added support for GPT-6.1 Terra to the OpenAI provider. (#66659; thanks nymo)\n- Added keyboard navigation to the agent thread switcher (opened with ctrl-tab from the Agent Panel or Threads Sidebar): up / down, ctrl-n / ctrl-p, and home / end move the selection, as do ctrl-up / ctrl-down while ctrl is still held. (#66951; thanks kinoute)\n- Added support for the Extra High thinking effort level for Gemini 4 Hydrogen (gemini-4-hydrogen), which now defaults to High. (#67011; thanks LorenzoBiassio)\n- Improved GitHub Copilot models to use their full context window when there is no long-context surcharge, and to display per-token pricing where available. (#64302; thanks Jozef833)\n- Improved memory usage when saving long agent threads. (#66683; thanks founderinaction)\nGit\n- Added a model picker to the Git Panel's commit editor for choosing the model used for commit message generation. The choice is saved to the agent.commit_message_model setting. (#50674; thanks soilSpoon)\nVim / Helix\n- Added the g r t keybinding for editor: go to type definition, matching Neovim's default. (#66759; thanks ask4fusora)\n- Added the ] n and [ n keybindings in visual mode for vim: select next syntax node and vim: select previous syntax node, matching Neovim's defaults. (#66759; thanks ask4fusora)\nLanguages\n- Improved syntax highlighting of #pragma and #undef arguments in C and C++. (#66875; thanks imryanthedev)\nLinux\n- Improved ACP registry agent installation on musl-based Linux systems, such as Alpine, to use musl builds when available. (#66914)\nmacOS\n- Updated the Git version bundled with Zed on macOS to 2.56.1. (#67264)\nOther\n- Added a title_bar.show setting to hide the title bar always (\"never\") or only in fullscreen (\"hide_in_full_screen\"). The default is \"always\". (#65671; thanks wuemeli, and thanks xipeng-jin for an earlier implementation in #42540)\n- Added editor: fold at current indentation level to fold the whole document at the current line's indentation level. (#66849)\n- Added a zed --debug-state CLI flag that prints the running app's window, display, and platform state as JSON for debugging. (#66852)\n- Improved rendering efficiency to reduce GPU usage across the app, including when drawing paths (such as Git Graph lines), shadows, and content hidden behind other elements. (#66806, #66807, #66809, #66810, #66811, #66812)\n- Improved battery life by animating spinners without re-rendering the views that contain them. (#66896)\n- Improved responsiveness during heavy filesystem activity, such as external builds creating or removing many files. (#66835, #66973, #66990, #67008; thanks RemcoSmitsDev)\n- Improved the time to scan large projects when they are opened. (#67023; thanks ptweezy)\n- Improved fuzzy matching performance when many candidates match. (#66982; thanks ptweezy)\n- Improved performance of multibuffers with many files, such as large project search results. (#67053; thanks ptweezy)\n- Improved performance when large directories are removed or rescanned. (#66962; thanks ptweezy)\n- Improved responsiveness of the completions menu with many matches. (#66959; thanks ptweezy)\n- Improved the onboarding page to keep the \"Finish Setup\" button visible while scrolling. (#67079; thanks aakashbapna)\n- Improved the time to share or remotely open projects with very many files. (#66961; thanks ptweezy)\n- Improved the which-key popup to also show inside open dialogs, like Go to Line and the commit editor. (#66838)\nBug Fixes\n- Fixed a bug on Windows and Linux where opening a file or folder while Zed was closed did not restore the last session, losing previously open windows, tabs, and unsaved buffers. (#65463; thanks Verlaire)\n- Fixed a bug where the worktree trust modal reappeared every time a project was opened after choosing \"Stay in Restricted Mode\". (#66649)\n- Fixed a bug where typing in an agent thread lost keyboard focus when another thread automatically sent its queued message. (#66787; thanks daejey)\n- Fixed a crash when clicking or selecting text in agent messages and other rendered Markdown containing non-ASCII characters. (#67104)\n- Fixed always_confirm patterns for the agent's edit_file and write_file tools (agent.tool_permissions.tools.<tool>.always_confirm) not prompting for files inside the project. (#67037)\n- Fixed crashes on Windows when the display containing Zed's window changed. (#66855)\n- Fixed new windows always opening on the primary display instead of the display of the active window. (#61459; thanks errmayank)\n- Fixed opening a remote project while it was still reconnecting sometimes causing the connection to fail. (#67336)\n- Fixed a bug where a file's branch diff stayed broken until Zed was restarted if it failed to load once. (#67116; thanks ptweezy)\n- Fixed a bug where a project folder containing entries named HEAD and config (such as head and config source directories on case-insensitive filesystems) was detected as a bare Git repository, causing the Git Panel to switch to a bogus repository and show a \"detected dubious ownership\" message. (#67024; thanks likeaixxx)\n- Fixed a bug where clicking a tool call's file label or \"Go to File\" button in an agent thread did nothing for image files. (#67092; thanks daejey)\n- Fixed a bug where clicking one command in the agent's permission dropdown for chained terminal commands checked every command in the chain. (#56492; thanks tredondo)\n- Fixed a bug where task: rerun opened the task spawn menu instead of rerunning the last task after any edit to tasks.json. (#66646)\n- Fixed a bug where terminals closed from the tab switcher stayed in its list until the switcher was reopened. (#66943; thanks csarushan1729)\n- Fixed a bug where the Agent Panel's Follow toggle turned itself back on after being disabled. (#63467; thanks gumeeee)\n- Fixed a bug where the agent's grep tool silently ignored misnamed parameters from some smaller models and searched the whole project instead of a specific file or folder. (#66586; thanks AbyssWaIker)\n- Fixed a bug where the fading of unused code could extend past the unused code. (#66977; thanks ptweezy)\n- Fixed a bug where Vue prop completions were missing when typing lowercase letters with Emmet enabled. (#66936; thanks GSGFs7)\n- Fixed a crash in the Markdown preview when rendering certain SVG images. (#67423)\n- Fixed duplicate language server notifications appearing when switching themes. (#67021; thanks xsadia)\n- Fixed excess settings notifications when removing project folders that had no settings. (#67268)\n- Fixed Git blame failing with a broken pipe error for large untracked files. (#67110; thanks dmytrodanilenkov)\n- Fixed incorrect R extension installation suggestions for Quarto and R Markdown files. (#66928)\n- Fixed log settings keyed by module path (such as project::lsp_store) not enabling debug or trace logs. (#66985; thanks ptweezy)\n- Fixed Mermaid diagrams in the Markdown preview having state descriptions that overlapped the state title, sequence diagram titles that were cut off, and labels that overflowed their nodes with wide fonts. (#66874)\n- Fixed multiple cursors overwriting the primary selection with newlines on Linux. (#66986; thanks ptweezy)\n- Fixed prompt caching not being used for OpenRouter's Anthropic model aliases (e.g. ~anthropic/claude-sonnet-latest). (#66857; thanks Kioob)\n- Fixed recent projects displaying incorrectly for Windows remote projects when running Zed on macOS or Linux. (#66465; thanks lingyaochu)\n- Fixed ssh:// links with a drive letter (for example ssh://user@host/C:/project) failing to open a project on a Windows remote. (#66814; thanks h4nz4)\n- Fixed syntax highlighting sometimes going missing after Vim method, section, and comment motions. (#66983; thanks ptweezy)\n- Fixed the agent's read_file tool failing when models pass start_line or end_line as strings. (#67072; thanks ChromaxS)\n- Fixed the Project Panel showing a leading or trailing whitespace warning instead of an empty-name error when a file or directory name contained only whitespace. (#67125; thanks ptweezy)\nBreaking Changes and Notices\n- Changed the default value of file_finder.prefill_query_from_selection from true to false, so the file finder no longer pre-fills its query with the selected text. To return to the previous behavior, set it to true. (#66856)",
+      "release_notes_url": "https://github.com/zed-industries/zed/releases/tag/v1.30.2",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/z/ZedIndustries/Zed/1.30.2",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.30.2/Zed-x86_64.exe",
+          "host": "github.com",
+          "filename": "Zed-x86_64.exe",
+          "sha256": "ecb48bff3d11716a3c4f708913db274f27173926c0a511b1901934665fa83418",
+          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.30.2",
+              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "user",
+          "locale": "en-US",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.30.2/Zed-aarch64.exe",
+          "host": "github.com",
+          "filename": "Zed-aarch64.exe",
+          "sha256": "42e9a1dd8b86533360e58eb2230f3ef5abb7af068ef82bd2e6050bea8fd42220",
+          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
+          "install_modes": [
+            "interactive",
+            "silent",
+            "silentWithProgress"
+          ],
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "display_version": "1.30.2",
+              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "1.29.3",
@@ -301,145 +360,27 @@
       ]
     },
     {
-      "platform": "windows",
-      "version": "1.27.0",
-      "release_date": "2026-11-04",
-      "release_notes": "This week's release includes syntax highlighting for Go 1.27 generic methods, an option to open README files by default, and AI commit messages that follow your repository's recent commit style.\nFeatures\nAI\n- Improved Agent Panel memory usage by loading tool-call diffs and parsing thread message Markdown only when first viewed, instead of when loading a thread. (#65444, #65470; thanks Vanuan)\n- Improved AI commit message generation by using the three most recent repository commit messages as style examples. (#61528; thanks matheuslrd)\n- Improved CPU usage and disk reads while the agent was working, especially with a long thread history. (#66015)\nGit\n- Added missing tooltips to the close, commit message, and \"View on\" buttons in the Git Graph's commit details panel. (#66016; thanks skmanoj322)\n- Improved Git Graph rendering performance. (#66180; thanks RemcoSmitsDev)\n- Improved the Git Panel's error message when a push was rejected because the local branch was behind the remote, explaining that remote changes must be fetched and integrated before pushing again. (#47296; thanks Aladiah96)\nLanguages\n- Added syntax highlighting for Go 1.27 generic methods. (#64562; thanks ndellosa95)\nOther\n- Added an option to open README files by default by setting on_new_window to \"readme\". (#65389)\n- Improved the Project Panel error message when moving a file or folder onto a location where one with the same name already existed. (#64344; thanks zaugust4891)\nBug Fixes\n- Fixed Solargraph completions crashing Zed in certain cases. (#66157)\n- Fixed \"Zed quit unexpectedly\" appearing when quitting with cmd-q on macOS. (#66158)\n- Fixed a crash when Tree-sitter syntax highlighting failed. (#66474)\n- Fixed a crash when adding surrounding characters (m s) to adjacent selections in Helix mode. (#66107; thanks bugprone)\n- Fixed a hang in Vim visual-block mode at the end of a wrapped file. (#66118)\n- Fixed child filesystem watches losing events when a covering parent watch was removed. (#65998)\n- Fixed collapsed inline diff hunks producing invalid word-diff highlights for multibyte UTF-8 text. (#65829; thanks Blazearth)\n- Fixed external agents' tool call locations opening one line below the line the agent reported. (#66110)\n- Fixed Git Graph rendering lagging behind when opening or closing the commit details panel. (#66132; thanks RemcoSmitsDev)\n- Fixed inline review switching to a subagent's edits when the subagent started. (#66093)\n- Fixed language server formatting requests sometimes applying incorrect changes. (#65856)\n- Fixed language server setup failing with EBADDEVENGINES in Yarn and pnpm projects. (#65280; thanks latin-1)\n- Fixed language servers receiving change and save notifications for files outside their dynamically registered document selectors, including unrelated files in the project. (#65253; thanks aviatesk)\n- Fixed LLM credentials being read when disable_ai was set to true. (#66029)\n- Fixed missed filesystem events for case-insensitive watches registered with trailing separators or equivalent path spellings. (#65995)\n- Fixed missing Git repository, worktree, and branch names in the title bar for Windows remote projects opened in a repository subfolder. (#66142; thanks lingyaochu)\n- Fixed missing thinking output from OpenAI-compatible Responses endpoints that emitted reasoning-text events. (#65938)\n- Fixed on-type formatting after pressing enter being applied before the new line's indentation, which left the cursor after text inserted by language servers such as Ruby LSP. (#65769; thanks JacobNWolf)\n- Fixed remote projects (SSH, WSL) becoming unresponsive when loading an agent thread that referred to many files outside the project. (#65189; thanks coinman-dev)\n- Fixed renaming files, creating files, and renaming terminal tabs being cancelled when focus_follows_mouse was enabled and the mouse moved. (#66167)\n- Fixed retryable provider failures in OpenAI-compatible chat streams not being recognized as retryable. (#66038)\n- Fixed right-click menus and popup pickers closing when the mouse moved to another pane with focus_follows_mouse enabled. (#66173)\n- Fixed sandboxed agent terminal commands incorrectly reporting failure under dash on Linux. (#64439; thanks NHendrickson9616)\n- Fixed SSH connections failing when usernames containing / or \\ were percent-encoded. (#64744; thanks ryanabx)\n- Fixed status bar panel buttons doing nothing when another panel in the same dock was zoomed. (#66119; thanks ybelmach)\n- Fixed streaming connection failures being classified as non-retryable errors for Google AI and OpenAI Responses model requests. (#65940)\n- Fixed the automatically installed Delve debugger for Go not updating after its initial installation. (#66025)\n- Fixed changes to focus_follows_mouse not applying to docks until Zed was restarted. (#66161)\n- Fixed deleted files remaining in the File Finder's history. (#65660)\n- Fixed duplicating files or folders in the Project Panel overwriting clipboard contents. (#60894; thanks shindgew)\n- Fixed external stash renames not being reflected in the stash picker. (#55294)\n- Fixed failed model-list fetches, such as those caused by invalid or expired API keys, being silently dropped instead of logged for Anthropic, Ollama, LM Studio, llama.cpp, OpenRouter, and Vercel AI Gateway. (#64171; thanks somtri)\n- Fixed language servers' dynamically registered capabilities applying to files outside their document selector's pattern. (#65252; thanks aviatesk)\n- Fixed long recent project names and the Open Project shortcut overflowing on the Welcome screen and in narrow panels. (#65531; thanks junkmailkeep)\n- Fixed pasting in Helix select mode with shift-r, space p, or cmd-v not returning to normal mode. (#65492; thanks raum-dellamorte)\n- Fixed project entries reappearing in Recent Projects after removal. (#66127; thanks EcutAtom336)\n- Fixed project names in the title bar for repo.git bare clones on remote Windows hosts. (#66199; thanks lingyaochu)\n- Fixed reordering a Markdown editor tab switching back to Markdown preview when \"Open Markdown Files in Preview\" was enabled. (#65795; thanks mateioprea)\n- Fixed running Go tests on Windows failing with an invalid-directory error. (#65722; thanks giocld)\n- Fixed scrollbar settings not applying to already open terminals, panels, and menus until they were reopened. (#66017)\n- Fixed unnecessary-code dimming sometimes disappearing when code_lens and semantic_tokens: \"full\" were both enabled. (#56003)\nBreaking Changes and Notices\n- Removed support for macOS Catalina and Big Sur. Zed now requires macOS 12.0 (Monterey) or later. (#65994)\n- Removed agent checkpoints and the \"Restore Checkpoint\" button. Taking a checkpoint before every message made the agent slow to respond, or hang, in large Git repositories. To undo the agent's changes, reject its edits or use Git. (#65989)",
-      "release_notes_url": "https://github.com/zed-industries/zed/releases/tag/v1.27.0",
-      "manifest_version": "1.28.0",
-      "manifest_dir": "manifests/z/ZedIndustries/Zed/1.27.0",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.27.0/Zed-x86_64.exe",
-          "host": "github.com",
-          "filename": "Zed-x86_64.exe",
-          "sha256": "6a39f9a78a6aac805f5aedcf03384b4b49349e9282903f27ebafcb18dde538ca",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.27.0",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.27.0/Zed-aarch64.exe",
-          "host": "github.com",
-          "filename": "Zed-aarch64.exe",
-          "sha256": "2d0a4e690560f67bb86836f599a8bec5eefc7fc6e8741d89c23740344bda761a",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.27.0",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "platform": "windows",
-      "version": "1.26.2",
-      "release_date": "2026-10-28",
-      "release_notes": "This week's release includes Pyrefly as an optional built-in Python language server, the ability to expand and inspect nested variable values directly in debugger hovers, and DWARF debugging for WebAssembly sources in the JavaScript debugger.\nFeatures\nAI\n- Improved ACP configuration defaults to apply only to new conversations, preserving session settings when reopening existing conversations. (#65850)\n- Improved fuzzy searching in agent model and configuration option pickers for Zed Agent and third-party ACP agents, while keeping search preparation off the UI thread. (#64147; thanks JacobNWolf)\n- Improved OpenCode compatibility when replaying DeepSeek reasoning and disabling thinking for Google models. (#65922)\n- Improved thinking controls to explain when thinking cannot be disabled at the selected effort level. (#62480)\nDebugger\n- Added DWARF debugging to the JavaScript debugger to support debugging WebAssembly sources. (#65371; thanks SGumbles)\n- Improved debugger hovers with an expandable, keyboard-accessible variable tree. (#53198; thanks Tortes)\nLanguages\n- Added Pyrefly as an optional built-in Python language server, available when enabled in the Python language_servers setting. (#44262; thanks grievejia)\n- Improved restarting language servers after stopping them with the LSP button. (#65387)\n- Improved SQL syntax highlighting in Rust sql! string literals. (#58778; thanks kuskhan)\nRemote Development\n- Improved SSH reconnections by starting the resync timeout only after the handshake completes. (#65457; thanks Huliiiiii)\nmacOS\n- Added support for the Display P3 color space on macOS with the use_display_p3 setting. (#64394; thanks MDalstrom)\nOther\n- Added an extension option to project_panel.sort_order to group files by extension. (#65776; thanks Carnage725)\n- Improved fuzzy search ranking in the File Finder. (#59224; thanks feitreim)\nBug Fixes\n- Fixed discarding unstaged changes in the Git Panel also discarding staged changes. (#65559; thanks stezu)\n- Fixed hangs when restoring agent threads with subagents. (#65177)\n- Fixed a crash in the Agent Panel when mentioning a file whose name contains a line break, and improved how those mentions display line breaks. (#65693)\n- Fixed a bug where cancelling the save-changes prompt while removing a project from the sidebar still removed it from the recent projects list. (#65683; thanks mateioprea)\n- Fixed agent authentication overwriting drafts. (#65844)\n- Fixed agent configuration defaults being saved before acceptance or ignoring the agent's returned value. (#65849)\n- Fixed duplicated thinking text from OpenAI-compatible providers that send both reasoning and reasoning_content. (#65926)\n- Fixed file links with line numbers failing to open WSL files when using Zed on Windows. (#66089; thanks buvidk1234)\n- Fixed file icons not appearing for stem-based filename variants. (#51891; thanks bryanpth)\n- Fixed Google AI invalid API keys being classified as invalid requests instead of authentication errors. (#65885)\n- Fixed IME composition text not being underlined in single-line inputs and editors with diagnostics turned off. (#65610; thanks Sha1rholder)\n- Fixed issues detecting local and remote environment variables when using PowerShell (pwsh). (#66097)\n- Fixed JSON completion ordering for enum values in settings.json. (#65589; thanks ragen1337)\n- Fixed Markdown preview tabs for files with the same name not showing their directory. (#65736; thanks gitKashish)\n- Fixed Mistral Large 4 responses failing when used through an OpenAI-compatible provider. (#65915)\n- Fixed OpenCode requests failing for Claude models that use adaptive thinking block binding. (#65925)\n- Fixed pasting a screenshot into the Agent Panel or inline assistant inserting the image twice or alongside its temporary file path. (#65626; thanks qystishere)\n- Fixed queued messages in the Agent Panel becoming unreadable when the panel was narrow. (#65638; thanks 0froq)\n- Fixed Rust task and debugger variables for files outside Cargo projects. (#65684; thanks shoyann)\n- Fixed touchscreen scrolling using the previous swipe's axis when a new touch interrupts momentum scrolling. (#64239; thanks huacnlee)\n- Fixed trusting projects on remote Windows machines from Unix systems. (#63102; thanks lingyaochu)",
-      "release_notes_url": "https://github.com/zed-industries/zed/releases/tag/v1.26.2",
-      "manifest_version": "1.12.0",
-      "manifest_dir": "manifests/z/ZedIndustries/Zed/1.26.2",
-      "installers": [
-        {
-          "platform": "windows",
-          "architecture": "x64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.26.2/Zed-x86_64.exe",
-          "host": "github.com",
-          "filename": "Zed-x86_64.exe",
-          "sha256": "22b20ef96ed7ce67cd4e869bc263b9ac345e3cffa86552330843c436da1bb17b",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.26.2",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        },
-        {
-          "platform": "windows",
-          "architecture": "arm64",
-          "type": "inno",
-          "scope": "user",
-          "locale": "en-US",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.26.2/Zed-aarch64.exe",
-          "host": "github.com",
-          "filename": "Zed-aarch64.exe",
-          "sha256": "e9f30fabcb7e0d118bec070640019c1811288440f05422ae39902f12e58845bf",
-          "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1",
-          "install_modes": [
-            "interactive",
-            "silent",
-            "silentWithProgress"
-          ],
-          "upgrade_behavior": "install",
-          "apps_and_features": [
-            {
-              "display_version": "1.26.2",
-              "product_code": "{2DB0DA96-CA55-49BB-AF4F-64AF36A86712}_is1"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "platform": "macos",
-      "version": "1.29.3",
+      "version": "1.30.2",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.29.3/Zed-x86_64.dmg",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.30.2/Zed-x86_64.dmg",
           "host": "github.com",
           "filename": "Zed-x86_64.dmg",
-          "sha256": "b4779577003b79cb05ab6be18205babdebf81b45d96acdf21fce43dd4a6d6083",
+          "sha256": "64cbedeea2feedb4eda9b2139c91ea87016061b57cb14966fbbf00d582e914e0",
           "min_os_version": "12"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://github.com/zed-industries/zed/releases/download/v1.29.3/Zed-aarch64.dmg",
+          "url": "https://github.com/zed-industries/zed/releases/download/v1.30.2/Zed-aarch64.dmg",
           "host": "github.com",
           "filename": "Zed-aarch64.dmg",
-          "sha256": "b692c9effdfcec874c47f56c3b27df069a63c6b3d23ecd070ffec9238a708bb8",
+          "sha256": "36ab60379627730fc3ac6ab79bc57dba7a1cf6d6df8117b8e22190d9b639fff5",
           "min_os_version": "12"
         }
       ],
@@ -511,16 +452,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "d5c6920930cc5831c2bec8782510ca2943d68f04",
-      "retrieved_at": "2026-11-22T14:24:44.599Z",
+      "commit": "0c448069751280f531a4210aa61a4ec6999abbe6",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "manifests/z/ZedIndustries/Zed"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "46014d94e70608af17c2942a3a1737ae2633dd38",
-      "retrieved_at": "2026-11-21T13:24:55.658Z",
+      "commit": "8a7d425839b865f3e966dbfec6e280ff91c960df",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "Casks/z/zed.rb",
       "api_url": "https://formulae.brew.sh/api/cask/zed.json"
     },

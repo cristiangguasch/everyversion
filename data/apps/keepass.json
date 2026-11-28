@@ -27,7 +27,7 @@
     "publisher": "https://keepass.info/",
     "support": "https://keepass.info/help/base/",
     "privacy": "https://keepass.info/help/base/terms.html#privacy",
-    "release_notes": "https://keepass.info/news/n260304_2.61.html#v1",
+    "release_notes": "https://keepass.info/news/n261104_2.62.html",
     "documentation": [
       {
         "label": "FAQ",
@@ -47,13 +47,162 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "2.61.1"
+    "windows": "2.62.0"
   },
-  "last_updated": "2026-05-01",
+  "last_updated": "2026-11-04",
   "versions_total": {
-    "windows": 22
+    "windows": 23
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "2.62.0",
+      "release_date": "2026-11-04",
+      "release_notes": "New features:\n- Added XPath extension function 'kp:matches', which allows to test whether a string matches a regular expression in a search with an XPath expression.\n- Added XPath extension function 'kp:string-compare', which allows to compare two strings lexicographically in a search with an XPath expression (this allows for example to find entries that have expired in a specific time period).\n- Added support for opening URLs with LibreWolf and R3dfox in private mode.\n- The {CLIPBOARD-SET:...} placeholder now starts the automatic clipboard clearing countdown (except when the text is empty).\n- When closing a database, the search term in the 'Find' dialog is now removed (this can be disabled using the UIFlags bit 0x100000).\n- After closing the attachment reimport dialog, the temporary file is now renamed before reading, overwriting and deleting it (this reduces the risk that the external application sees the random overwrite data, if it is still running).\n- Added two help links in the placeholders/commands box of the auto-type association dialog.\n- In the placeholders/commands box of the auto-type association dialog, the key modifiers are now linkified.\n- For each item in a list view showing custom data (of a database, a group or an entry), the estimated size of the value in the process memory is now displayed.\n- In HTML exports/printouts, page breaks in rows are now avoided, if possible.\n- Added path validation for files extracted from a PLGX file.\n- The supported operating system versions are now declared in the application manifest, which enables various Windows improvements.\n- KPScript: added application manifest, which enables various Windows improvements, improves the activation of Windows common control theming, etc.\n- KPScript: on Windows 11 24H2 ARM64 and later, KPScript now runs natively, too (i.e. without x64 emulation).\nImprovements:\n- Improved list view refresh performance.\n- Improved reliability of the automatic clipboard clearing countdown.\n- If the automatic clipboard clearing fails (e.g. when access to the clipboard is blocked while Windows is locked), KeePass now retries clearing it until succeeding.\n- Unified clipboard access timeout.\n- The quick search terms list is now also cleared when closing an inactive database.\n- Improved behavior when closing the attachment reimport dialog immediately after exporting an attachment to a temporary file.\n- Swapped the keyboard shortcuts Ctrl+D and Ctrl+K in the main entry list (such that Ctrl+D now duplicates the selected entries and Ctrl+K compares them).\n- Changed the keyboard shortcut for duplicating an auto-type association in the entry dialog from Ctrl+K to Ctrl+D.\n- Improved enumeration of immersive windows.\n- Improved linkification in the placeholders/commands box of the auto-type association dialog.\n- Improved custom font support in the auto-type association dialog.\n- Unified behavior of the [Close] and [X] buttons of the database maintenance dialog.\n- In the XML Replace dialog, the [OK] button is now disabled when the node selection XPath expression or the search text (if necessary) is empty.\n- Enhanced Microsoft Edge uninstallation detection.\n- Improved normalization of new-line sequences.\n- Improved activation of Windows common control theming.\n- The DPI awareness is now declared in the application manifest.\n- Improved ARM64 compatibility declaration.\n- Improved Windows version detection.\n- When running on .NET < 4.7, the SSL 3 support is now disabled (when running on .NET 4.7 or higher, KeePass lets the operating system choose the supported/enabled protocols, and SSL 3 is disabled on most modern operating systems by default).\n- Some PLGX error messages are now more detailed.\n- Upgraded installer.\n- Various UI text improvements.\n- Various code optimizations.\n- Minor other improvements.\nBugfixes:\n- XML Replace does not create unnecessary history entries anymore.",
+      "release_notes_url": "https://keepass.info/news/n261104_2.62.html",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/d/DominikReichl/KeePass/2.62.0",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.62/KeePass-2.62-Setup.exe/download",
+          "host": "sourceforge.net",
+          "filename": "download",
+          "sha256": "84cd9829fc4dbb04320db69d7bc78dbe29a70142c16b474d4acd7463dc45409e",
+          "product_code": "KeePassPasswordSafe2_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x86",
+          "type": "msi",
+          "scope": "machine",
+          "url": "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.62/KeePass-2.62.msi/download",
+          "host": "sourceforge.net",
+          "filename": "download",
+          "sha256": "9130dc16dfdabebbc1e8b584e4ed8b00c70040929327fbf9b648b3b9e12c27f1",
+          "product_code": "{05E24AE4-E917-4FAB-B378-06303B99A61B}",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{F2F19898-4F86-4940-9BFA-426574CE03E1}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.62/KeePass-2.62-Setup.exe/download",
+          "host": "sourceforge.net",
+          "filename": "download",
+          "sha256": "84cd9829fc4dbb04320db69d7bc78dbe29a70142c16b474d4acd7463dc45409e",
+          "product_code": "KeePassPasswordSafe2_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "msi",
+          "scope": "machine",
+          "url": "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.62/KeePass-2.62.msi/download",
+          "host": "sourceforge.net",
+          "filename": "download",
+          "sha256": "9130dc16dfdabebbc1e8b584e4ed8b00c70040929327fbf9b648b3b9e12c27f1",
+          "product_code": "{05E24AE4-E917-4FAB-B378-06303B99A61B}",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{F2F19898-4F86-4940-9BFA-426574CE03E1}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "inno",
+          "scope": "machine",
+          "url": "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.62/KeePass-2.62-Setup.exe/download",
+          "host": "sourceforge.net",
+          "filename": "download",
+          "sha256": "84cd9829fc4dbb04320db69d7bc78dbe29a70142c16b474d4acd7463dc45409e",
+          "product_code": "KeePassPasswordSafe2_is1",
+          "switches": {
+            "custom": "/ALLUSERS"
+          },
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "arm64",
+          "type": "msi",
+          "scope": "machine",
+          "url": "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.62/KeePass-2.62.msi/download",
+          "host": "sourceforge.net",
+          "filename": "download",
+          "sha256": "9130dc16dfdabebbc1e8b584e4ed8b00c70040929327fbf9b648b3b9e12c27f1",
+          "product_code": "{05E24AE4-E917-4FAB-B378-06303B99A61B}",
+          "upgrade_behavior": "install",
+          "file_extensions": [
+            "kdb",
+            "kdbx",
+            "kpdx",
+            "lngx",
+            "plgx"
+          ],
+          "apps_and_features": [
+            {
+              "upgrade_code": "{F2F19898-4F86-4940-9BFA-426574CE03E1}"
+            }
+          ]
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "2.61.1",
@@ -1817,8 +1966,8 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "b14495759653b64cffc1d2ae0661d9bdecc38ca8",
-      "retrieved_at": "2026-11-16T23:03:18.533Z",
+      "commit": "0c448069751280f531a4210aa61a4ec6999abbe6",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "manifests/d/DominikReichl/KeePass"
     }
   ]

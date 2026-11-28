@@ -34,7 +34,7 @@
     "support": "https://github.com/zulip/zulip-desktop/issues",
     "bug_tracker": "https://github.com/zulip/zulip-desktop/issues",
     "privacy": "https://zulip.com/policies/privacy",
-    "release_notes": "https://github.com/zulip/zulip-desktop/releases/tag/v5.14.2",
+    "release_notes": "https://github.com/zulip/zulip-desktop/releases/tag/v5.14.3",
     "documentation": [
       {
         "label": "Wiki",
@@ -54,17 +54,79 @@
     "source": "derived-from-license"
   },
   "latest_versions": {
-    "windows": "5.14.2",
-    "macos": "5.14.2",
+    "windows": "5.14.3",
+    "macos": "5.14.3",
     "linux": "5.14.3"
   },
-  "last_updated": "2026-10-31",
+  "last_updated": "2026-11-25",
   "versions_total": {
-    "windows": 25,
+    "windows": 26,
     "macos": 1,
     "linux": 1
   },
   "versions": [
+    {
+      "platform": "windows",
+      "version": "5.14.3",
+      "release_date": "2026-11-25",
+      "release_notes": "Enhancements:\n- Updated translations, including a new translation for Croatian.\nDependencies:\n- Upgraded all dependencies, including Electron 45.4.1.\nFixes:\n- Install the AppArmor profile correctly in the Debian package.",
+      "release_notes_url": "https://github.com/zulip/zulip-desktop/releases/tag/v5.14.3",
+      "manifest_version": "1.28.0",
+      "manifest_dir": "manifests/z/Zulip/Zulip/5.14.3",
+      "installers": [
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "wix",
+          "url": "https://github.com/zulip/zulip-desktop/releases/download/v5.14.3/Zulip-5.14.3-x64.msi",
+          "host": "github.com",
+          "filename": "Zulip-5.14.3-x64.msi",
+          "sha256": "975955cbee2af945e8c4875c99dadddcf9ecc3d7a0a6a3d9ccdfe8c423cffbdc",
+          "product_code": "{721EDB56-F2C5-4AC3-A90A-C43584C13C6A}",
+          "switches": {
+            "install_location": "APPLICATIONFOLDER=\"<INSTALLPATH>\""
+          },
+          "upgrade_behavior": "install",
+          "apps_and_features": [
+            {
+              "upgrade_code": "{E19E3054-C647-509A-A863-1C21A98215A7}"
+            }
+          ]
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "user",
+          "url": "https://github.com/zulip/zulip-desktop/releases/download/v5.14.3/Zulip-Web-Setup-5.14.3.exe",
+          "host": "github.com",
+          "filename": "Zulip-Web-Setup-5.14.3.exe",
+          "sha256": "2e6aa87ae1a587e35c700dfbb6b0ad21bb0891ecf64e2635c2ba0878caf5ea72",
+          "product_code": "18ddfc16-e384-5f72-a0ed-ffefbe17581a",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/currentuser"
+          },
+          "upgrade_behavior": "install"
+        },
+        {
+          "platform": "windows",
+          "architecture": "x64",
+          "type": "nullsoft",
+          "scope": "machine",
+          "url": "https://github.com/zulip/zulip-desktop/releases/download/v5.14.3/Zulip-Web-Setup-5.14.3.exe",
+          "host": "github.com",
+          "filename": "Zulip-Web-Setup-5.14.3.exe",
+          "sha256": "2e6aa87ae1a587e35c700dfbb6b0ad21bb0891ecf64e2635c2ba0878caf5ea72",
+          "product_code": "18ddfc16-e384-5f72-a0ed-ffefbe17581a",
+          "switches": {
+            "upgrade": "--updated",
+            "custom": "/allusers"
+          },
+          "upgrade_behavior": "install"
+        }
+      ]
+    },
     {
       "platform": "windows",
       "version": "5.14.2",
@@ -1571,26 +1633,26 @@
     },
     {
       "platform": "macos",
-      "version": "5.14.2",
+      "version": "5.14.3",
       "installers": [
         {
           "platform": "macos",
           "architecture": "x64",
           "type": "dmg",
-          "url": "https://github.com/zulip/zulip-desktop/releases/download/v5.14.2/Zulip-5.14.2-x64.dmg",
+          "url": "https://github.com/zulip/zulip-desktop/releases/download/v5.14.3/Zulip-5.14.3-x64.dmg",
           "host": "github.com",
-          "filename": "Zulip-5.14.2-x64.dmg",
-          "sha256": "08bd851d7974f6c45965eed0204e16cf362d6ec5622bf96fd6fe1bcdf3e80884",
+          "filename": "Zulip-5.14.3-x64.dmg",
+          "sha256": "84a05ad0efeb764ca663d4759c413d1da0395ef3a11fd590c30405e0e71ad998",
           "min_os_version": "13"
         },
         {
           "platform": "macos",
           "architecture": "arm64",
           "type": "dmg",
-          "url": "https://github.com/zulip/zulip-desktop/releases/download/v5.14.2/Zulip-5.14.2-arm64.dmg",
+          "url": "https://github.com/zulip/zulip-desktop/releases/download/v5.14.3/Zulip-5.14.3-arm64.dmg",
           "host": "github.com",
-          "filename": "Zulip-5.14.2-arm64.dmg",
-          "sha256": "e54a5e6bcd0150914cf2a2942ccf8ac8df58aa1102039dc66d47af79c6d28776",
+          "filename": "Zulip-5.14.3-arm64.dmg",
+          "sha256": "ef1cd8427f54553f828ece1db8eca2acd4f28dc41a298e5aaf33a29db49343f4",
           "min_os_version": "13"
         }
       ],
@@ -1652,16 +1714,16 @@
       "source": "winget-pkgs",
       "platform": "windows",
       "repo": "https://github.com/microsoft/winget-pkgs",
-      "commit": "0356288295f94d0c65ec0ecf8696c6d5c10b3dd4",
-      "retrieved_at": "2026-11-04T20:55:11.768Z",
+      "commit": "0c448069751280f531a4210aa61a4ec6999abbe6",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "manifests/z/Zulip/Zulip"
     },
     {
       "source": "homebrew-cask",
       "platform": "macos",
       "repo": "https://github.com/Homebrew/homebrew-cask",
-      "commit": "22c8896870af32f439206f991b2b6b9b281dafa6",
-      "retrieved_at": "2026-11-04T20:55:11.768Z",
+      "commit": "8a7d425839b865f3e966dbfec6e280ff91c960df",
+      "retrieved_at": "2026-11-27T23:43:59.111Z",
       "path": "Casks/z/zulip.rb",
       "api_url": "https://formulae.brew.sh/api/cask/zulip.json"
     },
